@@ -1,0 +1,71 @@
+contract HotelBooking {
+	uint counter;
+	mapping (string=>uint) position;
+	
+	enum State {DISABLED, ENABLED, DONE} State s;
+	mapping(string => string) operator;
+	struct Element {
+		string ID;
+		State status;
+	}
+	
+	struct StateMemory {
+		uint quotation;
+		bool confirmation;
+		string date;
+		uint bedrooms;
+		bool confirm;
+		string motivation;
+		string booking_id;
+		bool cancel;
+		string ID;
+	}
+	Element[] elements;
+	StateMemory currentMemory;
+	
+	mapping(string=>address) roles;
+	mapping(string=>address) optionalRoles;
+	
+	constructor() public {
+		
+		for (uint i = 0; i < elementsID.length; i ++) {
+			elements.push(Element(elementsID[i], State.DISABLED));
+			position[elementsID[i]]=i;
+		}
+		
+		roles["Client"] = 0x8460b386B04018f31E04D1bF181be1f26f74bb32;
+		roles["Hotel"] = 0x8460b386B04018f31E04D1bF181be1f26f74bb32;
+		
+		init();
+	}
+	
+	modifier checkMand(string storage role) {
+		require(msg.sender == roles[role]);
+		_;
+	}
+	modifier checkOpt(string storage role) {
+		require(msg.sender == optionalRoles[role]);
+		_;
+	}
+	
+	function init() internal {
+		bool result=true;
+		
+		for(uint i=0; i<roleList.length;i++) {
+			if(roles[roleList[i]]==0x0000000000000000000000000000000000000000) {
+				result=false;
+				break;
+			}
+		}
+		if(result) {
+			enable("StartEvent_1jtgn3j");
+			StartEvent_1jtgn3j();
+		}
+	}
+	
+	function subscribe_as_participant(string memory _role) public {
+		if(optionalRoles[_role]==0x0000000000000000000000000000000000000000) {
+			optionalRoles[_role]=msg.sender;
+		}
+	}
+}

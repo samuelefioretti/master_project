@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.unicam.tryIde
+Bundle-ManifestVersion: 2
+Bundle-Name: org.unicam.tryIde
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.unicam.tryIde; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.unicam.tryIde.tryIde.impl,
+ org.unicam.tryIde,
+ org.unicam.tryIde.services,
+ org.unicam.tryIde.serializer,
+ org.unicam.tryIde.parser.antlr,
+ org.unicam.tryIde.parser.antlr.internal,
+ org.unicam.tryIde.validation,
+ org.unicam.tryIde.scoping,
+ org.unicam.tryIde.tryIde,
+ org.unicam.tryIde.generator,
+ org.unicam.tryIde.tryIde.util,
+ org.unicam.tryIde.solidity.impl,
+ org.unicam.tryIde.solidity.util,
+ org.unicam.tryIde.solidity
+Import-Package: org.apache.log4j
