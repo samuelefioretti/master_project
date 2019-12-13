@@ -6165,6 +6165,24 @@ ruleNumber returns [EObject current=null]
 			$current = $this_Time_3.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getNumberAccess().getHexLiteralParserRuleCall_4());
+		}
+		this_HexLiteral_4=ruleHexLiteral
+		{
+			$current = $this_HexLiteral_4.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getNumberAccess().getDecimalLiteralParserRuleCall_5());
+		}
+		this_DecimalLiteral_5=ruleDecimalLiteral
+		{
+			$current = $this_DecimalLiteral_5.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -6345,6 +6363,76 @@ ruleStringLiteral returns [EObject current=null]
 					"value",
 					lv_value_0_0,
 					"org.unicam.tryGrammar.TryGrammar.STRING");
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleHexLiteral
+entryRuleHexLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getHexLiteralRule()); }
+	iv_ruleHexLiteral=ruleHexLiteral
+	{ $current=$iv_ruleHexLiteral.current; }
+	EOF;
+
+// Rule HexLiteral
+ruleHexLiteral returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_value_0_0=RULE_HEX
+			{
+				newLeafNode(lv_value_0_0, grammarAccess.getHexLiteralAccess().getValueHEXTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getHexLiteralRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"value",
+					lv_value_0_0,
+					"org.unicam.tryGrammar.TryGrammar.HEX");
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleDecimalLiteral
+entryRuleDecimalLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDecimalLiteralRule()); }
+	iv_ruleDecimalLiteral=ruleDecimalLiteral
+	{ $current=$iv_ruleDecimalLiteral.current; }
+	EOF;
+
+// Rule DecimalLiteral
+ruleDecimalLiteral returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_value_0_0=RULE_DECIMAL
+			{
+				newLeafNode(lv_value_0_0, grammarAccess.getDecimalLiteralAccess().getValueDECIMALTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getDecimalLiteralRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"value",
+					lv_value_0_0,
+					"org.unicam.tryGrammar.TryGrammar.DECIMAL");
 			}
 		)
 	)
@@ -7391,6 +7479,14 @@ ruleLocationSpecifierEnum returns [Enumerator current=null]
 				newLeafNode(enumLiteral_1, grammarAccess.getLocationSpecifierEnumAccess().getSTORAGEEnumLiteralDeclaration_1());
 			}
 		)
+		    |
+		(
+			enumLiteral_2='calldata'
+			{
+				$current = grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2());
+			}
+		)
 	)
 ;
 
@@ -7942,6 +8038,10 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
+
+RULE_HEX : '0x' ('0'..'9'|'A'..'F'|'a'..'f')+;
+
+RULE_DECIMAL : RULE_INT '.' RULE_INT;
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

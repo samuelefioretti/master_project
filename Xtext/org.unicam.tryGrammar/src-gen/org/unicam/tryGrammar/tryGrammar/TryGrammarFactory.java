@@ -690,6 +690,24 @@ public interface TryGrammarFactory extends EFactory
   StringLiteral createStringLiteral();
 
   /**
+   * Returns a new object of class '<em>Hex Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hex Literal</em>'.
+   * @generated
+   */
+  HexLiteral createHexLiteral();
+
+  /**
+   * Returns a new object of class '<em>Decimal Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Decimal Literal</em>'.
+   * @generated
+   */
+  DecimalLiteral createDecimalLiteral();
+
+  /**
    * Returns a new object of class '<em>Type Cast</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

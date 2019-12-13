@@ -35,6 +35,7 @@ import org.unicam.tryGrammar.tryGrammar.Continue;
 import org.unicam.tryGrammar.tryGrammar.ContinueStatement;
 import org.unicam.tryGrammar.tryGrammar.Contract;
 import org.unicam.tryGrammar.tryGrammar.ContractOrLibrary;
+import org.unicam.tryGrammar.tryGrammar.DecimalLiteral;
 import org.unicam.tryGrammar.tryGrammar.DefinitionBody;
 import org.unicam.tryGrammar.tryGrammar.DeleteStatement;
 import org.unicam.tryGrammar.tryGrammar.ElementaryType;
@@ -56,6 +57,7 @@ import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
 import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.IncDecOpEnum;
@@ -249,6 +251,8 @@ public class TryGrammarFactoryImpl extends EFactoryImpl implements TryGrammarFac
       case TryGrammarPackage.ETHER: return createEther();
       case TryGrammarPackage.TIME: return createTime();
       case TryGrammarPackage.STRING_LITERAL: return createStringLiteral();
+      case TryGrammarPackage.HEX_LITERAL: return createHexLiteral();
+      case TryGrammarPackage.DECIMAL_LITERAL: return createDecimalLiteral();
       case TryGrammarPackage.TYPE_CAST: return createTypeCast();
       case TryGrammarPackage.NOW: return createNow();
       case TryGrammarPackage.SPECIAL_VARIABLES: return createSpecialVariables();
@@ -1253,6 +1257,30 @@ public class TryGrammarFactoryImpl extends EFactoryImpl implements TryGrammarFac
   {
     StringLiteralImpl stringLiteral = new StringLiteralImpl();
     return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HexLiteral createHexLiteral()
+  {
+    HexLiteralImpl hexLiteral = new HexLiteralImpl();
+    return hexLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DecimalLiteral createDecimalLiteral()
+  {
+    DecimalLiteralImpl decimalLiteral = new DecimalLiteralImpl();
+    return decimalLiteral;
   }
 
   /**

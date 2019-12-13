@@ -29,6 +29,7 @@ import org.unicam.tryGrammar.tryGrammar.Continue;
 import org.unicam.tryGrammar.tryGrammar.ContinueStatement;
 import org.unicam.tryGrammar.tryGrammar.Contract;
 import org.unicam.tryGrammar.tryGrammar.ContractOrLibrary;
+import org.unicam.tryGrammar.tryGrammar.DecimalLiteral;
 import org.unicam.tryGrammar.tryGrammar.DefinitionBody;
 import org.unicam.tryGrammar.tryGrammar.DeleteStatement;
 import org.unicam.tryGrammar.tryGrammar.ElementaryType;
@@ -47,6 +48,7 @@ import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
 import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.Index;
@@ -536,6 +538,16 @@ public class TryGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStringLiteral(StringLiteral object)
       {
         return createStringLiteralAdapter();
+      }
+      @Override
+      public Adapter caseHexLiteral(HexLiteral object)
+      {
+        return createHexLiteralAdapter();
+      }
+      @Override
+      public Adapter caseDecimalLiteral(DecimalLiteral object)
+      {
+        return createDecimalLiteralAdapter();
       }
       @Override
       public Adapter caseTypeCast(TypeCast object)
@@ -1760,6 +1772,36 @@ public class TryGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStringLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.tryGrammar.HexLiteral <em>Hex Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.tryGrammar.HexLiteral
+   * @generated
+   */
+  public Adapter createHexLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.tryGrammar.DecimalLiteral <em>Decimal Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.tryGrammar.DecimalLiteral
+   * @generated
+   */
+  public Adapter createDecimalLiteralAdapter()
   {
     return null;
   }

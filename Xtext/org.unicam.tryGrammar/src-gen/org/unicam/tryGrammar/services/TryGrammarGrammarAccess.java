@@ -3580,12 +3580,14 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEtherParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cNowParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cTimeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cHexLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDecimalLiteralParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Number:
-		//	NumberDimensionless | Ether | Now | Time;
+		//	NumberDimensionless | Ether | Now | Time | HexLiteral | DecimalLiteral;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//NumberDimensionless | Ether | Now | Time
+		//NumberDimensionless | Ether | Now | Time | HexLiteral | DecimalLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//NumberDimensionless
@@ -3599,6 +3601,12 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Time
 		public RuleCall getTimeParserRuleCall_3() { return cTimeParserRuleCall_3; }
+		
+		//HexLiteral
+		public RuleCall getHexLiteralParserRuleCall_4() { return cHexLiteralParserRuleCall_4; }
+		
+		//DecimalLiteral
+		public RuleCall getDecimalLiteralParserRuleCall_5() { return cDecimalLiteralParserRuleCall_5; }
 	}
 	public class NumberDimensionlessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.NumberDimensionless");
@@ -3683,6 +3691,36 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
+	}
+	public class HexLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.HexLiteral");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueHEXTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//HexLiteral:
+		//	value=HEX;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=HEX
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//HEX
+		public RuleCall getValueHEXTerminalRuleCall_0() { return cValueHEXTerminalRuleCall_0; }
+	}
+	public class DecimalLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.DecimalLiteral");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueDECIMALTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//DecimalLiteral:
+		//	value=DECIMAL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=DECIMAL
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//DECIMAL
+		public RuleCall getValueDECIMALTerminalRuleCall_0() { return cValueDECIMALTerminalRuleCall_0; }
 	}
 	public class TypeCastElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.TypeCast");
@@ -4003,7 +4041,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//	UINT104="uint104" | UINT112="uint112" | UINT120="uint120" | UINT128="uint128" | UINT136="uint136" | UINT144="uint144"
 		//	| UINT152="uint152" | UINT160="uint160" | UINT168="uint168" | UINT178="uint178" | UINT184="uint184" |
 		//	UINT192="uint192" | UINT200="uint200" | UINT208="uint208" | UINT216="uint216" | UINT244="uint224" | UINT232="uint232"
-		//	| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYT
+		//	| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYTE
 		//	BYTE="byte" | BYTES="bytes" | BYTES1="bytes1" | BYTES2="bytes2" | BYTES3="bytes3" | BYTES4="bytes4" | BYTES5="bytes5" |
 		//	BYTES6="bytes6" | BYTES7="bytes7" | BYTES8="bytes8" | BYTES9="bytes9" | BYTES10="bytes10" | BYTES11="bytes11" |
 		//	BYTES12="bytes12" | BYTES13="bytes13" | BYTES14="bytes14" | BYTES15="bytes15" | BYTES16="bytes16" | BYTES17="bytes17"
@@ -4024,7 +4062,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//UINT104="uint104" | UINT112="uint112" | UINT120="uint120" | UINT128="uint128" | UINT136="uint136" | UINT144="uint144"
 		//| UINT152="uint152" | UINT160="uint160" | UINT168="uint168" | UINT178="uint178" | UINT184="uint184" |
 		//UINT192="uint192" | UINT200="uint200" | UINT208="uint208" | UINT216="uint216" | UINT244="uint224" | UINT232="uint232"
-		//| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYT
+		//| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYTE
 		//BYTE="byte" | BYTES="bytes" | BYTES1="bytes1" | BYTES2="bytes2" | BYTES3="bytes3" | BYTES4="bytes4" | BYTES5="bytes5" |
 		//BYTES6="bytes6" | BYTES7="bytes7" | BYTES8="bytes8" | BYTES9="bytes9" | BYTES10="bytes10" | BYTES11="bytes11" |
 		//BYTES12="bytes12" | BYTES13="bytes13" | BYTES14="bytes14" | BYTES15="bytes15" | BYTES16="bytes16" | BYTES17="bytes17"
@@ -4426,7 +4464,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"uint256"
 		public Keyword getUINT256Uint256Keyword_64_0() { return cUINT256Uint256Keyword_64_0; }
 		
-		//// BYT
+		//// BYTE
 		//BYTE="byte"
 		public EnumLiteralDeclaration getBYTEEnumLiteralDeclaration_65() { return cBYTEEnumLiteralDeclaration_65; }
 		
@@ -4669,13 +4707,16 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMEMORYMemoryKeyword_0_0 = (Keyword)cMEMORYEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cSTORAGEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cSTORAGEStorageKeyword_1_0 = (Keyword)cSTORAGEEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cCALLDATAEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cCALLDATACalldataKeyword_2_0 = (Keyword)cCALLDATAEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum LocationSpecifierEnum:
 		//	MEMORY="memory" |
-		//	STORAGE="storage";
+		//	STORAGE="storage" |
+		//	CALLDATA="calldata";
 		public EnumRule getRule() { return rule; }
 		
-		//MEMORY="memory" | STORAGE="storage"
+		//MEMORY="memory" | STORAGE="storage" | CALLDATA="calldata"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//MEMORY="memory"
@@ -4689,6 +4730,12 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"storage"
 		public Keyword getSTORAGEStorageKeyword_1_0() { return cSTORAGEStorageKeyword_1_0; }
+		
+		//CALLDATA="calldata"
+		public EnumLiteralDeclaration getCALLDATAEnumLiteralDeclaration_2() { return cCALLDATAEnumLiteralDeclaration_2; }
+		
+		//"calldata"
+		public Keyword getCALLDATACalldataKeyword_2_0() { return cCALLDATACalldataKeyword_2_0; }
 	}
 	public class VisibilityEnumElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.VisibilityEnum");
@@ -5503,12 +5550,16 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final EtherElements pEther;
 	private final TimeElements pTime;
 	private final StringLiteralElements pStringLiteral;
+	private final HexLiteralElements pHexLiteral;
+	private final DecimalLiteralElements pDecimalLiteral;
 	private final TypeCastElements pTypeCast;
 	private final NowElements pNow;
 	private final SpecialVariablesElements pSpecialVariables;
 	private final TerminalRule tID;
 	private final TerminalRule tINT;
 	private final TerminalRule tSTRING;
+	private final TerminalRule tHEX;
+	private final TerminalRule tDECIMAL;
 	private final TerminalRule tML_COMMENT;
 	private final TerminalRule tSL_COMMENT;
 	private final TerminalRule tWS;
@@ -5628,12 +5679,16 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEther = new EtherElements();
 		this.pTime = new TimeElements();
 		this.pStringLiteral = new StringLiteralElements();
+		this.pHexLiteral = new HexLiteralElements();
+		this.pDecimalLiteral = new DecimalLiteralElements();
 		this.pTypeCast = new TypeCastElements();
 		this.pNow = new NowElements();
 		this.pSpecialVariables = new SpecialVariablesElements();
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.ID");
 		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.INT");
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.STRING");
+		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.HEX");
+		this.tDECIMAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.DECIMAL");
 		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.ML_COMMENT");
 		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.SL_COMMENT");
 		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.WS");
@@ -6628,7 +6683,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Number:
-	//	NumberDimensionless | Ether | Now | Time;
+	//	NumberDimensionless | Ether | Now | Time | HexLiteral | DecimalLiteral;
 	public NumberElements getNumberAccess() {
 		return pNumber;
 	}
@@ -6675,6 +6730,26 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getStringLiteralRule() {
 		return getStringLiteralAccess().getRule();
+	}
+	
+	//HexLiteral:
+	//	value=HEX;
+	public HexLiteralElements getHexLiteralAccess() {
+		return pHexLiteral;
+	}
+	
+	public ParserRule getHexLiteralRule() {
+		return getHexLiteralAccess().getRule();
+	}
+	
+	//DecimalLiteral:
+	//	value=DECIMAL;
+	public DecimalLiteralElements getDecimalLiteralAccess() {
+		return pDecimalLiteral;
+	}
+	
+	public ParserRule getDecimalLiteralRule() {
+		return getDecimalLiteralAccess().getRule();
 	}
 	
 	//TypeCast:
@@ -6728,6 +6803,18 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return tSTRING;
 	}
 	
+	//terminal HEX:
+	//	'0x' ('0'..'9' | 'A'..'F' | 'a'..'f')+;
+	public TerminalRule getHEXRule() {
+		return tHEX;
+	}
+	
+	//terminal DECIMAL returns ecore::EDouble:
+	//	INT ('.' INT);
+	public TerminalRule getDECIMALRule() {
+		return tDECIMAL;
+	}
+	
 	//terminal ML_COMMENT:
 	//	'/*'->'*/';
 	public TerminalRule getML_COMMENTRule() {
@@ -6763,7 +6850,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	UINT104="uint104" | UINT112="uint112" | UINT120="uint120" | UINT128="uint128" | UINT136="uint136" | UINT144="uint144"
 	//	| UINT152="uint152" | UINT160="uint160" | UINT168="uint168" | UINT178="uint178" | UINT184="uint184" |
 	//	UINT192="uint192" | UINT200="uint200" | UINT208="uint208" | UINT216="uint216" | UINT244="uint224" | UINT232="uint232"
-	//	| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYT
+	//	| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYTE
 	//	BYTE="byte" | BYTES="bytes" | BYTES1="bytes1" | BYTES2="bytes2" | BYTES3="bytes3" | BYTES4="bytes4" | BYTES5="bytes5" |
 	//	BYTES6="bytes6" | BYTES7="bytes7" | BYTES8="bytes8" | BYTES9="bytes9" | BYTES10="bytes10" | BYTES11="bytes11" |
 	//	BYTES12="bytes12" | BYTES13="bytes13" | BYTES14="bytes14" | BYTES15="bytes15" | BYTES16="bytes16" | BYTES17="bytes17"
@@ -6781,7 +6868,8 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//enum LocationSpecifierEnum:
 	//	MEMORY="memory" |
-	//	STORAGE="storage";
+	//	STORAGE="storage" |
+	//	CALLDATA="calldata";
 	public LocationSpecifierEnumElements getLocationSpecifierEnumAccess() {
 		return eLocationSpecifierEnum;
 	}

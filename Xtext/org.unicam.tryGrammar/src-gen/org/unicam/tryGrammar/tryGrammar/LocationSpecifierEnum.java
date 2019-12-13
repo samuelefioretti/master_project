@@ -38,7 +38,17 @@ public enum LocationSpecifierEnum implements Enumerator
    * @generated
    * @ordered
    */
-  STORAGE(1, "STORAGE", "storage");
+  STORAGE(1, "STORAGE", "storage"),
+
+  /**
+   * The '<em><b>CALLDATA</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #CALLDATA_VALUE
+   * @generated
+   * @ordered
+   */
+  CALLDATA(2, "CALLDATA", "calldata");
 
   /**
    * The '<em><b>MEMORY</b></em>' literal value.
@@ -63,6 +73,17 @@ public enum LocationSpecifierEnum implements Enumerator
   public static final int STORAGE_VALUE = 1;
 
   /**
+   * The '<em><b>CALLDATA</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #CALLDATA
+   * @model literal="calldata"
+   * @generated
+   * @ordered
+   */
+  public static final int CALLDATA_VALUE = 2;
+
+  /**
    * An array of all the '<em><b>Location Specifier Enum</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -73,6 +94,7 @@ public enum LocationSpecifierEnum implements Enumerator
     {
       MEMORY,
       STORAGE,
+      CALLDATA,
     };
 
   /**
@@ -139,6 +161,7 @@ public enum LocationSpecifierEnum implements Enumerator
     {
       case MEMORY_VALUE: return MEMORY;
       case STORAGE_VALUE: return STORAGE;
+      case CALLDATA_VALUE: return CALLDATA;
     }
     return null;
   }

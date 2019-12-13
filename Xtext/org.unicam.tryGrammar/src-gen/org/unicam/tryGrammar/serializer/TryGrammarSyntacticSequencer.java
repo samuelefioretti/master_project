@@ -121,7 +121,9 @@ public class TryGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '++' (ambiguity) type=SpecialExpressionTypeEnum
 	 *     (rule start) '++' (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) '++' (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) '++' (ambiguity) value=DECIMAL
 	 *     (rule start) '++' (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) '++' (ambiguity) value=HEX
 	 *     (rule start) '++' (ambiguity) value=INT
 	 *     (rule start) '++' (ambiguity) value=STRING
 	 *     (rule start) '++' (ambiguity) {PostIncDecExpression.expression=}
@@ -132,7 +134,9 @@ public class TryGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '--' (ambiguity) type=SpecialExpressionTypeEnum
 	 *     (rule start) '--' (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) '--' (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) '--' (ambiguity) value=DECIMAL
 	 *     (rule start) '--' (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) '--' (ambiguity) value=HEX
 	 *     (rule start) '--' (ambiguity) value=INT
 	 *     (rule start) '--' (ambiguity) value=STRING
 	 *     (rule start) '--' (ambiguity) {PostIncDecExpression.expression=}
@@ -148,7 +152,9 @@ public class TryGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) type=SpecialExpressionTypeEnum
 	 *     (rule start) (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) (ambiguity) value=HEX
 	 *     (rule start) (ambiguity) value=INT
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) {AddSub.left=}
@@ -229,7 +235,9 @@ public class TryGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) type=SpecialExpressionTypeEnum
 	 *     (rule start) (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) (ambiguity) value=DECIMAL
 	 *     (rule start) (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) (ambiguity) value=HEX
 	 *     (rule start) (ambiguity) value=INT
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) {AddSub.left=}

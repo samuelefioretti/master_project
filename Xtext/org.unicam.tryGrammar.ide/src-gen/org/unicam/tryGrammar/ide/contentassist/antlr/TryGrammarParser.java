@@ -370,6 +370,8 @@ public class TryGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTimeAccess().getValueAssignment_0(), "rule__Time__ValueAssignment_0");
 			builder.put(grammarAccess.getTimeAccess().getTimeAssignment_1(), "rule__Time__TimeAssignment_1");
 			builder.put(grammarAccess.getStringLiteralAccess().getValueAssignment(), "rule__StringLiteral__ValueAssignment");
+			builder.put(grammarAccess.getHexLiteralAccess().getValueAssignment(), "rule__HexLiteral__ValueAssignment");
+			builder.put(grammarAccess.getDecimalLiteralAccess().getValueAssignment(), "rule__DecimalLiteral__ValueAssignment");
 			builder.put(grammarAccess.getTypeCastAccess().getValueAssignment_0(), "rule__TypeCast__ValueAssignment_0");
 			builder.put(grammarAccess.getTypeCastAccess().getExpressionAssignment_2(), "rule__TypeCast__ExpressionAssignment_2");
 			builder.put(grammarAccess.getSpecialVariablesAccess().getTypeAssignment_0(), "rule__SpecialVariables__TypeAssignment_0");

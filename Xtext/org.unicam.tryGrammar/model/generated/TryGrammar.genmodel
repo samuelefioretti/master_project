@@ -115,6 +115,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="TryGrammar.ecore#//LocationSpecifierEnum">
       <genEnumLiterals ecoreEnumLiteral="TryGrammar.ecore#//LocationSpecifierEnum/MEMORY"/>
       <genEnumLiterals ecoreEnumLiteral="TryGrammar.ecore#//LocationSpecifierEnum/STORAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="TryGrammar.ecore#//LocationSpecifierEnum/CALLDATA"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="TryGrammar.ecore#//VisibilityEnum">
       <genEnumLiterals ecoreEnumLiteral="TryGrammar.ecore#//VisibilityEnum/PUBLIC"/>
@@ -439,6 +440,12 @@
     </genClasses>
     <genClasses ecoreClass="TryGrammar.ecore#//StringLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TryGrammar.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="TryGrammar.ecore#//HexLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TryGrammar.ecore#//HexLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="TryGrammar.ecore#//DecimalLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TryGrammar.ecore#//DecimalLiteral/value"/>
     </genClasses>
     <genClasses ecoreClass="TryGrammar.ecore#//TypeCast">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TryGrammar.ecore#//TypeCast/value"/>

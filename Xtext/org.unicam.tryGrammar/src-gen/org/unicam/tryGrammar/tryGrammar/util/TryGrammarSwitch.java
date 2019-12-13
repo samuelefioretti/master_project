@@ -27,6 +27,7 @@ import org.unicam.tryGrammar.tryGrammar.Continue;
 import org.unicam.tryGrammar.tryGrammar.ContinueStatement;
 import org.unicam.tryGrammar.tryGrammar.Contract;
 import org.unicam.tryGrammar.tryGrammar.ContractOrLibrary;
+import org.unicam.tryGrammar.tryGrammar.DecimalLiteral;
 import org.unicam.tryGrammar.tryGrammar.DefinitionBody;
 import org.unicam.tryGrammar.tryGrammar.DeleteStatement;
 import org.unicam.tryGrammar.tryGrammar.ElementaryType;
@@ -45,6 +46,7 @@ import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
 import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.Index;
@@ -758,6 +760,26 @@ public class TryGrammarSwitch<T> extends Switch<T>
         T result = caseStringLiteral(stringLiteral);
         if (result == null) result = caseLiteral(stringLiteral);
         if (result == null) result = caseExpression(stringLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TryGrammarPackage.HEX_LITERAL:
+      {
+        HexLiteral hexLiteral = (HexLiteral)theEObject;
+        T result = caseHexLiteral(hexLiteral);
+        if (result == null) result = caseNumber(hexLiteral);
+        if (result == null) result = caseLiteral(hexLiteral);
+        if (result == null) result = caseExpression(hexLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TryGrammarPackage.DECIMAL_LITERAL:
+      {
+        DecimalLiteral decimalLiteral = (DecimalLiteral)theEObject;
+        T result = caseDecimalLiteral(decimalLiteral);
+        if (result == null) result = caseNumber(decimalLiteral);
+        if (result == null) result = caseLiteral(decimalLiteral);
+        if (result == null) result = caseExpression(decimalLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2103,6 +2125,38 @@ public class TryGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStringLiteral(StringLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Hex Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Hex Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHexLiteral(HexLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Decimal Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Decimal Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDecimalLiteral(DecimalLiteral object)
   {
     return null;
   }

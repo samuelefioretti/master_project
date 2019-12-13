@@ -32,6 +32,7 @@ import org.unicam.tryGrammar.tryGrammar.Const;
 import org.unicam.tryGrammar.tryGrammar.ConstantSpecifier;
 import org.unicam.tryGrammar.tryGrammar.Continue;
 import org.unicam.tryGrammar.tryGrammar.Contract;
+import org.unicam.tryGrammar.tryGrammar.DecimalLiteral;
 import org.unicam.tryGrammar.tryGrammar.DefinitionBody;
 import org.unicam.tryGrammar.tryGrammar.DeleteStatement;
 import org.unicam.tryGrammar.tryGrammar.ElementaryType;
@@ -48,6 +49,7 @@ import org.unicam.tryGrammar.tryGrammar.FunctionCallArg;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
+import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
 import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.Index;
@@ -162,6 +164,9 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case TryGrammarPackage.CONTRACT:
 				sequence_Contract(context, (Contract) semanticObject); 
 				return; 
+			case TryGrammarPackage.DECIMAL_LITERAL:
+				sequence_DecimalLiteral(context, (DecimalLiteral) semanticObject); 
+				return; 
 			case TryGrammarPackage.DEFINITION_BODY:
 				sequence_DefinitionBody(context, (DefinitionBody) semanticObject); 
 				return; 
@@ -232,6 +237,9 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case TryGrammarPackage.FUNCTION_DEFINITION:
 				sequence_FunctionDefinition(context, (FunctionDefinition) semanticObject); 
+				return; 
+			case TryGrammarPackage.HEX_LITERAL:
+				sequence_HexLiteral(context, (HexLiteral) semanticObject); 
 				return; 
 			case TryGrammarPackage.IF_STATEMENT:
 				sequence_IfStatement(context, (IfStatement) semanticObject); 
@@ -1194,6 +1202,61 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Expression returns DecimalLiteral
+	 *     Assignment returns DecimalLiteral
+	 *     Assignment.Assignment_1_0_0 returns DecimalLiteral
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns DecimalLiteral
+	 *     BinaryExpression returns DecimalLiteral
+	 *     Or returns DecimalLiteral
+	 *     Or.Or_1_0 returns DecimalLiteral
+	 *     And returns DecimalLiteral
+	 *     And.And_1_0 returns DecimalLiteral
+	 *     Equality returns DecimalLiteral
+	 *     Equality.Equality_1_0 returns DecimalLiteral
+	 *     Comparison returns DecimalLiteral
+	 *     Comparison.Comparison_1_0 returns DecimalLiteral
+	 *     BitOr returns DecimalLiteral
+	 *     BitOr.BitOr_1_0 returns DecimalLiteral
+	 *     BitXor returns DecimalLiteral
+	 *     BitXor.BitXor_1_0 returns DecimalLiteral
+	 *     BitAnd returns DecimalLiteral
+	 *     BitAnd.BitAnd_1_0 returns DecimalLiteral
+	 *     Shift returns DecimalLiteral
+	 *     Shift.Shift_1_0 returns DecimalLiteral
+	 *     AddSub returns DecimalLiteral
+	 *     AddSub.AddSub_1_0_0 returns DecimalLiteral
+	 *     MulDivMod returns DecimalLiteral
+	 *     MulDivMod.MulDivMod_1_0 returns DecimalLiteral
+	 *     Exponent returns DecimalLiteral
+	 *     Exponent.Exponent_1_0 returns DecimalLiteral
+	 *     UnaryExpression returns DecimalLiteral
+	 *     PreExpression returns DecimalLiteral
+	 *     PreExpression.PreIncExpression_1_2 returns DecimalLiteral
+	 *     PreExpression.PreDecExpression_2_2 returns DecimalLiteral
+	 *     PostIncDecExpression returns DecimalLiteral
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns DecimalLiteral
+	 *     PrimaryExpression returns DecimalLiteral
+	 *     PrimaryExpression.Tuple_4_2_0 returns DecimalLiteral
+	 *     Literal returns DecimalLiteral
+	 *     Number returns DecimalLiteral
+	 *     DecimalLiteral returns DecimalLiteral
+	 *
+	 * Constraint:
+	 *     value=DECIMAL
+	 */
+	protected void sequence_DecimalLiteral(ISerializationContext context, DecimalLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TryGrammarPackage.eINSTANCE.getDecimalLiteral_Value()) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TryGrammarPackage.eINSTANCE.getDecimalLiteral_Value()));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDecimalLiteralAccess().getValueDECIMALTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DefinitionBody returns DefinitionBody
 	 *
 	 * Constraint:
@@ -1616,6 +1679,61 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_FunctionDefinition(ISerializationContext context, FunctionDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns HexLiteral
+	 *     Assignment returns HexLiteral
+	 *     Assignment.Assignment_1_0_0 returns HexLiteral
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns HexLiteral
+	 *     BinaryExpression returns HexLiteral
+	 *     Or returns HexLiteral
+	 *     Or.Or_1_0 returns HexLiteral
+	 *     And returns HexLiteral
+	 *     And.And_1_0 returns HexLiteral
+	 *     Equality returns HexLiteral
+	 *     Equality.Equality_1_0 returns HexLiteral
+	 *     Comparison returns HexLiteral
+	 *     Comparison.Comparison_1_0 returns HexLiteral
+	 *     BitOr returns HexLiteral
+	 *     BitOr.BitOr_1_0 returns HexLiteral
+	 *     BitXor returns HexLiteral
+	 *     BitXor.BitXor_1_0 returns HexLiteral
+	 *     BitAnd returns HexLiteral
+	 *     BitAnd.BitAnd_1_0 returns HexLiteral
+	 *     Shift returns HexLiteral
+	 *     Shift.Shift_1_0 returns HexLiteral
+	 *     AddSub returns HexLiteral
+	 *     AddSub.AddSub_1_0_0 returns HexLiteral
+	 *     MulDivMod returns HexLiteral
+	 *     MulDivMod.MulDivMod_1_0 returns HexLiteral
+	 *     Exponent returns HexLiteral
+	 *     Exponent.Exponent_1_0 returns HexLiteral
+	 *     UnaryExpression returns HexLiteral
+	 *     PreExpression returns HexLiteral
+	 *     PreExpression.PreIncExpression_1_2 returns HexLiteral
+	 *     PreExpression.PreDecExpression_2_2 returns HexLiteral
+	 *     PostIncDecExpression returns HexLiteral
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns HexLiteral
+	 *     PrimaryExpression returns HexLiteral
+	 *     PrimaryExpression.Tuple_4_2_0 returns HexLiteral
+	 *     Literal returns HexLiteral
+	 *     Number returns HexLiteral
+	 *     HexLiteral returns HexLiteral
+	 *
+	 * Constraint:
+	 *     value=HEX
+	 */
+	protected void sequence_HexLiteral(ISerializationContext context, HexLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TryGrammarPackage.eINSTANCE.getHexLiteral_Value()) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TryGrammarPackage.eINSTANCE.getHexLiteral_Value()));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getHexLiteralAccess().getValueHEXTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

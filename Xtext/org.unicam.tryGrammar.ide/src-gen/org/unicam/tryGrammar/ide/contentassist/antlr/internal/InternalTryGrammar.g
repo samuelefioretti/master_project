@@ -2300,6 +2300,56 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleHexLiteral
+entryRuleHexLiteral
+:
+{ before(grammarAccess.getHexLiteralRule()); }
+	 ruleHexLiteral
+{ after(grammarAccess.getHexLiteralRule()); } 
+	 EOF 
+;
+
+// Rule HexLiteral
+ruleHexLiteral 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getHexLiteralAccess().getValueAssignment()); }
+		(rule__HexLiteral__ValueAssignment)
+		{ after(grammarAccess.getHexLiteralAccess().getValueAssignment()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleDecimalLiteral
+entryRuleDecimalLiteral
+:
+{ before(grammarAccess.getDecimalLiteralRule()); }
+	 ruleDecimalLiteral
+{ after(grammarAccess.getDecimalLiteralRule()); } 
+	 EOF 
+;
+
+// Rule DecimalLiteral
+ruleDecimalLiteral 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getDecimalLiteralAccess().getValueAssignment()); }
+		(rule__DecimalLiteral__ValueAssignment)
+		{ after(grammarAccess.getDecimalLiteralAccess().getValueAssignment()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleTypeCast
 entryRuleTypeCast
 :
@@ -3366,6 +3416,18 @@ rule__Number__Alternatives
 		ruleTime
 		{ after(grammarAccess.getNumberAccess().getTimeParserRuleCall_3()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getNumberAccess().getHexLiteralParserRuleCall_4()); }
+		ruleHexLiteral
+		{ after(grammarAccess.getNumberAccess().getHexLiteralParserRuleCall_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getNumberAccess().getDecimalLiteralParserRuleCall_5()); }
+		ruleDecimalLiteral
+		{ after(grammarAccess.getNumberAccess().getDecimalLiteralParserRuleCall_5()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -4019,6 +4081,12 @@ rule__LocationSpecifierEnum__Alternatives
 		{ before(grammarAccess.getLocationSpecifierEnumAccess().getSTORAGEEnumLiteralDeclaration_1()); }
 		('storage')
 		{ after(grammarAccess.getLocationSpecifierEnumAccess().getSTORAGEEnumLiteralDeclaration_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2()); }
+		('calldata')
+		{ after(grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2()); }
 	)
 ;
 finally {
@@ -17430,6 +17498,36 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__HexLiteral__ValueAssignment
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getHexLiteralAccess().getValueHEXTerminalRuleCall_0()); }
+		RULE_HEX
+		{ after(grammarAccess.getHexLiteralAccess().getValueHEXTerminalRuleCall_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DecimalLiteral__ValueAssignment
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDecimalLiteralAccess().getValueDECIMALTerminalRuleCall_0()); }
+		RULE_DECIMAL
+		{ after(grammarAccess.getDecimalLiteralAccess().getValueDECIMALTerminalRuleCall_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__TypeCast__ValueAssignment_0
 	@init {
 		int stackSize = keepStackSize();
@@ -17510,6 +17608,10 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
+
+RULE_HEX : '0x' ('0'..'9'|'A'..'F'|'a'..'f')+;
+
+RULE_DECIMAL : RULE_INT '.' RULE_INT;
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

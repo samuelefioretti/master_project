@@ -2509,6 +2509,62 @@ public interface TryGrammarPackage extends EPackage
   int STRING_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.impl.HexLiteralImpl <em>Hex Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.tryGrammar.tryGrammar.impl.HexLiteralImpl
+   * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getHexLiteral()
+   * @generated
+   */
+  int HEX_LITERAL = 74;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HEX_LITERAL__VALUE = NUMBER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Hex Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HEX_LITERAL_FEATURE_COUNT = NUMBER_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.impl.DecimalLiteralImpl <em>Decimal Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.tryGrammar.tryGrammar.impl.DecimalLiteralImpl
+   * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getDecimalLiteral()
+   * @generated
+   */
+  int DECIMAL_LITERAL = 75;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMAL_LITERAL__VALUE = NUMBER_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Decimal Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMAL_LITERAL_FEATURE_COUNT = NUMBER_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.impl.TypeCastImpl <em>Type Cast</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2516,7 +2572,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getTypeCast()
    * @generated
    */
-  int TYPE_CAST = 74;
+  int TYPE_CAST = 76;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2553,7 +2609,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getNow()
    * @generated
    */
-  int NOW = 75;
+  int NOW = 77;
 
   /**
    * The number of structural features of the '<em>Now</em>' class.
@@ -2572,7 +2628,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getSpecialVariables()
    * @generated
    */
-  int SPECIAL_VARIABLES = 76;
+  int SPECIAL_VARIABLES = 78;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2618,7 +2674,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getVarVariableTypeDeclaration()
    * @generated
    */
-  int VAR_VARIABLE_TYPE_DECLARATION = 77;
+  int VAR_VARIABLE_TYPE_DECLARATION = 79;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -2664,7 +2720,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getContinue()
    * @generated
    */
-  int CONTINUE = 78;
+  int CONTINUE = 80;
 
   /**
    * The number of structural features of the '<em>Continue</em>' class.
@@ -2683,7 +2739,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 79;
+  int ASSIGNMENT = 81;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2729,7 +2785,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getVariableDeclarationExpression()
    * @generated
    */
-  int VARIABLE_DECLARATION_EXPRESSION = 80;
+  int VARIABLE_DECLARATION_EXPRESSION = 82;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -2775,7 +2831,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getOr()
    * @generated
    */
-  int OR = 81;
+  int OR = 83;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2812,7 +2868,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getAnd()
    * @generated
    */
-  int AND = 82;
+  int AND = 84;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2849,7 +2905,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getEquality()
    * @generated
    */
-  int EQUALITY = 83;
+  int EQUALITY = 85;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2895,7 +2951,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 84;
+  int COMPARISON = 86;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2941,7 +2997,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getBitOr()
    * @generated
    */
-  int BIT_OR = 85;
+  int BIT_OR = 87;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2978,7 +3034,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getBitXor()
    * @generated
    */
-  int BIT_XOR = 86;
+  int BIT_XOR = 88;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3015,7 +3071,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getBitAnd()
    * @generated
    */
-  int BIT_AND = 87;
+  int BIT_AND = 89;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3052,7 +3108,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getShift()
    * @generated
    */
-  int SHIFT = 88;
+  int SHIFT = 90;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3098,7 +3154,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getAddSub()
    * @generated
    */
-  int ADD_SUB = 89;
+  int ADD_SUB = 91;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3144,7 +3200,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getMulDivMod()
    * @generated
    */
-  int MUL_DIV_MOD = 90;
+  int MUL_DIV_MOD = 92;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3190,7 +3246,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getExponent()
    * @generated
    */
-  int EXPONENT = 91;
+  int EXPONENT = 93;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3227,7 +3283,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getPostIncDecExpression()
    * @generated
    */
-  int POST_INC_DEC_EXPRESSION = 92;
+  int POST_INC_DEC_EXPRESSION = 94;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -3264,7 +3320,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getElementaryTypeNameEnum()
    * @generated
    */
-  int ELEMENTARY_TYPE_NAME_ENUM = 93;
+  int ELEMENTARY_TYPE_NAME_ENUM = 95;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}' enum.
@@ -3274,7 +3330,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getLocationSpecifierEnum()
    * @generated
    */
-  int LOCATION_SPECIFIER_ENUM = 94;
+  int LOCATION_SPECIFIER_ENUM = 96;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.VisibilityEnum <em>Visibility Enum</em>}' enum.
@@ -3284,7 +3340,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getVisibilityEnum()
    * @generated
    */
-  int VISIBILITY_ENUM = 95;
+  int VISIBILITY_ENUM = 97;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.AssignmentOpEnum <em>Assignment Op Enum</em>}' enum.
@@ -3294,7 +3350,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getAssignmentOpEnum()
    * @generated
    */
-  int ASSIGNMENT_OP_ENUM = 96;
+  int ASSIGNMENT_OP_ENUM = 98;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.EqualityOpEnum <em>Equality Op Enum</em>}' enum.
@@ -3304,7 +3360,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getEqualityOpEnum()
    * @generated
    */
-  int EQUALITY_OP_ENUM = 97;
+  int EQUALITY_OP_ENUM = 99;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.ComparisonOpEnum <em>Comparison Op Enum</em>}' enum.
@@ -3314,7 +3370,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getComparisonOpEnum()
    * @generated
    */
-  int COMPARISON_OP_ENUM = 98;
+  int COMPARISON_OP_ENUM = 100;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.ShiftOpEnum <em>Shift Op Enum</em>}' enum.
@@ -3324,7 +3380,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getShiftOpEnum()
    * @generated
    */
-  int SHIFT_OP_ENUM = 99;
+  int SHIFT_OP_ENUM = 101;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.AdditionOpEnum <em>Addition Op Enum</em>}' enum.
@@ -3334,7 +3390,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getAdditionOpEnum()
    * @generated
    */
-  int ADDITION_OP_ENUM = 100;
+  int ADDITION_OP_ENUM = 102;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.MulDivModOpEnum <em>Mul Div Mod Op Enum</em>}' enum.
@@ -3344,7 +3400,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getMulDivModOpEnum()
    * @generated
    */
-  int MUL_DIV_MOD_OP_ENUM = 101;
+  int MUL_DIV_MOD_OP_ENUM = 103;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.IncDecOpEnum <em>Inc Dec Op Enum</em>}' enum.
@@ -3354,7 +3410,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getIncDecOpEnum()
    * @generated
    */
-  int INC_DEC_OP_ENUM = 102;
+  int INC_DEC_OP_ENUM = 104;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.BooleanLiteralEnum <em>Boolean Literal Enum</em>}' enum.
@@ -3364,7 +3420,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getBooleanLiteralEnum()
    * @generated
    */
-  int BOOLEAN_LITERAL_ENUM = 103;
+  int BOOLEAN_LITERAL_ENUM = 105;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.EtherSubDenominationEnum <em>Ether Sub Denomination Enum</em>}' enum.
@@ -3374,7 +3430,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getEtherSubDenominationEnum()
    * @generated
    */
-  int ETHER_SUB_DENOMINATION_ENUM = 104;
+  int ETHER_SUB_DENOMINATION_ENUM = 106;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.TimeSubdenominationEnum <em>Time Subdenomination Enum</em>}' enum.
@@ -3384,7 +3440,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getTimeSubdenominationEnum()
    * @generated
    */
-  int TIME_SUBDENOMINATION_ENUM = 105;
+  int TIME_SUBDENOMINATION_ENUM = 107;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.SpecialVariablesTypeEnum <em>Special Variables Type Enum</em>}' enum.
@@ -3394,7 +3450,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getSpecialVariablesTypeEnum()
    * @generated
    */
-  int SPECIAL_VARIABLES_TYPE_ENUM = 106;
+  int SPECIAL_VARIABLES_TYPE_ENUM = 108;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.SpecialExpressionTypeEnum <em>Special Expression Type Enum</em>}' enum.
@@ -3404,7 +3460,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getSpecialExpressionTypeEnum()
    * @generated
    */
-  int SPECIAL_EXPRESSION_TYPE_ENUM = 107;
+  int SPECIAL_EXPRESSION_TYPE_ENUM = 109;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.ReservedWordsEnum <em>Reserved Words Enum</em>}' enum.
@@ -3414,7 +3470,7 @@ public interface TryGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.tryGrammar.impl.TryGrammarPackageImpl#getReservedWordsEnum()
    * @generated
    */
-  int RESERVED_WORDS_ENUM = 108;
+  int RESERVED_WORDS_ENUM = 110;
 
 
   /**
@@ -5311,6 +5367,48 @@ public interface TryGrammarPackage extends EPackage
    * @generated
    */
   EAttribute getStringLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.tryGrammar.tryGrammar.HexLiteral <em>Hex Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Hex Literal</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.HexLiteral
+   * @generated
+   */
+  EClass getHexLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.tryGrammar.HexLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.HexLiteral#getValue()
+   * @see #getHexLiteral()
+   * @generated
+   */
+  EAttribute getHexLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.tryGrammar.tryGrammar.DecimalLiteral <em>Decimal Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Decimal Literal</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.DecimalLiteral
+   * @generated
+   */
+  EClass getDecimalLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.tryGrammar.DecimalLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.DecimalLiteral#getValue()
+   * @see #getDecimalLiteral()
+   * @generated
+   */
+  EAttribute getDecimalLiteral_Value();
 
   /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.tryGrammar.TypeCast <em>Type Cast</em>}'.
