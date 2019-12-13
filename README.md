@@ -1,6 +1,6 @@
 # Master Thesis
 
-Tool to optimize gas in Smart Contracts.
+A framework for optimizing Solidity code in Ethereum Smart Contracts.
 
 ## Authors
 * **Fioretti Samuele** (Mat. 103967)
