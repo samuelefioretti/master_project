@@ -24,31 +24,13 @@ public interface TryGrammarFactory extends EFactory
   TryGrammarFactory eINSTANCE = org.unicam.tryGrammar.tryGrammar.impl.TryGrammarFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Solidity</em>'.
+   * Returns a new object of class '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Solidity</em>'.
+   * @return a new object of class '<em>Model</em>'.
    * @generated
    */
-  Solidity createSolidity();
-
-  /**
-   * Returns a new object of class '<em>Import Directive</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Import Directive</em>'.
-   * @generated
-   */
-  ImportDirective createImportDirective();
-
-  /**
-   * Returns a new object of class '<em>Symbol Alias</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol Alias</em>'.
-   * @generated
-   */
-  SymbolAlias createSymbolAlias();
+  Model createModel();
 
   /**
    * Returns a new object of class '<em>Contract Or Library</em>'.

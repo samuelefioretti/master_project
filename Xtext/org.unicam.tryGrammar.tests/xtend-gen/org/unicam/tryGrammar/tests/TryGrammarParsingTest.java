@@ -16,14 +16,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.unicam.tryGrammar.tests.TryGrammarInjectorProvider;
-import org.unicam.tryGrammar.tryGrammar.Solidity;
+import org.unicam.tryGrammar.tryGrammar.Model;
 
 @ExtendWith(InjectionExtension.class)
 @InjectWith(TryGrammarInjectorProvider.class)
 @SuppressWarnings("all")
 public class TryGrammarParsingTest {
   @Inject
-  private ParseHelper<Solidity> parseHelper;
+  private ParseHelper<Model> parseHelper;
   
   @Test
   public void loadModel() {
@@ -31,7 +31,7 @@ public class TryGrammarParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final Solidity result = this.parseHelper.parse(_builder);
+      final Model result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

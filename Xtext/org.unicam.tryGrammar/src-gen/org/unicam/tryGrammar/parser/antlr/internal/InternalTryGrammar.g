@@ -44,7 +44,7 @@ import org.unicam.tryGrammar.services.TryGrammarGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Solidity";
+    	return "Model";
    	}
 
    	@Override
@@ -61,15 +61,15 @@ import org.unicam.tryGrammar.services.TryGrammarGrammarAccess;
     }
 }
 
-// Entry rule entryRuleSolidity
-entryRuleSolidity returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSolidityRule()); }
-	iv_ruleSolidity=ruleSolidity
-	{ $current=$iv_ruleSolidity.current; }
+// Entry rule entryRuleModel
+entryRuleModel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getModelRule()); }
+	iv_ruleModel=ruleModel
+	{ $current=$iv_ruleModel.current; }
 	EOF;
 
-// Rule Solidity
-ruleSolidity returns [EObject current=null]
+// Rule Model
+ruleModel returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -78,315 +78,23 @@ ruleSolidity returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSolidityAccess().getImportDirectiveImportDirectiveParserRuleCall_0_0());
+			{
+				newCompositeNode(grammarAccess.getModelAccess().getOperationsContractParserRuleCall_0());
+			}
+			lv_operations_0_0=ruleContract
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getModelRule());
 				}
-				lv_importDirective_0_0=ruleImportDirective
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSolidityRule());
-					}
-					add(
-						$current,
-						"importDirective",
-						lv_importDirective_0_0,
-						"org.unicam.tryGrammar.TryGrammar.ImportDirective");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		    |
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSolidityAccess().getContractContractParserRuleCall_1_0());
-				}
-				lv_contract_1_0=ruleContract
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSolidityRule());
-					}
-					add(
-						$current,
-						"contract",
-						lv_contract_1_0,
-						"org.unicam.tryGrammar.TryGrammar.Contract");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		    |
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSolidityAccess().getLibraryLibraryParserRuleCall_2_0());
-				}
-				lv_library_2_0=ruleLibrary
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSolidityRule());
-					}
-					add(
-						$current,
-						"library",
-						lv_library_2_0,
-						"org.unicam.tryGrammar.TryGrammar.Library");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				add(
+					$current,
+					"operations",
+					lv_operations_0_0,
+					"org.unicam.tryGrammar.TryGrammar.Contract");
+				afterParserOrEnumRuleCall();
+			}
 		)
 	)*
-;
-
-// Entry rule entryRuleImportDirective
-entryRuleImportDirective returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getImportDirectiveRule()); }
-	iv_ruleImportDirective=ruleImportDirective
-	{ $current=$iv_ruleImportDirective.current; }
-	EOF;
-
-// Rule ImportDirective
-ruleImportDirective returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			otherlv_0='import'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getImportDirectiveAccess().getImportKeyword_0_0());
-			}
-			(
-				(
-					lv_importURI_1_0=RULE_STRING
-					{
-						newLeafNode(lv_importURI_1_0, grammarAccess.getImportDirectiveAccess().getImportURISTRINGTerminalRuleCall_0_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getImportDirectiveRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"importURI",
-							lv_importURI_1_0,
-							"org.unicam.tryGrammar.TryGrammar.STRING");
-					}
-				)
-			)
-			otherlv_2=';'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getImportDirectiveAccess().getSemicolonKeyword_0_2());
-			}
-		)
-		    |
-		(
-			otherlv_3='import'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getImportDirectiveAccess().getImportKeyword_1_0());
-			}
-			otherlv_4='*'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getImportDirectiveAccess().getAsteriskKeyword_1_1());
-			}
-			otherlv_5='as'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getImportDirectiveAccess().getAsKeyword_1_2());
-			}
-			(
-				(
-					lv_unitAlias_6_0=RULE_ID
-					{
-						newLeafNode(lv_unitAlias_6_0, grammarAccess.getImportDirectiveAccess().getUnitAliasIDTerminalRuleCall_1_3_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getImportDirectiveRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"unitAlias",
-							lv_unitAlias_6_0,
-							"org.unicam.tryGrammar.TryGrammar.ID");
-					}
-				)
-			)
-			otherlv_7='from'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getImportDirectiveAccess().getFromKeyword_1_4());
-			}
-			(
-				(
-					lv_importURI_8_0=RULE_STRING
-					{
-						newLeafNode(lv_importURI_8_0, grammarAccess.getImportDirectiveAccess().getImportURISTRINGTerminalRuleCall_1_5_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getImportDirectiveRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"importURI",
-							lv_importURI_8_0,
-							"org.unicam.tryGrammar.TryGrammar.STRING");
-					}
-				)
-			)
-			otherlv_9=';'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getImportDirectiveAccess().getSemicolonKeyword_1_6());
-			}
-		)
-		    |
-		(
-			otherlv_10='import'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getImportDirectiveAccess().getImportKeyword_2_0());
-			}
-			otherlv_11='{'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getImportDirectiveAccess().getLeftCurlyBracketKeyword_2_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getImportDirectiveAccess().getSymbolAliasesSymbolAliasParserRuleCall_2_2_0());
-					}
-					lv_symbolAliases_12_0=ruleSymbolAlias
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getImportDirectiveRule());
-						}
-						add(
-							$current,
-							"symbolAliases",
-							lv_symbolAliases_12_0,
-							"org.unicam.tryGrammar.TryGrammar.SymbolAlias");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_13=','
-				{
-					newLeafNode(otherlv_13, grammarAccess.getImportDirectiveAccess().getCommaKeyword_2_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getImportDirectiveAccess().getSymbolAliasesSymbolAliasParserRuleCall_2_3_1_0());
-						}
-						lv_symbolAliases_14_0=ruleSymbolAlias
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getImportDirectiveRule());
-							}
-							add(
-								$current,
-								"symbolAliases",
-								lv_symbolAliases_14_0,
-								"org.unicam.tryGrammar.TryGrammar.SymbolAlias");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			otherlv_15='}'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getImportDirectiveAccess().getRightCurlyBracketKeyword_2_4());
-			}
-			otherlv_16='from'
-			{
-				newLeafNode(otherlv_16, grammarAccess.getImportDirectiveAccess().getFromKeyword_2_5());
-			}
-			(
-				(
-					lv_importURI_17_0=RULE_STRING
-					{
-						newLeafNode(lv_importURI_17_0, grammarAccess.getImportDirectiveAccess().getImportURISTRINGTerminalRuleCall_2_6_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getImportDirectiveRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"importURI",
-							lv_importURI_17_0,
-							"org.unicam.tryGrammar.TryGrammar.STRING");
-					}
-				)
-			)
-			otherlv_18=';'
-			{
-				newLeafNode(otherlv_18, grammarAccess.getImportDirectiveAccess().getSemicolonKeyword_2_7());
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleSymbolAlias
-entryRuleSymbolAlias returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSymbolAliasRule()); }
-	iv_ruleSymbolAlias=ruleSymbolAlias
-	{ $current=$iv_ruleSymbolAlias.current; }
-	EOF;
-
-// Rule SymbolAlias
-ruleSymbolAlias returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_symbol_0_0=RULE_ID
-				{
-					newLeafNode(lv_symbol_0_0, grammarAccess.getSymbolAliasAccess().getSymbolIDTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSymbolAliasRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"symbol",
-						lv_symbol_0_0,
-						"org.unicam.tryGrammar.TryGrammar.ID");
-				}
-			)
-		)
-		otherlv_1='as'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSymbolAliasAccess().getAsKeyword_1());
-		}
-		(
-			(
-				lv_alias_2_0=RULE_ID
-				{
-					newLeafNode(lv_alias_2_0, grammarAccess.getSymbolAliasAccess().getAliasIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSymbolAliasRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"alias",
-						lv_alias_2_0,
-						"org.unicam.tryGrammar.TryGrammar.ID");
-				}
-			)
-		)
-	)
 ;
 
 // Entry rule entryRuleContract

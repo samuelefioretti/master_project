@@ -51,13 +51,13 @@ import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
-import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.Index;
 import org.unicam.tryGrammar.tryGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.tryGrammar.InheritanceSpecifier;
 import org.unicam.tryGrammar.tryGrammar.Library;
 import org.unicam.tryGrammar.tryGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.tryGrammar.Mapping;
+import org.unicam.tryGrammar.tryGrammar.Model;
 import org.unicam.tryGrammar.tryGrammar.Modifier;
 import org.unicam.tryGrammar.tryGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.tryGrammar.MulDivMod;
@@ -77,13 +77,11 @@ import org.unicam.tryGrammar.tryGrammar.ReturnStatement;
 import org.unicam.tryGrammar.tryGrammar.ReturnsParameterList;
 import org.unicam.tryGrammar.tryGrammar.Shift;
 import org.unicam.tryGrammar.tryGrammar.SignExpression;
-import org.unicam.tryGrammar.tryGrammar.Solidity;
 import org.unicam.tryGrammar.tryGrammar.SpecialExpression;
 import org.unicam.tryGrammar.tryGrammar.SpecialVariables;
 import org.unicam.tryGrammar.tryGrammar.StandardVariableDeclaration;
 import org.unicam.tryGrammar.tryGrammar.StringLiteral;
 import org.unicam.tryGrammar.tryGrammar.StructDefinition;
-import org.unicam.tryGrammar.tryGrammar.SymbolAlias;
 import org.unicam.tryGrammar.tryGrammar.ThrowStatement;
 import org.unicam.tryGrammar.tryGrammar.Time;
 import org.unicam.tryGrammar.tryGrammar.TryGrammarPackage;
@@ -244,9 +242,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case TryGrammarPackage.IF_STATEMENT:
 				sequence_IfStatement(context, (IfStatement) semanticObject); 
 				return; 
-			case TryGrammarPackage.IMPORT_DIRECTIVE:
-				sequence_ImportDirective(context, (ImportDirective) semanticObject); 
-				return; 
 			case TryGrammarPackage.INDEX:
 				sequence_Index(context, (Index) semanticObject); 
 				return; 
@@ -264,6 +259,9 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case TryGrammarPackage.MAPPING:
 				sequence_Mapping(context, (Mapping) semanticObject); 
+				return; 
+			case TryGrammarPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case TryGrammarPackage.MODIFIER:
 				sequence_Modifier(context, (Modifier) semanticObject); 
@@ -404,9 +402,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case TryGrammarPackage.SIGN_EXPRESSION:
 				sequence_SignExpression(context, (SignExpression) semanticObject); 
 				return; 
-			case TryGrammarPackage.SOLIDITY:
-				sequence_Solidity(context, (Solidity) semanticObject); 
-				return; 
 			case TryGrammarPackage.SPECIAL_EXPRESSION:
 				sequence_SpecialExpression(context, (SpecialExpression) semanticObject); 
 				return; 
@@ -434,9 +429,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case TryGrammarPackage.STRUCT_DEFINITION:
 				sequence_StructDefinition(context, (StructDefinition) semanticObject); 
-				return; 
-			case TryGrammarPackage.SYMBOL_ALIAS:
-				sequence_SymbolAlias(context, (SymbolAlias) semanticObject); 
 				return; 
 			case TryGrammarPackage.THROW_STATEMENT:
 				sequence_ThrowStatement(context, (ThrowStatement) semanticObject); 
@@ -1752,18 +1744,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     ImportDirective returns ImportDirective
-	 *
-	 * Constraint:
-	 *     (importURI=STRING | (unitAlias=ID importURI=STRING) | (symbolAliases+=SymbolAlias symbolAliases+=SymbolAlias? importURI=STRING))
-	 */
-	protected void sequence_ImportDirective(ISerializationContext context, ImportDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Qualifier returns Index
 	 *     Index returns Index
 	 *
@@ -1855,6 +1835,18 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0(), semanticObject.getKeyType());
 		feeder.accept(grammarAccess.getMappingAccess().getValueTypeTypeParserRuleCall_4_0(), semanticObject.getValueType());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Model returns Model
+	 *
+	 * Constraint:
+	 *     operations+=Contract+
+	 */
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -2799,18 +2791,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Solidity returns Solidity
-	 *
-	 * Constraint:
-	 *     (importDirective+=ImportDirective | contract+=Contract | library+=Library)+
-	 */
-	protected void sequence_Solidity(ISerializationContext context, Solidity semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Expression returns SpecialExpression
 	 *     SpecialExpression returns SpecialExpression
 	 *     Assignment returns SpecialExpression
@@ -2980,27 +2960,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_StructDefinition(ISerializationContext context, StructDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SymbolAlias returns SymbolAlias
-	 *
-	 * Constraint:
-	 *     (symbol=ID alias=ID)
-	 */
-	protected void sequence_SymbolAlias(ISerializationContext context, SymbolAlias semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TryGrammarPackage.eINSTANCE.getSymbolAlias_Symbol()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TryGrammarPackage.eINSTANCE.getSymbolAlias_Symbol()));
-			if (transientValues.isValueTransient(semanticObject, TryGrammarPackage.eINSTANCE.getSymbolAlias_Alias()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TryGrammarPackage.eINSTANCE.getSymbolAlias_Alias()));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSymbolAliasAccess().getSymbolIDTerminalRuleCall_0_0(), semanticObject.getSymbol());
-		feeder.accept(grammarAccess.getSymbolAliasAccess().getAliasIDTerminalRuleCall_2_0(), semanticObject.getAlias());
-		feeder.finish();
 	}
 	
 	
