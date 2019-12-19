@@ -4,29 +4,23 @@ generate tryGrammar "http://www.unicam.org/tryGrammar/TryGrammar"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-Model:
-	operations+=Contract*
+Solidity:
+	(
+		importDirective+=ImportDirective |
+		contract+=Contract |
+		library+=Library
+	)*
 ;
 
-/*
- * Solidity:
- * (
- * importDirective+=ImportDirective |
- * contract+=Contract |
- * library+=Library
- * )*
- * ;
- * 
- * ImportDirective:
- * "import" importURI=STRING ";" |
- * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
- * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
- * ;
- * 
- * SymbolAlias:
- * symbol=ID "as" alias=ID
- * ;
-*/
+ImportDirective:
+	"import" importURI=STRING ";" |
+	"import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+	"import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
+;
+
+SymbolAlias:
+	symbol=ID "as" alias=ID
+;
 
 ContractOrLibrary:
 	Contract |
@@ -90,7 +84,7 @@ FunctionCallArg:
 
 // Anonymous function allowed when "name" is not specified.
 FunctionDefinition:
-	"function" {FunctionDefinition} name=ID? parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
+	VisibilitySpecifier payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
 		"returns" returnParameters=ReturnsParameterList
 	)?
 	(
@@ -122,7 +116,7 @@ StructDefinition:
 ;
 
 EnumDefinition:
-	"enum" name=ID "{"
+	VisibilitySpecifier? "enum" name=ID "{"
 		(
 			members+=EnumValue ("," members+=EnumValue)*
 		)?
@@ -174,7 +168,7 @@ IndexedSpecifer:
 ;
 
 ConstantSpecifier:
-	"constant" {ConstantSpecifier}
+	 "constant" {ConstantSpecifier}
 ;
 
 LocationSpecifier:
@@ -231,10 +225,10 @@ TupleSeparator:
 ;
 
 // SimpleStatement
-//---------------------
-//SimpleStatement:
-//     SimpleStatement2 ";"
-//;
+// ---------------------
+// SimpleStatement:
+// SimpleStatement2 ";"
+// ;
 
 SimpleStatement:
 	(

@@ -1197,61 +1197,6 @@ public class TryGrammarPackageImpl extends EPackageImpl implements TryGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getFunctionDefinition_Name()
-  {
-        return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunctionDefinition_Parameters()
-  {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunctionDefinition_OptionalElements()
-  {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunctionDefinition_ReturnParameters()
-  {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunctionDefinition_Block()
-  {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getFunctionDefinitionOptionalElement()
   {
     if (functionDefinitionOptionalElementEClass == null)
@@ -1297,9 +1242,64 @@ public class TryGrammarPackageImpl extends EPackageImpl implements TryGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getVisibilitySpecifier_Visibility()
+  public EAttribute getVisibilitySpecifier_Payable()
   {
         return (EAttribute)getVisibilitySpecifier().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getVisibilitySpecifier_Parameters()
+  {
+        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getVisibilitySpecifier_OptionalElements()
+  {
+        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getVisibilitySpecifier_ReturnParameters()
+  {
+        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getVisibilitySpecifier_Block()
+  {
+        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVisibilitySpecifier_Visibility()
+  {
+        return (EAttribute)getVisibilitySpecifier().getEStructuralFeatures().get(5);
   }
 
   /**

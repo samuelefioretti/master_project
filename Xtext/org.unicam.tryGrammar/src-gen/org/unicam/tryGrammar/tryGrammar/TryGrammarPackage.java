@@ -447,58 +447,13 @@ public interface TryGrammarPackage extends EPackage
   int FUNCTION_DEFINITION = 9;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__PARAMETERS = 1;
-
-  /**
-   * The feature id for the '<em><b>Optional Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__OPTIONAL_ELEMENTS = 2;
-
-  /**
-   * The feature id for the '<em><b>Return Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__RETURN_PARAMETERS = 3;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__BLOCK = 4;
-
-  /**
    * The number of structural features of the '<em>Function Definition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_DEFINITION_FEATURE_COUNT = 5;
+  int FUNCTION_DEFINITION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.impl.FunctionDefinitionOptionalElementImpl <em>Function Definition Optional Element</em>}' class.
@@ -549,13 +504,76 @@ public interface TryGrammarPackage extends EPackage
   int VISIBILITY_SPECIFIER = 12;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER__NAME = FUNCTION_DEFINITION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Members</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER__MEMBERS = FUNCTION_DEFINITION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Payable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER__PAYABLE = FUNCTION_DEFINITION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER__PARAMETERS = FUNCTION_DEFINITION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Optional Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER__OPTIONAL_ELEMENTS = FUNCTION_DEFINITION_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Return Parameters</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER__RETURN_PARAMETERS = FUNCTION_DEFINITION_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER__BLOCK = FUNCTION_DEFINITION_FEATURE_COUNT + 6;
+
+  /**
    * The feature id for the '<em><b>Visibility</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VISIBILITY_SPECIFIER__VISIBILITY = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
+  int VISIBILITY_SPECIFIER__VISIBILITY = FUNCTION_DEFINITION_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Visibility Specifier</em>' class.
@@ -564,7 +582,7 @@ public interface TryGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VISIBILITY_SPECIFIER_FEATURE_COUNT = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 1;
+  int VISIBILITY_SPECIFIER_FEATURE_COUNT = FUNCTION_DEFINITION_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.tryGrammar.impl.StructDefinitionImpl <em>Struct Definition</em>}' class.
@@ -3649,61 +3667,6 @@ public interface TryGrammarPackage extends EPackage
   EClass getFunctionDefinition();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getName()
-   * @see #getFunctionDefinition()
-   * @generated
-   */
-  EAttribute getFunctionDefinition_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getParameters()
-   * @see #getFunctionDefinition()
-   * @generated
-   */
-  EReference getFunctionDefinition_Parameters();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getOptionalElements <em>Optional Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Optional Elements</em>'.
-   * @see org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getOptionalElements()
-   * @see #getFunctionDefinition()
-   * @generated
-   */
-  EReference getFunctionDefinition_OptionalElements();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getReturnParameters <em>Return Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Return Parameters</em>'.
-   * @see org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getReturnParameters()
-   * @see #getFunctionDefinition()
-   * @generated
-   */
-  EReference getFunctionDefinition_ReturnParameters();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getBlock <em>Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Block</em>'.
-   * @see org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getBlock()
-   * @see #getFunctionDefinition()
-   * @generated
-   */
-  EReference getFunctionDefinition_Block();
-
-  /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinitionOptionalElement <em>Function Definition Optional Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3732,6 +3695,61 @@ public interface TryGrammarPackage extends EPackage
    * @generated
    */
   EClass getVisibilitySpecifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#isPayable <em>Payable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Payable</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#isPayable()
+   * @see #getVisibilitySpecifier()
+   * @generated
+   */
+  EAttribute getVisibilitySpecifier_Payable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameters</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getParameters()
+   * @see #getVisibilitySpecifier()
+   * @generated
+   */
+  EReference getVisibilitySpecifier_Parameters();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getOptionalElements <em>Optional Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Optional Elements</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getOptionalElements()
+   * @see #getVisibilitySpecifier()
+   * @generated
+   */
+  EReference getVisibilitySpecifier_OptionalElements();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getReturnParameters <em>Return Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Parameters</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getReturnParameters()
+   * @see #getVisibilitySpecifier()
+   * @generated
+   */
+  EReference getVisibilitySpecifier_ReturnParameters();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getBlock()
+   * @see #getVisibilitySpecifier()
+   * @generated
+   */
+  EReference getVisibilitySpecifier_Block();
 
   /**
    * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.tryGrammar.VisibilitySpecifier#getVisibility <em>Visibility</em>}'.

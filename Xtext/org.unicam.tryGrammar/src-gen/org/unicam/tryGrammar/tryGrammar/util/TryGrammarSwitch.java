@@ -257,7 +257,9 @@ public class TryGrammarSwitch<T> extends Switch<T>
       {
         VisibilitySpecifier visibilitySpecifier = (VisibilitySpecifier)theEObject;
         T result = caseVisibilitySpecifier(visibilitySpecifier);
+        if (result == null) result = caseFunctionDefinition(visibilitySpecifier);
         if (result == null) result = caseFunctionDefinitionOptionalElement(visibilitySpecifier);
+        if (result == null) result = caseEnumDefinition(visibilitySpecifier);
         if (result == null) result = caseVariableDeclarationOptionalElement(visibilitySpecifier);
         if (result == null) result = defaultCase(theEObject);
         return result;

@@ -241,16 +241,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TryGrammar.ecore#//FunctionCallArg/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//FunctionCallArg/expr"/>
     </genClasses>
-    <genClasses ecoreClass="TryGrammar.ecore#//FunctionDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TryGrammar.ecore#//FunctionDefinition/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//FunctionDefinition/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//FunctionDefinition/optionalElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//FunctionDefinition/returnParameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//FunctionDefinition/block"/>
-    </genClasses>
+    <genClasses ecoreClass="TryGrammar.ecore#//FunctionDefinition"/>
     <genClasses ecoreClass="TryGrammar.ecore#//FunctionDefinitionOptionalElement"/>
     <genClasses ecoreClass="TryGrammar.ecore#//Const"/>
     <genClasses ecoreClass="TryGrammar.ecore#//VisibilitySpecifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TryGrammar.ecore#//VisibilitySpecifier/payable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//VisibilitySpecifier/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//VisibilitySpecifier/optionalElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//VisibilitySpecifier/returnParameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TryGrammar.ecore#//VisibilitySpecifier/block"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TryGrammar.ecore#//VisibilitySpecifier/visibility"/>
     </genClasses>
     <genClasses ecoreClass="TryGrammar.ecore#//StructDefinition">

@@ -486,82 +486,91 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class FunctionDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.FunctionDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFunctionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Action cFunctionDefinitionAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cParametersAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cParametersParameterListParserRuleCall_3_0 = (RuleCall)cParametersAssignment_3.eContents().get(0);
-		private final Assignment cOptionalElementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0 = (RuleCall)cOptionalElementsAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cReturnsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cReturnParametersAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cReturnParametersReturnsParameterListParserRuleCall_5_1_0 = (RuleCall)cReturnParametersAssignment_5_1.eContents().get(0);
-		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
-		private final Assignment cBlockAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
-		private final RuleCall cBlockBlockParserRuleCall_6_0_0 = (RuleCall)cBlockAssignment_6_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_1 = (Keyword)cAlternatives_6.eContents().get(1);
+		private final RuleCall cVisibilitySpecifierParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cPayableAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cPayablePayableKeyword_1_0 = (Keyword)cPayableAssignment_1.eContents().get(0);
+		private final Keyword cFunctionKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Assignment cParametersAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cParametersParameterListParserRuleCall_4_0 = (RuleCall)cParametersAssignment_4.eContents().get(0);
+		private final Assignment cOptionalElementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_5_0 = (RuleCall)cOptionalElementsAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cReturnsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cReturnParametersAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cReturnParametersReturnsParameterListParserRuleCall_6_1_0 = (RuleCall)cReturnParametersAssignment_6_1.eContents().get(0);
+		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
+		private final Assignment cBlockAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
+		private final RuleCall cBlockBlockParserRuleCall_7_0_0 = (RuleCall)cBlockAssignment_7_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_7_1 = (Keyword)cAlternatives_7.eContents().get(1);
 		
 		//// Anonymous function allowed when "name" is not specified.
 		//FunctionDefinition:
-		//	"function" {FunctionDefinition} name=ID? parameters=ParameterList
+		//	VisibilitySpecifier payable?='payable'? "function" name=ID parameters=ParameterList
 		//	optionalElements+=FunctionDefinitionOptionalElement* ("returns" returnParameters=ReturnsParameterList)? (block=Block
 		//	|
 		//	";");
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"function" {FunctionDefinition} name=ID? parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
-		//("returns" returnParameters=ReturnsParameterList)? (block=Block | ";")
+		//VisibilitySpecifier payable?='payable'? "function" name=ID parameters=ParameterList
+		//optionalElements+=FunctionDefinitionOptionalElement* ("returns" returnParameters=ReturnsParameterList)? (block=Block |
+		//";")
 		public Group getGroup() { return cGroup; }
 		
+		//VisibilitySpecifier
+		public RuleCall getVisibilitySpecifierParserRuleCall_0() { return cVisibilitySpecifierParserRuleCall_0; }
+		
+		//payable?='payable'?
+		public Assignment getPayableAssignment_1() { return cPayableAssignment_1; }
+		
+		//'payable'
+		public Keyword getPayablePayableKeyword_1_0() { return cPayablePayableKeyword_1_0; }
+		
 		//"function"
-		public Keyword getFunctionKeyword_0() { return cFunctionKeyword_0; }
+		public Keyword getFunctionKeyword_2() { return cFunctionKeyword_2; }
 		
-		//{FunctionDefinition}
-		public Action getFunctionDefinitionAction_1() { return cFunctionDefinitionAction_1; }
-		
-		//name=ID?
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 		
 		//parameters=ParameterList
-		public Assignment getParametersAssignment_3() { return cParametersAssignment_3; }
+		public Assignment getParametersAssignment_4() { return cParametersAssignment_4; }
 		
 		//ParameterList
-		public RuleCall getParametersParameterListParserRuleCall_3_0() { return cParametersParameterListParserRuleCall_3_0; }
+		public RuleCall getParametersParameterListParserRuleCall_4_0() { return cParametersParameterListParserRuleCall_4_0; }
 		
 		//optionalElements+=FunctionDefinitionOptionalElement*
-		public Assignment getOptionalElementsAssignment_4() { return cOptionalElementsAssignment_4; }
+		public Assignment getOptionalElementsAssignment_5() { return cOptionalElementsAssignment_5; }
 		
 		//FunctionDefinitionOptionalElement
-		public RuleCall getOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0() { return cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0; }
+		public RuleCall getOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_5_0() { return cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_5_0; }
 		
 		//("returns" returnParameters=ReturnsParameterList)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//"returns"
-		public Keyword getReturnsKeyword_5_0() { return cReturnsKeyword_5_0; }
+		public Keyword getReturnsKeyword_6_0() { return cReturnsKeyword_6_0; }
 		
 		//returnParameters=ReturnsParameterList
-		public Assignment getReturnParametersAssignment_5_1() { return cReturnParametersAssignment_5_1; }
+		public Assignment getReturnParametersAssignment_6_1() { return cReturnParametersAssignment_6_1; }
 		
 		//ReturnsParameterList
-		public RuleCall getReturnParametersReturnsParameterListParserRuleCall_5_1_0() { return cReturnParametersReturnsParameterListParserRuleCall_5_1_0; }
+		public RuleCall getReturnParametersReturnsParameterListParserRuleCall_6_1_0() { return cReturnParametersReturnsParameterListParserRuleCall_6_1_0; }
 		
 		//(block=Block | ";")
-		public Alternatives getAlternatives_6() { return cAlternatives_6; }
+		public Alternatives getAlternatives_7() { return cAlternatives_7; }
 		
 		//block=Block
-		public Assignment getBlockAssignment_6_0() { return cBlockAssignment_6_0; }
+		public Assignment getBlockAssignment_7_0() { return cBlockAssignment_7_0; }
 		
 		//Block
-		public RuleCall getBlockBlockParserRuleCall_6_0_0() { return cBlockBlockParserRuleCall_6_0_0; }
+		public RuleCall getBlockBlockParserRuleCall_7_0_0() { return cBlockBlockParserRuleCall_7_0_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_6_1() { return cSemicolonKeyword_6_1; }
+		public Keyword getSemicolonKeyword_7_1() { return cSemicolonKeyword_7_1; }
 	}
 	public class FunctionDefinitionOptionalElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.FunctionDefinitionOptionalElement");
@@ -671,62 +680,66 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class EnumDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.EnumDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEnumKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Assignment cMembersAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final RuleCall cMembersEnumValueParserRuleCall_3_0_0 = (RuleCall)cMembersAssignment_3_0.eContents().get(0);
-		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
-		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cMembersAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cMembersEnumValueParserRuleCall_3_1_1_0 = (RuleCall)cMembersAssignment_3_1_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final RuleCall cVisibilitySpecifierParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cEnumKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cMembersAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cMembersEnumValueParserRuleCall_4_0_0 = (RuleCall)cMembersAssignment_4_0.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cMembersAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cMembersEnumValueParserRuleCall_4_1_1_0 = (RuleCall)cMembersAssignment_4_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//EnumDefinition:
-		//	"enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)?
+		//	VisibilitySpecifier? "enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)?
 		//	"}";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)? "}"
+		//VisibilitySpecifier? "enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)? "}"
 		public Group getGroup() { return cGroup; }
 		
+		//VisibilitySpecifier?
+		public RuleCall getVisibilitySpecifierParserRuleCall_0() { return cVisibilitySpecifierParserRuleCall_0; }
+		
 		//"enum"
-		public Keyword getEnumKeyword_0() { return cEnumKeyword_0; }
+		public Keyword getEnumKeyword_1() { return cEnumKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
 		//(members+=EnumValue ("," members+=EnumValue)*)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//members+=EnumValue
-		public Assignment getMembersAssignment_3_0() { return cMembersAssignment_3_0; }
+		public Assignment getMembersAssignment_4_0() { return cMembersAssignment_4_0; }
 		
 		//EnumValue
-		public RuleCall getMembersEnumValueParserRuleCall_3_0_0() { return cMembersEnumValueParserRuleCall_3_0_0; }
+		public RuleCall getMembersEnumValueParserRuleCall_4_0_0() { return cMembersEnumValueParserRuleCall_4_0_0; }
 		
 		//("," members+=EnumValue)*
-		public Group getGroup_3_1() { return cGroup_3_1; }
+		public Group getGroup_4_1() { return cGroup_4_1; }
 		
 		//","
-		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
 		
 		//members+=EnumValue
-		public Assignment getMembersAssignment_3_1_1() { return cMembersAssignment_3_1_1; }
+		public Assignment getMembersAssignment_4_1_1() { return cMembersAssignment_4_1_1; }
 		
 		//EnumValue
-		public RuleCall getMembersEnumValueParserRuleCall_3_1_1_0() { return cMembersEnumValueParserRuleCall_3_1_1_0; }
+		public RuleCall getMembersEnumValueParserRuleCall_4_1_1_0() { return cMembersEnumValueParserRuleCall_4_1_1_0; }
 		
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class EnumValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.EnumValue");
@@ -1328,10 +1341,10 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonSemicolonKeyword_1_0 = (Keyword)cSemicolonAssignment_1.eContents().get(0);
 		
 		//// SimpleStatement
-		////---------------------
-		////SimpleStatement:
-		////     SimpleStatement2 ";"
-		////;
+		//// ---------------------
+		//// SimpleStatement:
+		//// SimpleStatement2 ";"
+		//// ;
 		//SimpleStatement:
 		//	(StandardTypeWithoutQualifiedIdentifier ({StandardVariableDeclaration.type=current}
 		//	ptionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) | VarType
@@ -5688,7 +5701,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// Anonymous function allowed when "name" is not specified.
 	//FunctionDefinition:
-	//	"function" {FunctionDefinition} name=ID? parameters=ParameterList
+	//	VisibilitySpecifier payable?='payable'? "function" name=ID parameters=ParameterList
 	//	optionalElements+=FunctionDefinitionOptionalElement* ("returns" returnParameters=ReturnsParameterList)? (block=Block
 	//	|
 	//	";");
@@ -5742,7 +5755,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EnumDefinition:
-	//	"enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)?
+	//	VisibilitySpecifier? "enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)?
 	//	"}";
 	public EnumDefinitionElements getEnumDefinitionAccess() {
 		return pEnumDefinition;
@@ -5950,10 +5963,10 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//// SimpleStatement
-	////---------------------
-	////SimpleStatement:
-	////     SimpleStatement2 ";"
-	////;
+	//// ---------------------
+	//// SimpleStatement:
+	//// SimpleStatement2 ";"
+	//// ;
 	//SimpleStatement:
 	//	(StandardTypeWithoutQualifiedIdentifier ({StandardVariableDeclaration.type=current}
 	//	ptionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) | VarType

@@ -35,4 +35,24 @@ contract HotelBooking {
 	
 	mapping(string=>address) roles;
 	mapping(string=>address) optionalRoles;
+	
+	public function subscribe_as_participant(string memory _role) public {
+		if(optionalRoles[_role]==0x0000000000000000000000000000000000000000) {
+			optionalRoles[_role]=msg.sender;
+		}
+	}
+	
+	function ExclusiveGateway_106je4z() {
+		require(elements[position["ExclusiveGateway_106je4z"]].status==State.ENABLED);
+		done("ExclusiveGateway_106je4z");
+		
+		if(currentMemory.confirm==true) {
+			enable("Message_1em0ee4");
+		}
+		
+		if(currentMemory.confirm==false) {
+			enable("ExclusiveGateway_0hs3ztq");
+			ExclusiveGateway_0hs3ztq();
+		}
+	}
 }

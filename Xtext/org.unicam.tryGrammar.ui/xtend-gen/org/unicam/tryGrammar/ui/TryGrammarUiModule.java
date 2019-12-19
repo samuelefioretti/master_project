@@ -3,17 +3,12 @@
  */
 package org.unicam.tryGrammar.ui;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
-import org.unicam.tryGrammar.ui.AbstractTryGrammarUiModule;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 @SuppressWarnings("all")
-public class TryGrammarUiModule extends AbstractTryGrammarUiModule {
-  public TryGrammarUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
-  }
+public class TryGrammarUiModule /* implements AbstractTryGrammarUiModule  */{
 }

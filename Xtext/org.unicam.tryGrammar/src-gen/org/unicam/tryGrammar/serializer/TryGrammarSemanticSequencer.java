@@ -48,7 +48,6 @@ import org.unicam.tryGrammar.tryGrammar.ForStatement;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallArg;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
-import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
 import org.unicam.tryGrammar.tryGrammar.Index;
@@ -232,9 +231,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case TryGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS:
 				sequence_FunctionCallListArguments(context, (FunctionCallListArguments) semanticObject); 
-				return; 
-			case TryGrammarPackage.FUNCTION_DEFINITION:
-				sequence_FunctionDefinition(context, (FunctionDefinition) semanticObject); 
 				return; 
 			case TryGrammarPackage.HEX_LITERAL:
 				sequence_HexLiteral(context, (HexLiteral) semanticObject); 
@@ -526,8 +522,21 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_Assignment(context, (VariableDeclarationExpression) semanticObject); 
 				return; 
 			case TryGrammarPackage.VISIBILITY_SPECIFIER:
-				sequence_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getEnumDefinitionRule()) {
+					sequence_EnumDefinition_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getFunctionDefinitionRule()) {
+					sequence_FunctionDefinition_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getFunctionDefinitionOptionalElementRule()
+						|| rule == grammarAccess.getVisibilitySpecifierRule()
+						|| rule == grammarAccess.getVariableDeclarationOptionalElementRule()) {
+					sequence_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
+					return; 
+				}
+				else break;
 			case TryGrammarPackage.WHILE_STATEMENT:
 				sequence_WhileStatement(context, (WhileStatement) semanticObject); 
 				return; 
@@ -1344,6 +1353,18 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     EnumDefinition returns VisibilitySpecifier
+	 *
+	 * Constraint:
+	 *     (visibility=VisibilityEnum name=ID (members+=EnumValue members+=EnumValue*)?)
+	 */
+	protected void sequence_EnumDefinition_VisibilitySpecifier(ISerializationContext context, VisibilitySpecifier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     EnumValue returns EnumValue
 	 *
 	 * Constraint:
@@ -1664,12 +1685,20 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     FunctionDefinition returns FunctionDefinition
+	 *     FunctionDefinition returns VisibilitySpecifier
 	 *
 	 * Constraint:
-	 *     (name=ID? parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* returnParameters=ReturnsParameterList? block=Block?)
+	 *     (
+	 *         visibility=VisibilityEnum 
+	 *         payable?='payable'? 
+	 *         name=ID 
+	 *         parameters=ParameterList 
+	 *         optionalElements+=FunctionDefinitionOptionalElement* 
+	 *         returnParameters=ReturnsParameterList? 
+	 *         block=Block?
+	 *     )
 	 */
-	protected void sequence_FunctionDefinition(ISerializationContext context, FunctionDefinition semanticObject) {
+	protected void sequence_FunctionDefinition_VisibilitySpecifier(ISerializationContext context, VisibilitySpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

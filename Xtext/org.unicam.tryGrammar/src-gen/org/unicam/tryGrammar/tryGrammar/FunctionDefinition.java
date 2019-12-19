@@ -3,8 +3,6 @@
  */
 package org.unicam.tryGrammar.tryGrammar;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,16 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Function Definition</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getName <em>Name</em>}</li>
- *   <li>{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getOptionalElements <em>Optional Elements</em>}</li>
- *   <li>{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getReturnParameters <em>Return Parameters</em>}</li>
- *   <li>{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getBlock <em>Block</em>}</li>
- * </ul>
  *
  * @see org.unicam.tryGrammar.tryGrammar.TryGrammarPackage#getFunctionDefinition()
  * @model
@@ -29,104 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface FunctionDefinition extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see org.unicam.tryGrammar.tryGrammar.TryGrammarPackage#getFunctionDefinition_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference.
-   * @see #setParameters(ParameterList)
-   * @see org.unicam.tryGrammar.tryGrammar.TryGrammarPackage#getFunctionDefinition_Parameters()
-   * @model containment="true"
-   * @generated
-   */
-  ParameterList getParameters();
-
-  /**
-   * Sets the value of the '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getParameters <em>Parameters</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parameters</em>' containment reference.
-   * @see #getParameters()
-   * @generated
-   */
-  void setParameters(ParameterList value);
-
-  /**
-   * Returns the value of the '<em><b>Optional Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.tryGrammar.tryGrammar.FunctionDefinitionOptionalElement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Optional Elements</em>' containment reference list.
-   * @see org.unicam.tryGrammar.tryGrammar.TryGrammarPackage#getFunctionDefinition_OptionalElements()
-   * @model containment="true"
-   * @generated
-   */
-  EList<FunctionDefinitionOptionalElement> getOptionalElements();
-
-  /**
-   * Returns the value of the '<em><b>Return Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Return Parameters</em>' containment reference.
-   * @see #setReturnParameters(ReturnsParameterList)
-   * @see org.unicam.tryGrammar.tryGrammar.TryGrammarPackage#getFunctionDefinition_ReturnParameters()
-   * @model containment="true"
-   * @generated
-   */
-  ReturnsParameterList getReturnParameters();
-
-  /**
-   * Sets the value of the '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getReturnParameters <em>Return Parameters</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Return Parameters</em>' containment reference.
-   * @see #getReturnParameters()
-   * @generated
-   */
-  void setReturnParameters(ReturnsParameterList value);
-
-  /**
-   * Returns the value of the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(Block)
-   * @see org.unicam.tryGrammar.tryGrammar.TryGrammarPackage#getFunctionDefinition_Block()
-   * @model containment="true"
-   * @generated
-   */
-  Block getBlock();
-
-  /**
-   * Sets the value of the '{@link org.unicam.tryGrammar.tryGrammar.FunctionDefinition#getBlock <em>Block</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Block</em>' containment reference.
-   * @see #getBlock()
-   * @generated
-   */
-  void setBlock(Block value);
-
 } // FunctionDefinition
