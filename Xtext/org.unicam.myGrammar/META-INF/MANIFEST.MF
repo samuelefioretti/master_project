@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.unicam.myGrammar
+Bundle-ManifestVersion: 2
+Bundle-Name: org.unicam.myGrammar
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.unicam.myGrammar; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.unicam.tryGrammar.myGrammar.util,
+ org.unicam.tryGrammar.scoping,
+ org.unicam.tryGrammar.serializer,
+ org.unicam.tryGrammar.parser.antlr,
+ org.unicam.tryGrammar.generator,
+ org.unicam.tryGrammar,
+ org.unicam.tryGrammar.parser.antlr.internal,
+ org.unicam.tryGrammar.myGrammar,
+ org.unicam.tryGrammar.services,
+ org.unicam.tryGrammar.myGrammar.impl,
+ org.unicam.tryGrammar.validation
+Import-Package: org.apache.log4j
