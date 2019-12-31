@@ -48,8 +48,10 @@ import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.tryGrammar.tryGrammar.GasleftFunction;
 import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
+import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.Index;
 import org.unicam.tryGrammar.tryGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.tryGrammar.InheritanceSpecifier;
@@ -57,7 +59,6 @@ import org.unicam.tryGrammar.tryGrammar.Library;
 import org.unicam.tryGrammar.tryGrammar.Literal;
 import org.unicam.tryGrammar.tryGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.tryGrammar.Mapping;
-import org.unicam.tryGrammar.tryGrammar.Model;
 import org.unicam.tryGrammar.tryGrammar.Modifier;
 import org.unicam.tryGrammar.tryGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.tryGrammar.MulDivMod;
@@ -80,6 +81,7 @@ import org.unicam.tryGrammar.tryGrammar.Shift;
 import org.unicam.tryGrammar.tryGrammar.SignExpression;
 import org.unicam.tryGrammar.tryGrammar.SimpleStatement;
 import org.unicam.tryGrammar.tryGrammar.SimpleStatement2;
+import org.unicam.tryGrammar.tryGrammar.Solidity;
 import org.unicam.tryGrammar.tryGrammar.SpecialExpression;
 import org.unicam.tryGrammar.tryGrammar.SpecialVariables;
 import org.unicam.tryGrammar.tryGrammar.StandardType;
@@ -88,6 +90,7 @@ import org.unicam.tryGrammar.tryGrammar.StandardVariableDeclaration;
 import org.unicam.tryGrammar.tryGrammar.Statement;
 import org.unicam.tryGrammar.tryGrammar.StringLiteral;
 import org.unicam.tryGrammar.tryGrammar.StructDefinition;
+import org.unicam.tryGrammar.tryGrammar.SymbolAlias;
 import org.unicam.tryGrammar.tryGrammar.ThrowStatement;
 import org.unicam.tryGrammar.tryGrammar.Time;
 import org.unicam.tryGrammar.tryGrammar.TryGrammarPackage;
@@ -168,9 +171,19 @@ public class TryGrammarAdapterFactory extends AdapterFactoryImpl
     new TryGrammarSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseSolidity(Solidity object)
       {
-        return createModelAdapter();
+        return createSolidityAdapter();
+      }
+      @Override
+      public Adapter caseImportDirective(ImportDirective object)
+      {
+        return createImportDirectiveAdapter();
+      }
+      @Override
+      public Adapter caseSymbolAlias(SymbolAlias object)
+      {
+        return createSymbolAliasAdapter();
       }
       @Override
       public Adapter caseContractOrLibrary(ContractOrLibrary object)
@@ -498,6 +511,11 @@ public class TryGrammarAdapterFactory extends AdapterFactoryImpl
         return createLiteralAdapter();
       }
       @Override
+      public Adapter caseGasleftFunction(GasleftFunction object)
+      {
+        return createGasleftFunctionAdapter();
+      }
+      @Override
       public Adapter caseBooleanConst(BooleanConst object)
       {
         return createBooleanConstAdapter();
@@ -655,16 +673,46 @@ public class TryGrammarAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.tryGrammar.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.tryGrammar.Solidity <em>Solidity</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.tryGrammar.tryGrammar.Model
+   * @see org.unicam.tryGrammar.tryGrammar.Solidity
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createSolidityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.tryGrammar.ImportDirective <em>Import Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.tryGrammar.ImportDirective
+   * @generated
+   */
+  public Adapter createImportDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.tryGrammar.SymbolAlias <em>Symbol Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.tryGrammar.SymbolAlias
+   * @generated
+   */
+  public Adapter createSymbolAliasAdapter()
   {
     return null;
   }
@@ -1640,6 +1688,21 @@ public class TryGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.tryGrammar.GasleftFunction <em>Gasleft Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.tryGrammar.GasleftFunction
+   * @generated
+   */
+  public Adapter createGasleftFunctionAdapter()
   {
     return null;
   }

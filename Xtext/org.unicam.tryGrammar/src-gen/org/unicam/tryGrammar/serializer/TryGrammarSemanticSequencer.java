@@ -48,15 +48,16 @@ import org.unicam.tryGrammar.tryGrammar.ForStatement;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallArg;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
+import org.unicam.tryGrammar.tryGrammar.GasleftFunction;
 import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
+import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.Index;
 import org.unicam.tryGrammar.tryGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.tryGrammar.InheritanceSpecifier;
 import org.unicam.tryGrammar.tryGrammar.Library;
 import org.unicam.tryGrammar.tryGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.tryGrammar.Mapping;
-import org.unicam.tryGrammar.tryGrammar.Model;
 import org.unicam.tryGrammar.tryGrammar.Modifier;
 import org.unicam.tryGrammar.tryGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.tryGrammar.MulDivMod;
@@ -76,11 +77,13 @@ import org.unicam.tryGrammar.tryGrammar.ReturnStatement;
 import org.unicam.tryGrammar.tryGrammar.ReturnsParameterList;
 import org.unicam.tryGrammar.tryGrammar.Shift;
 import org.unicam.tryGrammar.tryGrammar.SignExpression;
+import org.unicam.tryGrammar.tryGrammar.Solidity;
 import org.unicam.tryGrammar.tryGrammar.SpecialExpression;
 import org.unicam.tryGrammar.tryGrammar.SpecialVariables;
 import org.unicam.tryGrammar.tryGrammar.StandardVariableDeclaration;
 import org.unicam.tryGrammar.tryGrammar.StringLiteral;
 import org.unicam.tryGrammar.tryGrammar.StructDefinition;
+import org.unicam.tryGrammar.tryGrammar.SymbolAlias;
 import org.unicam.tryGrammar.tryGrammar.ThrowStatement;
 import org.unicam.tryGrammar.tryGrammar.Time;
 import org.unicam.tryGrammar.tryGrammar.TryGrammarPackage;
@@ -232,11 +235,17 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case TryGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS:
 				sequence_FunctionCallListArguments(context, (FunctionCallListArguments) semanticObject); 
 				return; 
+			case TryGrammarPackage.GASLEFT_FUNCTION:
+				sequence_GasleftFunction(context, (GasleftFunction) semanticObject); 
+				return; 
 			case TryGrammarPackage.HEX_LITERAL:
 				sequence_HexLiteral(context, (HexLiteral) semanticObject); 
 				return; 
 			case TryGrammarPackage.IF_STATEMENT:
 				sequence_IfStatement(context, (IfStatement) semanticObject); 
+				return; 
+			case TryGrammarPackage.IMPORT_DIRECTIVE:
+				sequence_ImportDirective(context, (ImportDirective) semanticObject); 
 				return; 
 			case TryGrammarPackage.INDEX:
 				sequence_Index(context, (Index) semanticObject); 
@@ -255,9 +264,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case TryGrammarPackage.MAPPING:
 				sequence_Mapping(context, (Mapping) semanticObject); 
-				return; 
-			case TryGrammarPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case TryGrammarPackage.MODIFIER:
 				sequence_Modifier(context, (Modifier) semanticObject); 
@@ -398,6 +404,9 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case TryGrammarPackage.SIGN_EXPRESSION:
 				sequence_SignExpression(context, (SignExpression) semanticObject); 
 				return; 
+			case TryGrammarPackage.SOLIDITY:
+				sequence_Solidity(context, (Solidity) semanticObject); 
+				return; 
 			case TryGrammarPackage.SPECIAL_EXPRESSION:
 				sequence_SpecialExpression(context, (SpecialExpression) semanticObject); 
 				return; 
@@ -425,6 +434,9 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case TryGrammarPackage.STRUCT_DEFINITION:
 				sequence_StructDefinition(context, (StructDefinition) semanticObject); 
+				return; 
+			case TryGrammarPackage.SYMBOL_ALIAS:
+				sequence_SymbolAlias(context, (SymbolAlias) semanticObject); 
 				return; 
 			case TryGrammarPackage.THROW_STATEMENT:
 				sequence_ThrowStatement(context, (ThrowStatement) semanticObject); 
@@ -1705,6 +1717,60 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Expression returns GasleftFunction
+	 *     Assignment returns GasleftFunction
+	 *     Assignment.Assignment_1_0_0 returns GasleftFunction
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns GasleftFunction
+	 *     BinaryExpression returns GasleftFunction
+	 *     Or returns GasleftFunction
+	 *     Or.Or_1_0 returns GasleftFunction
+	 *     And returns GasleftFunction
+	 *     And.And_1_0 returns GasleftFunction
+	 *     Equality returns GasleftFunction
+	 *     Equality.Equality_1_0 returns GasleftFunction
+	 *     Comparison returns GasleftFunction
+	 *     Comparison.Comparison_1_0 returns GasleftFunction
+	 *     BitOr returns GasleftFunction
+	 *     BitOr.BitOr_1_0 returns GasleftFunction
+	 *     BitXor returns GasleftFunction
+	 *     BitXor.BitXor_1_0 returns GasleftFunction
+	 *     BitAnd returns GasleftFunction
+	 *     BitAnd.BitAnd_1_0 returns GasleftFunction
+	 *     Shift returns GasleftFunction
+	 *     Shift.Shift_1_0 returns GasleftFunction
+	 *     AddSub returns GasleftFunction
+	 *     AddSub.AddSub_1_0_0 returns GasleftFunction
+	 *     MulDivMod returns GasleftFunction
+	 *     MulDivMod.MulDivMod_1_0 returns GasleftFunction
+	 *     Exponent returns GasleftFunction
+	 *     Exponent.Exponent_1_0 returns GasleftFunction
+	 *     UnaryExpression returns GasleftFunction
+	 *     PreExpression returns GasleftFunction
+	 *     PreExpression.PreIncExpression_1_2 returns GasleftFunction
+	 *     PreExpression.PreDecExpression_2_2 returns GasleftFunction
+	 *     PostIncDecExpression returns GasleftFunction
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns GasleftFunction
+	 *     PrimaryExpression returns GasleftFunction
+	 *     PrimaryExpression.Tuple_4_2_0 returns GasleftFunction
+	 *     Literal returns GasleftFunction
+	 *     GasleftFunction returns GasleftFunction
+	 *
+	 * Constraint:
+	 *     name='gasleft'
+	 */
+	protected void sequence_GasleftFunction(ISerializationContext context, GasleftFunction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TryGrammarPackage.eINSTANCE.getGasleftFunction_Name()) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TryGrammarPackage.eINSTANCE.getGasleftFunction_Name()));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGasleftFunctionAccess().getNameGasleftKeyword_0_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Expression returns HexLiteral
 	 *     Assignment returns HexLiteral
 	 *     Assignment.Assignment_1_0_0 returns HexLiteral
@@ -1767,6 +1833,18 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (condition=Expression trueBody=Statement falseBody=Statement?)
 	 */
 	protected void sequence_IfStatement(ISerializationContext context, IfStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ImportDirective returns ImportDirective
+	 *
+	 * Constraint:
+	 *     (importURI=STRING | (unitAlias=ID importURI=STRING) | (symbolAliases+=SymbolAlias symbolAliases+=SymbolAlias? importURI=STRING))
+	 */
+	protected void sequence_ImportDirective(ISerializationContext context, ImportDirective semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1864,18 +1942,6 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0(), semanticObject.getKeyType());
 		feeder.accept(grammarAccess.getMappingAccess().getValueTypeTypeParserRuleCall_4_0(), semanticObject.getValueType());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Model returns Model
-	 *
-	 * Constraint:
-	 *     operations+=Contract+
-	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -2820,6 +2886,18 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Solidity returns Solidity
+	 *
+	 * Constraint:
+	 *     (importDirective+=ImportDirective | contract+=Contract | library+=Library)+
+	 */
+	protected void sequence_Solidity(ISerializationContext context, Solidity semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Expression returns SpecialExpression
 	 *     SpecialExpression returns SpecialExpression
 	 *     Assignment returns SpecialExpression
@@ -2989,6 +3067,27 @@ public class TryGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_StructDefinition(ISerializationContext context, StructDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SymbolAlias returns SymbolAlias
+	 *
+	 * Constraint:
+	 *     (symbol=ID alias=ID)
+	 */
+	protected void sequence_SymbolAlias(ISerializationContext context, SymbolAlias semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TryGrammarPackage.eINSTANCE.getSymbolAlias_Symbol()) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TryGrammarPackage.eINSTANCE.getSymbolAlias_Symbol()));
+			if (transientValues.isValueTransient(semanticObject, TryGrammarPackage.eINSTANCE.getSymbolAlias_Alias()) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TryGrammarPackage.eINSTANCE.getSymbolAlias_Alias()));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSymbolAliasAccess().getSymbolIDTerminalRuleCall_0_0(), semanticObject.getSymbol());
+		feeder.accept(grammarAccess.getSymbolAliasAccess().getAliasIDTerminalRuleCall_2_0(), semanticObject.getAlias());
+		feeder.finish();
 	}
 	
 	

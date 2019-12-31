@@ -118,6 +118,7 @@ public class TryGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '++' (ambiguity) '(' ')' (rule start)
 	 *     (rule start) '++' (ambiguity) 'now' (rule start)
 	 *     (rule start) '++' (ambiguity) identifier=ID
+	 *     (rule start) '++' (ambiguity) name='gasleft'
 	 *     (rule start) '++' (ambiguity) type=SpecialExpressionTypeEnum
 	 *     (rule start) '++' (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) '++' (ambiguity) value=BooleanLiteralEnum
@@ -131,6 +132,7 @@ public class TryGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '--' (ambiguity) '(' ')' (rule start)
 	 *     (rule start) '--' (ambiguity) 'now' (rule start)
 	 *     (rule start) '--' (ambiguity) identifier=ID
+	 *     (rule start) '--' (ambiguity) name='gasleft'
 	 *     (rule start) '--' (ambiguity) type=SpecialExpressionTypeEnum
 	 *     (rule start) '--' (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) '--' (ambiguity) value=BooleanLiteralEnum
@@ -147,6 +149,7 @@ public class TryGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'now' (rule start)
 	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
 	 *     (rule start) (ambiguity) identifier=ID
+	 *     (rule start) (ambiguity) name='gasleft'
 	 *     (rule start) (ambiguity) signOp='+'
 	 *     (rule start) (ambiguity) signOp='-'
 	 *     (rule start) (ambiguity) type=SpecialExpressionTypeEnum
@@ -230,6 +233,7 @@ public class TryGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'now' (rule start)
 	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
 	 *     (rule start) (ambiguity) identifier=ID
+	 *     (rule start) (ambiguity) name='gasleft'
 	 *     (rule start) (ambiguity) signOp='+'
 	 *     (rule start) (ambiguity) signOp='-'
 	 *     (rule start) (ambiguity) type=SpecialExpressionTypeEnum

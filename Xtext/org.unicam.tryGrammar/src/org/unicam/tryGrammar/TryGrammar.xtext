@@ -571,7 +571,12 @@ Literal:
 	SpecialVariables |
 	BooleanConst |
 	Number |
-	StringLiteral
+	StringLiteral |
+	GasleftFunction
+;
+
+GasleftFunction:
+	name='gasleft' '(' ')'
 ;
 
 BooleanConst:

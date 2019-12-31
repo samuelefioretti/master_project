@@ -57,8 +57,10 @@ import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.tryGrammar.tryGrammar.GasleftFunction;
 import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
+import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.IncDecOpEnum;
 import org.unicam.tryGrammar.tryGrammar.Index;
 import org.unicam.tryGrammar.tryGrammar.IndexedSpecifer;
@@ -68,7 +70,6 @@ import org.unicam.tryGrammar.tryGrammar.Literal;
 import org.unicam.tryGrammar.tryGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.tryGrammar.LocationSpecifierEnum;
 import org.unicam.tryGrammar.tryGrammar.Mapping;
-import org.unicam.tryGrammar.tryGrammar.Model;
 import org.unicam.tryGrammar.tryGrammar.Modifier;
 import org.unicam.tryGrammar.tryGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.tryGrammar.MulDivMod;
@@ -94,6 +95,7 @@ import org.unicam.tryGrammar.tryGrammar.ShiftOpEnum;
 import org.unicam.tryGrammar.tryGrammar.SignExpression;
 import org.unicam.tryGrammar.tryGrammar.SimpleStatement;
 import org.unicam.tryGrammar.tryGrammar.SimpleStatement2;
+import org.unicam.tryGrammar.tryGrammar.Solidity;
 import org.unicam.tryGrammar.tryGrammar.SpecialExpression;
 import org.unicam.tryGrammar.tryGrammar.SpecialExpressionTypeEnum;
 import org.unicam.tryGrammar.tryGrammar.SpecialVariables;
@@ -104,6 +106,7 @@ import org.unicam.tryGrammar.tryGrammar.StandardVariableDeclaration;
 import org.unicam.tryGrammar.tryGrammar.Statement;
 import org.unicam.tryGrammar.tryGrammar.StringLiteral;
 import org.unicam.tryGrammar.tryGrammar.StructDefinition;
+import org.unicam.tryGrammar.tryGrammar.SymbolAlias;
 import org.unicam.tryGrammar.tryGrammar.ThrowStatement;
 import org.unicam.tryGrammar.tryGrammar.Time;
 import org.unicam.tryGrammar.tryGrammar.TimeSubdenominationEnum;
@@ -175,7 +178,9 @@ public class TryGrammarFactoryImpl extends EFactoryImpl implements TryGrammarFac
   {
     switch (eClass.getClassifierID())
     {
-      case TryGrammarPackage.MODEL: return createModel();
+      case TryGrammarPackage.SOLIDITY: return createSolidity();
+      case TryGrammarPackage.IMPORT_DIRECTIVE: return createImportDirective();
+      case TryGrammarPackage.SYMBOL_ALIAS: return createSymbolAlias();
       case TryGrammarPackage.CONTRACT_OR_LIBRARY: return createContractOrLibrary();
       case TryGrammarPackage.CONTRACT: return createContract();
       case TryGrammarPackage.LIBRARY: return createLibrary();
@@ -241,6 +246,7 @@ public class TryGrammarFactoryImpl extends EFactoryImpl implements TryGrammarFac
       case TryGrammarPackage.SIGN_EXPRESSION: return createSignExpression();
       case TryGrammarPackage.NEW_EXPRESSION: return createNewExpression();
       case TryGrammarPackage.LITERAL: return createLiteral();
+      case TryGrammarPackage.GASLEFT_FUNCTION: return createGasleftFunction();
       case TryGrammarPackage.BOOLEAN_CONST: return createBooleanConst();
       case TryGrammarPackage.NUMBER: return createNumber();
       case TryGrammarPackage.NUMBER_DIMENSIONLESS: return createNumberDimensionless();
@@ -373,10 +379,34 @@ public class TryGrammarFactoryImpl extends EFactoryImpl implements TryGrammarFac
    * @generated
    */
   @Override
-  public Model createModel()
+  public Solidity createSolidity()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    SolidityImpl solidity = new SolidityImpl();
+    return solidity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ImportDirective createImportDirective()
+  {
+    ImportDirectiveImpl importDirective = new ImportDirectiveImpl();
+    return importDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SymbolAlias createSymbolAlias()
+  {
+    SymbolAliasImpl symbolAlias = new SymbolAliasImpl();
+    return symbolAlias;
   }
 
   /**
@@ -1157,6 +1187,18 @@ public class TryGrammarFactoryImpl extends EFactoryImpl implements TryGrammarFac
   {
     LiteralImpl literal = new LiteralImpl();
     return literal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GasleftFunction createGasleftFunction()
+  {
+    GasleftFunctionImpl gasleftFunction = new GasleftFunctionImpl();
+    return gasleftFunction;
   }
 
   /**

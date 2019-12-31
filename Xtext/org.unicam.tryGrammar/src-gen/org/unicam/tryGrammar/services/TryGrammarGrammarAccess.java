@@ -26,20 +26,201 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.Model");
-		private final Assignment cOperationsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cOperationsContractParserRuleCall_0 = (RuleCall)cOperationsAssignment.eContents().get(0);
+	public class SolidityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.Solidity");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cImportDirectiveAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cImportDirectiveImportDirectiveParserRuleCall_0_0 = (RuleCall)cImportDirectiveAssignment_0.eContents().get(0);
+		private final Assignment cContractAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cContractContractParserRuleCall_1_0 = (RuleCall)cContractAssignment_1.eContents().get(0);
+		private final Assignment cLibraryAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cLibraryLibraryParserRuleCall_2_0 = (RuleCall)cLibraryAssignment_2.eContents().get(0);
 		
-		//Model:
-		//	operations+=Contract*;
+		//Solidity:
+		//	(importDirective+=ImportDirective | contract+=Contract | library+=Library)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//operations+=Contract*
-		public Assignment getOperationsAssignment() { return cOperationsAssignment; }
+		//(importDirective+=ImportDirective | contract+=Contract | library+=Library)*
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//importDirective+=ImportDirective
+		public Assignment getImportDirectiveAssignment_0() { return cImportDirectiveAssignment_0; }
+		
+		//ImportDirective
+		public RuleCall getImportDirectiveImportDirectiveParserRuleCall_0_0() { return cImportDirectiveImportDirectiveParserRuleCall_0_0; }
+		
+		//contract+=Contract
+		public Assignment getContractAssignment_1() { return cContractAssignment_1; }
 		
 		//Contract
-		public RuleCall getOperationsContractParserRuleCall_0() { return cOperationsContractParserRuleCall_0; }
+		public RuleCall getContractContractParserRuleCall_1_0() { return cContractContractParserRuleCall_1_0; }
+		
+		//library+=Library
+		public Assignment getLibraryAssignment_2() { return cLibraryAssignment_2; }
+		
+		//Library
+		public RuleCall getLibraryLibraryParserRuleCall_2_0() { return cLibraryLibraryParserRuleCall_2_0; }
+	}
+	public class ImportDirectiveElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.ImportDirective");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cImportKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cImportURIAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_0_1_0 = (RuleCall)cImportURIAssignment_0_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cImportKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cAsteriskKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cAsKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cUnitAliasAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cUnitAliasIDTerminalRuleCall_1_3_0 = (RuleCall)cUnitAliasAssignment_1_3.eContents().get(0);
+		private final Keyword cFromKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cImportURIAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_1_5_0 = (RuleCall)cImportURIAssignment_1_5.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cImportKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cSymbolAliasesAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cSymbolAliasesSymbolAliasParserRuleCall_2_2_0 = (RuleCall)cSymbolAliasesAssignment_2_2.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cSymbolAliasesAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cSymbolAliasesSymbolAliasParserRuleCall_2_3_1_0 = (RuleCall)cSymbolAliasesAssignment_2_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Keyword cFromKeyword_2_5 = (Keyword)cGroup_2.eContents().get(5);
+		private final Assignment cImportURIAssignment_2_6 = (Assignment)cGroup_2.eContents().get(6);
+		private final RuleCall cImportURISTRINGTerminalRuleCall_2_6_0 = (RuleCall)cImportURIAssignment_2_6.eContents().get(0);
+		private final Keyword cSemicolonKeyword_2_7 = (Keyword)cGroup_2.eContents().get(7);
+		
+		//ImportDirective:
+		//	"import" importURI=STRING ";" |
+		//	"import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+		//	"import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"import" importURI=STRING ";" | "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" | "import" "{"
+		//symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//"import" importURI=STRING ";"
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//"import"
+		public Keyword getImportKeyword_0_0() { return cImportKeyword_0_0; }
+		
+		//importURI=STRING
+		public Assignment getImportURIAssignment_0_1() { return cImportURIAssignment_0_1; }
+		
+		//STRING
+		public RuleCall getImportURISTRINGTerminalRuleCall_0_1_0() { return cImportURISTRINGTerminalRuleCall_0_1_0; }
+		
+		//";"
+		public Keyword getSemicolonKeyword_0_2() { return cSemicolonKeyword_0_2; }
+		
+		//"import" "*" "as" unitAlias=ID "from" importURI=STRING ";"
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//"import"
+		public Keyword getImportKeyword_1_0() { return cImportKeyword_1_0; }
+		
+		//"*"
+		public Keyword getAsteriskKeyword_1_1() { return cAsteriskKeyword_1_1; }
+		
+		//"as"
+		public Keyword getAsKeyword_1_2() { return cAsKeyword_1_2; }
+		
+		//unitAlias=ID
+		public Assignment getUnitAliasAssignment_1_3() { return cUnitAliasAssignment_1_3; }
+		
+		//ID
+		public RuleCall getUnitAliasIDTerminalRuleCall_1_3_0() { return cUnitAliasIDTerminalRuleCall_1_3_0; }
+		
+		//"from"
+		public Keyword getFromKeyword_1_4() { return cFromKeyword_1_4; }
+		
+		//importURI=STRING
+		public Assignment getImportURIAssignment_1_5() { return cImportURIAssignment_1_5; }
+		
+		//STRING
+		public RuleCall getImportURISTRINGTerminalRuleCall_1_5_0() { return cImportURISTRINGTerminalRuleCall_1_5_0; }
+		
+		//";"
+		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
+		
+		//"import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//"import"
+		public Keyword getImportKeyword_2_0() { return cImportKeyword_2_0; }
+		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
+		
+		//symbolAliases+=SymbolAlias
+		public Assignment getSymbolAliasesAssignment_2_2() { return cSymbolAliasesAssignment_2_2; }
+		
+		//SymbolAlias
+		public RuleCall getSymbolAliasesSymbolAliasParserRuleCall_2_2_0() { return cSymbolAliasesSymbolAliasParserRuleCall_2_2_0; }
+		
+		//("," symbolAliases+=SymbolAlias)?
+		public Group getGroup_2_3() { return cGroup_2_3; }
+		
+		//","
+		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
+		
+		//symbolAliases+=SymbolAlias
+		public Assignment getSymbolAliasesAssignment_2_3_1() { return cSymbolAliasesAssignment_2_3_1; }
+		
+		//SymbolAlias
+		public RuleCall getSymbolAliasesSymbolAliasParserRuleCall_2_3_1_0() { return cSymbolAliasesSymbolAliasParserRuleCall_2_3_1_0; }
+		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
+		
+		//"from"
+		public Keyword getFromKeyword_2_5() { return cFromKeyword_2_5; }
+		
+		//importURI=STRING
+		public Assignment getImportURIAssignment_2_6() { return cImportURIAssignment_2_6; }
+		
+		//STRING
+		public RuleCall getImportURISTRINGTerminalRuleCall_2_6_0() { return cImportURISTRINGTerminalRuleCall_2_6_0; }
+		
+		//";"
+		public Keyword getSemicolonKeyword_2_7() { return cSemicolonKeyword_2_7; }
+	}
+	public class SymbolAliasElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.SymbolAlias");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSymbolAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSymbolIDTerminalRuleCall_0_0 = (RuleCall)cSymbolAssignment_0.eContents().get(0);
+		private final Keyword cAsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAliasAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAliasIDTerminalRuleCall_2_0 = (RuleCall)cAliasAssignment_2.eContents().get(0);
+		
+		//SymbolAlias:
+		//	symbol=ID "as" alias=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//symbol=ID "as" alias=ID
+		public Group getGroup() { return cGroup; }
+		
+		//symbol=ID
+		public Assignment getSymbolAssignment_0() { return cSymbolAssignment_0; }
+		
+		//ID
+		public RuleCall getSymbolIDTerminalRuleCall_0_0() { return cSymbolIDTerminalRuleCall_0_0; }
+		
+		//"as"
+		public Keyword getAsKeyword_1() { return cAsKeyword_1; }
+		
+		//alias=ID
+		public Assignment getAliasAssignment_2() { return cAliasAssignment_2; }
+		
+		//ID
+		public RuleCall getAliasIDTerminalRuleCall_2_0() { return cAliasIDTerminalRuleCall_2_0; }
 	}
 	public class ContractOrLibraryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.ContractOrLibrary");
@@ -47,25 +228,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cContractParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLibraryParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		///*
-		// * Solidity:
-		// * (
-		// * importDirective+=ImportDirective |
-		// * contract+=Contract |
-		// * library+=Library
-		// * )*
-		// * ;
-		// * 
-		// * ImportDirective:
-		// * "import" importURI=STRING ";" |
-		// * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
-		// * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
-		// * ;
-		// * 
-		// * SymbolAlias:
-		// * symbol=ID "as" alias=ID
-		// * ;
-		//*/ ContractOrLibrary:
+		//ContractOrLibrary:
 		//	Contract | Library;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -3388,12 +3551,13 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBooleanConstParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cNumberParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cStringLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cGasleftFunctionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Literal:
-		//	SpecialVariables | BooleanConst | Number | StringLiteral;
+		//	SpecialVariables | BooleanConst | Number | StringLiteral | GasleftFunction;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SpecialVariables | BooleanConst | Number | StringLiteral
+		//SpecialVariables | BooleanConst | Number | StringLiteral | GasleftFunction
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//SpecialVariables
@@ -3407,6 +3571,36 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//StringLiteral
 		public RuleCall getStringLiteralParserRuleCall_3() { return cStringLiteralParserRuleCall_3; }
+		
+		//GasleftFunction
+		public RuleCall getGasleftFunctionParserRuleCall_4() { return cGasleftFunctionParserRuleCall_4; }
+	}
+	public class GasleftFunctionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.GasleftFunction");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cNameGasleftKeyword_0_0 = (Keyword)cNameAssignment_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//GasleftFunction:
+		//	name='gasleft' '(' ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name='gasleft' '(' ')'
+		public Group getGroup() { return cGroup; }
+		
+		//name='gasleft'
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//'gasleft'
+		public Keyword getNameGasleftKeyword_0_0() { return cNameGasleftKeyword_0_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
 	}
 	public class BooleanConstElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.tryGrammar.TryGrammar.BooleanConst");
@@ -5307,7 +5501,9 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getILLEGALILLEGALKeyword_13_0() { return cILLEGALILLEGALKeyword_13_0; }
 	}
 	
-	private final ModelElements pModel;
+	private final SolidityElements pSolidity;
+	private final ImportDirectiveElements pImportDirective;
+	private final SymbolAliasElements pSymbolAlias;
 	private final ContractOrLibraryElements pContractOrLibrary;
 	private final ContractElements pContract;
 	private final LibraryElements pLibrary;
@@ -5392,6 +5588,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final PostIncDecExpressionElements pPostIncDecExpression;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final LiteralElements pLiteral;
+	private final GasleftFunctionElements pGasleftFunction;
 	private final BooleanConstElements pBooleanConst;
 	private final NumberElements pNumber;
 	private final NumberDimensionlessElements pNumberDimensionless;
@@ -5434,7 +5631,9 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	@Inject
 	public TryGrammarGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.pModel = new ModelElements();
+		this.pSolidity = new SolidityElements();
+		this.pImportDirective = new ImportDirectiveElements();
+		this.pSymbolAlias = new SymbolAliasElements();
 		this.pContractOrLibrary = new ContractOrLibraryElements();
 		this.pContract = new ContractElements();
 		this.pLibrary = new LibraryElements();
@@ -5519,6 +5718,7 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPostIncDecExpression = new PostIncDecExpressionElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pLiteral = new LiteralElements();
+		this.pGasleftFunction = new GasleftFunctionElements();
 		this.pBooleanConst = new BooleanConstElements();
 		this.pNumber = new NumberElements();
 		this.pNumberDimensionless = new NumberDimensionlessElements();
@@ -5580,35 +5780,39 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 
 	
-	//Model:
-	//	operations+=Contract*;
-	public ModelElements getModelAccess() {
-		return pModel;
+	//Solidity:
+	//	(importDirective+=ImportDirective | contract+=Contract | library+=Library)*;
+	public SolidityElements getSolidityAccess() {
+		return pSolidity;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getSolidityRule() {
+		return getSolidityAccess().getRule();
 	}
 	
-	///*
-	// * Solidity:
-	// * (
-	// * importDirective+=ImportDirective |
-	// * contract+=Contract |
-	// * library+=Library
-	// * )*
-	// * ;
-	// * 
-	// * ImportDirective:
-	// * "import" importURI=STRING ";" |
-	// * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
-	// * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
-	// * ;
-	// * 
-	// * SymbolAlias:
-	// * symbol=ID "as" alias=ID
-	// * ;
-	//*/ ContractOrLibrary:
+	//ImportDirective:
+	//	"import" importURI=STRING ";" |
+	//	"import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+	//	"import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
+	public ImportDirectiveElements getImportDirectiveAccess() {
+		return pImportDirective;
+	}
+	
+	public ParserRule getImportDirectiveRule() {
+		return getImportDirectiveAccess().getRule();
+	}
+	
+	//SymbolAlias:
+	//	symbol=ID "as" alias=ID;
+	public SymbolAliasElements getSymbolAliasAccess() {
+		return pSymbolAlias;
+	}
+	
+	public ParserRule getSymbolAliasRule() {
+		return getSymbolAliasAccess().getRule();
+	}
+	
+	//ContractOrLibrary:
 	//	Contract | Library;
 	public ContractOrLibraryElements getContractOrLibraryAccess() {
 		return pContractOrLibrary;
@@ -6505,13 +6709,23 @@ public class TryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Literal:
-	//	SpecialVariables | BooleanConst | Number | StringLiteral;
+	//	SpecialVariables | BooleanConst | Number | StringLiteral | GasleftFunction;
 	public LiteralElements getLiteralAccess() {
 		return pLiteral;
 	}
 	
 	public ParserRule getLiteralRule() {
 		return getLiteralAccess().getRule();
+	}
+	
+	//GasleftFunction:
+	//	name='gasleft' '(' ')';
+	public GasleftFunctionElements getGasleftFunctionAccess() {
+		return pGasleftFunction;
+	}
+	
+	public ParserRule getGasleftFunctionRule() {
+		return getGasleftFunctionAccess().getRule();
 	}
 	
 	//BooleanConst:

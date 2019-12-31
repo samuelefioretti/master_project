@@ -24,13 +24,31 @@ public interface TryGrammarFactory extends EFactory
   TryGrammarFactory eINSTANCE = org.unicam.tryGrammar.tryGrammar.impl.TryGrammarFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Solidity</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Solidity</em>'.
    * @generated
    */
-  Model createModel();
+  Solidity createSolidity();
+
+  /**
+   * Returns a new object of class '<em>Import Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import Directive</em>'.
+   * @generated
+   */
+  ImportDirective createImportDirective();
+
+  /**
+   * Returns a new object of class '<em>Symbol Alias</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol Alias</em>'.
+   * @generated
+   */
+  SymbolAlias createSymbolAlias();
 
   /**
    * Returns a new object of class '<em>Contract Or Library</em>'.
@@ -616,6 +634,15 @@ public interface TryGrammarFactory extends EFactory
    * @generated
    */
   Literal createLiteral();
+
+  /**
+   * Returns a new object of class '<em>Gasleft Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Gasleft Function</em>'.
+   * @generated
+   */
+  GasleftFunction createGasleftFunction();
 
   /**
    * Returns a new object of class '<em>Boolean Const</em>'.

@@ -46,8 +46,10 @@ import org.unicam.tryGrammar.tryGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionCallListArguments;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.tryGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.tryGrammar.tryGrammar.GasleftFunction;
 import org.unicam.tryGrammar.tryGrammar.HexLiteral;
 import org.unicam.tryGrammar.tryGrammar.IfStatement;
+import org.unicam.tryGrammar.tryGrammar.ImportDirective;
 import org.unicam.tryGrammar.tryGrammar.Index;
 import org.unicam.tryGrammar.tryGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.tryGrammar.InheritanceSpecifier;
@@ -55,7 +57,6 @@ import org.unicam.tryGrammar.tryGrammar.Library;
 import org.unicam.tryGrammar.tryGrammar.Literal;
 import org.unicam.tryGrammar.tryGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.tryGrammar.Mapping;
-import org.unicam.tryGrammar.tryGrammar.Model;
 import org.unicam.tryGrammar.tryGrammar.Modifier;
 import org.unicam.tryGrammar.tryGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.tryGrammar.MulDivMod;
@@ -78,6 +79,7 @@ import org.unicam.tryGrammar.tryGrammar.Shift;
 import org.unicam.tryGrammar.tryGrammar.SignExpression;
 import org.unicam.tryGrammar.tryGrammar.SimpleStatement;
 import org.unicam.tryGrammar.tryGrammar.SimpleStatement2;
+import org.unicam.tryGrammar.tryGrammar.Solidity;
 import org.unicam.tryGrammar.tryGrammar.SpecialExpression;
 import org.unicam.tryGrammar.tryGrammar.SpecialVariables;
 import org.unicam.tryGrammar.tryGrammar.StandardType;
@@ -86,6 +88,7 @@ import org.unicam.tryGrammar.tryGrammar.StandardVariableDeclaration;
 import org.unicam.tryGrammar.tryGrammar.Statement;
 import org.unicam.tryGrammar.tryGrammar.StringLiteral;
 import org.unicam.tryGrammar.tryGrammar.StructDefinition;
+import org.unicam.tryGrammar.tryGrammar.SymbolAlias;
 import org.unicam.tryGrammar.tryGrammar.ThrowStatement;
 import org.unicam.tryGrammar.tryGrammar.Time;
 import org.unicam.tryGrammar.tryGrammar.TryGrammarPackage;
@@ -165,10 +168,24 @@ public class TryGrammarSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case TryGrammarPackage.MODEL:
+      case TryGrammarPackage.SOLIDITY:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        Solidity solidity = (Solidity)theEObject;
+        T result = caseSolidity(solidity);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TryGrammarPackage.IMPORT_DIRECTIVE:
+      {
+        ImportDirective importDirective = (ImportDirective)theEObject;
+        T result = caseImportDirective(importDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TryGrammarPackage.SYMBOL_ALIAS:
+      {
+        SymbolAlias symbolAlias = (SymbolAlias)theEObject;
+        T result = caseSymbolAlias(symbolAlias);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -692,6 +709,15 @@ public class TryGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TryGrammarPackage.GASLEFT_FUNCTION:
+      {
+        GasleftFunction gasleftFunction = (GasleftFunction)theEObject;
+        T result = caseGasleftFunction(gasleftFunction);
+        if (result == null) result = caseLiteral(gasleftFunction);
+        if (result == null) result = caseExpression(gasleftFunction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case TryGrammarPackage.BOOLEAN_CONST:
       {
         BooleanConst booleanConst = (BooleanConst)theEObject;
@@ -932,17 +958,49 @@ public class TryGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Solidity</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Solidity</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseSolidity(Solidity object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Import Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Import Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImportDirective(ImportDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbol Alias</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbol Alias</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbolAlias(SymbolAlias object)
   {
     return null;
   }
@@ -1983,6 +2041,22 @@ public class TryGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLiteral(Literal object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Gasleft Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Gasleft Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGasleftFunction(GasleftFunction object)
   {
     return null;
   }
