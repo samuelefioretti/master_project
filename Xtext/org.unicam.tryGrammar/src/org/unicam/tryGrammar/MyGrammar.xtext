@@ -324,6 +324,26 @@ ReturnParameterDeclaration:
 	typeRef=Type variable=Variable?
 ;
 
+PrimaryTypeDeclaration:
+	ArrayableDeclaration |
+	NonArrayableDeclaration
+;
+
+NonArrayableDeclaration:
+	location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilitySpecifier? type=ElementaryTypeNameEnum name=ID
+;
+
+ArrayableDeclaration:
+	constant?='constant'? visibility=VisibilitySpecifier? type=ElementaryTypeNameEnum name=ID
+;
+
+SimpleTypeDeclaration:
+	type=(
+		'string' |
+		'bool'
+	)
+;
+
 Statement:
 	IfStatement |
 	WhileStatement |
@@ -579,6 +599,49 @@ Literal:
 	//EcrecoverFunction
 ;
 
+IntParameter:
+	ref=[ArrayableDeclaration] |
+	param=ArithmeticOperations |
+	fun=FunctionCallListArguments
+;
+
+ArithmeticOperations:
+	first=PrimaryArithmetic seconds+=(SecondOperators)*
+;
+
+PrimaryArithmetic:
+	NumericLiteral |
+	'(' LogicalOperations ')'
+;
+
+SecondOperators:
+	operator=('+' | '-' | '/' | '*') value=PrimaryArithmetic
+;
+
+LogicalOperations:
+	first=Literal operations+=ConditionOperation* |
+	negate?='NOT' first=Literal operations+=ConditionOperation* |
+	ternary?='TERNARY' first=Literal '?' true=Literal ':' false=Literal
+;
+
+ConditionOperation:
+	operation=LogicalOperationLiteral negateSecond='NOT'? seconds=Literal
+;
+
+NumericLiteral:
+	(
+		intValue=NumberDimensionless |
+		hexValue=HexLiteral |
+		decimalValue=DecimalLiteral
+	)
+	etherUnit=UnitTypes?
+;
+
+UnitTypes:
+	time=TimeSubdenominationEnum |
+	units=EtherSubDenominationEnum
+;
+
 GasleftFunction:
 	name='gasleft' '(' ')'
 ;
@@ -588,14 +651,16 @@ GasleftFunction:
  * 'blockhash' '(' parameter=IntParameter ')';
  * 
  * HashFunction:
- * name=('keccak256' | 'sha256' | 'ripemd160') '(' parameters=IntParameter ')';
- * 
+ * name=('keccak256' | 'sha256' | 'ripemd160') '(' parameters=IntParameter ')'
+ * ;
+ *
  * MathematicalFunction:
  * function=('addmod' | 'mulmod') '('
  * parameters+=IntParameter ','
  * parameters+=IntParameter ','
  * parameters+=IntParameter
- * ')';
+ * ')'
+ * ;
  * EcrecoverFunction:
  * function='ecrecover' '('
  * parameters+=IntParameter ','
@@ -835,6 +900,17 @@ enum AssignmentOpEnum:
 	ASSIGN_MOD="%="
 ;
 
+enum LogicalOperationLiteral:
+	NOTEQUAL='!=' |
+	EQUAL='==' |
+	AND='&&' |
+	OR='||' |
+	GTE='>=' |
+	LTE='<=' |
+	GT='>' |
+	LT='<'
+;
+
 enum EqualityOpEnum:
 	EQ="==" |
 	NOTEQ="!="
@@ -897,7 +973,7 @@ SpecialVariablesTypeEnum:
 	name=(
 		BLOCK |
 		MSG |
-		TX
+		TX 
 	)
 ;
 

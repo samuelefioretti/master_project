@@ -13,7 +13,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.unicam.tryGrammar.myGrammar.AddSub;
 import org.unicam.tryGrammar.myGrammar.And;
 import org.unicam.tryGrammar.myGrammar.Arguments;
+import org.unicam.tryGrammar.myGrammar.ArithmeticOperations;
 import org.unicam.tryGrammar.myGrammar.ArrayDimensions;
+import org.unicam.tryGrammar.myGrammar.ArrayableDeclaration;
 import org.unicam.tryGrammar.myGrammar.Assignment;
 import org.unicam.tryGrammar.myGrammar.BinaryNotExpression;
 import org.unicam.tryGrammar.myGrammar.BitAnd;
@@ -24,6 +26,7 @@ import org.unicam.tryGrammar.myGrammar.Body;
 import org.unicam.tryGrammar.myGrammar.BooleanConst;
 import org.unicam.tryGrammar.myGrammar.BreakStatement;
 import org.unicam.tryGrammar.myGrammar.Comparison;
+import org.unicam.tryGrammar.myGrammar.ConditionOperation;
 import org.unicam.tryGrammar.myGrammar.Const;
 import org.unicam.tryGrammar.myGrammar.ConstantSpecifier;
 import org.unicam.tryGrammar.myGrammar.Continue;
@@ -56,33 +59,41 @@ import org.unicam.tryGrammar.myGrammar.ImportDirective;
 import org.unicam.tryGrammar.myGrammar.Index;
 import org.unicam.tryGrammar.myGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.myGrammar.InheritanceSpecifier;
+import org.unicam.tryGrammar.myGrammar.IntParameter;
 import org.unicam.tryGrammar.myGrammar.Library;
 import org.unicam.tryGrammar.myGrammar.Literal;
 import org.unicam.tryGrammar.myGrammar.LocationSpecifier;
+import org.unicam.tryGrammar.myGrammar.LogicalOperations;
 import org.unicam.tryGrammar.myGrammar.Mapping;
 import org.unicam.tryGrammar.myGrammar.Modifier;
 import org.unicam.tryGrammar.myGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.myGrammar.MulDivMod;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
 import org.unicam.tryGrammar.myGrammar.NewExpression;
+import org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration;
 import org.unicam.tryGrammar.myGrammar.NotExpression;
 import org.unicam.tryGrammar.myGrammar.Now;
 import org.unicam.tryGrammar.myGrammar.NumberDimensionless;
+import org.unicam.tryGrammar.myGrammar.NumericLiteral;
 import org.unicam.tryGrammar.myGrammar.Or;
 import org.unicam.tryGrammar.myGrammar.ParameterList;
 import org.unicam.tryGrammar.myGrammar.PlaceHolderStatement;
 import org.unicam.tryGrammar.myGrammar.PostIncDecExpression;
 import org.unicam.tryGrammar.myGrammar.PreDecExpression;
 import org.unicam.tryGrammar.myGrammar.PreIncExpression;
+import org.unicam.tryGrammar.myGrammar.PrimaryArithmetic;
+import org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.QualifiedIdentifier;
 import org.unicam.tryGrammar.myGrammar.Qualifier;
 import org.unicam.tryGrammar.myGrammar.ReturnParameterDeclaration;
 import org.unicam.tryGrammar.myGrammar.ReturnStatement;
 import org.unicam.tryGrammar.myGrammar.ReturnsParameterList;
+import org.unicam.tryGrammar.myGrammar.SecondOperators;
 import org.unicam.tryGrammar.myGrammar.Shift;
 import org.unicam.tryGrammar.myGrammar.SignExpression;
 import org.unicam.tryGrammar.myGrammar.SimpleStatement;
 import org.unicam.tryGrammar.myGrammar.SimpleStatement2;
+import org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Solidity;
 import org.unicam.tryGrammar.myGrammar.SpecialExpression;
 import org.unicam.tryGrammar.myGrammar.SpecialVariables;
@@ -100,6 +111,7 @@ import org.unicam.tryGrammar.myGrammar.Tuple;
 import org.unicam.tryGrammar.myGrammar.TupleSeparator;
 import org.unicam.tryGrammar.myGrammar.Type;
 import org.unicam.tryGrammar.myGrammar.TypeCast;
+import org.unicam.tryGrammar.myGrammar.UnitTypes;
 import org.unicam.tryGrammar.myGrammar.VarVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTypeDeclaration;
@@ -418,6 +430,26 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
         return createReturnParameterDeclarationAdapter();
       }
       @Override
+      public Adapter casePrimaryTypeDeclaration(PrimaryTypeDeclaration object)
+      {
+        return createPrimaryTypeDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseNonArrayableDeclaration(NonArrayableDeclaration object)
+      {
+        return createNonArrayableDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseArrayableDeclaration(ArrayableDeclaration object)
+      {
+        return createArrayableDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseSimpleTypeDeclaration(SimpleTypeDeclaration object)
+      {
+        return createSimpleTypeDeclarationAdapter();
+      }
+      @Override
       public Adapter caseDeleteStatement(DeleteStatement object)
       {
         return createDeleteStatementAdapter();
@@ -511,6 +543,46 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLiteral(Literal object)
       {
         return createLiteralAdapter();
+      }
+      @Override
+      public Adapter caseIntParameter(IntParameter object)
+      {
+        return createIntParameterAdapter();
+      }
+      @Override
+      public Adapter caseArithmeticOperations(ArithmeticOperations object)
+      {
+        return createArithmeticOperationsAdapter();
+      }
+      @Override
+      public Adapter casePrimaryArithmetic(PrimaryArithmetic object)
+      {
+        return createPrimaryArithmeticAdapter();
+      }
+      @Override
+      public Adapter caseSecondOperators(SecondOperators object)
+      {
+        return createSecondOperatorsAdapter();
+      }
+      @Override
+      public Adapter caseLogicalOperations(LogicalOperations object)
+      {
+        return createLogicalOperationsAdapter();
+      }
+      @Override
+      public Adapter caseConditionOperation(ConditionOperation object)
+      {
+        return createConditionOperationAdapter();
+      }
+      @Override
+      public Adapter caseNumericLiteral(NumericLiteral object)
+      {
+        return createNumericLiteralAdapter();
+      }
+      @Override
+      public Adapter caseUnitTypes(UnitTypes object)
+      {
+        return createUnitTypesAdapter();
       }
       @Override
       public Adapter caseGasleftFunction(GasleftFunction object)
@@ -1420,6 +1492,66 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration <em>Primary Type Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration
+   * @generated
+   */
+  public Adapter createPrimaryTypeDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration <em>Non Arrayable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration
+   * @generated
+   */
+  public Adapter createNonArrayableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.ArrayableDeclaration <em>Arrayable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.ArrayableDeclaration
+   * @generated
+   */
+  public Adapter createArrayableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration <em>Simple Type Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration
+   * @generated
+   */
+  public Adapter createSimpleTypeDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.DeleteStatement <em>Delete Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1700,6 +1832,126 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.IntParameter <em>Int Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.IntParameter
+   * @generated
+   */
+  public Adapter createIntParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.ArithmeticOperations <em>Arithmetic Operations</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.ArithmeticOperations
+   * @generated
+   */
+  public Adapter createArithmeticOperationsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.PrimaryArithmetic <em>Primary Arithmetic</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.PrimaryArithmetic
+   * @generated
+   */
+  public Adapter createPrimaryArithmeticAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.SecondOperators <em>Second Operators</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.SecondOperators
+   * @generated
+   */
+  public Adapter createSecondOperatorsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.LogicalOperations <em>Logical Operations</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.LogicalOperations
+   * @generated
+   */
+  public Adapter createLogicalOperationsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.ConditionOperation <em>Condition Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.ConditionOperation
+   * @generated
+   */
+  public Adapter createConditionOperationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.NumericLiteral <em>Numeric Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.NumericLiteral
+   * @generated
+   */
+  public Adapter createNumericLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.UnitTypes <em>Unit Types</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.UnitTypes
+   * @generated
+   */
+  public Adapter createUnitTypesAdapter()
   {
     return null;
   }

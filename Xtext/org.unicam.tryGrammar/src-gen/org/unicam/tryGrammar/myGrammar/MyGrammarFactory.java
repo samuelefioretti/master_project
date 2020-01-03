@@ -465,6 +465,42 @@ public interface MyGrammarFactory extends EFactory
   ReturnParameterDeclaration createReturnParameterDeclaration();
 
   /**
+   * Returns a new object of class '<em>Primary Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primary Type Declaration</em>'.
+   * @generated
+   */
+  PrimaryTypeDeclaration createPrimaryTypeDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Non Arrayable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Non Arrayable Declaration</em>'.
+   * @generated
+   */
+  NonArrayableDeclaration createNonArrayableDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Arrayable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Arrayable Declaration</em>'.
+   * @generated
+   */
+  ArrayableDeclaration createArrayableDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Simple Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Type Declaration</em>'.
+   * @generated
+   */
+  SimpleTypeDeclaration createSimpleTypeDeclaration();
+
+  /**
    * Returns a new object of class '<em>Delete Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -634,6 +670,78 @@ public interface MyGrammarFactory extends EFactory
    * @generated
    */
   Literal createLiteral();
+
+  /**
+   * Returns a new object of class '<em>Int Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Parameter</em>'.
+   * @generated
+   */
+  IntParameter createIntParameter();
+
+  /**
+   * Returns a new object of class '<em>Arithmetic Operations</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Arithmetic Operations</em>'.
+   * @generated
+   */
+  ArithmeticOperations createArithmeticOperations();
+
+  /**
+   * Returns a new object of class '<em>Primary Arithmetic</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primary Arithmetic</em>'.
+   * @generated
+   */
+  PrimaryArithmetic createPrimaryArithmetic();
+
+  /**
+   * Returns a new object of class '<em>Second Operators</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Second Operators</em>'.
+   * @generated
+   */
+  SecondOperators createSecondOperators();
+
+  /**
+   * Returns a new object of class '<em>Logical Operations</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logical Operations</em>'.
+   * @generated
+   */
+  LogicalOperations createLogicalOperations();
+
+  /**
+   * Returns a new object of class '<em>Condition Operation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Condition Operation</em>'.
+   * @generated
+   */
+  ConditionOperation createConditionOperation();
+
+  /**
+   * Returns a new object of class '<em>Numeric Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Numeric Literal</em>'.
+   * @generated
+   */
+  NumericLiteral createNumericLiteral();
+
+  /**
+   * Returns a new object of class '<em>Unit Types</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unit Types</em>'.
+   * @generated
+   */
+  UnitTypes createUnitTypes();
 
   /**
    * Returns a new object of class '<em>Gasleft Function</em>'.

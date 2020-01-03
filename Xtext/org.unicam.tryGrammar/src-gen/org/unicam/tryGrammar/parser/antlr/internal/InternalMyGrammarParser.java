@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_HEX", "RULE_DECIMAL", "RULE_BLOCK", "RULE_MSG", "RULE_TX", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "';'", "'*'", "'as'", "'from'", "'{'", "','", "'}'", "'contract'", "'is'", "'library'", "'('", "')'", "':'", "'payable'", "'function'", "'returns'", "'constant'", "'struct'", "'enum'", "'='", "'indexed'", "'mapping'", "'=>'", "'['", "']'", "'var'", "'.'", "'modifier'", "'event'", "'anonymous'", "'delete'", "'if'", "'else'", "'while'", "'for'", "'continue'", "'break'", "'return'", "'throw'", "'_'", "'||'", "'&&'", "'|'", "'^'", "'&'", "'**'", "'!'", "'~'", "'+'", "'-'", "'new'", "'++'", "'--'", "'gasleft'", "'now'", "'int'", "'int16'", "'int24'", "'int32'", "'int40'", "'int48'", "'int56'", "'int64'", "'int72'", "'int80'", "'int88'", "'int96'", "'int104'", "'int112'", "'int120'", "'int128'", "'int136'", "'int144'", "'int152'", "'int160'", "'int168'", "'int178'", "'int184'", "'int192'", "'int200'", "'int208'", "'int216'", "'int224'", "'int232'", "'int240'", "'int248'", "'int256'", "'uint'", "'uint8'", "'uint16'", "'uint24'", "'uint32'", "'uint40'", "'uint48'", "'uint56'", "'uint64'", "'uint72'", "'uint80'", "'uint88'", "'uint96'", "'uint104'", "'uint112'", "'uint120'", "'uint128'", "'uint136'", "'uint144'", "'uint152'", "'uint160'", "'uint168'", "'uint178'", "'uint184'", "'uint192'", "'uint200'", "'uint208'", "'uint216'", "'uint224'", "'uint232'", "'uint240'", "'uint248'", "'uint256'", "'byte'", "'bytes'", "'bytes1'", "'bytes2'", "'bytes3'", "'bytes4'", "'bytes5'", "'bytes6'", "'bytes7'", "'bytes8'", "'bytes9'", "'bytes10'", "'bytes11'", "'bytes12'", "'bytes13'", "'bytes14'", "'bytes15'", "'bytes16'", "'bytes17'", "'bytes18'", "'bytes19'", "'bytes20'", "'bytes21'", "'bytes22'", "'bytes23'", "'bytes24'", "'bytes25'", "'bytes26'", "'bytes27'", "'bytes28'", "'bytes29'", "'bytes30'", "'bytes31'", "'bytes32'", "'string'", "'address'", "'bool'", "'real'", "'ureal'", "'memory'", "'storage'", "'calldata'", "'public'", "'internal'", "'private'", "'external'", "'|='", "'^='", "'&='", "'<<='", "'>>='", "'>>>='", "'+='", "'-='", "'*='", "'/='", "'%='", "'=='", "'!='", "'<'", "'>'", "'<='", "'>='", "'in'", "'<<'", "'>>'", "'>>>'", "'/'", "'%'", "'true'", "'false'", "'wei'", "'szabo'", "'finney'", "'ether'", "'seconds'", "'minutes'", "'hours'", "'days'", "'weeks'", "'years'", "'super'", "'this'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_HEX", "RULE_DECIMAL", "RULE_BLOCK", "RULE_MSG", "RULE_TX", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'import'", "';'", "'*'", "'as'", "'from'", "'{'", "','", "'}'", "'contract'", "'is'", "'library'", "'('", "')'", "':'", "'payable'", "'function'", "'returns'", "'constant'", "'struct'", "'enum'", "'='", "'indexed'", "'mapping'", "'=>'", "'['", "']'", "'var'", "'.'", "'modifier'", "'event'", "'anonymous'", "'delete'", "'if'", "'else'", "'while'", "'for'", "'continue'", "'break'", "'return'", "'throw'", "'_'", "'||'", "'&&'", "'|'", "'^'", "'&'", "'**'", "'!'", "'~'", "'+'", "'-'", "'new'", "'++'", "'--'", "'/'", "'NOT'", "'TERNARY'", "'?'", "'gasleft'", "'now'", "'int'", "'int16'", "'int24'", "'int32'", "'int40'", "'int48'", "'int56'", "'int64'", "'int72'", "'int80'", "'int88'", "'int96'", "'int104'", "'int112'", "'int120'", "'int128'", "'int136'", "'int144'", "'int152'", "'int160'", "'int168'", "'int178'", "'int184'", "'int192'", "'int200'", "'int208'", "'int216'", "'int224'", "'int232'", "'int240'", "'int248'", "'int256'", "'uint'", "'uint8'", "'uint16'", "'uint24'", "'uint32'", "'uint40'", "'uint48'", "'uint56'", "'uint64'", "'uint72'", "'uint80'", "'uint88'", "'uint96'", "'uint104'", "'uint112'", "'uint120'", "'uint128'", "'uint136'", "'uint144'", "'uint152'", "'uint160'", "'uint168'", "'uint178'", "'uint184'", "'uint192'", "'uint200'", "'uint208'", "'uint216'", "'uint224'", "'uint232'", "'uint240'", "'uint248'", "'uint256'", "'byte'", "'bytes'", "'bytes1'", "'bytes2'", "'bytes3'", "'bytes4'", "'bytes5'", "'bytes6'", "'bytes7'", "'bytes8'", "'bytes9'", "'bytes10'", "'bytes11'", "'bytes12'", "'bytes13'", "'bytes14'", "'bytes15'", "'bytes16'", "'bytes17'", "'bytes18'", "'bytes19'", "'bytes20'", "'bytes21'", "'bytes22'", "'bytes23'", "'bytes24'", "'bytes25'", "'bytes26'", "'bytes27'", "'bytes28'", "'bytes29'", "'bytes30'", "'bytes31'", "'bytes32'", "'string'", "'address'", "'bool'", "'real'", "'ureal'", "'memory'", "'storage'", "'calldata'", "'public'", "'internal'", "'private'", "'external'", "'|='", "'^='", "'&='", "'<<='", "'>>='", "'>>>='", "'+='", "'-='", "'*='", "'/='", "'%='", "'!='", "'=='", "'>='", "'<='", "'>'", "'<'", "'in'", "'<<'", "'>>'", "'>>>'", "'%'", "'true'", "'false'", "'wei'", "'szabo'", "'finney'", "'ether'", "'seconds'", "'minutes'", "'hours'", "'days'", "'weeks'", "'years'", "'super'", "'this'"
     };
     public static final int T__144=144;
     public static final int T__143=143;
@@ -113,8 +113,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
     public static final int T__43=43;
     public static final int T__149=149;
     public static final int T__100=100;
+    public static final int T__221=221;
+    public static final int T__220=220;
     public static final int T__102=102;
     public static final int T__101=101;
+    public static final int T__222=222;
     public static final int T__19=19;
     public static final int T__16=16;
     public static final int T__17=17;
@@ -595,11 +598,6 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             if ( (LA3_0==16) ) {
                 switch ( input.LA(2) ) {
-                case 21:
-                    {
-                    alt3=3;
-                    }
-                    break;
                 case RULE_STRING:
                     {
                     alt3=1;
@@ -608,6 +606,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 case 18:
                     {
                     alt3=2;
+                    }
+                    break;
+                case 21:
+                    {
+                    alt3=3;
                     }
                     break;
                 default:
@@ -2319,7 +2322,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( ((LA11_0>=RULE_STRING && LA11_0<=RULE_TX)||LA11_0==27||(LA11_0>=63 && LA11_0<=175)||(LA11_0>=206 && LA11_0<=207)||(LA11_0>=218 && LA11_0<=219)) ) {
+            if ( ((LA11_0>=RULE_STRING && LA11_0<=RULE_TX)||LA11_0==27||(LA11_0>=63 && LA11_0<=69)||(LA11_0>=74 && LA11_0<=179)||(LA11_0>=209 && LA11_0<=210)||(LA11_0>=221 && LA11_0<=222)) ) {
                 alt11=1;
             }
             switch (alt11) {
@@ -2533,11 +2536,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             if ( (LA14_0==27) ) {
                 int LA14_1 = input.LA(2);
 
-                if ( ((LA14_1>=RULE_STRING && LA14_1<=RULE_TX)||(LA14_1>=27 && LA14_1<=28)||(LA14_1>=63 && LA14_1<=175)||(LA14_1>=206 && LA14_1<=207)||(LA14_1>=218 && LA14_1<=219)) ) {
-                    alt14=2;
-                }
-                else if ( (LA14_1==21) ) {
+                if ( (LA14_1==21) ) {
                     alt14=1;
+                }
+                else if ( ((LA14_1>=RULE_STRING && LA14_1<=RULE_TX)||(LA14_1>=27 && LA14_1<=28)||(LA14_1>=63 && LA14_1<=69)||(LA14_1>=74 && LA14_1<=179)||(LA14_1>=209 && LA14_1<=210)||(LA14_1>=221 && LA14_1<=222)) ) {
+                    alt14=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return current;}
@@ -3123,7 +3126,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 int alt16=2;
                 int LA16_0 = input.LA(1);
 
-                if ( (LA16_0==RULE_ID||LA16_0==33||(LA16_0>=179 && LA16_0<=182)) ) {
+                if ( (LA16_0==RULE_ID||LA16_0==33||(LA16_0>=183 && LA16_0<=186)) ) {
                     alt16=1;
                 }
 
@@ -3398,10 +3401,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 alt19=2;
                 }
                 break;
-            case 179:
-            case 180:
-            case 181:
-            case 182:
+            case 183:
+            case 184:
+            case 185:
+            case 186:
                 {
                 alt19=3;
                 }
@@ -3827,7 +3830,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==RULE_ID||LA20_0==38||LA20_0==42||(LA20_0>=72 && LA20_0<=175)) ) {
+                if ( (LA20_0==RULE_ID||LA20_0==38||LA20_0==42||(LA20_0>=76 && LA20_0<=179)) ) {
                     alt20=1;
                 }
 
@@ -3987,7 +3990,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt21=2;
             int LA21_0 = input.LA(1);
 
-            if ( ((LA21_0>=179 && LA21_0<=182)) ) {
+            if ( ((LA21_0>=183 && LA21_0<=186)) ) {
                 alt21=1;
             }
             switch (alt21) {
@@ -4478,7 +4481,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt24=3;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==RULE_ID||LA24_0==38||(LA24_0>=72 && LA24_0<=175)) ) {
+            if ( (LA24_0==RULE_ID||LA24_0==38||(LA24_0>=76 && LA24_0<=179)) ) {
                 alt24=1;
             }
             else if ( (LA24_0==42) ) {
@@ -4702,7 +4705,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 int alt25=2;
                 int LA25_0 = input.LA(1);
 
-                if ( (LA25_0==33||LA25_0==37||(LA25_0>=176 && LA25_0<=182)) ) {
+                if ( (LA25_0==33||LA25_0==37||(LA25_0>=180 && LA25_0<=186)) ) {
                     alt25=1;
                 }
 
@@ -5360,10 +5363,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             // InternalMyGrammar.g:1900:2: (this_VisibilitySpecifier_0= ruleVisibilitySpecifier | this_IndexedSpecifer_1= ruleIndexedSpecifer | this_ConstantSpecifier_2= ruleConstantSpecifier | this_LocationSpecifier_3= ruleLocationSpecifier )
             int alt29=4;
             switch ( input.LA(1) ) {
-            case 179:
-            case 180:
-            case 181:
-            case 182:
+            case 183:
+            case 184:
+            case 185:
+            case 186:
                 {
                 alt29=1;
                 }
@@ -5378,9 +5381,9 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 alt29=3;
                 }
                 break;
-            case 176:
-            case 177:
-            case 178:
+            case 180:
+            case 181:
+            case 182:
                 {
                 alt29=4;
                 }
@@ -5878,7 +5881,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( (LA30_0==RULE_ID||LA30_0==38||(LA30_0>=72 && LA30_0<=175)) ) {
+            if ( (LA30_0==RULE_ID||LA30_0==38||(LA30_0>=76 && LA30_0<=179)) ) {
                 alt30=1;
             }
             else if ( (LA30_0==42) ) {
@@ -6043,10 +6046,6 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             // InternalMyGrammar.g:2097:2: ( (this_ElementaryType_0= ruleElementaryType ( (lv_dimension_1_0= ruleArrayDimensions ) )? ) | this_Mapping_2= ruleMapping | this_QualifiedIdentifier_3= ruleQualifiedIdentifier )
             int alt32=3;
             switch ( input.LA(1) ) {
-            case 72:
-            case 73:
-            case 74:
-            case 75:
             case 76:
             case 77:
             case 78:
@@ -6147,6 +6146,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case 173:
             case 174:
             case 175:
+            case 176:
+            case 177:
+            case 178:
+            case 179:
                 {
                 alt32=1;
                 }
@@ -6375,7 +6378,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( ((LA34_0>=72 && LA34_0<=175)) ) {
+            if ( ((LA34_0>=76 && LA34_0<=179)) ) {
                 alt34=1;
             }
             else if ( (LA34_0==38) ) {
@@ -6889,7 +6892,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt35=2;
             int LA35_0 = input.LA(1);
 
-            if ( ((LA35_0>=RULE_STRING && LA35_0<=RULE_TX)||LA35_0==27||(LA35_0>=63 && LA35_0<=175)||(LA35_0>=206 && LA35_0<=207)||(LA35_0>=218 && LA35_0<=219)) ) {
+            if ( ((LA35_0>=RULE_STRING && LA35_0<=RULE_TX)||LA35_0==27||(LA35_0>=63 && LA35_0<=69)||(LA35_0>=74 && LA35_0<=179)||(LA35_0>=209 && LA35_0<=210)||(LA35_0>=221 && LA35_0<=222)) ) {
                 alt35=1;
             }
             switch (alt35) {
@@ -6962,7 +6965,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             	    int alt36=2;
             	    int LA36_0 = input.LA(1);
 
-            	    if ( ((LA36_0>=RULE_STRING && LA36_0<=RULE_TX)||LA36_0==27||(LA36_0>=63 && LA36_0<=175)||(LA36_0>=206 && LA36_0<=207)||(LA36_0>=218 && LA36_0<=219)) ) {
+            	    if ( ((LA36_0>=RULE_STRING && LA36_0<=RULE_TX)||LA36_0==27||(LA36_0>=63 && LA36_0<=69)||(LA36_0>=74 && LA36_0<=179)||(LA36_0>=209 && LA36_0<=210)||(LA36_0>=221 && LA36_0<=222)) ) {
             	        alt36=1;
             	    }
             	    switch (alt36) {
@@ -7212,7 +7215,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt41=2;
             int LA41_0 = input.LA(1);
 
-            if ( ((LA41_0>=RULE_STRING && LA41_0<=RULE_TX)||LA41_0==22||LA41_0==27||(LA41_0>=63 && LA41_0<=175)||(LA41_0>=206 && LA41_0<=207)||(LA41_0>=218 && LA41_0<=219)) ) {
+            if ( ((LA41_0>=RULE_STRING && LA41_0<=RULE_TX)||LA41_0==22||LA41_0==27||(LA41_0>=63 && LA41_0<=69)||(LA41_0>=74 && LA41_0<=179)||(LA41_0>=209 && LA41_0<=210)||(LA41_0>=221 && LA41_0<=222)) ) {
                 alt41=1;
             }
             switch (alt41) {
@@ -7223,7 +7226,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     int alt38=2;
                     int LA38_0 = input.LA(1);
 
-                    if ( ((LA38_0>=RULE_STRING && LA38_0<=RULE_TX)||LA38_0==27||(LA38_0>=63 && LA38_0<=175)||(LA38_0>=206 && LA38_0<=207)||(LA38_0>=218 && LA38_0<=219)) ) {
+                    if ( ((LA38_0>=RULE_STRING && LA38_0<=RULE_TX)||LA38_0==27||(LA38_0>=63 && LA38_0<=69)||(LA38_0>=74 && LA38_0<=179)||(LA38_0>=209 && LA38_0<=210)||(LA38_0>=221 && LA38_0<=222)) ) {
                         alt38=1;
                     }
                     switch (alt38) {
@@ -7320,7 +7323,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     	    int alt39=2;
                     	    int LA39_0 = input.LA(1);
 
-                    	    if ( ((LA39_0>=RULE_STRING && LA39_0<=RULE_TX)||LA39_0==27||(LA39_0>=63 && LA39_0<=175)||(LA39_0>=206 && LA39_0<=207)||(LA39_0>=218 && LA39_0<=219)) ) {
+                    	    if ( ((LA39_0>=RULE_STRING && LA39_0<=RULE_TX)||LA39_0==27||(LA39_0>=63 && LA39_0<=69)||(LA39_0>=74 && LA39_0<=179)||(LA39_0>=209 && LA39_0<=210)||(LA39_0>=221 && LA39_0<=222)) ) {
                     	        alt39=1;
                     	    }
                     	    switch (alt39) {
@@ -7638,7 +7641,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                         int alt42=2;
                         int LA42_0 = input.LA(1);
 
-                        if ( (LA42_0==33||LA42_0==37||(LA42_0>=176 && LA42_0<=182)) ) {
+                        if ( (LA42_0==33||LA42_0==37||(LA42_0>=180 && LA42_0<=186)) ) {
                             alt42=1;
                         }
 
@@ -8246,7 +8249,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                         int alt46=2;
                         int LA46_0 = input.LA(1);
 
-                        if ( (LA46_0==33||LA46_0==37||(LA46_0>=176 && LA46_0<=182)) ) {
+                        if ( (LA46_0==33||LA46_0==37||(LA46_0>=180 && LA46_0<=186)) ) {
                             alt46=1;
                         }
 
@@ -9357,7 +9360,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt52=2;
             int LA52_0 = input.LA(1);
 
-            if ( ((LA52_0>=RULE_STRING && LA52_0<=RULE_TX)||LA52_0==27||(LA52_0>=63 && LA52_0<=175)||(LA52_0>=206 && LA52_0<=207)||(LA52_0>=218 && LA52_0<=219)) ) {
+            if ( ((LA52_0>=RULE_STRING && LA52_0<=RULE_TX)||LA52_0==27||(LA52_0>=63 && LA52_0<=69)||(LA52_0>=74 && LA52_0<=179)||(LA52_0>=209 && LA52_0<=210)||(LA52_0>=221 && LA52_0<=222)) ) {
                 alt52=1;
             }
             switch (alt52) {
@@ -10194,7 +10197,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt58=2;
             int LA58_0 = input.LA(1);
 
-            if ( (LA58_0==RULE_ID||LA58_0==38||LA58_0==42||(LA58_0>=72 && LA58_0<=175)) ) {
+            if ( (LA58_0==RULE_ID||LA58_0==38||LA58_0==42||(LA58_0>=76 && LA58_0<=179)) ) {
                 alt58=1;
             }
             switch (alt58) {
@@ -10423,7 +10426,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             int alt60=2;
             int LA60_0 = input.LA(1);
 
-            if ( (LA60_0==RULE_ID||LA60_0==38||LA60_0==42||(LA60_0>=72 && LA60_0<=175)) ) {
+            if ( (LA60_0==RULE_ID||LA60_0==38||LA60_0==42||(LA60_0>=76 && LA60_0<=179)) ) {
                 alt60=1;
             }
             switch (alt60) {
@@ -10731,8 +10734,524 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleReturnParameterDeclaration"
 
 
+    // $ANTLR start "entryRuleNonArrayableDeclaration"
+    // InternalMyGrammar.g:3710:1: entryRuleNonArrayableDeclaration returns [EObject current=null] : iv_ruleNonArrayableDeclaration= ruleNonArrayableDeclaration EOF ;
+    public final EObject entryRuleNonArrayableDeclaration() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleNonArrayableDeclaration = null;
+
+
+        try {
+            // InternalMyGrammar.g:3710:64: (iv_ruleNonArrayableDeclaration= ruleNonArrayableDeclaration EOF )
+            // InternalMyGrammar.g:3711:2: iv_ruleNonArrayableDeclaration= ruleNonArrayableDeclaration EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getNonArrayableDeclarationRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleNonArrayableDeclaration=ruleNonArrayableDeclaration();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleNonArrayableDeclaration; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleNonArrayableDeclaration"
+
+
+    // $ANTLR start "ruleNonArrayableDeclaration"
+    // InternalMyGrammar.g:3717:1: ruleNonArrayableDeclaration returns [EObject current=null] : ( ( (lv_location_0_0= ruleLocationSpecifierEnum ) )? ( (lv_constant_1_0= 'constant' ) )? ( (lv_visibility_2_0= ruleVisibilitySpecifier ) )? ( (lv_type_3_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_4_0= RULE_ID ) ) ) ;
+    public final EObject ruleNonArrayableDeclaration() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_constant_1_0=null;
+        Token lv_name_4_0=null;
+        Enumerator lv_location_0_0 = null;
+
+        EObject lv_visibility_2_0 = null;
+
+        Enumerator lv_type_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:3723:2: ( ( ( (lv_location_0_0= ruleLocationSpecifierEnum ) )? ( (lv_constant_1_0= 'constant' ) )? ( (lv_visibility_2_0= ruleVisibilitySpecifier ) )? ( (lv_type_3_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_4_0= RULE_ID ) ) ) )
+            // InternalMyGrammar.g:3724:2: ( ( (lv_location_0_0= ruleLocationSpecifierEnum ) )? ( (lv_constant_1_0= 'constant' ) )? ( (lv_visibility_2_0= ruleVisibilitySpecifier ) )? ( (lv_type_3_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_4_0= RULE_ID ) ) )
+            {
+            // InternalMyGrammar.g:3724:2: ( ( (lv_location_0_0= ruleLocationSpecifierEnum ) )? ( (lv_constant_1_0= 'constant' ) )? ( (lv_visibility_2_0= ruleVisibilitySpecifier ) )? ( (lv_type_3_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_4_0= RULE_ID ) ) )
+            // InternalMyGrammar.g:3725:3: ( (lv_location_0_0= ruleLocationSpecifierEnum ) )? ( (lv_constant_1_0= 'constant' ) )? ( (lv_visibility_2_0= ruleVisibilitySpecifier ) )? ( (lv_type_3_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_4_0= RULE_ID ) )
+            {
+            // InternalMyGrammar.g:3725:3: ( (lv_location_0_0= ruleLocationSpecifierEnum ) )?
+            int alt62=2;
+            int LA62_0 = input.LA(1);
+
+            if ( ((LA62_0>=180 && LA62_0<=182)) ) {
+                alt62=1;
+            }
+            switch (alt62) {
+                case 1 :
+                    // InternalMyGrammar.g:3726:4: (lv_location_0_0= ruleLocationSpecifierEnum )
+                    {
+                    // InternalMyGrammar.g:3726:4: (lv_location_0_0= ruleLocationSpecifierEnum )
+                    // InternalMyGrammar.g:3727:5: lv_location_0_0= ruleLocationSpecifierEnum
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getNonArrayableDeclarationAccess().getLocationLocationSpecifierEnumEnumRuleCall_0_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_49);
+                    lv_location_0_0=ruleLocationSpecifierEnum();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getNonArrayableDeclarationRule());
+                      					}
+                      					set(
+                      						current,
+                      						"location",
+                      						lv_location_0_0,
+                      						"org.unicam.tryGrammar.MyGrammar.LocationSpecifierEnum");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalMyGrammar.g:3744:3: ( (lv_constant_1_0= 'constant' ) )?
+            int alt63=2;
+            int LA63_0 = input.LA(1);
+
+            if ( (LA63_0==33) ) {
+                alt63=1;
+            }
+            switch (alt63) {
+                case 1 :
+                    // InternalMyGrammar.g:3745:4: (lv_constant_1_0= 'constant' )
+                    {
+                    // InternalMyGrammar.g:3745:4: (lv_constant_1_0= 'constant' )
+                    // InternalMyGrammar.g:3746:5: lv_constant_1_0= 'constant'
+                    {
+                    lv_constant_1_0=(Token)match(input,33,FOLLOW_50); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_constant_1_0, grammarAccess.getNonArrayableDeclarationAccess().getConstantConstantKeyword_1_0());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getNonArrayableDeclarationRule());
+                      					}
+                      					setWithLastConsumed(current, "constant", true, "constant");
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalMyGrammar.g:3758:3: ( (lv_visibility_2_0= ruleVisibilitySpecifier ) )?
+            int alt64=2;
+            int LA64_0 = input.LA(1);
+
+            if ( ((LA64_0>=183 && LA64_0<=186)) ) {
+                alt64=1;
+            }
+            switch (alt64) {
+                case 1 :
+                    // InternalMyGrammar.g:3759:4: (lv_visibility_2_0= ruleVisibilitySpecifier )
+                    {
+                    // InternalMyGrammar.g:3759:4: (lv_visibility_2_0= ruleVisibilitySpecifier )
+                    // InternalMyGrammar.g:3760:5: lv_visibility_2_0= ruleVisibilitySpecifier
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getNonArrayableDeclarationAccess().getVisibilityVisibilitySpecifierParserRuleCall_2_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_33);
+                    lv_visibility_2_0=ruleVisibilitySpecifier();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getNonArrayableDeclarationRule());
+                      					}
+                      					set(
+                      						current,
+                      						"visibility",
+                      						lv_visibility_2_0,
+                      						"org.unicam.tryGrammar.MyGrammar.VisibilitySpecifier");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalMyGrammar.g:3777:3: ( (lv_type_3_0= ruleElementaryTypeNameEnum ) )
+            // InternalMyGrammar.g:3778:4: (lv_type_3_0= ruleElementaryTypeNameEnum )
+            {
+            // InternalMyGrammar.g:3778:4: (lv_type_3_0= ruleElementaryTypeNameEnum )
+            // InternalMyGrammar.g:3779:5: lv_type_3_0= ruleElementaryTypeNameEnum
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getNonArrayableDeclarationAccess().getTypeElementaryTypeNameEnumEnumRuleCall_3_0());
+              				
+            }
+            pushFollow(FOLLOW_8);
+            lv_type_3_0=ruleElementaryTypeNameEnum();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getNonArrayableDeclarationRule());
+              					}
+              					set(
+              						current,
+              						"type",
+              						lv_type_3_0,
+              						"org.unicam.tryGrammar.MyGrammar.ElementaryTypeNameEnum");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+            // InternalMyGrammar.g:3796:3: ( (lv_name_4_0= RULE_ID ) )
+            // InternalMyGrammar.g:3797:4: (lv_name_4_0= RULE_ID )
+            {
+            // InternalMyGrammar.g:3797:4: (lv_name_4_0= RULE_ID )
+            // InternalMyGrammar.g:3798:5: lv_name_4_0= RULE_ID
+            {
+            lv_name_4_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					newLeafNode(lv_name_4_0, grammarAccess.getNonArrayableDeclarationAccess().getNameIDTerminalRuleCall_4_0());
+              				
+            }
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElement(grammarAccess.getNonArrayableDeclarationRule());
+              					}
+              					setWithLastConsumed(
+              						current,
+              						"name",
+              						lv_name_4_0,
+              						"org.unicam.tryGrammar.MyGrammar.ID");
+              				
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleNonArrayableDeclaration"
+
+
+    // $ANTLR start "entryRuleArrayableDeclaration"
+    // InternalMyGrammar.g:3818:1: entryRuleArrayableDeclaration returns [EObject current=null] : iv_ruleArrayableDeclaration= ruleArrayableDeclaration EOF ;
+    public final EObject entryRuleArrayableDeclaration() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleArrayableDeclaration = null;
+
+
+        try {
+            // InternalMyGrammar.g:3818:61: (iv_ruleArrayableDeclaration= ruleArrayableDeclaration EOF )
+            // InternalMyGrammar.g:3819:2: iv_ruleArrayableDeclaration= ruleArrayableDeclaration EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getArrayableDeclarationRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleArrayableDeclaration=ruleArrayableDeclaration();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleArrayableDeclaration; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleArrayableDeclaration"
+
+
+    // $ANTLR start "ruleArrayableDeclaration"
+    // InternalMyGrammar.g:3825:1: ruleArrayableDeclaration returns [EObject current=null] : ( ( (lv_constant_0_0= 'constant' ) )? ( (lv_visibility_1_0= ruleVisibilitySpecifier ) )? ( (lv_type_2_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_3_0= RULE_ID ) ) ) ;
+    public final EObject ruleArrayableDeclaration() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_constant_0_0=null;
+        Token lv_name_3_0=null;
+        EObject lv_visibility_1_0 = null;
+
+        Enumerator lv_type_2_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:3831:2: ( ( ( (lv_constant_0_0= 'constant' ) )? ( (lv_visibility_1_0= ruleVisibilitySpecifier ) )? ( (lv_type_2_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_3_0= RULE_ID ) ) ) )
+            // InternalMyGrammar.g:3832:2: ( ( (lv_constant_0_0= 'constant' ) )? ( (lv_visibility_1_0= ruleVisibilitySpecifier ) )? ( (lv_type_2_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_3_0= RULE_ID ) ) )
+            {
+            // InternalMyGrammar.g:3832:2: ( ( (lv_constant_0_0= 'constant' ) )? ( (lv_visibility_1_0= ruleVisibilitySpecifier ) )? ( (lv_type_2_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_3_0= RULE_ID ) ) )
+            // InternalMyGrammar.g:3833:3: ( (lv_constant_0_0= 'constant' ) )? ( (lv_visibility_1_0= ruleVisibilitySpecifier ) )? ( (lv_type_2_0= ruleElementaryTypeNameEnum ) ) ( (lv_name_3_0= RULE_ID ) )
+            {
+            // InternalMyGrammar.g:3833:3: ( (lv_constant_0_0= 'constant' ) )?
+            int alt65=2;
+            int LA65_0 = input.LA(1);
+
+            if ( (LA65_0==33) ) {
+                alt65=1;
+            }
+            switch (alt65) {
+                case 1 :
+                    // InternalMyGrammar.g:3834:4: (lv_constant_0_0= 'constant' )
+                    {
+                    // InternalMyGrammar.g:3834:4: (lv_constant_0_0= 'constant' )
+                    // InternalMyGrammar.g:3835:5: lv_constant_0_0= 'constant'
+                    {
+                    lv_constant_0_0=(Token)match(input,33,FOLLOW_50); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_constant_0_0, grammarAccess.getArrayableDeclarationAccess().getConstantConstantKeyword_0_0());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getArrayableDeclarationRule());
+                      					}
+                      					setWithLastConsumed(current, "constant", true, "constant");
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalMyGrammar.g:3847:3: ( (lv_visibility_1_0= ruleVisibilitySpecifier ) )?
+            int alt66=2;
+            int LA66_0 = input.LA(1);
+
+            if ( ((LA66_0>=183 && LA66_0<=186)) ) {
+                alt66=1;
+            }
+            switch (alt66) {
+                case 1 :
+                    // InternalMyGrammar.g:3848:4: (lv_visibility_1_0= ruleVisibilitySpecifier )
+                    {
+                    // InternalMyGrammar.g:3848:4: (lv_visibility_1_0= ruleVisibilitySpecifier )
+                    // InternalMyGrammar.g:3849:5: lv_visibility_1_0= ruleVisibilitySpecifier
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getArrayableDeclarationAccess().getVisibilityVisibilitySpecifierParserRuleCall_1_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_33);
+                    lv_visibility_1_0=ruleVisibilitySpecifier();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getArrayableDeclarationRule());
+                      					}
+                      					set(
+                      						current,
+                      						"visibility",
+                      						lv_visibility_1_0,
+                      						"org.unicam.tryGrammar.MyGrammar.VisibilitySpecifier");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalMyGrammar.g:3866:3: ( (lv_type_2_0= ruleElementaryTypeNameEnum ) )
+            // InternalMyGrammar.g:3867:4: (lv_type_2_0= ruleElementaryTypeNameEnum )
+            {
+            // InternalMyGrammar.g:3867:4: (lv_type_2_0= ruleElementaryTypeNameEnum )
+            // InternalMyGrammar.g:3868:5: lv_type_2_0= ruleElementaryTypeNameEnum
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getArrayableDeclarationAccess().getTypeElementaryTypeNameEnumEnumRuleCall_2_0());
+              				
+            }
+            pushFollow(FOLLOW_8);
+            lv_type_2_0=ruleElementaryTypeNameEnum();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getArrayableDeclarationRule());
+              					}
+              					set(
+              						current,
+              						"type",
+              						lv_type_2_0,
+              						"org.unicam.tryGrammar.MyGrammar.ElementaryTypeNameEnum");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+            // InternalMyGrammar.g:3885:3: ( (lv_name_3_0= RULE_ID ) )
+            // InternalMyGrammar.g:3886:4: (lv_name_3_0= RULE_ID )
+            {
+            // InternalMyGrammar.g:3886:4: (lv_name_3_0= RULE_ID )
+            // InternalMyGrammar.g:3887:5: lv_name_3_0= RULE_ID
+            {
+            lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_2); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					newLeafNode(lv_name_3_0, grammarAccess.getArrayableDeclarationAccess().getNameIDTerminalRuleCall_3_0());
+              				
+            }
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElement(grammarAccess.getArrayableDeclarationRule());
+              					}
+              					setWithLastConsumed(
+              						current,
+              						"name",
+              						lv_name_3_0,
+              						"org.unicam.tryGrammar.MyGrammar.ID");
+              				
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleArrayableDeclaration"
+
+
     // $ANTLR start "entryRuleStatement"
-    // InternalMyGrammar.g:3710:1: entryRuleStatement returns [EObject current=null] : iv_ruleStatement= ruleStatement EOF ;
+    // InternalMyGrammar.g:3907:1: entryRuleStatement returns [EObject current=null] : iv_ruleStatement= ruleStatement EOF ;
     public final EObject entryRuleStatement() throws RecognitionException {
         EObject current = null;
 
@@ -10740,8 +11259,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:3710:50: (iv_ruleStatement= ruleStatement EOF )
-            // InternalMyGrammar.g:3711:2: iv_ruleStatement= ruleStatement EOF
+            // InternalMyGrammar.g:3907:50: (iv_ruleStatement= ruleStatement EOF )
+            // InternalMyGrammar.g:3908:2: iv_ruleStatement= ruleStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStatementRule()); 
@@ -10772,7 +11291,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatement"
-    // InternalMyGrammar.g:3717:1: ruleStatement returns [EObject current=null] : (this_IfStatement_0= ruleIfStatement | this_WhileStatement_1= ruleWhileStatement | this_ForStatement_2= ruleForStatement | this_Body_3= ruleBody | this_PlaceHolderStatement_4= rulePlaceHolderStatement | (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement ) ) ;
+    // InternalMyGrammar.g:3914:1: ruleStatement returns [EObject current=null] : (this_IfStatement_0= ruleIfStatement | this_WhileStatement_1= ruleWhileStatement | this_ForStatement_2= ruleForStatement | this_Body_3= ruleBody | this_PlaceHolderStatement_4= rulePlaceHolderStatement | (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement ) ) ;
     public final EObject ruleStatement() throws RecognitionException {
         EObject current = null;
 
@@ -10803,35 +11322,35 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:3723:2: ( (this_IfStatement_0= ruleIfStatement | this_WhileStatement_1= ruleWhileStatement | this_ForStatement_2= ruleForStatement | this_Body_3= ruleBody | this_PlaceHolderStatement_4= rulePlaceHolderStatement | (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement ) ) )
-            // InternalMyGrammar.g:3724:2: (this_IfStatement_0= ruleIfStatement | this_WhileStatement_1= ruleWhileStatement | this_ForStatement_2= ruleForStatement | this_Body_3= ruleBody | this_PlaceHolderStatement_4= rulePlaceHolderStatement | (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement ) )
+            // InternalMyGrammar.g:3920:2: ( (this_IfStatement_0= ruleIfStatement | this_WhileStatement_1= ruleWhileStatement | this_ForStatement_2= ruleForStatement | this_Body_3= ruleBody | this_PlaceHolderStatement_4= rulePlaceHolderStatement | (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement ) ) )
+            // InternalMyGrammar.g:3921:2: (this_IfStatement_0= ruleIfStatement | this_WhileStatement_1= ruleWhileStatement | this_ForStatement_2= ruleForStatement | this_Body_3= ruleBody | this_PlaceHolderStatement_4= rulePlaceHolderStatement | (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement ) )
             {
-            // InternalMyGrammar.g:3724:2: (this_IfStatement_0= ruleIfStatement | this_WhileStatement_1= ruleWhileStatement | this_ForStatement_2= ruleForStatement | this_Body_3= ruleBody | this_PlaceHolderStatement_4= rulePlaceHolderStatement | (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement ) )
-            int alt63=6;
+            // InternalMyGrammar.g:3921:2: (this_IfStatement_0= ruleIfStatement | this_WhileStatement_1= ruleWhileStatement | this_ForStatement_2= ruleForStatement | this_Body_3= ruleBody | this_PlaceHolderStatement_4= rulePlaceHolderStatement | (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement ) )
+            int alt68=6;
             switch ( input.LA(1) ) {
             case 48:
                 {
-                alt63=1;
+                alt68=1;
                 }
                 break;
             case 50:
                 {
-                alt63=2;
+                alt68=2;
                 }
                 break;
             case 51:
                 {
-                alt63=3;
+                alt68=3;
                 }
                 break;
             case 21:
                 {
-                alt63=4;
+                alt68=4;
                 }
                 break;
             case 56:
                 {
-                alt63=5;
+                alt68=5;
                 }
                 break;
             case RULE_STRING:
@@ -10857,10 +11376,6 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case 67:
             case 68:
             case 69:
-            case 70:
-            case 71:
-            case 72:
-            case 73:
             case 74:
             case 75:
             case 76:
@@ -10963,25 +11478,29 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case 173:
             case 174:
             case 175:
-            case 206:
-            case 207:
-            case 218:
-            case 219:
+            case 176:
+            case 177:
+            case 178:
+            case 179:
+            case 209:
+            case 210:
+            case 221:
+            case 222:
                 {
-                alt63=6;
+                alt68=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 63, 0, input);
+                    new NoViableAltException("", 68, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt63) {
+            switch (alt68) {
                 case 1 :
-                    // InternalMyGrammar.g:3725:3: this_IfStatement_0= ruleIfStatement
+                    // InternalMyGrammar.g:3922:3: this_IfStatement_0= ruleIfStatement
                     {
                     if ( state.backtracking==0 ) {
 
@@ -11003,7 +11522,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:3734:3: this_WhileStatement_1= ruleWhileStatement
+                    // InternalMyGrammar.g:3931:3: this_WhileStatement_1= ruleWhileStatement
                     {
                     if ( state.backtracking==0 ) {
 
@@ -11025,7 +11544,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:3743:3: this_ForStatement_2= ruleForStatement
+                    // InternalMyGrammar.g:3940:3: this_ForStatement_2= ruleForStatement
                     {
                     if ( state.backtracking==0 ) {
 
@@ -11047,7 +11566,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:3752:3: this_Body_3= ruleBody
+                    // InternalMyGrammar.g:3949:3: this_Body_3= ruleBody
                     {
                     if ( state.backtracking==0 ) {
 
@@ -11069,7 +11588,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:3761:3: this_PlaceHolderStatement_4= rulePlaceHolderStatement
+                    // InternalMyGrammar.g:3958:3: this_PlaceHolderStatement_4= rulePlaceHolderStatement
                     {
                     if ( state.backtracking==0 ) {
 
@@ -11091,34 +11610,34 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalMyGrammar.g:3770:3: (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement )
+                    // InternalMyGrammar.g:3967:3: (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement )
                     {
-                    // InternalMyGrammar.g:3770:3: (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement )
-                    int alt62=6;
+                    // InternalMyGrammar.g:3967:3: (this_ContinueStatement_5= ruleContinueStatement | this_BreakStatement_6= ruleBreakStatement | this_ReturnStatement_7= ruleReturnStatement | this_ThrowStatement_8= ruleThrowStatement | this_DeleteStatement_9= ruleDeleteStatement | this_SimpleStatement_10= ruleSimpleStatement )
+                    int alt67=6;
                     switch ( input.LA(1) ) {
                     case 52:
                         {
-                        alt62=1;
+                        alt67=1;
                         }
                         break;
                     case 53:
                         {
-                        alt62=2;
+                        alt67=2;
                         }
                         break;
                     case 54:
                         {
-                        alt62=3;
+                        alt67=3;
                         }
                         break;
                     case 55:
                         {
-                        alt62=4;
+                        alt67=4;
                         }
                         break;
                     case 47:
                         {
-                        alt62=5;
+                        alt67=5;
                         }
                         break;
                     case RULE_STRING:
@@ -11139,10 +11658,6 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     case 67:
                     case 68:
                     case 69:
-                    case 70:
-                    case 71:
-                    case 72:
-                    case 73:
                     case 74:
                     case 75:
                     case 76:
@@ -11245,25 +11760,29 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     case 173:
                     case 174:
                     case 175:
-                    case 206:
-                    case 207:
-                    case 218:
-                    case 219:
+                    case 176:
+                    case 177:
+                    case 178:
+                    case 179:
+                    case 209:
+                    case 210:
+                    case 221:
+                    case 222:
                         {
-                        alt62=6;
+                        alt67=6;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 62, 0, input);
+                            new NoViableAltException("", 67, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt62) {
+                    switch (alt67) {
                         case 1 :
-                            // InternalMyGrammar.g:3771:4: this_ContinueStatement_5= ruleContinueStatement
+                            // InternalMyGrammar.g:3968:4: this_ContinueStatement_5= ruleContinueStatement
                             {
                             if ( state.backtracking==0 ) {
 
@@ -11285,7 +11804,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalMyGrammar.g:3780:4: this_BreakStatement_6= ruleBreakStatement
+                            // InternalMyGrammar.g:3977:4: this_BreakStatement_6= ruleBreakStatement
                             {
                             if ( state.backtracking==0 ) {
 
@@ -11307,7 +11826,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // InternalMyGrammar.g:3789:4: this_ReturnStatement_7= ruleReturnStatement
+                            // InternalMyGrammar.g:3986:4: this_ReturnStatement_7= ruleReturnStatement
                             {
                             if ( state.backtracking==0 ) {
 
@@ -11329,7 +11848,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // InternalMyGrammar.g:3798:4: this_ThrowStatement_8= ruleThrowStatement
+                            // InternalMyGrammar.g:3995:4: this_ThrowStatement_8= ruleThrowStatement
                             {
                             if ( state.backtracking==0 ) {
 
@@ -11351,7 +11870,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 5 :
-                            // InternalMyGrammar.g:3807:4: this_DeleteStatement_9= ruleDeleteStatement
+                            // InternalMyGrammar.g:4004:4: this_DeleteStatement_9= ruleDeleteStatement
                             {
                             if ( state.backtracking==0 ) {
 
@@ -11373,7 +11892,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 6 :
-                            // InternalMyGrammar.g:3816:4: this_SimpleStatement_10= ruleSimpleStatement
+                            // InternalMyGrammar.g:4013:4: this_SimpleStatement_10= ruleSimpleStatement
                             {
                             if ( state.backtracking==0 ) {
 
@@ -11425,7 +11944,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDeleteStatement"
-    // InternalMyGrammar.g:3829:1: entryRuleDeleteStatement returns [EObject current=null] : iv_ruleDeleteStatement= ruleDeleteStatement EOF ;
+    // InternalMyGrammar.g:4026:1: entryRuleDeleteStatement returns [EObject current=null] : iv_ruleDeleteStatement= ruleDeleteStatement EOF ;
     public final EObject entryRuleDeleteStatement() throws RecognitionException {
         EObject current = null;
 
@@ -11433,8 +11952,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:3829:56: (iv_ruleDeleteStatement= ruleDeleteStatement EOF )
-            // InternalMyGrammar.g:3830:2: iv_ruleDeleteStatement= ruleDeleteStatement EOF
+            // InternalMyGrammar.g:4026:56: (iv_ruleDeleteStatement= ruleDeleteStatement EOF )
+            // InternalMyGrammar.g:4027:2: iv_ruleDeleteStatement= ruleDeleteStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDeleteStatementRule()); 
@@ -11465,7 +11984,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDeleteStatement"
-    // InternalMyGrammar.g:3836:1: ruleDeleteStatement returns [EObject current=null] : (otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';' ) ;
+    // InternalMyGrammar.g:4033:1: ruleDeleteStatement returns [EObject current=null] : (otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';' ) ;
     public final EObject ruleDeleteStatement() throws RecognitionException {
         EObject current = null;
 
@@ -11478,23 +11997,23 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:3842:2: ( (otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';' ) )
-            // InternalMyGrammar.g:3843:2: (otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';' )
+            // InternalMyGrammar.g:4039:2: ( (otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';' ) )
+            // InternalMyGrammar.g:4040:2: (otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';' )
             {
-            // InternalMyGrammar.g:3843:2: (otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';' )
-            // InternalMyGrammar.g:3844:3: otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';'
+            // InternalMyGrammar.g:4040:2: (otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';' )
+            // InternalMyGrammar.g:4041:3: otherlv_0= 'delete' ( (lv_variable_1_0= ruleQualifiedIdentifier ) ) otherlv_2= ';'
             {
-            otherlv_0=(Token)match(input,47,FOLLOW_49); if (state.failed) return current;
+            otherlv_0=(Token)match(input,47,FOLLOW_51); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getDeleteStatementAccess().getDeleteKeyword_0());
               		
             }
-            // InternalMyGrammar.g:3848:3: ( (lv_variable_1_0= ruleQualifiedIdentifier ) )
-            // InternalMyGrammar.g:3849:4: (lv_variable_1_0= ruleQualifiedIdentifier )
+            // InternalMyGrammar.g:4045:3: ( (lv_variable_1_0= ruleQualifiedIdentifier ) )
+            // InternalMyGrammar.g:4046:4: (lv_variable_1_0= ruleQualifiedIdentifier )
             {
-            // InternalMyGrammar.g:3849:4: (lv_variable_1_0= ruleQualifiedIdentifier )
-            // InternalMyGrammar.g:3850:5: lv_variable_1_0= ruleQualifiedIdentifier
+            // InternalMyGrammar.g:4046:4: (lv_variable_1_0= ruleQualifiedIdentifier )
+            // InternalMyGrammar.g:4047:5: lv_variable_1_0= ruleQualifiedIdentifier
             {
             if ( state.backtracking==0 ) {
 
@@ -11556,7 +12075,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIfStatement"
-    // InternalMyGrammar.g:3875:1: entryRuleIfStatement returns [EObject current=null] : iv_ruleIfStatement= ruleIfStatement EOF ;
+    // InternalMyGrammar.g:4072:1: entryRuleIfStatement returns [EObject current=null] : iv_ruleIfStatement= ruleIfStatement EOF ;
     public final EObject entryRuleIfStatement() throws RecognitionException {
         EObject current = null;
 
@@ -11564,8 +12083,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:3875:52: (iv_ruleIfStatement= ruleIfStatement EOF )
-            // InternalMyGrammar.g:3876:2: iv_ruleIfStatement= ruleIfStatement EOF
+            // InternalMyGrammar.g:4072:52: (iv_ruleIfStatement= ruleIfStatement EOF )
+            // InternalMyGrammar.g:4073:2: iv_ruleIfStatement= ruleIfStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIfStatementRule()); 
@@ -11596,7 +12115,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfStatement"
-    // InternalMyGrammar.g:3882:1: ruleIfStatement returns [EObject current=null] : (otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )? ) ;
+    // InternalMyGrammar.g:4079:1: ruleIfStatement returns [EObject current=null] : (otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )? ) ;
     public final EObject ruleIfStatement() throws RecognitionException {
         EObject current = null;
 
@@ -11615,11 +12134,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:3888:2: ( (otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )? ) )
-            // InternalMyGrammar.g:3889:2: (otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )? )
+            // InternalMyGrammar.g:4085:2: ( (otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )? ) )
+            // InternalMyGrammar.g:4086:2: (otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )? )
             {
-            // InternalMyGrammar.g:3889:2: (otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )? )
-            // InternalMyGrammar.g:3890:3: otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )?
+            // InternalMyGrammar.g:4086:2: (otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )? )
+            // InternalMyGrammar.g:4087:3: otherlv_0= 'if' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_trueBody_4_0= ruleStatement ) ) ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )?
             {
             otherlv_0=(Token)match(input,48,FOLLOW_25); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -11633,11 +12152,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getIfStatementAccess().getLeftParenthesisKeyword_1());
               		
             }
-            // InternalMyGrammar.g:3898:3: ( (lv_condition_2_0= ruleExpression ) )
-            // InternalMyGrammar.g:3899:4: (lv_condition_2_0= ruleExpression )
+            // InternalMyGrammar.g:4095:3: ( (lv_condition_2_0= ruleExpression ) )
+            // InternalMyGrammar.g:4096:4: (lv_condition_2_0= ruleExpression )
             {
-            // InternalMyGrammar.g:3899:4: (lv_condition_2_0= ruleExpression )
-            // InternalMyGrammar.g:3900:5: lv_condition_2_0= ruleExpression
+            // InternalMyGrammar.g:4096:4: (lv_condition_2_0= ruleExpression )
+            // InternalMyGrammar.g:4097:5: lv_condition_2_0= ruleExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -11668,24 +12187,24 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,28,FOLLOW_50); if (state.failed) return current;
+            otherlv_3=(Token)match(input,28,FOLLOW_52); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getIfStatementAccess().getRightParenthesisKeyword_3());
               		
             }
-            // InternalMyGrammar.g:3921:3: ( (lv_trueBody_4_0= ruleStatement ) )
-            // InternalMyGrammar.g:3922:4: (lv_trueBody_4_0= ruleStatement )
+            // InternalMyGrammar.g:4118:3: ( (lv_trueBody_4_0= ruleStatement ) )
+            // InternalMyGrammar.g:4119:4: (lv_trueBody_4_0= ruleStatement )
             {
-            // InternalMyGrammar.g:3922:4: (lv_trueBody_4_0= ruleStatement )
-            // InternalMyGrammar.g:3923:5: lv_trueBody_4_0= ruleStatement
+            // InternalMyGrammar.g:4119:4: (lv_trueBody_4_0= ruleStatement )
+            // InternalMyGrammar.g:4120:5: lv_trueBody_4_0= ruleStatement
             {
             if ( state.backtracking==0 ) {
 
               					newCompositeNode(grammarAccess.getIfStatementAccess().getTrueBodyStatementParserRuleCall_4_0());
               				
             }
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_53);
             lv_trueBody_4_0=ruleStatement();
 
             state._fsp--;
@@ -11709,25 +12228,25 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:3940:3: ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )?
-            int alt64=2;
-            int LA64_0 = input.LA(1);
+            // InternalMyGrammar.g:4137:3: ( ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) ) )?
+            int alt69=2;
+            int LA69_0 = input.LA(1);
 
-            if ( (LA64_0==49) ) {
-                int LA64_1 = input.LA(2);
+            if ( (LA69_0==49) ) {
+                int LA69_1 = input.LA(2);
 
                 if ( (synpred1_InternalMyGrammar()) ) {
-                    alt64=1;
+                    alt69=1;
                 }
             }
-            switch (alt64) {
+            switch (alt69) {
                 case 1 :
-                    // InternalMyGrammar.g:3941:4: ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) )
+                    // InternalMyGrammar.g:4138:4: ( ( 'else' )=>otherlv_5= 'else' ) ( (lv_falseBody_6_0= ruleStatement ) )
                     {
-                    // InternalMyGrammar.g:3941:4: ( ( 'else' )=>otherlv_5= 'else' )
-                    // InternalMyGrammar.g:3942:5: ( 'else' )=>otherlv_5= 'else'
+                    // InternalMyGrammar.g:4138:4: ( ( 'else' )=>otherlv_5= 'else' )
+                    // InternalMyGrammar.g:4139:5: ( 'else' )=>otherlv_5= 'else'
                     {
-                    otherlv_5=(Token)match(input,49,FOLLOW_50); if (state.failed) return current;
+                    otherlv_5=(Token)match(input,49,FOLLOW_52); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(otherlv_5, grammarAccess.getIfStatementAccess().getElseKeyword_5_0());
@@ -11736,11 +12255,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyGrammar.g:3948:4: ( (lv_falseBody_6_0= ruleStatement ) )
-                    // InternalMyGrammar.g:3949:5: (lv_falseBody_6_0= ruleStatement )
+                    // InternalMyGrammar.g:4145:4: ( (lv_falseBody_6_0= ruleStatement ) )
+                    // InternalMyGrammar.g:4146:5: (lv_falseBody_6_0= ruleStatement )
                     {
-                    // InternalMyGrammar.g:3949:5: (lv_falseBody_6_0= ruleStatement )
-                    // InternalMyGrammar.g:3950:6: lv_falseBody_6_0= ruleStatement
+                    // InternalMyGrammar.g:4146:5: (lv_falseBody_6_0= ruleStatement )
+                    // InternalMyGrammar.g:4147:6: lv_falseBody_6_0= ruleStatement
                     {
                     if ( state.backtracking==0 ) {
 
@@ -11802,7 +12321,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWhileStatement"
-    // InternalMyGrammar.g:3972:1: entryRuleWhileStatement returns [EObject current=null] : iv_ruleWhileStatement= ruleWhileStatement EOF ;
+    // InternalMyGrammar.g:4169:1: entryRuleWhileStatement returns [EObject current=null] : iv_ruleWhileStatement= ruleWhileStatement EOF ;
     public final EObject entryRuleWhileStatement() throws RecognitionException {
         EObject current = null;
 
@@ -11810,8 +12329,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:3972:55: (iv_ruleWhileStatement= ruleWhileStatement EOF )
-            // InternalMyGrammar.g:3973:2: iv_ruleWhileStatement= ruleWhileStatement EOF
+            // InternalMyGrammar.g:4169:55: (iv_ruleWhileStatement= ruleWhileStatement EOF )
+            // InternalMyGrammar.g:4170:2: iv_ruleWhileStatement= ruleWhileStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getWhileStatementRule()); 
@@ -11842,7 +12361,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWhileStatement"
-    // InternalMyGrammar.g:3979:1: ruleWhileStatement returns [EObject current=null] : (otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) ) ) ;
+    // InternalMyGrammar.g:4176:1: ruleWhileStatement returns [EObject current=null] : (otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) ) ) ;
     public final EObject ruleWhileStatement() throws RecognitionException {
         EObject current = null;
 
@@ -11858,11 +12377,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:3985:2: ( (otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) ) ) )
-            // InternalMyGrammar.g:3986:2: (otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) ) )
+            // InternalMyGrammar.g:4182:2: ( (otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) ) ) )
+            // InternalMyGrammar.g:4183:2: (otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) ) )
             {
-            // InternalMyGrammar.g:3986:2: (otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) ) )
-            // InternalMyGrammar.g:3987:3: otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) )
+            // InternalMyGrammar.g:4183:2: (otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) ) )
+            // InternalMyGrammar.g:4184:3: otherlv_0= 'while' otherlv_1= '(' ( (lv_condition_2_0= ruleExpression ) ) otherlv_3= ')' ( (lv_body_4_0= ruleStatement ) )
             {
             otherlv_0=(Token)match(input,50,FOLLOW_25); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -11876,11 +12395,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getWhileStatementAccess().getLeftParenthesisKeyword_1());
               		
             }
-            // InternalMyGrammar.g:3995:3: ( (lv_condition_2_0= ruleExpression ) )
-            // InternalMyGrammar.g:3996:4: (lv_condition_2_0= ruleExpression )
+            // InternalMyGrammar.g:4192:3: ( (lv_condition_2_0= ruleExpression ) )
+            // InternalMyGrammar.g:4193:4: (lv_condition_2_0= ruleExpression )
             {
-            // InternalMyGrammar.g:3996:4: (lv_condition_2_0= ruleExpression )
-            // InternalMyGrammar.g:3997:5: lv_condition_2_0= ruleExpression
+            // InternalMyGrammar.g:4193:4: (lv_condition_2_0= ruleExpression )
+            // InternalMyGrammar.g:4194:5: lv_condition_2_0= ruleExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -11911,17 +12430,17 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,28,FOLLOW_50); if (state.failed) return current;
+            otherlv_3=(Token)match(input,28,FOLLOW_52); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_3, grammarAccess.getWhileStatementAccess().getRightParenthesisKeyword_3());
               		
             }
-            // InternalMyGrammar.g:4018:3: ( (lv_body_4_0= ruleStatement ) )
-            // InternalMyGrammar.g:4019:4: (lv_body_4_0= ruleStatement )
+            // InternalMyGrammar.g:4215:3: ( (lv_body_4_0= ruleStatement ) )
+            // InternalMyGrammar.g:4216:4: (lv_body_4_0= ruleStatement )
             {
-            // InternalMyGrammar.g:4019:4: (lv_body_4_0= ruleStatement )
-            // InternalMyGrammar.g:4020:5: lv_body_4_0= ruleStatement
+            // InternalMyGrammar.g:4216:4: (lv_body_4_0= ruleStatement )
+            // InternalMyGrammar.g:4217:5: lv_body_4_0= ruleStatement
             {
             if ( state.backtracking==0 ) {
 
@@ -11977,7 +12496,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleForStatement"
-    // InternalMyGrammar.g:4041:1: entryRuleForStatement returns [EObject current=null] : iv_ruleForStatement= ruleForStatement EOF ;
+    // InternalMyGrammar.g:4238:1: entryRuleForStatement returns [EObject current=null] : iv_ruleForStatement= ruleForStatement EOF ;
     public final EObject entryRuleForStatement() throws RecognitionException {
         EObject current = null;
 
@@ -11985,8 +12504,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4041:53: (iv_ruleForStatement= ruleForStatement EOF )
-            // InternalMyGrammar.g:4042:2: iv_ruleForStatement= ruleForStatement EOF
+            // InternalMyGrammar.g:4238:53: (iv_ruleForStatement= ruleForStatement EOF )
+            // InternalMyGrammar.g:4239:2: iv_ruleForStatement= ruleForStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getForStatementRule()); 
@@ -12017,7 +12536,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleForStatement"
-    // InternalMyGrammar.g:4048:1: ruleForStatement returns [EObject current=null] : (otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) ) ) ;
+    // InternalMyGrammar.g:4245:1: ruleForStatement returns [EObject current=null] : (otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) ) ) ;
     public final EObject ruleForStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12039,11 +12558,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4054:2: ( (otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) ) ) )
-            // InternalMyGrammar.g:4055:2: (otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) ) )
+            // InternalMyGrammar.g:4251:2: ( (otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) ) ) )
+            // InternalMyGrammar.g:4252:2: (otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) ) )
             {
-            // InternalMyGrammar.g:4055:2: (otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) ) )
-            // InternalMyGrammar.g:4056:3: otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) )
+            // InternalMyGrammar.g:4252:2: (otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) ) )
+            // InternalMyGrammar.g:4253:3: otherlv_0= 'for' otherlv_1= '(' ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )? ( ( ';' )=>otherlv_3= ';' ) ( (lv_conditionExpression_4_0= ruleExpression ) )? otherlv_5= ';' ( (lv_loopExpression_6_0= ruleExpressionStatement ) )? otherlv_7= ')' ( (lv_body_8_0= ruleStatement ) )
             {
             otherlv_0=(Token)match(input,51,FOLLOW_25); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -12051,25 +12570,25 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getForStatementAccess().getForKeyword_0());
               		
             }
-            otherlv_1=(Token)match(input,27,FOLLOW_52); if (state.failed) return current;
+            otherlv_1=(Token)match(input,27,FOLLOW_54); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getForStatementAccess().getLeftParenthesisKeyword_1());
               		
             }
-            // InternalMyGrammar.g:4064:3: ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )?
-            int alt65=2;
-            int LA65_0 = input.LA(1);
+            // InternalMyGrammar.g:4261:3: ( (lv_initExpression_2_0= ruleSimpleStatement2 ) )?
+            int alt70=2;
+            int LA70_0 = input.LA(1);
 
-            if ( ((LA65_0>=RULE_STRING && LA65_0<=RULE_TX)||LA65_0==27||LA65_0==38||LA65_0==42||(LA65_0>=63 && LA65_0<=175)||(LA65_0>=206 && LA65_0<=207)||(LA65_0>=218 && LA65_0<=219)) ) {
-                alt65=1;
+            if ( ((LA70_0>=RULE_STRING && LA70_0<=RULE_TX)||LA70_0==27||LA70_0==38||LA70_0==42||(LA70_0>=63 && LA70_0<=69)||(LA70_0>=74 && LA70_0<=179)||(LA70_0>=209 && LA70_0<=210)||(LA70_0>=221 && LA70_0<=222)) ) {
+                alt70=1;
             }
-            switch (alt65) {
+            switch (alt70) {
                 case 1 :
-                    // InternalMyGrammar.g:4065:4: (lv_initExpression_2_0= ruleSimpleStatement2 )
+                    // InternalMyGrammar.g:4262:4: (lv_initExpression_2_0= ruleSimpleStatement2 )
                     {
-                    // InternalMyGrammar.g:4065:4: (lv_initExpression_2_0= ruleSimpleStatement2 )
-                    // InternalMyGrammar.g:4066:5: lv_initExpression_2_0= ruleSimpleStatement2
+                    // InternalMyGrammar.g:4262:4: (lv_initExpression_2_0= ruleSimpleStatement2 )
+                    // InternalMyGrammar.g:4263:5: lv_initExpression_2_0= ruleSimpleStatement2
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12103,10 +12622,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:4083:3: ( ( ';' )=>otherlv_3= ';' )
-            // InternalMyGrammar.g:4084:4: ( ';' )=>otherlv_3= ';'
+            // InternalMyGrammar.g:4280:3: ( ( ';' )=>otherlv_3= ';' )
+            // InternalMyGrammar.g:4281:4: ( ';' )=>otherlv_3= ';'
             {
-            otherlv_3=(Token)match(input,17,FOLLOW_53); if (state.failed) return current;
+            otherlv_3=(Token)match(input,17,FOLLOW_55); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               				newLeafNode(otherlv_3, grammarAccess.getForStatementAccess().getSemicolonKeyword_3());
@@ -12115,19 +12634,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:4090:3: ( (lv_conditionExpression_4_0= ruleExpression ) )?
-            int alt66=2;
-            int LA66_0 = input.LA(1);
+            // InternalMyGrammar.g:4287:3: ( (lv_conditionExpression_4_0= ruleExpression ) )?
+            int alt71=2;
+            int LA71_0 = input.LA(1);
 
-            if ( ((LA66_0>=RULE_STRING && LA66_0<=RULE_TX)||LA66_0==27||(LA66_0>=63 && LA66_0<=175)||(LA66_0>=206 && LA66_0<=207)||(LA66_0>=218 && LA66_0<=219)) ) {
-                alt66=1;
+            if ( ((LA71_0>=RULE_STRING && LA71_0<=RULE_TX)||LA71_0==27||(LA71_0>=63 && LA71_0<=69)||(LA71_0>=74 && LA71_0<=179)||(LA71_0>=209 && LA71_0<=210)||(LA71_0>=221 && LA71_0<=222)) ) {
+                alt71=1;
             }
-            switch (alt66) {
+            switch (alt71) {
                 case 1 :
-                    // InternalMyGrammar.g:4091:4: (lv_conditionExpression_4_0= ruleExpression )
+                    // InternalMyGrammar.g:4288:4: (lv_conditionExpression_4_0= ruleExpression )
                     {
-                    // InternalMyGrammar.g:4091:4: (lv_conditionExpression_4_0= ruleExpression )
-                    // InternalMyGrammar.g:4092:5: lv_conditionExpression_4_0= ruleExpression
+                    // InternalMyGrammar.g:4288:4: (lv_conditionExpression_4_0= ruleExpression )
+                    // InternalMyGrammar.g:4289:5: lv_conditionExpression_4_0= ruleExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12161,25 +12680,25 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,17,FOLLOW_54); if (state.failed) return current;
+            otherlv_5=(Token)match(input,17,FOLLOW_56); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_5, grammarAccess.getForStatementAccess().getSemicolonKeyword_5());
               		
             }
-            // InternalMyGrammar.g:4113:3: ( (lv_loopExpression_6_0= ruleExpressionStatement ) )?
-            int alt67=2;
-            int LA67_0 = input.LA(1);
+            // InternalMyGrammar.g:4310:3: ( (lv_loopExpression_6_0= ruleExpressionStatement ) )?
+            int alt72=2;
+            int LA72_0 = input.LA(1);
 
-            if ( ((LA67_0>=RULE_STRING && LA67_0<=RULE_TX)||LA67_0==27||(LA67_0>=63 && LA67_0<=175)||(LA67_0>=206 && LA67_0<=207)||(LA67_0>=218 && LA67_0<=219)) ) {
-                alt67=1;
+            if ( ((LA72_0>=RULE_STRING && LA72_0<=RULE_TX)||LA72_0==27||(LA72_0>=63 && LA72_0<=69)||(LA72_0>=74 && LA72_0<=179)||(LA72_0>=209 && LA72_0<=210)||(LA72_0>=221 && LA72_0<=222)) ) {
+                alt72=1;
             }
-            switch (alt67) {
+            switch (alt72) {
                 case 1 :
-                    // InternalMyGrammar.g:4114:4: (lv_loopExpression_6_0= ruleExpressionStatement )
+                    // InternalMyGrammar.g:4311:4: (lv_loopExpression_6_0= ruleExpressionStatement )
                     {
-                    // InternalMyGrammar.g:4114:4: (lv_loopExpression_6_0= ruleExpressionStatement )
-                    // InternalMyGrammar.g:4115:5: lv_loopExpression_6_0= ruleExpressionStatement
+                    // InternalMyGrammar.g:4311:4: (lv_loopExpression_6_0= ruleExpressionStatement )
+                    // InternalMyGrammar.g:4312:5: lv_loopExpression_6_0= ruleExpressionStatement
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12213,17 +12732,17 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,28,FOLLOW_50); if (state.failed) return current;
+            otherlv_7=(Token)match(input,28,FOLLOW_52); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_7, grammarAccess.getForStatementAccess().getRightParenthesisKeyword_7());
               		
             }
-            // InternalMyGrammar.g:4136:3: ( (lv_body_8_0= ruleStatement ) )
-            // InternalMyGrammar.g:4137:4: (lv_body_8_0= ruleStatement )
+            // InternalMyGrammar.g:4333:3: ( (lv_body_8_0= ruleStatement ) )
+            // InternalMyGrammar.g:4334:4: (lv_body_8_0= ruleStatement )
             {
-            // InternalMyGrammar.g:4137:4: (lv_body_8_0= ruleStatement )
-            // InternalMyGrammar.g:4138:5: lv_body_8_0= ruleStatement
+            // InternalMyGrammar.g:4334:4: (lv_body_8_0= ruleStatement )
+            // InternalMyGrammar.g:4335:5: lv_body_8_0= ruleStatement
             {
             if ( state.backtracking==0 ) {
 
@@ -12279,7 +12798,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBody"
-    // InternalMyGrammar.g:4159:1: entryRuleBody returns [EObject current=null] : iv_ruleBody= ruleBody EOF ;
+    // InternalMyGrammar.g:4356:1: entryRuleBody returns [EObject current=null] : iv_ruleBody= ruleBody EOF ;
     public final EObject entryRuleBody() throws RecognitionException {
         EObject current = null;
 
@@ -12287,8 +12806,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4159:45: (iv_ruleBody= ruleBody EOF )
-            // InternalMyGrammar.g:4160:2: iv_ruleBody= ruleBody EOF
+            // InternalMyGrammar.g:4356:45: (iv_ruleBody= ruleBody EOF )
+            // InternalMyGrammar.g:4357:2: iv_ruleBody= ruleBody EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBodyRule()); 
@@ -12319,7 +12838,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBody"
-    // InternalMyGrammar.g:4166:1: ruleBody returns [EObject current=null] : (otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}' ) ;
+    // InternalMyGrammar.g:4363:1: ruleBody returns [EObject current=null] : (otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}' ) ;
     public final EObject ruleBody() throws RecognitionException {
         EObject current = null;
 
@@ -12334,20 +12853,20 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4172:2: ( (otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}' ) )
-            // InternalMyGrammar.g:4173:2: (otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}' )
+            // InternalMyGrammar.g:4369:2: ( (otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}' ) )
+            // InternalMyGrammar.g:4370:2: (otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}' )
             {
-            // InternalMyGrammar.g:4173:2: (otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}' )
-            // InternalMyGrammar.g:4174:3: otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}'
+            // InternalMyGrammar.g:4370:2: (otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}' )
+            // InternalMyGrammar.g:4371:3: otherlv_0= '{' () ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )? otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_55); if (state.failed) return current;
+            otherlv_0=(Token)match(input,21,FOLLOW_57); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getBodyAccess().getLeftCurlyBracketKeyword_0());
               		
             }
-            // InternalMyGrammar.g:4178:3: ()
-            // InternalMyGrammar.g:4179:4: 
+            // InternalMyGrammar.g:4375:3: ()
+            // InternalMyGrammar.g:4376:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -12359,29 +12878,29 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:4185:3: ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )?
-            int alt69=2;
-            int LA69_0 = input.LA(1);
+            // InternalMyGrammar.g:4382:3: ( ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )* )?
+            int alt74=2;
+            int LA74_0 = input.LA(1);
 
-            if ( ((LA69_0>=RULE_STRING && LA69_0<=RULE_TX)||LA69_0==21||LA69_0==27||LA69_0==38||LA69_0==42||(LA69_0>=47 && LA69_0<=48)||(LA69_0>=50 && LA69_0<=56)||(LA69_0>=63 && LA69_0<=175)||(LA69_0>=206 && LA69_0<=207)||(LA69_0>=218 && LA69_0<=219)) ) {
-                alt69=1;
+            if ( ((LA74_0>=RULE_STRING && LA74_0<=RULE_TX)||LA74_0==21||LA74_0==27||LA74_0==38||LA74_0==42||(LA74_0>=47 && LA74_0<=48)||(LA74_0>=50 && LA74_0<=56)||(LA74_0>=63 && LA74_0<=69)||(LA74_0>=74 && LA74_0<=179)||(LA74_0>=209 && LA74_0<=210)||(LA74_0>=221 && LA74_0<=222)) ) {
+                alt74=1;
             }
-            switch (alt69) {
+            switch (alt74) {
                 case 1 :
-                    // InternalMyGrammar.g:4186:4: ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )*
+                    // InternalMyGrammar.g:4383:4: ( (lv_statements_2_0= ruleStatement ) ) ( (lv_statements_3_0= ruleStatement ) )*
                     {
-                    // InternalMyGrammar.g:4186:4: ( (lv_statements_2_0= ruleStatement ) )
-                    // InternalMyGrammar.g:4187:5: (lv_statements_2_0= ruleStatement )
+                    // InternalMyGrammar.g:4383:4: ( (lv_statements_2_0= ruleStatement ) )
+                    // InternalMyGrammar.g:4384:5: (lv_statements_2_0= ruleStatement )
                     {
-                    // InternalMyGrammar.g:4187:5: (lv_statements_2_0= ruleStatement )
-                    // InternalMyGrammar.g:4188:6: lv_statements_2_0= ruleStatement
+                    // InternalMyGrammar.g:4384:5: (lv_statements_2_0= ruleStatement )
+                    // InternalMyGrammar.g:4385:6: lv_statements_2_0= ruleStatement
                     {
                     if ( state.backtracking==0 ) {
 
                       						newCompositeNode(grammarAccess.getBodyAccess().getStatementsStatementParserRuleCall_2_0_0());
                       					
                     }
-                    pushFollow(FOLLOW_55);
+                    pushFollow(FOLLOW_57);
                     lv_statements_2_0=ruleStatement();
 
                     state._fsp--;
@@ -12405,30 +12924,30 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyGrammar.g:4205:4: ( (lv_statements_3_0= ruleStatement ) )*
-                    loop68:
+                    // InternalMyGrammar.g:4402:4: ( (lv_statements_3_0= ruleStatement ) )*
+                    loop73:
                     do {
-                        int alt68=2;
-                        int LA68_0 = input.LA(1);
+                        int alt73=2;
+                        int LA73_0 = input.LA(1);
 
-                        if ( ((LA68_0>=RULE_STRING && LA68_0<=RULE_TX)||LA68_0==21||LA68_0==27||LA68_0==38||LA68_0==42||(LA68_0>=47 && LA68_0<=48)||(LA68_0>=50 && LA68_0<=56)||(LA68_0>=63 && LA68_0<=175)||(LA68_0>=206 && LA68_0<=207)||(LA68_0>=218 && LA68_0<=219)) ) {
-                            alt68=1;
+                        if ( ((LA73_0>=RULE_STRING && LA73_0<=RULE_TX)||LA73_0==21||LA73_0==27||LA73_0==38||LA73_0==42||(LA73_0>=47 && LA73_0<=48)||(LA73_0>=50 && LA73_0<=56)||(LA73_0>=63 && LA73_0<=69)||(LA73_0>=74 && LA73_0<=179)||(LA73_0>=209 && LA73_0<=210)||(LA73_0>=221 && LA73_0<=222)) ) {
+                            alt73=1;
                         }
 
 
-                        switch (alt68) {
+                        switch (alt73) {
                     	case 1 :
-                    	    // InternalMyGrammar.g:4206:5: (lv_statements_3_0= ruleStatement )
+                    	    // InternalMyGrammar.g:4403:5: (lv_statements_3_0= ruleStatement )
                     	    {
-                    	    // InternalMyGrammar.g:4206:5: (lv_statements_3_0= ruleStatement )
-                    	    // InternalMyGrammar.g:4207:6: lv_statements_3_0= ruleStatement
+                    	    // InternalMyGrammar.g:4403:5: (lv_statements_3_0= ruleStatement )
+                    	    // InternalMyGrammar.g:4404:6: lv_statements_3_0= ruleStatement
                     	    {
                     	    if ( state.backtracking==0 ) {
 
                     	      						newCompositeNode(grammarAccess.getBodyAccess().getStatementsStatementParserRuleCall_2_1_0());
                     	      					
                     	    }
-                    	    pushFollow(FOLLOW_55);
+                    	    pushFollow(FOLLOW_57);
                     	    lv_statements_3_0=ruleStatement();
 
                     	    state._fsp--;
@@ -12454,7 +12973,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop68;
+                    	    break loop73;
                         }
                     } while (true);
 
@@ -12495,7 +13014,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleContinueStatement"
-    // InternalMyGrammar.g:4233:1: entryRuleContinueStatement returns [EObject current=null] : iv_ruleContinueStatement= ruleContinueStatement EOF ;
+    // InternalMyGrammar.g:4430:1: entryRuleContinueStatement returns [EObject current=null] : iv_ruleContinueStatement= ruleContinueStatement EOF ;
     public final EObject entryRuleContinueStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12503,8 +13022,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4233:58: (iv_ruleContinueStatement= ruleContinueStatement EOF )
-            // InternalMyGrammar.g:4234:2: iv_ruleContinueStatement= ruleContinueStatement EOF
+            // InternalMyGrammar.g:4430:58: (iv_ruleContinueStatement= ruleContinueStatement EOF )
+            // InternalMyGrammar.g:4431:2: iv_ruleContinueStatement= ruleContinueStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getContinueStatementRule()); 
@@ -12535,7 +13054,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleContinueStatement"
-    // InternalMyGrammar.g:4240:1: ruleContinueStatement returns [EObject current=null] : (otherlv_0= 'continue' () otherlv_2= ';' ) ;
+    // InternalMyGrammar.g:4437:1: ruleContinueStatement returns [EObject current=null] : (otherlv_0= 'continue' () otherlv_2= ';' ) ;
     public final EObject ruleContinueStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12546,11 +13065,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4246:2: ( (otherlv_0= 'continue' () otherlv_2= ';' ) )
-            // InternalMyGrammar.g:4247:2: (otherlv_0= 'continue' () otherlv_2= ';' )
+            // InternalMyGrammar.g:4443:2: ( (otherlv_0= 'continue' () otherlv_2= ';' ) )
+            // InternalMyGrammar.g:4444:2: (otherlv_0= 'continue' () otherlv_2= ';' )
             {
-            // InternalMyGrammar.g:4247:2: (otherlv_0= 'continue' () otherlv_2= ';' )
-            // InternalMyGrammar.g:4248:3: otherlv_0= 'continue' () otherlv_2= ';'
+            // InternalMyGrammar.g:4444:2: (otherlv_0= 'continue' () otherlv_2= ';' )
+            // InternalMyGrammar.g:4445:3: otherlv_0= 'continue' () otherlv_2= ';'
             {
             otherlv_0=(Token)match(input,52,FOLLOW_5); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -12558,8 +13077,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getContinueStatementAccess().getContinueKeyword_0());
               		
             }
-            // InternalMyGrammar.g:4252:3: ()
-            // InternalMyGrammar.g:4253:4: 
+            // InternalMyGrammar.g:4449:3: ()
+            // InternalMyGrammar.g:4450:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -12602,7 +13121,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBreakStatement"
-    // InternalMyGrammar.g:4267:1: entryRuleBreakStatement returns [EObject current=null] : iv_ruleBreakStatement= ruleBreakStatement EOF ;
+    // InternalMyGrammar.g:4464:1: entryRuleBreakStatement returns [EObject current=null] : iv_ruleBreakStatement= ruleBreakStatement EOF ;
     public final EObject entryRuleBreakStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12610,8 +13129,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4267:55: (iv_ruleBreakStatement= ruleBreakStatement EOF )
-            // InternalMyGrammar.g:4268:2: iv_ruleBreakStatement= ruleBreakStatement EOF
+            // InternalMyGrammar.g:4464:55: (iv_ruleBreakStatement= ruleBreakStatement EOF )
+            // InternalMyGrammar.g:4465:2: iv_ruleBreakStatement= ruleBreakStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBreakStatementRule()); 
@@ -12642,7 +13161,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBreakStatement"
-    // InternalMyGrammar.g:4274:1: ruleBreakStatement returns [EObject current=null] : (otherlv_0= 'break' () otherlv_2= ';' ) ;
+    // InternalMyGrammar.g:4471:1: ruleBreakStatement returns [EObject current=null] : (otherlv_0= 'break' () otherlv_2= ';' ) ;
     public final EObject ruleBreakStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12653,11 +13172,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4280:2: ( (otherlv_0= 'break' () otherlv_2= ';' ) )
-            // InternalMyGrammar.g:4281:2: (otherlv_0= 'break' () otherlv_2= ';' )
+            // InternalMyGrammar.g:4477:2: ( (otherlv_0= 'break' () otherlv_2= ';' ) )
+            // InternalMyGrammar.g:4478:2: (otherlv_0= 'break' () otherlv_2= ';' )
             {
-            // InternalMyGrammar.g:4281:2: (otherlv_0= 'break' () otherlv_2= ';' )
-            // InternalMyGrammar.g:4282:3: otherlv_0= 'break' () otherlv_2= ';'
+            // InternalMyGrammar.g:4478:2: (otherlv_0= 'break' () otherlv_2= ';' )
+            // InternalMyGrammar.g:4479:3: otherlv_0= 'break' () otherlv_2= ';'
             {
             otherlv_0=(Token)match(input,53,FOLLOW_5); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -12665,8 +13184,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getBreakStatementAccess().getBreakKeyword_0());
               		
             }
-            // InternalMyGrammar.g:4286:3: ()
-            // InternalMyGrammar.g:4287:4: 
+            // InternalMyGrammar.g:4483:3: ()
+            // InternalMyGrammar.g:4484:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -12709,7 +13228,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleReturnStatement"
-    // InternalMyGrammar.g:4301:1: entryRuleReturnStatement returns [EObject current=null] : iv_ruleReturnStatement= ruleReturnStatement EOF ;
+    // InternalMyGrammar.g:4498:1: entryRuleReturnStatement returns [EObject current=null] : iv_ruleReturnStatement= ruleReturnStatement EOF ;
     public final EObject entryRuleReturnStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12717,8 +13236,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4301:56: (iv_ruleReturnStatement= ruleReturnStatement EOF )
-            // InternalMyGrammar.g:4302:2: iv_ruleReturnStatement= ruleReturnStatement EOF
+            // InternalMyGrammar.g:4498:56: (iv_ruleReturnStatement= ruleReturnStatement EOF )
+            // InternalMyGrammar.g:4499:2: iv_ruleReturnStatement= ruleReturnStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getReturnStatementRule()); 
@@ -12749,7 +13268,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReturnStatement"
-    // InternalMyGrammar.g:4308:1: ruleReturnStatement returns [EObject current=null] : (otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';' ) ;
+    // InternalMyGrammar.g:4505:1: ruleReturnStatement returns [EObject current=null] : (otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';' ) ;
     public final EObject ruleReturnStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12762,20 +13281,20 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4314:2: ( (otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';' ) )
-            // InternalMyGrammar.g:4315:2: (otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';' )
+            // InternalMyGrammar.g:4511:2: ( (otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';' ) )
+            // InternalMyGrammar.g:4512:2: (otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';' )
             {
-            // InternalMyGrammar.g:4315:2: (otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';' )
-            // InternalMyGrammar.g:4316:3: otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';'
+            // InternalMyGrammar.g:4512:2: (otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';' )
+            // InternalMyGrammar.g:4513:3: otherlv_0= 'return' () ( (lv_expression_2_0= ruleExpression ) )? otherlv_3= ';'
             {
-            otherlv_0=(Token)match(input,54,FOLLOW_53); if (state.failed) return current;
+            otherlv_0=(Token)match(input,54,FOLLOW_55); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_0, grammarAccess.getReturnStatementAccess().getReturnKeyword_0());
               		
             }
-            // InternalMyGrammar.g:4320:3: ()
-            // InternalMyGrammar.g:4321:4: 
+            // InternalMyGrammar.g:4517:3: ()
+            // InternalMyGrammar.g:4518:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -12787,19 +13306,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:4327:3: ( (lv_expression_2_0= ruleExpression ) )?
-            int alt70=2;
-            int LA70_0 = input.LA(1);
+            // InternalMyGrammar.g:4524:3: ( (lv_expression_2_0= ruleExpression ) )?
+            int alt75=2;
+            int LA75_0 = input.LA(1);
 
-            if ( ((LA70_0>=RULE_STRING && LA70_0<=RULE_TX)||LA70_0==27||(LA70_0>=63 && LA70_0<=175)||(LA70_0>=206 && LA70_0<=207)||(LA70_0>=218 && LA70_0<=219)) ) {
-                alt70=1;
+            if ( ((LA75_0>=RULE_STRING && LA75_0<=RULE_TX)||LA75_0==27||(LA75_0>=63 && LA75_0<=69)||(LA75_0>=74 && LA75_0<=179)||(LA75_0>=209 && LA75_0<=210)||(LA75_0>=221 && LA75_0<=222)) ) {
+                alt75=1;
             }
-            switch (alt70) {
+            switch (alt75) {
                 case 1 :
-                    // InternalMyGrammar.g:4328:4: (lv_expression_2_0= ruleExpression )
+                    // InternalMyGrammar.g:4525:4: (lv_expression_2_0= ruleExpression )
                     {
-                    // InternalMyGrammar.g:4328:4: (lv_expression_2_0= ruleExpression )
-                    // InternalMyGrammar.g:4329:5: lv_expression_2_0= ruleExpression
+                    // InternalMyGrammar.g:4525:4: (lv_expression_2_0= ruleExpression )
+                    // InternalMyGrammar.g:4526:5: lv_expression_2_0= ruleExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -12864,7 +13383,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleThrowStatement"
-    // InternalMyGrammar.g:4354:1: entryRuleThrowStatement returns [EObject current=null] : iv_ruleThrowStatement= ruleThrowStatement EOF ;
+    // InternalMyGrammar.g:4551:1: entryRuleThrowStatement returns [EObject current=null] : iv_ruleThrowStatement= ruleThrowStatement EOF ;
     public final EObject entryRuleThrowStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12872,8 +13391,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4354:55: (iv_ruleThrowStatement= ruleThrowStatement EOF )
-            // InternalMyGrammar.g:4355:2: iv_ruleThrowStatement= ruleThrowStatement EOF
+            // InternalMyGrammar.g:4551:55: (iv_ruleThrowStatement= ruleThrowStatement EOF )
+            // InternalMyGrammar.g:4552:2: iv_ruleThrowStatement= ruleThrowStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getThrowStatementRule()); 
@@ -12904,7 +13423,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleThrowStatement"
-    // InternalMyGrammar.g:4361:1: ruleThrowStatement returns [EObject current=null] : (otherlv_0= 'throw' () otherlv_2= ';' ) ;
+    // InternalMyGrammar.g:4558:1: ruleThrowStatement returns [EObject current=null] : (otherlv_0= 'throw' () otherlv_2= ';' ) ;
     public final EObject ruleThrowStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12915,11 +13434,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4367:2: ( (otherlv_0= 'throw' () otherlv_2= ';' ) )
-            // InternalMyGrammar.g:4368:2: (otherlv_0= 'throw' () otherlv_2= ';' )
+            // InternalMyGrammar.g:4564:2: ( (otherlv_0= 'throw' () otherlv_2= ';' ) )
+            // InternalMyGrammar.g:4565:2: (otherlv_0= 'throw' () otherlv_2= ';' )
             {
-            // InternalMyGrammar.g:4368:2: (otherlv_0= 'throw' () otherlv_2= ';' )
-            // InternalMyGrammar.g:4369:3: otherlv_0= 'throw' () otherlv_2= ';'
+            // InternalMyGrammar.g:4565:2: (otherlv_0= 'throw' () otherlv_2= ';' )
+            // InternalMyGrammar.g:4566:3: otherlv_0= 'throw' () otherlv_2= ';'
             {
             otherlv_0=(Token)match(input,55,FOLLOW_5); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -12927,8 +13446,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getThrowStatementAccess().getThrowKeyword_0());
               		
             }
-            // InternalMyGrammar.g:4373:3: ()
-            // InternalMyGrammar.g:4374:4: 
+            // InternalMyGrammar.g:4570:3: ()
+            // InternalMyGrammar.g:4571:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -12971,7 +13490,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePlaceHolderStatement"
-    // InternalMyGrammar.g:4388:1: entryRulePlaceHolderStatement returns [EObject current=null] : iv_rulePlaceHolderStatement= rulePlaceHolderStatement EOF ;
+    // InternalMyGrammar.g:4585:1: entryRulePlaceHolderStatement returns [EObject current=null] : iv_rulePlaceHolderStatement= rulePlaceHolderStatement EOF ;
     public final EObject entryRulePlaceHolderStatement() throws RecognitionException {
         EObject current = null;
 
@@ -12979,8 +13498,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4388:61: (iv_rulePlaceHolderStatement= rulePlaceHolderStatement EOF )
-            // InternalMyGrammar.g:4389:2: iv_rulePlaceHolderStatement= rulePlaceHolderStatement EOF
+            // InternalMyGrammar.g:4585:61: (iv_rulePlaceHolderStatement= rulePlaceHolderStatement EOF )
+            // InternalMyGrammar.g:4586:2: iv_rulePlaceHolderStatement= rulePlaceHolderStatement EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPlaceHolderStatementRule()); 
@@ -13011,7 +13530,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePlaceHolderStatement"
-    // InternalMyGrammar.g:4395:1: rulePlaceHolderStatement returns [EObject current=null] : (otherlv_0= '_' () ) ;
+    // InternalMyGrammar.g:4592:1: rulePlaceHolderStatement returns [EObject current=null] : (otherlv_0= '_' () ) ;
     public final EObject rulePlaceHolderStatement() throws RecognitionException {
         EObject current = null;
 
@@ -13021,11 +13540,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4401:2: ( (otherlv_0= '_' () ) )
-            // InternalMyGrammar.g:4402:2: (otherlv_0= '_' () )
+            // InternalMyGrammar.g:4598:2: ( (otherlv_0= '_' () ) )
+            // InternalMyGrammar.g:4599:2: (otherlv_0= '_' () )
             {
-            // InternalMyGrammar.g:4402:2: (otherlv_0= '_' () )
-            // InternalMyGrammar.g:4403:3: otherlv_0= '_' ()
+            // InternalMyGrammar.g:4599:2: (otherlv_0= '_' () )
+            // InternalMyGrammar.g:4600:3: otherlv_0= '_' ()
             {
             otherlv_0=(Token)match(input,56,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -13033,8 +13552,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getPlaceHolderStatementAccess().get_Keyword_0());
               		
             }
-            // InternalMyGrammar.g:4407:3: ()
-            // InternalMyGrammar.g:4408:4: 
+            // InternalMyGrammar.g:4604:3: ()
+            // InternalMyGrammar.g:4605:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -13071,7 +13590,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpression"
-    // InternalMyGrammar.g:4418:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    // InternalMyGrammar.g:4615:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
     public final EObject entryRuleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13079,8 +13598,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4418:51: (iv_ruleExpression= ruleExpression EOF )
-            // InternalMyGrammar.g:4419:2: iv_ruleExpression= ruleExpression EOF
+            // InternalMyGrammar.g:4615:51: (iv_ruleExpression= ruleExpression EOF )
+            // InternalMyGrammar.g:4616:2: iv_ruleExpression= ruleExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExpressionRule()); 
@@ -13111,7 +13630,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression"
-    // InternalMyGrammar.g:4425:1: ruleExpression returns [EObject current=null] : this_Assignment_0= ruleAssignment ;
+    // InternalMyGrammar.g:4622:1: ruleExpression returns [EObject current=null] : this_Assignment_0= ruleAssignment ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13122,8 +13641,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4431:2: (this_Assignment_0= ruleAssignment )
-            // InternalMyGrammar.g:4432:2: this_Assignment_0= ruleAssignment
+            // InternalMyGrammar.g:4628:2: (this_Assignment_0= ruleAssignment )
+            // InternalMyGrammar.g:4629:2: this_Assignment_0= ruleAssignment
             {
             if ( state.backtracking==0 ) {
 
@@ -13163,7 +13682,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSpecialExpression"
-    // InternalMyGrammar.g:4443:1: entryRuleSpecialExpression returns [EObject current=null] : iv_ruleSpecialExpression= ruleSpecialExpression EOF ;
+    // InternalMyGrammar.g:4640:1: entryRuleSpecialExpression returns [EObject current=null] : iv_ruleSpecialExpression= ruleSpecialExpression EOF ;
     public final EObject entryRuleSpecialExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13171,8 +13690,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4443:58: (iv_ruleSpecialExpression= ruleSpecialExpression EOF )
-            // InternalMyGrammar.g:4444:2: iv_ruleSpecialExpression= ruleSpecialExpression EOF
+            // InternalMyGrammar.g:4640:58: (iv_ruleSpecialExpression= ruleSpecialExpression EOF )
+            // InternalMyGrammar.g:4641:2: iv_ruleSpecialExpression= ruleSpecialExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSpecialExpressionRule()); 
@@ -13203,7 +13722,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSpecialExpression"
-    // InternalMyGrammar.g:4450:1: ruleSpecialExpression returns [EObject current=null] : ( ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )* ) ;
+    // InternalMyGrammar.g:4647:1: ruleSpecialExpression returns [EObject current=null] : ( ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )* ) ;
     public final EObject ruleSpecialExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13220,17 +13739,17 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4456:2: ( ( ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )* ) )
-            // InternalMyGrammar.g:4457:2: ( ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )* )
+            // InternalMyGrammar.g:4653:2: ( ( ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )* ) )
+            // InternalMyGrammar.g:4654:2: ( ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )* )
             {
-            // InternalMyGrammar.g:4457:2: ( ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )* )
-            // InternalMyGrammar.g:4458:3: ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )*
+            // InternalMyGrammar.g:4654:2: ( ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )* )
+            // InternalMyGrammar.g:4655:3: ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) ) ( (lv_fieldOrMethod_1_0= ruleField ) )? ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )*
             {
-            // InternalMyGrammar.g:4458:3: ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) )
-            // InternalMyGrammar.g:4459:4: (lv_type_0_0= ruleSpecialExpressionTypeEnum )
+            // InternalMyGrammar.g:4655:3: ( (lv_type_0_0= ruleSpecialExpressionTypeEnum ) )
+            // InternalMyGrammar.g:4656:4: (lv_type_0_0= ruleSpecialExpressionTypeEnum )
             {
-            // InternalMyGrammar.g:4459:4: (lv_type_0_0= ruleSpecialExpressionTypeEnum )
-            // InternalMyGrammar.g:4460:5: lv_type_0_0= ruleSpecialExpressionTypeEnum
+            // InternalMyGrammar.g:4656:4: (lv_type_0_0= ruleSpecialExpressionTypeEnum )
+            // InternalMyGrammar.g:4657:5: lv_type_0_0= ruleSpecialExpressionTypeEnum
             {
             if ( state.backtracking==0 ) {
 
@@ -13261,19 +13780,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:4477:3: ( (lv_fieldOrMethod_1_0= ruleField ) )?
-            int alt71=2;
-            int LA71_0 = input.LA(1);
+            // InternalMyGrammar.g:4674:3: ( (lv_fieldOrMethod_1_0= ruleField ) )?
+            int alt76=2;
+            int LA76_0 = input.LA(1);
 
-            if ( (LA71_0==43) ) {
-                alt71=1;
+            if ( (LA76_0==43) ) {
+                alt76=1;
             }
-            switch (alt71) {
+            switch (alt76) {
                 case 1 :
-                    // InternalMyGrammar.g:4478:4: (lv_fieldOrMethod_1_0= ruleField )
+                    // InternalMyGrammar.g:4675:4: (lv_fieldOrMethod_1_0= ruleField )
                     {
-                    // InternalMyGrammar.g:4478:4: (lv_fieldOrMethod_1_0= ruleField )
-                    // InternalMyGrammar.g:4479:5: lv_fieldOrMethod_1_0= ruleField
+                    // InternalMyGrammar.g:4675:4: (lv_fieldOrMethod_1_0= ruleField )
+                    // InternalMyGrammar.g:4676:5: lv_fieldOrMethod_1_0= ruleField
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13307,44 +13826,44 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:4496:3: ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )*
-            loop73:
+            // InternalMyGrammar.g:4693:3: ( ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) ) )*
+            loop78:
             do {
-                int alt73=2;
-                int LA73_0 = input.LA(1);
+                int alt78=2;
+                int LA78_0 = input.LA(1);
 
-                if ( (LA73_0==27||LA73_0==40) ) {
-                    alt73=1;
+                if ( (LA78_0==27||LA78_0==40) ) {
+                    alt78=1;
                 }
 
 
-                switch (alt73) {
+                switch (alt78) {
             	case 1 :
-            	    // InternalMyGrammar.g:4497:4: ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) )
+            	    // InternalMyGrammar.g:4694:4: ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) )
             	    {
-            	    // InternalMyGrammar.g:4497:4: ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) )
-            	    // InternalMyGrammar.g:4498:5: (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments )
+            	    // InternalMyGrammar.g:4694:4: ( (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments ) )
+            	    // InternalMyGrammar.g:4695:5: (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments )
             	    {
-            	    // InternalMyGrammar.g:4498:5: (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments )
-            	    int alt72=2;
-            	    int LA72_0 = input.LA(1);
+            	    // InternalMyGrammar.g:4695:5: (lv_qualifiers_2_1= ruleIndex | lv_qualifiers_2_2= ruleArguments )
+            	    int alt77=2;
+            	    int LA77_0 = input.LA(1);
 
-            	    if ( (LA72_0==40) ) {
-            	        alt72=1;
+            	    if ( (LA77_0==40) ) {
+            	        alt77=1;
             	    }
-            	    else if ( (LA72_0==27) ) {
-            	        alt72=2;
+            	    else if ( (LA77_0==27) ) {
+            	        alt77=2;
             	    }
             	    else {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 72, 0, input);
+            	            new NoViableAltException("", 77, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt72) {
+            	    switch (alt77) {
             	        case 1 :
-            	            // InternalMyGrammar.g:4499:6: lv_qualifiers_2_1= ruleIndex
+            	            // InternalMyGrammar.g:4696:6: lv_qualifiers_2_1= ruleIndex
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -13373,7 +13892,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalMyGrammar.g:4515:6: lv_qualifiers_2_2= ruleArguments
+            	            // InternalMyGrammar.g:4712:6: lv_qualifiers_2_2= ruleArguments
             	            {
             	            if ( state.backtracking==0 ) {
 
@@ -13412,7 +13931,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop73;
+            	    break loop78;
                 }
             } while (true);
 
@@ -13441,7 +13960,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssignment"
-    // InternalMyGrammar.g:4537:1: entryRuleAssignment returns [EObject current=null] : iv_ruleAssignment= ruleAssignment EOF ;
+    // InternalMyGrammar.g:4734:1: entryRuleAssignment returns [EObject current=null] : iv_ruleAssignment= ruleAssignment EOF ;
     public final EObject entryRuleAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -13449,8 +13968,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4537:51: (iv_ruleAssignment= ruleAssignment EOF )
-            // InternalMyGrammar.g:4538:2: iv_ruleAssignment= ruleAssignment EOF
+            // InternalMyGrammar.g:4734:51: (iv_ruleAssignment= ruleAssignment EOF )
+            // InternalMyGrammar.g:4735:2: iv_ruleAssignment= ruleAssignment EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAssignmentRule()); 
@@ -13481,7 +14000,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssignment"
-    // InternalMyGrammar.g:4544:1: ruleAssignment returns [EObject current=null] : (this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )? ) ;
+    // InternalMyGrammar.g:4741:1: ruleAssignment returns [EObject current=null] : (this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )? ) ;
     public final EObject ruleAssignment() throws RecognitionException {
         EObject current = null;
 
@@ -13501,18 +14020,18 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4550:2: ( (this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )? ) )
-            // InternalMyGrammar.g:4551:2: (this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )? )
+            // InternalMyGrammar.g:4747:2: ( (this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )? ) )
+            // InternalMyGrammar.g:4748:2: (this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )? )
             {
-            // InternalMyGrammar.g:4551:2: (this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )? )
-            // InternalMyGrammar.g:4552:3: this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )?
+            // InternalMyGrammar.g:4748:2: (this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )? )
+            // InternalMyGrammar.g:4749:3: this_BinaryExpression_0= ruleBinaryExpression ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )?
             {
             if ( state.backtracking==0 ) {
 
               			newCompositeNode(grammarAccess.getAssignmentAccess().getBinaryExpressionParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_58);
             this_BinaryExpression_0=ruleBinaryExpression();
 
             state._fsp--;
@@ -13523,25 +14042,25 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalMyGrammar.g:4560:3: ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )?
-            int alt75=3;
-            int LA75_0 = input.LA(1);
+            // InternalMyGrammar.g:4757:3: ( ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) ) | ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? ) )?
+            int alt80=3;
+            int LA80_0 = input.LA(1);
 
-            if ( (LA75_0==36||(LA75_0>=183 && LA75_0<=193)) ) {
-                alt75=1;
+            if ( (LA80_0==36||(LA80_0>=187 && LA80_0<=197)) ) {
+                alt80=1;
             }
-            else if ( (LA75_0==RULE_ID) ) {
-                alt75=2;
+            else if ( (LA80_0==RULE_ID) ) {
+                alt80=2;
             }
-            switch (alt75) {
+            switch (alt80) {
                 case 1 :
-                    // InternalMyGrammar.g:4561:4: ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) )
+                    // InternalMyGrammar.g:4758:4: ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) )
                     {
-                    // InternalMyGrammar.g:4561:4: ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) )
-                    // InternalMyGrammar.g:4562:5: () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) )
+                    // InternalMyGrammar.g:4758:4: ( () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) ) )
+                    // InternalMyGrammar.g:4759:5: () ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) ) ( (lv_expression_3_0= ruleExpression ) )
                     {
-                    // InternalMyGrammar.g:4562:5: ()
-                    // InternalMyGrammar.g:4563:6: 
+                    // InternalMyGrammar.g:4759:5: ()
+                    // InternalMyGrammar.g:4760:6: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13553,11 +14072,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyGrammar.g:4569:5: ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) )
-                    // InternalMyGrammar.g:4570:6: (lv_assignmentOp_2_0= ruleAssignmentOpEnum )
+                    // InternalMyGrammar.g:4766:5: ( (lv_assignmentOp_2_0= ruleAssignmentOpEnum ) )
+                    // InternalMyGrammar.g:4767:6: (lv_assignmentOp_2_0= ruleAssignmentOpEnum )
                     {
-                    // InternalMyGrammar.g:4570:6: (lv_assignmentOp_2_0= ruleAssignmentOpEnum )
-                    // InternalMyGrammar.g:4571:7: lv_assignmentOp_2_0= ruleAssignmentOpEnum
+                    // InternalMyGrammar.g:4767:6: (lv_assignmentOp_2_0= ruleAssignmentOpEnum )
+                    // InternalMyGrammar.g:4768:7: lv_assignmentOp_2_0= ruleAssignmentOpEnum
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13588,11 +14107,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyGrammar.g:4588:5: ( (lv_expression_3_0= ruleExpression ) )
-                    // InternalMyGrammar.g:4589:6: (lv_expression_3_0= ruleExpression )
+                    // InternalMyGrammar.g:4785:5: ( (lv_expression_3_0= ruleExpression ) )
+                    // InternalMyGrammar.g:4786:6: (lv_expression_3_0= ruleExpression )
                     {
-                    // InternalMyGrammar.g:4589:6: (lv_expression_3_0= ruleExpression )
-                    // InternalMyGrammar.g:4590:7: lv_expression_3_0= ruleExpression
+                    // InternalMyGrammar.g:4786:6: (lv_expression_3_0= ruleExpression )
+                    // InternalMyGrammar.g:4787:7: lv_expression_3_0= ruleExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13630,13 +14149,13 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:4609:4: ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? )
+                    // InternalMyGrammar.g:4806:4: ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? )
                     {
-                    // InternalMyGrammar.g:4609:4: ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? )
-                    // InternalMyGrammar.g:4610:5: () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )?
+                    // InternalMyGrammar.g:4806:4: ( () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )? )
+                    // InternalMyGrammar.g:4807:5: () ( (lv_variable_5_0= ruleVariable ) ) (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )?
                     {
-                    // InternalMyGrammar.g:4610:5: ()
-                    // InternalMyGrammar.g:4611:6: 
+                    // InternalMyGrammar.g:4807:5: ()
+                    // InternalMyGrammar.g:4808:6: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13648,11 +14167,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyGrammar.g:4617:5: ( (lv_variable_5_0= ruleVariable ) )
-                    // InternalMyGrammar.g:4618:6: (lv_variable_5_0= ruleVariable )
+                    // InternalMyGrammar.g:4814:5: ( (lv_variable_5_0= ruleVariable ) )
+                    // InternalMyGrammar.g:4815:6: (lv_variable_5_0= ruleVariable )
                     {
-                    // InternalMyGrammar.g:4618:6: (lv_variable_5_0= ruleVariable )
-                    // InternalMyGrammar.g:4619:7: lv_variable_5_0= ruleVariable
+                    // InternalMyGrammar.g:4815:6: (lv_variable_5_0= ruleVariable )
+                    // InternalMyGrammar.g:4816:7: lv_variable_5_0= ruleVariable
                     {
                     if ( state.backtracking==0 ) {
 
@@ -13683,16 +14202,16 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyGrammar.g:4636:5: (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )?
-                    int alt74=2;
-                    int LA74_0 = input.LA(1);
+                    // InternalMyGrammar.g:4833:5: (otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) ) )?
+                    int alt79=2;
+                    int LA79_0 = input.LA(1);
 
-                    if ( (LA74_0==36) ) {
-                        alt74=1;
+                    if ( (LA79_0==36) ) {
+                        alt79=1;
                     }
-                    switch (alt74) {
+                    switch (alt79) {
                         case 1 :
-                            // InternalMyGrammar.g:4637:6: otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) )
+                            // InternalMyGrammar.g:4834:6: otherlv_6= '=' ( (lv_expression_7_0= ruleExpression ) )
                             {
                             otherlv_6=(Token)match(input,36,FOLLOW_19); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -13700,11 +14219,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                               						newLeafNode(otherlv_6, grammarAccess.getAssignmentAccess().getEqualsSignKeyword_1_1_2_0());
                               					
                             }
-                            // InternalMyGrammar.g:4641:6: ( (lv_expression_7_0= ruleExpression ) )
-                            // InternalMyGrammar.g:4642:7: (lv_expression_7_0= ruleExpression )
+                            // InternalMyGrammar.g:4838:6: ( (lv_expression_7_0= ruleExpression ) )
+                            // InternalMyGrammar.g:4839:7: (lv_expression_7_0= ruleExpression )
                             {
-                            // InternalMyGrammar.g:4642:7: (lv_expression_7_0= ruleExpression )
-                            // InternalMyGrammar.g:4643:8: lv_expression_7_0= ruleExpression
+                            // InternalMyGrammar.g:4839:7: (lv_expression_7_0= ruleExpression )
+                            // InternalMyGrammar.g:4840:8: lv_expression_7_0= ruleExpression
                             {
                             if ( state.backtracking==0 ) {
 
@@ -13775,7 +14294,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBinaryExpression"
-    // InternalMyGrammar.g:4667:1: entryRuleBinaryExpression returns [EObject current=null] : iv_ruleBinaryExpression= ruleBinaryExpression EOF ;
+    // InternalMyGrammar.g:4864:1: entryRuleBinaryExpression returns [EObject current=null] : iv_ruleBinaryExpression= ruleBinaryExpression EOF ;
     public final EObject entryRuleBinaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13783,8 +14302,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4667:57: (iv_ruleBinaryExpression= ruleBinaryExpression EOF )
-            // InternalMyGrammar.g:4668:2: iv_ruleBinaryExpression= ruleBinaryExpression EOF
+            // InternalMyGrammar.g:4864:57: (iv_ruleBinaryExpression= ruleBinaryExpression EOF )
+            // InternalMyGrammar.g:4865:2: iv_ruleBinaryExpression= ruleBinaryExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBinaryExpressionRule()); 
@@ -13815,7 +14334,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBinaryExpression"
-    // InternalMyGrammar.g:4674:1: ruleBinaryExpression returns [EObject current=null] : this_Or_0= ruleOr ;
+    // InternalMyGrammar.g:4871:1: ruleBinaryExpression returns [EObject current=null] : this_Or_0= ruleOr ;
     public final EObject ruleBinaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -13826,8 +14345,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4680:2: (this_Or_0= ruleOr )
-            // InternalMyGrammar.g:4681:2: this_Or_0= ruleOr
+            // InternalMyGrammar.g:4877:2: (this_Or_0= ruleOr )
+            // InternalMyGrammar.g:4878:2: this_Or_0= ruleOr
             {
             if ( state.backtracking==0 ) {
 
@@ -13867,7 +14386,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOr"
-    // InternalMyGrammar.g:4692:1: entryRuleOr returns [EObject current=null] : iv_ruleOr= ruleOr EOF ;
+    // InternalMyGrammar.g:4889:1: entryRuleOr returns [EObject current=null] : iv_ruleOr= ruleOr EOF ;
     public final EObject entryRuleOr() throws RecognitionException {
         EObject current = null;
 
@@ -13875,8 +14394,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:4692:43: (iv_ruleOr= ruleOr EOF )
-            // InternalMyGrammar.g:4693:2: iv_ruleOr= ruleOr EOF
+            // InternalMyGrammar.g:4889:43: (iv_ruleOr= ruleOr EOF )
+            // InternalMyGrammar.g:4890:2: iv_ruleOr= ruleOr EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getOrRule()); 
@@ -13907,7 +14426,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOr"
-    // InternalMyGrammar.g:4699:1: ruleOr returns [EObject current=null] : (this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )* ) ;
+    // InternalMyGrammar.g:4896:1: ruleOr returns [EObject current=null] : (this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )* ) ;
     public final EObject ruleOr() throws RecognitionException {
         EObject current = null;
 
@@ -13921,18 +14440,18 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:4705:2: ( (this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )* ) )
-            // InternalMyGrammar.g:4706:2: (this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )* )
+            // InternalMyGrammar.g:4902:2: ( (this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )* ) )
+            // InternalMyGrammar.g:4903:2: (this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )* )
             {
-            // InternalMyGrammar.g:4706:2: (this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )* )
-            // InternalMyGrammar.g:4707:3: this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )*
+            // InternalMyGrammar.g:4903:2: (this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )* )
+            // InternalMyGrammar.g:4904:3: this_And_0= ruleAnd ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )*
             {
             if ( state.backtracking==0 ) {
 
               			newCompositeNode(grammarAccess.getOrAccess().getAndParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_59);
             this_And_0=ruleAnd();
 
             state._fsp--;
@@ -13943,23 +14462,23 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalMyGrammar.g:4715:3: ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )*
-            loop76:
+            // InternalMyGrammar.g:4912:3: ( () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) ) )*
+            loop81:
             do {
-                int alt76=2;
-                int LA76_0 = input.LA(1);
+                int alt81=2;
+                int LA81_0 = input.LA(1);
 
-                if ( (LA76_0==57) ) {
-                    alt76=1;
+                if ( (LA81_0==57) ) {
+                    alt81=1;
                 }
 
 
-                switch (alt76) {
+                switch (alt81) {
             	case 1 :
-            	    // InternalMyGrammar.g:4716:4: () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) )
+            	    // InternalMyGrammar.g:4913:4: () otherlv_2= '||' ( (lv_right_3_0= ruleAnd ) )
             	    {
-            	    // InternalMyGrammar.g:4716:4: ()
-            	    // InternalMyGrammar.g:4717:5: 
+            	    // InternalMyGrammar.g:4913:4: ()
+            	    // InternalMyGrammar.g:4914:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -13977,18 +14496,18 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             	      				newLeafNode(otherlv_2, grammarAccess.getOrAccess().getVerticalLineVerticalLineKeyword_1_1());
             	      			
             	    }
-            	    // InternalMyGrammar.g:4727:4: ( (lv_right_3_0= ruleAnd ) )
-            	    // InternalMyGrammar.g:4728:5: (lv_right_3_0= ruleAnd )
+            	    // InternalMyGrammar.g:4924:4: ( (lv_right_3_0= ruleAnd ) )
+            	    // InternalMyGrammar.g:4925:5: (lv_right_3_0= ruleAnd )
             	    {
-            	    // InternalMyGrammar.g:4728:5: (lv_right_3_0= ruleAnd )
-            	    // InternalMyGrammar.g:4729:6: lv_right_3_0= ruleAnd
+            	    // InternalMyGrammar.g:4925:5: (lv_right_3_0= ruleAnd )
+            	    // InternalMyGrammar.g:4926:6: lv_right_3_0= ruleAnd
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      						newCompositeNode(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_57);
+            	    pushFollow(FOLLOW_59);
             	    lv_right_3_0=ruleAnd();
 
             	    state._fsp--;
@@ -14003,961 +14522,6 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             	      							"right",
             	      							lv_right_3_0,
             	      							"org.unicam.tryGrammar.MyGrammar.And");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop76;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleOr"
-
-
-    // $ANTLR start "entryRuleAnd"
-    // InternalMyGrammar.g:4751:1: entryRuleAnd returns [EObject current=null] : iv_ruleAnd= ruleAnd EOF ;
-    public final EObject entryRuleAnd() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleAnd = null;
-
-
-        try {
-            // InternalMyGrammar.g:4751:44: (iv_ruleAnd= ruleAnd EOF )
-            // InternalMyGrammar.g:4752:2: iv_ruleAnd= ruleAnd EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getAndRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleAnd=ruleAnd();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleAnd; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleAnd"
-
-
-    // $ANTLR start "ruleAnd"
-    // InternalMyGrammar.g:4758:1: ruleAnd returns [EObject current=null] : (this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )* ) ;
-    public final EObject ruleAnd() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject this_Equality_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalMyGrammar.g:4764:2: ( (this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )* ) )
-            // InternalMyGrammar.g:4765:2: (this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )* )
-            {
-            // InternalMyGrammar.g:4765:2: (this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )* )
-            // InternalMyGrammar.g:4766:3: this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )*
-            {
-            if ( state.backtracking==0 ) {
-
-              			newCompositeNode(grammarAccess.getAndAccess().getEqualityParserRuleCall_0());
-              		
-            }
-            pushFollow(FOLLOW_58);
-            this_Equality_0=ruleEquality();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			current = this_Equality_0;
-              			afterParserOrEnumRuleCall();
-              		
-            }
-            // InternalMyGrammar.g:4774:3: ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )*
-            loop77:
-            do {
-                int alt77=2;
-                int LA77_0 = input.LA(1);
-
-                if ( (LA77_0==58) ) {
-                    alt77=1;
-                }
-
-
-                switch (alt77) {
-            	case 1 :
-            	    // InternalMyGrammar.g:4775:4: () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) )
-            	    {
-            	    // InternalMyGrammar.g:4775:4: ()
-            	    // InternalMyGrammar.g:4776:5: 
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getAndAccess().getAndLeftAction_1_0(),
-            	      						current);
-            	      				
-            	    }
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,58,FOLLOW_19); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      				newLeafNode(otherlv_2, grammarAccess.getAndAccess().getAmpersandAmpersandKeyword_1_1());
-            	      			
-            	    }
-            	    // InternalMyGrammar.g:4786:4: ( (lv_right_3_0= ruleEquality ) )
-            	    // InternalMyGrammar.g:4787:5: (lv_right_3_0= ruleEquality )
-            	    {
-            	    // InternalMyGrammar.g:4787:5: (lv_right_3_0= ruleEquality )
-            	    // InternalMyGrammar.g:4788:6: lv_right_3_0= ruleEquality
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						newCompositeNode(grammarAccess.getAndAccess().getRightEqualityParserRuleCall_1_2_0());
-            	      					
-            	    }
-            	    pushFollow(FOLLOW_58);
-            	    lv_right_3_0=ruleEquality();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getAndRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"right",
-            	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.Equality");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop77;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleAnd"
-
-
-    // $ANTLR start "entryRuleEquality"
-    // InternalMyGrammar.g:4810:1: entryRuleEquality returns [EObject current=null] : iv_ruleEquality= ruleEquality EOF ;
-    public final EObject entryRuleEquality() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleEquality = null;
-
-
-        try {
-            // InternalMyGrammar.g:4810:49: (iv_ruleEquality= ruleEquality EOF )
-            // InternalMyGrammar.g:4811:2: iv_ruleEquality= ruleEquality EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getEqualityRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleEquality=ruleEquality();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleEquality; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleEquality"
-
-
-    // $ANTLR start "ruleEquality"
-    // InternalMyGrammar.g:4817:1: ruleEquality returns [EObject current=null] : (this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )* ) ;
-    public final EObject ruleEquality() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_Comparison_0 = null;
-
-        Enumerator lv_equalityOp_2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalMyGrammar.g:4823:2: ( (this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )* ) )
-            // InternalMyGrammar.g:4824:2: (this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )* )
-            {
-            // InternalMyGrammar.g:4824:2: (this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )* )
-            // InternalMyGrammar.g:4825:3: this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )*
-            {
-            if ( state.backtracking==0 ) {
-
-              			newCompositeNode(grammarAccess.getEqualityAccess().getComparisonParserRuleCall_0());
-              		
-            }
-            pushFollow(FOLLOW_59);
-            this_Comparison_0=ruleComparison();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			current = this_Comparison_0;
-              			afterParserOrEnumRuleCall();
-              		
-            }
-            // InternalMyGrammar.g:4833:3: ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )*
-            loop78:
-            do {
-                int alt78=2;
-                int LA78_0 = input.LA(1);
-
-                if ( ((LA78_0>=194 && LA78_0<=195)) ) {
-                    alt78=1;
-                }
-
-
-                switch (alt78) {
-            	case 1 :
-            	    // InternalMyGrammar.g:4834:4: () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) )
-            	    {
-            	    // InternalMyGrammar.g:4834:4: ()
-            	    // InternalMyGrammar.g:4835:5: 
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0(),
-            	      						current);
-            	      				
-            	    }
-
-            	    }
-
-            	    // InternalMyGrammar.g:4841:4: ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) )
-            	    // InternalMyGrammar.g:4842:5: (lv_equalityOp_2_0= ruleEqualityOpEnum )
-            	    {
-            	    // InternalMyGrammar.g:4842:5: (lv_equalityOp_2_0= ruleEqualityOpEnum )
-            	    // InternalMyGrammar.g:4843:6: lv_equalityOp_2_0= ruleEqualityOpEnum
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						newCompositeNode(grammarAccess.getEqualityAccess().getEqualityOpEqualityOpEnumEnumRuleCall_1_1_0());
-            	      					
-            	    }
-            	    pushFollow(FOLLOW_19);
-            	    lv_equalityOp_2_0=ruleEqualityOpEnum();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getEqualityRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"equalityOp",
-            	      							lv_equalityOp_2_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.EqualityOpEnum");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-            	    // InternalMyGrammar.g:4860:4: ( (lv_right_3_0= ruleComparison ) )
-            	    // InternalMyGrammar.g:4861:5: (lv_right_3_0= ruleComparison )
-            	    {
-            	    // InternalMyGrammar.g:4861:5: (lv_right_3_0= ruleComparison )
-            	    // InternalMyGrammar.g:4862:6: lv_right_3_0= ruleComparison
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						newCompositeNode(grammarAccess.getEqualityAccess().getRightComparisonParserRuleCall_1_2_0());
-            	      					
-            	    }
-            	    pushFollow(FOLLOW_59);
-            	    lv_right_3_0=ruleComparison();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getEqualityRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"right",
-            	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.Comparison");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop78;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleEquality"
-
-
-    // $ANTLR start "entryRuleComparison"
-    // InternalMyGrammar.g:4884:1: entryRuleComparison returns [EObject current=null] : iv_ruleComparison= ruleComparison EOF ;
-    public final EObject entryRuleComparison() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleComparison = null;
-
-
-        try {
-            // InternalMyGrammar.g:4884:51: (iv_ruleComparison= ruleComparison EOF )
-            // InternalMyGrammar.g:4885:2: iv_ruleComparison= ruleComparison EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getComparisonRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleComparison=ruleComparison();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleComparison; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleComparison"
-
-
-    // $ANTLR start "ruleComparison"
-    // InternalMyGrammar.g:4891:1: ruleComparison returns [EObject current=null] : (this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )* ) ;
-    public final EObject ruleComparison() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_BitOr_0 = null;
-
-        Enumerator lv_comparisonOp_2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalMyGrammar.g:4897:2: ( (this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )* ) )
-            // InternalMyGrammar.g:4898:2: (this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )* )
-            {
-            // InternalMyGrammar.g:4898:2: (this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )* )
-            // InternalMyGrammar.g:4899:3: this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )*
-            {
-            if ( state.backtracking==0 ) {
-
-              			newCompositeNode(grammarAccess.getComparisonAccess().getBitOrParserRuleCall_0());
-              		
-            }
-            pushFollow(FOLLOW_60);
-            this_BitOr_0=ruleBitOr();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			current = this_BitOr_0;
-              			afterParserOrEnumRuleCall();
-              		
-            }
-            // InternalMyGrammar.g:4907:3: ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )*
-            loop79:
-            do {
-                int alt79=2;
-                int LA79_0 = input.LA(1);
-
-                if ( ((LA79_0>=196 && LA79_0<=200)) ) {
-                    alt79=1;
-                }
-
-
-                switch (alt79) {
-            	case 1 :
-            	    // InternalMyGrammar.g:4908:4: () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) )
-            	    {
-            	    // InternalMyGrammar.g:4908:4: ()
-            	    // InternalMyGrammar.g:4909:5: 
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0(),
-            	      						current);
-            	      				
-            	    }
-
-            	    }
-
-            	    // InternalMyGrammar.g:4915:4: ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) )
-            	    // InternalMyGrammar.g:4916:5: (lv_comparisonOp_2_0= ruleComparisonOpEnum )
-            	    {
-            	    // InternalMyGrammar.g:4916:5: (lv_comparisonOp_2_0= ruleComparisonOpEnum )
-            	    // InternalMyGrammar.g:4917:6: lv_comparisonOp_2_0= ruleComparisonOpEnum
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						newCompositeNode(grammarAccess.getComparisonAccess().getComparisonOpComparisonOpEnumEnumRuleCall_1_1_0());
-            	      					
-            	    }
-            	    pushFollow(FOLLOW_19);
-            	    lv_comparisonOp_2_0=ruleComparisonOpEnum();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getComparisonRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"comparisonOp",
-            	      							lv_comparisonOp_2_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.ComparisonOpEnum");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-            	    // InternalMyGrammar.g:4934:4: ( (lv_right_3_0= ruleBitOr ) )
-            	    // InternalMyGrammar.g:4935:5: (lv_right_3_0= ruleBitOr )
-            	    {
-            	    // InternalMyGrammar.g:4935:5: (lv_right_3_0= ruleBitOr )
-            	    // InternalMyGrammar.g:4936:6: lv_right_3_0= ruleBitOr
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						newCompositeNode(grammarAccess.getComparisonAccess().getRightBitOrParserRuleCall_1_2_0());
-            	      					
-            	    }
-            	    pushFollow(FOLLOW_60);
-            	    lv_right_3_0=ruleBitOr();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getComparisonRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"right",
-            	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.BitOr");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop79;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleComparison"
-
-
-    // $ANTLR start "entryRuleBitOr"
-    // InternalMyGrammar.g:4958:1: entryRuleBitOr returns [EObject current=null] : iv_ruleBitOr= ruleBitOr EOF ;
-    public final EObject entryRuleBitOr() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleBitOr = null;
-
-
-        try {
-            // InternalMyGrammar.g:4958:46: (iv_ruleBitOr= ruleBitOr EOF )
-            // InternalMyGrammar.g:4959:2: iv_ruleBitOr= ruleBitOr EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getBitOrRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleBitOr=ruleBitOr();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleBitOr; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleBitOr"
-
-
-    // $ANTLR start "ruleBitOr"
-    // InternalMyGrammar.g:4965:1: ruleBitOr returns [EObject current=null] : (this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )* ) ;
-    public final EObject ruleBitOr() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject this_BitXor_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalMyGrammar.g:4971:2: ( (this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )* ) )
-            // InternalMyGrammar.g:4972:2: (this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )* )
-            {
-            // InternalMyGrammar.g:4972:2: (this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )* )
-            // InternalMyGrammar.g:4973:3: this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )*
-            {
-            if ( state.backtracking==0 ) {
-
-              			newCompositeNode(grammarAccess.getBitOrAccess().getBitXorParserRuleCall_0());
-              		
-            }
-            pushFollow(FOLLOW_61);
-            this_BitXor_0=ruleBitXor();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			current = this_BitXor_0;
-              			afterParserOrEnumRuleCall();
-              		
-            }
-            // InternalMyGrammar.g:4981:3: ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )*
-            loop80:
-            do {
-                int alt80=2;
-                int LA80_0 = input.LA(1);
-
-                if ( (LA80_0==59) ) {
-                    alt80=1;
-                }
-
-
-                switch (alt80) {
-            	case 1 :
-            	    // InternalMyGrammar.g:4982:4: () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) )
-            	    {
-            	    // InternalMyGrammar.g:4982:4: ()
-            	    // InternalMyGrammar.g:4983:5: 
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0(),
-            	      						current);
-            	      				
-            	    }
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,59,FOLLOW_19); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      				newLeafNode(otherlv_2, grammarAccess.getBitOrAccess().getVerticalLineKeyword_1_1());
-            	      			
-            	    }
-            	    // InternalMyGrammar.g:4993:4: ( (lv_right_3_0= ruleBitXor ) )
-            	    // InternalMyGrammar.g:4994:5: (lv_right_3_0= ruleBitXor )
-            	    {
-            	    // InternalMyGrammar.g:4994:5: (lv_right_3_0= ruleBitXor )
-            	    // InternalMyGrammar.g:4995:6: lv_right_3_0= ruleBitXor
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						newCompositeNode(grammarAccess.getBitOrAccess().getRightBitXorParserRuleCall_1_2_0());
-            	      					
-            	    }
-            	    pushFollow(FOLLOW_61);
-            	    lv_right_3_0=ruleBitXor();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getBitOrRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"right",
-            	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.BitXor");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop80;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleBitOr"
-
-
-    // $ANTLR start "entryRuleBitXor"
-    // InternalMyGrammar.g:5017:1: entryRuleBitXor returns [EObject current=null] : iv_ruleBitXor= ruleBitXor EOF ;
-    public final EObject entryRuleBitXor() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleBitXor = null;
-
-
-        try {
-            // InternalMyGrammar.g:5017:47: (iv_ruleBitXor= ruleBitXor EOF )
-            // InternalMyGrammar.g:5018:2: iv_ruleBitXor= ruleBitXor EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getBitXorRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleBitXor=ruleBitXor();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleBitXor; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleBitXor"
-
-
-    // $ANTLR start "ruleBitXor"
-    // InternalMyGrammar.g:5024:1: ruleBitXor returns [EObject current=null] : (this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )* ) ;
-    public final EObject ruleBitXor() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        EObject this_BitAnd_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalMyGrammar.g:5030:2: ( (this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )* ) )
-            // InternalMyGrammar.g:5031:2: (this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )* )
-            {
-            // InternalMyGrammar.g:5031:2: (this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )* )
-            // InternalMyGrammar.g:5032:3: this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )*
-            {
-            if ( state.backtracking==0 ) {
-
-              			newCompositeNode(grammarAccess.getBitXorAccess().getBitAndParserRuleCall_0());
-              		
-            }
-            pushFollow(FOLLOW_62);
-            this_BitAnd_0=ruleBitAnd();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			current = this_BitAnd_0;
-              			afterParserOrEnumRuleCall();
-              		
-            }
-            // InternalMyGrammar.g:5040:3: ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )*
-            loop81:
-            do {
-                int alt81=2;
-                int LA81_0 = input.LA(1);
-
-                if ( (LA81_0==60) ) {
-                    alt81=1;
-                }
-
-
-                switch (alt81) {
-            	case 1 :
-            	    // InternalMyGrammar.g:5041:4: () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) )
-            	    {
-            	    // InternalMyGrammar.g:5041:4: ()
-            	    // InternalMyGrammar.g:5042:5: 
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0(),
-            	      						current);
-            	      				
-            	    }
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,60,FOLLOW_19); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      				newLeafNode(otherlv_2, grammarAccess.getBitXorAccess().getCircumflexAccentKeyword_1_1());
-            	      			
-            	    }
-            	    // InternalMyGrammar.g:5052:4: ( (lv_right_3_0= ruleBitAnd ) )
-            	    // InternalMyGrammar.g:5053:5: (lv_right_3_0= ruleBitAnd )
-            	    {
-            	    // InternalMyGrammar.g:5053:5: (lv_right_3_0= ruleBitAnd )
-            	    // InternalMyGrammar.g:5054:6: lv_right_3_0= ruleBitAnd
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						newCompositeNode(grammarAccess.getBitXorAccess().getRightBitAndParserRuleCall_1_2_0());
-            	      					
-            	    }
-            	    pushFollow(FOLLOW_62);
-            	    lv_right_3_0=ruleBitAnd();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getBitXorRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"right",
-            	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.BitAnd");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -14997,31 +14561,31 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleBitXor"
+    // $ANTLR end "ruleOr"
 
 
-    // $ANTLR start "entryRuleBitAnd"
-    // InternalMyGrammar.g:5076:1: entryRuleBitAnd returns [EObject current=null] : iv_ruleBitAnd= ruleBitAnd EOF ;
-    public final EObject entryRuleBitAnd() throws RecognitionException {
+    // $ANTLR start "entryRuleAnd"
+    // InternalMyGrammar.g:4948:1: entryRuleAnd returns [EObject current=null] : iv_ruleAnd= ruleAnd EOF ;
+    public final EObject entryRuleAnd() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleBitAnd = null;
+        EObject iv_ruleAnd = null;
 
 
         try {
-            // InternalMyGrammar.g:5076:47: (iv_ruleBitAnd= ruleBitAnd EOF )
-            // InternalMyGrammar.g:5077:2: iv_ruleBitAnd= ruleBitAnd EOF
+            // InternalMyGrammar.g:4948:44: (iv_ruleAnd= ruleAnd EOF )
+            // InternalMyGrammar.g:4949:2: iv_ruleAnd= ruleAnd EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getBitAndRule()); 
+               newCompositeNode(grammarAccess.getAndRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleBitAnd=ruleBitAnd();
+            iv_ruleAnd=ruleAnd();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleBitAnd; 
+               current =iv_ruleAnd; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -15037,16 +14601,16 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleBitAnd"
+    // $ANTLR end "entryRuleAnd"
 
 
-    // $ANTLR start "ruleBitAnd"
-    // InternalMyGrammar.g:5083:1: ruleBitAnd returns [EObject current=null] : (this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )* ) ;
-    public final EObject ruleBitAnd() throws RecognitionException {
+    // $ANTLR start "ruleAnd"
+    // InternalMyGrammar.g:4955:1: ruleAnd returns [EObject current=null] : (this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )* ) ;
+    public final EObject ruleAnd() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
-        EObject this_Shift_0 = null;
+        EObject this_Equality_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -15055,88 +14619,88 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5089:2: ( (this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )* ) )
-            // InternalMyGrammar.g:5090:2: (this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )* )
+            // InternalMyGrammar.g:4961:2: ( (this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )* ) )
+            // InternalMyGrammar.g:4962:2: (this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )* )
             {
-            // InternalMyGrammar.g:5090:2: (this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )* )
-            // InternalMyGrammar.g:5091:3: this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )*
+            // InternalMyGrammar.g:4962:2: (this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )* )
+            // InternalMyGrammar.g:4963:3: this_Equality_0= ruleEquality ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )*
             {
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getBitAndAccess().getShiftParserRuleCall_0());
+              			newCompositeNode(grammarAccess.getAndAccess().getEqualityParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_63);
-            this_Shift_0=ruleShift();
+            pushFollow(FOLLOW_60);
+            this_Equality_0=ruleEquality();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_Shift_0;
+              			current = this_Equality_0;
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalMyGrammar.g:5099:3: ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )*
+            // InternalMyGrammar.g:4971:3: ( () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) ) )*
             loop82:
             do {
                 int alt82=2;
                 int LA82_0 = input.LA(1);
 
-                if ( (LA82_0==61) ) {
+                if ( (LA82_0==58) ) {
                     alt82=1;
                 }
 
 
                 switch (alt82) {
             	case 1 :
-            	    // InternalMyGrammar.g:5100:4: () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) )
+            	    // InternalMyGrammar.g:4972:4: () otherlv_2= '&&' ( (lv_right_3_0= ruleEquality ) )
             	    {
-            	    // InternalMyGrammar.g:5100:4: ()
-            	    // InternalMyGrammar.g:5101:5: 
+            	    // InternalMyGrammar.g:4972:4: ()
+            	    // InternalMyGrammar.g:4973:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0(),
+            	      						grammarAccess.getAndAccess().getAndLeftAction_1_0(),
             	      						current);
             	      				
             	    }
 
             	    }
 
-            	    otherlv_2=(Token)match(input,61,FOLLOW_19); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,58,FOLLOW_19); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_2, grammarAccess.getBitAndAccess().getAmpersandKeyword_1_1());
+            	      				newLeafNode(otherlv_2, grammarAccess.getAndAccess().getAmpersandAmpersandKeyword_1_1());
             	      			
             	    }
-            	    // InternalMyGrammar.g:5111:4: ( (lv_right_3_0= ruleShift ) )
-            	    // InternalMyGrammar.g:5112:5: (lv_right_3_0= ruleShift )
+            	    // InternalMyGrammar.g:4983:4: ( (lv_right_3_0= ruleEquality ) )
+            	    // InternalMyGrammar.g:4984:5: (lv_right_3_0= ruleEquality )
             	    {
-            	    // InternalMyGrammar.g:5112:5: (lv_right_3_0= ruleShift )
-            	    // InternalMyGrammar.g:5113:6: lv_right_3_0= ruleShift
+            	    // InternalMyGrammar.g:4984:5: (lv_right_3_0= ruleEquality )
+            	    // InternalMyGrammar.g:4985:6: lv_right_3_0= ruleEquality
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getBitAndAccess().getRightShiftParserRuleCall_1_2_0());
+            	      						newCompositeNode(grammarAccess.getAndAccess().getRightEqualityParserRuleCall_1_2_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_63);
-            	    lv_right_3_0=ruleShift();
+            	    pushFollow(FOLLOW_60);
+            	    lv_right_3_0=ruleEquality();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getBitAndRule());
+            	      							current = createModelElementForParent(grammarAccess.getAndRule());
             	      						}
             	      						set(
             	      							current,
             	      							"right",
             	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.Shift");
+            	      							"org.unicam.tryGrammar.MyGrammar.Equality");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -15176,31 +14740,31 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleBitAnd"
+    // $ANTLR end "ruleAnd"
 
 
-    // $ANTLR start "entryRuleShift"
-    // InternalMyGrammar.g:5135:1: entryRuleShift returns [EObject current=null] : iv_ruleShift= ruleShift EOF ;
-    public final EObject entryRuleShift() throws RecognitionException {
+    // $ANTLR start "entryRuleEquality"
+    // InternalMyGrammar.g:5007:1: entryRuleEquality returns [EObject current=null] : iv_ruleEquality= ruleEquality EOF ;
+    public final EObject entryRuleEquality() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleShift = null;
+        EObject iv_ruleEquality = null;
 
 
         try {
-            // InternalMyGrammar.g:5135:46: (iv_ruleShift= ruleShift EOF )
-            // InternalMyGrammar.g:5136:2: iv_ruleShift= ruleShift EOF
+            // InternalMyGrammar.g:5007:49: (iv_ruleEquality= ruleEquality EOF )
+            // InternalMyGrammar.g:5008:2: iv_ruleEquality= ruleEquality EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getShiftRule()); 
+               newCompositeNode(grammarAccess.getEqualityRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleShift=ruleShift();
+            iv_ruleEquality=ruleEquality();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleShift; 
+               current =iv_ruleEquality; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -15216,17 +14780,17 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleShift"
+    // $ANTLR end "entryRuleEquality"
 
 
-    // $ANTLR start "ruleShift"
-    // InternalMyGrammar.g:5142:1: ruleShift returns [EObject current=null] : (this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )* ) ;
-    public final EObject ruleShift() throws RecognitionException {
+    // $ANTLR start "ruleEquality"
+    // InternalMyGrammar.g:5014:1: ruleEquality returns [EObject current=null] : (this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )* ) ;
+    public final EObject ruleEquality() throws RecognitionException {
         EObject current = null;
 
-        EObject this_AddSub_0 = null;
+        EObject this_Comparison_0 = null;
 
-        Enumerator lv_shiftOp_2_0 = null;
+        Enumerator lv_equalityOp_2_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -15235,82 +14799,82 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5148:2: ( (this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )* ) )
-            // InternalMyGrammar.g:5149:2: (this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )* )
+            // InternalMyGrammar.g:5020:2: ( (this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )* ) )
+            // InternalMyGrammar.g:5021:2: (this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )* )
             {
-            // InternalMyGrammar.g:5149:2: (this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )* )
-            // InternalMyGrammar.g:5150:3: this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )*
+            // InternalMyGrammar.g:5021:2: (this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )* )
+            // InternalMyGrammar.g:5022:3: this_Comparison_0= ruleComparison ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )*
             {
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getShiftAccess().getAddSubParserRuleCall_0());
+              			newCompositeNode(grammarAccess.getEqualityAccess().getComparisonParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_64);
-            this_AddSub_0=ruleAddSub();
+            pushFollow(FOLLOW_61);
+            this_Comparison_0=ruleComparison();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_AddSub_0;
+              			current = this_Comparison_0;
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalMyGrammar.g:5158:3: ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )*
+            // InternalMyGrammar.g:5030:3: ( () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) ) )*
             loop83:
             do {
                 int alt83=2;
                 int LA83_0 = input.LA(1);
 
-                if ( ((LA83_0>=201 && LA83_0<=203)) ) {
+                if ( ((LA83_0>=198 && LA83_0<=199)) ) {
                     alt83=1;
                 }
 
 
                 switch (alt83) {
             	case 1 :
-            	    // InternalMyGrammar.g:5159:4: () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) )
+            	    // InternalMyGrammar.g:5031:4: () ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) ) ( (lv_right_3_0= ruleComparison ) )
             	    {
-            	    // InternalMyGrammar.g:5159:4: ()
-            	    // InternalMyGrammar.g:5160:5: 
+            	    // InternalMyGrammar.g:5031:4: ()
+            	    // InternalMyGrammar.g:5032:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getShiftAccess().getShiftLeftAction_1_0(),
+            	      						grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0(),
             	      						current);
             	      				
             	    }
 
             	    }
 
-            	    // InternalMyGrammar.g:5166:4: ( (lv_shiftOp_2_0= ruleShiftOpEnum ) )
-            	    // InternalMyGrammar.g:5167:5: (lv_shiftOp_2_0= ruleShiftOpEnum )
+            	    // InternalMyGrammar.g:5038:4: ( (lv_equalityOp_2_0= ruleEqualityOpEnum ) )
+            	    // InternalMyGrammar.g:5039:5: (lv_equalityOp_2_0= ruleEqualityOpEnum )
             	    {
-            	    // InternalMyGrammar.g:5167:5: (lv_shiftOp_2_0= ruleShiftOpEnum )
-            	    // InternalMyGrammar.g:5168:6: lv_shiftOp_2_0= ruleShiftOpEnum
+            	    // InternalMyGrammar.g:5039:5: (lv_equalityOp_2_0= ruleEqualityOpEnum )
+            	    // InternalMyGrammar.g:5040:6: lv_equalityOp_2_0= ruleEqualityOpEnum
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getShiftAccess().getShiftOpShiftOpEnumEnumRuleCall_1_1_0());
+            	      						newCompositeNode(grammarAccess.getEqualityAccess().getEqualityOpEqualityOpEnumEnumRuleCall_1_1_0());
             	      					
             	    }
             	    pushFollow(FOLLOW_19);
-            	    lv_shiftOp_2_0=ruleShiftOpEnum();
+            	    lv_equalityOp_2_0=ruleEqualityOpEnum();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getShiftRule());
+            	      							current = createModelElementForParent(grammarAccess.getEqualityRule());
             	      						}
             	      						set(
             	      							current,
-            	      							"shiftOp",
-            	      							lv_shiftOp_2_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.ShiftOpEnum");
+            	      							"equalityOp",
+            	      							lv_equalityOp_2_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.EqualityOpEnum");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -15320,32 +14884,32 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalMyGrammar.g:5185:4: ( (lv_right_3_0= ruleAddSub ) )
-            	    // InternalMyGrammar.g:5186:5: (lv_right_3_0= ruleAddSub )
+            	    // InternalMyGrammar.g:5057:4: ( (lv_right_3_0= ruleComparison ) )
+            	    // InternalMyGrammar.g:5058:5: (lv_right_3_0= ruleComparison )
             	    {
-            	    // InternalMyGrammar.g:5186:5: (lv_right_3_0= ruleAddSub )
-            	    // InternalMyGrammar.g:5187:6: lv_right_3_0= ruleAddSub
+            	    // InternalMyGrammar.g:5058:5: (lv_right_3_0= ruleComparison )
+            	    // InternalMyGrammar.g:5059:6: lv_right_3_0= ruleComparison
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getShiftAccess().getRightAddSubParserRuleCall_1_2_0());
+            	      						newCompositeNode(grammarAccess.getEqualityAccess().getRightComparisonParserRuleCall_1_2_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_64);
-            	    lv_right_3_0=ruleAddSub();
+            	    pushFollow(FOLLOW_61);
+            	    lv_right_3_0=ruleComparison();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getShiftRule());
+            	      							current = createModelElementForParent(grammarAccess.getEqualityRule());
             	      						}
             	      						set(
             	      							current,
             	      							"right",
             	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.AddSub");
+            	      							"org.unicam.tryGrammar.MyGrammar.Comparison");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -15385,31 +14949,31 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleShift"
+    // $ANTLR end "ruleEquality"
 
 
-    // $ANTLR start "entryRuleAddSub"
-    // InternalMyGrammar.g:5209:1: entryRuleAddSub returns [EObject current=null] : iv_ruleAddSub= ruleAddSub EOF ;
-    public final EObject entryRuleAddSub() throws RecognitionException {
+    // $ANTLR start "entryRuleComparison"
+    // InternalMyGrammar.g:5081:1: entryRuleComparison returns [EObject current=null] : iv_ruleComparison= ruleComparison EOF ;
+    public final EObject entryRuleComparison() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleAddSub = null;
+        EObject iv_ruleComparison = null;
 
 
         try {
-            // InternalMyGrammar.g:5209:47: (iv_ruleAddSub= ruleAddSub EOF )
-            // InternalMyGrammar.g:5210:2: iv_ruleAddSub= ruleAddSub EOF
+            // InternalMyGrammar.g:5081:51: (iv_ruleComparison= ruleComparison EOF )
+            // InternalMyGrammar.g:5082:2: iv_ruleComparison= ruleComparison EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getAddSubRule()); 
+               newCompositeNode(grammarAccess.getComparisonRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleAddSub=ruleAddSub();
+            iv_ruleComparison=ruleComparison();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleAddSub; 
+               current =iv_ruleComparison; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -15425,17 +14989,17 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleAddSub"
+    // $ANTLR end "entryRuleComparison"
 
 
-    // $ANTLR start "ruleAddSub"
-    // InternalMyGrammar.g:5216:1: ruleAddSub returns [EObject current=null] : (this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )* ) ;
-    public final EObject ruleAddSub() throws RecognitionException {
+    // $ANTLR start "ruleComparison"
+    // InternalMyGrammar.g:5088:1: ruleComparison returns [EObject current=null] : (this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )* ) ;
+    public final EObject ruleComparison() throws RecognitionException {
         EObject current = null;
 
-        EObject this_MulDivMod_0 = null;
+        EObject this_BitOr_0 = null;
 
-        Enumerator lv_additionOp_2_0 = null;
+        Enumerator lv_comparisonOp_2_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -15444,129 +15008,120 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5222:2: ( (this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )* ) )
-            // InternalMyGrammar.g:5223:2: (this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )* )
+            // InternalMyGrammar.g:5094:2: ( (this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )* ) )
+            // InternalMyGrammar.g:5095:2: (this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )* )
             {
-            // InternalMyGrammar.g:5223:2: (this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )* )
-            // InternalMyGrammar.g:5224:3: this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )*
+            // InternalMyGrammar.g:5095:2: (this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )* )
+            // InternalMyGrammar.g:5096:3: this_BitOr_0= ruleBitOr ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )*
             {
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getAddSubAccess().getMulDivModParserRuleCall_0());
+              			newCompositeNode(grammarAccess.getComparisonAccess().getBitOrParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_65);
-            this_MulDivMod_0=ruleMulDivMod();
+            pushFollow(FOLLOW_62);
+            this_BitOr_0=ruleBitOr();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_MulDivMod_0;
+              			current = this_BitOr_0;
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalMyGrammar.g:5232:3: ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )*
+            // InternalMyGrammar.g:5104:3: ( () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) ) )*
             loop84:
             do {
                 int alt84=2;
                 int LA84_0 = input.LA(1);
 
-                if ( (LA84_0==65) && (synpred3_InternalMyGrammar())) {
-                    alt84=1;
-                }
-                else if ( (LA84_0==66) && (synpred3_InternalMyGrammar())) {
+                if ( ((LA84_0>=200 && LA84_0<=204)) ) {
                     alt84=1;
                 }
 
 
                 switch (alt84) {
             	case 1 :
-            	    // InternalMyGrammar.g:5233:4: ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) )
+            	    // InternalMyGrammar.g:5105:4: () ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) ) ( (lv_right_3_0= ruleBitOr ) )
             	    {
-            	    // InternalMyGrammar.g:5248:4: ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) )
-            	    // InternalMyGrammar.g:5249:5: () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) )
-            	    {
-            	    // InternalMyGrammar.g:5249:5: ()
-            	    // InternalMyGrammar.g:5250:6: 
+            	    // InternalMyGrammar.g:5105:4: ()
+            	    // InternalMyGrammar.g:5106:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						current = forceCreateModelElementAndSet(
-            	      							grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0(),
-            	      							current);
+            	      					current = forceCreateModelElementAndSet(
+            	      						grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0(),
+            	      						current);
+            	      				
+            	    }
+
+            	    }
+
+            	    // InternalMyGrammar.g:5112:4: ( (lv_comparisonOp_2_0= ruleComparisonOpEnum ) )
+            	    // InternalMyGrammar.g:5113:5: (lv_comparisonOp_2_0= ruleComparisonOpEnum )
+            	    {
+            	    // InternalMyGrammar.g:5113:5: (lv_comparisonOp_2_0= ruleComparisonOpEnum )
+            	    // InternalMyGrammar.g:5114:6: lv_comparisonOp_2_0= ruleComparisonOpEnum
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      						newCompositeNode(grammarAccess.getComparisonAccess().getComparisonOpComparisonOpEnumEnumRuleCall_1_1_0());
+            	      					
+            	    }
+            	    pushFollow(FOLLOW_19);
+            	    lv_comparisonOp_2_0=ruleComparisonOpEnum();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      						if (current==null) {
+            	      							current = createModelElementForParent(grammarAccess.getComparisonRule());
+            	      						}
+            	      						set(
+            	      							current,
+            	      							"comparisonOp",
+            	      							lv_comparisonOp_2_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.ComparisonOpEnum");
+            	      						afterParserOrEnumRuleCall();
             	      					
             	    }
 
             	    }
 
-            	    // InternalMyGrammar.g:5256:5: ( (lv_additionOp_2_0= ruleAdditionOpEnum ) )
-            	    // InternalMyGrammar.g:5257:6: (lv_additionOp_2_0= ruleAdditionOpEnum )
+
+            	    }
+
+            	    // InternalMyGrammar.g:5131:4: ( (lv_right_3_0= ruleBitOr ) )
+            	    // InternalMyGrammar.g:5132:5: (lv_right_3_0= ruleBitOr )
             	    {
-            	    // InternalMyGrammar.g:5257:6: (lv_additionOp_2_0= ruleAdditionOpEnum )
-            	    // InternalMyGrammar.g:5258:7: lv_additionOp_2_0= ruleAdditionOpEnum
+            	    // InternalMyGrammar.g:5132:5: (lv_right_3_0= ruleBitOr )
+            	    // InternalMyGrammar.g:5133:6: lv_right_3_0= ruleBitOr
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      							newCompositeNode(grammarAccess.getAddSubAccess().getAdditionOpAdditionOpEnumEnumRuleCall_1_0_1_0());
-            	      						
+            	      						newCompositeNode(grammarAccess.getComparisonAccess().getRightBitOrParserRuleCall_1_2_0());
+            	      					
             	    }
-            	    pushFollow(FOLLOW_19);
-            	    lv_additionOp_2_0=ruleAdditionOpEnum();
+            	    pushFollow(FOLLOW_62);
+            	    lv_right_3_0=ruleBitOr();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      							if (current==null) {
-            	      								current = createModelElementForParent(grammarAccess.getAddSubRule());
-            	      							}
-            	      							set(
-            	      								current,
-            	      								"additionOp",
-            	      								lv_additionOp_2_0,
-            	      								"org.unicam.tryGrammar.MyGrammar.AdditionOpEnum");
-            	      							afterParserOrEnumRuleCall();
-            	      						
+            	      						if (current==null) {
+            	      							current = createModelElementForParent(grammarAccess.getComparisonRule());
+            	      						}
+            	      						set(
+            	      							current,
+            	      							"right",
+            	      							lv_right_3_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.BitOr");
+            	      						afterParserOrEnumRuleCall();
+            	      					
             	    }
-
-            	    }
-
-
-            	    }
-
-            	    // InternalMyGrammar.g:5275:5: ( (lv_right_3_0= ruleMulDivMod ) )
-            	    // InternalMyGrammar.g:5276:6: (lv_right_3_0= ruleMulDivMod )
-            	    {
-            	    // InternalMyGrammar.g:5276:6: (lv_right_3_0= ruleMulDivMod )
-            	    // InternalMyGrammar.g:5277:7: lv_right_3_0= ruleMulDivMod
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      							newCompositeNode(grammarAccess.getAddSubAccess().getRightMulDivModParserRuleCall_1_0_2_0());
-            	      						
-            	    }
-            	    pushFollow(FOLLOW_65);
-            	    lv_right_3_0=ruleMulDivMod();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      							if (current==null) {
-            	      								current = createModelElementForParent(grammarAccess.getAddSubRule());
-            	      							}
-            	      							set(
-            	      								current,
-            	      								"right",
-            	      								lv_right_3_0,
-            	      								"org.unicam.tryGrammar.MyGrammar.MulDivMod");
-            	      							afterParserOrEnumRuleCall();
-            	      						
-            	    }
-
-            	    }
-
 
             	    }
 
@@ -15603,31 +15158,31 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleAddSub"
+    // $ANTLR end "ruleComparison"
 
 
-    // $ANTLR start "entryRuleMulDivMod"
-    // InternalMyGrammar.g:5300:1: entryRuleMulDivMod returns [EObject current=null] : iv_ruleMulDivMod= ruleMulDivMod EOF ;
-    public final EObject entryRuleMulDivMod() throws RecognitionException {
+    // $ANTLR start "entryRuleBitOr"
+    // InternalMyGrammar.g:5155:1: entryRuleBitOr returns [EObject current=null] : iv_ruleBitOr= ruleBitOr EOF ;
+    public final EObject entryRuleBitOr() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleMulDivMod = null;
+        EObject iv_ruleBitOr = null;
 
 
         try {
-            // InternalMyGrammar.g:5300:50: (iv_ruleMulDivMod= ruleMulDivMod EOF )
-            // InternalMyGrammar.g:5301:2: iv_ruleMulDivMod= ruleMulDivMod EOF
+            // InternalMyGrammar.g:5155:46: (iv_ruleBitOr= ruleBitOr EOF )
+            // InternalMyGrammar.g:5156:2: iv_ruleBitOr= ruleBitOr EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getMulDivModRule()); 
+               newCompositeNode(grammarAccess.getBitOrRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleMulDivMod=ruleMulDivMod();
+            iv_ruleBitOr=ruleBitOr();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleMulDivMod; 
+               current =iv_ruleBitOr; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -15643,17 +15198,16 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleMulDivMod"
+    // $ANTLR end "entryRuleBitOr"
 
 
-    // $ANTLR start "ruleMulDivMod"
-    // InternalMyGrammar.g:5307:1: ruleMulDivMod returns [EObject current=null] : (this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )* ) ;
-    public final EObject ruleMulDivMod() throws RecognitionException {
+    // $ANTLR start "ruleBitOr"
+    // InternalMyGrammar.g:5162:1: ruleBitOr returns [EObject current=null] : (this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )* ) ;
+    public final EObject ruleBitOr() throws RecognitionException {
         EObject current = null;
 
-        EObject this_Exponent_0 = null;
-
-        Enumerator lv_multipliciativeOp_2_0 = null;
+        Token otherlv_2=null;
+        EObject this_BitXor_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -15662,117 +15216,88 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5313:2: ( (this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )* ) )
-            // InternalMyGrammar.g:5314:2: (this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )* )
+            // InternalMyGrammar.g:5168:2: ( (this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )* ) )
+            // InternalMyGrammar.g:5169:2: (this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )* )
             {
-            // InternalMyGrammar.g:5314:2: (this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )* )
-            // InternalMyGrammar.g:5315:3: this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )*
+            // InternalMyGrammar.g:5169:2: (this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )* )
+            // InternalMyGrammar.g:5170:3: this_BitXor_0= ruleBitXor ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )*
             {
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getMulDivModAccess().getExponentParserRuleCall_0());
+              			newCompositeNode(grammarAccess.getBitOrAccess().getBitXorParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_66);
-            this_Exponent_0=ruleExponent();
+            pushFollow(FOLLOW_63);
+            this_BitXor_0=ruleBitXor();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_Exponent_0;
+              			current = this_BitXor_0;
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalMyGrammar.g:5323:3: ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )*
+            // InternalMyGrammar.g:5178:3: ( () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) ) )*
             loop85:
             do {
                 int alt85=2;
                 int LA85_0 = input.LA(1);
 
-                if ( (LA85_0==18||(LA85_0>=204 && LA85_0<=205)) ) {
+                if ( (LA85_0==59) ) {
                     alt85=1;
                 }
 
 
                 switch (alt85) {
             	case 1 :
-            	    // InternalMyGrammar.g:5324:4: () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) )
+            	    // InternalMyGrammar.g:5179:4: () otherlv_2= '|' ( (lv_right_3_0= ruleBitXor ) )
             	    {
-            	    // InternalMyGrammar.g:5324:4: ()
-            	    // InternalMyGrammar.g:5325:5: 
+            	    // InternalMyGrammar.g:5179:4: ()
+            	    // InternalMyGrammar.g:5180:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0(),
+            	      						grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0(),
             	      						current);
             	      				
             	    }
 
             	    }
 
-            	    // InternalMyGrammar.g:5331:4: ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) )
-            	    // InternalMyGrammar.g:5332:5: (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum )
+            	    otherlv_2=(Token)match(input,59,FOLLOW_19); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(otherlv_2, grammarAccess.getBitOrAccess().getVerticalLineKeyword_1_1());
+            	      			
+            	    }
+            	    // InternalMyGrammar.g:5190:4: ( (lv_right_3_0= ruleBitXor ) )
+            	    // InternalMyGrammar.g:5191:5: (lv_right_3_0= ruleBitXor )
             	    {
-            	    // InternalMyGrammar.g:5332:5: (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum )
-            	    // InternalMyGrammar.g:5333:6: lv_multipliciativeOp_2_0= ruleMulDivModOpEnum
+            	    // InternalMyGrammar.g:5191:5: (lv_right_3_0= ruleBitXor )
+            	    // InternalMyGrammar.g:5192:6: lv_right_3_0= ruleBitXor
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getMulDivModAccess().getMultipliciativeOpMulDivModOpEnumEnumRuleCall_1_1_0());
+            	      						newCompositeNode(grammarAccess.getBitOrAccess().getRightBitXorParserRuleCall_1_2_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_19);
-            	    lv_multipliciativeOp_2_0=ruleMulDivModOpEnum();
+            	    pushFollow(FOLLOW_63);
+            	    lv_right_3_0=ruleBitXor();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getMulDivModRule());
-            	      						}
-            	      						set(
-            	      							current,
-            	      							"multipliciativeOp",
-            	      							lv_multipliciativeOp_2_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.MulDivModOpEnum");
-            	      						afterParserOrEnumRuleCall();
-            	      					
-            	    }
-
-            	    }
-
-
-            	    }
-
-            	    // InternalMyGrammar.g:5350:4: ( (lv_right_3_0= ruleExponent ) )
-            	    // InternalMyGrammar.g:5351:5: (lv_right_3_0= ruleExponent )
-            	    {
-            	    // InternalMyGrammar.g:5351:5: (lv_right_3_0= ruleExponent )
-            	    // InternalMyGrammar.g:5352:6: lv_right_3_0= ruleExponent
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      						newCompositeNode(grammarAccess.getMulDivModAccess().getRightExponentParserRuleCall_1_2_0());
-            	      					
-            	    }
-            	    pushFollow(FOLLOW_66);
-            	    lv_right_3_0=ruleExponent();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getMulDivModRule());
+            	      							current = createModelElementForParent(grammarAccess.getBitOrRule());
             	      						}
             	      						set(
             	      							current,
             	      							"right",
             	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.Exponent");
+            	      							"org.unicam.tryGrammar.MyGrammar.BitXor");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -15812,31 +15337,31 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleMulDivMod"
+    // $ANTLR end "ruleBitOr"
 
 
-    // $ANTLR start "entryRuleExponent"
-    // InternalMyGrammar.g:5374:1: entryRuleExponent returns [EObject current=null] : iv_ruleExponent= ruleExponent EOF ;
-    public final EObject entryRuleExponent() throws RecognitionException {
+    // $ANTLR start "entryRuleBitXor"
+    // InternalMyGrammar.g:5214:1: entryRuleBitXor returns [EObject current=null] : iv_ruleBitXor= ruleBitXor EOF ;
+    public final EObject entryRuleBitXor() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleExponent = null;
+        EObject iv_ruleBitXor = null;
 
 
         try {
-            // InternalMyGrammar.g:5374:49: (iv_ruleExponent= ruleExponent EOF )
-            // InternalMyGrammar.g:5375:2: iv_ruleExponent= ruleExponent EOF
+            // InternalMyGrammar.g:5214:47: (iv_ruleBitXor= ruleBitXor EOF )
+            // InternalMyGrammar.g:5215:2: iv_ruleBitXor= ruleBitXor EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getExponentRule()); 
+               newCompositeNode(grammarAccess.getBitXorRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleExponent=ruleExponent();
+            iv_ruleBitXor=ruleBitXor();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleExponent; 
+               current =iv_ruleBitXor; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -15852,16 +15377,16 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleExponent"
+    // $ANTLR end "entryRuleBitXor"
 
 
-    // $ANTLR start "ruleExponent"
-    // InternalMyGrammar.g:5381:1: ruleExponent returns [EObject current=null] : (this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )* ) ;
-    public final EObject ruleExponent() throws RecognitionException {
+    // $ANTLR start "ruleBitXor"
+    // InternalMyGrammar.g:5221:1: ruleBitXor returns [EObject current=null] : (this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )* ) ;
+    public final EObject ruleBitXor() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_2=null;
-        EObject this_UnaryExpression_0 = null;
+        EObject this_BitAnd_0 = null;
 
         EObject lv_right_3_0 = null;
 
@@ -15870,88 +15395,88 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5387:2: ( (this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )* ) )
-            // InternalMyGrammar.g:5388:2: (this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )* )
+            // InternalMyGrammar.g:5227:2: ( (this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )* ) )
+            // InternalMyGrammar.g:5228:2: (this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )* )
             {
-            // InternalMyGrammar.g:5388:2: (this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )* )
-            // InternalMyGrammar.g:5389:3: this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )*
+            // InternalMyGrammar.g:5228:2: (this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )* )
+            // InternalMyGrammar.g:5229:3: this_BitAnd_0= ruleBitAnd ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )*
             {
             if ( state.backtracking==0 ) {
 
-              			newCompositeNode(grammarAccess.getExponentAccess().getUnaryExpressionParserRuleCall_0());
+              			newCompositeNode(grammarAccess.getBitXorAccess().getBitAndParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_67);
-            this_UnaryExpression_0=ruleUnaryExpression();
+            pushFollow(FOLLOW_64);
+            this_BitAnd_0=ruleBitAnd();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			current = this_UnaryExpression_0;
+              			current = this_BitAnd_0;
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalMyGrammar.g:5397:3: ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )*
+            // InternalMyGrammar.g:5237:3: ( () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) ) )*
             loop86:
             do {
                 int alt86=2;
                 int LA86_0 = input.LA(1);
 
-                if ( (LA86_0==62) ) {
+                if ( (LA86_0==60) ) {
                     alt86=1;
                 }
 
 
                 switch (alt86) {
             	case 1 :
-            	    // InternalMyGrammar.g:5398:4: () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) )
+            	    // InternalMyGrammar.g:5238:4: () otherlv_2= '^' ( (lv_right_3_0= ruleBitAnd ) )
             	    {
-            	    // InternalMyGrammar.g:5398:4: ()
-            	    // InternalMyGrammar.g:5399:5: 
+            	    // InternalMyGrammar.g:5238:4: ()
+            	    // InternalMyGrammar.g:5239:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      					current = forceCreateModelElementAndSet(
-            	      						grammarAccess.getExponentAccess().getExponentLeftAction_1_0(),
+            	      						grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0(),
             	      						current);
             	      				
             	    }
 
             	    }
 
-            	    otherlv_2=(Token)match(input,62,FOLLOW_19); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,60,FOLLOW_19); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
-            	      				newLeafNode(otherlv_2, grammarAccess.getExponentAccess().getAsteriskAsteriskKeyword_1_1());
+            	      				newLeafNode(otherlv_2, grammarAccess.getBitXorAccess().getCircumflexAccentKeyword_1_1());
             	      			
             	    }
-            	    // InternalMyGrammar.g:5409:4: ( (lv_right_3_0= ruleUnaryExpression ) )
-            	    // InternalMyGrammar.g:5410:5: (lv_right_3_0= ruleUnaryExpression )
+            	    // InternalMyGrammar.g:5249:4: ( (lv_right_3_0= ruleBitAnd ) )
+            	    // InternalMyGrammar.g:5250:5: (lv_right_3_0= ruleBitAnd )
             	    {
-            	    // InternalMyGrammar.g:5410:5: (lv_right_3_0= ruleUnaryExpression )
-            	    // InternalMyGrammar.g:5411:6: lv_right_3_0= ruleUnaryExpression
+            	    // InternalMyGrammar.g:5250:5: (lv_right_3_0= ruleBitAnd )
+            	    // InternalMyGrammar.g:5251:6: lv_right_3_0= ruleBitAnd
             	    {
             	    if ( state.backtracking==0 ) {
 
-            	      						newCompositeNode(grammarAccess.getExponentAccess().getRightUnaryExpressionParserRuleCall_1_2_0());
+            	      						newCompositeNode(grammarAccess.getBitXorAccess().getRightBitAndParserRuleCall_1_2_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_67);
-            	    lv_right_3_0=ruleUnaryExpression();
+            	    pushFollow(FOLLOW_64);
+            	    lv_right_3_0=ruleBitAnd();
 
             	    state._fsp--;
             	    if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      						if (current==null) {
-            	      							current = createModelElementForParent(grammarAccess.getExponentRule());
+            	      							current = createModelElementForParent(grammarAccess.getBitXorRule());
             	      						}
             	      						set(
             	      							current,
             	      							"right",
             	      							lv_right_3_0,
-            	      							"org.unicam.tryGrammar.MyGrammar.UnaryExpression");
+            	      							"org.unicam.tryGrammar.MyGrammar.BitAnd");
             	      						afterParserOrEnumRuleCall();
             	      					
             	    }
@@ -15991,11 +15516,1005 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
+    // $ANTLR end "ruleBitXor"
+
+
+    // $ANTLR start "entryRuleBitAnd"
+    // InternalMyGrammar.g:5273:1: entryRuleBitAnd returns [EObject current=null] : iv_ruleBitAnd= ruleBitAnd EOF ;
+    public final EObject entryRuleBitAnd() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleBitAnd = null;
+
+
+        try {
+            // InternalMyGrammar.g:5273:47: (iv_ruleBitAnd= ruleBitAnd EOF )
+            // InternalMyGrammar.g:5274:2: iv_ruleBitAnd= ruleBitAnd EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getBitAndRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleBitAnd=ruleBitAnd();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleBitAnd; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleBitAnd"
+
+
+    // $ANTLR start "ruleBitAnd"
+    // InternalMyGrammar.g:5280:1: ruleBitAnd returns [EObject current=null] : (this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )* ) ;
+    public final EObject ruleBitAnd() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_Shift_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:5286:2: ( (this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )* ) )
+            // InternalMyGrammar.g:5287:2: (this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )* )
+            {
+            // InternalMyGrammar.g:5287:2: (this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )* )
+            // InternalMyGrammar.g:5288:3: this_Shift_0= ruleShift ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )*
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getBitAndAccess().getShiftParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_65);
+            this_Shift_0=ruleShift();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current = this_Shift_0;
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalMyGrammar.g:5296:3: ( () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) ) )*
+            loop87:
+            do {
+                int alt87=2;
+                int LA87_0 = input.LA(1);
+
+                if ( (LA87_0==61) ) {
+                    alt87=1;
+                }
+
+
+                switch (alt87) {
+            	case 1 :
+            	    // InternalMyGrammar.g:5297:4: () otherlv_2= '&' ( (lv_right_3_0= ruleShift ) )
+            	    {
+            	    // InternalMyGrammar.g:5297:4: ()
+            	    // InternalMyGrammar.g:5298:5: 
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      					current = forceCreateModelElementAndSet(
+            	      						grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0(),
+            	      						current);
+            	      				
+            	    }
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,61,FOLLOW_19); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(otherlv_2, grammarAccess.getBitAndAccess().getAmpersandKeyword_1_1());
+            	      			
+            	    }
+            	    // InternalMyGrammar.g:5308:4: ( (lv_right_3_0= ruleShift ) )
+            	    // InternalMyGrammar.g:5309:5: (lv_right_3_0= ruleShift )
+            	    {
+            	    // InternalMyGrammar.g:5309:5: (lv_right_3_0= ruleShift )
+            	    // InternalMyGrammar.g:5310:6: lv_right_3_0= ruleShift
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      						newCompositeNode(grammarAccess.getBitAndAccess().getRightShiftParserRuleCall_1_2_0());
+            	      					
+            	    }
+            	    pushFollow(FOLLOW_65);
+            	    lv_right_3_0=ruleShift();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      						if (current==null) {
+            	      							current = createModelElementForParent(grammarAccess.getBitAndRule());
+            	      						}
+            	      						set(
+            	      							current,
+            	      							"right",
+            	      							lv_right_3_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.Shift");
+            	      						afterParserOrEnumRuleCall();
+            	      					
+            	    }
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop87;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleBitAnd"
+
+
+    // $ANTLR start "entryRuleShift"
+    // InternalMyGrammar.g:5332:1: entryRuleShift returns [EObject current=null] : iv_ruleShift= ruleShift EOF ;
+    public final EObject entryRuleShift() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleShift = null;
+
+
+        try {
+            // InternalMyGrammar.g:5332:46: (iv_ruleShift= ruleShift EOF )
+            // InternalMyGrammar.g:5333:2: iv_ruleShift= ruleShift EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getShiftRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleShift=ruleShift();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleShift; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleShift"
+
+
+    // $ANTLR start "ruleShift"
+    // InternalMyGrammar.g:5339:1: ruleShift returns [EObject current=null] : (this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )* ) ;
+    public final EObject ruleShift() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_AddSub_0 = null;
+
+        Enumerator lv_shiftOp_2_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:5345:2: ( (this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )* ) )
+            // InternalMyGrammar.g:5346:2: (this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )* )
+            {
+            // InternalMyGrammar.g:5346:2: (this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )* )
+            // InternalMyGrammar.g:5347:3: this_AddSub_0= ruleAddSub ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )*
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getShiftAccess().getAddSubParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_66);
+            this_AddSub_0=ruleAddSub();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current = this_AddSub_0;
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalMyGrammar.g:5355:3: ( () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) ) )*
+            loop88:
+            do {
+                int alt88=2;
+                int LA88_0 = input.LA(1);
+
+                if ( ((LA88_0>=205 && LA88_0<=207)) ) {
+                    alt88=1;
+                }
+
+
+                switch (alt88) {
+            	case 1 :
+            	    // InternalMyGrammar.g:5356:4: () ( (lv_shiftOp_2_0= ruleShiftOpEnum ) ) ( (lv_right_3_0= ruleAddSub ) )
+            	    {
+            	    // InternalMyGrammar.g:5356:4: ()
+            	    // InternalMyGrammar.g:5357:5: 
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      					current = forceCreateModelElementAndSet(
+            	      						grammarAccess.getShiftAccess().getShiftLeftAction_1_0(),
+            	      						current);
+            	      				
+            	    }
+
+            	    }
+
+            	    // InternalMyGrammar.g:5363:4: ( (lv_shiftOp_2_0= ruleShiftOpEnum ) )
+            	    // InternalMyGrammar.g:5364:5: (lv_shiftOp_2_0= ruleShiftOpEnum )
+            	    {
+            	    // InternalMyGrammar.g:5364:5: (lv_shiftOp_2_0= ruleShiftOpEnum )
+            	    // InternalMyGrammar.g:5365:6: lv_shiftOp_2_0= ruleShiftOpEnum
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      						newCompositeNode(grammarAccess.getShiftAccess().getShiftOpShiftOpEnumEnumRuleCall_1_1_0());
+            	      					
+            	    }
+            	    pushFollow(FOLLOW_19);
+            	    lv_shiftOp_2_0=ruleShiftOpEnum();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      						if (current==null) {
+            	      							current = createModelElementForParent(grammarAccess.getShiftRule());
+            	      						}
+            	      						set(
+            	      							current,
+            	      							"shiftOp",
+            	      							lv_shiftOp_2_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.ShiftOpEnum");
+            	      						afterParserOrEnumRuleCall();
+            	      					
+            	    }
+
+            	    }
+
+
+            	    }
+
+            	    // InternalMyGrammar.g:5382:4: ( (lv_right_3_0= ruleAddSub ) )
+            	    // InternalMyGrammar.g:5383:5: (lv_right_3_0= ruleAddSub )
+            	    {
+            	    // InternalMyGrammar.g:5383:5: (lv_right_3_0= ruleAddSub )
+            	    // InternalMyGrammar.g:5384:6: lv_right_3_0= ruleAddSub
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      						newCompositeNode(grammarAccess.getShiftAccess().getRightAddSubParserRuleCall_1_2_0());
+            	      					
+            	    }
+            	    pushFollow(FOLLOW_66);
+            	    lv_right_3_0=ruleAddSub();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      						if (current==null) {
+            	      							current = createModelElementForParent(grammarAccess.getShiftRule());
+            	      						}
+            	      						set(
+            	      							current,
+            	      							"right",
+            	      							lv_right_3_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.AddSub");
+            	      						afterParserOrEnumRuleCall();
+            	      					
+            	    }
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop88;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleShift"
+
+
+    // $ANTLR start "entryRuleAddSub"
+    // InternalMyGrammar.g:5406:1: entryRuleAddSub returns [EObject current=null] : iv_ruleAddSub= ruleAddSub EOF ;
+    public final EObject entryRuleAddSub() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAddSub = null;
+
+
+        try {
+            // InternalMyGrammar.g:5406:47: (iv_ruleAddSub= ruleAddSub EOF )
+            // InternalMyGrammar.g:5407:2: iv_ruleAddSub= ruleAddSub EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getAddSubRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleAddSub=ruleAddSub();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleAddSub; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAddSub"
+
+
+    // $ANTLR start "ruleAddSub"
+    // InternalMyGrammar.g:5413:1: ruleAddSub returns [EObject current=null] : (this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )* ) ;
+    public final EObject ruleAddSub() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_MulDivMod_0 = null;
+
+        Enumerator lv_additionOp_2_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:5419:2: ( (this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )* ) )
+            // InternalMyGrammar.g:5420:2: (this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )* )
+            {
+            // InternalMyGrammar.g:5420:2: (this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )* )
+            // InternalMyGrammar.g:5421:3: this_MulDivMod_0= ruleMulDivMod ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )*
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getAddSubAccess().getMulDivModParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_67);
+            this_MulDivMod_0=ruleMulDivMod();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current = this_MulDivMod_0;
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalMyGrammar.g:5429:3: ( ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) ) )*
+            loop89:
+            do {
+                int alt89=2;
+                int LA89_0 = input.LA(1);
+
+                if ( (LA89_0==65) && (synpred3_InternalMyGrammar())) {
+                    alt89=1;
+                }
+                else if ( (LA89_0==66) && (synpred3_InternalMyGrammar())) {
+                    alt89=1;
+                }
+
+
+                switch (alt89) {
+            	case 1 :
+            	    // InternalMyGrammar.g:5430:4: ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )=> ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) )
+            	    {
+            	    // InternalMyGrammar.g:5445:4: ( () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) ) )
+            	    // InternalMyGrammar.g:5446:5: () ( (lv_additionOp_2_0= ruleAdditionOpEnum ) ) ( (lv_right_3_0= ruleMulDivMod ) )
+            	    {
+            	    // InternalMyGrammar.g:5446:5: ()
+            	    // InternalMyGrammar.g:5447:6: 
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      						current = forceCreateModelElementAndSet(
+            	      							grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0(),
+            	      							current);
+            	      					
+            	    }
+
+            	    }
+
+            	    // InternalMyGrammar.g:5453:5: ( (lv_additionOp_2_0= ruleAdditionOpEnum ) )
+            	    // InternalMyGrammar.g:5454:6: (lv_additionOp_2_0= ruleAdditionOpEnum )
+            	    {
+            	    // InternalMyGrammar.g:5454:6: (lv_additionOp_2_0= ruleAdditionOpEnum )
+            	    // InternalMyGrammar.g:5455:7: lv_additionOp_2_0= ruleAdditionOpEnum
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      							newCompositeNode(grammarAccess.getAddSubAccess().getAdditionOpAdditionOpEnumEnumRuleCall_1_0_1_0());
+            	      						
+            	    }
+            	    pushFollow(FOLLOW_19);
+            	    lv_additionOp_2_0=ruleAdditionOpEnum();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      							if (current==null) {
+            	      								current = createModelElementForParent(grammarAccess.getAddSubRule());
+            	      							}
+            	      							set(
+            	      								current,
+            	      								"additionOp",
+            	      								lv_additionOp_2_0,
+            	      								"org.unicam.tryGrammar.MyGrammar.AdditionOpEnum");
+            	      							afterParserOrEnumRuleCall();
+            	      						
+            	    }
+
+            	    }
+
+
+            	    }
+
+            	    // InternalMyGrammar.g:5472:5: ( (lv_right_3_0= ruleMulDivMod ) )
+            	    // InternalMyGrammar.g:5473:6: (lv_right_3_0= ruleMulDivMod )
+            	    {
+            	    // InternalMyGrammar.g:5473:6: (lv_right_3_0= ruleMulDivMod )
+            	    // InternalMyGrammar.g:5474:7: lv_right_3_0= ruleMulDivMod
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      							newCompositeNode(grammarAccess.getAddSubAccess().getRightMulDivModParserRuleCall_1_0_2_0());
+            	      						
+            	    }
+            	    pushFollow(FOLLOW_67);
+            	    lv_right_3_0=ruleMulDivMod();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      							if (current==null) {
+            	      								current = createModelElementForParent(grammarAccess.getAddSubRule());
+            	      							}
+            	      							set(
+            	      								current,
+            	      								"right",
+            	      								lv_right_3_0,
+            	      								"org.unicam.tryGrammar.MyGrammar.MulDivMod");
+            	      							afterParserOrEnumRuleCall();
+            	      						
+            	    }
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop89;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAddSub"
+
+
+    // $ANTLR start "entryRuleMulDivMod"
+    // InternalMyGrammar.g:5497:1: entryRuleMulDivMod returns [EObject current=null] : iv_ruleMulDivMod= ruleMulDivMod EOF ;
+    public final EObject entryRuleMulDivMod() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleMulDivMod = null;
+
+
+        try {
+            // InternalMyGrammar.g:5497:50: (iv_ruleMulDivMod= ruleMulDivMod EOF )
+            // InternalMyGrammar.g:5498:2: iv_ruleMulDivMod= ruleMulDivMod EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getMulDivModRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleMulDivMod=ruleMulDivMod();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleMulDivMod; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleMulDivMod"
+
+
+    // $ANTLR start "ruleMulDivMod"
+    // InternalMyGrammar.g:5504:1: ruleMulDivMod returns [EObject current=null] : (this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )* ) ;
+    public final EObject ruleMulDivMod() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_Exponent_0 = null;
+
+        Enumerator lv_multipliciativeOp_2_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:5510:2: ( (this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )* ) )
+            // InternalMyGrammar.g:5511:2: (this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )* )
+            {
+            // InternalMyGrammar.g:5511:2: (this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )* )
+            // InternalMyGrammar.g:5512:3: this_Exponent_0= ruleExponent ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )*
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getMulDivModAccess().getExponentParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_68);
+            this_Exponent_0=ruleExponent();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current = this_Exponent_0;
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalMyGrammar.g:5520:3: ( () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) ) )*
+            loop90:
+            do {
+                int alt90=2;
+                int LA90_0 = input.LA(1);
+
+                if ( (LA90_0==18||LA90_0==70||LA90_0==208) ) {
+                    alt90=1;
+                }
+
+
+                switch (alt90) {
+            	case 1 :
+            	    // InternalMyGrammar.g:5521:4: () ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) ) ( (lv_right_3_0= ruleExponent ) )
+            	    {
+            	    // InternalMyGrammar.g:5521:4: ()
+            	    // InternalMyGrammar.g:5522:5: 
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      					current = forceCreateModelElementAndSet(
+            	      						grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0(),
+            	      						current);
+            	      				
+            	    }
+
+            	    }
+
+            	    // InternalMyGrammar.g:5528:4: ( (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum ) )
+            	    // InternalMyGrammar.g:5529:5: (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum )
+            	    {
+            	    // InternalMyGrammar.g:5529:5: (lv_multipliciativeOp_2_0= ruleMulDivModOpEnum )
+            	    // InternalMyGrammar.g:5530:6: lv_multipliciativeOp_2_0= ruleMulDivModOpEnum
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      						newCompositeNode(grammarAccess.getMulDivModAccess().getMultipliciativeOpMulDivModOpEnumEnumRuleCall_1_1_0());
+            	      					
+            	    }
+            	    pushFollow(FOLLOW_19);
+            	    lv_multipliciativeOp_2_0=ruleMulDivModOpEnum();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      						if (current==null) {
+            	      							current = createModelElementForParent(grammarAccess.getMulDivModRule());
+            	      						}
+            	      						set(
+            	      							current,
+            	      							"multipliciativeOp",
+            	      							lv_multipliciativeOp_2_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.MulDivModOpEnum");
+            	      						afterParserOrEnumRuleCall();
+            	      					
+            	    }
+
+            	    }
+
+
+            	    }
+
+            	    // InternalMyGrammar.g:5547:4: ( (lv_right_3_0= ruleExponent ) )
+            	    // InternalMyGrammar.g:5548:5: (lv_right_3_0= ruleExponent )
+            	    {
+            	    // InternalMyGrammar.g:5548:5: (lv_right_3_0= ruleExponent )
+            	    // InternalMyGrammar.g:5549:6: lv_right_3_0= ruleExponent
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      						newCompositeNode(grammarAccess.getMulDivModAccess().getRightExponentParserRuleCall_1_2_0());
+            	      					
+            	    }
+            	    pushFollow(FOLLOW_68);
+            	    lv_right_3_0=ruleExponent();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      						if (current==null) {
+            	      							current = createModelElementForParent(grammarAccess.getMulDivModRule());
+            	      						}
+            	      						set(
+            	      							current,
+            	      							"right",
+            	      							lv_right_3_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.Exponent");
+            	      						afterParserOrEnumRuleCall();
+            	      					
+            	    }
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop90;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleMulDivMod"
+
+
+    // $ANTLR start "entryRuleExponent"
+    // InternalMyGrammar.g:5571:1: entryRuleExponent returns [EObject current=null] : iv_ruleExponent= ruleExponent EOF ;
+    public final EObject entryRuleExponent() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExponent = null;
+
+
+        try {
+            // InternalMyGrammar.g:5571:49: (iv_ruleExponent= ruleExponent EOF )
+            // InternalMyGrammar.g:5572:2: iv_ruleExponent= ruleExponent EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExponentRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExponent=ruleExponent();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExponent; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExponent"
+
+
+    // $ANTLR start "ruleExponent"
+    // InternalMyGrammar.g:5578:1: ruleExponent returns [EObject current=null] : (this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )* ) ;
+    public final EObject ruleExponent() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_2=null;
+        EObject this_UnaryExpression_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:5584:2: ( (this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )* ) )
+            // InternalMyGrammar.g:5585:2: (this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )* )
+            {
+            // InternalMyGrammar.g:5585:2: (this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )* )
+            // InternalMyGrammar.g:5586:3: this_UnaryExpression_0= ruleUnaryExpression ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )*
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getExponentAccess().getUnaryExpressionParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_69);
+            this_UnaryExpression_0=ruleUnaryExpression();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current = this_UnaryExpression_0;
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalMyGrammar.g:5594:3: ( () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) ) )*
+            loop91:
+            do {
+                int alt91=2;
+                int LA91_0 = input.LA(1);
+
+                if ( (LA91_0==62) ) {
+                    alt91=1;
+                }
+
+
+                switch (alt91) {
+            	case 1 :
+            	    // InternalMyGrammar.g:5595:4: () otherlv_2= '**' ( (lv_right_3_0= ruleUnaryExpression ) )
+            	    {
+            	    // InternalMyGrammar.g:5595:4: ()
+            	    // InternalMyGrammar.g:5596:5: 
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      					current = forceCreateModelElementAndSet(
+            	      						grammarAccess.getExponentAccess().getExponentLeftAction_1_0(),
+            	      						current);
+            	      				
+            	    }
+
+            	    }
+
+            	    otherlv_2=(Token)match(input,62,FOLLOW_19); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(otherlv_2, grammarAccess.getExponentAccess().getAsteriskAsteriskKeyword_1_1());
+            	      			
+            	    }
+            	    // InternalMyGrammar.g:5606:4: ( (lv_right_3_0= ruleUnaryExpression ) )
+            	    // InternalMyGrammar.g:5607:5: (lv_right_3_0= ruleUnaryExpression )
+            	    {
+            	    // InternalMyGrammar.g:5607:5: (lv_right_3_0= ruleUnaryExpression )
+            	    // InternalMyGrammar.g:5608:6: lv_right_3_0= ruleUnaryExpression
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      						newCompositeNode(grammarAccess.getExponentAccess().getRightUnaryExpressionParserRuleCall_1_2_0());
+            	      					
+            	    }
+            	    pushFollow(FOLLOW_69);
+            	    lv_right_3_0=ruleUnaryExpression();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      						if (current==null) {
+            	      							current = createModelElementForParent(grammarAccess.getExponentRule());
+            	      						}
+            	      						set(
+            	      							current,
+            	      							"right",
+            	      							lv_right_3_0,
+            	      							"org.unicam.tryGrammar.MyGrammar.UnaryExpression");
+            	      						afterParserOrEnumRuleCall();
+            	      					
+            	    }
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop91;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleExponent"
 
 
     // $ANTLR start "entryRuleUnaryExpression"
-    // InternalMyGrammar.g:5433:1: entryRuleUnaryExpression returns [EObject current=null] : iv_ruleUnaryExpression= ruleUnaryExpression EOF ;
+    // InternalMyGrammar.g:5630:1: entryRuleUnaryExpression returns [EObject current=null] : iv_ruleUnaryExpression= ruleUnaryExpression EOF ;
     public final EObject entryRuleUnaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16003,8 +16522,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:5433:56: (iv_ruleUnaryExpression= ruleUnaryExpression EOF )
-            // InternalMyGrammar.g:5434:2: iv_ruleUnaryExpression= ruleUnaryExpression EOF
+            // InternalMyGrammar.g:5630:56: (iv_ruleUnaryExpression= ruleUnaryExpression EOF )
+            // InternalMyGrammar.g:5631:2: iv_ruleUnaryExpression= ruleUnaryExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getUnaryExpressionRule()); 
@@ -16035,7 +16554,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnaryExpression"
-    // InternalMyGrammar.g:5440:1: ruleUnaryExpression returns [EObject current=null] : (this_NotExpression_0= ruleNotExpression | this_BinaryNotExpression_1= ruleBinaryNotExpression | this_SignExpression_2= ruleSignExpression | this_NewExpression_3= ruleNewExpression | this_PreExpression_4= rulePreExpression ) ;
+    // InternalMyGrammar.g:5637:1: ruleUnaryExpression returns [EObject current=null] : (this_NotExpression_0= ruleNotExpression | this_BinaryNotExpression_1= ruleBinaryNotExpression | this_SignExpression_2= ruleSignExpression | this_NewExpression_3= ruleNewExpression | this_PreExpression_4= rulePreExpression ) ;
     public final EObject ruleUnaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16054,31 +16573,31 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5446:2: ( (this_NotExpression_0= ruleNotExpression | this_BinaryNotExpression_1= ruleBinaryNotExpression | this_SignExpression_2= ruleSignExpression | this_NewExpression_3= ruleNewExpression | this_PreExpression_4= rulePreExpression ) )
-            // InternalMyGrammar.g:5447:2: (this_NotExpression_0= ruleNotExpression | this_BinaryNotExpression_1= ruleBinaryNotExpression | this_SignExpression_2= ruleSignExpression | this_NewExpression_3= ruleNewExpression | this_PreExpression_4= rulePreExpression )
+            // InternalMyGrammar.g:5643:2: ( (this_NotExpression_0= ruleNotExpression | this_BinaryNotExpression_1= ruleBinaryNotExpression | this_SignExpression_2= ruleSignExpression | this_NewExpression_3= ruleNewExpression | this_PreExpression_4= rulePreExpression ) )
+            // InternalMyGrammar.g:5644:2: (this_NotExpression_0= ruleNotExpression | this_BinaryNotExpression_1= ruleBinaryNotExpression | this_SignExpression_2= ruleSignExpression | this_NewExpression_3= ruleNewExpression | this_PreExpression_4= rulePreExpression )
             {
-            // InternalMyGrammar.g:5447:2: (this_NotExpression_0= ruleNotExpression | this_BinaryNotExpression_1= ruleBinaryNotExpression | this_SignExpression_2= ruleSignExpression | this_NewExpression_3= ruleNewExpression | this_PreExpression_4= rulePreExpression )
-            int alt87=5;
+            // InternalMyGrammar.g:5644:2: (this_NotExpression_0= ruleNotExpression | this_BinaryNotExpression_1= ruleBinaryNotExpression | this_SignExpression_2= ruleSignExpression | this_NewExpression_3= ruleNewExpression | this_PreExpression_4= rulePreExpression )
+            int alt92=5;
             switch ( input.LA(1) ) {
             case 63:
                 {
-                alt87=1;
+                alt92=1;
                 }
                 break;
             case 64:
                 {
-                alt87=2;
+                alt92=2;
                 }
                 break;
             case 65:
             case 66:
                 {
-                alt87=3;
+                alt92=3;
                 }
                 break;
             case 67:
                 {
-                alt87=4;
+                alt92=4;
                 }
                 break;
             case RULE_STRING:
@@ -16092,10 +16611,6 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case 27:
             case 68:
             case 69:
-            case 70:
-            case 71:
-            case 72:
-            case 73:
             case 74:
             case 75:
             case 76:
@@ -16198,25 +16713,29 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case 173:
             case 174:
             case 175:
-            case 206:
-            case 207:
-            case 218:
-            case 219:
+            case 176:
+            case 177:
+            case 178:
+            case 179:
+            case 209:
+            case 210:
+            case 221:
+            case 222:
                 {
-                alt87=5;
+                alt92=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 87, 0, input);
+                    new NoViableAltException("", 92, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt87) {
+            switch (alt92) {
                 case 1 :
-                    // InternalMyGrammar.g:5448:3: this_NotExpression_0= ruleNotExpression
+                    // InternalMyGrammar.g:5645:3: this_NotExpression_0= ruleNotExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -16238,7 +16757,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:5457:3: this_BinaryNotExpression_1= ruleBinaryNotExpression
+                    // InternalMyGrammar.g:5654:3: this_BinaryNotExpression_1= ruleBinaryNotExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -16260,7 +16779,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:5466:3: this_SignExpression_2= ruleSignExpression
+                    // InternalMyGrammar.g:5663:3: this_SignExpression_2= ruleSignExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -16282,7 +16801,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:5475:3: this_NewExpression_3= ruleNewExpression
+                    // InternalMyGrammar.g:5672:3: this_NewExpression_3= ruleNewExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -16304,7 +16823,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:5484:3: this_PreExpression_4= rulePreExpression
+                    // InternalMyGrammar.g:5681:3: this_PreExpression_4= rulePreExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -16350,7 +16869,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNotExpression"
-    // InternalMyGrammar.g:5496:1: entryRuleNotExpression returns [EObject current=null] : iv_ruleNotExpression= ruleNotExpression EOF ;
+    // InternalMyGrammar.g:5693:1: entryRuleNotExpression returns [EObject current=null] : iv_ruleNotExpression= ruleNotExpression EOF ;
     public final EObject entryRuleNotExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16358,8 +16877,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:5496:54: (iv_ruleNotExpression= ruleNotExpression EOF )
-            // InternalMyGrammar.g:5497:2: iv_ruleNotExpression= ruleNotExpression EOF
+            // InternalMyGrammar.g:5693:54: (iv_ruleNotExpression= ruleNotExpression EOF )
+            // InternalMyGrammar.g:5694:2: iv_ruleNotExpression= ruleNotExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNotExpressionRule()); 
@@ -16390,7 +16909,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNotExpression"
-    // InternalMyGrammar.g:5503:1: ruleNotExpression returns [EObject current=null] : (otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) ) ) ;
+    // InternalMyGrammar.g:5700:1: ruleNotExpression returns [EObject current=null] : (otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) ) ) ;
     public final EObject ruleNotExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16402,11 +16921,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5509:2: ( (otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) ) ) )
-            // InternalMyGrammar.g:5510:2: (otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) ) )
+            // InternalMyGrammar.g:5706:2: ( (otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) ) ) )
+            // InternalMyGrammar.g:5707:2: (otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) ) )
             {
-            // InternalMyGrammar.g:5510:2: (otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) ) )
-            // InternalMyGrammar.g:5511:3: otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) )
+            // InternalMyGrammar.g:5707:2: (otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) ) )
+            // InternalMyGrammar.g:5708:3: otherlv_0= '!' ( (lv_expression_1_0= ruleUnaryExpression ) )
             {
             otherlv_0=(Token)match(input,63,FOLLOW_19); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16414,11 +16933,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getNotExpressionAccess().getExclamationMarkKeyword_0());
               		
             }
-            // InternalMyGrammar.g:5515:3: ( (lv_expression_1_0= ruleUnaryExpression ) )
-            // InternalMyGrammar.g:5516:4: (lv_expression_1_0= ruleUnaryExpression )
+            // InternalMyGrammar.g:5712:3: ( (lv_expression_1_0= ruleUnaryExpression ) )
+            // InternalMyGrammar.g:5713:4: (lv_expression_1_0= ruleUnaryExpression )
             {
-            // InternalMyGrammar.g:5516:4: (lv_expression_1_0= ruleUnaryExpression )
-            // InternalMyGrammar.g:5517:5: lv_expression_1_0= ruleUnaryExpression
+            // InternalMyGrammar.g:5713:4: (lv_expression_1_0= ruleUnaryExpression )
+            // InternalMyGrammar.g:5714:5: lv_expression_1_0= ruleUnaryExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -16474,7 +16993,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBinaryNotExpression"
-    // InternalMyGrammar.g:5538:1: entryRuleBinaryNotExpression returns [EObject current=null] : iv_ruleBinaryNotExpression= ruleBinaryNotExpression EOF ;
+    // InternalMyGrammar.g:5735:1: entryRuleBinaryNotExpression returns [EObject current=null] : iv_ruleBinaryNotExpression= ruleBinaryNotExpression EOF ;
     public final EObject entryRuleBinaryNotExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16482,8 +17001,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:5538:60: (iv_ruleBinaryNotExpression= ruleBinaryNotExpression EOF )
-            // InternalMyGrammar.g:5539:2: iv_ruleBinaryNotExpression= ruleBinaryNotExpression EOF
+            // InternalMyGrammar.g:5735:60: (iv_ruleBinaryNotExpression= ruleBinaryNotExpression EOF )
+            // InternalMyGrammar.g:5736:2: iv_ruleBinaryNotExpression= ruleBinaryNotExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBinaryNotExpressionRule()); 
@@ -16514,7 +17033,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBinaryNotExpression"
-    // InternalMyGrammar.g:5545:1: ruleBinaryNotExpression returns [EObject current=null] : (otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) ) ) ;
+    // InternalMyGrammar.g:5742:1: ruleBinaryNotExpression returns [EObject current=null] : (otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) ) ) ;
     public final EObject ruleBinaryNotExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16526,11 +17045,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5551:2: ( (otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) ) ) )
-            // InternalMyGrammar.g:5552:2: (otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) ) )
+            // InternalMyGrammar.g:5748:2: ( (otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) ) ) )
+            // InternalMyGrammar.g:5749:2: (otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) ) )
             {
-            // InternalMyGrammar.g:5552:2: (otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) ) )
-            // InternalMyGrammar.g:5553:3: otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) )
+            // InternalMyGrammar.g:5749:2: (otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) ) )
+            // InternalMyGrammar.g:5750:3: otherlv_0= '~' ( (lv_expression_1_0= ruleUnaryExpression ) )
             {
             otherlv_0=(Token)match(input,64,FOLLOW_19); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16538,11 +17057,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getBinaryNotExpressionAccess().getTildeKeyword_0());
               		
             }
-            // InternalMyGrammar.g:5557:3: ( (lv_expression_1_0= ruleUnaryExpression ) )
-            // InternalMyGrammar.g:5558:4: (lv_expression_1_0= ruleUnaryExpression )
+            // InternalMyGrammar.g:5754:3: ( (lv_expression_1_0= ruleUnaryExpression ) )
+            // InternalMyGrammar.g:5755:4: (lv_expression_1_0= ruleUnaryExpression )
             {
-            // InternalMyGrammar.g:5558:4: (lv_expression_1_0= ruleUnaryExpression )
-            // InternalMyGrammar.g:5559:5: lv_expression_1_0= ruleUnaryExpression
+            // InternalMyGrammar.g:5755:4: (lv_expression_1_0= ruleUnaryExpression )
+            // InternalMyGrammar.g:5756:5: lv_expression_1_0= ruleUnaryExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -16598,7 +17117,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSignExpression"
-    // InternalMyGrammar.g:5580:1: entryRuleSignExpression returns [EObject current=null] : iv_ruleSignExpression= ruleSignExpression EOF ;
+    // InternalMyGrammar.g:5777:1: entryRuleSignExpression returns [EObject current=null] : iv_ruleSignExpression= ruleSignExpression EOF ;
     public final EObject entryRuleSignExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16606,8 +17125,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:5580:55: (iv_ruleSignExpression= ruleSignExpression EOF )
-            // InternalMyGrammar.g:5581:2: iv_ruleSignExpression= ruleSignExpression EOF
+            // InternalMyGrammar.g:5777:55: (iv_ruleSignExpression= ruleSignExpression EOF )
+            // InternalMyGrammar.g:5778:2: iv_ruleSignExpression= ruleSignExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSignExpressionRule()); 
@@ -16638,7 +17157,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSignExpression"
-    // InternalMyGrammar.g:5587:1: ruleSignExpression returns [EObject current=null] : ( ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) ) ) ;
+    // InternalMyGrammar.g:5784:1: ruleSignExpression returns [EObject current=null] : ( ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) ) ) ;
     public final EObject ruleSignExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16651,38 +17170,38 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5593:2: ( ( ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) ) ) )
-            // InternalMyGrammar.g:5594:2: ( ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) ) )
+            // InternalMyGrammar.g:5790:2: ( ( ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) ) ) )
+            // InternalMyGrammar.g:5791:2: ( ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) ) )
             {
-            // InternalMyGrammar.g:5594:2: ( ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) ) )
-            // InternalMyGrammar.g:5595:3: ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) )
+            // InternalMyGrammar.g:5791:2: ( ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) ) )
+            // InternalMyGrammar.g:5792:3: ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) ) ( (lv_expression_1_0= ruleUnaryExpression ) )
             {
-            // InternalMyGrammar.g:5595:3: ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) )
-            // InternalMyGrammar.g:5596:4: ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) )
+            // InternalMyGrammar.g:5792:3: ( ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) ) )
+            // InternalMyGrammar.g:5793:4: ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) )
             {
-            // InternalMyGrammar.g:5596:4: ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) )
-            // InternalMyGrammar.g:5597:5: (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' )
+            // InternalMyGrammar.g:5793:4: ( (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' ) )
+            // InternalMyGrammar.g:5794:5: (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' )
             {
-            // InternalMyGrammar.g:5597:5: (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' )
-            int alt88=2;
-            int LA88_0 = input.LA(1);
+            // InternalMyGrammar.g:5794:5: (lv_signOp_0_1= '+' | lv_signOp_0_2= '-' )
+            int alt93=2;
+            int LA93_0 = input.LA(1);
 
-            if ( (LA88_0==65) ) {
-                alt88=1;
+            if ( (LA93_0==65) ) {
+                alt93=1;
             }
-            else if ( (LA88_0==66) ) {
-                alt88=2;
+            else if ( (LA93_0==66) ) {
+                alt93=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 88, 0, input);
+                    new NoViableAltException("", 93, 0, input);
 
                 throw nvae;
             }
-            switch (alt88) {
+            switch (alt93) {
                 case 1 :
-                    // InternalMyGrammar.g:5598:6: lv_signOp_0_1= '+'
+                    // InternalMyGrammar.g:5795:6: lv_signOp_0_1= '+'
                     {
                     lv_signOp_0_1=(Token)match(input,65,FOLLOW_19); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16702,7 +17221,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:5609:6: lv_signOp_0_2= '-'
+                    // InternalMyGrammar.g:5806:6: lv_signOp_0_2= '-'
                     {
                     lv_signOp_0_2=(Token)match(input,66,FOLLOW_19); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -16730,11 +17249,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:5622:3: ( (lv_expression_1_0= ruleUnaryExpression ) )
-            // InternalMyGrammar.g:5623:4: (lv_expression_1_0= ruleUnaryExpression )
+            // InternalMyGrammar.g:5819:3: ( (lv_expression_1_0= ruleUnaryExpression ) )
+            // InternalMyGrammar.g:5820:4: (lv_expression_1_0= ruleUnaryExpression )
             {
-            // InternalMyGrammar.g:5623:4: (lv_expression_1_0= ruleUnaryExpression )
-            // InternalMyGrammar.g:5624:5: lv_expression_1_0= ruleUnaryExpression
+            // InternalMyGrammar.g:5820:4: (lv_expression_1_0= ruleUnaryExpression )
+            // InternalMyGrammar.g:5821:5: lv_expression_1_0= ruleUnaryExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -16790,7 +17309,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNewExpression"
-    // InternalMyGrammar.g:5645:1: entryRuleNewExpression returns [EObject current=null] : iv_ruleNewExpression= ruleNewExpression EOF ;
+    // InternalMyGrammar.g:5842:1: entryRuleNewExpression returns [EObject current=null] : iv_ruleNewExpression= ruleNewExpression EOF ;
     public final EObject entryRuleNewExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16798,8 +17317,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:5645:54: (iv_ruleNewExpression= ruleNewExpression EOF )
-            // InternalMyGrammar.g:5646:2: iv_ruleNewExpression= ruleNewExpression EOF
+            // InternalMyGrammar.g:5842:54: (iv_ruleNewExpression= ruleNewExpression EOF )
+            // InternalMyGrammar.g:5843:2: iv_ruleNewExpression= ruleNewExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNewExpressionRule()); 
@@ -16830,7 +17349,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNewExpression"
-    // InternalMyGrammar.g:5652:1: ruleNewExpression returns [EObject current=null] : (otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) ) ) ;
+    // InternalMyGrammar.g:5849:1: ruleNewExpression returns [EObject current=null] : (otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) ) ) ;
     public final EObject ruleNewExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16843,11 +17362,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5658:2: ( (otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) ) ) )
-            // InternalMyGrammar.g:5659:2: (otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) ) )
+            // InternalMyGrammar.g:5855:2: ( (otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) ) ) )
+            // InternalMyGrammar.g:5856:2: (otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) ) )
             {
-            // InternalMyGrammar.g:5659:2: (otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) ) )
-            // InternalMyGrammar.g:5660:3: otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) )
+            // InternalMyGrammar.g:5856:2: (otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) ) )
+            // InternalMyGrammar.g:5857:3: otherlv_0= 'new' ( (otherlv_1= RULE_ID ) ) ( (lv_args_2_0= ruleFunctionCallListArguments ) )
             {
             otherlv_0=(Token)match(input,67,FOLLOW_8); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -16855,11 +17374,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_0, grammarAccess.getNewExpressionAccess().getNewKeyword_0());
               		
             }
-            // InternalMyGrammar.g:5664:3: ( (otherlv_1= RULE_ID ) )
-            // InternalMyGrammar.g:5665:4: (otherlv_1= RULE_ID )
+            // InternalMyGrammar.g:5861:3: ( (otherlv_1= RULE_ID ) )
+            // InternalMyGrammar.g:5862:4: (otherlv_1= RULE_ID )
             {
-            // InternalMyGrammar.g:5665:4: (otherlv_1= RULE_ID )
-            // InternalMyGrammar.g:5666:5: otherlv_1= RULE_ID
+            // InternalMyGrammar.g:5862:4: (otherlv_1= RULE_ID )
+            // InternalMyGrammar.g:5863:5: otherlv_1= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -16880,11 +17399,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:5677:3: ( (lv_args_2_0= ruleFunctionCallListArguments ) )
-            // InternalMyGrammar.g:5678:4: (lv_args_2_0= ruleFunctionCallListArguments )
+            // InternalMyGrammar.g:5874:3: ( (lv_args_2_0= ruleFunctionCallListArguments ) )
+            // InternalMyGrammar.g:5875:4: (lv_args_2_0= ruleFunctionCallListArguments )
             {
-            // InternalMyGrammar.g:5678:4: (lv_args_2_0= ruleFunctionCallListArguments )
-            // InternalMyGrammar.g:5679:5: lv_args_2_0= ruleFunctionCallListArguments
+            // InternalMyGrammar.g:5875:4: (lv_args_2_0= ruleFunctionCallListArguments )
+            // InternalMyGrammar.g:5876:5: lv_args_2_0= ruleFunctionCallListArguments
             {
             if ( state.backtracking==0 ) {
 
@@ -16940,7 +17459,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePreExpression"
-    // InternalMyGrammar.g:5700:1: entryRulePreExpression returns [EObject current=null] : iv_rulePreExpression= rulePreExpression EOF ;
+    // InternalMyGrammar.g:5897:1: entryRulePreExpression returns [EObject current=null] : iv_rulePreExpression= rulePreExpression EOF ;
     public final EObject entryRulePreExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16948,8 +17467,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:5700:54: (iv_rulePreExpression= rulePreExpression EOF )
-            // InternalMyGrammar.g:5701:2: iv_rulePreExpression= rulePreExpression EOF
+            // InternalMyGrammar.g:5897:54: (iv_rulePreExpression= rulePreExpression EOF )
+            // InternalMyGrammar.g:5898:2: iv_rulePreExpression= rulePreExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPreExpressionRule()); 
@@ -16980,7 +17499,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePreExpression"
-    // InternalMyGrammar.g:5707:1: rulePreExpression returns [EObject current=null] : (this_PostIncDecExpression_0= rulePostIncDecExpression | (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () ) | (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () ) ) ;
+    // InternalMyGrammar.g:5904:1: rulePreExpression returns [EObject current=null] : (this_PostIncDecExpression_0= rulePostIncDecExpression | (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () ) | (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () ) ) ;
     public final EObject rulePreExpression() throws RecognitionException {
         EObject current = null;
 
@@ -16997,11 +17516,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5713:2: ( (this_PostIncDecExpression_0= rulePostIncDecExpression | (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () ) | (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () ) ) )
-            // InternalMyGrammar.g:5714:2: (this_PostIncDecExpression_0= rulePostIncDecExpression | (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () ) | (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () ) )
+            // InternalMyGrammar.g:5910:2: ( (this_PostIncDecExpression_0= rulePostIncDecExpression | (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () ) | (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () ) ) )
+            // InternalMyGrammar.g:5911:2: (this_PostIncDecExpression_0= rulePostIncDecExpression | (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () ) | (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () ) )
             {
-            // InternalMyGrammar.g:5714:2: (this_PostIncDecExpression_0= rulePostIncDecExpression | (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () ) | (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () ) )
-            int alt89=3;
+            // InternalMyGrammar.g:5911:2: (this_PostIncDecExpression_0= rulePostIncDecExpression | (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () ) | (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () ) )
+            int alt94=3;
             switch ( input.LA(1) ) {
             case RULE_STRING:
             case RULE_ID:
@@ -17012,10 +17531,6 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case RULE_MSG:
             case RULE_TX:
             case 27:
-            case 70:
-            case 71:
-            case 72:
-            case 73:
             case 74:
             case 75:
             case 76:
@@ -17118,35 +17633,39 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case 173:
             case 174:
             case 175:
-            case 206:
-            case 207:
-            case 218:
-            case 219:
+            case 176:
+            case 177:
+            case 178:
+            case 179:
+            case 209:
+            case 210:
+            case 221:
+            case 222:
                 {
-                alt89=1;
+                alt94=1;
                 }
                 break;
             case 68:
                 {
-                alt89=2;
+                alt94=2;
                 }
                 break;
             case 69:
                 {
-                alt89=3;
+                alt94=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 89, 0, input);
+                    new NoViableAltException("", 94, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt89) {
+            switch (alt94) {
                 case 1 :
-                    // InternalMyGrammar.g:5715:3: this_PostIncDecExpression_0= rulePostIncDecExpression
+                    // InternalMyGrammar.g:5912:3: this_PostIncDecExpression_0= rulePostIncDecExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -17168,12 +17687,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:5724:3: (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () )
+                    // InternalMyGrammar.g:5921:3: (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () )
                     {
-                    // InternalMyGrammar.g:5724:3: (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () )
-                    // InternalMyGrammar.g:5725:4: otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression ()
+                    // InternalMyGrammar.g:5921:3: (otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression () )
+                    // InternalMyGrammar.g:5922:4: otherlv_1= '++' this_PostIncDecExpression_2= rulePostIncDecExpression ()
                     {
-                    otherlv_1=(Token)match(input,68,FOLLOW_68); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,68,FOLLOW_70); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_1, grammarAccess.getPreExpressionAccess().getPlusSignPlusSignKeyword_1_0());
@@ -17195,8 +17714,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                       				afterParserOrEnumRuleCall();
                       			
                     }
-                    // InternalMyGrammar.g:5737:4: ()
-                    // InternalMyGrammar.g:5738:5: 
+                    // InternalMyGrammar.g:5934:4: ()
+                    // InternalMyGrammar.g:5935:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -17215,12 +17734,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:5746:3: (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () )
+                    // InternalMyGrammar.g:5943:3: (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () )
                     {
-                    // InternalMyGrammar.g:5746:3: (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () )
-                    // InternalMyGrammar.g:5747:4: otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression ()
+                    // InternalMyGrammar.g:5943:3: (otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression () )
+                    // InternalMyGrammar.g:5944:4: otherlv_4= '--' this_PostIncDecExpression_5= rulePostIncDecExpression ()
                     {
-                    otherlv_4=(Token)match(input,69,FOLLOW_68); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,69,FOLLOW_70); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				newLeafNode(otherlv_4, grammarAccess.getPreExpressionAccess().getHyphenMinusHyphenMinusKeyword_2_0());
@@ -17242,8 +17761,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                       				afterParserOrEnumRuleCall();
                       			
                     }
-                    // InternalMyGrammar.g:5759:4: ()
-                    // InternalMyGrammar.g:5760:5: 
+                    // InternalMyGrammar.g:5956:4: ()
+                    // InternalMyGrammar.g:5957:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -17286,7 +17805,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePostIncDecExpression"
-    // InternalMyGrammar.g:5771:1: entryRulePostIncDecExpression returns [EObject current=null] : iv_rulePostIncDecExpression= rulePostIncDecExpression EOF ;
+    // InternalMyGrammar.g:5968:1: entryRulePostIncDecExpression returns [EObject current=null] : iv_rulePostIncDecExpression= rulePostIncDecExpression EOF ;
     public final EObject entryRulePostIncDecExpression() throws RecognitionException {
         EObject current = null;
 
@@ -17294,8 +17813,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:5771:61: (iv_rulePostIncDecExpression= rulePostIncDecExpression EOF )
-            // InternalMyGrammar.g:5772:2: iv_rulePostIncDecExpression= rulePostIncDecExpression EOF
+            // InternalMyGrammar.g:5968:61: (iv_rulePostIncDecExpression= rulePostIncDecExpression EOF )
+            // InternalMyGrammar.g:5969:2: iv_rulePostIncDecExpression= rulePostIncDecExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPostIncDecExpressionRule()); 
@@ -17326,7 +17845,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePostIncDecExpression"
-    // InternalMyGrammar.g:5778:1: rulePostIncDecExpression returns [EObject current=null] : (this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )* ) ;
+    // InternalMyGrammar.g:5975:1: rulePostIncDecExpression returns [EObject current=null] : (this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )* ) ;
     public final EObject rulePostIncDecExpression() throws RecognitionException {
         EObject current = null;
 
@@ -17339,18 +17858,18 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5784:2: ( (this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )* ) )
-            // InternalMyGrammar.g:5785:2: (this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )* )
+            // InternalMyGrammar.g:5981:2: ( (this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )* ) )
+            // InternalMyGrammar.g:5982:2: (this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )* )
             {
-            // InternalMyGrammar.g:5785:2: (this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )* )
-            // InternalMyGrammar.g:5786:3: this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )*
+            // InternalMyGrammar.g:5982:2: (this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )* )
+            // InternalMyGrammar.g:5983:3: this_PrimaryExpression_0= rulePrimaryExpression ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )*
             {
             if ( state.backtracking==0 ) {
 
               			newCompositeNode(grammarAccess.getPostIncDecExpressionAccess().getPrimaryExpressionParserRuleCall_0());
               		
             }
-            pushFollow(FOLLOW_69);
+            pushFollow(FOLLOW_71);
             this_PrimaryExpression_0=rulePrimaryExpression();
 
             state._fsp--;
@@ -17361,23 +17880,23 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			afterParserOrEnumRuleCall();
               		
             }
-            // InternalMyGrammar.g:5794:3: ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )*
-            loop90:
+            // InternalMyGrammar.g:5991:3: ( () ( (lv_postOp_2_0= ruleIncDecOpEnum ) ) )*
+            loop95:
             do {
-                int alt90=2;
-                int LA90_0 = input.LA(1);
+                int alt95=2;
+                int LA95_0 = input.LA(1);
 
-                if ( ((LA90_0>=68 && LA90_0<=69)) ) {
-                    alt90=1;
+                if ( ((LA95_0>=68 && LA95_0<=69)) ) {
+                    alt95=1;
                 }
 
 
-                switch (alt90) {
+                switch (alt95) {
             	case 1 :
-            	    // InternalMyGrammar.g:5795:4: () ( (lv_postOp_2_0= ruleIncDecOpEnum ) )
+            	    // InternalMyGrammar.g:5992:4: () ( (lv_postOp_2_0= ruleIncDecOpEnum ) )
             	    {
-            	    // InternalMyGrammar.g:5795:4: ()
-            	    // InternalMyGrammar.g:5796:5: 
+            	    // InternalMyGrammar.g:5992:4: ()
+            	    // InternalMyGrammar.g:5993:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -17389,18 +17908,18 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalMyGrammar.g:5802:4: ( (lv_postOp_2_0= ruleIncDecOpEnum ) )
-            	    // InternalMyGrammar.g:5803:5: (lv_postOp_2_0= ruleIncDecOpEnum )
+            	    // InternalMyGrammar.g:5999:4: ( (lv_postOp_2_0= ruleIncDecOpEnum ) )
+            	    // InternalMyGrammar.g:6000:5: (lv_postOp_2_0= ruleIncDecOpEnum )
             	    {
-            	    // InternalMyGrammar.g:5803:5: (lv_postOp_2_0= ruleIncDecOpEnum )
-            	    // InternalMyGrammar.g:5804:6: lv_postOp_2_0= ruleIncDecOpEnum
+            	    // InternalMyGrammar.g:6000:5: (lv_postOp_2_0= ruleIncDecOpEnum )
+            	    // InternalMyGrammar.g:6001:6: lv_postOp_2_0= ruleIncDecOpEnum
             	    {
             	    if ( state.backtracking==0 ) {
 
             	      						newCompositeNode(grammarAccess.getPostIncDecExpressionAccess().getPostOpIncDecOpEnumEnumRuleCall_1_1_0());
             	      					
             	    }
-            	    pushFollow(FOLLOW_69);
+            	    pushFollow(FOLLOW_71);
             	    lv_postOp_2_0=ruleIncDecOpEnum();
 
             	    state._fsp--;
@@ -17429,7 +17948,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop90;
+            	    break loop95;
                 }
             } while (true);
 
@@ -17458,7 +17977,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimaryExpression"
-    // InternalMyGrammar.g:5826:1: entryRulePrimaryExpression returns [EObject current=null] : iv_rulePrimaryExpression= rulePrimaryExpression EOF ;
+    // InternalMyGrammar.g:6023:1: entryRulePrimaryExpression returns [EObject current=null] : iv_rulePrimaryExpression= rulePrimaryExpression EOF ;
     public final EObject entryRulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -17466,8 +17985,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:5826:58: (iv_rulePrimaryExpression= rulePrimaryExpression EOF )
-            // InternalMyGrammar.g:5827:2: iv_rulePrimaryExpression= rulePrimaryExpression EOF
+            // InternalMyGrammar.g:6023:58: (iv_rulePrimaryExpression= rulePrimaryExpression EOF )
+            // InternalMyGrammar.g:6024:2: iv_rulePrimaryExpression= rulePrimaryExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPrimaryExpressionRule()); 
@@ -17498,7 +18017,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimaryExpression"
-    // InternalMyGrammar.g:5833:1: rulePrimaryExpression returns [EObject current=null] : (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) ) ;
+    // InternalMyGrammar.g:6030:1: rulePrimaryExpression returns [EObject current=null] : (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) ) ;
     public final EObject rulePrimaryExpression() throws RecognitionException {
         EObject current = null;
 
@@ -17535,21 +18054,21 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:5839:2: ( (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) ) )
-            // InternalMyGrammar.g:5840:2: (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) )
+            // InternalMyGrammar.g:6036:2: ( (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) ) )
+            // InternalMyGrammar.g:6037:2: (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) )
             {
-            // InternalMyGrammar.g:5840:2: (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) )
-            int alt97=7;
+            // InternalMyGrammar.g:6037:2: (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) )
+            int alt102=7;
             switch ( input.LA(1) ) {
-            case 218:
-            case 219:
+            case 221:
+            case 222:
                 {
-                alt97=1;
+                alt102=1;
                 }
                 break;
             case RULE_ID:
                 {
-                alt97=2;
+                alt102=2;
                 }
                 break;
             case RULE_STRING:
@@ -17559,18 +18078,14 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case RULE_BLOCK:
             case RULE_MSG:
             case RULE_TX:
-            case 70:
-            case 71:
-            case 206:
-            case 207:
-                {
-                alt97=3;
-                }
-                break;
-            case 72:
-            case 73:
             case 74:
             case 75:
+            case 209:
+            case 210:
+                {
+                alt102=3;
+                }
+                break;
             case 76:
             case 77:
             case 78:
@@ -17671,21 +18186,20 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             case 173:
             case 174:
             case 175:
+            case 176:
+            case 177:
+            case 178:
+            case 179:
                 {
-                alt97=4;
+                alt102=4;
                 }
                 break;
             case 27:
                 {
                 switch ( input.LA(2) ) {
-                case 28:
-                    {
-                    alt97=7;
-                    }
-                    break;
                 case 22:
                     {
-                    alt97=6;
+                    alt102=6;
                     }
                     break;
                 case RULE_STRING:
@@ -17704,10 +18218,6 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 case 67:
                 case 68:
                 case 69:
-                case 70:
-                case 71:
-                case 72:
-                case 73:
                 case 74:
                 case 75:
                 case 76:
@@ -17810,18 +18320,27 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 case 173:
                 case 174:
                 case 175:
-                case 206:
-                case 207:
-                case 218:
-                case 219:
+                case 176:
+                case 177:
+                case 178:
+                case 179:
+                case 209:
+                case 210:
+                case 221:
+                case 222:
                     {
-                    alt97=5;
+                    alt102=5;
+                    }
+                    break;
+                case 28:
+                    {
+                    alt102=7;
                     }
                     break;
                 default:
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 97, 5, input);
+                        new NoViableAltException("", 102, 5, input);
 
                     throw nvae;
                 }
@@ -17831,14 +18350,14 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 97, 0, input);
+                    new NoViableAltException("", 102, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt97) {
+            switch (alt102) {
                 case 1 :
-                    // InternalMyGrammar.g:5841:3: this_SpecialExpression_0= ruleSpecialExpression
+                    // InternalMyGrammar.g:6038:3: this_SpecialExpression_0= ruleSpecialExpression
                     {
                     if ( state.backtracking==0 ) {
 
@@ -17860,7 +18379,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:5850:3: this_QualifiedIdentifier_1= ruleQualifiedIdentifier
+                    // InternalMyGrammar.g:6047:3: this_QualifiedIdentifier_1= ruleQualifiedIdentifier
                     {
                     if ( state.backtracking==0 ) {
 
@@ -17882,7 +18401,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:5859:3: this_Literal_2= ruleLiteral
+                    // InternalMyGrammar.g:6056:3: this_Literal_2= ruleLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -17904,7 +18423,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:5868:3: this_TypeCast_3= ruleTypeCast
+                    // InternalMyGrammar.g:6065:3: this_TypeCast_3= ruleTypeCast
                     {
                     if ( state.backtracking==0 ) {
 
@@ -17926,10 +18445,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:5877:3: (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' )
+                    // InternalMyGrammar.g:6074:3: (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' )
                     {
-                    // InternalMyGrammar.g:5877:3: (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' )
-                    // InternalMyGrammar.g:5878:4: otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')'
+                    // InternalMyGrammar.g:6074:3: (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' )
+                    // InternalMyGrammar.g:6075:4: otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')'
                     {
                     otherlv_4=(Token)match(input,27,FOLLOW_19); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -17953,19 +18472,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                       				afterParserOrEnumRuleCall();
                       			
                     }
-                    // InternalMyGrammar.g:5890:4: ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )?
-                    int alt93=2;
-                    int LA93_0 = input.LA(1);
+                    // InternalMyGrammar.g:6087:4: ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )?
+                    int alt98=2;
+                    int LA98_0 = input.LA(1);
 
-                    if ( (LA93_0==22) ) {
-                        alt93=1;
+                    if ( (LA98_0==22) ) {
+                        alt98=1;
                     }
-                    switch (alt93) {
+                    switch (alt98) {
                         case 1 :
-                            // InternalMyGrammar.g:5891:5: () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+
+                            // InternalMyGrammar.g:6088:5: () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+
                             {
-                            // InternalMyGrammar.g:5891:5: ()
-                            // InternalMyGrammar.g:5892:6: 
+                            // InternalMyGrammar.g:6088:5: ()
+                            // InternalMyGrammar.g:6089:6: 
                             {
                             if ( state.backtracking==0 ) {
 
@@ -17977,27 +18496,27 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalMyGrammar.g:5898:5: ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+
-                            int cnt92=0;
-                            loop92:
+                            // InternalMyGrammar.g:6095:5: ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+
+                            int cnt97=0;
+                            loop97:
                             do {
-                                int alt92=2;
-                                int LA92_0 = input.LA(1);
+                                int alt97=2;
+                                int LA97_0 = input.LA(1);
 
-                                if ( (LA92_0==22) ) {
-                                    alt92=1;
+                                if ( (LA97_0==22) ) {
+                                    alt97=1;
                                 }
 
 
-                                switch (alt92) {
+                                switch (alt97) {
                             	case 1 :
-                            	    // InternalMyGrammar.g:5899:6: ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )?
+                            	    // InternalMyGrammar.g:6096:6: ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )?
                             	    {
-                            	    // InternalMyGrammar.g:5899:6: ( (lv_members_7_0= ruleTupleSeparator ) )
-                            	    // InternalMyGrammar.g:5900:7: (lv_members_7_0= ruleTupleSeparator )
+                            	    // InternalMyGrammar.g:6096:6: ( (lv_members_7_0= ruleTupleSeparator ) )
+                            	    // InternalMyGrammar.g:6097:7: (lv_members_7_0= ruleTupleSeparator )
                             	    {
-                            	    // InternalMyGrammar.g:5900:7: (lv_members_7_0= ruleTupleSeparator )
-                            	    // InternalMyGrammar.g:5901:8: lv_members_7_0= ruleTupleSeparator
+                            	    // InternalMyGrammar.g:6097:7: (lv_members_7_0= ruleTupleSeparator )
+                            	    // InternalMyGrammar.g:6098:8: lv_members_7_0= ruleTupleSeparator
                             	    {
                             	    if ( state.backtracking==0 ) {
 
@@ -18028,19 +18547,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                             	    }
 
-                            	    // InternalMyGrammar.g:5918:6: ( (lv_members_8_0= ruleExpression ) )?
-                            	    int alt91=2;
-                            	    int LA91_0 = input.LA(1);
+                            	    // InternalMyGrammar.g:6115:6: ( (lv_members_8_0= ruleExpression ) )?
+                            	    int alt96=2;
+                            	    int LA96_0 = input.LA(1);
 
-                            	    if ( ((LA91_0>=RULE_STRING && LA91_0<=RULE_TX)||LA91_0==27||(LA91_0>=63 && LA91_0<=175)||(LA91_0>=206 && LA91_0<=207)||(LA91_0>=218 && LA91_0<=219)) ) {
-                            	        alt91=1;
+                            	    if ( ((LA96_0>=RULE_STRING && LA96_0<=RULE_TX)||LA96_0==27||(LA96_0>=63 && LA96_0<=69)||(LA96_0>=74 && LA96_0<=179)||(LA96_0>=209 && LA96_0<=210)||(LA96_0>=221 && LA96_0<=222)) ) {
+                            	        alt96=1;
                             	    }
-                            	    switch (alt91) {
+                            	    switch (alt96) {
                             	        case 1 :
-                            	            // InternalMyGrammar.g:5919:7: (lv_members_8_0= ruleExpression )
+                            	            // InternalMyGrammar.g:6116:7: (lv_members_8_0= ruleExpression )
                             	            {
-                            	            // InternalMyGrammar.g:5919:7: (lv_members_8_0= ruleExpression )
-                            	            // InternalMyGrammar.g:5920:8: lv_members_8_0= ruleExpression
+                            	            // InternalMyGrammar.g:6116:7: (lv_members_8_0= ruleExpression )
+                            	            // InternalMyGrammar.g:6117:8: lv_members_8_0= ruleExpression
                             	            {
                             	            if ( state.backtracking==0 ) {
 
@@ -18079,13 +18598,13 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                             	    break;
 
                             	default :
-                            	    if ( cnt92 >= 1 ) break loop92;
+                            	    if ( cnt97 >= 1 ) break loop97;
                             	    if (state.backtracking>0) {state.failed=true; return current;}
                                         EarlyExitException eee =
-                                            new EarlyExitException(92, input);
+                                            new EarlyExitException(97, input);
                                         throw eee;
                                 }
-                                cnt92++;
+                                cnt97++;
                             } while (true);
 
 
@@ -18107,10 +18626,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalMyGrammar.g:5945:3: (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' )
+                    // InternalMyGrammar.g:6142:3: (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' )
                     {
-                    // InternalMyGrammar.g:5945:3: (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' )
-                    // InternalMyGrammar.g:5946:4: otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')'
+                    // InternalMyGrammar.g:6142:3: (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' )
+                    // InternalMyGrammar.g:6143:4: otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')'
                     {
                     otherlv_10=(Token)match(input,27,FOLLOW_39); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18134,11 +18653,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                       				afterParserOrEnumRuleCall();
                       			
                     }
-                    // InternalMyGrammar.g:5958:4: ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* )
-                    // InternalMyGrammar.g:5959:5: () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )*
+                    // InternalMyGrammar.g:6155:4: ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* )
+                    // InternalMyGrammar.g:6156:5: () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )*
                     {
-                    // InternalMyGrammar.g:5959:5: ()
-                    // InternalMyGrammar.g:5960:6: 
+                    // InternalMyGrammar.g:6156:5: ()
+                    // InternalMyGrammar.g:6157:6: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -18150,19 +18669,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyGrammar.g:5966:5: ( (lv_members_13_0= ruleExpression ) )?
-                    int alt94=2;
-                    int LA94_0 = input.LA(1);
+                    // InternalMyGrammar.g:6163:5: ( (lv_members_13_0= ruleExpression ) )?
+                    int alt99=2;
+                    int LA99_0 = input.LA(1);
 
-                    if ( ((LA94_0>=RULE_STRING && LA94_0<=RULE_TX)||LA94_0==27||(LA94_0>=63 && LA94_0<=175)||(LA94_0>=206 && LA94_0<=207)||(LA94_0>=218 && LA94_0<=219)) ) {
-                        alt94=1;
+                    if ( ((LA99_0>=RULE_STRING && LA99_0<=RULE_TX)||LA99_0==27||(LA99_0>=63 && LA99_0<=69)||(LA99_0>=74 && LA99_0<=179)||(LA99_0>=209 && LA99_0<=210)||(LA99_0>=221 && LA99_0<=222)) ) {
+                        alt99=1;
                     }
-                    switch (alt94) {
+                    switch (alt99) {
                         case 1 :
-                            // InternalMyGrammar.g:5967:6: (lv_members_13_0= ruleExpression )
+                            // InternalMyGrammar.g:6164:6: (lv_members_13_0= ruleExpression )
                             {
-                            // InternalMyGrammar.g:5967:6: (lv_members_13_0= ruleExpression )
-                            // InternalMyGrammar.g:5968:7: lv_members_13_0= ruleExpression
+                            // InternalMyGrammar.g:6164:6: (lv_members_13_0= ruleExpression )
+                            // InternalMyGrammar.g:6165:7: lv_members_13_0= ruleExpression
                             {
                             if ( state.backtracking==0 ) {
 
@@ -18196,26 +18715,26 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalMyGrammar.g:5985:5: ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )*
-                    loop96:
+                    // InternalMyGrammar.g:6182:5: ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )*
+                    loop101:
                     do {
-                        int alt96=2;
-                        int LA96_0 = input.LA(1);
+                        int alt101=2;
+                        int LA101_0 = input.LA(1);
 
-                        if ( (LA96_0==22) ) {
-                            alt96=1;
+                        if ( (LA101_0==22) ) {
+                            alt101=1;
                         }
 
 
-                        switch (alt96) {
+                        switch (alt101) {
                     	case 1 :
-                    	    // InternalMyGrammar.g:5986:6: ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )?
+                    	    // InternalMyGrammar.g:6183:6: ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )?
                     	    {
-                    	    // InternalMyGrammar.g:5986:6: ( (lv_members_14_0= ruleTupleSeparator ) )
-                    	    // InternalMyGrammar.g:5987:7: (lv_members_14_0= ruleTupleSeparator )
+                    	    // InternalMyGrammar.g:6183:6: ( (lv_members_14_0= ruleTupleSeparator ) )
+                    	    // InternalMyGrammar.g:6184:7: (lv_members_14_0= ruleTupleSeparator )
                     	    {
-                    	    // InternalMyGrammar.g:5987:7: (lv_members_14_0= ruleTupleSeparator )
-                    	    // InternalMyGrammar.g:5988:8: lv_members_14_0= ruleTupleSeparator
+                    	    // InternalMyGrammar.g:6184:7: (lv_members_14_0= ruleTupleSeparator )
+                    	    // InternalMyGrammar.g:6185:8: lv_members_14_0= ruleTupleSeparator
                     	    {
                     	    if ( state.backtracking==0 ) {
 
@@ -18246,19 +18765,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
                     	    }
 
-                    	    // InternalMyGrammar.g:6005:6: ( (lv_members_15_0= ruleExpression ) )?
-                    	    int alt95=2;
-                    	    int LA95_0 = input.LA(1);
+                    	    // InternalMyGrammar.g:6202:6: ( (lv_members_15_0= ruleExpression ) )?
+                    	    int alt100=2;
+                    	    int LA100_0 = input.LA(1);
 
-                    	    if ( ((LA95_0>=RULE_STRING && LA95_0<=RULE_TX)||LA95_0==27||(LA95_0>=63 && LA95_0<=175)||(LA95_0>=206 && LA95_0<=207)||(LA95_0>=218 && LA95_0<=219)) ) {
-                    	        alt95=1;
+                    	    if ( ((LA100_0>=RULE_STRING && LA100_0<=RULE_TX)||LA100_0==27||(LA100_0>=63 && LA100_0<=69)||(LA100_0>=74 && LA100_0<=179)||(LA100_0>=209 && LA100_0<=210)||(LA100_0>=221 && LA100_0<=222)) ) {
+                    	        alt100=1;
                     	    }
-                    	    switch (alt95) {
+                    	    switch (alt100) {
                     	        case 1 :
-                    	            // InternalMyGrammar.g:6006:7: (lv_members_15_0= ruleExpression )
+                    	            // InternalMyGrammar.g:6203:7: (lv_members_15_0= ruleExpression )
                     	            {
-                    	            // InternalMyGrammar.g:6006:7: (lv_members_15_0= ruleExpression )
-                    	            // InternalMyGrammar.g:6007:8: lv_members_15_0= ruleExpression
+                    	            // InternalMyGrammar.g:6203:7: (lv_members_15_0= ruleExpression )
+                    	            // InternalMyGrammar.g:6204:8: lv_members_15_0= ruleExpression
                     	            {
                     	            if ( state.backtracking==0 ) {
 
@@ -18297,7 +18816,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop96;
+                    	    break loop101;
                         }
                     } while (true);
 
@@ -18317,10 +18836,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalMyGrammar.g:6032:3: (otherlv_17= '(' otherlv_18= ')' () )
+                    // InternalMyGrammar.g:6229:3: (otherlv_17= '(' otherlv_18= ')' () )
                     {
-                    // InternalMyGrammar.g:6032:3: (otherlv_17= '(' otherlv_18= ')' () )
-                    // InternalMyGrammar.g:6033:4: otherlv_17= '(' otherlv_18= ')' ()
+                    // InternalMyGrammar.g:6229:3: (otherlv_17= '(' otherlv_18= ')' () )
+                    // InternalMyGrammar.g:6230:4: otherlv_17= '(' otherlv_18= ')' ()
                     {
                     otherlv_17=(Token)match(input,27,FOLLOW_21); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -18334,8 +18853,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                       				newLeafNode(otherlv_18, grammarAccess.getPrimaryExpressionAccess().getRightParenthesisKeyword_6_1());
                       			
                     }
-                    // InternalMyGrammar.g:6041:4: ()
-                    // InternalMyGrammar.g:6042:5: 
+                    // InternalMyGrammar.g:6238:4: ()
+                    // InternalMyGrammar.g:6239:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -18378,7 +18897,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLiteral"
-    // InternalMyGrammar.g:6053:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
+    // InternalMyGrammar.g:6250:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
     public final EObject entryRuleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -18386,8 +18905,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6053:48: (iv_ruleLiteral= ruleLiteral EOF )
-            // InternalMyGrammar.g:6054:2: iv_ruleLiteral= ruleLiteral EOF
+            // InternalMyGrammar.g:6250:48: (iv_ruleLiteral= ruleLiteral EOF )
+            // InternalMyGrammar.g:6251:2: iv_ruleLiteral= ruleLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLiteralRule()); 
@@ -18418,7 +18937,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteral"
-    // InternalMyGrammar.g:6060:1: ruleLiteral returns [EObject current=null] : (this_SpecialVariables_0= ruleSpecialVariables | this_BooleanConst_1= ruleBooleanConst | this_Number_2= ruleNumber | this_StringLiteral_3= ruleStringLiteral | this_GasleftFunction_4= ruleGasleftFunction ) ;
+    // InternalMyGrammar.g:6257:1: ruleLiteral returns [EObject current=null] : (this_SpecialVariables_0= ruleSpecialVariables | this_BooleanConst_1= ruleBooleanConst | this_Number_2= ruleNumber | this_StringLiteral_3= ruleStringLiteral | this_GasleftFunction_4= ruleGasleftFunction ) ;
     public final EObject ruleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -18437,54 +18956,54 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6066:2: ( (this_SpecialVariables_0= ruleSpecialVariables | this_BooleanConst_1= ruleBooleanConst | this_Number_2= ruleNumber | this_StringLiteral_3= ruleStringLiteral | this_GasleftFunction_4= ruleGasleftFunction ) )
-            // InternalMyGrammar.g:6067:2: (this_SpecialVariables_0= ruleSpecialVariables | this_BooleanConst_1= ruleBooleanConst | this_Number_2= ruleNumber | this_StringLiteral_3= ruleStringLiteral | this_GasleftFunction_4= ruleGasleftFunction )
+            // InternalMyGrammar.g:6263:2: ( (this_SpecialVariables_0= ruleSpecialVariables | this_BooleanConst_1= ruleBooleanConst | this_Number_2= ruleNumber | this_StringLiteral_3= ruleStringLiteral | this_GasleftFunction_4= ruleGasleftFunction ) )
+            // InternalMyGrammar.g:6264:2: (this_SpecialVariables_0= ruleSpecialVariables | this_BooleanConst_1= ruleBooleanConst | this_Number_2= ruleNumber | this_StringLiteral_3= ruleStringLiteral | this_GasleftFunction_4= ruleGasleftFunction )
             {
-            // InternalMyGrammar.g:6067:2: (this_SpecialVariables_0= ruleSpecialVariables | this_BooleanConst_1= ruleBooleanConst | this_Number_2= ruleNumber | this_StringLiteral_3= ruleStringLiteral | this_GasleftFunction_4= ruleGasleftFunction )
-            int alt98=5;
+            // InternalMyGrammar.g:6264:2: (this_SpecialVariables_0= ruleSpecialVariables | this_BooleanConst_1= ruleBooleanConst | this_Number_2= ruleNumber | this_StringLiteral_3= ruleStringLiteral | this_GasleftFunction_4= ruleGasleftFunction )
+            int alt103=5;
             switch ( input.LA(1) ) {
             case RULE_BLOCK:
             case RULE_MSG:
             case RULE_TX:
                 {
-                alt98=1;
+                alt103=1;
                 }
                 break;
-            case 206:
-            case 207:
+            case 209:
+            case 210:
                 {
-                alt98=2;
+                alt103=2;
                 }
                 break;
             case RULE_INT:
             case RULE_HEX:
             case RULE_DECIMAL:
-            case 71:
+            case 75:
                 {
-                alt98=3;
+                alt103=3;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt98=4;
+                alt103=4;
                 }
                 break;
-            case 70:
+            case 74:
                 {
-                alt98=5;
+                alt103=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 98, 0, input);
+                    new NoViableAltException("", 103, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt98) {
+            switch (alt103) {
                 case 1 :
-                    // InternalMyGrammar.g:6068:3: this_SpecialVariables_0= ruleSpecialVariables
+                    // InternalMyGrammar.g:6265:3: this_SpecialVariables_0= ruleSpecialVariables
                     {
                     if ( state.backtracking==0 ) {
 
@@ -18506,7 +19025,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:6077:3: this_BooleanConst_1= ruleBooleanConst
+                    // InternalMyGrammar.g:6274:3: this_BooleanConst_1= ruleBooleanConst
                     {
                     if ( state.backtracking==0 ) {
 
@@ -18528,7 +19047,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:6086:3: this_Number_2= ruleNumber
+                    // InternalMyGrammar.g:6283:3: this_Number_2= ruleNumber
                     {
                     if ( state.backtracking==0 ) {
 
@@ -18550,7 +19069,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:6095:3: this_StringLiteral_3= ruleStringLiteral
+                    // InternalMyGrammar.g:6292:3: this_StringLiteral_3= ruleStringLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -18572,7 +19091,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:6104:3: this_GasleftFunction_4= ruleGasleftFunction
+                    // InternalMyGrammar.g:6301:3: this_GasleftFunction_4= ruleGasleftFunction
                     {
                     if ( state.backtracking==0 ) {
 
@@ -18617,8 +19136,1764 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleLiteral"
 
 
+    // $ANTLR start "entryRuleArithmeticOperations"
+    // InternalMyGrammar.g:6313:1: entryRuleArithmeticOperations returns [EObject current=null] : iv_ruleArithmeticOperations= ruleArithmeticOperations EOF ;
+    public final EObject entryRuleArithmeticOperations() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleArithmeticOperations = null;
+
+
+        try {
+            // InternalMyGrammar.g:6313:61: (iv_ruleArithmeticOperations= ruleArithmeticOperations EOF )
+            // InternalMyGrammar.g:6314:2: iv_ruleArithmeticOperations= ruleArithmeticOperations EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getArithmeticOperationsRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleArithmeticOperations=ruleArithmeticOperations();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleArithmeticOperations; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleArithmeticOperations"
+
+
+    // $ANTLR start "ruleArithmeticOperations"
+    // InternalMyGrammar.g:6320:1: ruleArithmeticOperations returns [EObject current=null] : ( ( (lv_first_0_0= rulePrimaryArithmetic ) ) ( (lv_seconds_1_0= ruleSecondOperators ) )* ) ;
+    public final EObject ruleArithmeticOperations() throws RecognitionException {
+        EObject current = null;
+
+        EObject lv_first_0_0 = null;
+
+        EObject lv_seconds_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:6326:2: ( ( ( (lv_first_0_0= rulePrimaryArithmetic ) ) ( (lv_seconds_1_0= ruleSecondOperators ) )* ) )
+            // InternalMyGrammar.g:6327:2: ( ( (lv_first_0_0= rulePrimaryArithmetic ) ) ( (lv_seconds_1_0= ruleSecondOperators ) )* )
+            {
+            // InternalMyGrammar.g:6327:2: ( ( (lv_first_0_0= rulePrimaryArithmetic ) ) ( (lv_seconds_1_0= ruleSecondOperators ) )* )
+            // InternalMyGrammar.g:6328:3: ( (lv_first_0_0= rulePrimaryArithmetic ) ) ( (lv_seconds_1_0= ruleSecondOperators ) )*
+            {
+            // InternalMyGrammar.g:6328:3: ( (lv_first_0_0= rulePrimaryArithmetic ) )
+            // InternalMyGrammar.g:6329:4: (lv_first_0_0= rulePrimaryArithmetic )
+            {
+            // InternalMyGrammar.g:6329:4: (lv_first_0_0= rulePrimaryArithmetic )
+            // InternalMyGrammar.g:6330:5: lv_first_0_0= rulePrimaryArithmetic
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getArithmeticOperationsAccess().getFirstPrimaryArithmeticParserRuleCall_0_0());
+              				
+            }
+            pushFollow(FOLLOW_72);
+            lv_first_0_0=rulePrimaryArithmetic();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getArithmeticOperationsRule());
+              					}
+              					set(
+              						current,
+              						"first",
+              						lv_first_0_0,
+              						"org.unicam.tryGrammar.MyGrammar.PrimaryArithmetic");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+            // InternalMyGrammar.g:6347:3: ( (lv_seconds_1_0= ruleSecondOperators ) )*
+            loop104:
+            do {
+                int alt104=2;
+                int LA104_0 = input.LA(1);
+
+                if ( (LA104_0==18||(LA104_0>=65 && LA104_0<=66)||LA104_0==70) ) {
+                    alt104=1;
+                }
+
+
+                switch (alt104) {
+            	case 1 :
+            	    // InternalMyGrammar.g:6348:4: (lv_seconds_1_0= ruleSecondOperators )
+            	    {
+            	    // InternalMyGrammar.g:6348:4: (lv_seconds_1_0= ruleSecondOperators )
+            	    // InternalMyGrammar.g:6349:5: lv_seconds_1_0= ruleSecondOperators
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      					newCompositeNode(grammarAccess.getArithmeticOperationsAccess().getSecondsSecondOperatorsParserRuleCall_1_0());
+            	      				
+            	    }
+            	    pushFollow(FOLLOW_72);
+            	    lv_seconds_1_0=ruleSecondOperators();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      					if (current==null) {
+            	      						current = createModelElementForParent(grammarAccess.getArithmeticOperationsRule());
+            	      					}
+            	      					add(
+            	      						current,
+            	      						"seconds",
+            	      						lv_seconds_1_0,
+            	      						"org.unicam.tryGrammar.MyGrammar.SecondOperators");
+            	      					afterParserOrEnumRuleCall();
+            	      				
+            	    }
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop104;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleArithmeticOperations"
+
+
+    // $ANTLR start "entryRulePrimaryArithmetic"
+    // InternalMyGrammar.g:6370:1: entryRulePrimaryArithmetic returns [EObject current=null] : iv_rulePrimaryArithmetic= rulePrimaryArithmetic EOF ;
+    public final EObject entryRulePrimaryArithmetic() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_rulePrimaryArithmetic = null;
+
+
+        try {
+            // InternalMyGrammar.g:6370:58: (iv_rulePrimaryArithmetic= rulePrimaryArithmetic EOF )
+            // InternalMyGrammar.g:6371:2: iv_rulePrimaryArithmetic= rulePrimaryArithmetic EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getPrimaryArithmeticRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_rulePrimaryArithmetic=rulePrimaryArithmetic();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_rulePrimaryArithmetic; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRulePrimaryArithmetic"
+
+
+    // $ANTLR start "rulePrimaryArithmetic"
+    // InternalMyGrammar.g:6377:1: rulePrimaryArithmetic returns [EObject current=null] : (this_NumericLiteral_0= ruleNumericLiteral | (otherlv_1= '(' this_LogicalOperations_2= ruleLogicalOperations otherlv_3= ')' ) ) ;
+    public final EObject rulePrimaryArithmetic() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        EObject this_NumericLiteral_0 = null;
+
+        EObject this_LogicalOperations_2 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:6383:2: ( (this_NumericLiteral_0= ruleNumericLiteral | (otherlv_1= '(' this_LogicalOperations_2= ruleLogicalOperations otherlv_3= ')' ) ) )
+            // InternalMyGrammar.g:6384:2: (this_NumericLiteral_0= ruleNumericLiteral | (otherlv_1= '(' this_LogicalOperations_2= ruleLogicalOperations otherlv_3= ')' ) )
+            {
+            // InternalMyGrammar.g:6384:2: (this_NumericLiteral_0= ruleNumericLiteral | (otherlv_1= '(' this_LogicalOperations_2= ruleLogicalOperations otherlv_3= ')' ) )
+            int alt105=2;
+            int LA105_0 = input.LA(1);
+
+            if ( ((LA105_0>=RULE_INT && LA105_0<=RULE_DECIMAL)) ) {
+                alt105=1;
+            }
+            else if ( (LA105_0==27) ) {
+                alt105=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 105, 0, input);
+
+                throw nvae;
+            }
+            switch (alt105) {
+                case 1 :
+                    // InternalMyGrammar.g:6385:3: this_NumericLiteral_0= ruleNumericLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getPrimaryArithmeticAccess().getNumericLiteralParserRuleCall_0());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_NumericLiteral_0=ruleNumericLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current = this_NumericLiteral_0;
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // InternalMyGrammar.g:6394:3: (otherlv_1= '(' this_LogicalOperations_2= ruleLogicalOperations otherlv_3= ')' )
+                    {
+                    // InternalMyGrammar.g:6394:3: (otherlv_1= '(' this_LogicalOperations_2= ruleLogicalOperations otherlv_3= ')' )
+                    // InternalMyGrammar.g:6395:4: otherlv_1= '(' this_LogicalOperations_2= ruleLogicalOperations otherlv_3= ')'
+                    {
+                    otherlv_1=(Token)match(input,27,FOLLOW_73); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				newLeafNode(otherlv_1, grammarAccess.getPrimaryArithmeticAccess().getLeftParenthesisKeyword_1_0());
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getPrimaryArithmeticAccess().getLogicalOperationsParserRuleCall_1_1());
+                      			
+                    }
+                    pushFollow(FOLLOW_21);
+                    this_LogicalOperations_2=ruleLogicalOperations();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = this_LogicalOperations_2;
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    otherlv_3=(Token)match(input,28,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				newLeafNode(otherlv_3, grammarAccess.getPrimaryArithmeticAccess().getRightParenthesisKeyword_1_2());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "rulePrimaryArithmetic"
+
+
+    // $ANTLR start "entryRuleSecondOperators"
+    // InternalMyGrammar.g:6416:1: entryRuleSecondOperators returns [EObject current=null] : iv_ruleSecondOperators= ruleSecondOperators EOF ;
+    public final EObject entryRuleSecondOperators() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSecondOperators = null;
+
+
+        try {
+            // InternalMyGrammar.g:6416:56: (iv_ruleSecondOperators= ruleSecondOperators EOF )
+            // InternalMyGrammar.g:6417:2: iv_ruleSecondOperators= ruleSecondOperators EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getSecondOperatorsRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleSecondOperators=ruleSecondOperators();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleSecondOperators; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSecondOperators"
+
+
+    // $ANTLR start "ruleSecondOperators"
+    // InternalMyGrammar.g:6423:1: ruleSecondOperators returns [EObject current=null] : ( ( ( (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' ) ) ) ( (lv_value_1_0= rulePrimaryArithmetic ) ) ) ;
+    public final EObject ruleSecondOperators() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_operator_0_1=null;
+        Token lv_operator_0_2=null;
+        Token lv_operator_0_3=null;
+        Token lv_operator_0_4=null;
+        EObject lv_value_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:6429:2: ( ( ( ( (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' ) ) ) ( (lv_value_1_0= rulePrimaryArithmetic ) ) ) )
+            // InternalMyGrammar.g:6430:2: ( ( ( (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' ) ) ) ( (lv_value_1_0= rulePrimaryArithmetic ) ) )
+            {
+            // InternalMyGrammar.g:6430:2: ( ( ( (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' ) ) ) ( (lv_value_1_0= rulePrimaryArithmetic ) ) )
+            // InternalMyGrammar.g:6431:3: ( ( (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' ) ) ) ( (lv_value_1_0= rulePrimaryArithmetic ) )
+            {
+            // InternalMyGrammar.g:6431:3: ( ( (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' ) ) )
+            // InternalMyGrammar.g:6432:4: ( (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' ) )
+            {
+            // InternalMyGrammar.g:6432:4: ( (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' ) )
+            // InternalMyGrammar.g:6433:5: (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' )
+            {
+            // InternalMyGrammar.g:6433:5: (lv_operator_0_1= '+' | lv_operator_0_2= '-' | lv_operator_0_3= '/' | lv_operator_0_4= '*' )
+            int alt106=4;
+            switch ( input.LA(1) ) {
+            case 65:
+                {
+                alt106=1;
+                }
+                break;
+            case 66:
+                {
+                alt106=2;
+                }
+                break;
+            case 70:
+                {
+                alt106=3;
+                }
+                break;
+            case 18:
+                {
+                alt106=4;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 106, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt106) {
+                case 1 :
+                    // InternalMyGrammar.g:6434:6: lv_operator_0_1= '+'
+                    {
+                    lv_operator_0_1=(Token)match(input,65,FOLLOW_74); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						newLeafNode(lv_operator_0_1, grammarAccess.getSecondOperatorsAccess().getOperatorPlusSignKeyword_0_0_0());
+                      					
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElement(grammarAccess.getSecondOperatorsRule());
+                      						}
+                      						setWithLastConsumed(current, "operator", lv_operator_0_1, null);
+                      					
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // InternalMyGrammar.g:6445:6: lv_operator_0_2= '-'
+                    {
+                    lv_operator_0_2=(Token)match(input,66,FOLLOW_74); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						newLeafNode(lv_operator_0_2, grammarAccess.getSecondOperatorsAccess().getOperatorHyphenMinusKeyword_0_0_1());
+                      					
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElement(grammarAccess.getSecondOperatorsRule());
+                      						}
+                      						setWithLastConsumed(current, "operator", lv_operator_0_2, null);
+                      					
+                    }
+
+                    }
+                    break;
+                case 3 :
+                    // InternalMyGrammar.g:6456:6: lv_operator_0_3= '/'
+                    {
+                    lv_operator_0_3=(Token)match(input,70,FOLLOW_74); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						newLeafNode(lv_operator_0_3, grammarAccess.getSecondOperatorsAccess().getOperatorSolidusKeyword_0_0_2());
+                      					
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElement(grammarAccess.getSecondOperatorsRule());
+                      						}
+                      						setWithLastConsumed(current, "operator", lv_operator_0_3, null);
+                      					
+                    }
+
+                    }
+                    break;
+                case 4 :
+                    // InternalMyGrammar.g:6467:6: lv_operator_0_4= '*'
+                    {
+                    lv_operator_0_4=(Token)match(input,18,FOLLOW_74); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						newLeafNode(lv_operator_0_4, grammarAccess.getSecondOperatorsAccess().getOperatorAsteriskKeyword_0_0_3());
+                      					
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElement(grammarAccess.getSecondOperatorsRule());
+                      						}
+                      						setWithLastConsumed(current, "operator", lv_operator_0_4, null);
+                      					
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            // InternalMyGrammar.g:6480:3: ( (lv_value_1_0= rulePrimaryArithmetic ) )
+            // InternalMyGrammar.g:6481:4: (lv_value_1_0= rulePrimaryArithmetic )
+            {
+            // InternalMyGrammar.g:6481:4: (lv_value_1_0= rulePrimaryArithmetic )
+            // InternalMyGrammar.g:6482:5: lv_value_1_0= rulePrimaryArithmetic
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getSecondOperatorsAccess().getValuePrimaryArithmeticParserRuleCall_1_0());
+              				
+            }
+            pushFollow(FOLLOW_2);
+            lv_value_1_0=rulePrimaryArithmetic();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getSecondOperatorsRule());
+              					}
+              					set(
+              						current,
+              						"value",
+              						lv_value_1_0,
+              						"org.unicam.tryGrammar.MyGrammar.PrimaryArithmetic");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSecondOperators"
+
+
+    // $ANTLR start "entryRuleLogicalOperations"
+    // InternalMyGrammar.g:6503:1: entryRuleLogicalOperations returns [EObject current=null] : iv_ruleLogicalOperations= ruleLogicalOperations EOF ;
+    public final EObject entryRuleLogicalOperations() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleLogicalOperations = null;
+
+
+        try {
+            // InternalMyGrammar.g:6503:58: (iv_ruleLogicalOperations= ruleLogicalOperations EOF )
+            // InternalMyGrammar.g:6504:2: iv_ruleLogicalOperations= ruleLogicalOperations EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getLogicalOperationsRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleLogicalOperations=ruleLogicalOperations();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleLogicalOperations; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleLogicalOperations"
+
+
+    // $ANTLR start "ruleLogicalOperations"
+    // InternalMyGrammar.g:6510:1: ruleLogicalOperations returns [EObject current=null] : ( ( ( (lv_first_0_0= ruleLiteral ) ) ( (lv_operations_1_0= ruleConditionOperation ) )* ) | ( ( (lv_negate_2_0= 'NOT' ) ) ( (lv_first_3_0= ruleLiteral ) ) ( (lv_operations_4_0= ruleConditionOperation ) )* ) | ( ( (lv_ternary_5_0= 'TERNARY' ) ) ( (lv_first_6_0= ruleLiteral ) ) otherlv_7= '?' ( (lv_true_8_0= ruleLiteral ) ) otherlv_9= ':' ( (lv_false_10_0= ruleLiteral ) ) ) ) ;
+    public final EObject ruleLogicalOperations() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_negate_2_0=null;
+        Token lv_ternary_5_0=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
+        EObject lv_first_0_0 = null;
+
+        EObject lv_operations_1_0 = null;
+
+        EObject lv_first_3_0 = null;
+
+        EObject lv_operations_4_0 = null;
+
+        EObject lv_first_6_0 = null;
+
+        EObject lv_true_8_0 = null;
+
+        EObject lv_false_10_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:6516:2: ( ( ( ( (lv_first_0_0= ruleLiteral ) ) ( (lv_operations_1_0= ruleConditionOperation ) )* ) | ( ( (lv_negate_2_0= 'NOT' ) ) ( (lv_first_3_0= ruleLiteral ) ) ( (lv_operations_4_0= ruleConditionOperation ) )* ) | ( ( (lv_ternary_5_0= 'TERNARY' ) ) ( (lv_first_6_0= ruleLiteral ) ) otherlv_7= '?' ( (lv_true_8_0= ruleLiteral ) ) otherlv_9= ':' ( (lv_false_10_0= ruleLiteral ) ) ) ) )
+            // InternalMyGrammar.g:6517:2: ( ( ( (lv_first_0_0= ruleLiteral ) ) ( (lv_operations_1_0= ruleConditionOperation ) )* ) | ( ( (lv_negate_2_0= 'NOT' ) ) ( (lv_first_3_0= ruleLiteral ) ) ( (lv_operations_4_0= ruleConditionOperation ) )* ) | ( ( (lv_ternary_5_0= 'TERNARY' ) ) ( (lv_first_6_0= ruleLiteral ) ) otherlv_7= '?' ( (lv_true_8_0= ruleLiteral ) ) otherlv_9= ':' ( (lv_false_10_0= ruleLiteral ) ) ) )
+            {
+            // InternalMyGrammar.g:6517:2: ( ( ( (lv_first_0_0= ruleLiteral ) ) ( (lv_operations_1_0= ruleConditionOperation ) )* ) | ( ( (lv_negate_2_0= 'NOT' ) ) ( (lv_first_3_0= ruleLiteral ) ) ( (lv_operations_4_0= ruleConditionOperation ) )* ) | ( ( (lv_ternary_5_0= 'TERNARY' ) ) ( (lv_first_6_0= ruleLiteral ) ) otherlv_7= '?' ( (lv_true_8_0= ruleLiteral ) ) otherlv_9= ':' ( (lv_false_10_0= ruleLiteral ) ) ) )
+            int alt109=3;
+            switch ( input.LA(1) ) {
+            case RULE_STRING:
+            case RULE_INT:
+            case RULE_HEX:
+            case RULE_DECIMAL:
+            case RULE_BLOCK:
+            case RULE_MSG:
+            case RULE_TX:
+            case 74:
+            case 75:
+            case 209:
+            case 210:
+                {
+                alt109=1;
+                }
+                break;
+            case 71:
+                {
+                alt109=2;
+                }
+                break;
+            case 72:
+                {
+                alt109=3;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 109, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt109) {
+                case 1 :
+                    // InternalMyGrammar.g:6518:3: ( ( (lv_first_0_0= ruleLiteral ) ) ( (lv_operations_1_0= ruleConditionOperation ) )* )
+                    {
+                    // InternalMyGrammar.g:6518:3: ( ( (lv_first_0_0= ruleLiteral ) ) ( (lv_operations_1_0= ruleConditionOperation ) )* )
+                    // InternalMyGrammar.g:6519:4: ( (lv_first_0_0= ruleLiteral ) ) ( (lv_operations_1_0= ruleConditionOperation ) )*
+                    {
+                    // InternalMyGrammar.g:6519:4: ( (lv_first_0_0= ruleLiteral ) )
+                    // InternalMyGrammar.g:6520:5: (lv_first_0_0= ruleLiteral )
+                    {
+                    // InternalMyGrammar.g:6520:5: (lv_first_0_0= ruleLiteral )
+                    // InternalMyGrammar.g:6521:6: lv_first_0_0= ruleLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getLogicalOperationsAccess().getFirstLiteralParserRuleCall_0_0_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_75);
+                    lv_first_0_0=ruleLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getLogicalOperationsRule());
+                      						}
+                      						set(
+                      							current,
+                      							"first",
+                      							lv_first_0_0,
+                      							"org.unicam.tryGrammar.MyGrammar.Literal");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+                    // InternalMyGrammar.g:6538:4: ( (lv_operations_1_0= ruleConditionOperation ) )*
+                    loop107:
+                    do {
+                        int alt107=2;
+                        int LA107_0 = input.LA(1);
+
+                        if ( ((LA107_0>=57 && LA107_0<=58)||(LA107_0>=198 && LA107_0<=203)) ) {
+                            alt107=1;
+                        }
+
+
+                        switch (alt107) {
+                    	case 1 :
+                    	    // InternalMyGrammar.g:6539:5: (lv_operations_1_0= ruleConditionOperation )
+                    	    {
+                    	    // InternalMyGrammar.g:6539:5: (lv_operations_1_0= ruleConditionOperation )
+                    	    // InternalMyGrammar.g:6540:6: lv_operations_1_0= ruleConditionOperation
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+
+                    	      						newCompositeNode(grammarAccess.getLogicalOperationsAccess().getOperationsConditionOperationParserRuleCall_0_1_0());
+                    	      					
+                    	    }
+                    	    pushFollow(FOLLOW_75);
+                    	    lv_operations_1_0=ruleConditionOperation();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      						if (current==null) {
+                    	      							current = createModelElementForParent(grammarAccess.getLogicalOperationsRule());
+                    	      						}
+                    	      						add(
+                    	      							current,
+                    	      							"operations",
+                    	      							lv_operations_1_0,
+                    	      							"org.unicam.tryGrammar.MyGrammar.ConditionOperation");
+                    	      						afterParserOrEnumRuleCall();
+                    	      					
+                    	    }
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop107;
+                        }
+                    } while (true);
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalMyGrammar.g:6559:3: ( ( (lv_negate_2_0= 'NOT' ) ) ( (lv_first_3_0= ruleLiteral ) ) ( (lv_operations_4_0= ruleConditionOperation ) )* )
+                    {
+                    // InternalMyGrammar.g:6559:3: ( ( (lv_negate_2_0= 'NOT' ) ) ( (lv_first_3_0= ruleLiteral ) ) ( (lv_operations_4_0= ruleConditionOperation ) )* )
+                    // InternalMyGrammar.g:6560:4: ( (lv_negate_2_0= 'NOT' ) ) ( (lv_first_3_0= ruleLiteral ) ) ( (lv_operations_4_0= ruleConditionOperation ) )*
+                    {
+                    // InternalMyGrammar.g:6560:4: ( (lv_negate_2_0= 'NOT' ) )
+                    // InternalMyGrammar.g:6561:5: (lv_negate_2_0= 'NOT' )
+                    {
+                    // InternalMyGrammar.g:6561:5: (lv_negate_2_0= 'NOT' )
+                    // InternalMyGrammar.g:6562:6: lv_negate_2_0= 'NOT'
+                    {
+                    lv_negate_2_0=(Token)match(input,71,FOLLOW_76); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						newLeafNode(lv_negate_2_0, grammarAccess.getLogicalOperationsAccess().getNegateNOTKeyword_1_0_0());
+                      					
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElement(grammarAccess.getLogicalOperationsRule());
+                      						}
+                      						setWithLastConsumed(current, "negate", true, "NOT");
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+                    // InternalMyGrammar.g:6574:4: ( (lv_first_3_0= ruleLiteral ) )
+                    // InternalMyGrammar.g:6575:5: (lv_first_3_0= ruleLiteral )
+                    {
+                    // InternalMyGrammar.g:6575:5: (lv_first_3_0= ruleLiteral )
+                    // InternalMyGrammar.g:6576:6: lv_first_3_0= ruleLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getLogicalOperationsAccess().getFirstLiteralParserRuleCall_1_1_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_75);
+                    lv_first_3_0=ruleLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getLogicalOperationsRule());
+                      						}
+                      						set(
+                      							current,
+                      							"first",
+                      							lv_first_3_0,
+                      							"org.unicam.tryGrammar.MyGrammar.Literal");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+                    // InternalMyGrammar.g:6593:4: ( (lv_operations_4_0= ruleConditionOperation ) )*
+                    loop108:
+                    do {
+                        int alt108=2;
+                        int LA108_0 = input.LA(1);
+
+                        if ( ((LA108_0>=57 && LA108_0<=58)||(LA108_0>=198 && LA108_0<=203)) ) {
+                            alt108=1;
+                        }
+
+
+                        switch (alt108) {
+                    	case 1 :
+                    	    // InternalMyGrammar.g:6594:5: (lv_operations_4_0= ruleConditionOperation )
+                    	    {
+                    	    // InternalMyGrammar.g:6594:5: (lv_operations_4_0= ruleConditionOperation )
+                    	    // InternalMyGrammar.g:6595:6: lv_operations_4_0= ruleConditionOperation
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+
+                    	      						newCompositeNode(grammarAccess.getLogicalOperationsAccess().getOperationsConditionOperationParserRuleCall_1_2_0());
+                    	      					
+                    	    }
+                    	    pushFollow(FOLLOW_75);
+                    	    lv_operations_4_0=ruleConditionOperation();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      						if (current==null) {
+                    	      							current = createModelElementForParent(grammarAccess.getLogicalOperationsRule());
+                    	      						}
+                    	      						add(
+                    	      							current,
+                    	      							"operations",
+                    	      							lv_operations_4_0,
+                    	      							"org.unicam.tryGrammar.MyGrammar.ConditionOperation");
+                    	      						afterParserOrEnumRuleCall();
+                    	      					
+                    	    }
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop108;
+                        }
+                    } while (true);
+
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalMyGrammar.g:6614:3: ( ( (lv_ternary_5_0= 'TERNARY' ) ) ( (lv_first_6_0= ruleLiteral ) ) otherlv_7= '?' ( (lv_true_8_0= ruleLiteral ) ) otherlv_9= ':' ( (lv_false_10_0= ruleLiteral ) ) )
+                    {
+                    // InternalMyGrammar.g:6614:3: ( ( (lv_ternary_5_0= 'TERNARY' ) ) ( (lv_first_6_0= ruleLiteral ) ) otherlv_7= '?' ( (lv_true_8_0= ruleLiteral ) ) otherlv_9= ':' ( (lv_false_10_0= ruleLiteral ) ) )
+                    // InternalMyGrammar.g:6615:4: ( (lv_ternary_5_0= 'TERNARY' ) ) ( (lv_first_6_0= ruleLiteral ) ) otherlv_7= '?' ( (lv_true_8_0= ruleLiteral ) ) otherlv_9= ':' ( (lv_false_10_0= ruleLiteral ) )
+                    {
+                    // InternalMyGrammar.g:6615:4: ( (lv_ternary_5_0= 'TERNARY' ) )
+                    // InternalMyGrammar.g:6616:5: (lv_ternary_5_0= 'TERNARY' )
+                    {
+                    // InternalMyGrammar.g:6616:5: (lv_ternary_5_0= 'TERNARY' )
+                    // InternalMyGrammar.g:6617:6: lv_ternary_5_0= 'TERNARY'
+                    {
+                    lv_ternary_5_0=(Token)match(input,72,FOLLOW_76); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						newLeafNode(lv_ternary_5_0, grammarAccess.getLogicalOperationsAccess().getTernaryTERNARYKeyword_2_0_0());
+                      					
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElement(grammarAccess.getLogicalOperationsRule());
+                      						}
+                      						setWithLastConsumed(current, "ternary", true, "TERNARY");
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+                    // InternalMyGrammar.g:6629:4: ( (lv_first_6_0= ruleLiteral ) )
+                    // InternalMyGrammar.g:6630:5: (lv_first_6_0= ruleLiteral )
+                    {
+                    // InternalMyGrammar.g:6630:5: (lv_first_6_0= ruleLiteral )
+                    // InternalMyGrammar.g:6631:6: lv_first_6_0= ruleLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getLogicalOperationsAccess().getFirstLiteralParserRuleCall_2_1_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_77);
+                    lv_first_6_0=ruleLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getLogicalOperationsRule());
+                      						}
+                      						set(
+                      							current,
+                      							"first",
+                      							lv_first_6_0,
+                      							"org.unicam.tryGrammar.MyGrammar.Literal");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+                    otherlv_7=(Token)match(input,73,FOLLOW_76); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				newLeafNode(otherlv_7, grammarAccess.getLogicalOperationsAccess().getQuestionMarkKeyword_2_2());
+                      			
+                    }
+                    // InternalMyGrammar.g:6652:4: ( (lv_true_8_0= ruleLiteral ) )
+                    // InternalMyGrammar.g:6653:5: (lv_true_8_0= ruleLiteral )
+                    {
+                    // InternalMyGrammar.g:6653:5: (lv_true_8_0= ruleLiteral )
+                    // InternalMyGrammar.g:6654:6: lv_true_8_0= ruleLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getLogicalOperationsAccess().getTrueLiteralParserRuleCall_2_3_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_22);
+                    lv_true_8_0=ruleLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getLogicalOperationsRule());
+                      						}
+                      						set(
+                      							current,
+                      							"true",
+                      							lv_true_8_0,
+                      							"org.unicam.tryGrammar.MyGrammar.Literal");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+                    otherlv_9=(Token)match(input,29,FOLLOW_76); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				newLeafNode(otherlv_9, grammarAccess.getLogicalOperationsAccess().getColonKeyword_2_4());
+                      			
+                    }
+                    // InternalMyGrammar.g:6675:4: ( (lv_false_10_0= ruleLiteral ) )
+                    // InternalMyGrammar.g:6676:5: (lv_false_10_0= ruleLiteral )
+                    {
+                    // InternalMyGrammar.g:6676:5: (lv_false_10_0= ruleLiteral )
+                    // InternalMyGrammar.g:6677:6: lv_false_10_0= ruleLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getLogicalOperationsAccess().getFalseLiteralParserRuleCall_2_5_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_2);
+                    lv_false_10_0=ruleLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getLogicalOperationsRule());
+                      						}
+                      						set(
+                      							current,
+                      							"false",
+                      							lv_false_10_0,
+                      							"org.unicam.tryGrammar.MyGrammar.Literal");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleLogicalOperations"
+
+
+    // $ANTLR start "entryRuleConditionOperation"
+    // InternalMyGrammar.g:6699:1: entryRuleConditionOperation returns [EObject current=null] : iv_ruleConditionOperation= ruleConditionOperation EOF ;
+    public final EObject entryRuleConditionOperation() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleConditionOperation = null;
+
+
+        try {
+            // InternalMyGrammar.g:6699:59: (iv_ruleConditionOperation= ruleConditionOperation EOF )
+            // InternalMyGrammar.g:6700:2: iv_ruleConditionOperation= ruleConditionOperation EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getConditionOperationRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleConditionOperation=ruleConditionOperation();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleConditionOperation; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleConditionOperation"
+
+
+    // $ANTLR start "ruleConditionOperation"
+    // InternalMyGrammar.g:6706:1: ruleConditionOperation returns [EObject current=null] : ( ( (lv_operation_0_0= ruleLogicalOperationLiteral ) ) ( (lv_negateSecond_1_0= 'NOT' ) )? ( (lv_seconds_2_0= ruleLiteral ) ) ) ;
+    public final EObject ruleConditionOperation() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_negateSecond_1_0=null;
+        Enumerator lv_operation_0_0 = null;
+
+        EObject lv_seconds_2_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:6712:2: ( ( ( (lv_operation_0_0= ruleLogicalOperationLiteral ) ) ( (lv_negateSecond_1_0= 'NOT' ) )? ( (lv_seconds_2_0= ruleLiteral ) ) ) )
+            // InternalMyGrammar.g:6713:2: ( ( (lv_operation_0_0= ruleLogicalOperationLiteral ) ) ( (lv_negateSecond_1_0= 'NOT' ) )? ( (lv_seconds_2_0= ruleLiteral ) ) )
+            {
+            // InternalMyGrammar.g:6713:2: ( ( (lv_operation_0_0= ruleLogicalOperationLiteral ) ) ( (lv_negateSecond_1_0= 'NOT' ) )? ( (lv_seconds_2_0= ruleLiteral ) ) )
+            // InternalMyGrammar.g:6714:3: ( (lv_operation_0_0= ruleLogicalOperationLiteral ) ) ( (lv_negateSecond_1_0= 'NOT' ) )? ( (lv_seconds_2_0= ruleLiteral ) )
+            {
+            // InternalMyGrammar.g:6714:3: ( (lv_operation_0_0= ruleLogicalOperationLiteral ) )
+            // InternalMyGrammar.g:6715:4: (lv_operation_0_0= ruleLogicalOperationLiteral )
+            {
+            // InternalMyGrammar.g:6715:4: (lv_operation_0_0= ruleLogicalOperationLiteral )
+            // InternalMyGrammar.g:6716:5: lv_operation_0_0= ruleLogicalOperationLiteral
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getConditionOperationAccess().getOperationLogicalOperationLiteralEnumRuleCall_0_0());
+              				
+            }
+            pushFollow(FOLLOW_78);
+            lv_operation_0_0=ruleLogicalOperationLiteral();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getConditionOperationRule());
+              					}
+              					set(
+              						current,
+              						"operation",
+              						lv_operation_0_0,
+              						"org.unicam.tryGrammar.MyGrammar.LogicalOperationLiteral");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+            // InternalMyGrammar.g:6733:3: ( (lv_negateSecond_1_0= 'NOT' ) )?
+            int alt110=2;
+            int LA110_0 = input.LA(1);
+
+            if ( (LA110_0==71) ) {
+                alt110=1;
+            }
+            switch (alt110) {
+                case 1 :
+                    // InternalMyGrammar.g:6734:4: (lv_negateSecond_1_0= 'NOT' )
+                    {
+                    // InternalMyGrammar.g:6734:4: (lv_negateSecond_1_0= 'NOT' )
+                    // InternalMyGrammar.g:6735:5: lv_negateSecond_1_0= 'NOT'
+                    {
+                    lv_negateSecond_1_0=(Token)match(input,71,FOLLOW_76); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_negateSecond_1_0, grammarAccess.getConditionOperationAccess().getNegateSecondNOTKeyword_1_0());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getConditionOperationRule());
+                      					}
+                      					setWithLastConsumed(current, "negateSecond", lv_negateSecond_1_0, "NOT");
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalMyGrammar.g:6747:3: ( (lv_seconds_2_0= ruleLiteral ) )
+            // InternalMyGrammar.g:6748:4: (lv_seconds_2_0= ruleLiteral )
+            {
+            // InternalMyGrammar.g:6748:4: (lv_seconds_2_0= ruleLiteral )
+            // InternalMyGrammar.g:6749:5: lv_seconds_2_0= ruleLiteral
+            {
+            if ( state.backtracking==0 ) {
+
+              					newCompositeNode(grammarAccess.getConditionOperationAccess().getSecondsLiteralParserRuleCall_2_0());
+              				
+            }
+            pushFollow(FOLLOW_2);
+            lv_seconds_2_0=ruleLiteral();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              					if (current==null) {
+              						current = createModelElementForParent(grammarAccess.getConditionOperationRule());
+              					}
+              					set(
+              						current,
+              						"seconds",
+              						lv_seconds_2_0,
+              						"org.unicam.tryGrammar.MyGrammar.Literal");
+              					afterParserOrEnumRuleCall();
+              				
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleConditionOperation"
+
+
+    // $ANTLR start "entryRuleNumericLiteral"
+    // InternalMyGrammar.g:6770:1: entryRuleNumericLiteral returns [EObject current=null] : iv_ruleNumericLiteral= ruleNumericLiteral EOF ;
+    public final EObject entryRuleNumericLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleNumericLiteral = null;
+
+
+        try {
+            // InternalMyGrammar.g:6770:55: (iv_ruleNumericLiteral= ruleNumericLiteral EOF )
+            // InternalMyGrammar.g:6771:2: iv_ruleNumericLiteral= ruleNumericLiteral EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getNumericLiteralRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleNumericLiteral=ruleNumericLiteral();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleNumericLiteral; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleNumericLiteral"
+
+
+    // $ANTLR start "ruleNumericLiteral"
+    // InternalMyGrammar.g:6777:1: ruleNumericLiteral returns [EObject current=null] : ( ( ( (lv_intValue_0_0= ruleNumberDimensionless ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )? ) ;
+    public final EObject ruleNumericLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject lv_intValue_0_0 = null;
+
+        EObject lv_hexValue_1_0 = null;
+
+        EObject lv_decimalValue_2_0 = null;
+
+        EObject lv_etherUnit_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:6783:2: ( ( ( ( (lv_intValue_0_0= ruleNumberDimensionless ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )? ) )
+            // InternalMyGrammar.g:6784:2: ( ( ( (lv_intValue_0_0= ruleNumberDimensionless ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )? )
+            {
+            // InternalMyGrammar.g:6784:2: ( ( ( (lv_intValue_0_0= ruleNumberDimensionless ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )? )
+            // InternalMyGrammar.g:6785:3: ( ( (lv_intValue_0_0= ruleNumberDimensionless ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )?
+            {
+            // InternalMyGrammar.g:6785:3: ( ( (lv_intValue_0_0= ruleNumberDimensionless ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) )
+            int alt111=3;
+            switch ( input.LA(1) ) {
+            case RULE_INT:
+                {
+                alt111=1;
+                }
+                break;
+            case RULE_HEX:
+                {
+                alt111=2;
+                }
+                break;
+            case RULE_DECIMAL:
+                {
+                alt111=3;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 111, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt111) {
+                case 1 :
+                    // InternalMyGrammar.g:6786:4: ( (lv_intValue_0_0= ruleNumberDimensionless ) )
+                    {
+                    // InternalMyGrammar.g:6786:4: ( (lv_intValue_0_0= ruleNumberDimensionless ) )
+                    // InternalMyGrammar.g:6787:5: (lv_intValue_0_0= ruleNumberDimensionless )
+                    {
+                    // InternalMyGrammar.g:6787:5: (lv_intValue_0_0= ruleNumberDimensionless )
+                    // InternalMyGrammar.g:6788:6: lv_intValue_0_0= ruleNumberDimensionless
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getNumericLiteralAccess().getIntValueNumberDimensionlessParserRuleCall_0_0_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_79);
+                    lv_intValue_0_0=ruleNumberDimensionless();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+                      						}
+                      						set(
+                      							current,
+                      							"intValue",
+                      							lv_intValue_0_0,
+                      							"org.unicam.tryGrammar.MyGrammar.NumberDimensionless");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalMyGrammar.g:6806:4: ( (lv_hexValue_1_0= ruleHexLiteral ) )
+                    {
+                    // InternalMyGrammar.g:6806:4: ( (lv_hexValue_1_0= ruleHexLiteral ) )
+                    // InternalMyGrammar.g:6807:5: (lv_hexValue_1_0= ruleHexLiteral )
+                    {
+                    // InternalMyGrammar.g:6807:5: (lv_hexValue_1_0= ruleHexLiteral )
+                    // InternalMyGrammar.g:6808:6: lv_hexValue_1_0= ruleHexLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getNumericLiteralAccess().getHexValueHexLiteralParserRuleCall_0_1_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_79);
+                    lv_hexValue_1_0=ruleHexLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+                      						}
+                      						set(
+                      							current,
+                      							"hexValue",
+                      							lv_hexValue_1_0,
+                      							"org.unicam.tryGrammar.MyGrammar.HexLiteral");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalMyGrammar.g:6826:4: ( (lv_decimalValue_2_0= ruleDecimalLiteral ) )
+                    {
+                    // InternalMyGrammar.g:6826:4: ( (lv_decimalValue_2_0= ruleDecimalLiteral ) )
+                    // InternalMyGrammar.g:6827:5: (lv_decimalValue_2_0= ruleDecimalLiteral )
+                    {
+                    // InternalMyGrammar.g:6827:5: (lv_decimalValue_2_0= ruleDecimalLiteral )
+                    // InternalMyGrammar.g:6828:6: lv_decimalValue_2_0= ruleDecimalLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getNumericLiteralAccess().getDecimalValueDecimalLiteralParserRuleCall_0_2_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_79);
+                    lv_decimalValue_2_0=ruleDecimalLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+                      						}
+                      						set(
+                      							current,
+                      							"decimalValue",
+                      							lv_decimalValue_2_0,
+                      							"org.unicam.tryGrammar.MyGrammar.DecimalLiteral");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalMyGrammar.g:6846:3: ( (lv_etherUnit_3_0= ruleUnitTypes ) )?
+            int alt112=2;
+            int LA112_0 = input.LA(1);
+
+            if ( ((LA112_0>=211 && LA112_0<=220)) ) {
+                alt112=1;
+            }
+            switch (alt112) {
+                case 1 :
+                    // InternalMyGrammar.g:6847:4: (lv_etherUnit_3_0= ruleUnitTypes )
+                    {
+                    // InternalMyGrammar.g:6847:4: (lv_etherUnit_3_0= ruleUnitTypes )
+                    // InternalMyGrammar.g:6848:5: lv_etherUnit_3_0= ruleUnitTypes
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getNumericLiteralAccess().getEtherUnitUnitTypesParserRuleCall_1_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_2);
+                    lv_etherUnit_3_0=ruleUnitTypes();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+                      					}
+                      					set(
+                      						current,
+                      						"etherUnit",
+                      						lv_etherUnit_3_0,
+                      						"org.unicam.tryGrammar.MyGrammar.UnitTypes");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleNumericLiteral"
+
+
+    // $ANTLR start "entryRuleUnitTypes"
+    // InternalMyGrammar.g:6869:1: entryRuleUnitTypes returns [EObject current=null] : iv_ruleUnitTypes= ruleUnitTypes EOF ;
+    public final EObject entryRuleUnitTypes() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleUnitTypes = null;
+
+
+        try {
+            // InternalMyGrammar.g:6869:50: (iv_ruleUnitTypes= ruleUnitTypes EOF )
+            // InternalMyGrammar.g:6870:2: iv_ruleUnitTypes= ruleUnitTypes EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getUnitTypesRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleUnitTypes=ruleUnitTypes();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleUnitTypes; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleUnitTypes"
+
+
+    // $ANTLR start "ruleUnitTypes"
+    // InternalMyGrammar.g:6876:1: ruleUnitTypes returns [EObject current=null] : ( ( (lv_time_0_0= ruleTimeSubdenominationEnum ) ) | ( (lv_units_1_0= ruleEtherSubDenominationEnum ) ) ) ;
+    public final EObject ruleUnitTypes() throws RecognitionException {
+        EObject current = null;
+
+        Enumerator lv_time_0_0 = null;
+
+        Enumerator lv_units_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:6882:2: ( ( ( (lv_time_0_0= ruleTimeSubdenominationEnum ) ) | ( (lv_units_1_0= ruleEtherSubDenominationEnum ) ) ) )
+            // InternalMyGrammar.g:6883:2: ( ( (lv_time_0_0= ruleTimeSubdenominationEnum ) ) | ( (lv_units_1_0= ruleEtherSubDenominationEnum ) ) )
+            {
+            // InternalMyGrammar.g:6883:2: ( ( (lv_time_0_0= ruleTimeSubdenominationEnum ) ) | ( (lv_units_1_0= ruleEtherSubDenominationEnum ) ) )
+            int alt113=2;
+            int LA113_0 = input.LA(1);
+
+            if ( ((LA113_0>=215 && LA113_0<=220)) ) {
+                alt113=1;
+            }
+            else if ( ((LA113_0>=211 && LA113_0<=214)) ) {
+                alt113=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 113, 0, input);
+
+                throw nvae;
+            }
+            switch (alt113) {
+                case 1 :
+                    // InternalMyGrammar.g:6884:3: ( (lv_time_0_0= ruleTimeSubdenominationEnum ) )
+                    {
+                    // InternalMyGrammar.g:6884:3: ( (lv_time_0_0= ruleTimeSubdenominationEnum ) )
+                    // InternalMyGrammar.g:6885:4: (lv_time_0_0= ruleTimeSubdenominationEnum )
+                    {
+                    // InternalMyGrammar.g:6885:4: (lv_time_0_0= ruleTimeSubdenominationEnum )
+                    // InternalMyGrammar.g:6886:5: lv_time_0_0= ruleTimeSubdenominationEnum
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getUnitTypesAccess().getTimeTimeSubdenominationEnumEnumRuleCall_0_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_2);
+                    lv_time_0_0=ruleTimeSubdenominationEnum();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getUnitTypesRule());
+                      					}
+                      					set(
+                      						current,
+                      						"time",
+                      						lv_time_0_0,
+                      						"org.unicam.tryGrammar.MyGrammar.TimeSubdenominationEnum");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalMyGrammar.g:6904:3: ( (lv_units_1_0= ruleEtherSubDenominationEnum ) )
+                    {
+                    // InternalMyGrammar.g:6904:3: ( (lv_units_1_0= ruleEtherSubDenominationEnum ) )
+                    // InternalMyGrammar.g:6905:4: (lv_units_1_0= ruleEtherSubDenominationEnum )
+                    {
+                    // InternalMyGrammar.g:6905:4: (lv_units_1_0= ruleEtherSubDenominationEnum )
+                    // InternalMyGrammar.g:6906:5: lv_units_1_0= ruleEtherSubDenominationEnum
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getUnitTypesAccess().getUnitsEtherSubDenominationEnumEnumRuleCall_1_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_2);
+                    lv_units_1_0=ruleEtherSubDenominationEnum();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getUnitTypesRule());
+                      					}
+                      					set(
+                      						current,
+                      						"units",
+                      						lv_units_1_0,
+                      						"org.unicam.tryGrammar.MyGrammar.EtherSubDenominationEnum");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleUnitTypes"
+
+
     // $ANTLR start "entryRuleGasleftFunction"
-    // InternalMyGrammar.g:6116:1: entryRuleGasleftFunction returns [EObject current=null] : iv_ruleGasleftFunction= ruleGasleftFunction EOF ;
+    // InternalMyGrammar.g:6927:1: entryRuleGasleftFunction returns [EObject current=null] : iv_ruleGasleftFunction= ruleGasleftFunction EOF ;
     public final EObject entryRuleGasleftFunction() throws RecognitionException {
         EObject current = null;
 
@@ -18626,8 +20901,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6116:56: (iv_ruleGasleftFunction= ruleGasleftFunction EOF )
-            // InternalMyGrammar.g:6117:2: iv_ruleGasleftFunction= ruleGasleftFunction EOF
+            // InternalMyGrammar.g:6927:56: (iv_ruleGasleftFunction= ruleGasleftFunction EOF )
+            // InternalMyGrammar.g:6928:2: iv_ruleGasleftFunction= ruleGasleftFunction EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGasleftFunctionRule()); 
@@ -18658,7 +20933,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGasleftFunction"
-    // InternalMyGrammar.g:6123:1: ruleGasleftFunction returns [EObject current=null] : ( ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')' ) ;
+    // InternalMyGrammar.g:6934:1: ruleGasleftFunction returns [EObject current=null] : ( ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')' ) ;
     public final EObject ruleGasleftFunction() throws RecognitionException {
         EObject current = null;
 
@@ -18670,19 +20945,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6129:2: ( ( ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')' ) )
-            // InternalMyGrammar.g:6130:2: ( ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')' )
+            // InternalMyGrammar.g:6940:2: ( ( ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')' ) )
+            // InternalMyGrammar.g:6941:2: ( ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')' )
             {
-            // InternalMyGrammar.g:6130:2: ( ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')' )
-            // InternalMyGrammar.g:6131:3: ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')'
+            // InternalMyGrammar.g:6941:2: ( ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')' )
+            // InternalMyGrammar.g:6942:3: ( (lv_name_0_0= 'gasleft' ) ) otherlv_1= '(' otherlv_2= ')'
             {
-            // InternalMyGrammar.g:6131:3: ( (lv_name_0_0= 'gasleft' ) )
-            // InternalMyGrammar.g:6132:4: (lv_name_0_0= 'gasleft' )
+            // InternalMyGrammar.g:6942:3: ( (lv_name_0_0= 'gasleft' ) )
+            // InternalMyGrammar.g:6943:4: (lv_name_0_0= 'gasleft' )
             {
-            // InternalMyGrammar.g:6132:4: (lv_name_0_0= 'gasleft' )
-            // InternalMyGrammar.g:6133:5: lv_name_0_0= 'gasleft'
+            // InternalMyGrammar.g:6943:4: (lv_name_0_0= 'gasleft' )
+            // InternalMyGrammar.g:6944:5: lv_name_0_0= 'gasleft'
             {
-            lv_name_0_0=(Token)match(input,70,FOLLOW_25); if (state.failed) return current;
+            lv_name_0_0=(Token)match(input,74,FOLLOW_25); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               					newLeafNode(lv_name_0_0, grammarAccess.getGasleftFunctionAccess().getNameGasleftKeyword_0_0());
@@ -18739,7 +21014,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanConst"
-    // InternalMyGrammar.g:6157:1: entryRuleBooleanConst returns [EObject current=null] : iv_ruleBooleanConst= ruleBooleanConst EOF ;
+    // InternalMyGrammar.g:6968:1: entryRuleBooleanConst returns [EObject current=null] : iv_ruleBooleanConst= ruleBooleanConst EOF ;
     public final EObject entryRuleBooleanConst() throws RecognitionException {
         EObject current = null;
 
@@ -18747,8 +21022,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6157:53: (iv_ruleBooleanConst= ruleBooleanConst EOF )
-            // InternalMyGrammar.g:6158:2: iv_ruleBooleanConst= ruleBooleanConst EOF
+            // InternalMyGrammar.g:6968:53: (iv_ruleBooleanConst= ruleBooleanConst EOF )
+            // InternalMyGrammar.g:6969:2: iv_ruleBooleanConst= ruleBooleanConst EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBooleanConstRule()); 
@@ -18779,7 +21054,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanConst"
-    // InternalMyGrammar.g:6164:1: ruleBooleanConst returns [EObject current=null] : ( (lv_value_0_0= ruleBooleanLiteralEnum ) ) ;
+    // InternalMyGrammar.g:6975:1: ruleBooleanConst returns [EObject current=null] : ( (lv_value_0_0= ruleBooleanLiteralEnum ) ) ;
     public final EObject ruleBooleanConst() throws RecognitionException {
         EObject current = null;
 
@@ -18790,14 +21065,14 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6170:2: ( ( (lv_value_0_0= ruleBooleanLiteralEnum ) ) )
-            // InternalMyGrammar.g:6171:2: ( (lv_value_0_0= ruleBooleanLiteralEnum ) )
+            // InternalMyGrammar.g:6981:2: ( ( (lv_value_0_0= ruleBooleanLiteralEnum ) ) )
+            // InternalMyGrammar.g:6982:2: ( (lv_value_0_0= ruleBooleanLiteralEnum ) )
             {
-            // InternalMyGrammar.g:6171:2: ( (lv_value_0_0= ruleBooleanLiteralEnum ) )
-            // InternalMyGrammar.g:6172:3: (lv_value_0_0= ruleBooleanLiteralEnum )
+            // InternalMyGrammar.g:6982:2: ( (lv_value_0_0= ruleBooleanLiteralEnum ) )
+            // InternalMyGrammar.g:6983:3: (lv_value_0_0= ruleBooleanLiteralEnum )
             {
-            // InternalMyGrammar.g:6172:3: (lv_value_0_0= ruleBooleanLiteralEnum )
-            // InternalMyGrammar.g:6173:4: lv_value_0_0= ruleBooleanLiteralEnum
+            // InternalMyGrammar.g:6983:3: (lv_value_0_0= ruleBooleanLiteralEnum )
+            // InternalMyGrammar.g:6984:4: lv_value_0_0= ruleBooleanLiteralEnum
             {
             if ( state.backtracking==0 ) {
 
@@ -18850,7 +21125,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumber"
-    // InternalMyGrammar.g:6193:1: entryRuleNumber returns [EObject current=null] : iv_ruleNumber= ruleNumber EOF ;
+    // InternalMyGrammar.g:7004:1: entryRuleNumber returns [EObject current=null] : iv_ruleNumber= ruleNumber EOF ;
     public final EObject entryRuleNumber() throws RecognitionException {
         EObject current = null;
 
@@ -18858,8 +21133,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6193:47: (iv_ruleNumber= ruleNumber EOF )
-            // InternalMyGrammar.g:6194:2: iv_ruleNumber= ruleNumber EOF
+            // InternalMyGrammar.g:7004:47: (iv_ruleNumber= ruleNumber EOF )
+            // InternalMyGrammar.g:7005:2: iv_ruleNumber= ruleNumber EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberRule()); 
@@ -18890,7 +21165,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumber"
-    // InternalMyGrammar.g:6200:1: ruleNumber returns [EObject current=null] : (this_NumberDimensionless_0= ruleNumberDimensionless | this_Ether_1= ruleEther | this_Time_2= ruleTime | this_Now_3= ruleNow | this_HexLiteral_4= ruleHexLiteral | this_DecimalLiteral_5= ruleDecimalLiteral ) ;
+    // InternalMyGrammar.g:7011:1: ruleNumber returns [EObject current=null] : (this_NumberDimensionless_0= ruleNumberDimensionless | this_Ether_1= ruleEther | this_Time_2= ruleTime | this_Now_3= ruleNow | this_HexLiteral_4= ruleHexLiteral | this_DecimalLiteral_5= ruleDecimalLiteral ) ;
     public final EObject ruleNumber() throws RecognitionException {
         EObject current = null;
 
@@ -18911,15 +21186,33 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6206:2: ( (this_NumberDimensionless_0= ruleNumberDimensionless | this_Ether_1= ruleEther | this_Time_2= ruleTime | this_Now_3= ruleNow | this_HexLiteral_4= ruleHexLiteral | this_DecimalLiteral_5= ruleDecimalLiteral ) )
-            // InternalMyGrammar.g:6207:2: (this_NumberDimensionless_0= ruleNumberDimensionless | this_Ether_1= ruleEther | this_Time_2= ruleTime | this_Now_3= ruleNow | this_HexLiteral_4= ruleHexLiteral | this_DecimalLiteral_5= ruleDecimalLiteral )
+            // InternalMyGrammar.g:7017:2: ( (this_NumberDimensionless_0= ruleNumberDimensionless | this_Ether_1= ruleEther | this_Time_2= ruleTime | this_Now_3= ruleNow | this_HexLiteral_4= ruleHexLiteral | this_DecimalLiteral_5= ruleDecimalLiteral ) )
+            // InternalMyGrammar.g:7018:2: (this_NumberDimensionless_0= ruleNumberDimensionless | this_Ether_1= ruleEther | this_Time_2= ruleTime | this_Now_3= ruleNow | this_HexLiteral_4= ruleHexLiteral | this_DecimalLiteral_5= ruleDecimalLiteral )
             {
-            // InternalMyGrammar.g:6207:2: (this_NumberDimensionless_0= ruleNumberDimensionless | this_Ether_1= ruleEther | this_Time_2= ruleTime | this_Now_3= ruleNow | this_HexLiteral_4= ruleHexLiteral | this_DecimalLiteral_5= ruleDecimalLiteral )
-            int alt99=6;
+            // InternalMyGrammar.g:7018:2: (this_NumberDimensionless_0= ruleNumberDimensionless | this_Ether_1= ruleEther | this_Time_2= ruleTime | this_Now_3= ruleNow | this_HexLiteral_4= ruleHexLiteral | this_DecimalLiteral_5= ruleDecimalLiteral )
+            int alt114=6;
             switch ( input.LA(1) ) {
             case RULE_INT:
                 {
                 switch ( input.LA(2) ) {
+                case 211:
+                case 212:
+                case 213:
+                case 214:
+                    {
+                    alt114=2;
+                    }
+                    break;
+                case 215:
+                case 216:
+                case 217:
+                case 218:
+                case 219:
+                case 220:
+                    {
+                    alt114=3;
+                    }
+                    break;
                 case EOF:
                 case RULE_ID:
                 case 17:
@@ -18927,6 +21220,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 case 22:
                 case 23:
                 case 28:
+                case 29:
                 case 36:
                 case 41:
                 case 57:
@@ -18939,10 +21233,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 case 66:
                 case 68:
                 case 69:
-                case 183:
-                case 184:
-                case 185:
-                case 186:
+                case 70:
+                case 73:
                 case 187:
                 case 188:
                 case 189:
@@ -18962,64 +21254,49 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                 case 203:
                 case 204:
                 case 205:
-                    {
-                    alt99=1;
-                    }
-                    break;
+                case 206:
+                case 207:
                 case 208:
-                case 209:
-                case 210:
-                case 211:
                     {
-                    alt99=2;
-                    }
-                    break;
-                case 212:
-                case 213:
-                case 214:
-                case 215:
-                case 216:
-                case 217:
-                    {
-                    alt99=3;
+                    alt114=1;
                     }
                     break;
                 default:
                     if (state.backtracking>0) {state.failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 99, 1, input);
+                        new NoViableAltException("", 114, 1, input);
 
                     throw nvae;
                 }
 
                 }
                 break;
-            case 71:
+            case 75:
                 {
-                alt99=4;
+                alt114=4;
                 }
                 break;
             case RULE_HEX:
                 {
-                alt99=5;
+                alt114=5;
                 }
                 break;
             case RULE_DECIMAL:
                 {
-                alt99=6;
+                alt114=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 99, 0, input);
+                    new NoViableAltException("", 114, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt99) {
+            switch (alt114) {
                 case 1 :
-                    // InternalMyGrammar.g:6208:3: this_NumberDimensionless_0= ruleNumberDimensionless
+                    // InternalMyGrammar.g:7019:3: this_NumberDimensionless_0= ruleNumberDimensionless
                     {
                     if ( state.backtracking==0 ) {
 
@@ -19041,7 +21318,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:6217:3: this_Ether_1= ruleEther
+                    // InternalMyGrammar.g:7028:3: this_Ether_1= ruleEther
                     {
                     if ( state.backtracking==0 ) {
 
@@ -19063,7 +21340,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:6226:3: this_Time_2= ruleTime
+                    // InternalMyGrammar.g:7037:3: this_Time_2= ruleTime
                     {
                     if ( state.backtracking==0 ) {
 
@@ -19085,7 +21362,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:6235:3: this_Now_3= ruleNow
+                    // InternalMyGrammar.g:7046:3: this_Now_3= ruleNow
                     {
                     if ( state.backtracking==0 ) {
 
@@ -19107,7 +21384,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:6244:3: this_HexLiteral_4= ruleHexLiteral
+                    // InternalMyGrammar.g:7055:3: this_HexLiteral_4= ruleHexLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -19129,7 +21406,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalMyGrammar.g:6253:3: this_DecimalLiteral_5= ruleDecimalLiteral
+                    // InternalMyGrammar.g:7064:3: this_DecimalLiteral_5= ruleDecimalLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -19175,7 +21452,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumberDimensionless"
-    // InternalMyGrammar.g:6265:1: entryRuleNumberDimensionless returns [EObject current=null] : iv_ruleNumberDimensionless= ruleNumberDimensionless EOF ;
+    // InternalMyGrammar.g:7076:1: entryRuleNumberDimensionless returns [EObject current=null] : iv_ruleNumberDimensionless= ruleNumberDimensionless EOF ;
     public final EObject entryRuleNumberDimensionless() throws RecognitionException {
         EObject current = null;
 
@@ -19183,8 +21460,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6265:60: (iv_ruleNumberDimensionless= ruleNumberDimensionless EOF )
-            // InternalMyGrammar.g:6266:2: iv_ruleNumberDimensionless= ruleNumberDimensionless EOF
+            // InternalMyGrammar.g:7076:60: (iv_ruleNumberDimensionless= ruleNumberDimensionless EOF )
+            // InternalMyGrammar.g:7077:2: iv_ruleNumberDimensionless= ruleNumberDimensionless EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberDimensionlessRule()); 
@@ -19215,7 +21492,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumberDimensionless"
-    // InternalMyGrammar.g:6272:1: ruleNumberDimensionless returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
+    // InternalMyGrammar.g:7083:1: ruleNumberDimensionless returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
     public final EObject ruleNumberDimensionless() throws RecognitionException {
         EObject current = null;
 
@@ -19225,14 +21502,14 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6278:2: ( ( (lv_value_0_0= RULE_INT ) ) )
-            // InternalMyGrammar.g:6279:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalMyGrammar.g:7089:2: ( ( (lv_value_0_0= RULE_INT ) ) )
+            // InternalMyGrammar.g:7090:2: ( (lv_value_0_0= RULE_INT ) )
             {
-            // InternalMyGrammar.g:6279:2: ( (lv_value_0_0= RULE_INT ) )
-            // InternalMyGrammar.g:6280:3: (lv_value_0_0= RULE_INT )
+            // InternalMyGrammar.g:7090:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalMyGrammar.g:7091:3: (lv_value_0_0= RULE_INT )
             {
-            // InternalMyGrammar.g:6280:3: (lv_value_0_0= RULE_INT )
-            // InternalMyGrammar.g:6281:4: lv_value_0_0= RULE_INT
+            // InternalMyGrammar.g:7091:3: (lv_value_0_0= RULE_INT )
+            // InternalMyGrammar.g:7092:4: lv_value_0_0= RULE_INT
             {
             lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -19280,7 +21557,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEther"
-    // InternalMyGrammar.g:6300:1: entryRuleEther returns [EObject current=null] : iv_ruleEther= ruleEther EOF ;
+    // InternalMyGrammar.g:7111:1: entryRuleEther returns [EObject current=null] : iv_ruleEther= ruleEther EOF ;
     public final EObject entryRuleEther() throws RecognitionException {
         EObject current = null;
 
@@ -19288,8 +21565,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6300:46: (iv_ruleEther= ruleEther EOF )
-            // InternalMyGrammar.g:6301:2: iv_ruleEther= ruleEther EOF
+            // InternalMyGrammar.g:7111:46: (iv_ruleEther= ruleEther EOF )
+            // InternalMyGrammar.g:7112:2: iv_ruleEther= ruleEther EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getEtherRule()); 
@@ -19320,7 +21597,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEther"
-    // InternalMyGrammar.g:6307:1: ruleEther returns [EObject current=null] : ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) ) ) ;
+    // InternalMyGrammar.g:7118:1: ruleEther returns [EObject current=null] : ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) ) ) ;
     public final EObject ruleEther() throws RecognitionException {
         EObject current = null;
 
@@ -19332,19 +21609,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6313:2: ( ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) ) ) )
-            // InternalMyGrammar.g:6314:2: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) ) )
+            // InternalMyGrammar.g:7124:2: ( ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) ) ) )
+            // InternalMyGrammar.g:7125:2: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) ) )
             {
-            // InternalMyGrammar.g:6314:2: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) ) )
-            // InternalMyGrammar.g:6315:3: ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) )
+            // InternalMyGrammar.g:7125:2: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) ) )
+            // InternalMyGrammar.g:7126:3: ( (lv_value_0_0= RULE_INT ) ) ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) )
             {
-            // InternalMyGrammar.g:6315:3: ( (lv_value_0_0= RULE_INT ) )
-            // InternalMyGrammar.g:6316:4: (lv_value_0_0= RULE_INT )
+            // InternalMyGrammar.g:7126:3: ( (lv_value_0_0= RULE_INT ) )
+            // InternalMyGrammar.g:7127:4: (lv_value_0_0= RULE_INT )
             {
-            // InternalMyGrammar.g:6316:4: (lv_value_0_0= RULE_INT )
-            // InternalMyGrammar.g:6317:5: lv_value_0_0= RULE_INT
+            // InternalMyGrammar.g:7127:4: (lv_value_0_0= RULE_INT )
+            // InternalMyGrammar.g:7128:5: lv_value_0_0= RULE_INT
             {
-            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_70); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_80); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               					newLeafNode(lv_value_0_0, grammarAccess.getEtherAccess().getValueINTTerminalRuleCall_0_0());
@@ -19368,11 +21645,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:6333:3: ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) )
-            // InternalMyGrammar.g:6334:4: (lv_ether_1_0= ruleEtherSubDenominationEnum )
+            // InternalMyGrammar.g:7144:3: ( (lv_ether_1_0= ruleEtherSubDenominationEnum ) )
+            // InternalMyGrammar.g:7145:4: (lv_ether_1_0= ruleEtherSubDenominationEnum )
             {
-            // InternalMyGrammar.g:6334:4: (lv_ether_1_0= ruleEtherSubDenominationEnum )
-            // InternalMyGrammar.g:6335:5: lv_ether_1_0= ruleEtherSubDenominationEnum
+            // InternalMyGrammar.g:7145:4: (lv_ether_1_0= ruleEtherSubDenominationEnum )
+            // InternalMyGrammar.g:7146:5: lv_ether_1_0= ruleEtherSubDenominationEnum
             {
             if ( state.backtracking==0 ) {
 
@@ -19428,7 +21705,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTime"
-    // InternalMyGrammar.g:6356:1: entryRuleTime returns [EObject current=null] : iv_ruleTime= ruleTime EOF ;
+    // InternalMyGrammar.g:7167:1: entryRuleTime returns [EObject current=null] : iv_ruleTime= ruleTime EOF ;
     public final EObject entryRuleTime() throws RecognitionException {
         EObject current = null;
 
@@ -19436,8 +21713,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6356:45: (iv_ruleTime= ruleTime EOF )
-            // InternalMyGrammar.g:6357:2: iv_ruleTime= ruleTime EOF
+            // InternalMyGrammar.g:7167:45: (iv_ruleTime= ruleTime EOF )
+            // InternalMyGrammar.g:7168:2: iv_ruleTime= ruleTime EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTimeRule()); 
@@ -19468,7 +21745,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTime"
-    // InternalMyGrammar.g:6363:1: ruleTime returns [EObject current=null] : ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) ) ) ;
+    // InternalMyGrammar.g:7174:1: ruleTime returns [EObject current=null] : ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) ) ) ;
     public final EObject ruleTime() throws RecognitionException {
         EObject current = null;
 
@@ -19480,19 +21757,19 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6369:2: ( ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) ) ) )
-            // InternalMyGrammar.g:6370:2: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) ) )
+            // InternalMyGrammar.g:7180:2: ( ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) ) ) )
+            // InternalMyGrammar.g:7181:2: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) ) )
             {
-            // InternalMyGrammar.g:6370:2: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) ) )
-            // InternalMyGrammar.g:6371:3: ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) )
+            // InternalMyGrammar.g:7181:2: ( ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) ) )
+            // InternalMyGrammar.g:7182:3: ( (lv_value_0_0= RULE_INT ) ) ( (lv_time_1_0= ruleTimeSubdenominationEnum ) )
             {
-            // InternalMyGrammar.g:6371:3: ( (lv_value_0_0= RULE_INT ) )
-            // InternalMyGrammar.g:6372:4: (lv_value_0_0= RULE_INT )
+            // InternalMyGrammar.g:7182:3: ( (lv_value_0_0= RULE_INT ) )
+            // InternalMyGrammar.g:7183:4: (lv_value_0_0= RULE_INT )
             {
-            // InternalMyGrammar.g:6372:4: (lv_value_0_0= RULE_INT )
-            // InternalMyGrammar.g:6373:5: lv_value_0_0= RULE_INT
+            // InternalMyGrammar.g:7183:4: (lv_value_0_0= RULE_INT )
+            // InternalMyGrammar.g:7184:5: lv_value_0_0= RULE_INT
             {
-            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_71); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_81); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               					newLeafNode(lv_value_0_0, grammarAccess.getTimeAccess().getValueINTTerminalRuleCall_0_0());
@@ -19516,11 +21793,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:6389:3: ( (lv_time_1_0= ruleTimeSubdenominationEnum ) )
-            // InternalMyGrammar.g:6390:4: (lv_time_1_0= ruleTimeSubdenominationEnum )
+            // InternalMyGrammar.g:7200:3: ( (lv_time_1_0= ruleTimeSubdenominationEnum ) )
+            // InternalMyGrammar.g:7201:4: (lv_time_1_0= ruleTimeSubdenominationEnum )
             {
-            // InternalMyGrammar.g:6390:4: (lv_time_1_0= ruleTimeSubdenominationEnum )
-            // InternalMyGrammar.g:6391:5: lv_time_1_0= ruleTimeSubdenominationEnum
+            // InternalMyGrammar.g:7201:4: (lv_time_1_0= ruleTimeSubdenominationEnum )
+            // InternalMyGrammar.g:7202:5: lv_time_1_0= ruleTimeSubdenominationEnum
             {
             if ( state.backtracking==0 ) {
 
@@ -19576,7 +21853,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringLiteral"
-    // InternalMyGrammar.g:6412:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // InternalMyGrammar.g:7223:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -19584,8 +21861,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6412:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // InternalMyGrammar.g:6413:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // InternalMyGrammar.g:7223:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // InternalMyGrammar.g:7224:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStringLiteralRule()); 
@@ -19616,7 +21893,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // InternalMyGrammar.g:6419:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // InternalMyGrammar.g:7230:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -19626,14 +21903,14 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6425:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // InternalMyGrammar.g:6426:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalMyGrammar.g:7236:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
+            // InternalMyGrammar.g:7237:2: ( (lv_value_0_0= RULE_STRING ) )
             {
-            // InternalMyGrammar.g:6426:2: ( (lv_value_0_0= RULE_STRING ) )
-            // InternalMyGrammar.g:6427:3: (lv_value_0_0= RULE_STRING )
+            // InternalMyGrammar.g:7237:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalMyGrammar.g:7238:3: (lv_value_0_0= RULE_STRING )
             {
-            // InternalMyGrammar.g:6427:3: (lv_value_0_0= RULE_STRING )
-            // InternalMyGrammar.g:6428:4: lv_value_0_0= RULE_STRING
+            // InternalMyGrammar.g:7238:3: (lv_value_0_0= RULE_STRING )
+            // InternalMyGrammar.g:7239:4: lv_value_0_0= RULE_STRING
             {
             lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -19681,7 +21958,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleHexLiteral"
-    // InternalMyGrammar.g:6447:1: entryRuleHexLiteral returns [EObject current=null] : iv_ruleHexLiteral= ruleHexLiteral EOF ;
+    // InternalMyGrammar.g:7258:1: entryRuleHexLiteral returns [EObject current=null] : iv_ruleHexLiteral= ruleHexLiteral EOF ;
     public final EObject entryRuleHexLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -19689,8 +21966,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6447:51: (iv_ruleHexLiteral= ruleHexLiteral EOF )
-            // InternalMyGrammar.g:6448:2: iv_ruleHexLiteral= ruleHexLiteral EOF
+            // InternalMyGrammar.g:7258:51: (iv_ruleHexLiteral= ruleHexLiteral EOF )
+            // InternalMyGrammar.g:7259:2: iv_ruleHexLiteral= ruleHexLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getHexLiteralRule()); 
@@ -19721,7 +21998,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleHexLiteral"
-    // InternalMyGrammar.g:6454:1: ruleHexLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_HEX ) ) ;
+    // InternalMyGrammar.g:7265:1: ruleHexLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_HEX ) ) ;
     public final EObject ruleHexLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -19731,14 +22008,14 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6460:2: ( ( (lv_value_0_0= RULE_HEX ) ) )
-            // InternalMyGrammar.g:6461:2: ( (lv_value_0_0= RULE_HEX ) )
+            // InternalMyGrammar.g:7271:2: ( ( (lv_value_0_0= RULE_HEX ) ) )
+            // InternalMyGrammar.g:7272:2: ( (lv_value_0_0= RULE_HEX ) )
             {
-            // InternalMyGrammar.g:6461:2: ( (lv_value_0_0= RULE_HEX ) )
-            // InternalMyGrammar.g:6462:3: (lv_value_0_0= RULE_HEX )
+            // InternalMyGrammar.g:7272:2: ( (lv_value_0_0= RULE_HEX ) )
+            // InternalMyGrammar.g:7273:3: (lv_value_0_0= RULE_HEX )
             {
-            // InternalMyGrammar.g:6462:3: (lv_value_0_0= RULE_HEX )
-            // InternalMyGrammar.g:6463:4: lv_value_0_0= RULE_HEX
+            // InternalMyGrammar.g:7273:3: (lv_value_0_0= RULE_HEX )
+            // InternalMyGrammar.g:7274:4: lv_value_0_0= RULE_HEX
             {
             lv_value_0_0=(Token)match(input,RULE_HEX,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -19786,7 +22063,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDecimalLiteral"
-    // InternalMyGrammar.g:6482:1: entryRuleDecimalLiteral returns [EObject current=null] : iv_ruleDecimalLiteral= ruleDecimalLiteral EOF ;
+    // InternalMyGrammar.g:7293:1: entryRuleDecimalLiteral returns [EObject current=null] : iv_ruleDecimalLiteral= ruleDecimalLiteral EOF ;
     public final EObject entryRuleDecimalLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -19794,8 +22071,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6482:55: (iv_ruleDecimalLiteral= ruleDecimalLiteral EOF )
-            // InternalMyGrammar.g:6483:2: iv_ruleDecimalLiteral= ruleDecimalLiteral EOF
+            // InternalMyGrammar.g:7293:55: (iv_ruleDecimalLiteral= ruleDecimalLiteral EOF )
+            // InternalMyGrammar.g:7294:2: iv_ruleDecimalLiteral= ruleDecimalLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDecimalLiteralRule()); 
@@ -19826,7 +22103,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDecimalLiteral"
-    // InternalMyGrammar.g:6489:1: ruleDecimalLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_DECIMAL ) ) ;
+    // InternalMyGrammar.g:7300:1: ruleDecimalLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_DECIMAL ) ) ;
     public final EObject ruleDecimalLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -19836,14 +22113,14 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6495:2: ( ( (lv_value_0_0= RULE_DECIMAL ) ) )
-            // InternalMyGrammar.g:6496:2: ( (lv_value_0_0= RULE_DECIMAL ) )
+            // InternalMyGrammar.g:7306:2: ( ( (lv_value_0_0= RULE_DECIMAL ) ) )
+            // InternalMyGrammar.g:7307:2: ( (lv_value_0_0= RULE_DECIMAL ) )
             {
-            // InternalMyGrammar.g:6496:2: ( (lv_value_0_0= RULE_DECIMAL ) )
-            // InternalMyGrammar.g:6497:3: (lv_value_0_0= RULE_DECIMAL )
+            // InternalMyGrammar.g:7307:2: ( (lv_value_0_0= RULE_DECIMAL ) )
+            // InternalMyGrammar.g:7308:3: (lv_value_0_0= RULE_DECIMAL )
             {
-            // InternalMyGrammar.g:6497:3: (lv_value_0_0= RULE_DECIMAL )
-            // InternalMyGrammar.g:6498:4: lv_value_0_0= RULE_DECIMAL
+            // InternalMyGrammar.g:7308:3: (lv_value_0_0= RULE_DECIMAL )
+            // InternalMyGrammar.g:7309:4: lv_value_0_0= RULE_DECIMAL
             {
             lv_value_0_0=(Token)match(input,RULE_DECIMAL,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -19891,7 +22168,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeCast"
-    // InternalMyGrammar.g:6517:1: entryRuleTypeCast returns [EObject current=null] : iv_ruleTypeCast= ruleTypeCast EOF ;
+    // InternalMyGrammar.g:7328:1: entryRuleTypeCast returns [EObject current=null] : iv_ruleTypeCast= ruleTypeCast EOF ;
     public final EObject entryRuleTypeCast() throws RecognitionException {
         EObject current = null;
 
@@ -19899,8 +22176,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6517:49: (iv_ruleTypeCast= ruleTypeCast EOF )
-            // InternalMyGrammar.g:6518:2: iv_ruleTypeCast= ruleTypeCast EOF
+            // InternalMyGrammar.g:7328:49: (iv_ruleTypeCast= ruleTypeCast EOF )
+            // InternalMyGrammar.g:7329:2: iv_ruleTypeCast= ruleTypeCast EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTypeCastRule()); 
@@ -19931,7 +22208,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeCast"
-    // InternalMyGrammar.g:6524:1: ruleTypeCast returns [EObject current=null] : ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ) ;
+    // InternalMyGrammar.g:7335:1: ruleTypeCast returns [EObject current=null] : ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ) ;
     public final EObject ruleTypeCast() throws RecognitionException {
         EObject current = null;
 
@@ -19946,17 +22223,17 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6530:2: ( ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ) )
-            // InternalMyGrammar.g:6531:2: ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' )
+            // InternalMyGrammar.g:7341:2: ( ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ) )
+            // InternalMyGrammar.g:7342:2: ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' )
             {
-            // InternalMyGrammar.g:6531:2: ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' )
-            // InternalMyGrammar.g:6532:3: ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')'
+            // InternalMyGrammar.g:7342:2: ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' )
+            // InternalMyGrammar.g:7343:3: ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')'
             {
-            // InternalMyGrammar.g:6532:3: ( (lv_value_0_0= ruleElementaryTypeNameEnum ) )
-            // InternalMyGrammar.g:6533:4: (lv_value_0_0= ruleElementaryTypeNameEnum )
+            // InternalMyGrammar.g:7343:3: ( (lv_value_0_0= ruleElementaryTypeNameEnum ) )
+            // InternalMyGrammar.g:7344:4: (lv_value_0_0= ruleElementaryTypeNameEnum )
             {
-            // InternalMyGrammar.g:6533:4: (lv_value_0_0= ruleElementaryTypeNameEnum )
-            // InternalMyGrammar.g:6534:5: lv_value_0_0= ruleElementaryTypeNameEnum
+            // InternalMyGrammar.g:7344:4: (lv_value_0_0= ruleElementaryTypeNameEnum )
+            // InternalMyGrammar.g:7345:5: lv_value_0_0= ruleElementaryTypeNameEnum
             {
             if ( state.backtracking==0 ) {
 
@@ -19993,11 +22270,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getTypeCastAccess().getLeftParenthesisKeyword_1());
               		
             }
-            // InternalMyGrammar.g:6555:3: ( (lv_expression_2_0= ruleExpression ) )
-            // InternalMyGrammar.g:6556:4: (lv_expression_2_0= ruleExpression )
+            // InternalMyGrammar.g:7366:3: ( (lv_expression_2_0= ruleExpression ) )
+            // InternalMyGrammar.g:7367:4: (lv_expression_2_0= ruleExpression )
             {
-            // InternalMyGrammar.g:6556:4: (lv_expression_2_0= ruleExpression )
-            // InternalMyGrammar.g:6557:5: lv_expression_2_0= ruleExpression
+            // InternalMyGrammar.g:7367:4: (lv_expression_2_0= ruleExpression )
+            // InternalMyGrammar.g:7368:5: lv_expression_2_0= ruleExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -20059,7 +22336,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNow"
-    // InternalMyGrammar.g:6582:1: entryRuleNow returns [EObject current=null] : iv_ruleNow= ruleNow EOF ;
+    // InternalMyGrammar.g:7393:1: entryRuleNow returns [EObject current=null] : iv_ruleNow= ruleNow EOF ;
     public final EObject entryRuleNow() throws RecognitionException {
         EObject current = null;
 
@@ -20067,8 +22344,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6582:44: (iv_ruleNow= ruleNow EOF )
-            // InternalMyGrammar.g:6583:2: iv_ruleNow= ruleNow EOF
+            // InternalMyGrammar.g:7393:44: (iv_ruleNow= ruleNow EOF )
+            // InternalMyGrammar.g:7394:2: iv_ruleNow= ruleNow EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNowRule()); 
@@ -20099,7 +22376,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNow"
-    // InternalMyGrammar.g:6589:1: ruleNow returns [EObject current=null] : ( () otherlv_1= 'now' ) ;
+    // InternalMyGrammar.g:7400:1: ruleNow returns [EObject current=null] : ( () otherlv_1= 'now' ) ;
     public final EObject ruleNow() throws RecognitionException {
         EObject current = null;
 
@@ -20109,14 +22386,14 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6595:2: ( ( () otherlv_1= 'now' ) )
-            // InternalMyGrammar.g:6596:2: ( () otherlv_1= 'now' )
+            // InternalMyGrammar.g:7406:2: ( ( () otherlv_1= 'now' ) )
+            // InternalMyGrammar.g:7407:2: ( () otherlv_1= 'now' )
             {
-            // InternalMyGrammar.g:6596:2: ( () otherlv_1= 'now' )
-            // InternalMyGrammar.g:6597:3: () otherlv_1= 'now'
+            // InternalMyGrammar.g:7407:2: ( () otherlv_1= 'now' )
+            // InternalMyGrammar.g:7408:3: () otherlv_1= 'now'
             {
-            // InternalMyGrammar.g:6597:3: ()
-            // InternalMyGrammar.g:6598:4: 
+            // InternalMyGrammar.g:7408:3: ()
+            // InternalMyGrammar.g:7409:4: 
             {
             if ( state.backtracking==0 ) {
 
@@ -20128,7 +22405,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,71,FOLLOW_2); if (state.failed) return current;
+            otherlv_1=(Token)match(input,75,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(otherlv_1, grammarAccess.getNowAccess().getNowKeyword_1());
@@ -20159,7 +22436,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSpecialVariables"
-    // InternalMyGrammar.g:6612:1: entryRuleSpecialVariables returns [EObject current=null] : iv_ruleSpecialVariables= ruleSpecialVariables EOF ;
+    // InternalMyGrammar.g:7423:1: entryRuleSpecialVariables returns [EObject current=null] : iv_ruleSpecialVariables= ruleSpecialVariables EOF ;
     public final EObject entryRuleSpecialVariables() throws RecognitionException {
         EObject current = null;
 
@@ -20167,8 +22444,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6612:57: (iv_ruleSpecialVariables= ruleSpecialVariables EOF )
-            // InternalMyGrammar.g:6613:2: iv_ruleSpecialVariables= ruleSpecialVariables EOF
+            // InternalMyGrammar.g:7423:57: (iv_ruleSpecialVariables= ruleSpecialVariables EOF )
+            // InternalMyGrammar.g:7424:2: iv_ruleSpecialVariables= ruleSpecialVariables EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSpecialVariablesRule()); 
@@ -20199,7 +22476,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSpecialVariables"
-    // InternalMyGrammar.g:6619:1: ruleSpecialVariables returns [EObject current=null] : ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* ) ;
+    // InternalMyGrammar.g:7430:1: ruleSpecialVariables returns [EObject current=null] : ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* ) ;
     public final EObject ruleSpecialVariables() throws RecognitionException {
         EObject current = null;
 
@@ -20214,24 +22491,24 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6625:2: ( ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* ) )
-            // InternalMyGrammar.g:6626:2: ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* )
+            // InternalMyGrammar.g:7436:2: ( ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* ) )
+            // InternalMyGrammar.g:7437:2: ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* )
             {
-            // InternalMyGrammar.g:6626:2: ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* )
-            // InternalMyGrammar.g:6627:3: ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )*
+            // InternalMyGrammar.g:7437:2: ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* )
+            // InternalMyGrammar.g:7438:3: ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )*
             {
-            // InternalMyGrammar.g:6627:3: ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) )
-            // InternalMyGrammar.g:6628:4: (lv_type_0_0= ruleSpecialVariablesTypeEnum )
+            // InternalMyGrammar.g:7438:3: ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) )
+            // InternalMyGrammar.g:7439:4: (lv_type_0_0= ruleSpecialVariablesTypeEnum )
             {
-            // InternalMyGrammar.g:6628:4: (lv_type_0_0= ruleSpecialVariablesTypeEnum )
-            // InternalMyGrammar.g:6629:5: lv_type_0_0= ruleSpecialVariablesTypeEnum
+            // InternalMyGrammar.g:7439:4: (lv_type_0_0= ruleSpecialVariablesTypeEnum )
+            // InternalMyGrammar.g:7440:5: lv_type_0_0= ruleSpecialVariablesTypeEnum
             {
             if ( state.backtracking==0 ) {
 
               					newCompositeNode(grammarAccess.getSpecialVariablesAccess().getTypeSpecialVariablesTypeEnumParserRuleCall_0_0());
               				
             }
-            pushFollow(FOLLOW_72);
+            pushFollow(FOLLOW_82);
             lv_type_0_0=ruleSpecialVariablesTypeEnum();
 
             state._fsp--;
@@ -20261,11 +22538,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getSpecialVariablesAccess().getFullStopKeyword_1());
               		
             }
-            // InternalMyGrammar.g:6650:3: ( (lv_field_2_0= RULE_ID ) )
-            // InternalMyGrammar.g:6651:4: (lv_field_2_0= RULE_ID )
+            // InternalMyGrammar.g:7461:3: ( (lv_field_2_0= RULE_ID ) )
+            // InternalMyGrammar.g:7462:4: (lv_field_2_0= RULE_ID )
             {
-            // InternalMyGrammar.g:6651:4: (lv_field_2_0= RULE_ID )
-            // InternalMyGrammar.g:6652:5: lv_field_2_0= RULE_ID
+            // InternalMyGrammar.g:7462:4: (lv_field_2_0= RULE_ID )
+            // InternalMyGrammar.g:7463:5: lv_field_2_0= RULE_ID
             {
             lv_field_2_0=(Token)match(input,RULE_ID,FOLLOW_43); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -20291,23 +22568,23 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyGrammar.g:6668:3: ( (lv_qualifiers_3_0= ruleQualifier ) )*
-            loop100:
+            // InternalMyGrammar.g:7479:3: ( (lv_qualifiers_3_0= ruleQualifier ) )*
+            loop115:
             do {
-                int alt100=2;
-                int LA100_0 = input.LA(1);
+                int alt115=2;
+                int LA115_0 = input.LA(1);
 
-                if ( (LA100_0==27||LA100_0==40||LA100_0==43) ) {
-                    alt100=1;
+                if ( (LA115_0==27||LA115_0==40||LA115_0==43) ) {
+                    alt115=1;
                 }
 
 
-                switch (alt100) {
+                switch (alt115) {
             	case 1 :
-            	    // InternalMyGrammar.g:6669:4: (lv_qualifiers_3_0= ruleQualifier )
+            	    // InternalMyGrammar.g:7480:4: (lv_qualifiers_3_0= ruleQualifier )
             	    {
-            	    // InternalMyGrammar.g:6669:4: (lv_qualifiers_3_0= ruleQualifier )
-            	    // InternalMyGrammar.g:6670:5: lv_qualifiers_3_0= ruleQualifier
+            	    // InternalMyGrammar.g:7480:4: (lv_qualifiers_3_0= ruleQualifier )
+            	    // InternalMyGrammar.g:7481:5: lv_qualifiers_3_0= ruleQualifier
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -20340,7 +22617,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop100;
+            	    break loop115;
                 }
             } while (true);
 
@@ -20369,7 +22646,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSpecialVariablesTypeEnum"
-    // InternalMyGrammar.g:6691:1: entryRuleSpecialVariablesTypeEnum returns [EObject current=null] : iv_ruleSpecialVariablesTypeEnum= ruleSpecialVariablesTypeEnum EOF ;
+    // InternalMyGrammar.g:7502:1: entryRuleSpecialVariablesTypeEnum returns [EObject current=null] : iv_ruleSpecialVariablesTypeEnum= ruleSpecialVariablesTypeEnum EOF ;
     public final EObject entryRuleSpecialVariablesTypeEnum() throws RecognitionException {
         EObject current = null;
 
@@ -20377,8 +22654,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyGrammar.g:6691:65: (iv_ruleSpecialVariablesTypeEnum= ruleSpecialVariablesTypeEnum EOF )
-            // InternalMyGrammar.g:6692:2: iv_ruleSpecialVariablesTypeEnum= ruleSpecialVariablesTypeEnum EOF
+            // InternalMyGrammar.g:7502:65: (iv_ruleSpecialVariablesTypeEnum= ruleSpecialVariablesTypeEnum EOF )
+            // InternalMyGrammar.g:7503:2: iv_ruleSpecialVariablesTypeEnum= ruleSpecialVariablesTypeEnum EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSpecialVariablesTypeEnumRule()); 
@@ -20409,7 +22686,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSpecialVariablesTypeEnum"
-    // InternalMyGrammar.g:6698:1: ruleSpecialVariablesTypeEnum returns [EObject current=null] : ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) ) ) ;
+    // InternalMyGrammar.g:7509:1: ruleSpecialVariablesTypeEnum returns [EObject current=null] : ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) ) ) ;
     public final EObject ruleSpecialVariablesTypeEnum() throws RecognitionException {
         EObject current = null;
 
@@ -20421,44 +22698,44 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6704:2: ( ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) ) ) )
-            // InternalMyGrammar.g:6705:2: ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) ) )
+            // InternalMyGrammar.g:7515:2: ( ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) ) ) )
+            // InternalMyGrammar.g:7516:2: ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) ) )
             {
-            // InternalMyGrammar.g:6705:2: ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) ) )
-            // InternalMyGrammar.g:6706:3: ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) )
+            // InternalMyGrammar.g:7516:2: ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) ) )
+            // InternalMyGrammar.g:7517:3: ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) )
             {
-            // InternalMyGrammar.g:6706:3: ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) )
-            // InternalMyGrammar.g:6707:4: (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX )
+            // InternalMyGrammar.g:7517:3: ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX ) )
+            // InternalMyGrammar.g:7518:4: (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX )
             {
-            // InternalMyGrammar.g:6707:4: (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX )
-            int alt101=3;
+            // InternalMyGrammar.g:7518:4: (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX )
+            int alt116=3;
             switch ( input.LA(1) ) {
             case RULE_BLOCK:
                 {
-                alt101=1;
+                alt116=1;
                 }
                 break;
             case RULE_MSG:
                 {
-                alt101=2;
+                alt116=2;
                 }
                 break;
             case RULE_TX:
                 {
-                alt101=3;
+                alt116=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 101, 0, input);
+                    new NoViableAltException("", 116, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt101) {
+            switch (alt116) {
                 case 1 :
-                    // InternalMyGrammar.g:6708:5: lv_name_0_1= RULE_BLOCK
+                    // InternalMyGrammar.g:7519:5: lv_name_0_1= RULE_BLOCK
                     {
                     lv_name_0_1=(Token)match(input,RULE_BLOCK,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -20482,7 +22759,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:6723:5: lv_name_0_2= RULE_MSG
+                    // InternalMyGrammar.g:7534:5: lv_name_0_2= RULE_MSG
                     {
                     lv_name_0_2=(Token)match(input,RULE_MSG,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -20506,7 +22783,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:6738:5: lv_name_0_3= RULE_TX
+                    // InternalMyGrammar.g:7549:5: lv_name_0_3= RULE_TX
                     {
                     lv_name_0_3=(Token)match(input,RULE_TX,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -20560,7 +22837,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElementaryTypeNameEnum"
-    // InternalMyGrammar.g:6758:1: ruleElementaryTypeNameEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'int16' ) | (enumLiteral_2= 'int24' ) | (enumLiteral_3= 'int32' ) | (enumLiteral_4= 'int40' ) | (enumLiteral_5= 'int48' ) | (enumLiteral_6= 'int56' ) | (enumLiteral_7= 'int64' ) | (enumLiteral_8= 'int72' ) | (enumLiteral_9= 'int80' ) | (enumLiteral_10= 'int88' ) | (enumLiteral_11= 'int96' ) | (enumLiteral_12= 'int104' ) | (enumLiteral_13= 'int112' ) | (enumLiteral_14= 'int120' ) | (enumLiteral_15= 'int128' ) | (enumLiteral_16= 'int136' ) | (enumLiteral_17= 'int144' ) | (enumLiteral_18= 'int152' ) | (enumLiteral_19= 'int160' ) | (enumLiteral_20= 'int168' ) | (enumLiteral_21= 'int178' ) | (enumLiteral_22= 'int184' ) | (enumLiteral_23= 'int192' ) | (enumLiteral_24= 'int200' ) | (enumLiteral_25= 'int208' ) | (enumLiteral_26= 'int216' ) | (enumLiteral_27= 'int224' ) | (enumLiteral_28= 'int232' ) | (enumLiteral_29= 'int240' ) | (enumLiteral_30= 'int248' ) | (enumLiteral_31= 'int256' ) | (enumLiteral_32= 'uint' ) | (enumLiteral_33= 'uint8' ) | (enumLiteral_34= 'uint16' ) | (enumLiteral_35= 'uint24' ) | (enumLiteral_36= 'uint32' ) | (enumLiteral_37= 'uint40' ) | (enumLiteral_38= 'uint48' ) | (enumLiteral_39= 'uint56' ) | (enumLiteral_40= 'uint64' ) | (enumLiteral_41= 'uint72' ) | (enumLiteral_42= 'uint80' ) | (enumLiteral_43= 'uint88' ) | (enumLiteral_44= 'uint96' ) | (enumLiteral_45= 'uint104' ) | (enumLiteral_46= 'uint112' ) | (enumLiteral_47= 'uint120' ) | (enumLiteral_48= 'uint128' ) | (enumLiteral_49= 'uint136' ) | (enumLiteral_50= 'uint144' ) | (enumLiteral_51= 'uint152' ) | (enumLiteral_52= 'uint160' ) | (enumLiteral_53= 'uint168' ) | (enumLiteral_54= 'uint178' ) | (enumLiteral_55= 'uint184' ) | (enumLiteral_56= 'uint192' ) | (enumLiteral_57= 'uint200' ) | (enumLiteral_58= 'uint208' ) | (enumLiteral_59= 'uint216' ) | (enumLiteral_60= 'uint224' ) | (enumLiteral_61= 'uint232' ) | (enumLiteral_62= 'uint240' ) | (enumLiteral_63= 'uint248' ) | (enumLiteral_64= 'uint256' ) | (enumLiteral_65= 'byte' ) | (enumLiteral_66= 'bytes' ) | (enumLiteral_67= 'bytes1' ) | (enumLiteral_68= 'bytes2' ) | (enumLiteral_69= 'bytes3' ) | (enumLiteral_70= 'bytes4' ) | (enumLiteral_71= 'bytes5' ) | (enumLiteral_72= 'bytes6' ) | (enumLiteral_73= 'bytes7' ) | (enumLiteral_74= 'bytes8' ) | (enumLiteral_75= 'bytes9' ) | (enumLiteral_76= 'bytes10' ) | (enumLiteral_77= 'bytes11' ) | (enumLiteral_78= 'bytes12' ) | (enumLiteral_79= 'bytes13' ) | (enumLiteral_80= 'bytes14' ) | (enumLiteral_81= 'bytes15' ) | (enumLiteral_82= 'bytes16' ) | (enumLiteral_83= 'bytes17' ) | (enumLiteral_84= 'bytes18' ) | (enumLiteral_85= 'bytes19' ) | (enumLiteral_86= 'bytes20' ) | (enumLiteral_87= 'bytes21' ) | (enumLiteral_88= 'bytes22' ) | (enumLiteral_89= 'bytes23' ) | (enumLiteral_90= 'bytes24' ) | (enumLiteral_91= 'bytes25' ) | (enumLiteral_92= 'bytes26' ) | (enumLiteral_93= 'bytes27' ) | (enumLiteral_94= 'bytes28' ) | (enumLiteral_95= 'bytes29' ) | (enumLiteral_96= 'bytes30' ) | (enumLiteral_97= 'bytes31' ) | (enumLiteral_98= 'bytes32' ) | (enumLiteral_99= 'string' ) | (enumLiteral_100= 'address' ) | (enumLiteral_101= 'bool' ) | (enumLiteral_102= 'real' ) | (enumLiteral_103= 'ureal' ) ) ;
+    // InternalMyGrammar.g:7569:1: ruleElementaryTypeNameEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'int16' ) | (enumLiteral_2= 'int24' ) | (enumLiteral_3= 'int32' ) | (enumLiteral_4= 'int40' ) | (enumLiteral_5= 'int48' ) | (enumLiteral_6= 'int56' ) | (enumLiteral_7= 'int64' ) | (enumLiteral_8= 'int72' ) | (enumLiteral_9= 'int80' ) | (enumLiteral_10= 'int88' ) | (enumLiteral_11= 'int96' ) | (enumLiteral_12= 'int104' ) | (enumLiteral_13= 'int112' ) | (enumLiteral_14= 'int120' ) | (enumLiteral_15= 'int128' ) | (enumLiteral_16= 'int136' ) | (enumLiteral_17= 'int144' ) | (enumLiteral_18= 'int152' ) | (enumLiteral_19= 'int160' ) | (enumLiteral_20= 'int168' ) | (enumLiteral_21= 'int178' ) | (enumLiteral_22= 'int184' ) | (enumLiteral_23= 'int192' ) | (enumLiteral_24= 'int200' ) | (enumLiteral_25= 'int208' ) | (enumLiteral_26= 'int216' ) | (enumLiteral_27= 'int224' ) | (enumLiteral_28= 'int232' ) | (enumLiteral_29= 'int240' ) | (enumLiteral_30= 'int248' ) | (enumLiteral_31= 'int256' ) | (enumLiteral_32= 'uint' ) | (enumLiteral_33= 'uint8' ) | (enumLiteral_34= 'uint16' ) | (enumLiteral_35= 'uint24' ) | (enumLiteral_36= 'uint32' ) | (enumLiteral_37= 'uint40' ) | (enumLiteral_38= 'uint48' ) | (enumLiteral_39= 'uint56' ) | (enumLiteral_40= 'uint64' ) | (enumLiteral_41= 'uint72' ) | (enumLiteral_42= 'uint80' ) | (enumLiteral_43= 'uint88' ) | (enumLiteral_44= 'uint96' ) | (enumLiteral_45= 'uint104' ) | (enumLiteral_46= 'uint112' ) | (enumLiteral_47= 'uint120' ) | (enumLiteral_48= 'uint128' ) | (enumLiteral_49= 'uint136' ) | (enumLiteral_50= 'uint144' ) | (enumLiteral_51= 'uint152' ) | (enumLiteral_52= 'uint160' ) | (enumLiteral_53= 'uint168' ) | (enumLiteral_54= 'uint178' ) | (enumLiteral_55= 'uint184' ) | (enumLiteral_56= 'uint192' ) | (enumLiteral_57= 'uint200' ) | (enumLiteral_58= 'uint208' ) | (enumLiteral_59= 'uint216' ) | (enumLiteral_60= 'uint224' ) | (enumLiteral_61= 'uint232' ) | (enumLiteral_62= 'uint240' ) | (enumLiteral_63= 'uint248' ) | (enumLiteral_64= 'uint256' ) | (enumLiteral_65= 'byte' ) | (enumLiteral_66= 'bytes' ) | (enumLiteral_67= 'bytes1' ) | (enumLiteral_68= 'bytes2' ) | (enumLiteral_69= 'bytes3' ) | (enumLiteral_70= 'bytes4' ) | (enumLiteral_71= 'bytes5' ) | (enumLiteral_72= 'bytes6' ) | (enumLiteral_73= 'bytes7' ) | (enumLiteral_74= 'bytes8' ) | (enumLiteral_75= 'bytes9' ) | (enumLiteral_76= 'bytes10' ) | (enumLiteral_77= 'bytes11' ) | (enumLiteral_78= 'bytes12' ) | (enumLiteral_79= 'bytes13' ) | (enumLiteral_80= 'bytes14' ) | (enumLiteral_81= 'bytes15' ) | (enumLiteral_82= 'bytes16' ) | (enumLiteral_83= 'bytes17' ) | (enumLiteral_84= 'bytes18' ) | (enumLiteral_85= 'bytes19' ) | (enumLiteral_86= 'bytes20' ) | (enumLiteral_87= 'bytes21' ) | (enumLiteral_88= 'bytes22' ) | (enumLiteral_89= 'bytes23' ) | (enumLiteral_90= 'bytes24' ) | (enumLiteral_91= 'bytes25' ) | (enumLiteral_92= 'bytes26' ) | (enumLiteral_93= 'bytes27' ) | (enumLiteral_94= 'bytes28' ) | (enumLiteral_95= 'bytes29' ) | (enumLiteral_96= 'bytes30' ) | (enumLiteral_97= 'bytes31' ) | (enumLiteral_98= 'bytes32' ) | (enumLiteral_99= 'string' ) | (enumLiteral_100= 'address' ) | (enumLiteral_101= 'bool' ) | (enumLiteral_102= 'real' ) | (enumLiteral_103= 'ureal' ) ) ;
     public final Enumerator ruleElementaryTypeNameEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -20673,548 +22950,548 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:6764:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'int16' ) | (enumLiteral_2= 'int24' ) | (enumLiteral_3= 'int32' ) | (enumLiteral_4= 'int40' ) | (enumLiteral_5= 'int48' ) | (enumLiteral_6= 'int56' ) | (enumLiteral_7= 'int64' ) | (enumLiteral_8= 'int72' ) | (enumLiteral_9= 'int80' ) | (enumLiteral_10= 'int88' ) | (enumLiteral_11= 'int96' ) | (enumLiteral_12= 'int104' ) | (enumLiteral_13= 'int112' ) | (enumLiteral_14= 'int120' ) | (enumLiteral_15= 'int128' ) | (enumLiteral_16= 'int136' ) | (enumLiteral_17= 'int144' ) | (enumLiteral_18= 'int152' ) | (enumLiteral_19= 'int160' ) | (enumLiteral_20= 'int168' ) | (enumLiteral_21= 'int178' ) | (enumLiteral_22= 'int184' ) | (enumLiteral_23= 'int192' ) | (enumLiteral_24= 'int200' ) | (enumLiteral_25= 'int208' ) | (enumLiteral_26= 'int216' ) | (enumLiteral_27= 'int224' ) | (enumLiteral_28= 'int232' ) | (enumLiteral_29= 'int240' ) | (enumLiteral_30= 'int248' ) | (enumLiteral_31= 'int256' ) | (enumLiteral_32= 'uint' ) | (enumLiteral_33= 'uint8' ) | (enumLiteral_34= 'uint16' ) | (enumLiteral_35= 'uint24' ) | (enumLiteral_36= 'uint32' ) | (enumLiteral_37= 'uint40' ) | (enumLiteral_38= 'uint48' ) | (enumLiteral_39= 'uint56' ) | (enumLiteral_40= 'uint64' ) | (enumLiteral_41= 'uint72' ) | (enumLiteral_42= 'uint80' ) | (enumLiteral_43= 'uint88' ) | (enumLiteral_44= 'uint96' ) | (enumLiteral_45= 'uint104' ) | (enumLiteral_46= 'uint112' ) | (enumLiteral_47= 'uint120' ) | (enumLiteral_48= 'uint128' ) | (enumLiteral_49= 'uint136' ) | (enumLiteral_50= 'uint144' ) | (enumLiteral_51= 'uint152' ) | (enumLiteral_52= 'uint160' ) | (enumLiteral_53= 'uint168' ) | (enumLiteral_54= 'uint178' ) | (enumLiteral_55= 'uint184' ) | (enumLiteral_56= 'uint192' ) | (enumLiteral_57= 'uint200' ) | (enumLiteral_58= 'uint208' ) | (enumLiteral_59= 'uint216' ) | (enumLiteral_60= 'uint224' ) | (enumLiteral_61= 'uint232' ) | (enumLiteral_62= 'uint240' ) | (enumLiteral_63= 'uint248' ) | (enumLiteral_64= 'uint256' ) | (enumLiteral_65= 'byte' ) | (enumLiteral_66= 'bytes' ) | (enumLiteral_67= 'bytes1' ) | (enumLiteral_68= 'bytes2' ) | (enumLiteral_69= 'bytes3' ) | (enumLiteral_70= 'bytes4' ) | (enumLiteral_71= 'bytes5' ) | (enumLiteral_72= 'bytes6' ) | (enumLiteral_73= 'bytes7' ) | (enumLiteral_74= 'bytes8' ) | (enumLiteral_75= 'bytes9' ) | (enumLiteral_76= 'bytes10' ) | (enumLiteral_77= 'bytes11' ) | (enumLiteral_78= 'bytes12' ) | (enumLiteral_79= 'bytes13' ) | (enumLiteral_80= 'bytes14' ) | (enumLiteral_81= 'bytes15' ) | (enumLiteral_82= 'bytes16' ) | (enumLiteral_83= 'bytes17' ) | (enumLiteral_84= 'bytes18' ) | (enumLiteral_85= 'bytes19' ) | (enumLiteral_86= 'bytes20' ) | (enumLiteral_87= 'bytes21' ) | (enumLiteral_88= 'bytes22' ) | (enumLiteral_89= 'bytes23' ) | (enumLiteral_90= 'bytes24' ) | (enumLiteral_91= 'bytes25' ) | (enumLiteral_92= 'bytes26' ) | (enumLiteral_93= 'bytes27' ) | (enumLiteral_94= 'bytes28' ) | (enumLiteral_95= 'bytes29' ) | (enumLiteral_96= 'bytes30' ) | (enumLiteral_97= 'bytes31' ) | (enumLiteral_98= 'bytes32' ) | (enumLiteral_99= 'string' ) | (enumLiteral_100= 'address' ) | (enumLiteral_101= 'bool' ) | (enumLiteral_102= 'real' ) | (enumLiteral_103= 'ureal' ) ) )
-            // InternalMyGrammar.g:6765:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'int16' ) | (enumLiteral_2= 'int24' ) | (enumLiteral_3= 'int32' ) | (enumLiteral_4= 'int40' ) | (enumLiteral_5= 'int48' ) | (enumLiteral_6= 'int56' ) | (enumLiteral_7= 'int64' ) | (enumLiteral_8= 'int72' ) | (enumLiteral_9= 'int80' ) | (enumLiteral_10= 'int88' ) | (enumLiteral_11= 'int96' ) | (enumLiteral_12= 'int104' ) | (enumLiteral_13= 'int112' ) | (enumLiteral_14= 'int120' ) | (enumLiteral_15= 'int128' ) | (enumLiteral_16= 'int136' ) | (enumLiteral_17= 'int144' ) | (enumLiteral_18= 'int152' ) | (enumLiteral_19= 'int160' ) | (enumLiteral_20= 'int168' ) | (enumLiteral_21= 'int178' ) | (enumLiteral_22= 'int184' ) | (enumLiteral_23= 'int192' ) | (enumLiteral_24= 'int200' ) | (enumLiteral_25= 'int208' ) | (enumLiteral_26= 'int216' ) | (enumLiteral_27= 'int224' ) | (enumLiteral_28= 'int232' ) | (enumLiteral_29= 'int240' ) | (enumLiteral_30= 'int248' ) | (enumLiteral_31= 'int256' ) | (enumLiteral_32= 'uint' ) | (enumLiteral_33= 'uint8' ) | (enumLiteral_34= 'uint16' ) | (enumLiteral_35= 'uint24' ) | (enumLiteral_36= 'uint32' ) | (enumLiteral_37= 'uint40' ) | (enumLiteral_38= 'uint48' ) | (enumLiteral_39= 'uint56' ) | (enumLiteral_40= 'uint64' ) | (enumLiteral_41= 'uint72' ) | (enumLiteral_42= 'uint80' ) | (enumLiteral_43= 'uint88' ) | (enumLiteral_44= 'uint96' ) | (enumLiteral_45= 'uint104' ) | (enumLiteral_46= 'uint112' ) | (enumLiteral_47= 'uint120' ) | (enumLiteral_48= 'uint128' ) | (enumLiteral_49= 'uint136' ) | (enumLiteral_50= 'uint144' ) | (enumLiteral_51= 'uint152' ) | (enumLiteral_52= 'uint160' ) | (enumLiteral_53= 'uint168' ) | (enumLiteral_54= 'uint178' ) | (enumLiteral_55= 'uint184' ) | (enumLiteral_56= 'uint192' ) | (enumLiteral_57= 'uint200' ) | (enumLiteral_58= 'uint208' ) | (enumLiteral_59= 'uint216' ) | (enumLiteral_60= 'uint224' ) | (enumLiteral_61= 'uint232' ) | (enumLiteral_62= 'uint240' ) | (enumLiteral_63= 'uint248' ) | (enumLiteral_64= 'uint256' ) | (enumLiteral_65= 'byte' ) | (enumLiteral_66= 'bytes' ) | (enumLiteral_67= 'bytes1' ) | (enumLiteral_68= 'bytes2' ) | (enumLiteral_69= 'bytes3' ) | (enumLiteral_70= 'bytes4' ) | (enumLiteral_71= 'bytes5' ) | (enumLiteral_72= 'bytes6' ) | (enumLiteral_73= 'bytes7' ) | (enumLiteral_74= 'bytes8' ) | (enumLiteral_75= 'bytes9' ) | (enumLiteral_76= 'bytes10' ) | (enumLiteral_77= 'bytes11' ) | (enumLiteral_78= 'bytes12' ) | (enumLiteral_79= 'bytes13' ) | (enumLiteral_80= 'bytes14' ) | (enumLiteral_81= 'bytes15' ) | (enumLiteral_82= 'bytes16' ) | (enumLiteral_83= 'bytes17' ) | (enumLiteral_84= 'bytes18' ) | (enumLiteral_85= 'bytes19' ) | (enumLiteral_86= 'bytes20' ) | (enumLiteral_87= 'bytes21' ) | (enumLiteral_88= 'bytes22' ) | (enumLiteral_89= 'bytes23' ) | (enumLiteral_90= 'bytes24' ) | (enumLiteral_91= 'bytes25' ) | (enumLiteral_92= 'bytes26' ) | (enumLiteral_93= 'bytes27' ) | (enumLiteral_94= 'bytes28' ) | (enumLiteral_95= 'bytes29' ) | (enumLiteral_96= 'bytes30' ) | (enumLiteral_97= 'bytes31' ) | (enumLiteral_98= 'bytes32' ) | (enumLiteral_99= 'string' ) | (enumLiteral_100= 'address' ) | (enumLiteral_101= 'bool' ) | (enumLiteral_102= 'real' ) | (enumLiteral_103= 'ureal' ) )
+            // InternalMyGrammar.g:7575:2: ( ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'int16' ) | (enumLiteral_2= 'int24' ) | (enumLiteral_3= 'int32' ) | (enumLiteral_4= 'int40' ) | (enumLiteral_5= 'int48' ) | (enumLiteral_6= 'int56' ) | (enumLiteral_7= 'int64' ) | (enumLiteral_8= 'int72' ) | (enumLiteral_9= 'int80' ) | (enumLiteral_10= 'int88' ) | (enumLiteral_11= 'int96' ) | (enumLiteral_12= 'int104' ) | (enumLiteral_13= 'int112' ) | (enumLiteral_14= 'int120' ) | (enumLiteral_15= 'int128' ) | (enumLiteral_16= 'int136' ) | (enumLiteral_17= 'int144' ) | (enumLiteral_18= 'int152' ) | (enumLiteral_19= 'int160' ) | (enumLiteral_20= 'int168' ) | (enumLiteral_21= 'int178' ) | (enumLiteral_22= 'int184' ) | (enumLiteral_23= 'int192' ) | (enumLiteral_24= 'int200' ) | (enumLiteral_25= 'int208' ) | (enumLiteral_26= 'int216' ) | (enumLiteral_27= 'int224' ) | (enumLiteral_28= 'int232' ) | (enumLiteral_29= 'int240' ) | (enumLiteral_30= 'int248' ) | (enumLiteral_31= 'int256' ) | (enumLiteral_32= 'uint' ) | (enumLiteral_33= 'uint8' ) | (enumLiteral_34= 'uint16' ) | (enumLiteral_35= 'uint24' ) | (enumLiteral_36= 'uint32' ) | (enumLiteral_37= 'uint40' ) | (enumLiteral_38= 'uint48' ) | (enumLiteral_39= 'uint56' ) | (enumLiteral_40= 'uint64' ) | (enumLiteral_41= 'uint72' ) | (enumLiteral_42= 'uint80' ) | (enumLiteral_43= 'uint88' ) | (enumLiteral_44= 'uint96' ) | (enumLiteral_45= 'uint104' ) | (enumLiteral_46= 'uint112' ) | (enumLiteral_47= 'uint120' ) | (enumLiteral_48= 'uint128' ) | (enumLiteral_49= 'uint136' ) | (enumLiteral_50= 'uint144' ) | (enumLiteral_51= 'uint152' ) | (enumLiteral_52= 'uint160' ) | (enumLiteral_53= 'uint168' ) | (enumLiteral_54= 'uint178' ) | (enumLiteral_55= 'uint184' ) | (enumLiteral_56= 'uint192' ) | (enumLiteral_57= 'uint200' ) | (enumLiteral_58= 'uint208' ) | (enumLiteral_59= 'uint216' ) | (enumLiteral_60= 'uint224' ) | (enumLiteral_61= 'uint232' ) | (enumLiteral_62= 'uint240' ) | (enumLiteral_63= 'uint248' ) | (enumLiteral_64= 'uint256' ) | (enumLiteral_65= 'byte' ) | (enumLiteral_66= 'bytes' ) | (enumLiteral_67= 'bytes1' ) | (enumLiteral_68= 'bytes2' ) | (enumLiteral_69= 'bytes3' ) | (enumLiteral_70= 'bytes4' ) | (enumLiteral_71= 'bytes5' ) | (enumLiteral_72= 'bytes6' ) | (enumLiteral_73= 'bytes7' ) | (enumLiteral_74= 'bytes8' ) | (enumLiteral_75= 'bytes9' ) | (enumLiteral_76= 'bytes10' ) | (enumLiteral_77= 'bytes11' ) | (enumLiteral_78= 'bytes12' ) | (enumLiteral_79= 'bytes13' ) | (enumLiteral_80= 'bytes14' ) | (enumLiteral_81= 'bytes15' ) | (enumLiteral_82= 'bytes16' ) | (enumLiteral_83= 'bytes17' ) | (enumLiteral_84= 'bytes18' ) | (enumLiteral_85= 'bytes19' ) | (enumLiteral_86= 'bytes20' ) | (enumLiteral_87= 'bytes21' ) | (enumLiteral_88= 'bytes22' ) | (enumLiteral_89= 'bytes23' ) | (enumLiteral_90= 'bytes24' ) | (enumLiteral_91= 'bytes25' ) | (enumLiteral_92= 'bytes26' ) | (enumLiteral_93= 'bytes27' ) | (enumLiteral_94= 'bytes28' ) | (enumLiteral_95= 'bytes29' ) | (enumLiteral_96= 'bytes30' ) | (enumLiteral_97= 'bytes31' ) | (enumLiteral_98= 'bytes32' ) | (enumLiteral_99= 'string' ) | (enumLiteral_100= 'address' ) | (enumLiteral_101= 'bool' ) | (enumLiteral_102= 'real' ) | (enumLiteral_103= 'ureal' ) ) )
+            // InternalMyGrammar.g:7576:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'int16' ) | (enumLiteral_2= 'int24' ) | (enumLiteral_3= 'int32' ) | (enumLiteral_4= 'int40' ) | (enumLiteral_5= 'int48' ) | (enumLiteral_6= 'int56' ) | (enumLiteral_7= 'int64' ) | (enumLiteral_8= 'int72' ) | (enumLiteral_9= 'int80' ) | (enumLiteral_10= 'int88' ) | (enumLiteral_11= 'int96' ) | (enumLiteral_12= 'int104' ) | (enumLiteral_13= 'int112' ) | (enumLiteral_14= 'int120' ) | (enumLiteral_15= 'int128' ) | (enumLiteral_16= 'int136' ) | (enumLiteral_17= 'int144' ) | (enumLiteral_18= 'int152' ) | (enumLiteral_19= 'int160' ) | (enumLiteral_20= 'int168' ) | (enumLiteral_21= 'int178' ) | (enumLiteral_22= 'int184' ) | (enumLiteral_23= 'int192' ) | (enumLiteral_24= 'int200' ) | (enumLiteral_25= 'int208' ) | (enumLiteral_26= 'int216' ) | (enumLiteral_27= 'int224' ) | (enumLiteral_28= 'int232' ) | (enumLiteral_29= 'int240' ) | (enumLiteral_30= 'int248' ) | (enumLiteral_31= 'int256' ) | (enumLiteral_32= 'uint' ) | (enumLiteral_33= 'uint8' ) | (enumLiteral_34= 'uint16' ) | (enumLiteral_35= 'uint24' ) | (enumLiteral_36= 'uint32' ) | (enumLiteral_37= 'uint40' ) | (enumLiteral_38= 'uint48' ) | (enumLiteral_39= 'uint56' ) | (enumLiteral_40= 'uint64' ) | (enumLiteral_41= 'uint72' ) | (enumLiteral_42= 'uint80' ) | (enumLiteral_43= 'uint88' ) | (enumLiteral_44= 'uint96' ) | (enumLiteral_45= 'uint104' ) | (enumLiteral_46= 'uint112' ) | (enumLiteral_47= 'uint120' ) | (enumLiteral_48= 'uint128' ) | (enumLiteral_49= 'uint136' ) | (enumLiteral_50= 'uint144' ) | (enumLiteral_51= 'uint152' ) | (enumLiteral_52= 'uint160' ) | (enumLiteral_53= 'uint168' ) | (enumLiteral_54= 'uint178' ) | (enumLiteral_55= 'uint184' ) | (enumLiteral_56= 'uint192' ) | (enumLiteral_57= 'uint200' ) | (enumLiteral_58= 'uint208' ) | (enumLiteral_59= 'uint216' ) | (enumLiteral_60= 'uint224' ) | (enumLiteral_61= 'uint232' ) | (enumLiteral_62= 'uint240' ) | (enumLiteral_63= 'uint248' ) | (enumLiteral_64= 'uint256' ) | (enumLiteral_65= 'byte' ) | (enumLiteral_66= 'bytes' ) | (enumLiteral_67= 'bytes1' ) | (enumLiteral_68= 'bytes2' ) | (enumLiteral_69= 'bytes3' ) | (enumLiteral_70= 'bytes4' ) | (enumLiteral_71= 'bytes5' ) | (enumLiteral_72= 'bytes6' ) | (enumLiteral_73= 'bytes7' ) | (enumLiteral_74= 'bytes8' ) | (enumLiteral_75= 'bytes9' ) | (enumLiteral_76= 'bytes10' ) | (enumLiteral_77= 'bytes11' ) | (enumLiteral_78= 'bytes12' ) | (enumLiteral_79= 'bytes13' ) | (enumLiteral_80= 'bytes14' ) | (enumLiteral_81= 'bytes15' ) | (enumLiteral_82= 'bytes16' ) | (enumLiteral_83= 'bytes17' ) | (enumLiteral_84= 'bytes18' ) | (enumLiteral_85= 'bytes19' ) | (enumLiteral_86= 'bytes20' ) | (enumLiteral_87= 'bytes21' ) | (enumLiteral_88= 'bytes22' ) | (enumLiteral_89= 'bytes23' ) | (enumLiteral_90= 'bytes24' ) | (enumLiteral_91= 'bytes25' ) | (enumLiteral_92= 'bytes26' ) | (enumLiteral_93= 'bytes27' ) | (enumLiteral_94= 'bytes28' ) | (enumLiteral_95= 'bytes29' ) | (enumLiteral_96= 'bytes30' ) | (enumLiteral_97= 'bytes31' ) | (enumLiteral_98= 'bytes32' ) | (enumLiteral_99= 'string' ) | (enumLiteral_100= 'address' ) | (enumLiteral_101= 'bool' ) | (enumLiteral_102= 'real' ) | (enumLiteral_103= 'ureal' ) )
             {
-            // InternalMyGrammar.g:6765:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'int16' ) | (enumLiteral_2= 'int24' ) | (enumLiteral_3= 'int32' ) | (enumLiteral_4= 'int40' ) | (enumLiteral_5= 'int48' ) | (enumLiteral_6= 'int56' ) | (enumLiteral_7= 'int64' ) | (enumLiteral_8= 'int72' ) | (enumLiteral_9= 'int80' ) | (enumLiteral_10= 'int88' ) | (enumLiteral_11= 'int96' ) | (enumLiteral_12= 'int104' ) | (enumLiteral_13= 'int112' ) | (enumLiteral_14= 'int120' ) | (enumLiteral_15= 'int128' ) | (enumLiteral_16= 'int136' ) | (enumLiteral_17= 'int144' ) | (enumLiteral_18= 'int152' ) | (enumLiteral_19= 'int160' ) | (enumLiteral_20= 'int168' ) | (enumLiteral_21= 'int178' ) | (enumLiteral_22= 'int184' ) | (enumLiteral_23= 'int192' ) | (enumLiteral_24= 'int200' ) | (enumLiteral_25= 'int208' ) | (enumLiteral_26= 'int216' ) | (enumLiteral_27= 'int224' ) | (enumLiteral_28= 'int232' ) | (enumLiteral_29= 'int240' ) | (enumLiteral_30= 'int248' ) | (enumLiteral_31= 'int256' ) | (enumLiteral_32= 'uint' ) | (enumLiteral_33= 'uint8' ) | (enumLiteral_34= 'uint16' ) | (enumLiteral_35= 'uint24' ) | (enumLiteral_36= 'uint32' ) | (enumLiteral_37= 'uint40' ) | (enumLiteral_38= 'uint48' ) | (enumLiteral_39= 'uint56' ) | (enumLiteral_40= 'uint64' ) | (enumLiteral_41= 'uint72' ) | (enumLiteral_42= 'uint80' ) | (enumLiteral_43= 'uint88' ) | (enumLiteral_44= 'uint96' ) | (enumLiteral_45= 'uint104' ) | (enumLiteral_46= 'uint112' ) | (enumLiteral_47= 'uint120' ) | (enumLiteral_48= 'uint128' ) | (enumLiteral_49= 'uint136' ) | (enumLiteral_50= 'uint144' ) | (enumLiteral_51= 'uint152' ) | (enumLiteral_52= 'uint160' ) | (enumLiteral_53= 'uint168' ) | (enumLiteral_54= 'uint178' ) | (enumLiteral_55= 'uint184' ) | (enumLiteral_56= 'uint192' ) | (enumLiteral_57= 'uint200' ) | (enumLiteral_58= 'uint208' ) | (enumLiteral_59= 'uint216' ) | (enumLiteral_60= 'uint224' ) | (enumLiteral_61= 'uint232' ) | (enumLiteral_62= 'uint240' ) | (enumLiteral_63= 'uint248' ) | (enumLiteral_64= 'uint256' ) | (enumLiteral_65= 'byte' ) | (enumLiteral_66= 'bytes' ) | (enumLiteral_67= 'bytes1' ) | (enumLiteral_68= 'bytes2' ) | (enumLiteral_69= 'bytes3' ) | (enumLiteral_70= 'bytes4' ) | (enumLiteral_71= 'bytes5' ) | (enumLiteral_72= 'bytes6' ) | (enumLiteral_73= 'bytes7' ) | (enumLiteral_74= 'bytes8' ) | (enumLiteral_75= 'bytes9' ) | (enumLiteral_76= 'bytes10' ) | (enumLiteral_77= 'bytes11' ) | (enumLiteral_78= 'bytes12' ) | (enumLiteral_79= 'bytes13' ) | (enumLiteral_80= 'bytes14' ) | (enumLiteral_81= 'bytes15' ) | (enumLiteral_82= 'bytes16' ) | (enumLiteral_83= 'bytes17' ) | (enumLiteral_84= 'bytes18' ) | (enumLiteral_85= 'bytes19' ) | (enumLiteral_86= 'bytes20' ) | (enumLiteral_87= 'bytes21' ) | (enumLiteral_88= 'bytes22' ) | (enumLiteral_89= 'bytes23' ) | (enumLiteral_90= 'bytes24' ) | (enumLiteral_91= 'bytes25' ) | (enumLiteral_92= 'bytes26' ) | (enumLiteral_93= 'bytes27' ) | (enumLiteral_94= 'bytes28' ) | (enumLiteral_95= 'bytes29' ) | (enumLiteral_96= 'bytes30' ) | (enumLiteral_97= 'bytes31' ) | (enumLiteral_98= 'bytes32' ) | (enumLiteral_99= 'string' ) | (enumLiteral_100= 'address' ) | (enumLiteral_101= 'bool' ) | (enumLiteral_102= 'real' ) | (enumLiteral_103= 'ureal' ) )
-            int alt102=104;
+            // InternalMyGrammar.g:7576:2: ( (enumLiteral_0= 'int' ) | (enumLiteral_1= 'int16' ) | (enumLiteral_2= 'int24' ) | (enumLiteral_3= 'int32' ) | (enumLiteral_4= 'int40' ) | (enumLiteral_5= 'int48' ) | (enumLiteral_6= 'int56' ) | (enumLiteral_7= 'int64' ) | (enumLiteral_8= 'int72' ) | (enumLiteral_9= 'int80' ) | (enumLiteral_10= 'int88' ) | (enumLiteral_11= 'int96' ) | (enumLiteral_12= 'int104' ) | (enumLiteral_13= 'int112' ) | (enumLiteral_14= 'int120' ) | (enumLiteral_15= 'int128' ) | (enumLiteral_16= 'int136' ) | (enumLiteral_17= 'int144' ) | (enumLiteral_18= 'int152' ) | (enumLiteral_19= 'int160' ) | (enumLiteral_20= 'int168' ) | (enumLiteral_21= 'int178' ) | (enumLiteral_22= 'int184' ) | (enumLiteral_23= 'int192' ) | (enumLiteral_24= 'int200' ) | (enumLiteral_25= 'int208' ) | (enumLiteral_26= 'int216' ) | (enumLiteral_27= 'int224' ) | (enumLiteral_28= 'int232' ) | (enumLiteral_29= 'int240' ) | (enumLiteral_30= 'int248' ) | (enumLiteral_31= 'int256' ) | (enumLiteral_32= 'uint' ) | (enumLiteral_33= 'uint8' ) | (enumLiteral_34= 'uint16' ) | (enumLiteral_35= 'uint24' ) | (enumLiteral_36= 'uint32' ) | (enumLiteral_37= 'uint40' ) | (enumLiteral_38= 'uint48' ) | (enumLiteral_39= 'uint56' ) | (enumLiteral_40= 'uint64' ) | (enumLiteral_41= 'uint72' ) | (enumLiteral_42= 'uint80' ) | (enumLiteral_43= 'uint88' ) | (enumLiteral_44= 'uint96' ) | (enumLiteral_45= 'uint104' ) | (enumLiteral_46= 'uint112' ) | (enumLiteral_47= 'uint120' ) | (enumLiteral_48= 'uint128' ) | (enumLiteral_49= 'uint136' ) | (enumLiteral_50= 'uint144' ) | (enumLiteral_51= 'uint152' ) | (enumLiteral_52= 'uint160' ) | (enumLiteral_53= 'uint168' ) | (enumLiteral_54= 'uint178' ) | (enumLiteral_55= 'uint184' ) | (enumLiteral_56= 'uint192' ) | (enumLiteral_57= 'uint200' ) | (enumLiteral_58= 'uint208' ) | (enumLiteral_59= 'uint216' ) | (enumLiteral_60= 'uint224' ) | (enumLiteral_61= 'uint232' ) | (enumLiteral_62= 'uint240' ) | (enumLiteral_63= 'uint248' ) | (enumLiteral_64= 'uint256' ) | (enumLiteral_65= 'byte' ) | (enumLiteral_66= 'bytes' ) | (enumLiteral_67= 'bytes1' ) | (enumLiteral_68= 'bytes2' ) | (enumLiteral_69= 'bytes3' ) | (enumLiteral_70= 'bytes4' ) | (enumLiteral_71= 'bytes5' ) | (enumLiteral_72= 'bytes6' ) | (enumLiteral_73= 'bytes7' ) | (enumLiteral_74= 'bytes8' ) | (enumLiteral_75= 'bytes9' ) | (enumLiteral_76= 'bytes10' ) | (enumLiteral_77= 'bytes11' ) | (enumLiteral_78= 'bytes12' ) | (enumLiteral_79= 'bytes13' ) | (enumLiteral_80= 'bytes14' ) | (enumLiteral_81= 'bytes15' ) | (enumLiteral_82= 'bytes16' ) | (enumLiteral_83= 'bytes17' ) | (enumLiteral_84= 'bytes18' ) | (enumLiteral_85= 'bytes19' ) | (enumLiteral_86= 'bytes20' ) | (enumLiteral_87= 'bytes21' ) | (enumLiteral_88= 'bytes22' ) | (enumLiteral_89= 'bytes23' ) | (enumLiteral_90= 'bytes24' ) | (enumLiteral_91= 'bytes25' ) | (enumLiteral_92= 'bytes26' ) | (enumLiteral_93= 'bytes27' ) | (enumLiteral_94= 'bytes28' ) | (enumLiteral_95= 'bytes29' ) | (enumLiteral_96= 'bytes30' ) | (enumLiteral_97= 'bytes31' ) | (enumLiteral_98= 'bytes32' ) | (enumLiteral_99= 'string' ) | (enumLiteral_100= 'address' ) | (enumLiteral_101= 'bool' ) | (enumLiteral_102= 'real' ) | (enumLiteral_103= 'ureal' ) )
+            int alt117=104;
             switch ( input.LA(1) ) {
-            case 72:
-                {
-                alt102=1;
-                }
-                break;
-            case 73:
-                {
-                alt102=2;
-                }
-                break;
-            case 74:
-                {
-                alt102=3;
-                }
-                break;
-            case 75:
-                {
-                alt102=4;
-                }
-                break;
             case 76:
                 {
-                alt102=5;
+                alt117=1;
                 }
                 break;
             case 77:
                 {
-                alt102=6;
+                alt117=2;
                 }
                 break;
             case 78:
                 {
-                alt102=7;
+                alt117=3;
                 }
                 break;
             case 79:
                 {
-                alt102=8;
+                alt117=4;
                 }
                 break;
             case 80:
                 {
-                alt102=9;
+                alt117=5;
                 }
                 break;
             case 81:
                 {
-                alt102=10;
+                alt117=6;
                 }
                 break;
             case 82:
                 {
-                alt102=11;
+                alt117=7;
                 }
                 break;
             case 83:
                 {
-                alt102=12;
+                alt117=8;
                 }
                 break;
             case 84:
                 {
-                alt102=13;
+                alt117=9;
                 }
                 break;
             case 85:
                 {
-                alt102=14;
+                alt117=10;
                 }
                 break;
             case 86:
                 {
-                alt102=15;
+                alt117=11;
                 }
                 break;
             case 87:
                 {
-                alt102=16;
+                alt117=12;
                 }
                 break;
             case 88:
                 {
-                alt102=17;
+                alt117=13;
                 }
                 break;
             case 89:
                 {
-                alt102=18;
+                alt117=14;
                 }
                 break;
             case 90:
                 {
-                alt102=19;
+                alt117=15;
                 }
                 break;
             case 91:
                 {
-                alt102=20;
+                alt117=16;
                 }
                 break;
             case 92:
                 {
-                alt102=21;
+                alt117=17;
                 }
                 break;
             case 93:
                 {
-                alt102=22;
+                alt117=18;
                 }
                 break;
             case 94:
                 {
-                alt102=23;
+                alt117=19;
                 }
                 break;
             case 95:
                 {
-                alt102=24;
+                alt117=20;
                 }
                 break;
             case 96:
                 {
-                alt102=25;
+                alt117=21;
                 }
                 break;
             case 97:
                 {
-                alt102=26;
+                alt117=22;
                 }
                 break;
             case 98:
                 {
-                alt102=27;
+                alt117=23;
                 }
                 break;
             case 99:
                 {
-                alt102=28;
+                alt117=24;
                 }
                 break;
             case 100:
                 {
-                alt102=29;
+                alt117=25;
                 }
                 break;
             case 101:
                 {
-                alt102=30;
+                alt117=26;
                 }
                 break;
             case 102:
                 {
-                alt102=31;
+                alt117=27;
                 }
                 break;
             case 103:
                 {
-                alt102=32;
+                alt117=28;
                 }
                 break;
             case 104:
                 {
-                alt102=33;
+                alt117=29;
                 }
                 break;
             case 105:
                 {
-                alt102=34;
+                alt117=30;
                 }
                 break;
             case 106:
                 {
-                alt102=35;
+                alt117=31;
                 }
                 break;
             case 107:
                 {
-                alt102=36;
+                alt117=32;
                 }
                 break;
             case 108:
                 {
-                alt102=37;
+                alt117=33;
                 }
                 break;
             case 109:
                 {
-                alt102=38;
+                alt117=34;
                 }
                 break;
             case 110:
                 {
-                alt102=39;
+                alt117=35;
                 }
                 break;
             case 111:
                 {
-                alt102=40;
+                alt117=36;
                 }
                 break;
             case 112:
                 {
-                alt102=41;
+                alt117=37;
                 }
                 break;
             case 113:
                 {
-                alt102=42;
+                alt117=38;
                 }
                 break;
             case 114:
                 {
-                alt102=43;
+                alt117=39;
                 }
                 break;
             case 115:
                 {
-                alt102=44;
+                alt117=40;
                 }
                 break;
             case 116:
                 {
-                alt102=45;
+                alt117=41;
                 }
                 break;
             case 117:
                 {
-                alt102=46;
+                alt117=42;
                 }
                 break;
             case 118:
                 {
-                alt102=47;
+                alt117=43;
                 }
                 break;
             case 119:
                 {
-                alt102=48;
+                alt117=44;
                 }
                 break;
             case 120:
                 {
-                alt102=49;
+                alt117=45;
                 }
                 break;
             case 121:
                 {
-                alt102=50;
+                alt117=46;
                 }
                 break;
             case 122:
                 {
-                alt102=51;
+                alt117=47;
                 }
                 break;
             case 123:
                 {
-                alt102=52;
+                alt117=48;
                 }
                 break;
             case 124:
                 {
-                alt102=53;
+                alt117=49;
                 }
                 break;
             case 125:
                 {
-                alt102=54;
+                alt117=50;
                 }
                 break;
             case 126:
                 {
-                alt102=55;
+                alt117=51;
                 }
                 break;
             case 127:
                 {
-                alt102=56;
+                alt117=52;
                 }
                 break;
             case 128:
                 {
-                alt102=57;
+                alt117=53;
                 }
                 break;
             case 129:
                 {
-                alt102=58;
+                alt117=54;
                 }
                 break;
             case 130:
                 {
-                alt102=59;
+                alt117=55;
                 }
                 break;
             case 131:
                 {
-                alt102=60;
+                alt117=56;
                 }
                 break;
             case 132:
                 {
-                alt102=61;
+                alt117=57;
                 }
                 break;
             case 133:
                 {
-                alt102=62;
+                alt117=58;
                 }
                 break;
             case 134:
                 {
-                alt102=63;
+                alt117=59;
                 }
                 break;
             case 135:
                 {
-                alt102=64;
+                alt117=60;
                 }
                 break;
             case 136:
                 {
-                alt102=65;
+                alt117=61;
                 }
                 break;
             case 137:
                 {
-                alt102=66;
+                alt117=62;
                 }
                 break;
             case 138:
                 {
-                alt102=67;
+                alt117=63;
                 }
                 break;
             case 139:
                 {
-                alt102=68;
+                alt117=64;
                 }
                 break;
             case 140:
                 {
-                alt102=69;
+                alt117=65;
                 }
                 break;
             case 141:
                 {
-                alt102=70;
+                alt117=66;
                 }
                 break;
             case 142:
                 {
-                alt102=71;
+                alt117=67;
                 }
                 break;
             case 143:
                 {
-                alt102=72;
+                alt117=68;
                 }
                 break;
             case 144:
                 {
-                alt102=73;
+                alt117=69;
                 }
                 break;
             case 145:
                 {
-                alt102=74;
+                alt117=70;
                 }
                 break;
             case 146:
                 {
-                alt102=75;
+                alt117=71;
                 }
                 break;
             case 147:
                 {
-                alt102=76;
+                alt117=72;
                 }
                 break;
             case 148:
                 {
-                alt102=77;
+                alt117=73;
                 }
                 break;
             case 149:
                 {
-                alt102=78;
+                alt117=74;
                 }
                 break;
             case 150:
                 {
-                alt102=79;
+                alt117=75;
                 }
                 break;
             case 151:
                 {
-                alt102=80;
+                alt117=76;
                 }
                 break;
             case 152:
                 {
-                alt102=81;
+                alt117=77;
                 }
                 break;
             case 153:
                 {
-                alt102=82;
+                alt117=78;
                 }
                 break;
             case 154:
                 {
-                alt102=83;
+                alt117=79;
                 }
                 break;
             case 155:
                 {
-                alt102=84;
+                alt117=80;
                 }
                 break;
             case 156:
                 {
-                alt102=85;
+                alt117=81;
                 }
                 break;
             case 157:
                 {
-                alt102=86;
+                alt117=82;
                 }
                 break;
             case 158:
                 {
-                alt102=87;
+                alt117=83;
                 }
                 break;
             case 159:
                 {
-                alt102=88;
+                alt117=84;
                 }
                 break;
             case 160:
                 {
-                alt102=89;
+                alt117=85;
                 }
                 break;
             case 161:
                 {
-                alt102=90;
+                alt117=86;
                 }
                 break;
             case 162:
                 {
-                alt102=91;
+                alt117=87;
                 }
                 break;
             case 163:
                 {
-                alt102=92;
+                alt117=88;
                 }
                 break;
             case 164:
                 {
-                alt102=93;
+                alt117=89;
                 }
                 break;
             case 165:
                 {
-                alt102=94;
+                alt117=90;
                 }
                 break;
             case 166:
                 {
-                alt102=95;
+                alt117=91;
                 }
                 break;
             case 167:
                 {
-                alt102=96;
+                alt117=92;
                 }
                 break;
             case 168:
                 {
-                alt102=97;
+                alt117=93;
                 }
                 break;
             case 169:
                 {
-                alt102=98;
+                alt117=94;
                 }
                 break;
             case 170:
                 {
-                alt102=99;
+                alt117=95;
                 }
                 break;
             case 171:
                 {
-                alt102=100;
+                alt117=96;
                 }
                 break;
             case 172:
                 {
-                alt102=101;
+                alt117=97;
                 }
                 break;
             case 173:
                 {
-                alt102=102;
+                alt117=98;
                 }
                 break;
             case 174:
                 {
-                alt102=103;
+                alt117=99;
                 }
                 break;
             case 175:
                 {
-                alt102=104;
+                alt117=100;
+                }
+                break;
+            case 176:
+                {
+                alt117=101;
+                }
+                break;
+            case 177:
+                {
+                alt117=102;
+                }
+                break;
+            case 178:
+                {
+                alt117=103;
+                }
+                break;
+            case 179:
+                {
+                alt117=104;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 102, 0, input);
+                    new NoViableAltException("", 117, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt102) {
+            switch (alt117) {
                 case 1 :
-                    // InternalMyGrammar.g:6766:3: (enumLiteral_0= 'int' )
+                    // InternalMyGrammar.g:7577:3: (enumLiteral_0= 'int' )
                     {
-                    // InternalMyGrammar.g:6766:3: (enumLiteral_0= 'int' )
-                    // InternalMyGrammar.g:6767:4: enumLiteral_0= 'int'
+                    // InternalMyGrammar.g:7577:3: (enumLiteral_0= 'int' )
+                    // InternalMyGrammar.g:7578:4: enumLiteral_0= 'int'
                     {
-                    enumLiteral_0=(Token)match(input,72,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,76,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -21228,12 +23505,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:6774:3: (enumLiteral_1= 'int16' )
+                    // InternalMyGrammar.g:7585:3: (enumLiteral_1= 'int16' )
                     {
-                    // InternalMyGrammar.g:6774:3: (enumLiteral_1= 'int16' )
-                    // InternalMyGrammar.g:6775:4: enumLiteral_1= 'int16'
+                    // InternalMyGrammar.g:7585:3: (enumLiteral_1= 'int16' )
+                    // InternalMyGrammar.g:7586:4: enumLiteral_1= 'int16'
                     {
-                    enumLiteral_1=(Token)match(input,73,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,77,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT16EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -21247,12 +23524,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:6782:3: (enumLiteral_2= 'int24' )
+                    // InternalMyGrammar.g:7593:3: (enumLiteral_2= 'int24' )
                     {
-                    // InternalMyGrammar.g:6782:3: (enumLiteral_2= 'int24' )
-                    // InternalMyGrammar.g:6783:4: enumLiteral_2= 'int24'
+                    // InternalMyGrammar.g:7593:3: (enumLiteral_2= 'int24' )
+                    // InternalMyGrammar.g:7594:4: enumLiteral_2= 'int24'
                     {
-                    enumLiteral_2=(Token)match(input,74,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,78,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT24EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -21266,12 +23543,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:6790:3: (enumLiteral_3= 'int32' )
+                    // InternalMyGrammar.g:7601:3: (enumLiteral_3= 'int32' )
                     {
-                    // InternalMyGrammar.g:6790:3: (enumLiteral_3= 'int32' )
-                    // InternalMyGrammar.g:6791:4: enumLiteral_3= 'int32'
+                    // InternalMyGrammar.g:7601:3: (enumLiteral_3= 'int32' )
+                    // InternalMyGrammar.g:7602:4: enumLiteral_3= 'int32'
                     {
-                    enumLiteral_3=(Token)match(input,75,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,79,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT32EnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -21285,12 +23562,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:6798:3: (enumLiteral_4= 'int40' )
+                    // InternalMyGrammar.g:7609:3: (enumLiteral_4= 'int40' )
                     {
-                    // InternalMyGrammar.g:6798:3: (enumLiteral_4= 'int40' )
-                    // InternalMyGrammar.g:6799:4: enumLiteral_4= 'int40'
+                    // InternalMyGrammar.g:7609:3: (enumLiteral_4= 'int40' )
+                    // InternalMyGrammar.g:7610:4: enumLiteral_4= 'int40'
                     {
-                    enumLiteral_4=(Token)match(input,76,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,80,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT40EnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -21304,12 +23581,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalMyGrammar.g:6806:3: (enumLiteral_5= 'int48' )
+                    // InternalMyGrammar.g:7617:3: (enumLiteral_5= 'int48' )
                     {
-                    // InternalMyGrammar.g:6806:3: (enumLiteral_5= 'int48' )
-                    // InternalMyGrammar.g:6807:4: enumLiteral_5= 'int48'
+                    // InternalMyGrammar.g:7617:3: (enumLiteral_5= 'int48' )
+                    // InternalMyGrammar.g:7618:4: enumLiteral_5= 'int48'
                     {
-                    enumLiteral_5=(Token)match(input,77,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,81,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT48EnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -21323,12 +23600,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalMyGrammar.g:6814:3: (enumLiteral_6= 'int56' )
+                    // InternalMyGrammar.g:7625:3: (enumLiteral_6= 'int56' )
                     {
-                    // InternalMyGrammar.g:6814:3: (enumLiteral_6= 'int56' )
-                    // InternalMyGrammar.g:6815:4: enumLiteral_6= 'int56'
+                    // InternalMyGrammar.g:7625:3: (enumLiteral_6= 'int56' )
+                    // InternalMyGrammar.g:7626:4: enumLiteral_6= 'int56'
                     {
-                    enumLiteral_6=(Token)match(input,78,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,82,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT56EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -21342,12 +23619,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalMyGrammar.g:6822:3: (enumLiteral_7= 'int64' )
+                    // InternalMyGrammar.g:7633:3: (enumLiteral_7= 'int64' )
                     {
-                    // InternalMyGrammar.g:6822:3: (enumLiteral_7= 'int64' )
-                    // InternalMyGrammar.g:6823:4: enumLiteral_7= 'int64'
+                    // InternalMyGrammar.g:7633:3: (enumLiteral_7= 'int64' )
+                    // InternalMyGrammar.g:7634:4: enumLiteral_7= 'int64'
                     {
-                    enumLiteral_7=(Token)match(input,79,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_7=(Token)match(input,83,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT64EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -21361,12 +23638,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalMyGrammar.g:6830:3: (enumLiteral_8= 'int72' )
+                    // InternalMyGrammar.g:7641:3: (enumLiteral_8= 'int72' )
                     {
-                    // InternalMyGrammar.g:6830:3: (enumLiteral_8= 'int72' )
-                    // InternalMyGrammar.g:6831:4: enumLiteral_8= 'int72'
+                    // InternalMyGrammar.g:7641:3: (enumLiteral_8= 'int72' )
+                    // InternalMyGrammar.g:7642:4: enumLiteral_8= 'int72'
                     {
-                    enumLiteral_8=(Token)match(input,80,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_8=(Token)match(input,84,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT72EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -21380,12 +23657,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalMyGrammar.g:6838:3: (enumLiteral_9= 'int80' )
+                    // InternalMyGrammar.g:7649:3: (enumLiteral_9= 'int80' )
                     {
-                    // InternalMyGrammar.g:6838:3: (enumLiteral_9= 'int80' )
-                    // InternalMyGrammar.g:6839:4: enumLiteral_9= 'int80'
+                    // InternalMyGrammar.g:7649:3: (enumLiteral_9= 'int80' )
+                    // InternalMyGrammar.g:7650:4: enumLiteral_9= 'int80'
                     {
-                    enumLiteral_9=(Token)match(input,81,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_9=(Token)match(input,85,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT80EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -21399,12 +23676,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalMyGrammar.g:6846:3: (enumLiteral_10= 'int88' )
+                    // InternalMyGrammar.g:7657:3: (enumLiteral_10= 'int88' )
                     {
-                    // InternalMyGrammar.g:6846:3: (enumLiteral_10= 'int88' )
-                    // InternalMyGrammar.g:6847:4: enumLiteral_10= 'int88'
+                    // InternalMyGrammar.g:7657:3: (enumLiteral_10= 'int88' )
+                    // InternalMyGrammar.g:7658:4: enumLiteral_10= 'int88'
                     {
-                    enumLiteral_10=(Token)match(input,82,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_10=(Token)match(input,86,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT88EnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -21418,12 +23695,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // InternalMyGrammar.g:6854:3: (enumLiteral_11= 'int96' )
+                    // InternalMyGrammar.g:7665:3: (enumLiteral_11= 'int96' )
                     {
-                    // InternalMyGrammar.g:6854:3: (enumLiteral_11= 'int96' )
-                    // InternalMyGrammar.g:6855:4: enumLiteral_11= 'int96'
+                    // InternalMyGrammar.g:7665:3: (enumLiteral_11= 'int96' )
+                    // InternalMyGrammar.g:7666:4: enumLiteral_11= 'int96'
                     {
-                    enumLiteral_11=(Token)match(input,83,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_11=(Token)match(input,87,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT96EnumLiteralDeclaration_11().getEnumLiteral().getInstance();
@@ -21437,12 +23714,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // InternalMyGrammar.g:6862:3: (enumLiteral_12= 'int104' )
+                    // InternalMyGrammar.g:7673:3: (enumLiteral_12= 'int104' )
                     {
-                    // InternalMyGrammar.g:6862:3: (enumLiteral_12= 'int104' )
-                    // InternalMyGrammar.g:6863:4: enumLiteral_12= 'int104'
+                    // InternalMyGrammar.g:7673:3: (enumLiteral_12= 'int104' )
+                    // InternalMyGrammar.g:7674:4: enumLiteral_12= 'int104'
                     {
-                    enumLiteral_12=(Token)match(input,84,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_12=(Token)match(input,88,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT104EnumLiteralDeclaration_12().getEnumLiteral().getInstance();
@@ -21456,12 +23733,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // InternalMyGrammar.g:6870:3: (enumLiteral_13= 'int112' )
+                    // InternalMyGrammar.g:7681:3: (enumLiteral_13= 'int112' )
                     {
-                    // InternalMyGrammar.g:6870:3: (enumLiteral_13= 'int112' )
-                    // InternalMyGrammar.g:6871:4: enumLiteral_13= 'int112'
+                    // InternalMyGrammar.g:7681:3: (enumLiteral_13= 'int112' )
+                    // InternalMyGrammar.g:7682:4: enumLiteral_13= 'int112'
                     {
-                    enumLiteral_13=(Token)match(input,85,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_13=(Token)match(input,89,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT112EnumLiteralDeclaration_13().getEnumLiteral().getInstance();
@@ -21475,12 +23752,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 15 :
-                    // InternalMyGrammar.g:6878:3: (enumLiteral_14= 'int120' )
+                    // InternalMyGrammar.g:7689:3: (enumLiteral_14= 'int120' )
                     {
-                    // InternalMyGrammar.g:6878:3: (enumLiteral_14= 'int120' )
-                    // InternalMyGrammar.g:6879:4: enumLiteral_14= 'int120'
+                    // InternalMyGrammar.g:7689:3: (enumLiteral_14= 'int120' )
+                    // InternalMyGrammar.g:7690:4: enumLiteral_14= 'int120'
                     {
-                    enumLiteral_14=(Token)match(input,86,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_14=(Token)match(input,90,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT120EnumLiteralDeclaration_14().getEnumLiteral().getInstance();
@@ -21494,12 +23771,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 16 :
-                    // InternalMyGrammar.g:6886:3: (enumLiteral_15= 'int128' )
+                    // InternalMyGrammar.g:7697:3: (enumLiteral_15= 'int128' )
                     {
-                    // InternalMyGrammar.g:6886:3: (enumLiteral_15= 'int128' )
-                    // InternalMyGrammar.g:6887:4: enumLiteral_15= 'int128'
+                    // InternalMyGrammar.g:7697:3: (enumLiteral_15= 'int128' )
+                    // InternalMyGrammar.g:7698:4: enumLiteral_15= 'int128'
                     {
-                    enumLiteral_15=(Token)match(input,87,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_15=(Token)match(input,91,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT128EnumLiteralDeclaration_15().getEnumLiteral().getInstance();
@@ -21513,12 +23790,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 17 :
-                    // InternalMyGrammar.g:6894:3: (enumLiteral_16= 'int136' )
+                    // InternalMyGrammar.g:7705:3: (enumLiteral_16= 'int136' )
                     {
-                    // InternalMyGrammar.g:6894:3: (enumLiteral_16= 'int136' )
-                    // InternalMyGrammar.g:6895:4: enumLiteral_16= 'int136'
+                    // InternalMyGrammar.g:7705:3: (enumLiteral_16= 'int136' )
+                    // InternalMyGrammar.g:7706:4: enumLiteral_16= 'int136'
                     {
-                    enumLiteral_16=(Token)match(input,88,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_16=(Token)match(input,92,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT136EnumLiteralDeclaration_16().getEnumLiteral().getInstance();
@@ -21532,12 +23809,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 18 :
-                    // InternalMyGrammar.g:6902:3: (enumLiteral_17= 'int144' )
+                    // InternalMyGrammar.g:7713:3: (enumLiteral_17= 'int144' )
                     {
-                    // InternalMyGrammar.g:6902:3: (enumLiteral_17= 'int144' )
-                    // InternalMyGrammar.g:6903:4: enumLiteral_17= 'int144'
+                    // InternalMyGrammar.g:7713:3: (enumLiteral_17= 'int144' )
+                    // InternalMyGrammar.g:7714:4: enumLiteral_17= 'int144'
                     {
-                    enumLiteral_17=(Token)match(input,89,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_17=(Token)match(input,93,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT144EnumLiteralDeclaration_17().getEnumLiteral().getInstance();
@@ -21551,12 +23828,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 19 :
-                    // InternalMyGrammar.g:6910:3: (enumLiteral_18= 'int152' )
+                    // InternalMyGrammar.g:7721:3: (enumLiteral_18= 'int152' )
                     {
-                    // InternalMyGrammar.g:6910:3: (enumLiteral_18= 'int152' )
-                    // InternalMyGrammar.g:6911:4: enumLiteral_18= 'int152'
+                    // InternalMyGrammar.g:7721:3: (enumLiteral_18= 'int152' )
+                    // InternalMyGrammar.g:7722:4: enumLiteral_18= 'int152'
                     {
-                    enumLiteral_18=(Token)match(input,90,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_18=(Token)match(input,94,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT152EnumLiteralDeclaration_18().getEnumLiteral().getInstance();
@@ -21570,12 +23847,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 20 :
-                    // InternalMyGrammar.g:6918:3: (enumLiteral_19= 'int160' )
+                    // InternalMyGrammar.g:7729:3: (enumLiteral_19= 'int160' )
                     {
-                    // InternalMyGrammar.g:6918:3: (enumLiteral_19= 'int160' )
-                    // InternalMyGrammar.g:6919:4: enumLiteral_19= 'int160'
+                    // InternalMyGrammar.g:7729:3: (enumLiteral_19= 'int160' )
+                    // InternalMyGrammar.g:7730:4: enumLiteral_19= 'int160'
                     {
-                    enumLiteral_19=(Token)match(input,91,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_19=(Token)match(input,95,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT160EnumLiteralDeclaration_19().getEnumLiteral().getInstance();
@@ -21589,12 +23866,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 21 :
-                    // InternalMyGrammar.g:6926:3: (enumLiteral_20= 'int168' )
+                    // InternalMyGrammar.g:7737:3: (enumLiteral_20= 'int168' )
                     {
-                    // InternalMyGrammar.g:6926:3: (enumLiteral_20= 'int168' )
-                    // InternalMyGrammar.g:6927:4: enumLiteral_20= 'int168'
+                    // InternalMyGrammar.g:7737:3: (enumLiteral_20= 'int168' )
+                    // InternalMyGrammar.g:7738:4: enumLiteral_20= 'int168'
                     {
-                    enumLiteral_20=(Token)match(input,92,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_20=(Token)match(input,96,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT168EnumLiteralDeclaration_20().getEnumLiteral().getInstance();
@@ -21608,12 +23885,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 22 :
-                    // InternalMyGrammar.g:6934:3: (enumLiteral_21= 'int178' )
+                    // InternalMyGrammar.g:7745:3: (enumLiteral_21= 'int178' )
                     {
-                    // InternalMyGrammar.g:6934:3: (enumLiteral_21= 'int178' )
-                    // InternalMyGrammar.g:6935:4: enumLiteral_21= 'int178'
+                    // InternalMyGrammar.g:7745:3: (enumLiteral_21= 'int178' )
+                    // InternalMyGrammar.g:7746:4: enumLiteral_21= 'int178'
                     {
-                    enumLiteral_21=(Token)match(input,93,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_21=(Token)match(input,97,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT178EnumLiteralDeclaration_21().getEnumLiteral().getInstance();
@@ -21627,12 +23904,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 23 :
-                    // InternalMyGrammar.g:6942:3: (enumLiteral_22= 'int184' )
+                    // InternalMyGrammar.g:7753:3: (enumLiteral_22= 'int184' )
                     {
-                    // InternalMyGrammar.g:6942:3: (enumLiteral_22= 'int184' )
-                    // InternalMyGrammar.g:6943:4: enumLiteral_22= 'int184'
+                    // InternalMyGrammar.g:7753:3: (enumLiteral_22= 'int184' )
+                    // InternalMyGrammar.g:7754:4: enumLiteral_22= 'int184'
                     {
-                    enumLiteral_22=(Token)match(input,94,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_22=(Token)match(input,98,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT184EnumLiteralDeclaration_22().getEnumLiteral().getInstance();
@@ -21646,12 +23923,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 24 :
-                    // InternalMyGrammar.g:6950:3: (enumLiteral_23= 'int192' )
+                    // InternalMyGrammar.g:7761:3: (enumLiteral_23= 'int192' )
                     {
-                    // InternalMyGrammar.g:6950:3: (enumLiteral_23= 'int192' )
-                    // InternalMyGrammar.g:6951:4: enumLiteral_23= 'int192'
+                    // InternalMyGrammar.g:7761:3: (enumLiteral_23= 'int192' )
+                    // InternalMyGrammar.g:7762:4: enumLiteral_23= 'int192'
                     {
-                    enumLiteral_23=(Token)match(input,95,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_23=(Token)match(input,99,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT192EnumLiteralDeclaration_23().getEnumLiteral().getInstance();
@@ -21665,12 +23942,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 25 :
-                    // InternalMyGrammar.g:6958:3: (enumLiteral_24= 'int200' )
+                    // InternalMyGrammar.g:7769:3: (enumLiteral_24= 'int200' )
                     {
-                    // InternalMyGrammar.g:6958:3: (enumLiteral_24= 'int200' )
-                    // InternalMyGrammar.g:6959:4: enumLiteral_24= 'int200'
+                    // InternalMyGrammar.g:7769:3: (enumLiteral_24= 'int200' )
+                    // InternalMyGrammar.g:7770:4: enumLiteral_24= 'int200'
                     {
-                    enumLiteral_24=(Token)match(input,96,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_24=(Token)match(input,100,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT200EnumLiteralDeclaration_24().getEnumLiteral().getInstance();
@@ -21684,12 +23961,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 26 :
-                    // InternalMyGrammar.g:6966:3: (enumLiteral_25= 'int208' )
+                    // InternalMyGrammar.g:7777:3: (enumLiteral_25= 'int208' )
                     {
-                    // InternalMyGrammar.g:6966:3: (enumLiteral_25= 'int208' )
-                    // InternalMyGrammar.g:6967:4: enumLiteral_25= 'int208'
+                    // InternalMyGrammar.g:7777:3: (enumLiteral_25= 'int208' )
+                    // InternalMyGrammar.g:7778:4: enumLiteral_25= 'int208'
                     {
-                    enumLiteral_25=(Token)match(input,97,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_25=(Token)match(input,101,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT208EnumLiteralDeclaration_25().getEnumLiteral().getInstance();
@@ -21703,12 +23980,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 27 :
-                    // InternalMyGrammar.g:6974:3: (enumLiteral_26= 'int216' )
+                    // InternalMyGrammar.g:7785:3: (enumLiteral_26= 'int216' )
                     {
-                    // InternalMyGrammar.g:6974:3: (enumLiteral_26= 'int216' )
-                    // InternalMyGrammar.g:6975:4: enumLiteral_26= 'int216'
+                    // InternalMyGrammar.g:7785:3: (enumLiteral_26= 'int216' )
+                    // InternalMyGrammar.g:7786:4: enumLiteral_26= 'int216'
                     {
-                    enumLiteral_26=(Token)match(input,98,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_26=(Token)match(input,102,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT216EnumLiteralDeclaration_26().getEnumLiteral().getInstance();
@@ -21722,12 +23999,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 28 :
-                    // InternalMyGrammar.g:6982:3: (enumLiteral_27= 'int224' )
+                    // InternalMyGrammar.g:7793:3: (enumLiteral_27= 'int224' )
                     {
-                    // InternalMyGrammar.g:6982:3: (enumLiteral_27= 'int224' )
-                    // InternalMyGrammar.g:6983:4: enumLiteral_27= 'int224'
+                    // InternalMyGrammar.g:7793:3: (enumLiteral_27= 'int224' )
+                    // InternalMyGrammar.g:7794:4: enumLiteral_27= 'int224'
                     {
-                    enumLiteral_27=(Token)match(input,99,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_27=(Token)match(input,103,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT224EnumLiteralDeclaration_27().getEnumLiteral().getInstance();
@@ -21741,12 +24018,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 29 :
-                    // InternalMyGrammar.g:6990:3: (enumLiteral_28= 'int232' )
+                    // InternalMyGrammar.g:7801:3: (enumLiteral_28= 'int232' )
                     {
-                    // InternalMyGrammar.g:6990:3: (enumLiteral_28= 'int232' )
-                    // InternalMyGrammar.g:6991:4: enumLiteral_28= 'int232'
+                    // InternalMyGrammar.g:7801:3: (enumLiteral_28= 'int232' )
+                    // InternalMyGrammar.g:7802:4: enumLiteral_28= 'int232'
                     {
-                    enumLiteral_28=(Token)match(input,100,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_28=(Token)match(input,104,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT232EnumLiteralDeclaration_28().getEnumLiteral().getInstance();
@@ -21760,12 +24037,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 30 :
-                    // InternalMyGrammar.g:6998:3: (enumLiteral_29= 'int240' )
+                    // InternalMyGrammar.g:7809:3: (enumLiteral_29= 'int240' )
                     {
-                    // InternalMyGrammar.g:6998:3: (enumLiteral_29= 'int240' )
-                    // InternalMyGrammar.g:6999:4: enumLiteral_29= 'int240'
+                    // InternalMyGrammar.g:7809:3: (enumLiteral_29= 'int240' )
+                    // InternalMyGrammar.g:7810:4: enumLiteral_29= 'int240'
                     {
-                    enumLiteral_29=(Token)match(input,101,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_29=(Token)match(input,105,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT240EnumLiteralDeclaration_29().getEnumLiteral().getInstance();
@@ -21779,12 +24056,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 31 :
-                    // InternalMyGrammar.g:7006:3: (enumLiteral_30= 'int248' )
+                    // InternalMyGrammar.g:7817:3: (enumLiteral_30= 'int248' )
                     {
-                    // InternalMyGrammar.g:7006:3: (enumLiteral_30= 'int248' )
-                    // InternalMyGrammar.g:7007:4: enumLiteral_30= 'int248'
+                    // InternalMyGrammar.g:7817:3: (enumLiteral_30= 'int248' )
+                    // InternalMyGrammar.g:7818:4: enumLiteral_30= 'int248'
                     {
-                    enumLiteral_30=(Token)match(input,102,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_30=(Token)match(input,106,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT248EnumLiteralDeclaration_30().getEnumLiteral().getInstance();
@@ -21798,12 +24075,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 32 :
-                    // InternalMyGrammar.g:7014:3: (enumLiteral_31= 'int256' )
+                    // InternalMyGrammar.g:7825:3: (enumLiteral_31= 'int256' )
                     {
-                    // InternalMyGrammar.g:7014:3: (enumLiteral_31= 'int256' )
-                    // InternalMyGrammar.g:7015:4: enumLiteral_31= 'int256'
+                    // InternalMyGrammar.g:7825:3: (enumLiteral_31= 'int256' )
+                    // InternalMyGrammar.g:7826:4: enumLiteral_31= 'int256'
                     {
-                    enumLiteral_31=(Token)match(input,103,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_31=(Token)match(input,107,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getINT256EnumLiteralDeclaration_31().getEnumLiteral().getInstance();
@@ -21817,12 +24094,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 33 :
-                    // InternalMyGrammar.g:7022:3: (enumLiteral_32= 'uint' )
+                    // InternalMyGrammar.g:7833:3: (enumLiteral_32= 'uint' )
                     {
-                    // InternalMyGrammar.g:7022:3: (enumLiteral_32= 'uint' )
-                    // InternalMyGrammar.g:7023:4: enumLiteral_32= 'uint'
+                    // InternalMyGrammar.g:7833:3: (enumLiteral_32= 'uint' )
+                    // InternalMyGrammar.g:7834:4: enumLiteral_32= 'uint'
                     {
-                    enumLiteral_32=(Token)match(input,104,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_32=(Token)match(input,108,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINTEnumLiteralDeclaration_32().getEnumLiteral().getInstance();
@@ -21836,12 +24113,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 34 :
-                    // InternalMyGrammar.g:7030:3: (enumLiteral_33= 'uint8' )
+                    // InternalMyGrammar.g:7841:3: (enumLiteral_33= 'uint8' )
                     {
-                    // InternalMyGrammar.g:7030:3: (enumLiteral_33= 'uint8' )
-                    // InternalMyGrammar.g:7031:4: enumLiteral_33= 'uint8'
+                    // InternalMyGrammar.g:7841:3: (enumLiteral_33= 'uint8' )
+                    // InternalMyGrammar.g:7842:4: enumLiteral_33= 'uint8'
                     {
-                    enumLiteral_33=(Token)match(input,105,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_33=(Token)match(input,109,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT8EnumLiteralDeclaration_33().getEnumLiteral().getInstance();
@@ -21855,12 +24132,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 35 :
-                    // InternalMyGrammar.g:7038:3: (enumLiteral_34= 'uint16' )
+                    // InternalMyGrammar.g:7849:3: (enumLiteral_34= 'uint16' )
                     {
-                    // InternalMyGrammar.g:7038:3: (enumLiteral_34= 'uint16' )
-                    // InternalMyGrammar.g:7039:4: enumLiteral_34= 'uint16'
+                    // InternalMyGrammar.g:7849:3: (enumLiteral_34= 'uint16' )
+                    // InternalMyGrammar.g:7850:4: enumLiteral_34= 'uint16'
                     {
-                    enumLiteral_34=(Token)match(input,106,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_34=(Token)match(input,110,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT16EnumLiteralDeclaration_34().getEnumLiteral().getInstance();
@@ -21874,12 +24151,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 36 :
-                    // InternalMyGrammar.g:7046:3: (enumLiteral_35= 'uint24' )
+                    // InternalMyGrammar.g:7857:3: (enumLiteral_35= 'uint24' )
                     {
-                    // InternalMyGrammar.g:7046:3: (enumLiteral_35= 'uint24' )
-                    // InternalMyGrammar.g:7047:4: enumLiteral_35= 'uint24'
+                    // InternalMyGrammar.g:7857:3: (enumLiteral_35= 'uint24' )
+                    // InternalMyGrammar.g:7858:4: enumLiteral_35= 'uint24'
                     {
-                    enumLiteral_35=(Token)match(input,107,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_35=(Token)match(input,111,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUNIT24EnumLiteralDeclaration_35().getEnumLiteral().getInstance();
@@ -21893,12 +24170,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 37 :
-                    // InternalMyGrammar.g:7054:3: (enumLiteral_36= 'uint32' )
+                    // InternalMyGrammar.g:7865:3: (enumLiteral_36= 'uint32' )
                     {
-                    // InternalMyGrammar.g:7054:3: (enumLiteral_36= 'uint32' )
-                    // InternalMyGrammar.g:7055:4: enumLiteral_36= 'uint32'
+                    // InternalMyGrammar.g:7865:3: (enumLiteral_36= 'uint32' )
+                    // InternalMyGrammar.g:7866:4: enumLiteral_36= 'uint32'
                     {
-                    enumLiteral_36=(Token)match(input,108,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_36=(Token)match(input,112,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT32EnumLiteralDeclaration_36().getEnumLiteral().getInstance();
@@ -21912,12 +24189,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 38 :
-                    // InternalMyGrammar.g:7062:3: (enumLiteral_37= 'uint40' )
+                    // InternalMyGrammar.g:7873:3: (enumLiteral_37= 'uint40' )
                     {
-                    // InternalMyGrammar.g:7062:3: (enumLiteral_37= 'uint40' )
-                    // InternalMyGrammar.g:7063:4: enumLiteral_37= 'uint40'
+                    // InternalMyGrammar.g:7873:3: (enumLiteral_37= 'uint40' )
+                    // InternalMyGrammar.g:7874:4: enumLiteral_37= 'uint40'
                     {
-                    enumLiteral_37=(Token)match(input,109,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_37=(Token)match(input,113,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT40EnumLiteralDeclaration_37().getEnumLiteral().getInstance();
@@ -21931,12 +24208,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 39 :
-                    // InternalMyGrammar.g:7070:3: (enumLiteral_38= 'uint48' )
+                    // InternalMyGrammar.g:7881:3: (enumLiteral_38= 'uint48' )
                     {
-                    // InternalMyGrammar.g:7070:3: (enumLiteral_38= 'uint48' )
-                    // InternalMyGrammar.g:7071:4: enumLiteral_38= 'uint48'
+                    // InternalMyGrammar.g:7881:3: (enumLiteral_38= 'uint48' )
+                    // InternalMyGrammar.g:7882:4: enumLiteral_38= 'uint48'
                     {
-                    enumLiteral_38=(Token)match(input,110,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_38=(Token)match(input,114,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT48EnumLiteralDeclaration_38().getEnumLiteral().getInstance();
@@ -21950,12 +24227,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 40 :
-                    // InternalMyGrammar.g:7078:3: (enumLiteral_39= 'uint56' )
+                    // InternalMyGrammar.g:7889:3: (enumLiteral_39= 'uint56' )
                     {
-                    // InternalMyGrammar.g:7078:3: (enumLiteral_39= 'uint56' )
-                    // InternalMyGrammar.g:7079:4: enumLiteral_39= 'uint56'
+                    // InternalMyGrammar.g:7889:3: (enumLiteral_39= 'uint56' )
+                    // InternalMyGrammar.g:7890:4: enumLiteral_39= 'uint56'
                     {
-                    enumLiteral_39=(Token)match(input,111,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_39=(Token)match(input,115,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUNIT56EnumLiteralDeclaration_39().getEnumLiteral().getInstance();
@@ -21969,12 +24246,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 41 :
-                    // InternalMyGrammar.g:7086:3: (enumLiteral_40= 'uint64' )
+                    // InternalMyGrammar.g:7897:3: (enumLiteral_40= 'uint64' )
                     {
-                    // InternalMyGrammar.g:7086:3: (enumLiteral_40= 'uint64' )
-                    // InternalMyGrammar.g:7087:4: enumLiteral_40= 'uint64'
+                    // InternalMyGrammar.g:7897:3: (enumLiteral_40= 'uint64' )
+                    // InternalMyGrammar.g:7898:4: enumLiteral_40= 'uint64'
                     {
-                    enumLiteral_40=(Token)match(input,112,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_40=(Token)match(input,116,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT64EnumLiteralDeclaration_40().getEnumLiteral().getInstance();
@@ -21988,12 +24265,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 42 :
-                    // InternalMyGrammar.g:7094:3: (enumLiteral_41= 'uint72' )
+                    // InternalMyGrammar.g:7905:3: (enumLiteral_41= 'uint72' )
                     {
-                    // InternalMyGrammar.g:7094:3: (enumLiteral_41= 'uint72' )
-                    // InternalMyGrammar.g:7095:4: enumLiteral_41= 'uint72'
+                    // InternalMyGrammar.g:7905:3: (enumLiteral_41= 'uint72' )
+                    // InternalMyGrammar.g:7906:4: enumLiteral_41= 'uint72'
                     {
-                    enumLiteral_41=(Token)match(input,113,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_41=(Token)match(input,117,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT72EnumLiteralDeclaration_41().getEnumLiteral().getInstance();
@@ -22007,12 +24284,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 43 :
-                    // InternalMyGrammar.g:7102:3: (enumLiteral_42= 'uint80' )
+                    // InternalMyGrammar.g:7913:3: (enumLiteral_42= 'uint80' )
                     {
-                    // InternalMyGrammar.g:7102:3: (enumLiteral_42= 'uint80' )
-                    // InternalMyGrammar.g:7103:4: enumLiteral_42= 'uint80'
+                    // InternalMyGrammar.g:7913:3: (enumLiteral_42= 'uint80' )
+                    // InternalMyGrammar.g:7914:4: enumLiteral_42= 'uint80'
                     {
-                    enumLiteral_42=(Token)match(input,114,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_42=(Token)match(input,118,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT80EnumLiteralDeclaration_42().getEnumLiteral().getInstance();
@@ -22026,12 +24303,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 44 :
-                    // InternalMyGrammar.g:7110:3: (enumLiteral_43= 'uint88' )
+                    // InternalMyGrammar.g:7921:3: (enumLiteral_43= 'uint88' )
                     {
-                    // InternalMyGrammar.g:7110:3: (enumLiteral_43= 'uint88' )
-                    // InternalMyGrammar.g:7111:4: enumLiteral_43= 'uint88'
+                    // InternalMyGrammar.g:7921:3: (enumLiteral_43= 'uint88' )
+                    // InternalMyGrammar.g:7922:4: enumLiteral_43= 'uint88'
                     {
-                    enumLiteral_43=(Token)match(input,115,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_43=(Token)match(input,119,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT88EnumLiteralDeclaration_43().getEnumLiteral().getInstance();
@@ -22045,12 +24322,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 45 :
-                    // InternalMyGrammar.g:7118:3: (enumLiteral_44= 'uint96' )
+                    // InternalMyGrammar.g:7929:3: (enumLiteral_44= 'uint96' )
                     {
-                    // InternalMyGrammar.g:7118:3: (enumLiteral_44= 'uint96' )
-                    // InternalMyGrammar.g:7119:4: enumLiteral_44= 'uint96'
+                    // InternalMyGrammar.g:7929:3: (enumLiteral_44= 'uint96' )
+                    // InternalMyGrammar.g:7930:4: enumLiteral_44= 'uint96'
                     {
-                    enumLiteral_44=(Token)match(input,116,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_44=(Token)match(input,120,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT96EnumLiteralDeclaration_44().getEnumLiteral().getInstance();
@@ -22064,12 +24341,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 46 :
-                    // InternalMyGrammar.g:7126:3: (enumLiteral_45= 'uint104' )
+                    // InternalMyGrammar.g:7937:3: (enumLiteral_45= 'uint104' )
                     {
-                    // InternalMyGrammar.g:7126:3: (enumLiteral_45= 'uint104' )
-                    // InternalMyGrammar.g:7127:4: enumLiteral_45= 'uint104'
+                    // InternalMyGrammar.g:7937:3: (enumLiteral_45= 'uint104' )
+                    // InternalMyGrammar.g:7938:4: enumLiteral_45= 'uint104'
                     {
-                    enumLiteral_45=(Token)match(input,117,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_45=(Token)match(input,121,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT104EnumLiteralDeclaration_45().getEnumLiteral().getInstance();
@@ -22083,12 +24360,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 47 :
-                    // InternalMyGrammar.g:7134:3: (enumLiteral_46= 'uint112' )
+                    // InternalMyGrammar.g:7945:3: (enumLiteral_46= 'uint112' )
                     {
-                    // InternalMyGrammar.g:7134:3: (enumLiteral_46= 'uint112' )
-                    // InternalMyGrammar.g:7135:4: enumLiteral_46= 'uint112'
+                    // InternalMyGrammar.g:7945:3: (enumLiteral_46= 'uint112' )
+                    // InternalMyGrammar.g:7946:4: enumLiteral_46= 'uint112'
                     {
-                    enumLiteral_46=(Token)match(input,118,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_46=(Token)match(input,122,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT112EnumLiteralDeclaration_46().getEnumLiteral().getInstance();
@@ -22102,12 +24379,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 48 :
-                    // InternalMyGrammar.g:7142:3: (enumLiteral_47= 'uint120' )
+                    // InternalMyGrammar.g:7953:3: (enumLiteral_47= 'uint120' )
                     {
-                    // InternalMyGrammar.g:7142:3: (enumLiteral_47= 'uint120' )
-                    // InternalMyGrammar.g:7143:4: enumLiteral_47= 'uint120'
+                    // InternalMyGrammar.g:7953:3: (enumLiteral_47= 'uint120' )
+                    // InternalMyGrammar.g:7954:4: enumLiteral_47= 'uint120'
                     {
-                    enumLiteral_47=(Token)match(input,119,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_47=(Token)match(input,123,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT120EnumLiteralDeclaration_47().getEnumLiteral().getInstance();
@@ -22121,12 +24398,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 49 :
-                    // InternalMyGrammar.g:7150:3: (enumLiteral_48= 'uint128' )
+                    // InternalMyGrammar.g:7961:3: (enumLiteral_48= 'uint128' )
                     {
-                    // InternalMyGrammar.g:7150:3: (enumLiteral_48= 'uint128' )
-                    // InternalMyGrammar.g:7151:4: enumLiteral_48= 'uint128'
+                    // InternalMyGrammar.g:7961:3: (enumLiteral_48= 'uint128' )
+                    // InternalMyGrammar.g:7962:4: enumLiteral_48= 'uint128'
                     {
-                    enumLiteral_48=(Token)match(input,120,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_48=(Token)match(input,124,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT128EnumLiteralDeclaration_48().getEnumLiteral().getInstance();
@@ -22140,12 +24417,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 50 :
-                    // InternalMyGrammar.g:7158:3: (enumLiteral_49= 'uint136' )
+                    // InternalMyGrammar.g:7969:3: (enumLiteral_49= 'uint136' )
                     {
-                    // InternalMyGrammar.g:7158:3: (enumLiteral_49= 'uint136' )
-                    // InternalMyGrammar.g:7159:4: enumLiteral_49= 'uint136'
+                    // InternalMyGrammar.g:7969:3: (enumLiteral_49= 'uint136' )
+                    // InternalMyGrammar.g:7970:4: enumLiteral_49= 'uint136'
                     {
-                    enumLiteral_49=(Token)match(input,121,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_49=(Token)match(input,125,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT136EnumLiteralDeclaration_49().getEnumLiteral().getInstance();
@@ -22159,12 +24436,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 51 :
-                    // InternalMyGrammar.g:7166:3: (enumLiteral_50= 'uint144' )
+                    // InternalMyGrammar.g:7977:3: (enumLiteral_50= 'uint144' )
                     {
-                    // InternalMyGrammar.g:7166:3: (enumLiteral_50= 'uint144' )
-                    // InternalMyGrammar.g:7167:4: enumLiteral_50= 'uint144'
+                    // InternalMyGrammar.g:7977:3: (enumLiteral_50= 'uint144' )
+                    // InternalMyGrammar.g:7978:4: enumLiteral_50= 'uint144'
                     {
-                    enumLiteral_50=(Token)match(input,122,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_50=(Token)match(input,126,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT144EnumLiteralDeclaration_50().getEnumLiteral().getInstance();
@@ -22178,12 +24455,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 52 :
-                    // InternalMyGrammar.g:7174:3: (enumLiteral_51= 'uint152' )
+                    // InternalMyGrammar.g:7985:3: (enumLiteral_51= 'uint152' )
                     {
-                    // InternalMyGrammar.g:7174:3: (enumLiteral_51= 'uint152' )
-                    // InternalMyGrammar.g:7175:4: enumLiteral_51= 'uint152'
+                    // InternalMyGrammar.g:7985:3: (enumLiteral_51= 'uint152' )
+                    // InternalMyGrammar.g:7986:4: enumLiteral_51= 'uint152'
                     {
-                    enumLiteral_51=(Token)match(input,123,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_51=(Token)match(input,127,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT152EnumLiteralDeclaration_51().getEnumLiteral().getInstance();
@@ -22197,12 +24474,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 53 :
-                    // InternalMyGrammar.g:7182:3: (enumLiteral_52= 'uint160' )
+                    // InternalMyGrammar.g:7993:3: (enumLiteral_52= 'uint160' )
                     {
-                    // InternalMyGrammar.g:7182:3: (enumLiteral_52= 'uint160' )
-                    // InternalMyGrammar.g:7183:4: enumLiteral_52= 'uint160'
+                    // InternalMyGrammar.g:7993:3: (enumLiteral_52= 'uint160' )
+                    // InternalMyGrammar.g:7994:4: enumLiteral_52= 'uint160'
                     {
-                    enumLiteral_52=(Token)match(input,124,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_52=(Token)match(input,128,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT160EnumLiteralDeclaration_52().getEnumLiteral().getInstance();
@@ -22216,12 +24493,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 54 :
-                    // InternalMyGrammar.g:7190:3: (enumLiteral_53= 'uint168' )
+                    // InternalMyGrammar.g:8001:3: (enumLiteral_53= 'uint168' )
                     {
-                    // InternalMyGrammar.g:7190:3: (enumLiteral_53= 'uint168' )
-                    // InternalMyGrammar.g:7191:4: enumLiteral_53= 'uint168'
+                    // InternalMyGrammar.g:8001:3: (enumLiteral_53= 'uint168' )
+                    // InternalMyGrammar.g:8002:4: enumLiteral_53= 'uint168'
                     {
-                    enumLiteral_53=(Token)match(input,125,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_53=(Token)match(input,129,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT168EnumLiteralDeclaration_53().getEnumLiteral().getInstance();
@@ -22235,12 +24512,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 55 :
-                    // InternalMyGrammar.g:7198:3: (enumLiteral_54= 'uint178' )
+                    // InternalMyGrammar.g:8009:3: (enumLiteral_54= 'uint178' )
                     {
-                    // InternalMyGrammar.g:7198:3: (enumLiteral_54= 'uint178' )
-                    // InternalMyGrammar.g:7199:4: enumLiteral_54= 'uint178'
+                    // InternalMyGrammar.g:8009:3: (enumLiteral_54= 'uint178' )
+                    // InternalMyGrammar.g:8010:4: enumLiteral_54= 'uint178'
                     {
-                    enumLiteral_54=(Token)match(input,126,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_54=(Token)match(input,130,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT178EnumLiteralDeclaration_54().getEnumLiteral().getInstance();
@@ -22254,12 +24531,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 56 :
-                    // InternalMyGrammar.g:7206:3: (enumLiteral_55= 'uint184' )
+                    // InternalMyGrammar.g:8017:3: (enumLiteral_55= 'uint184' )
                     {
-                    // InternalMyGrammar.g:7206:3: (enumLiteral_55= 'uint184' )
-                    // InternalMyGrammar.g:7207:4: enumLiteral_55= 'uint184'
+                    // InternalMyGrammar.g:8017:3: (enumLiteral_55= 'uint184' )
+                    // InternalMyGrammar.g:8018:4: enumLiteral_55= 'uint184'
                     {
-                    enumLiteral_55=(Token)match(input,127,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_55=(Token)match(input,131,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT184EnumLiteralDeclaration_55().getEnumLiteral().getInstance();
@@ -22273,12 +24550,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 57 :
-                    // InternalMyGrammar.g:7214:3: (enumLiteral_56= 'uint192' )
+                    // InternalMyGrammar.g:8025:3: (enumLiteral_56= 'uint192' )
                     {
-                    // InternalMyGrammar.g:7214:3: (enumLiteral_56= 'uint192' )
-                    // InternalMyGrammar.g:7215:4: enumLiteral_56= 'uint192'
+                    // InternalMyGrammar.g:8025:3: (enumLiteral_56= 'uint192' )
+                    // InternalMyGrammar.g:8026:4: enumLiteral_56= 'uint192'
                     {
-                    enumLiteral_56=(Token)match(input,128,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_56=(Token)match(input,132,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT192EnumLiteralDeclaration_56().getEnumLiteral().getInstance();
@@ -22292,12 +24569,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 58 :
-                    // InternalMyGrammar.g:7222:3: (enumLiteral_57= 'uint200' )
+                    // InternalMyGrammar.g:8033:3: (enumLiteral_57= 'uint200' )
                     {
-                    // InternalMyGrammar.g:7222:3: (enumLiteral_57= 'uint200' )
-                    // InternalMyGrammar.g:7223:4: enumLiteral_57= 'uint200'
+                    // InternalMyGrammar.g:8033:3: (enumLiteral_57= 'uint200' )
+                    // InternalMyGrammar.g:8034:4: enumLiteral_57= 'uint200'
                     {
-                    enumLiteral_57=(Token)match(input,129,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_57=(Token)match(input,133,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT200EnumLiteralDeclaration_57().getEnumLiteral().getInstance();
@@ -22311,12 +24588,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 59 :
-                    // InternalMyGrammar.g:7230:3: (enumLiteral_58= 'uint208' )
+                    // InternalMyGrammar.g:8041:3: (enumLiteral_58= 'uint208' )
                     {
-                    // InternalMyGrammar.g:7230:3: (enumLiteral_58= 'uint208' )
-                    // InternalMyGrammar.g:7231:4: enumLiteral_58= 'uint208'
+                    // InternalMyGrammar.g:8041:3: (enumLiteral_58= 'uint208' )
+                    // InternalMyGrammar.g:8042:4: enumLiteral_58= 'uint208'
                     {
-                    enumLiteral_58=(Token)match(input,130,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_58=(Token)match(input,134,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT208EnumLiteralDeclaration_58().getEnumLiteral().getInstance();
@@ -22330,12 +24607,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 60 :
-                    // InternalMyGrammar.g:7238:3: (enumLiteral_59= 'uint216' )
+                    // InternalMyGrammar.g:8049:3: (enumLiteral_59= 'uint216' )
                     {
-                    // InternalMyGrammar.g:7238:3: (enumLiteral_59= 'uint216' )
-                    // InternalMyGrammar.g:7239:4: enumLiteral_59= 'uint216'
+                    // InternalMyGrammar.g:8049:3: (enumLiteral_59= 'uint216' )
+                    // InternalMyGrammar.g:8050:4: enumLiteral_59= 'uint216'
                     {
-                    enumLiteral_59=(Token)match(input,131,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_59=(Token)match(input,135,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT216EnumLiteralDeclaration_59().getEnumLiteral().getInstance();
@@ -22349,12 +24626,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 61 :
-                    // InternalMyGrammar.g:7246:3: (enumLiteral_60= 'uint224' )
+                    // InternalMyGrammar.g:8057:3: (enumLiteral_60= 'uint224' )
                     {
-                    // InternalMyGrammar.g:7246:3: (enumLiteral_60= 'uint224' )
-                    // InternalMyGrammar.g:7247:4: enumLiteral_60= 'uint224'
+                    // InternalMyGrammar.g:8057:3: (enumLiteral_60= 'uint224' )
+                    // InternalMyGrammar.g:8058:4: enumLiteral_60= 'uint224'
                     {
-                    enumLiteral_60=(Token)match(input,132,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_60=(Token)match(input,136,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT244EnumLiteralDeclaration_60().getEnumLiteral().getInstance();
@@ -22368,12 +24645,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 62 :
-                    // InternalMyGrammar.g:7254:3: (enumLiteral_61= 'uint232' )
+                    // InternalMyGrammar.g:8065:3: (enumLiteral_61= 'uint232' )
                     {
-                    // InternalMyGrammar.g:7254:3: (enumLiteral_61= 'uint232' )
-                    // InternalMyGrammar.g:7255:4: enumLiteral_61= 'uint232'
+                    // InternalMyGrammar.g:8065:3: (enumLiteral_61= 'uint232' )
+                    // InternalMyGrammar.g:8066:4: enumLiteral_61= 'uint232'
                     {
-                    enumLiteral_61=(Token)match(input,133,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_61=(Token)match(input,137,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT232EnumLiteralDeclaration_61().getEnumLiteral().getInstance();
@@ -22387,12 +24664,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 63 :
-                    // InternalMyGrammar.g:7262:3: (enumLiteral_62= 'uint240' )
+                    // InternalMyGrammar.g:8073:3: (enumLiteral_62= 'uint240' )
                     {
-                    // InternalMyGrammar.g:7262:3: (enumLiteral_62= 'uint240' )
-                    // InternalMyGrammar.g:7263:4: enumLiteral_62= 'uint240'
+                    // InternalMyGrammar.g:8073:3: (enumLiteral_62= 'uint240' )
+                    // InternalMyGrammar.g:8074:4: enumLiteral_62= 'uint240'
                     {
-                    enumLiteral_62=(Token)match(input,134,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_62=(Token)match(input,138,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT240EnumLiteralDeclaration_62().getEnumLiteral().getInstance();
@@ -22406,12 +24683,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 64 :
-                    // InternalMyGrammar.g:7270:3: (enumLiteral_63= 'uint248' )
+                    // InternalMyGrammar.g:8081:3: (enumLiteral_63= 'uint248' )
                     {
-                    // InternalMyGrammar.g:7270:3: (enumLiteral_63= 'uint248' )
-                    // InternalMyGrammar.g:7271:4: enumLiteral_63= 'uint248'
+                    // InternalMyGrammar.g:8081:3: (enumLiteral_63= 'uint248' )
+                    // InternalMyGrammar.g:8082:4: enumLiteral_63= 'uint248'
                     {
-                    enumLiteral_63=(Token)match(input,135,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_63=(Token)match(input,139,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT248EnumLiteralDeclaration_63().getEnumLiteral().getInstance();
@@ -22425,12 +24702,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 65 :
-                    // InternalMyGrammar.g:7278:3: (enumLiteral_64= 'uint256' )
+                    // InternalMyGrammar.g:8089:3: (enumLiteral_64= 'uint256' )
                     {
-                    // InternalMyGrammar.g:7278:3: (enumLiteral_64= 'uint256' )
-                    // InternalMyGrammar.g:7279:4: enumLiteral_64= 'uint256'
+                    // InternalMyGrammar.g:8089:3: (enumLiteral_64= 'uint256' )
+                    // InternalMyGrammar.g:8090:4: enumLiteral_64= 'uint256'
                     {
-                    enumLiteral_64=(Token)match(input,136,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_64=(Token)match(input,140,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT256EnumLiteralDeclaration_64().getEnumLiteral().getInstance();
@@ -22444,12 +24721,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 66 :
-                    // InternalMyGrammar.g:7286:3: (enumLiteral_65= 'byte' )
+                    // InternalMyGrammar.g:8097:3: (enumLiteral_65= 'byte' )
                     {
-                    // InternalMyGrammar.g:7286:3: (enumLiteral_65= 'byte' )
-                    // InternalMyGrammar.g:7287:4: enumLiteral_65= 'byte'
+                    // InternalMyGrammar.g:8097:3: (enumLiteral_65= 'byte' )
+                    // InternalMyGrammar.g:8098:4: enumLiteral_65= 'byte'
                     {
-                    enumLiteral_65=(Token)match(input,137,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_65=(Token)match(input,141,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTEEnumLiteralDeclaration_65().getEnumLiteral().getInstance();
@@ -22463,12 +24740,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 67 :
-                    // InternalMyGrammar.g:7294:3: (enumLiteral_66= 'bytes' )
+                    // InternalMyGrammar.g:8105:3: (enumLiteral_66= 'bytes' )
                     {
-                    // InternalMyGrammar.g:7294:3: (enumLiteral_66= 'bytes' )
-                    // InternalMyGrammar.g:7295:4: enumLiteral_66= 'bytes'
+                    // InternalMyGrammar.g:8105:3: (enumLiteral_66= 'bytes' )
+                    // InternalMyGrammar.g:8106:4: enumLiteral_66= 'bytes'
                     {
-                    enumLiteral_66=(Token)match(input,138,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_66=(Token)match(input,142,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTESEnumLiteralDeclaration_66().getEnumLiteral().getInstance();
@@ -22482,12 +24759,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 68 :
-                    // InternalMyGrammar.g:7302:3: (enumLiteral_67= 'bytes1' )
+                    // InternalMyGrammar.g:8113:3: (enumLiteral_67= 'bytes1' )
                     {
-                    // InternalMyGrammar.g:7302:3: (enumLiteral_67= 'bytes1' )
-                    // InternalMyGrammar.g:7303:4: enumLiteral_67= 'bytes1'
+                    // InternalMyGrammar.g:8113:3: (enumLiteral_67= 'bytes1' )
+                    // InternalMyGrammar.g:8114:4: enumLiteral_67= 'bytes1'
                     {
-                    enumLiteral_67=(Token)match(input,139,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_67=(Token)match(input,143,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES1EnumLiteralDeclaration_67().getEnumLiteral().getInstance();
@@ -22501,12 +24778,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 69 :
-                    // InternalMyGrammar.g:7310:3: (enumLiteral_68= 'bytes2' )
+                    // InternalMyGrammar.g:8121:3: (enumLiteral_68= 'bytes2' )
                     {
-                    // InternalMyGrammar.g:7310:3: (enumLiteral_68= 'bytes2' )
-                    // InternalMyGrammar.g:7311:4: enumLiteral_68= 'bytes2'
+                    // InternalMyGrammar.g:8121:3: (enumLiteral_68= 'bytes2' )
+                    // InternalMyGrammar.g:8122:4: enumLiteral_68= 'bytes2'
                     {
-                    enumLiteral_68=(Token)match(input,140,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_68=(Token)match(input,144,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES2EnumLiteralDeclaration_68().getEnumLiteral().getInstance();
@@ -22520,12 +24797,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 70 :
-                    // InternalMyGrammar.g:7318:3: (enumLiteral_69= 'bytes3' )
+                    // InternalMyGrammar.g:8129:3: (enumLiteral_69= 'bytes3' )
                     {
-                    // InternalMyGrammar.g:7318:3: (enumLiteral_69= 'bytes3' )
-                    // InternalMyGrammar.g:7319:4: enumLiteral_69= 'bytes3'
+                    // InternalMyGrammar.g:8129:3: (enumLiteral_69= 'bytes3' )
+                    // InternalMyGrammar.g:8130:4: enumLiteral_69= 'bytes3'
                     {
-                    enumLiteral_69=(Token)match(input,141,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_69=(Token)match(input,145,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES3EnumLiteralDeclaration_69().getEnumLiteral().getInstance();
@@ -22539,12 +24816,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 71 :
-                    // InternalMyGrammar.g:7326:3: (enumLiteral_70= 'bytes4' )
+                    // InternalMyGrammar.g:8137:3: (enumLiteral_70= 'bytes4' )
                     {
-                    // InternalMyGrammar.g:7326:3: (enumLiteral_70= 'bytes4' )
-                    // InternalMyGrammar.g:7327:4: enumLiteral_70= 'bytes4'
+                    // InternalMyGrammar.g:8137:3: (enumLiteral_70= 'bytes4' )
+                    // InternalMyGrammar.g:8138:4: enumLiteral_70= 'bytes4'
                     {
-                    enumLiteral_70=(Token)match(input,142,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_70=(Token)match(input,146,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES4EnumLiteralDeclaration_70().getEnumLiteral().getInstance();
@@ -22558,12 +24835,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 72 :
-                    // InternalMyGrammar.g:7334:3: (enumLiteral_71= 'bytes5' )
+                    // InternalMyGrammar.g:8145:3: (enumLiteral_71= 'bytes5' )
                     {
-                    // InternalMyGrammar.g:7334:3: (enumLiteral_71= 'bytes5' )
-                    // InternalMyGrammar.g:7335:4: enumLiteral_71= 'bytes5'
+                    // InternalMyGrammar.g:8145:3: (enumLiteral_71= 'bytes5' )
+                    // InternalMyGrammar.g:8146:4: enumLiteral_71= 'bytes5'
                     {
-                    enumLiteral_71=(Token)match(input,143,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_71=(Token)match(input,147,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES5EnumLiteralDeclaration_71().getEnumLiteral().getInstance();
@@ -22577,12 +24854,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 73 :
-                    // InternalMyGrammar.g:7342:3: (enumLiteral_72= 'bytes6' )
+                    // InternalMyGrammar.g:8153:3: (enumLiteral_72= 'bytes6' )
                     {
-                    // InternalMyGrammar.g:7342:3: (enumLiteral_72= 'bytes6' )
-                    // InternalMyGrammar.g:7343:4: enumLiteral_72= 'bytes6'
+                    // InternalMyGrammar.g:8153:3: (enumLiteral_72= 'bytes6' )
+                    // InternalMyGrammar.g:8154:4: enumLiteral_72= 'bytes6'
                     {
-                    enumLiteral_72=(Token)match(input,144,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_72=(Token)match(input,148,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES6EnumLiteralDeclaration_72().getEnumLiteral().getInstance();
@@ -22596,12 +24873,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 74 :
-                    // InternalMyGrammar.g:7350:3: (enumLiteral_73= 'bytes7' )
+                    // InternalMyGrammar.g:8161:3: (enumLiteral_73= 'bytes7' )
                     {
-                    // InternalMyGrammar.g:7350:3: (enumLiteral_73= 'bytes7' )
-                    // InternalMyGrammar.g:7351:4: enumLiteral_73= 'bytes7'
+                    // InternalMyGrammar.g:8161:3: (enumLiteral_73= 'bytes7' )
+                    // InternalMyGrammar.g:8162:4: enumLiteral_73= 'bytes7'
                     {
-                    enumLiteral_73=(Token)match(input,145,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_73=(Token)match(input,149,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES7EnumLiteralDeclaration_73().getEnumLiteral().getInstance();
@@ -22615,12 +24892,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 75 :
-                    // InternalMyGrammar.g:7358:3: (enumLiteral_74= 'bytes8' )
+                    // InternalMyGrammar.g:8169:3: (enumLiteral_74= 'bytes8' )
                     {
-                    // InternalMyGrammar.g:7358:3: (enumLiteral_74= 'bytes8' )
-                    // InternalMyGrammar.g:7359:4: enumLiteral_74= 'bytes8'
+                    // InternalMyGrammar.g:8169:3: (enumLiteral_74= 'bytes8' )
+                    // InternalMyGrammar.g:8170:4: enumLiteral_74= 'bytes8'
                     {
-                    enumLiteral_74=(Token)match(input,146,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_74=(Token)match(input,150,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES8EnumLiteralDeclaration_74().getEnumLiteral().getInstance();
@@ -22634,12 +24911,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 76 :
-                    // InternalMyGrammar.g:7366:3: (enumLiteral_75= 'bytes9' )
+                    // InternalMyGrammar.g:8177:3: (enumLiteral_75= 'bytes9' )
                     {
-                    // InternalMyGrammar.g:7366:3: (enumLiteral_75= 'bytes9' )
-                    // InternalMyGrammar.g:7367:4: enumLiteral_75= 'bytes9'
+                    // InternalMyGrammar.g:8177:3: (enumLiteral_75= 'bytes9' )
+                    // InternalMyGrammar.g:8178:4: enumLiteral_75= 'bytes9'
                     {
-                    enumLiteral_75=(Token)match(input,147,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_75=(Token)match(input,151,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES9EnumLiteralDeclaration_75().getEnumLiteral().getInstance();
@@ -22653,12 +24930,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 77 :
-                    // InternalMyGrammar.g:7374:3: (enumLiteral_76= 'bytes10' )
+                    // InternalMyGrammar.g:8185:3: (enumLiteral_76= 'bytes10' )
                     {
-                    // InternalMyGrammar.g:7374:3: (enumLiteral_76= 'bytes10' )
-                    // InternalMyGrammar.g:7375:4: enumLiteral_76= 'bytes10'
+                    // InternalMyGrammar.g:8185:3: (enumLiteral_76= 'bytes10' )
+                    // InternalMyGrammar.g:8186:4: enumLiteral_76= 'bytes10'
                     {
-                    enumLiteral_76=(Token)match(input,148,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_76=(Token)match(input,152,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES10EnumLiteralDeclaration_76().getEnumLiteral().getInstance();
@@ -22672,12 +24949,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 78 :
-                    // InternalMyGrammar.g:7382:3: (enumLiteral_77= 'bytes11' )
+                    // InternalMyGrammar.g:8193:3: (enumLiteral_77= 'bytes11' )
                     {
-                    // InternalMyGrammar.g:7382:3: (enumLiteral_77= 'bytes11' )
-                    // InternalMyGrammar.g:7383:4: enumLiteral_77= 'bytes11'
+                    // InternalMyGrammar.g:8193:3: (enumLiteral_77= 'bytes11' )
+                    // InternalMyGrammar.g:8194:4: enumLiteral_77= 'bytes11'
                     {
-                    enumLiteral_77=(Token)match(input,149,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_77=(Token)match(input,153,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES11EnumLiteralDeclaration_77().getEnumLiteral().getInstance();
@@ -22691,12 +24968,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 79 :
-                    // InternalMyGrammar.g:7390:3: (enumLiteral_78= 'bytes12' )
+                    // InternalMyGrammar.g:8201:3: (enumLiteral_78= 'bytes12' )
                     {
-                    // InternalMyGrammar.g:7390:3: (enumLiteral_78= 'bytes12' )
-                    // InternalMyGrammar.g:7391:4: enumLiteral_78= 'bytes12'
+                    // InternalMyGrammar.g:8201:3: (enumLiteral_78= 'bytes12' )
+                    // InternalMyGrammar.g:8202:4: enumLiteral_78= 'bytes12'
                     {
-                    enumLiteral_78=(Token)match(input,150,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_78=(Token)match(input,154,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES12EnumLiteralDeclaration_78().getEnumLiteral().getInstance();
@@ -22710,12 +24987,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 80 :
-                    // InternalMyGrammar.g:7398:3: (enumLiteral_79= 'bytes13' )
+                    // InternalMyGrammar.g:8209:3: (enumLiteral_79= 'bytes13' )
                     {
-                    // InternalMyGrammar.g:7398:3: (enumLiteral_79= 'bytes13' )
-                    // InternalMyGrammar.g:7399:4: enumLiteral_79= 'bytes13'
+                    // InternalMyGrammar.g:8209:3: (enumLiteral_79= 'bytes13' )
+                    // InternalMyGrammar.g:8210:4: enumLiteral_79= 'bytes13'
                     {
-                    enumLiteral_79=(Token)match(input,151,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_79=(Token)match(input,155,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES13EnumLiteralDeclaration_79().getEnumLiteral().getInstance();
@@ -22729,12 +25006,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 81 :
-                    // InternalMyGrammar.g:7406:3: (enumLiteral_80= 'bytes14' )
+                    // InternalMyGrammar.g:8217:3: (enumLiteral_80= 'bytes14' )
                     {
-                    // InternalMyGrammar.g:7406:3: (enumLiteral_80= 'bytes14' )
-                    // InternalMyGrammar.g:7407:4: enumLiteral_80= 'bytes14'
+                    // InternalMyGrammar.g:8217:3: (enumLiteral_80= 'bytes14' )
+                    // InternalMyGrammar.g:8218:4: enumLiteral_80= 'bytes14'
                     {
-                    enumLiteral_80=(Token)match(input,152,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_80=(Token)match(input,156,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES14EnumLiteralDeclaration_80().getEnumLiteral().getInstance();
@@ -22748,12 +25025,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 82 :
-                    // InternalMyGrammar.g:7414:3: (enumLiteral_81= 'bytes15' )
+                    // InternalMyGrammar.g:8225:3: (enumLiteral_81= 'bytes15' )
                     {
-                    // InternalMyGrammar.g:7414:3: (enumLiteral_81= 'bytes15' )
-                    // InternalMyGrammar.g:7415:4: enumLiteral_81= 'bytes15'
+                    // InternalMyGrammar.g:8225:3: (enumLiteral_81= 'bytes15' )
+                    // InternalMyGrammar.g:8226:4: enumLiteral_81= 'bytes15'
                     {
-                    enumLiteral_81=(Token)match(input,153,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_81=(Token)match(input,157,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES15EnumLiteralDeclaration_81().getEnumLiteral().getInstance();
@@ -22767,12 +25044,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 83 :
-                    // InternalMyGrammar.g:7422:3: (enumLiteral_82= 'bytes16' )
+                    // InternalMyGrammar.g:8233:3: (enumLiteral_82= 'bytes16' )
                     {
-                    // InternalMyGrammar.g:7422:3: (enumLiteral_82= 'bytes16' )
-                    // InternalMyGrammar.g:7423:4: enumLiteral_82= 'bytes16'
+                    // InternalMyGrammar.g:8233:3: (enumLiteral_82= 'bytes16' )
+                    // InternalMyGrammar.g:8234:4: enumLiteral_82= 'bytes16'
                     {
-                    enumLiteral_82=(Token)match(input,154,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_82=(Token)match(input,158,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES16EnumLiteralDeclaration_82().getEnumLiteral().getInstance();
@@ -22786,12 +25063,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 84 :
-                    // InternalMyGrammar.g:7430:3: (enumLiteral_83= 'bytes17' )
+                    // InternalMyGrammar.g:8241:3: (enumLiteral_83= 'bytes17' )
                     {
-                    // InternalMyGrammar.g:7430:3: (enumLiteral_83= 'bytes17' )
-                    // InternalMyGrammar.g:7431:4: enumLiteral_83= 'bytes17'
+                    // InternalMyGrammar.g:8241:3: (enumLiteral_83= 'bytes17' )
+                    // InternalMyGrammar.g:8242:4: enumLiteral_83= 'bytes17'
                     {
-                    enumLiteral_83=(Token)match(input,155,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_83=(Token)match(input,159,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES17EnumLiteralDeclaration_83().getEnumLiteral().getInstance();
@@ -22805,12 +25082,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 85 :
-                    // InternalMyGrammar.g:7438:3: (enumLiteral_84= 'bytes18' )
+                    // InternalMyGrammar.g:8249:3: (enumLiteral_84= 'bytes18' )
                     {
-                    // InternalMyGrammar.g:7438:3: (enumLiteral_84= 'bytes18' )
-                    // InternalMyGrammar.g:7439:4: enumLiteral_84= 'bytes18'
+                    // InternalMyGrammar.g:8249:3: (enumLiteral_84= 'bytes18' )
+                    // InternalMyGrammar.g:8250:4: enumLiteral_84= 'bytes18'
                     {
-                    enumLiteral_84=(Token)match(input,156,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_84=(Token)match(input,160,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES18EnumLiteralDeclaration_84().getEnumLiteral().getInstance();
@@ -22824,12 +25101,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 86 :
-                    // InternalMyGrammar.g:7446:3: (enumLiteral_85= 'bytes19' )
+                    // InternalMyGrammar.g:8257:3: (enumLiteral_85= 'bytes19' )
                     {
-                    // InternalMyGrammar.g:7446:3: (enumLiteral_85= 'bytes19' )
-                    // InternalMyGrammar.g:7447:4: enumLiteral_85= 'bytes19'
+                    // InternalMyGrammar.g:8257:3: (enumLiteral_85= 'bytes19' )
+                    // InternalMyGrammar.g:8258:4: enumLiteral_85= 'bytes19'
                     {
-                    enumLiteral_85=(Token)match(input,157,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_85=(Token)match(input,161,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES19EnumLiteralDeclaration_85().getEnumLiteral().getInstance();
@@ -22843,12 +25120,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 87 :
-                    // InternalMyGrammar.g:7454:3: (enumLiteral_86= 'bytes20' )
+                    // InternalMyGrammar.g:8265:3: (enumLiteral_86= 'bytes20' )
                     {
-                    // InternalMyGrammar.g:7454:3: (enumLiteral_86= 'bytes20' )
-                    // InternalMyGrammar.g:7455:4: enumLiteral_86= 'bytes20'
+                    // InternalMyGrammar.g:8265:3: (enumLiteral_86= 'bytes20' )
+                    // InternalMyGrammar.g:8266:4: enumLiteral_86= 'bytes20'
                     {
-                    enumLiteral_86=(Token)match(input,158,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_86=(Token)match(input,162,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES20EnumLiteralDeclaration_86().getEnumLiteral().getInstance();
@@ -22862,12 +25139,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 88 :
-                    // InternalMyGrammar.g:7462:3: (enumLiteral_87= 'bytes21' )
+                    // InternalMyGrammar.g:8273:3: (enumLiteral_87= 'bytes21' )
                     {
-                    // InternalMyGrammar.g:7462:3: (enumLiteral_87= 'bytes21' )
-                    // InternalMyGrammar.g:7463:4: enumLiteral_87= 'bytes21'
+                    // InternalMyGrammar.g:8273:3: (enumLiteral_87= 'bytes21' )
+                    // InternalMyGrammar.g:8274:4: enumLiteral_87= 'bytes21'
                     {
-                    enumLiteral_87=(Token)match(input,159,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_87=(Token)match(input,163,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES21EnumLiteralDeclaration_87().getEnumLiteral().getInstance();
@@ -22881,12 +25158,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 89 :
-                    // InternalMyGrammar.g:7470:3: (enumLiteral_88= 'bytes22' )
+                    // InternalMyGrammar.g:8281:3: (enumLiteral_88= 'bytes22' )
                     {
-                    // InternalMyGrammar.g:7470:3: (enumLiteral_88= 'bytes22' )
-                    // InternalMyGrammar.g:7471:4: enumLiteral_88= 'bytes22'
+                    // InternalMyGrammar.g:8281:3: (enumLiteral_88= 'bytes22' )
+                    // InternalMyGrammar.g:8282:4: enumLiteral_88= 'bytes22'
                     {
-                    enumLiteral_88=(Token)match(input,160,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_88=(Token)match(input,164,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES22EnumLiteralDeclaration_88().getEnumLiteral().getInstance();
@@ -22900,12 +25177,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 90 :
-                    // InternalMyGrammar.g:7478:3: (enumLiteral_89= 'bytes23' )
+                    // InternalMyGrammar.g:8289:3: (enumLiteral_89= 'bytes23' )
                     {
-                    // InternalMyGrammar.g:7478:3: (enumLiteral_89= 'bytes23' )
-                    // InternalMyGrammar.g:7479:4: enumLiteral_89= 'bytes23'
+                    // InternalMyGrammar.g:8289:3: (enumLiteral_89= 'bytes23' )
+                    // InternalMyGrammar.g:8290:4: enumLiteral_89= 'bytes23'
                     {
-                    enumLiteral_89=(Token)match(input,161,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_89=(Token)match(input,165,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES23EnumLiteralDeclaration_89().getEnumLiteral().getInstance();
@@ -22919,12 +25196,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 91 :
-                    // InternalMyGrammar.g:7486:3: (enumLiteral_90= 'bytes24' )
+                    // InternalMyGrammar.g:8297:3: (enumLiteral_90= 'bytes24' )
                     {
-                    // InternalMyGrammar.g:7486:3: (enumLiteral_90= 'bytes24' )
-                    // InternalMyGrammar.g:7487:4: enumLiteral_90= 'bytes24'
+                    // InternalMyGrammar.g:8297:3: (enumLiteral_90= 'bytes24' )
+                    // InternalMyGrammar.g:8298:4: enumLiteral_90= 'bytes24'
                     {
-                    enumLiteral_90=(Token)match(input,162,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_90=(Token)match(input,166,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES24EnumLiteralDeclaration_90().getEnumLiteral().getInstance();
@@ -22938,12 +25215,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 92 :
-                    // InternalMyGrammar.g:7494:3: (enumLiteral_91= 'bytes25' )
+                    // InternalMyGrammar.g:8305:3: (enumLiteral_91= 'bytes25' )
                     {
-                    // InternalMyGrammar.g:7494:3: (enumLiteral_91= 'bytes25' )
-                    // InternalMyGrammar.g:7495:4: enumLiteral_91= 'bytes25'
+                    // InternalMyGrammar.g:8305:3: (enumLiteral_91= 'bytes25' )
+                    // InternalMyGrammar.g:8306:4: enumLiteral_91= 'bytes25'
                     {
-                    enumLiteral_91=(Token)match(input,163,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_91=(Token)match(input,167,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES25EnumLiteralDeclaration_91().getEnumLiteral().getInstance();
@@ -22957,12 +25234,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 93 :
-                    // InternalMyGrammar.g:7502:3: (enumLiteral_92= 'bytes26' )
+                    // InternalMyGrammar.g:8313:3: (enumLiteral_92= 'bytes26' )
                     {
-                    // InternalMyGrammar.g:7502:3: (enumLiteral_92= 'bytes26' )
-                    // InternalMyGrammar.g:7503:4: enumLiteral_92= 'bytes26'
+                    // InternalMyGrammar.g:8313:3: (enumLiteral_92= 'bytes26' )
+                    // InternalMyGrammar.g:8314:4: enumLiteral_92= 'bytes26'
                     {
-                    enumLiteral_92=(Token)match(input,164,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_92=(Token)match(input,168,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES26EnumLiteralDeclaration_92().getEnumLiteral().getInstance();
@@ -22976,12 +25253,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 94 :
-                    // InternalMyGrammar.g:7510:3: (enumLiteral_93= 'bytes27' )
+                    // InternalMyGrammar.g:8321:3: (enumLiteral_93= 'bytes27' )
                     {
-                    // InternalMyGrammar.g:7510:3: (enumLiteral_93= 'bytes27' )
-                    // InternalMyGrammar.g:7511:4: enumLiteral_93= 'bytes27'
+                    // InternalMyGrammar.g:8321:3: (enumLiteral_93= 'bytes27' )
+                    // InternalMyGrammar.g:8322:4: enumLiteral_93= 'bytes27'
                     {
-                    enumLiteral_93=(Token)match(input,165,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_93=(Token)match(input,169,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES27EnumLiteralDeclaration_93().getEnumLiteral().getInstance();
@@ -22995,12 +25272,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 95 :
-                    // InternalMyGrammar.g:7518:3: (enumLiteral_94= 'bytes28' )
+                    // InternalMyGrammar.g:8329:3: (enumLiteral_94= 'bytes28' )
                     {
-                    // InternalMyGrammar.g:7518:3: (enumLiteral_94= 'bytes28' )
-                    // InternalMyGrammar.g:7519:4: enumLiteral_94= 'bytes28'
+                    // InternalMyGrammar.g:8329:3: (enumLiteral_94= 'bytes28' )
+                    // InternalMyGrammar.g:8330:4: enumLiteral_94= 'bytes28'
                     {
-                    enumLiteral_94=(Token)match(input,166,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_94=(Token)match(input,170,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES28EnumLiteralDeclaration_94().getEnumLiteral().getInstance();
@@ -23014,12 +25291,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 96 :
-                    // InternalMyGrammar.g:7526:3: (enumLiteral_95= 'bytes29' )
+                    // InternalMyGrammar.g:8337:3: (enumLiteral_95= 'bytes29' )
                     {
-                    // InternalMyGrammar.g:7526:3: (enumLiteral_95= 'bytes29' )
-                    // InternalMyGrammar.g:7527:4: enumLiteral_95= 'bytes29'
+                    // InternalMyGrammar.g:8337:3: (enumLiteral_95= 'bytes29' )
+                    // InternalMyGrammar.g:8338:4: enumLiteral_95= 'bytes29'
                     {
-                    enumLiteral_95=(Token)match(input,167,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_95=(Token)match(input,171,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES29EnumLiteralDeclaration_95().getEnumLiteral().getInstance();
@@ -23033,12 +25310,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 97 :
-                    // InternalMyGrammar.g:7534:3: (enumLiteral_96= 'bytes30' )
+                    // InternalMyGrammar.g:8345:3: (enumLiteral_96= 'bytes30' )
                     {
-                    // InternalMyGrammar.g:7534:3: (enumLiteral_96= 'bytes30' )
-                    // InternalMyGrammar.g:7535:4: enumLiteral_96= 'bytes30'
+                    // InternalMyGrammar.g:8345:3: (enumLiteral_96= 'bytes30' )
+                    // InternalMyGrammar.g:8346:4: enumLiteral_96= 'bytes30'
                     {
-                    enumLiteral_96=(Token)match(input,168,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_96=(Token)match(input,172,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES30EnumLiteralDeclaration_96().getEnumLiteral().getInstance();
@@ -23052,12 +25329,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 98 :
-                    // InternalMyGrammar.g:7542:3: (enumLiteral_97= 'bytes31' )
+                    // InternalMyGrammar.g:8353:3: (enumLiteral_97= 'bytes31' )
                     {
-                    // InternalMyGrammar.g:7542:3: (enumLiteral_97= 'bytes31' )
-                    // InternalMyGrammar.g:7543:4: enumLiteral_97= 'bytes31'
+                    // InternalMyGrammar.g:8353:3: (enumLiteral_97= 'bytes31' )
+                    // InternalMyGrammar.g:8354:4: enumLiteral_97= 'bytes31'
                     {
-                    enumLiteral_97=(Token)match(input,169,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_97=(Token)match(input,173,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES31EnumLiteralDeclaration_97().getEnumLiteral().getInstance();
@@ -23071,12 +25348,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 99 :
-                    // InternalMyGrammar.g:7550:3: (enumLiteral_98= 'bytes32' )
+                    // InternalMyGrammar.g:8361:3: (enumLiteral_98= 'bytes32' )
                     {
-                    // InternalMyGrammar.g:7550:3: (enumLiteral_98= 'bytes32' )
-                    // InternalMyGrammar.g:7551:4: enumLiteral_98= 'bytes32'
+                    // InternalMyGrammar.g:8361:3: (enumLiteral_98= 'bytes32' )
+                    // InternalMyGrammar.g:8362:4: enumLiteral_98= 'bytes32'
                     {
-                    enumLiteral_98=(Token)match(input,170,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_98=(Token)match(input,174,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES32EnumLiteralDeclaration_98().getEnumLiteral().getInstance();
@@ -23090,12 +25367,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 100 :
-                    // InternalMyGrammar.g:7558:3: (enumLiteral_99= 'string' )
+                    // InternalMyGrammar.g:8369:3: (enumLiteral_99= 'string' )
                     {
-                    // InternalMyGrammar.g:7558:3: (enumLiteral_99= 'string' )
-                    // InternalMyGrammar.g:7559:4: enumLiteral_99= 'string'
+                    // InternalMyGrammar.g:8369:3: (enumLiteral_99= 'string' )
+                    // InternalMyGrammar.g:8370:4: enumLiteral_99= 'string'
                     {
-                    enumLiteral_99=(Token)match(input,171,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_99=(Token)match(input,175,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getSTRINGEnumLiteralDeclaration_99().getEnumLiteral().getInstance();
@@ -23109,12 +25386,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 101 :
-                    // InternalMyGrammar.g:7566:3: (enumLiteral_100= 'address' )
+                    // InternalMyGrammar.g:8377:3: (enumLiteral_100= 'address' )
                     {
-                    // InternalMyGrammar.g:7566:3: (enumLiteral_100= 'address' )
-                    // InternalMyGrammar.g:7567:4: enumLiteral_100= 'address'
+                    // InternalMyGrammar.g:8377:3: (enumLiteral_100= 'address' )
+                    // InternalMyGrammar.g:8378:4: enumLiteral_100= 'address'
                     {
-                    enumLiteral_100=(Token)match(input,172,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_100=(Token)match(input,176,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getADDRESSEnumLiteralDeclaration_100().getEnumLiteral().getInstance();
@@ -23128,12 +25405,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 102 :
-                    // InternalMyGrammar.g:7574:3: (enumLiteral_101= 'bool' )
+                    // InternalMyGrammar.g:8385:3: (enumLiteral_101= 'bool' )
                     {
-                    // InternalMyGrammar.g:7574:3: (enumLiteral_101= 'bool' )
-                    // InternalMyGrammar.g:7575:4: enumLiteral_101= 'bool'
+                    // InternalMyGrammar.g:8385:3: (enumLiteral_101= 'bool' )
+                    // InternalMyGrammar.g:8386:4: enumLiteral_101= 'bool'
                     {
-                    enumLiteral_101=(Token)match(input,173,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_101=(Token)match(input,177,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getBOOLEnumLiteralDeclaration_101().getEnumLiteral().getInstance();
@@ -23147,12 +25424,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 103 :
-                    // InternalMyGrammar.g:7582:3: (enumLiteral_102= 'real' )
+                    // InternalMyGrammar.g:8393:3: (enumLiteral_102= 'real' )
                     {
-                    // InternalMyGrammar.g:7582:3: (enumLiteral_102= 'real' )
-                    // InternalMyGrammar.g:7583:4: enumLiteral_102= 'real'
+                    // InternalMyGrammar.g:8393:3: (enumLiteral_102= 'real' )
+                    // InternalMyGrammar.g:8394:4: enumLiteral_102= 'real'
                     {
-                    enumLiteral_102=(Token)match(input,174,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_102=(Token)match(input,178,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getREALEnumLiteralDeclaration_102().getEnumLiteral().getInstance();
@@ -23166,12 +25443,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 104 :
-                    // InternalMyGrammar.g:7590:3: (enumLiteral_103= 'ureal' )
+                    // InternalMyGrammar.g:8401:3: (enumLiteral_103= 'ureal' )
                     {
-                    // InternalMyGrammar.g:7590:3: (enumLiteral_103= 'ureal' )
-                    // InternalMyGrammar.g:7591:4: enumLiteral_103= 'ureal'
+                    // InternalMyGrammar.g:8401:3: (enumLiteral_103= 'ureal' )
+                    // InternalMyGrammar.g:8402:4: enumLiteral_103= 'ureal'
                     {
-                    enumLiteral_103=(Token)match(input,175,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_103=(Token)match(input,179,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getElementaryTypeNameEnumAccess().getUREALEnumLiteralDeclaration_103().getEnumLiteral().getInstance();
@@ -23209,7 +25486,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLocationSpecifierEnum"
-    // InternalMyGrammar.g:7601:1: ruleLocationSpecifierEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'memory' ) | (enumLiteral_1= 'storage' ) | (enumLiteral_2= 'calldata' ) ) ;
+    // InternalMyGrammar.g:8412:1: ruleLocationSpecifierEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'memory' ) | (enumLiteral_1= 'storage' ) | (enumLiteral_2= 'calldata' ) ) ;
     public final Enumerator ruleLocationSpecifierEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23221,43 +25498,43 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7607:2: ( ( (enumLiteral_0= 'memory' ) | (enumLiteral_1= 'storage' ) | (enumLiteral_2= 'calldata' ) ) )
-            // InternalMyGrammar.g:7608:2: ( (enumLiteral_0= 'memory' ) | (enumLiteral_1= 'storage' ) | (enumLiteral_2= 'calldata' ) )
+            // InternalMyGrammar.g:8418:2: ( ( (enumLiteral_0= 'memory' ) | (enumLiteral_1= 'storage' ) | (enumLiteral_2= 'calldata' ) ) )
+            // InternalMyGrammar.g:8419:2: ( (enumLiteral_0= 'memory' ) | (enumLiteral_1= 'storage' ) | (enumLiteral_2= 'calldata' ) )
             {
-            // InternalMyGrammar.g:7608:2: ( (enumLiteral_0= 'memory' ) | (enumLiteral_1= 'storage' ) | (enumLiteral_2= 'calldata' ) )
-            int alt103=3;
+            // InternalMyGrammar.g:8419:2: ( (enumLiteral_0= 'memory' ) | (enumLiteral_1= 'storage' ) | (enumLiteral_2= 'calldata' ) )
+            int alt118=3;
             switch ( input.LA(1) ) {
-            case 176:
+            case 180:
                 {
-                alt103=1;
+                alt118=1;
                 }
                 break;
-            case 177:
+            case 181:
                 {
-                alt103=2;
+                alt118=2;
                 }
                 break;
-            case 178:
+            case 182:
                 {
-                alt103=3;
+                alt118=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 103, 0, input);
+                    new NoViableAltException("", 118, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt103) {
+            switch (alt118) {
                 case 1 :
-                    // InternalMyGrammar.g:7609:3: (enumLiteral_0= 'memory' )
+                    // InternalMyGrammar.g:8420:3: (enumLiteral_0= 'memory' )
                     {
-                    // InternalMyGrammar.g:7609:3: (enumLiteral_0= 'memory' )
-                    // InternalMyGrammar.g:7610:4: enumLiteral_0= 'memory'
+                    // InternalMyGrammar.g:8420:3: (enumLiteral_0= 'memory' )
+                    // InternalMyGrammar.g:8421:4: enumLiteral_0= 'memory'
                     {
-                    enumLiteral_0=(Token)match(input,176,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,180,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getLocationSpecifierEnumAccess().getMEMORYEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -23271,12 +25548,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7617:3: (enumLiteral_1= 'storage' )
+                    // InternalMyGrammar.g:8428:3: (enumLiteral_1= 'storage' )
                     {
-                    // InternalMyGrammar.g:7617:3: (enumLiteral_1= 'storage' )
-                    // InternalMyGrammar.g:7618:4: enumLiteral_1= 'storage'
+                    // InternalMyGrammar.g:8428:3: (enumLiteral_1= 'storage' )
+                    // InternalMyGrammar.g:8429:4: enumLiteral_1= 'storage'
                     {
-                    enumLiteral_1=(Token)match(input,177,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,181,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getLocationSpecifierEnumAccess().getSTORAGEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23290,12 +25567,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:7625:3: (enumLiteral_2= 'calldata' )
+                    // InternalMyGrammar.g:8436:3: (enumLiteral_2= 'calldata' )
                     {
-                    // InternalMyGrammar.g:7625:3: (enumLiteral_2= 'calldata' )
-                    // InternalMyGrammar.g:7626:4: enumLiteral_2= 'calldata'
+                    // InternalMyGrammar.g:8436:3: (enumLiteral_2= 'calldata' )
+                    // InternalMyGrammar.g:8437:4: enumLiteral_2= 'calldata'
                     {
-                    enumLiteral_2=(Token)match(input,178,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,182,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -23333,7 +25610,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVisibilityEnum"
-    // InternalMyGrammar.g:7636:1: ruleVisibilityEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'internal' ) | (enumLiteral_2= 'private' ) | (enumLiteral_3= 'external' ) ) ;
+    // InternalMyGrammar.g:8447:1: ruleVisibilityEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'internal' ) | (enumLiteral_2= 'private' ) | (enumLiteral_3= 'external' ) ) ;
     public final Enumerator ruleVisibilityEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23346,48 +25623,48 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7642:2: ( ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'internal' ) | (enumLiteral_2= 'private' ) | (enumLiteral_3= 'external' ) ) )
-            // InternalMyGrammar.g:7643:2: ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'internal' ) | (enumLiteral_2= 'private' ) | (enumLiteral_3= 'external' ) )
+            // InternalMyGrammar.g:8453:2: ( ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'internal' ) | (enumLiteral_2= 'private' ) | (enumLiteral_3= 'external' ) ) )
+            // InternalMyGrammar.g:8454:2: ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'internal' ) | (enumLiteral_2= 'private' ) | (enumLiteral_3= 'external' ) )
             {
-            // InternalMyGrammar.g:7643:2: ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'internal' ) | (enumLiteral_2= 'private' ) | (enumLiteral_3= 'external' ) )
-            int alt104=4;
+            // InternalMyGrammar.g:8454:2: ( (enumLiteral_0= 'public' ) | (enumLiteral_1= 'internal' ) | (enumLiteral_2= 'private' ) | (enumLiteral_3= 'external' ) )
+            int alt119=4;
             switch ( input.LA(1) ) {
-            case 179:
+            case 183:
                 {
-                alt104=1;
+                alt119=1;
                 }
                 break;
-            case 180:
+            case 184:
                 {
-                alt104=2;
+                alt119=2;
                 }
                 break;
-            case 181:
+            case 185:
                 {
-                alt104=3;
+                alt119=3;
                 }
                 break;
-            case 182:
+            case 186:
                 {
-                alt104=4;
+                alt119=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 104, 0, input);
+                    new NoViableAltException("", 119, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt104) {
+            switch (alt119) {
                 case 1 :
-                    // InternalMyGrammar.g:7644:3: (enumLiteral_0= 'public' )
+                    // InternalMyGrammar.g:8455:3: (enumLiteral_0= 'public' )
                     {
-                    // InternalMyGrammar.g:7644:3: (enumLiteral_0= 'public' )
-                    // InternalMyGrammar.g:7645:4: enumLiteral_0= 'public'
+                    // InternalMyGrammar.g:8455:3: (enumLiteral_0= 'public' )
+                    // InternalMyGrammar.g:8456:4: enumLiteral_0= 'public'
                     {
-                    enumLiteral_0=(Token)match(input,179,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,183,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getVisibilityEnumAccess().getPUBLICEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -23401,12 +25678,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7652:3: (enumLiteral_1= 'internal' )
+                    // InternalMyGrammar.g:8463:3: (enumLiteral_1= 'internal' )
                     {
-                    // InternalMyGrammar.g:7652:3: (enumLiteral_1= 'internal' )
-                    // InternalMyGrammar.g:7653:4: enumLiteral_1= 'internal'
+                    // InternalMyGrammar.g:8463:3: (enumLiteral_1= 'internal' )
+                    // InternalMyGrammar.g:8464:4: enumLiteral_1= 'internal'
                     {
-                    enumLiteral_1=(Token)match(input,180,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,184,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getVisibilityEnumAccess().getINTERNALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23420,12 +25697,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:7660:3: (enumLiteral_2= 'private' )
+                    // InternalMyGrammar.g:8471:3: (enumLiteral_2= 'private' )
                     {
-                    // InternalMyGrammar.g:7660:3: (enumLiteral_2= 'private' )
-                    // InternalMyGrammar.g:7661:4: enumLiteral_2= 'private'
+                    // InternalMyGrammar.g:8471:3: (enumLiteral_2= 'private' )
+                    // InternalMyGrammar.g:8472:4: enumLiteral_2= 'private'
                     {
-                    enumLiteral_2=(Token)match(input,181,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,185,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getVisibilityEnumAccess().getPRIVATEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -23439,12 +25716,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:7668:3: (enumLiteral_3= 'external' )
+                    // InternalMyGrammar.g:8479:3: (enumLiteral_3= 'external' )
                     {
-                    // InternalMyGrammar.g:7668:3: (enumLiteral_3= 'external' )
-                    // InternalMyGrammar.g:7669:4: enumLiteral_3= 'external'
+                    // InternalMyGrammar.g:8479:3: (enumLiteral_3= 'external' )
+                    // InternalMyGrammar.g:8480:4: enumLiteral_3= 'external'
                     {
-                    enumLiteral_3=(Token)match(input,182,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,186,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getVisibilityEnumAccess().getEXTERNALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -23482,7 +25759,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssignmentOpEnum"
-    // InternalMyGrammar.g:7679:1: ruleAssignmentOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) ) ;
+    // InternalMyGrammar.g:8490:1: ruleAssignmentOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) ) ;
     public final Enumerator ruleAssignmentOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23503,86 +25780,86 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7685:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) ) )
-            // InternalMyGrammar.g:7686:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) )
+            // InternalMyGrammar.g:8496:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) ) )
+            // InternalMyGrammar.g:8497:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) )
             {
-            // InternalMyGrammar.g:7686:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) )
-            int alt105=12;
+            // InternalMyGrammar.g:8497:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) )
+            int alt120=12;
             switch ( input.LA(1) ) {
             case 36:
                 {
-                alt105=1;
-                }
-                break;
-            case 183:
-                {
-                alt105=2;
-                }
-                break;
-            case 184:
-                {
-                alt105=3;
-                }
-                break;
-            case 185:
-                {
-                alt105=4;
-                }
-                break;
-            case 186:
-                {
-                alt105=5;
+                alt120=1;
                 }
                 break;
             case 187:
                 {
-                alt105=6;
+                alt120=2;
                 }
                 break;
             case 188:
                 {
-                alt105=7;
+                alt120=3;
                 }
                 break;
             case 189:
                 {
-                alt105=8;
+                alt120=4;
                 }
                 break;
             case 190:
                 {
-                alt105=9;
+                alt120=5;
                 }
                 break;
             case 191:
                 {
-                alt105=10;
+                alt120=6;
                 }
                 break;
             case 192:
                 {
-                alt105=11;
+                alt120=7;
                 }
                 break;
             case 193:
                 {
-                alt105=12;
+                alt120=8;
+                }
+                break;
+            case 194:
+                {
+                alt120=9;
+                }
+                break;
+            case 195:
+                {
+                alt120=10;
+                }
+                break;
+            case 196:
+                {
+                alt120=11;
+                }
+                break;
+            case 197:
+                {
+                alt120=12;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 105, 0, input);
+                    new NoViableAltException("", 120, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt105) {
+            switch (alt120) {
                 case 1 :
-                    // InternalMyGrammar.g:7687:3: (enumLiteral_0= '=' )
+                    // InternalMyGrammar.g:8498:3: (enumLiteral_0= '=' )
                     {
-                    // InternalMyGrammar.g:7687:3: (enumLiteral_0= '=' )
-                    // InternalMyGrammar.g:7688:4: enumLiteral_0= '='
+                    // InternalMyGrammar.g:8498:3: (enumLiteral_0= '=' )
+                    // InternalMyGrammar.g:8499:4: enumLiteral_0= '='
                     {
                     enumLiteral_0=(Token)match(input,36,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -23598,12 +25875,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7695:3: (enumLiteral_1= '|=' )
+                    // InternalMyGrammar.g:8506:3: (enumLiteral_1= '|=' )
                     {
-                    // InternalMyGrammar.g:7695:3: (enumLiteral_1= '|=' )
-                    // InternalMyGrammar.g:7696:4: enumLiteral_1= '|='
+                    // InternalMyGrammar.g:8506:3: (enumLiteral_1= '|=' )
+                    // InternalMyGrammar.g:8507:4: enumLiteral_1= '|='
                     {
-                    enumLiteral_1=(Token)match(input,183,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,187,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_OREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23617,12 +25894,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:7703:3: (enumLiteral_2= '^=' )
+                    // InternalMyGrammar.g:8514:3: (enumLiteral_2= '^=' )
                     {
-                    // InternalMyGrammar.g:7703:3: (enumLiteral_2= '^=' )
-                    // InternalMyGrammar.g:7704:4: enumLiteral_2= '^='
+                    // InternalMyGrammar.g:8514:3: (enumLiteral_2= '^=' )
+                    // InternalMyGrammar.g:8515:4: enumLiteral_2= '^='
                     {
-                    enumLiteral_2=(Token)match(input,184,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,188,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_XOREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -23636,12 +25913,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:7711:3: (enumLiteral_3= '&=' )
+                    // InternalMyGrammar.g:8522:3: (enumLiteral_3= '&=' )
                     {
-                    // InternalMyGrammar.g:7711:3: (enumLiteral_3= '&=' )
-                    // InternalMyGrammar.g:7712:4: enumLiteral_3= '&='
+                    // InternalMyGrammar.g:8522:3: (enumLiteral_3= '&=' )
+                    // InternalMyGrammar.g:8523:4: enumLiteral_3= '&='
                     {
-                    enumLiteral_3=(Token)match(input,185,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,189,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_ANDEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -23655,12 +25932,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:7719:3: (enumLiteral_4= '<<=' )
+                    // InternalMyGrammar.g:8530:3: (enumLiteral_4= '<<=' )
                     {
-                    // InternalMyGrammar.g:7719:3: (enumLiteral_4= '<<=' )
-                    // InternalMyGrammar.g:7720:4: enumLiteral_4= '<<='
+                    // InternalMyGrammar.g:8530:3: (enumLiteral_4= '<<=' )
+                    // InternalMyGrammar.g:8531:4: enumLiteral_4= '<<='
                     {
-                    enumLiteral_4=(Token)match(input,186,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,190,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_SHIFT_LEFTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -23674,12 +25951,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalMyGrammar.g:7727:3: (enumLiteral_5= '>>=' )
+                    // InternalMyGrammar.g:8538:3: (enumLiteral_5= '>>=' )
                     {
-                    // InternalMyGrammar.g:7727:3: (enumLiteral_5= '>>=' )
-                    // InternalMyGrammar.g:7728:4: enumLiteral_5= '>>='
+                    // InternalMyGrammar.g:8538:3: (enumLiteral_5= '>>=' )
+                    // InternalMyGrammar.g:8539:4: enumLiteral_5= '>>='
                     {
-                    enumLiteral_5=(Token)match(input,187,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,191,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_SHIFT_RIGHTEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -23693,12 +25970,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalMyGrammar.g:7735:3: (enumLiteral_6= '>>>=' )
+                    // InternalMyGrammar.g:8546:3: (enumLiteral_6= '>>>=' )
                     {
-                    // InternalMyGrammar.g:7735:3: (enumLiteral_6= '>>>=' )
-                    // InternalMyGrammar.g:7736:4: enumLiteral_6= '>>>='
+                    // InternalMyGrammar.g:8546:3: (enumLiteral_6= '>>>=' )
+                    // InternalMyGrammar.g:8547:4: enumLiteral_6= '>>>='
                     {
-                    enumLiteral_6=(Token)match(input,188,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,192,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_SHIFT_RIGHT_ARIMETICEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -23712,12 +25989,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalMyGrammar.g:7743:3: (enumLiteral_7= '+=' )
+                    // InternalMyGrammar.g:8554:3: (enumLiteral_7= '+=' )
                     {
-                    // InternalMyGrammar.g:7743:3: (enumLiteral_7= '+=' )
-                    // InternalMyGrammar.g:7744:4: enumLiteral_7= '+='
+                    // InternalMyGrammar.g:8554:3: (enumLiteral_7= '+=' )
+                    // InternalMyGrammar.g:8555:4: enumLiteral_7= '+='
                     {
-                    enumLiteral_7=(Token)match(input,189,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_7=(Token)match(input,193,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_ADDEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -23731,12 +26008,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalMyGrammar.g:7751:3: (enumLiteral_8= '-=' )
+                    // InternalMyGrammar.g:8562:3: (enumLiteral_8= '-=' )
                     {
-                    // InternalMyGrammar.g:7751:3: (enumLiteral_8= '-=' )
-                    // InternalMyGrammar.g:7752:4: enumLiteral_8= '-='
+                    // InternalMyGrammar.g:8562:3: (enumLiteral_8= '-=' )
+                    // InternalMyGrammar.g:8563:4: enumLiteral_8= '-='
                     {
-                    enumLiteral_8=(Token)match(input,190,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_8=(Token)match(input,194,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_SUBEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -23750,12 +26027,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalMyGrammar.g:7759:3: (enumLiteral_9= '*=' )
+                    // InternalMyGrammar.g:8570:3: (enumLiteral_9= '*=' )
                     {
-                    // InternalMyGrammar.g:7759:3: (enumLiteral_9= '*=' )
-                    // InternalMyGrammar.g:7760:4: enumLiteral_9= '*='
+                    // InternalMyGrammar.g:8570:3: (enumLiteral_9= '*=' )
+                    // InternalMyGrammar.g:8571:4: enumLiteral_9= '*='
                     {
-                    enumLiteral_9=(Token)match(input,191,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_9=(Token)match(input,195,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_MULTEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -23769,12 +26046,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalMyGrammar.g:7767:3: (enumLiteral_10= '/=' )
+                    // InternalMyGrammar.g:8578:3: (enumLiteral_10= '/=' )
                     {
-                    // InternalMyGrammar.g:7767:3: (enumLiteral_10= '/=' )
-                    // InternalMyGrammar.g:7768:4: enumLiteral_10= '/='
+                    // InternalMyGrammar.g:8578:3: (enumLiteral_10= '/=' )
+                    // InternalMyGrammar.g:8579:4: enumLiteral_10= '/='
                     {
-                    enumLiteral_10=(Token)match(input,192,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_10=(Token)match(input,196,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_DIVEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -23788,12 +26065,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // InternalMyGrammar.g:7775:3: (enumLiteral_11= '%=' )
+                    // InternalMyGrammar.g:8586:3: (enumLiteral_11= '%=' )
                     {
-                    // InternalMyGrammar.g:7775:3: (enumLiteral_11= '%=' )
-                    // InternalMyGrammar.g:7776:4: enumLiteral_11= '%='
+                    // InternalMyGrammar.g:8586:3: (enumLiteral_11= '%=' )
+                    // InternalMyGrammar.g:8587:4: enumLiteral_11= '%='
                     {
-                    enumLiteral_11=(Token)match(input,193,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_11=(Token)match(input,197,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_MODEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
@@ -23830,8 +26107,257 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleAssignmentOpEnum"
 
 
+    // $ANTLR start "ruleLogicalOperationLiteral"
+    // InternalMyGrammar.g:8597:1: ruleLogicalOperationLiteral returns [Enumerator current=null] : ( (enumLiteral_0= '!=' ) | (enumLiteral_1= '==' ) | (enumLiteral_2= '&&' ) | (enumLiteral_3= '||' ) | (enumLiteral_4= '>=' ) | (enumLiteral_5= '<=' ) | (enumLiteral_6= '>' ) | (enumLiteral_7= '<' ) ) ;
+    public final Enumerator ruleLogicalOperationLiteral() throws RecognitionException {
+        Enumerator current = null;
+
+        Token enumLiteral_0=null;
+        Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
+        Token enumLiteral_3=null;
+        Token enumLiteral_4=null;
+        Token enumLiteral_5=null;
+        Token enumLiteral_6=null;
+        Token enumLiteral_7=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalMyGrammar.g:8603:2: ( ( (enumLiteral_0= '!=' ) | (enumLiteral_1= '==' ) | (enumLiteral_2= '&&' ) | (enumLiteral_3= '||' ) | (enumLiteral_4= '>=' ) | (enumLiteral_5= '<=' ) | (enumLiteral_6= '>' ) | (enumLiteral_7= '<' ) ) )
+            // InternalMyGrammar.g:8604:2: ( (enumLiteral_0= '!=' ) | (enumLiteral_1= '==' ) | (enumLiteral_2= '&&' ) | (enumLiteral_3= '||' ) | (enumLiteral_4= '>=' ) | (enumLiteral_5= '<=' ) | (enumLiteral_6= '>' ) | (enumLiteral_7= '<' ) )
+            {
+            // InternalMyGrammar.g:8604:2: ( (enumLiteral_0= '!=' ) | (enumLiteral_1= '==' ) | (enumLiteral_2= '&&' ) | (enumLiteral_3= '||' ) | (enumLiteral_4= '>=' ) | (enumLiteral_5= '<=' ) | (enumLiteral_6= '>' ) | (enumLiteral_7= '<' ) )
+            int alt121=8;
+            switch ( input.LA(1) ) {
+            case 198:
+                {
+                alt121=1;
+                }
+                break;
+            case 199:
+                {
+                alt121=2;
+                }
+                break;
+            case 58:
+                {
+                alt121=3;
+                }
+                break;
+            case 57:
+                {
+                alt121=4;
+                }
+                break;
+            case 200:
+                {
+                alt121=5;
+                }
+                break;
+            case 201:
+                {
+                alt121=6;
+                }
+                break;
+            case 202:
+                {
+                alt121=7;
+                }
+                break;
+            case 203:
+                {
+                alt121=8;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 121, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt121) {
+                case 1 :
+                    // InternalMyGrammar.g:8605:3: (enumLiteral_0= '!=' )
+                    {
+                    // InternalMyGrammar.g:8605:3: (enumLiteral_0= '!=' )
+                    // InternalMyGrammar.g:8606:4: enumLiteral_0= '!='
+                    {
+                    enumLiteral_0=(Token)match(input,198,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getLogicalOperationLiteralAccess().getNOTEQUALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_0, grammarAccess.getLogicalOperationLiteralAccess().getNOTEQUALEnumLiteralDeclaration_0());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalMyGrammar.g:8613:3: (enumLiteral_1= '==' )
+                    {
+                    // InternalMyGrammar.g:8613:3: (enumLiteral_1= '==' )
+                    // InternalMyGrammar.g:8614:4: enumLiteral_1= '=='
+                    {
+                    enumLiteral_1=(Token)match(input,199,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getLogicalOperationLiteralAccess().getEQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_1, grammarAccess.getLogicalOperationLiteralAccess().getEQUALEnumLiteralDeclaration_1());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalMyGrammar.g:8621:3: (enumLiteral_2= '&&' )
+                    {
+                    // InternalMyGrammar.g:8621:3: (enumLiteral_2= '&&' )
+                    // InternalMyGrammar.g:8622:4: enumLiteral_2= '&&'
+                    {
+                    enumLiteral_2=(Token)match(input,58,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getLogicalOperationLiteralAccess().getANDEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_2, grammarAccess.getLogicalOperationLiteralAccess().getANDEnumLiteralDeclaration_2());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalMyGrammar.g:8629:3: (enumLiteral_3= '||' )
+                    {
+                    // InternalMyGrammar.g:8629:3: (enumLiteral_3= '||' )
+                    // InternalMyGrammar.g:8630:4: enumLiteral_3= '||'
+                    {
+                    enumLiteral_3=(Token)match(input,57,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getLogicalOperationLiteralAccess().getOREnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_3, grammarAccess.getLogicalOperationLiteralAccess().getOREnumLiteralDeclaration_3());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalMyGrammar.g:8637:3: (enumLiteral_4= '>=' )
+                    {
+                    // InternalMyGrammar.g:8637:3: (enumLiteral_4= '>=' )
+                    // InternalMyGrammar.g:8638:4: enumLiteral_4= '>='
+                    {
+                    enumLiteral_4=(Token)match(input,200,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getLogicalOperationLiteralAccess().getGTEEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_4, grammarAccess.getLogicalOperationLiteralAccess().getGTEEnumLiteralDeclaration_4());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalMyGrammar.g:8645:3: (enumLiteral_5= '<=' )
+                    {
+                    // InternalMyGrammar.g:8645:3: (enumLiteral_5= '<=' )
+                    // InternalMyGrammar.g:8646:4: enumLiteral_5= '<='
+                    {
+                    enumLiteral_5=(Token)match(input,201,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getLogicalOperationLiteralAccess().getLTEEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_5, grammarAccess.getLogicalOperationLiteralAccess().getLTEEnumLiteralDeclaration_5());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 7 :
+                    // InternalMyGrammar.g:8653:3: (enumLiteral_6= '>' )
+                    {
+                    // InternalMyGrammar.g:8653:3: (enumLiteral_6= '>' )
+                    // InternalMyGrammar.g:8654:4: enumLiteral_6= '>'
+                    {
+                    enumLiteral_6=(Token)match(input,202,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getLogicalOperationLiteralAccess().getGTEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_6, grammarAccess.getLogicalOperationLiteralAccess().getGTEnumLiteralDeclaration_6());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 8 :
+                    // InternalMyGrammar.g:8661:3: (enumLiteral_7= '<' )
+                    {
+                    // InternalMyGrammar.g:8661:3: (enumLiteral_7= '<' )
+                    // InternalMyGrammar.g:8662:4: enumLiteral_7= '<'
+                    {
+                    enumLiteral_7=(Token)match(input,203,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current = grammarAccess.getLogicalOperationLiteralAccess().getLTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+                      				newLeafNode(enumLiteral_7, grammarAccess.getLogicalOperationLiteralAccess().getLTEnumLiteralDeclaration_7());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleLogicalOperationLiteral"
+
+
     // $ANTLR start "ruleEqualityOpEnum"
-    // InternalMyGrammar.g:7786:1: ruleEqualityOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) ) ;
+    // InternalMyGrammar.g:8672:1: ruleEqualityOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) ) ;
     public final Enumerator ruleEqualityOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23842,34 +26368,34 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7792:2: ( ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) ) )
-            // InternalMyGrammar.g:7793:2: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) )
+            // InternalMyGrammar.g:8678:2: ( ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) ) )
+            // InternalMyGrammar.g:8679:2: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) )
             {
-            // InternalMyGrammar.g:7793:2: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) )
-            int alt106=2;
-            int LA106_0 = input.LA(1);
+            // InternalMyGrammar.g:8679:2: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) )
+            int alt122=2;
+            int LA122_0 = input.LA(1);
 
-            if ( (LA106_0==194) ) {
-                alt106=1;
+            if ( (LA122_0==199) ) {
+                alt122=1;
             }
-            else if ( (LA106_0==195) ) {
-                alt106=2;
+            else if ( (LA122_0==198) ) {
+                alt122=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 106, 0, input);
+                    new NoViableAltException("", 122, 0, input);
 
                 throw nvae;
             }
-            switch (alt106) {
+            switch (alt122) {
                 case 1 :
-                    // InternalMyGrammar.g:7794:3: (enumLiteral_0= '==' )
+                    // InternalMyGrammar.g:8680:3: (enumLiteral_0= '==' )
                     {
-                    // InternalMyGrammar.g:7794:3: (enumLiteral_0= '==' )
-                    // InternalMyGrammar.g:7795:4: enumLiteral_0= '=='
+                    // InternalMyGrammar.g:8680:3: (enumLiteral_0= '==' )
+                    // InternalMyGrammar.g:8681:4: enumLiteral_0= '=='
                     {
-                    enumLiteral_0=(Token)match(input,194,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,199,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getEqualityOpEnumAccess().getEQEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -23883,12 +26409,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7802:3: (enumLiteral_1= '!=' )
+                    // InternalMyGrammar.g:8688:3: (enumLiteral_1= '!=' )
                     {
-                    // InternalMyGrammar.g:7802:3: (enumLiteral_1= '!=' )
-                    // InternalMyGrammar.g:7803:4: enumLiteral_1= '!='
+                    // InternalMyGrammar.g:8688:3: (enumLiteral_1= '!=' )
+                    // InternalMyGrammar.g:8689:4: enumLiteral_1= '!='
                     {
-                    enumLiteral_1=(Token)match(input,195,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,198,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getEqualityOpEnumAccess().getNOTEQEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23926,7 +26452,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComparisonOpEnum"
-    // InternalMyGrammar.g:7813:1: ruleComparisonOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) ) ;
+    // InternalMyGrammar.g:8699:1: ruleComparisonOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) ) ;
     public final Enumerator ruleComparisonOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23940,53 +26466,53 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7819:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) ) )
-            // InternalMyGrammar.g:7820:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) )
+            // InternalMyGrammar.g:8705:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) ) )
+            // InternalMyGrammar.g:8706:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) )
             {
-            // InternalMyGrammar.g:7820:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) )
-            int alt107=5;
+            // InternalMyGrammar.g:8706:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) )
+            int alt123=5;
             switch ( input.LA(1) ) {
-            case 196:
+            case 203:
                 {
-                alt107=1;
+                alt123=1;
                 }
                 break;
-            case 197:
+            case 202:
                 {
-                alt107=2;
+                alt123=2;
                 }
                 break;
-            case 198:
+            case 201:
                 {
-                alt107=3;
-                }
-                break;
-            case 199:
-                {
-                alt107=4;
+                alt123=3;
                 }
                 break;
             case 200:
                 {
-                alt107=5;
+                alt123=4;
+                }
+                break;
+            case 204:
+                {
+                alt123=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 107, 0, input);
+                    new NoViableAltException("", 123, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt107) {
+            switch (alt123) {
                 case 1 :
-                    // InternalMyGrammar.g:7821:3: (enumLiteral_0= '<' )
+                    // InternalMyGrammar.g:8707:3: (enumLiteral_0= '<' )
                     {
-                    // InternalMyGrammar.g:7821:3: (enumLiteral_0= '<' )
-                    // InternalMyGrammar.g:7822:4: enumLiteral_0= '<'
+                    // InternalMyGrammar.g:8707:3: (enumLiteral_0= '<' )
+                    // InternalMyGrammar.g:8708:4: enumLiteral_0= '<'
                     {
-                    enumLiteral_0=(Token)match(input,196,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,203,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getLTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -24000,12 +26526,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7829:3: (enumLiteral_1= '>' )
+                    // InternalMyGrammar.g:8715:3: (enumLiteral_1= '>' )
                     {
-                    // InternalMyGrammar.g:7829:3: (enumLiteral_1= '>' )
-                    // InternalMyGrammar.g:7830:4: enumLiteral_1= '>'
+                    // InternalMyGrammar.g:8715:3: (enumLiteral_1= '>' )
+                    // InternalMyGrammar.g:8716:4: enumLiteral_1= '>'
                     {
-                    enumLiteral_1=(Token)match(input,197,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,202,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getGTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -24019,12 +26545,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:7837:3: (enumLiteral_2= '<=' )
+                    // InternalMyGrammar.g:8723:3: (enumLiteral_2= '<=' )
                     {
-                    // InternalMyGrammar.g:7837:3: (enumLiteral_2= '<=' )
-                    // InternalMyGrammar.g:7838:4: enumLiteral_2= '<='
+                    // InternalMyGrammar.g:8723:3: (enumLiteral_2= '<=' )
+                    // InternalMyGrammar.g:8724:4: enumLiteral_2= '<='
                     {
-                    enumLiteral_2=(Token)match(input,198,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,201,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getLTEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -24038,12 +26564,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:7845:3: (enumLiteral_3= '>=' )
+                    // InternalMyGrammar.g:8731:3: (enumLiteral_3= '>=' )
                     {
-                    // InternalMyGrammar.g:7845:3: (enumLiteral_3= '>=' )
-                    // InternalMyGrammar.g:7846:4: enumLiteral_3= '>='
+                    // InternalMyGrammar.g:8731:3: (enumLiteral_3= '>=' )
+                    // InternalMyGrammar.g:8732:4: enumLiteral_3= '>='
                     {
-                    enumLiteral_3=(Token)match(input,199,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,200,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getGTEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -24057,12 +26583,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:7853:3: (enumLiteral_4= 'in' )
+                    // InternalMyGrammar.g:8739:3: (enumLiteral_4= 'in' )
                     {
-                    // InternalMyGrammar.g:7853:3: (enumLiteral_4= 'in' )
-                    // InternalMyGrammar.g:7854:4: enumLiteral_4= 'in'
+                    // InternalMyGrammar.g:8739:3: (enumLiteral_4= 'in' )
+                    // InternalMyGrammar.g:8740:4: enumLiteral_4= 'in'
                     {
-                    enumLiteral_4=(Token)match(input,200,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,204,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getINEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -24100,7 +26626,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleShiftOpEnum"
-    // InternalMyGrammar.g:7864:1: ruleShiftOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) ) ;
+    // InternalMyGrammar.g:8750:1: ruleShiftOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) ) ;
     public final Enumerator ruleShiftOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24112,43 +26638,43 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7870:2: ( ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) ) )
-            // InternalMyGrammar.g:7871:2: ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) )
+            // InternalMyGrammar.g:8756:2: ( ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) ) )
+            // InternalMyGrammar.g:8757:2: ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) )
             {
-            // InternalMyGrammar.g:7871:2: ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) )
-            int alt108=3;
+            // InternalMyGrammar.g:8757:2: ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) )
+            int alt124=3;
             switch ( input.LA(1) ) {
-            case 201:
+            case 205:
                 {
-                alt108=1;
+                alt124=1;
                 }
                 break;
-            case 202:
+            case 206:
                 {
-                alt108=2;
+                alt124=2;
                 }
                 break;
-            case 203:
+            case 207:
                 {
-                alt108=3;
+                alt124=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 108, 0, input);
+                    new NoViableAltException("", 124, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt108) {
+            switch (alt124) {
                 case 1 :
-                    // InternalMyGrammar.g:7872:3: (enumLiteral_0= '<<' )
+                    // InternalMyGrammar.g:8758:3: (enumLiteral_0= '<<' )
                     {
-                    // InternalMyGrammar.g:7872:3: (enumLiteral_0= '<<' )
-                    // InternalMyGrammar.g:7873:4: enumLiteral_0= '<<'
+                    // InternalMyGrammar.g:8758:3: (enumLiteral_0= '<<' )
+                    // InternalMyGrammar.g:8759:4: enumLiteral_0= '<<'
                     {
-                    enumLiteral_0=(Token)match(input,201,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,205,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getShiftOpEnumAccess().getLEFT_SHIFTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -24162,12 +26688,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7880:3: (enumLiteral_1= '>>' )
+                    // InternalMyGrammar.g:8766:3: (enumLiteral_1= '>>' )
                     {
-                    // InternalMyGrammar.g:7880:3: (enumLiteral_1= '>>' )
-                    // InternalMyGrammar.g:7881:4: enumLiteral_1= '>>'
+                    // InternalMyGrammar.g:8766:3: (enumLiteral_1= '>>' )
+                    // InternalMyGrammar.g:8767:4: enumLiteral_1= '>>'
                     {
-                    enumLiteral_1=(Token)match(input,202,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,206,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getShiftOpEnumAccess().getRIGHT_SHIFTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -24181,12 +26707,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:7888:3: (enumLiteral_2= '>>>' )
+                    // InternalMyGrammar.g:8774:3: (enumLiteral_2= '>>>' )
                     {
-                    // InternalMyGrammar.g:7888:3: (enumLiteral_2= '>>>' )
-                    // InternalMyGrammar.g:7889:4: enumLiteral_2= '>>>'
+                    // InternalMyGrammar.g:8774:3: (enumLiteral_2= '>>>' )
+                    // InternalMyGrammar.g:8775:4: enumLiteral_2= '>>>'
                     {
-                    enumLiteral_2=(Token)match(input,203,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,207,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getShiftOpEnumAccess().getARITHMETIC_RIGHT_SHIFTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -24224,7 +26750,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAdditionOpEnum"
-    // InternalMyGrammar.g:7899:1: ruleAdditionOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
+    // InternalMyGrammar.g:8785:1: ruleAdditionOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
     public final Enumerator ruleAdditionOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24235,32 +26761,32 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7905:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
-            // InternalMyGrammar.g:7906:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            // InternalMyGrammar.g:8791:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
+            // InternalMyGrammar.g:8792:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
             {
-            // InternalMyGrammar.g:7906:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
-            int alt109=2;
-            int LA109_0 = input.LA(1);
+            // InternalMyGrammar.g:8792:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            int alt125=2;
+            int LA125_0 = input.LA(1);
 
-            if ( (LA109_0==65) ) {
-                alt109=1;
+            if ( (LA125_0==65) ) {
+                alt125=1;
             }
-            else if ( (LA109_0==66) ) {
-                alt109=2;
+            else if ( (LA125_0==66) ) {
+                alt125=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 109, 0, input);
+                    new NoViableAltException("", 125, 0, input);
 
                 throw nvae;
             }
-            switch (alt109) {
+            switch (alt125) {
                 case 1 :
-                    // InternalMyGrammar.g:7907:3: (enumLiteral_0= '+' )
+                    // InternalMyGrammar.g:8793:3: (enumLiteral_0= '+' )
                     {
-                    // InternalMyGrammar.g:7907:3: (enumLiteral_0= '+' )
-                    // InternalMyGrammar.g:7908:4: enumLiteral_0= '+'
+                    // InternalMyGrammar.g:8793:3: (enumLiteral_0= '+' )
+                    // InternalMyGrammar.g:8794:4: enumLiteral_0= '+'
                     {
                     enumLiteral_0=(Token)match(input,65,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -24276,10 +26802,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7915:3: (enumLiteral_1= '-' )
+                    // InternalMyGrammar.g:8801:3: (enumLiteral_1= '-' )
                     {
-                    // InternalMyGrammar.g:7915:3: (enumLiteral_1= '-' )
-                    // InternalMyGrammar.g:7916:4: enumLiteral_1= '-'
+                    // InternalMyGrammar.g:8801:3: (enumLiteral_1= '-' )
+                    // InternalMyGrammar.g:8802:4: enumLiteral_1= '-'
                     {
                     enumLiteral_1=(Token)match(input,66,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -24319,7 +26845,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMulDivModOpEnum"
-    // InternalMyGrammar.g:7926:1: ruleMulDivModOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) ) ;
+    // InternalMyGrammar.g:8812:1: ruleMulDivModOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) ) ;
     public final Enumerator ruleMulDivModOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24331,41 +26857,41 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7932:2: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) ) )
-            // InternalMyGrammar.g:7933:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) )
+            // InternalMyGrammar.g:8818:2: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) ) )
+            // InternalMyGrammar.g:8819:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) )
             {
-            // InternalMyGrammar.g:7933:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) )
-            int alt110=3;
+            // InternalMyGrammar.g:8819:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) )
+            int alt126=3;
             switch ( input.LA(1) ) {
             case 18:
                 {
-                alt110=1;
+                alt126=1;
                 }
                 break;
-            case 204:
+            case 70:
                 {
-                alt110=2;
+                alt126=2;
                 }
                 break;
-            case 205:
+            case 208:
                 {
-                alt110=3;
+                alt126=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 110, 0, input);
+                    new NoViableAltException("", 126, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt110) {
+            switch (alt126) {
                 case 1 :
-                    // InternalMyGrammar.g:7934:3: (enumLiteral_0= '*' )
+                    // InternalMyGrammar.g:8820:3: (enumLiteral_0= '*' )
                     {
-                    // InternalMyGrammar.g:7934:3: (enumLiteral_0= '*' )
-                    // InternalMyGrammar.g:7935:4: enumLiteral_0= '*'
+                    // InternalMyGrammar.g:8820:3: (enumLiteral_0= '*' )
+                    // InternalMyGrammar.g:8821:4: enumLiteral_0= '*'
                     {
                     enumLiteral_0=(Token)match(input,18,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -24381,12 +26907,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7942:3: (enumLiteral_1= '/' )
+                    // InternalMyGrammar.g:8828:3: (enumLiteral_1= '/' )
                     {
-                    // InternalMyGrammar.g:7942:3: (enumLiteral_1= '/' )
-                    // InternalMyGrammar.g:7943:4: enumLiteral_1= '/'
+                    // InternalMyGrammar.g:8828:3: (enumLiteral_1= '/' )
+                    // InternalMyGrammar.g:8829:4: enumLiteral_1= '/'
                     {
-                    enumLiteral_1=(Token)match(input,204,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,70,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getMulDivModOpEnumAccess().getDIVEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -24400,12 +26926,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:7950:3: (enumLiteral_2= '%' )
+                    // InternalMyGrammar.g:8836:3: (enumLiteral_2= '%' )
                     {
-                    // InternalMyGrammar.g:7950:3: (enumLiteral_2= '%' )
-                    // InternalMyGrammar.g:7951:4: enumLiteral_2= '%'
+                    // InternalMyGrammar.g:8836:3: (enumLiteral_2= '%' )
+                    // InternalMyGrammar.g:8837:4: enumLiteral_2= '%'
                     {
-                    enumLiteral_2=(Token)match(input,205,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,208,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getMulDivModOpEnumAccess().getMODEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -24443,7 +26969,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIncDecOpEnum"
-    // InternalMyGrammar.g:7961:1: ruleIncDecOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) ) ;
+    // InternalMyGrammar.g:8847:1: ruleIncDecOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) ) ;
     public final Enumerator ruleIncDecOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24454,32 +26980,32 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7967:2: ( ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) ) )
-            // InternalMyGrammar.g:7968:2: ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) )
+            // InternalMyGrammar.g:8853:2: ( ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) ) )
+            // InternalMyGrammar.g:8854:2: ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) )
             {
-            // InternalMyGrammar.g:7968:2: ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) )
-            int alt111=2;
-            int LA111_0 = input.LA(1);
+            // InternalMyGrammar.g:8854:2: ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) )
+            int alt127=2;
+            int LA127_0 = input.LA(1);
 
-            if ( (LA111_0==68) ) {
-                alt111=1;
+            if ( (LA127_0==68) ) {
+                alt127=1;
             }
-            else if ( (LA111_0==69) ) {
-                alt111=2;
+            else if ( (LA127_0==69) ) {
+                alt127=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 111, 0, input);
+                    new NoViableAltException("", 127, 0, input);
 
                 throw nvae;
             }
-            switch (alt111) {
+            switch (alt127) {
                 case 1 :
-                    // InternalMyGrammar.g:7969:3: (enumLiteral_0= '++' )
+                    // InternalMyGrammar.g:8855:3: (enumLiteral_0= '++' )
                     {
-                    // InternalMyGrammar.g:7969:3: (enumLiteral_0= '++' )
-                    // InternalMyGrammar.g:7970:4: enumLiteral_0= '++'
+                    // InternalMyGrammar.g:8855:3: (enumLiteral_0= '++' )
+                    // InternalMyGrammar.g:8856:4: enumLiteral_0= '++'
                     {
                     enumLiteral_0=(Token)match(input,68,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -24495,10 +27021,10 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:7977:3: (enumLiteral_1= '--' )
+                    // InternalMyGrammar.g:8863:3: (enumLiteral_1= '--' )
                     {
-                    // InternalMyGrammar.g:7977:3: (enumLiteral_1= '--' )
-                    // InternalMyGrammar.g:7978:4: enumLiteral_1= '--'
+                    // InternalMyGrammar.g:8863:3: (enumLiteral_1= '--' )
+                    // InternalMyGrammar.g:8864:4: enumLiteral_1= '--'
                     {
                     enumLiteral_1=(Token)match(input,69,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -24538,7 +27064,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanLiteralEnum"
-    // InternalMyGrammar.g:7988:1: ruleBooleanLiteralEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) ;
+    // InternalMyGrammar.g:8874:1: ruleBooleanLiteralEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) ;
     public final Enumerator ruleBooleanLiteralEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24549,34 +27075,34 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:7994:2: ( ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) )
-            // InternalMyGrammar.g:7995:2: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
+            // InternalMyGrammar.g:8880:2: ( ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) )
+            // InternalMyGrammar.g:8881:2: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
             {
-            // InternalMyGrammar.g:7995:2: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
-            int alt112=2;
-            int LA112_0 = input.LA(1);
+            // InternalMyGrammar.g:8881:2: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
+            int alt128=2;
+            int LA128_0 = input.LA(1);
 
-            if ( (LA112_0==206) ) {
-                alt112=1;
+            if ( (LA128_0==209) ) {
+                alt128=1;
             }
-            else if ( (LA112_0==207) ) {
-                alt112=2;
+            else if ( (LA128_0==210) ) {
+                alt128=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 112, 0, input);
+                    new NoViableAltException("", 128, 0, input);
 
                 throw nvae;
             }
-            switch (alt112) {
+            switch (alt128) {
                 case 1 :
-                    // InternalMyGrammar.g:7996:3: (enumLiteral_0= 'true' )
+                    // InternalMyGrammar.g:8882:3: (enumLiteral_0= 'true' )
                     {
-                    // InternalMyGrammar.g:7996:3: (enumLiteral_0= 'true' )
-                    // InternalMyGrammar.g:7997:4: enumLiteral_0= 'true'
+                    // InternalMyGrammar.g:8882:3: (enumLiteral_0= 'true' )
+                    // InternalMyGrammar.g:8883:4: enumLiteral_0= 'true'
                     {
-                    enumLiteral_0=(Token)match(input,206,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,209,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getBooleanLiteralEnumAccess().getTRUEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -24590,12 +27116,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:8004:3: (enumLiteral_1= 'false' )
+                    // InternalMyGrammar.g:8890:3: (enumLiteral_1= 'false' )
                     {
-                    // InternalMyGrammar.g:8004:3: (enumLiteral_1= 'false' )
-                    // InternalMyGrammar.g:8005:4: enumLiteral_1= 'false'
+                    // InternalMyGrammar.g:8890:3: (enumLiteral_1= 'false' )
+                    // InternalMyGrammar.g:8891:4: enumLiteral_1= 'false'
                     {
-                    enumLiteral_1=(Token)match(input,207,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,210,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getBooleanLiteralEnumAccess().getFALSEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -24633,7 +27159,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEtherSubDenominationEnum"
-    // InternalMyGrammar.g:8015:1: ruleEtherSubDenominationEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'wei' ) | (enumLiteral_1= 'szabo' ) | (enumLiteral_2= 'finney' ) | (enumLiteral_3= 'ether' ) ) ;
+    // InternalMyGrammar.g:8901:1: ruleEtherSubDenominationEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'wei' ) | (enumLiteral_1= 'szabo' ) | (enumLiteral_2= 'finney' ) | (enumLiteral_3= 'ether' ) ) ;
     public final Enumerator ruleEtherSubDenominationEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24646,48 +27172,48 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:8021:2: ( ( (enumLiteral_0= 'wei' ) | (enumLiteral_1= 'szabo' ) | (enumLiteral_2= 'finney' ) | (enumLiteral_3= 'ether' ) ) )
-            // InternalMyGrammar.g:8022:2: ( (enumLiteral_0= 'wei' ) | (enumLiteral_1= 'szabo' ) | (enumLiteral_2= 'finney' ) | (enumLiteral_3= 'ether' ) )
+            // InternalMyGrammar.g:8907:2: ( ( (enumLiteral_0= 'wei' ) | (enumLiteral_1= 'szabo' ) | (enumLiteral_2= 'finney' ) | (enumLiteral_3= 'ether' ) ) )
+            // InternalMyGrammar.g:8908:2: ( (enumLiteral_0= 'wei' ) | (enumLiteral_1= 'szabo' ) | (enumLiteral_2= 'finney' ) | (enumLiteral_3= 'ether' ) )
             {
-            // InternalMyGrammar.g:8022:2: ( (enumLiteral_0= 'wei' ) | (enumLiteral_1= 'szabo' ) | (enumLiteral_2= 'finney' ) | (enumLiteral_3= 'ether' ) )
-            int alt113=4;
+            // InternalMyGrammar.g:8908:2: ( (enumLiteral_0= 'wei' ) | (enumLiteral_1= 'szabo' ) | (enumLiteral_2= 'finney' ) | (enumLiteral_3= 'ether' ) )
+            int alt129=4;
             switch ( input.LA(1) ) {
-            case 208:
-                {
-                alt113=1;
-                }
-                break;
-            case 209:
-                {
-                alt113=2;
-                }
-                break;
-            case 210:
-                {
-                alt113=3;
-                }
-                break;
             case 211:
                 {
-                alt113=4;
+                alt129=1;
+                }
+                break;
+            case 212:
+                {
+                alt129=2;
+                }
+                break;
+            case 213:
+                {
+                alt129=3;
+                }
+                break;
+            case 214:
+                {
+                alt129=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 113, 0, input);
+                    new NoViableAltException("", 129, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt113) {
+            switch (alt129) {
                 case 1 :
-                    // InternalMyGrammar.g:8023:3: (enumLiteral_0= 'wei' )
+                    // InternalMyGrammar.g:8909:3: (enumLiteral_0= 'wei' )
                     {
-                    // InternalMyGrammar.g:8023:3: (enumLiteral_0= 'wei' )
-                    // InternalMyGrammar.g:8024:4: enumLiteral_0= 'wei'
+                    // InternalMyGrammar.g:8909:3: (enumLiteral_0= 'wei' )
+                    // InternalMyGrammar.g:8910:4: enumLiteral_0= 'wei'
                     {
-                    enumLiteral_0=(Token)match(input,208,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,211,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getEtherSubDenominationEnumAccess().getWEIEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -24701,12 +27227,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:8031:3: (enumLiteral_1= 'szabo' )
+                    // InternalMyGrammar.g:8917:3: (enumLiteral_1= 'szabo' )
                     {
-                    // InternalMyGrammar.g:8031:3: (enumLiteral_1= 'szabo' )
-                    // InternalMyGrammar.g:8032:4: enumLiteral_1= 'szabo'
+                    // InternalMyGrammar.g:8917:3: (enumLiteral_1= 'szabo' )
+                    // InternalMyGrammar.g:8918:4: enumLiteral_1= 'szabo'
                     {
-                    enumLiteral_1=(Token)match(input,209,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,212,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getEtherSubDenominationEnumAccess().getSZABOEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -24720,12 +27246,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:8039:3: (enumLiteral_2= 'finney' )
+                    // InternalMyGrammar.g:8925:3: (enumLiteral_2= 'finney' )
                     {
-                    // InternalMyGrammar.g:8039:3: (enumLiteral_2= 'finney' )
-                    // InternalMyGrammar.g:8040:4: enumLiteral_2= 'finney'
+                    // InternalMyGrammar.g:8925:3: (enumLiteral_2= 'finney' )
+                    // InternalMyGrammar.g:8926:4: enumLiteral_2= 'finney'
                     {
-                    enumLiteral_2=(Token)match(input,210,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,213,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getEtherSubDenominationEnumAccess().getFINNEYEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -24739,12 +27265,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:8047:3: (enumLiteral_3= 'ether' )
+                    // InternalMyGrammar.g:8933:3: (enumLiteral_3= 'ether' )
                     {
-                    // InternalMyGrammar.g:8047:3: (enumLiteral_3= 'ether' )
-                    // InternalMyGrammar.g:8048:4: enumLiteral_3= 'ether'
+                    // InternalMyGrammar.g:8933:3: (enumLiteral_3= 'ether' )
+                    // InternalMyGrammar.g:8934:4: enumLiteral_3= 'ether'
                     {
-                    enumLiteral_3=(Token)match(input,211,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,214,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getEtherSubDenominationEnumAccess().getETHEREnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -24782,7 +27308,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTimeSubdenominationEnum"
-    // InternalMyGrammar.g:8058:1: ruleTimeSubdenominationEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'seconds' ) | (enumLiteral_1= 'minutes' ) | (enumLiteral_2= 'hours' ) | (enumLiteral_3= 'days' ) | (enumLiteral_4= 'weeks' ) | (enumLiteral_5= 'years' ) ) ;
+    // InternalMyGrammar.g:8944:1: ruleTimeSubdenominationEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'seconds' ) | (enumLiteral_1= 'minutes' ) | (enumLiteral_2= 'hours' ) | (enumLiteral_3= 'days' ) | (enumLiteral_4= 'weeks' ) | (enumLiteral_5= 'years' ) ) ;
     public final Enumerator ruleTimeSubdenominationEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24797,58 +27323,58 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:8064:2: ( ( (enumLiteral_0= 'seconds' ) | (enumLiteral_1= 'minutes' ) | (enumLiteral_2= 'hours' ) | (enumLiteral_3= 'days' ) | (enumLiteral_4= 'weeks' ) | (enumLiteral_5= 'years' ) ) )
-            // InternalMyGrammar.g:8065:2: ( (enumLiteral_0= 'seconds' ) | (enumLiteral_1= 'minutes' ) | (enumLiteral_2= 'hours' ) | (enumLiteral_3= 'days' ) | (enumLiteral_4= 'weeks' ) | (enumLiteral_5= 'years' ) )
+            // InternalMyGrammar.g:8950:2: ( ( (enumLiteral_0= 'seconds' ) | (enumLiteral_1= 'minutes' ) | (enumLiteral_2= 'hours' ) | (enumLiteral_3= 'days' ) | (enumLiteral_4= 'weeks' ) | (enumLiteral_5= 'years' ) ) )
+            // InternalMyGrammar.g:8951:2: ( (enumLiteral_0= 'seconds' ) | (enumLiteral_1= 'minutes' ) | (enumLiteral_2= 'hours' ) | (enumLiteral_3= 'days' ) | (enumLiteral_4= 'weeks' ) | (enumLiteral_5= 'years' ) )
             {
-            // InternalMyGrammar.g:8065:2: ( (enumLiteral_0= 'seconds' ) | (enumLiteral_1= 'minutes' ) | (enumLiteral_2= 'hours' ) | (enumLiteral_3= 'days' ) | (enumLiteral_4= 'weeks' ) | (enumLiteral_5= 'years' ) )
-            int alt114=6;
+            // InternalMyGrammar.g:8951:2: ( (enumLiteral_0= 'seconds' ) | (enumLiteral_1= 'minutes' ) | (enumLiteral_2= 'hours' ) | (enumLiteral_3= 'days' ) | (enumLiteral_4= 'weeks' ) | (enumLiteral_5= 'years' ) )
+            int alt130=6;
             switch ( input.LA(1) ) {
-            case 212:
-                {
-                alt114=1;
-                }
-                break;
-            case 213:
-                {
-                alt114=2;
-                }
-                break;
-            case 214:
-                {
-                alt114=3;
-                }
-                break;
             case 215:
                 {
-                alt114=4;
+                alt130=1;
                 }
                 break;
             case 216:
                 {
-                alt114=5;
+                alt130=2;
                 }
                 break;
             case 217:
                 {
-                alt114=6;
+                alt130=3;
+                }
+                break;
+            case 218:
+                {
+                alt130=4;
+                }
+                break;
+            case 219:
+                {
+                alt130=5;
+                }
+                break;
+            case 220:
+                {
+                alt130=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 114, 0, input);
+                    new NoViableAltException("", 130, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt114) {
+            switch (alt130) {
                 case 1 :
-                    // InternalMyGrammar.g:8066:3: (enumLiteral_0= 'seconds' )
+                    // InternalMyGrammar.g:8952:3: (enumLiteral_0= 'seconds' )
                     {
-                    // InternalMyGrammar.g:8066:3: (enumLiteral_0= 'seconds' )
-                    // InternalMyGrammar.g:8067:4: enumLiteral_0= 'seconds'
+                    // InternalMyGrammar.g:8952:3: (enumLiteral_0= 'seconds' )
+                    // InternalMyGrammar.g:8953:4: enumLiteral_0= 'seconds'
                     {
-                    enumLiteral_0=(Token)match(input,212,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,215,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getTimeSubdenominationEnumAccess().getSECONDSEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -24862,12 +27388,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:8074:3: (enumLiteral_1= 'minutes' )
+                    // InternalMyGrammar.g:8960:3: (enumLiteral_1= 'minutes' )
                     {
-                    // InternalMyGrammar.g:8074:3: (enumLiteral_1= 'minutes' )
-                    // InternalMyGrammar.g:8075:4: enumLiteral_1= 'minutes'
+                    // InternalMyGrammar.g:8960:3: (enumLiteral_1= 'minutes' )
+                    // InternalMyGrammar.g:8961:4: enumLiteral_1= 'minutes'
                     {
-                    enumLiteral_1=(Token)match(input,213,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,216,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getTimeSubdenominationEnumAccess().getMINUTESEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -24881,12 +27407,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyGrammar.g:8082:3: (enumLiteral_2= 'hours' )
+                    // InternalMyGrammar.g:8968:3: (enumLiteral_2= 'hours' )
                     {
-                    // InternalMyGrammar.g:8082:3: (enumLiteral_2= 'hours' )
-                    // InternalMyGrammar.g:8083:4: enumLiteral_2= 'hours'
+                    // InternalMyGrammar.g:8968:3: (enumLiteral_2= 'hours' )
+                    // InternalMyGrammar.g:8969:4: enumLiteral_2= 'hours'
                     {
-                    enumLiteral_2=(Token)match(input,214,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,217,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getTimeSubdenominationEnumAccess().getHOURSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -24900,12 +27426,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyGrammar.g:8090:3: (enumLiteral_3= 'days' )
+                    // InternalMyGrammar.g:8976:3: (enumLiteral_3= 'days' )
                     {
-                    // InternalMyGrammar.g:8090:3: (enumLiteral_3= 'days' )
-                    // InternalMyGrammar.g:8091:4: enumLiteral_3= 'days'
+                    // InternalMyGrammar.g:8976:3: (enumLiteral_3= 'days' )
+                    // InternalMyGrammar.g:8977:4: enumLiteral_3= 'days'
                     {
-                    enumLiteral_3=(Token)match(input,215,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,218,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getTimeSubdenominationEnumAccess().getDAYSEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -24919,12 +27445,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalMyGrammar.g:8098:3: (enumLiteral_4= 'weeks' )
+                    // InternalMyGrammar.g:8984:3: (enumLiteral_4= 'weeks' )
                     {
-                    // InternalMyGrammar.g:8098:3: (enumLiteral_4= 'weeks' )
-                    // InternalMyGrammar.g:8099:4: enumLiteral_4= 'weeks'
+                    // InternalMyGrammar.g:8984:3: (enumLiteral_4= 'weeks' )
+                    // InternalMyGrammar.g:8985:4: enumLiteral_4= 'weeks'
                     {
-                    enumLiteral_4=(Token)match(input,216,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,219,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getTimeSubdenominationEnumAccess().getWEEKSEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -24938,12 +27464,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalMyGrammar.g:8106:3: (enumLiteral_5= 'years' )
+                    // InternalMyGrammar.g:8992:3: (enumLiteral_5= 'years' )
                     {
-                    // InternalMyGrammar.g:8106:3: (enumLiteral_5= 'years' )
-                    // InternalMyGrammar.g:8107:4: enumLiteral_5= 'years'
+                    // InternalMyGrammar.g:8992:3: (enumLiteral_5= 'years' )
+                    // InternalMyGrammar.g:8993:4: enumLiteral_5= 'years'
                     {
-                    enumLiteral_5=(Token)match(input,217,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,220,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getTimeSubdenominationEnumAccess().getYEARSEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -24981,7 +27507,7 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSpecialExpressionTypeEnum"
-    // InternalMyGrammar.g:8117:1: ruleSpecialExpressionTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) ) ;
+    // InternalMyGrammar.g:9003:1: ruleSpecialExpressionTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) ) ;
     public final Enumerator ruleSpecialExpressionTypeEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24992,34 +27518,34 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyGrammar.g:8123:2: ( ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) ) )
-            // InternalMyGrammar.g:8124:2: ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) )
+            // InternalMyGrammar.g:9009:2: ( ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) ) )
+            // InternalMyGrammar.g:9010:2: ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) )
             {
-            // InternalMyGrammar.g:8124:2: ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) )
-            int alt115=2;
-            int LA115_0 = input.LA(1);
+            // InternalMyGrammar.g:9010:2: ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) )
+            int alt131=2;
+            int LA131_0 = input.LA(1);
 
-            if ( (LA115_0==218) ) {
-                alt115=1;
+            if ( (LA131_0==221) ) {
+                alt131=1;
             }
-            else if ( (LA115_0==219) ) {
-                alt115=2;
+            else if ( (LA131_0==222) ) {
+                alt131=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 115, 0, input);
+                    new NoViableAltException("", 131, 0, input);
 
                 throw nvae;
             }
-            switch (alt115) {
+            switch (alt131) {
                 case 1 :
-                    // InternalMyGrammar.g:8125:3: (enumLiteral_0= 'super' )
+                    // InternalMyGrammar.g:9011:3: (enumLiteral_0= 'super' )
                     {
-                    // InternalMyGrammar.g:8125:3: (enumLiteral_0= 'super' )
-                    // InternalMyGrammar.g:8126:4: enumLiteral_0= 'super'
+                    // InternalMyGrammar.g:9011:3: (enumLiteral_0= 'super' )
+                    // InternalMyGrammar.g:9012:4: enumLiteral_0= 'super'
                     {
-                    enumLiteral_0=(Token)match(input,218,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,221,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getSpecialExpressionTypeEnumAccess().getSUPEREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -25033,12 +27559,12 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyGrammar.g:8133:3: (enumLiteral_1= 'this' )
+                    // InternalMyGrammar.g:9019:3: (enumLiteral_1= 'this' )
                     {
-                    // InternalMyGrammar.g:8133:3: (enumLiteral_1= 'this' )
-                    // InternalMyGrammar.g:8134:4: enumLiteral_1= 'this'
+                    // InternalMyGrammar.g:9019:3: (enumLiteral_1= 'this' )
+                    // InternalMyGrammar.g:9020:4: enumLiteral_1= 'this'
                     {
-                    enumLiteral_1=(Token)match(input,219,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,222,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getSpecialExpressionTypeEnumAccess().getTHISEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -25076,8 +27602,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalMyGrammar
     public final void synpred1_InternalMyGrammar_fragment() throws RecognitionException {   
-        // InternalMyGrammar.g:3942:5: ( 'else' )
-        // InternalMyGrammar.g:3942:6: 'else'
+        // InternalMyGrammar.g:4139:5: ( 'else' )
+        // InternalMyGrammar.g:4139:6: 'else'
         {
         match(input,49,FOLLOW_2); if (state.failed) return ;
 
@@ -25087,8 +27613,8 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred2_InternalMyGrammar
     public final void synpred2_InternalMyGrammar_fragment() throws RecognitionException {   
-        // InternalMyGrammar.g:4084:4: ( ';' )
-        // InternalMyGrammar.g:4084:5: ';'
+        // InternalMyGrammar.g:4281:4: ( ';' )
+        // InternalMyGrammar.g:4281:5: ';'
         {
         match(input,17,FOLLOW_2); if (state.failed) return ;
 
@@ -25098,22 +27624,22 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred3_InternalMyGrammar
     public final void synpred3_InternalMyGrammar_fragment() throws RecognitionException {   
-        // InternalMyGrammar.g:5233:4: ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )
-        // InternalMyGrammar.g:5233:5: ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) )
+        // InternalMyGrammar.g:5430:4: ( ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) ) )
+        // InternalMyGrammar.g:5430:5: ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) )
         {
-        // InternalMyGrammar.g:5233:5: ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) )
-        // InternalMyGrammar.g:5234:5: () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) )
+        // InternalMyGrammar.g:5430:5: ( () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) ) )
+        // InternalMyGrammar.g:5431:5: () ( ( ruleAdditionOpEnum ) ) ( ( ruleMulDivMod ) )
         {
-        // InternalMyGrammar.g:5234:5: ()
-        // InternalMyGrammar.g:5235:5: 
+        // InternalMyGrammar.g:5431:5: ()
+        // InternalMyGrammar.g:5432:5: 
         {
         }
 
-        // InternalMyGrammar.g:5236:5: ( ( ruleAdditionOpEnum ) )
-        // InternalMyGrammar.g:5237:6: ( ruleAdditionOpEnum )
+        // InternalMyGrammar.g:5433:5: ( ( ruleAdditionOpEnum ) )
+        // InternalMyGrammar.g:5434:6: ( ruleAdditionOpEnum )
         {
-        // InternalMyGrammar.g:5237:6: ( ruleAdditionOpEnum )
-        // InternalMyGrammar.g:5238:7: ruleAdditionOpEnum
+        // InternalMyGrammar.g:5434:6: ( ruleAdditionOpEnum )
+        // InternalMyGrammar.g:5435:7: ruleAdditionOpEnum
         {
         pushFollow(FOLLOW_19);
         ruleAdditionOpEnum();
@@ -25126,11 +27652,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
 
         }
 
-        // InternalMyGrammar.g:5241:5: ( ( ruleMulDivMod ) )
-        // InternalMyGrammar.g:5242:6: ( ruleMulDivMod )
+        // InternalMyGrammar.g:5438:5: ( ( ruleMulDivMod ) )
+        // InternalMyGrammar.g:5439:6: ( ruleMulDivMod )
         {
-        // InternalMyGrammar.g:5242:6: ( ruleMulDivMod )
-        // InternalMyGrammar.g:5243:7: ruleMulDivMod
+        // InternalMyGrammar.g:5439:6: ( ruleMulDivMod )
+        // InternalMyGrammar.g:5440:7: ruleMulDivMod
         {
         pushFollow(FOLLOW_2);
         ruleMulDivMod();
@@ -25202,11 +27728,11 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
     protected DFA49 dfa49 = new DFA49(this);
     static final String dfa_1s = "\14\uffff";
     static final String dfa_2s = "\1\5\1\uffff\4\36\6\uffff";
-    static final String dfa_3s = "\1\u00b6\1\uffff\4\43\6\uffff";
+    static final String dfa_3s = "\1\u00ba\1\uffff\4\43\6\uffff";
     static final String dfa_4s = "\1\uffff\1\7\4\uffff\1\2\1\3\1\4\1\5\1\6\1\1";
     static final String dfa_5s = "\14\uffff}>";
     static final String[] dfa_6s = {
-            "\1\10\21\uffff\1\1\12\uffff\1\6\1\7\2\uffff\1\10\3\uffff\1\10\1\uffff\1\11\1\12\32\uffff\150\10\3\uffff\1\2\1\3\1\4\1\5",
+            "\1\10\21\uffff\1\1\12\uffff\1\6\1\7\2\uffff\1\10\3\uffff\1\10\1\uffff\1\11\1\12\36\uffff\150\10\3\uffff\1\2\1\3\1\4\1\5",
             "",
             "\2\13\3\uffff\1\7",
             "\2\13\3\uffff\1\7",
@@ -25246,115 +27772,115 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
     }
     static final String dfa_7s = "\154\uffff";
     static final String dfa_8s = "\1\4\150\5\3\uffff";
-    static final String dfa_9s = "\1\u00db\150\u00b6\3\uffff";
+    static final String dfa_9s = "\1\u00de\150\u00ba\3\uffff";
     static final String dfa_10s = "\151\uffff\1\1\1\2\1\3";
     static final String dfa_11s = "\154\uffff}>";
     static final String[] dfa_12s = {
-            "\10\153\17\uffff\1\153\12\uffff\1\151\3\uffff\1\152\24\uffff\11\153\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\1\63\1\64\1\65\1\66\1\67\1\70\1\71\1\72\1\73\1\74\1\75\1\76\1\77\1\100\1\101\1\102\1\103\1\104\1\105\1\106\1\107\1\110\1\111\1\112\1\113\1\114\1\115\1\116\1\117\1\120\1\121\1\122\1\123\1\124\1\125\1\126\1\127\1\130\1\131\1\132\1\133\1\134\1\135\1\136\1\137\1\140\1\141\1\142\1\143\1\144\1\145\1\146\1\147\1\150\36\uffff\2\153\12\uffff\2\153",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
-            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u0087\uffff\7\151",
+            "\10\153\17\uffff\1\153\12\uffff\1\151\3\uffff\1\152\24\uffff\7\153\4\uffff\2\153\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\1\63\1\64\1\65\1\66\1\67\1\70\1\71\1\72\1\73\1\74\1\75\1\76\1\77\1\100\1\101\1\102\1\103\1\104\1\105\1\106\1\107\1\110\1\111\1\112\1\113\1\114\1\115\1\116\1\117\1\120\1\121\1\122\1\123\1\124\1\125\1\126\1\127\1\130\1\131\1\132\1\133\1\134\1\135\1\136\1\137\1\140\1\141\1\142\1\143\1\144\1\145\1\146\1\147\1\150\35\uffff\2\153\12\uffff\2\153",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
+            "\1\151\25\uffff\1\153\5\uffff\1\151\3\uffff\1\151\2\uffff\1\151\u008b\uffff\7\151",
             "",
             "",
             ""
@@ -25418,63 +27944,73 @@ public class InternalMyGrammarParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000002200000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000002600000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000344C00800020L,0xFFFFFFFFFFFFFF00L,0x0078FFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000344C00800020L,0xFFFFFFFFFFFFF000L,0x078FFFFFFFFFFFFFL});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000008000002L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x8000004018000FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x8000004018000FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000010400000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x8000004008000FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x8000004008000FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000800020L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000020000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000000C0000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000080000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000300220020L,0x0000000000000000L,0x0078000000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000300220020L,0x0000000000000000L,0x0780000000000000L});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000220000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000044000800020L,0xFFFFFFFFFFFFFF00L,0x0000FFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000044000800020L,0xFFFFFFFFFFFFF000L,0x000FFFFFFFFFFFFFL});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000002200000020L,0x0000000000000000L,0x007F000000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000002200000020L,0x0000000000000000L,0x07F0000000000000L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000001000000002L});
     public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0xFFFFFFFFFFFFFF00L,0x0000FFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0xFFFFFFFFFFFFF000L,0x000FFFFFFFFFFFFFL});
     public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000044000000020L,0xFFFFFFFFFFFFFF00L,0x0000FFFFFFFFFFFFL});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x8000024008000FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000044000000020L,0xFFFFFFFFFFFFF000L,0x000FFFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x8000024008000FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x8000004018400FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x8000004008400FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x8000004018400FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x8000004008400FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
     public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000001000020000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000002208000020L,0x0000000000000000L,0x007F000000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000002208000020L,0x0000000000000000L,0x07F0000000000000L});
     public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000090008000002L});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000008200000L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000400008020000L});
     public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000400000020000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000044010000020L,0xFFFFFFFFFFFFFF00L,0x0000FFFFFFFFFFFFL});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000002200000022L,0x0000000000000000L,0x007F000000000000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000004000000020L,0xFFFFFFFFFFFFFF00L,0x0000FFFFFFFFFFFFL});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x81FD844008200FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0002000000000002L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x81FD844008220FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x8000004008020FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x81FD844018200FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x81FD844008A00FF0L,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000003200000022L,0x0000000000000000L,0xFFFF000000000000L,0x0000000000000003L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0200000000000002L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0400000000000002L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x000000000000000CL});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x00000000000001F0L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0800000000000002L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x1000000000000002L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x2000000000000002L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000E00L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000006L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000040002L,0x0000000000000000L,0x0000000000000000L,0x0000000000003000L});
-    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x4000000000000002L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000004008000FF0L,0xFFFFFFFFFFFFFFC0L,0x0000FFFFFFFFFFFFL,0x000000000C00C000L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000030L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x00000000000F0000L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000003F00000L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000044010000020L,0xFFFFFFFFFFFFF000L,0x000FFFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000002200000022L,0x0000000000000000L,0x07F0000000000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000200000000L,0xFFFFFFFFFFFFF000L,0x078FFFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000000000L,0xFFFFFFFFFFFFF000L,0x078FFFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000004000000020L,0xFFFFFFFFFFFFF000L,0x000FFFFFFFFFFFFFL});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x81FD844008200FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0002000000000002L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x81FD844008220FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x8000004008020FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x81FD844018200FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x81FD844008A00FF0L,0xFFFFFFFFFFFFFC3FL,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000003200000022L,0x0000000000000000L,0xFFF0000000000000L,0x000000000000003FL});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0400000000000002L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000001F00L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0800000000000002L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x2000000000000002L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x000000000000E000L});
+    public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000006L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000040002L,0x0000000000000040L,0x0000000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x4000000000000002L});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000004008000FF0L,0xFFFFFFFFFFFFFC00L,0x000FFFFFFFFFFFFFL,0x0000000060060000L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000030L});
+    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000040002L,0x0000000000000046L});
+    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000000000FD0L,0x0000000000000D80L,0x0000000000000000L,0x0000000000060000L});
+    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x00000000080001C0L,0x0000000000000800L});
+    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0600000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000FC0L});
+    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0000000000000FD0L,0x0000000000000C00L,0x0000000000000000L,0x0000000000060000L});
+    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0000000000000FD0L,0x0000000000000C80L,0x0000000000000000L,0x0000000000060000L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x000000001FF80000L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000001FF80000L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x000000001F800000L});
+    public static final BitSet FOLLOW_82 = new BitSet(new long[]{0x0000080000000000L});
 
 }

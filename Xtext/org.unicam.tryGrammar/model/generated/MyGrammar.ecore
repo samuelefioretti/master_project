@@ -209,6 +209,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryTypeDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="#//VisibilitySpecifier"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ElementaryTypeNameEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NonArrayableDeclaration" eSuperTypes="#//PrimaryTypeDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//LocationSpecifierEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayableDeclaration" eSuperTypes="#//PrimaryTypeDeclaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleTypeDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DeleteStatement" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//QualifiedIdentifier"
         containment="true"/>
@@ -281,6 +295,57 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntParameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//ArrayableDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="#//ArithmeticOperations"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fun" eType="#//FunctionCallListArguments"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithmeticOperations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="#//PrimaryArithmetic"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="seconds" upperBound="-1"
+        eType="#//SecondOperators" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryArithmetic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SecondOperators">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//PrimaryArithmetic"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalOperations" eSuperTypes="#//PrimaryArithmetic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="#//Literal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+        eType="#//ConditionOperation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="negate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ternary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="true" eType="#//Literal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="false" eType="#//Literal"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operation" eType="#//LogicalOperationLiteral"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="negateSecond" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="seconds" eType="#//Literal"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" eSuperTypes="#//PrimaryArithmetic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intValue" eType="#//NumberDimensionless"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hexValue" eType="#//HexLiteral"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decimalValue" eType="#//DecimalLiteral"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="etherUnit" eType="#//UnitTypes"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitTypes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="#//TimeSubdenominationEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" eType="#//EtherSubDenominationEnum"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasleftFunction" eSuperTypes="#//Literal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -451,6 +516,16 @@
     <eLiterals name="ASSIGN_MULT" value="9" literal="*="/>
     <eLiterals name="ASSIGN_DIV" value="10" literal="/="/>
     <eLiterals name="ASSIGN_MOD" value="11" literal="%="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperationLiteral">
+    <eLiterals name="NOTEQUAL" literal="!="/>
+    <eLiterals name="EQUAL" value="1" literal="=="/>
+    <eLiterals name="AND" value="2" literal="&amp;&amp;"/>
+    <eLiterals name="OR" value="3" literal="||"/>
+    <eLiterals name="GTE" value="4" literal=">="/>
+    <eLiterals name="LTE" value="5" literal="&lt;="/>
+    <eLiterals name="GT" value="6" literal=">"/>
+    <eLiterals name="LT" value="7" literal="&lt;"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EqualityOpEnum">
     <eLiterals name="EQ" literal="=="/>
