@@ -3,25 +3,14 @@
  */
 package org.unicam.tryGrammar.myGrammar.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.unicam.tryGrammar.myGrammar.ContractOrLibrary;
-import org.unicam.tryGrammar.myGrammar.DefinitionBody;
-import org.unicam.tryGrammar.myGrammar.InheritanceSpecifier;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
 
 /**
@@ -33,8 +22,6 @@ import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
  * </p>
  * <ul>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.ContractOrLibraryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.ContractOrLibraryImpl#getInheritanceSpecifiers <em>Inheritance Specifiers</em>}</li>
- *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.ContractOrLibraryImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,26 +47,6 @@ public class ContractOrLibraryImpl extends MinimalEObjectImpl.Container implemen
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getInheritanceSpecifiers() <em>Inheritance Specifiers</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInheritanceSpecifiers()
-   * @generated
-   * @ordered
-   */
-  protected EList<InheritanceSpecifier> inheritanceSpecifiers;
-
-  /**
-   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBody()
-   * @generated
-   * @ordered
-   */
-  protected DefinitionBody body;
 
   /**
    * <!-- begin-user-doc -->
@@ -133,99 +100,12 @@ public class ContractOrLibraryImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    */
   @Override
-  public EList<InheritanceSpecifier> getInheritanceSpecifiers()
-  {
-    if (inheritanceSpecifiers == null)
-    {
-      inheritanceSpecifiers = new EObjectContainmentEList<InheritanceSpecifier>(InheritanceSpecifier.class, this, MyGrammarPackage.CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS);
-    }
-    return inheritanceSpecifiers;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DefinitionBody getBody()
-  {
-    return body;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetBody(DefinitionBody newBody, NotificationChain msgs)
-  {
-    DefinitionBody oldBody = body;
-    body = newBody;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY, oldBody, newBody);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setBody(DefinitionBody newBody)
-  {
-    if (newBody != body)
-    {
-      NotificationChain msgs = null;
-      if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY, null, msgs);
-      if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY, null, msgs);
-      msgs = basicSetBody(newBody, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY, newBody, newBody));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS:
-        return ((InternalEList<?>)getInheritanceSpecifiers()).basicRemove(otherEnd, msgs);
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY:
-        return basicSetBody(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case MyGrammarPackage.CONTRACT_OR_LIBRARY__NAME:
         return getName();
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS:
-        return getInheritanceSpecifiers();
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY:
-        return getBody();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -235,7 +115,6 @@ public class ContractOrLibraryImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -243,13 +122,6 @@ public class ContractOrLibraryImpl extends MinimalEObjectImpl.Container implemen
     {
       case MyGrammarPackage.CONTRACT_OR_LIBRARY__NAME:
         setName((String)newValue);
-        return;
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS:
-        getInheritanceSpecifiers().clear();
-        getInheritanceSpecifiers().addAll((Collection<? extends InheritanceSpecifier>)newValue);
-        return;
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY:
-        setBody((DefinitionBody)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -268,12 +140,6 @@ public class ContractOrLibraryImpl extends MinimalEObjectImpl.Container implemen
       case MyGrammarPackage.CONTRACT_OR_LIBRARY__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS:
-        getInheritanceSpecifiers().clear();
-        return;
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY:
-        setBody((DefinitionBody)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -290,10 +156,6 @@ public class ContractOrLibraryImpl extends MinimalEObjectImpl.Container implemen
     {
       case MyGrammarPackage.CONTRACT_OR_LIBRARY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS:
-        return inheritanceSpecifiers != null && !inheritanceSpecifiers.isEmpty();
-      case MyGrammarPackage.CONTRACT_OR_LIBRARY__BODY:
-        return body != null;
     }
     return super.eIsSet(featureID);
   }

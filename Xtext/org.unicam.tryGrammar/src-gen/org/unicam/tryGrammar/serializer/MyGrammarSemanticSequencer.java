@@ -50,6 +50,7 @@ import org.unicam.tryGrammar.myGrammar.ForStatement;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArg;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.myGrammar.FunctionCallListArguments;
+import org.unicam.tryGrammar.myGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.myGrammar.GasleftFunction;
 import org.unicam.tryGrammar.myGrammar.HexLiteral;
 import org.unicam.tryGrammar.myGrammar.IfStatement;
@@ -59,9 +60,9 @@ import org.unicam.tryGrammar.myGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.myGrammar.InheritanceSpecifier;
 import org.unicam.tryGrammar.myGrammar.IntParameter;
 import org.unicam.tryGrammar.myGrammar.Library;
-import org.unicam.tryGrammar.myGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.myGrammar.LogicalOperations;
 import org.unicam.tryGrammar.myGrammar.Mapping;
+import org.unicam.tryGrammar.myGrammar.MappingDeclaration;
 import org.unicam.tryGrammar.myGrammar.Modifier;
 import org.unicam.tryGrammar.myGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.myGrammar.MulDivMod;
@@ -106,7 +107,6 @@ import org.unicam.tryGrammar.myGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Variable;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationExpression;
-import org.unicam.tryGrammar.myGrammar.VisibilitySpecifier;
 import org.unicam.tryGrammar.myGrammar.WhileStatement;
 import org.unicam.tryGrammar.services.MyGrammarGrammarAccess;
 
@@ -255,6 +255,9 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MyGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS:
 				sequence_FunctionCallListArguments(context, (FunctionCallListArguments) semanticObject); 
 				return; 
+			case MyGrammarPackage.FUNCTION_DEFINITION:
+				sequence_FunctionDefinition(context, (FunctionDefinition) semanticObject); 
+				return; 
 			case MyGrammarPackage.GASLEFT_FUNCTION:
 				sequence_GasleftFunction(context, (GasleftFunction) semanticObject); 
 				return; 
@@ -282,14 +285,14 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MyGrammarPackage.LIBRARY:
 				sequence_Library(context, (Library) semanticObject); 
 				return; 
-			case MyGrammarPackage.LOCATION_SPECIFIER:
-				sequence_LocationSpecifier(context, (LocationSpecifier) semanticObject); 
-				return; 
 			case MyGrammarPackage.LOGICAL_OPERATIONS:
 				sequence_LogicalOperations(context, (LogicalOperations) semanticObject); 
 				return; 
 			case MyGrammarPackage.MAPPING:
 				sequence_Mapping(context, (Mapping) semanticObject); 
+				return; 
+			case MyGrammarPackage.MAPPING_DECLARATION:
+				sequence_MappingDeclaration(context, (MappingDeclaration) semanticObject); 
 				return; 
 			case MyGrammarPackage.MODIFIER:
 				sequence_Modifier(context, (Modifier) semanticObject); 
@@ -577,22 +580,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MyGrammarPackage.VARIABLE_DECLARATION_EXPRESSION:
 				sequence_Assignment(context, (VariableDeclarationExpression) semanticObject); 
 				return; 
-			case MyGrammarPackage.VISIBILITY_SPECIFIER:
-				if (rule == grammarAccess.getEnumDefinitionRule()) {
-					sequence_EnumDefinition_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getFunctionDefinitionRule()) {
-					sequence_FunctionDefinition_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getFunctionDefinitionOptionalElementRule()
-						|| rule == grammarAccess.getVisibilitySpecifierRule()
-						|| rule == grammarAccess.getVariableDeclarationOptionalElementRule()) {
-					sequence_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
-					return; 
-				}
-				else break;
 			case MyGrammarPackage.WHILE_STATEMENT:
 				sequence_WhileStatement(context, (WhileStatement) semanticObject); 
 				return; 
@@ -763,7 +750,7 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     ArrayableDeclaration returns ArrayableDeclaration
 	 *
 	 * Constraint:
-	 *     (constant?='constant'? visibility=VisibilitySpecifier? type=ElementaryTypeNameEnum name=ID)
+	 *     (constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID)
 	 */
 	protected void sequence_ArrayableDeclaration(ISerializationContext context, ArrayableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1287,7 +1274,7 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Contract returns Contract
 	 *
 	 * Constraint:
-	 *     (name=ID (inheritanceSpecifiers+=InheritanceSpecifier inheritanceSpecifiers+=InheritanceSpecifier*)? body=DefinitionBody)
+	 *     (name=ID (blocks+=Declaration | blocks+=FunctionDefinition))
 	 */
 	protected void sequence_Contract(ISerializationContext context, Contract semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1434,24 +1421,14 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Declaration returns EnumDefinition
+	 *     FunctionDeclaration returns EnumDefinition
 	 *     EnumDefinition returns EnumDefinition
 	 *
 	 * Constraint:
-	 *     (name=ID (members+=EnumValue members+=EnumValue*)?)
+	 *     (visibility=VisibilityEnum? name=ID (members+=EnumValue members+=EnumValue*)?)
 	 */
 	protected void sequence_EnumDefinition(ISerializationContext context, EnumDefinition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EnumDefinition returns VisibilitySpecifier
-	 *
-	 * Constraint:
-	 *     (visibility=VisibilityEnum name=ID (members+=EnumValue members+=EnumValue*)?)
-	 */
-	protected void sequence_EnumDefinition_VisibilitySpecifier(ISerializationContext context, VisibilitySpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1778,7 +1755,7 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     FunctionDefinition returns VisibilitySpecifier
+	 *     FunctionDefinition returns FunctionDefinition
 	 *
 	 * Constraint:
 	 *     (
@@ -1791,7 +1768,7 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         block=Body?
 	 *     )
 	 */
-	protected void sequence_FunctionDefinition_VisibilitySpecifier(ISerializationContext context, VisibilitySpecifier semanticObject) {
+	protected void sequence_FunctionDefinition(ISerializationContext context, FunctionDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1995,25 +1972,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     VariableDeclarationOptionalElement returns LocationSpecifier
-	 *     LocationSpecifier returns LocationSpecifier
-	 *
-	 * Constraint:
-	 *     location=LocationSpecifierEnum
-	 */
-	protected void sequence_LocationSpecifier(ISerializationContext context, LocationSpecifier semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyGrammarPackage.eINSTANCE.getLocationSpecifier_Location()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyGrammarPackage.eINSTANCE.getLocationSpecifier_Location()));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumEnumRuleCall_0(), semanticObject.getLocation());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     PrimaryArithmetic returns LogicalOperations
 	 *     LogicalOperations returns LogicalOperations
 	 *
@@ -2025,6 +1983,21 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     )
 	 */
 	protected void sequence_LogicalOperations(ISerializationContext context, LogicalOperations semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Declaration returns MappingDeclaration
+	 *     FunctionDeclaration returns MappingDeclaration
+	 *     FunctionParameterDeclaration returns MappingDeclaration
+	 *     MappingDeclaration returns MappingDeclaration
+	 *
+	 * Constraint:
+	 *     (location=MapLocationLiteral? visibility=VisibilityEnum? unnamedMappingDeclaration=Mapping name=ID)
+	 */
+	protected void sequence_MappingDeclaration(ISerializationContext context, MappingDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2200,7 +2173,7 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     NonArrayableDeclaration returns NonArrayableDeclaration
 	 *
 	 * Constraint:
-	 *     (location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilitySpecifier? type=ElementaryTypeNameEnum name=ID)
+	 *     (location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID)
 	 */
 	protected void sequence_NonArrayableDeclaration(ISerializationContext context, NonArrayableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -3232,10 +3205,11 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Declaration returns StructDefinition
 	 *     StructDefinition returns StructDefinition
 	 *
 	 * Constraint:
-	 *     (name=ID members+=VariableDeclaration*)
+	 *     (visibility=VisibilityEnum? name=ID members+=Declaration*)
 	 */
 	protected void sequence_StructDefinition(ISerializationContext context, StructDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -3485,26 +3459,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     FunctionDefinitionOptionalElement returns VisibilitySpecifier
-	 *     VisibilitySpecifier returns VisibilitySpecifier
-	 *     VariableDeclarationOptionalElement returns VisibilitySpecifier
-	 *
-	 * Constraint:
-	 *     visibility=VisibilityEnum
-	 */
-	protected void sequence_VisibilitySpecifier(ISerializationContext context, VisibilitySpecifier semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyGrammarPackage.eINSTANCE.getVisibilitySpecifier_Visibility()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyGrammarPackage.eINSTANCE.getVisibilitySpecifier_Visibility()));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumEnumRuleCall_0(), semanticObject.getVisibility());
 		feeder.finish();
 	}
 	

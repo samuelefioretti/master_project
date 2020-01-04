@@ -230,11 +230,14 @@
     </genClasses>
     <genClasses ecoreClass="MyGrammar.ecore#//ContractOrLibrary">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//ContractOrLibrary/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//ContractOrLibrary/inheritanceSpecifiers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//ContractOrLibrary/body"/>
     </genClasses>
-    <genClasses ecoreClass="MyGrammar.ecore#//Contract"/>
-    <genClasses ecoreClass="MyGrammar.ecore#//Library"/>
+    <genClasses ecoreClass="MyGrammar.ecore#//Contract">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//Contract/blocks"/>
+    </genClasses>
+    <genClasses ecoreClass="MyGrammar.ecore#//Library">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//Library/inheritanceSpecifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//Library/body"/>
+    </genClasses>
     <genClasses ecoreClass="MyGrammar.ecore#//DefinitionBody">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//DefinitionBody/functions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//DefinitionBody/structs"/>
@@ -247,6 +250,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//InheritanceSpecifier/superType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//InheritanceSpecifier/args"/>
     </genClasses>
+    <genClasses ecoreClass="MyGrammar.ecore#//Declaration"/>
+    <genClasses ecoreClass="MyGrammar.ecore#//FunctionDeclaration"/>
+    <genClasses ecoreClass="MyGrammar.ecore#//FunctionParameterDeclaration"/>
     <genClasses ecoreClass="MyGrammar.ecore#//FunctionCallListArguments">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//FunctionCallListArguments/arguments"/>
     </genClasses>
@@ -257,22 +263,24 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//FunctionCallArg/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//FunctionCallArg/expr"/>
     </genClasses>
-    <genClasses ecoreClass="MyGrammar.ecore#//FunctionDefinition"/>
+    <genClasses ecoreClass="MyGrammar.ecore#//FunctionDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//FunctionDefinition/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//FunctionDefinition/payable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//FunctionDefinition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//FunctionDefinition/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//FunctionDefinition/optionalElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//FunctionDefinition/returnParameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//FunctionDefinition/block"/>
+    </genClasses>
     <genClasses ecoreClass="MyGrammar.ecore#//FunctionDefinitionOptionalElement"/>
     <genClasses ecoreClass="MyGrammar.ecore#//Const"/>
-    <genClasses ecoreClass="MyGrammar.ecore#//VisibilitySpecifier">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//VisibilitySpecifier/payable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//VisibilitySpecifier/parameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//VisibilitySpecifier/optionalElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//VisibilitySpecifier/returnParameters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//VisibilitySpecifier/block"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//VisibilitySpecifier/visibility"/>
-    </genClasses>
     <genClasses ecoreClass="MyGrammar.ecore#//StructDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//StructDefinition/visibility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//StructDefinition/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//StructDefinition/members"/>
     </genClasses>
     <genClasses ecoreClass="MyGrammar.ecore#//EnumDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//EnumDefinition/visibility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//EnumDefinition/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//EnumDefinition/members"/>
     </genClasses>
@@ -305,9 +313,6 @@
     <genClasses ecoreClass="MyGrammar.ecore#//VariableDeclarationOptionalElement"/>
     <genClasses ecoreClass="MyGrammar.ecore#//IndexedSpecifer"/>
     <genClasses ecoreClass="MyGrammar.ecore#//ConstantSpecifier"/>
-    <genClasses ecoreClass="MyGrammar.ecore#//LocationSpecifier">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//LocationSpecifier/location"/>
-    </genClasses>
     <genClasses ecoreClass="MyGrammar.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//Type/isVarType"/>
     </genClasses>
@@ -316,6 +321,12 @@
     <genClasses ecoreClass="MyGrammar.ecore#//ElementaryType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//ElementaryType/dimension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//ElementaryType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="MyGrammar.ecore#//MappingDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//MappingDeclaration/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//MappingDeclaration/visibility"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//MappingDeclaration/unnamedMappingDeclaration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//MappingDeclaration/name"/>
     </genClasses>
     <genClasses ecoreClass="MyGrammar.ecore#//Mapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//Mapping/keyType"/>
@@ -374,7 +385,7 @@
     </genClasses>
     <genClasses ecoreClass="MyGrammar.ecore#//PrimaryTypeDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//PrimaryTypeDeclaration/constant"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyGrammar.ecore#//PrimaryTypeDeclaration/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//PrimaryTypeDeclaration/visibility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//PrimaryTypeDeclaration/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyGrammar.ecore#//PrimaryTypeDeclaration/name"/>
     </genClasses>

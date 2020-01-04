@@ -4,10 +4,8 @@
 package org.unicam.tryGrammar.myGrammar.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -15,7 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.unicam.tryGrammar.myGrammar.ElementaryTypeNameEnum;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
 import org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration;
-import org.unicam.tryGrammar.myGrammar.VisibilitySpecifier;
+import org.unicam.tryGrammar.myGrammar.VisibilityEnum;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,14 +54,24 @@ public class PrimaryTypeDeclarationImpl extends MinimalEObjectImpl.Container imp
   protected boolean constant = CONSTANT_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.
+   * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVisibility()
    * @generated
    * @ordered
    */
-  protected VisibilitySpecifier visibility;
+  protected static final VisibilityEnum VISIBILITY_EDEFAULT = VisibilityEnum.PUBLIC;
+
+  /**
+   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibility()
+   * @generated
+   * @ordered
+   */
+  protected VisibilityEnum visibility = VISIBILITY_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -157,7 +165,7 @@ public class PrimaryTypeDeclarationImpl extends MinimalEObjectImpl.Container imp
    * @generated
    */
   @Override
-  public VisibilitySpecifier getVisibility()
+  public VisibilityEnum getVisibility()
   {
     return visibility;
   }
@@ -167,38 +175,13 @@ public class PrimaryTypeDeclarationImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVisibility(VisibilitySpecifier newVisibility, NotificationChain msgs)
-  {
-    VisibilitySpecifier oldVisibility = visibility;
-    visibility = newVisibility;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, oldVisibility, newVisibility);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
-  public void setVisibility(VisibilitySpecifier newVisibility)
+  public void setVisibility(VisibilityEnum newVisibility)
   {
-    if (newVisibility != visibility)
-    {
-      NotificationChain msgs = null;
-      if (visibility != null)
-        msgs = ((InternalEObject)visibility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, null, msgs);
-      if (newVisibility != null)
-        msgs = ((InternalEObject)newVisibility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, null, msgs);
-      msgs = basicSetVisibility(newVisibility, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, newVisibility, newVisibility));
+    VisibilityEnum oldVisibility = visibility;
+    visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, oldVisibility, visibility));
   }
 
   /**
@@ -257,22 +240,6 @@ public class PrimaryTypeDeclarationImpl extends MinimalEObjectImpl.Container imp
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
-        return basicSetVisibility(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -303,7 +270,7 @@ public class PrimaryTypeDeclarationImpl extends MinimalEObjectImpl.Container imp
         setConstant((Boolean)newValue);
         return;
       case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
-        setVisibility((VisibilitySpecifier)newValue);
+        setVisibility((VisibilityEnum)newValue);
         return;
       case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__TYPE:
         setType((ElementaryTypeNameEnum)newValue);
@@ -329,7 +296,7 @@ public class PrimaryTypeDeclarationImpl extends MinimalEObjectImpl.Container imp
         setConstant(CONSTANT_EDEFAULT);
         return;
       case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
-        setVisibility((VisibilitySpecifier)null);
+        setVisibility(VISIBILITY_EDEFAULT);
         return;
       case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__TYPE:
         setType(TYPE_EDEFAULT);
@@ -354,7 +321,7 @@ public class PrimaryTypeDeclarationImpl extends MinimalEObjectImpl.Container imp
       case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__CONSTANT:
         return constant != CONSTANT_EDEFAULT;
       case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
-        return visibility != null;
+        return visibility != VISIBILITY_EDEFAULT;
       case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__TYPE:
         return type != TYPE_EDEFAULT;
       case MyGrammarPackage.PRIMARY_TYPE_DECLARATION__NAME:
@@ -376,6 +343,8 @@ public class PrimaryTypeDeclarationImpl extends MinimalEObjectImpl.Container imp
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (constant: ");
     result.append(constant);
+    result.append(", visibility: ");
+    result.append(visibility);
     result.append(", type: ");
     result.append(type);
     result.append(", name: ");

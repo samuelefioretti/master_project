@@ -49,26 +49,29 @@ public interface PrimaryTypeDeclaration extends EObject
   void setConstant(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
+   * Returns the value of the '<em><b>Visibility</b></em>' attribute.
+   * The literals are from the enumeration {@link org.unicam.tryGrammar.myGrammar.VisibilityEnum}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Visibility</em>' containment reference.
-   * @see #setVisibility(VisibilitySpecifier)
+   * @return the value of the '<em>Visibility</em>' attribute.
+   * @see org.unicam.tryGrammar.myGrammar.VisibilityEnum
+   * @see #setVisibility(VisibilityEnum)
    * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getPrimaryTypeDeclaration_Visibility()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  VisibilitySpecifier getVisibility();
+  VisibilityEnum getVisibility();
 
   /**
-   * Sets the value of the '{@link org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#getVisibility <em>Visibility</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#getVisibility <em>Visibility</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Visibility</em>' containment reference.
+   * @param value the new value of the '<em>Visibility</em>' attribute.
+   * @see org.unicam.tryGrammar.myGrammar.VisibilityEnum
    * @see #getVisibility()
    * @generated
    */
-  void setVisibility(VisibilitySpecifier value);
+  void setVisibility(VisibilityEnum value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.

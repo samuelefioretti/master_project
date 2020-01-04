@@ -96,6 +96,33 @@ public interface MyGrammarFactory extends EFactory
   InheritanceSpecifier createInheritanceSpecifier();
 
   /**
+   * Returns a new object of class '<em>Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Declaration</em>'.
+   * @generated
+   */
+  Declaration createDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Function Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Declaration</em>'.
+   * @generated
+   */
+  FunctionDeclaration createFunctionDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Function Parameter Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Parameter Declaration</em>'.
+   * @generated
+   */
+  FunctionParameterDeclaration createFunctionParameterDeclaration();
+
+  /**
    * Returns a new object of class '<em>Function Call List Arguments</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -148,15 +175,6 @@ public interface MyGrammarFactory extends EFactory
    * @generated
    */
   Const createConst();
-
-  /**
-   * Returns a new object of class '<em>Visibility Specifier</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Visibility Specifier</em>'.
-   * @generated
-   */
-  VisibilitySpecifier createVisibilitySpecifier();
 
   /**
    * Returns a new object of class '<em>Struct Definition</em>'.
@@ -258,15 +276,6 @@ public interface MyGrammarFactory extends EFactory
   ConstantSpecifier createConstantSpecifier();
 
   /**
-   * Returns a new object of class '<em>Location Specifier</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Location Specifier</em>'.
-   * @generated
-   */
-  LocationSpecifier createLocationSpecifier();
-
-  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -301,6 +310,15 @@ public interface MyGrammarFactory extends EFactory
    * @generated
    */
   ElementaryType createElementaryType();
+
+  /**
+   * Returns a new object of class '<em>Mapping Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mapping Declaration</em>'.
+   * @generated
+   */
+  MappingDeclaration createMappingDeclaration();
 
   /**
    * Returns a new object of class '<em>Mapping</em>'.

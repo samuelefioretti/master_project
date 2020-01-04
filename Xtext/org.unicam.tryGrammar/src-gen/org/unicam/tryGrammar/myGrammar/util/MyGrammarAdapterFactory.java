@@ -34,6 +34,7 @@ import org.unicam.tryGrammar.myGrammar.ContinueStatement;
 import org.unicam.tryGrammar.myGrammar.Contract;
 import org.unicam.tryGrammar.myGrammar.ContractOrLibrary;
 import org.unicam.tryGrammar.myGrammar.DecimalLiteral;
+import org.unicam.tryGrammar.myGrammar.Declaration;
 import org.unicam.tryGrammar.myGrammar.DefinitionBody;
 import org.unicam.tryGrammar.myGrammar.DeleteStatement;
 import org.unicam.tryGrammar.myGrammar.ElementaryType;
@@ -50,8 +51,10 @@ import org.unicam.tryGrammar.myGrammar.ForStatement;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArg;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.myGrammar.FunctionCallListArguments;
+import org.unicam.tryGrammar.myGrammar.FunctionDeclaration;
 import org.unicam.tryGrammar.myGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.myGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.tryGrammar.myGrammar.FunctionParameterDeclaration;
 import org.unicam.tryGrammar.myGrammar.GasleftFunction;
 import org.unicam.tryGrammar.myGrammar.HexLiteral;
 import org.unicam.tryGrammar.myGrammar.IfStatement;
@@ -62,9 +65,9 @@ import org.unicam.tryGrammar.myGrammar.InheritanceSpecifier;
 import org.unicam.tryGrammar.myGrammar.IntParameter;
 import org.unicam.tryGrammar.myGrammar.Library;
 import org.unicam.tryGrammar.myGrammar.Literal;
-import org.unicam.tryGrammar.myGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.myGrammar.LogicalOperations;
 import org.unicam.tryGrammar.myGrammar.Mapping;
+import org.unicam.tryGrammar.myGrammar.MappingDeclaration;
 import org.unicam.tryGrammar.myGrammar.Modifier;
 import org.unicam.tryGrammar.myGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.myGrammar.MulDivMod;
@@ -118,7 +121,6 @@ import org.unicam.tryGrammar.myGrammar.VarVariableTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Variable;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationExpression;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationOptionalElement;
-import org.unicam.tryGrammar.myGrammar.VisibilitySpecifier;
 import org.unicam.tryGrammar.myGrammar.WhileStatement;
 
 /**
@@ -225,6 +227,21 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
         return createInheritanceSpecifierAdapter();
       }
       @Override
+      public Adapter caseDeclaration(Declaration object)
+      {
+        return createDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseFunctionDeclaration(FunctionDeclaration object)
+      {
+        return createFunctionDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseFunctionParameterDeclaration(FunctionParameterDeclaration object)
+      {
+        return createFunctionParameterDeclarationAdapter();
+      }
+      @Override
       public Adapter caseFunctionCallListArguments(FunctionCallListArguments object)
       {
         return createFunctionCallListArgumentsAdapter();
@@ -253,11 +270,6 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConst(Const object)
       {
         return createConstAdapter();
-      }
-      @Override
-      public Adapter caseVisibilitySpecifier(VisibilitySpecifier object)
-      {
-        return createVisibilitySpecifierAdapter();
       }
       @Override
       public Adapter caseStructDefinition(StructDefinition object)
@@ -315,11 +327,6 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
         return createConstantSpecifierAdapter();
       }
       @Override
-      public Adapter caseLocationSpecifier(LocationSpecifier object)
-      {
-        return createLocationSpecifierAdapter();
-      }
-      @Override
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
@@ -338,6 +345,11 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseElementaryType(ElementaryType object)
       {
         return createElementaryTypeAdapter();
+      }
+      @Override
+      public Adapter caseMappingDeclaration(MappingDeclaration object)
+      {
+        return createMappingDeclarationAdapter();
       }
       @Override
       public Adapter caseMapping(Mapping object)
@@ -877,6 +889,51 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.Declaration <em>Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.Declaration
+   * @generated
+   */
+  public Adapter createDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.FunctionDeclaration <em>Function Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.FunctionDeclaration
+   * @generated
+   */
+  public Adapter createFunctionDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.FunctionParameterDeclaration <em>Function Parameter Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.FunctionParameterDeclaration
+   * @generated
+   */
+  public Adapter createFunctionParameterDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.FunctionCallListArguments <em>Function Call List Arguments</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -962,21 +1019,6 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConstAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.VisibilitySpecifier <em>Visibility Specifier</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.tryGrammar.myGrammar.VisibilitySpecifier
-   * @generated
-   */
-  public Adapter createVisibilitySpecifierAdapter()
   {
     return null;
   }
@@ -1147,21 +1189,6 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.LocationSpecifier <em>Location Specifier</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.tryGrammar.myGrammar.LocationSpecifier
-   * @generated
-   */
-  public Adapter createLocationSpecifierAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1217,6 +1244,21 @@ public class MyGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementaryTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.tryGrammar.myGrammar.MappingDeclaration <em>Mapping Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.tryGrammar.myGrammar.MappingDeclaration
+   * @generated
+   */
+  public Adapter createMappingDeclarationAdapter()
   {
     return null;
   }

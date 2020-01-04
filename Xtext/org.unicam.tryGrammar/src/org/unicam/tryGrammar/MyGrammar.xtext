@@ -29,10 +29,9 @@ ContractOrLibrary:
  
 Contract:
 	"contract" name=ID (
-		"is" inheritanceSpecifiers+=InheritanceSpecifier
-		("," inheritanceSpecifiers+=InheritanceSpecifier)*
-	)?
-	body=DefinitionBody
+		blocks+=Declaration ';'
+		| blocks+=FunctionDefinition
+	)
 ;
 
 Library:
@@ -56,6 +55,23 @@ DefinitionBody:
 
 InheritanceSpecifier:
 	superType=[ContractOrLibrary] (args=FunctionCallListArguments)?
+;
+
+Declaration:
+	FunctionDeclaration |
+	StructDefinition
+;
+
+FunctionDeclaration:
+	EnumDefinition |
+	FunctionParameterDeclaration
+;
+
+FunctionParameterDeclaration:
+	//ArrayDefinitionDeclaration |
+	MappingDeclaration //|
+	//PrimaryTypeDefinitionDeclaration |
+	//ConcreteStructureDefinitionDeclaration
 ;
 
 FunctionCallListArguments:
@@ -84,7 +100,7 @@ FunctionCallArg:
 
 // Anonymous function allowed when "name" is not specified.
 FunctionDefinition:
-	VisibilitySpecifier payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
+	visibility=VisibilityEnum payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
 		"returns" returnParameters=ReturnsParameterList
 	)?
 	(
@@ -95,28 +111,23 @@ FunctionDefinition:
 
 FunctionDefinitionOptionalElement:
 	Const |
-	ModifierInvocation |
-	VisibilitySpecifier
+	ModifierInvocation
 ;
 
 Const:
 	"constant" {Const}
 ;
 
-VisibilitySpecifier:
-	visibility=VisibilityEnum
-;
-
 StructDefinition:
-	"struct" name=ID "{"
+	visibility=VisibilityEnum? "struct" name=ID "{"
 		(
-			members+=VariableDeclaration ";"
+			members+=Declaration ";"
 		)*
 	"}"
 ;
 
 EnumDefinition:
-	VisibilitySpecifier? "enum" name=ID "{"
+	visibility=VisibilityEnum? "enum" name=ID "{"
 		(
 			members+=EnumValue ("," members+=EnumValue)*
 		)?
@@ -157,10 +168,8 @@ VarVariableTupleVariableDeclaration:
 ;
 
 VariableDeclarationOptionalElement:
-	VisibilitySpecifier |
 	IndexedSpecifer |
-	ConstantSpecifier |
-	LocationSpecifier
+	ConstantSpecifier
 ;
 
 IndexedSpecifer:
@@ -169,10 +178,6 @@ IndexedSpecifer:
 
 ConstantSpecifier:
 	 "constant" {ConstantSpecifier}
-;
-
-LocationSpecifier:
-	location=LocationSpecifierEnum
 ;
 
 // Types
@@ -193,6 +198,14 @@ StandardTypeWithoutQualifiedIdentifier:
 
 ElementaryType:
 	name=ElementaryTypeNameEnum
+;
+
+MappingDeclaration:
+	location=MapLocationLiteral? visibility=VisibilityEnum? unnamedMappingDeclaration=Mapping name=ID
+;
+
+MapLocationLiteral:
+	"storage"
 ;
 
 Mapping:
@@ -330,11 +343,11 @@ PrimaryTypeDeclaration:
 ;
 
 NonArrayableDeclaration:
-	location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilitySpecifier? type=ElementaryTypeNameEnum name=ID
+	location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID
 ;
 
 ArrayableDeclaration:
-	constant?='constant'? visibility=VisibilitySpecifier? type=ElementaryTypeNameEnum name=ID
+	constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID
 ;
 
 SimpleTypeDeclaration:

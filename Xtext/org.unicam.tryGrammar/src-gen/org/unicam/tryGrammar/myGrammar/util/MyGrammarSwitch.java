@@ -32,6 +32,7 @@ import org.unicam.tryGrammar.myGrammar.ContinueStatement;
 import org.unicam.tryGrammar.myGrammar.Contract;
 import org.unicam.tryGrammar.myGrammar.ContractOrLibrary;
 import org.unicam.tryGrammar.myGrammar.DecimalLiteral;
+import org.unicam.tryGrammar.myGrammar.Declaration;
 import org.unicam.tryGrammar.myGrammar.DefinitionBody;
 import org.unicam.tryGrammar.myGrammar.DeleteStatement;
 import org.unicam.tryGrammar.myGrammar.ElementaryType;
@@ -48,8 +49,10 @@ import org.unicam.tryGrammar.myGrammar.ForStatement;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArg;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.myGrammar.FunctionCallListArguments;
+import org.unicam.tryGrammar.myGrammar.FunctionDeclaration;
 import org.unicam.tryGrammar.myGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.myGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.tryGrammar.myGrammar.FunctionParameterDeclaration;
 import org.unicam.tryGrammar.myGrammar.GasleftFunction;
 import org.unicam.tryGrammar.myGrammar.HexLiteral;
 import org.unicam.tryGrammar.myGrammar.IfStatement;
@@ -60,9 +63,9 @@ import org.unicam.tryGrammar.myGrammar.InheritanceSpecifier;
 import org.unicam.tryGrammar.myGrammar.IntParameter;
 import org.unicam.tryGrammar.myGrammar.Library;
 import org.unicam.tryGrammar.myGrammar.Literal;
-import org.unicam.tryGrammar.myGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.myGrammar.LogicalOperations;
 import org.unicam.tryGrammar.myGrammar.Mapping;
+import org.unicam.tryGrammar.myGrammar.MappingDeclaration;
 import org.unicam.tryGrammar.myGrammar.Modifier;
 import org.unicam.tryGrammar.myGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.myGrammar.MulDivMod;
@@ -116,7 +119,6 @@ import org.unicam.tryGrammar.myGrammar.VarVariableTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Variable;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationExpression;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationOptionalElement;
-import org.unicam.tryGrammar.myGrammar.VisibilitySpecifier;
 import org.unicam.tryGrammar.myGrammar.WhileStatement;
 
 /**
@@ -240,6 +242,30 @@ public class MyGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyGrammarPackage.DECLARATION:
+      {
+        Declaration declaration = (Declaration)theEObject;
+        T result = caseDeclaration(declaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyGrammarPackage.FUNCTION_DECLARATION:
+      {
+        FunctionDeclaration functionDeclaration = (FunctionDeclaration)theEObject;
+        T result = caseFunctionDeclaration(functionDeclaration);
+        if (result == null) result = caseDeclaration(functionDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyGrammarPackage.FUNCTION_PARAMETER_DECLARATION:
+      {
+        FunctionParameterDeclaration functionParameterDeclaration = (FunctionParameterDeclaration)theEObject;
+        T result = caseFunctionParameterDeclaration(functionParameterDeclaration);
+        if (result == null) result = caseFunctionDeclaration(functionParameterDeclaration);
+        if (result == null) result = caseDeclaration(functionParameterDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS:
       {
         FunctionCallListArguments functionCallListArguments = (FunctionCallListArguments)theEObject;
@@ -284,21 +310,11 @@ public class MyGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyGrammarPackage.VISIBILITY_SPECIFIER:
-      {
-        VisibilitySpecifier visibilitySpecifier = (VisibilitySpecifier)theEObject;
-        T result = caseVisibilitySpecifier(visibilitySpecifier);
-        if (result == null) result = caseFunctionDefinition(visibilitySpecifier);
-        if (result == null) result = caseFunctionDefinitionOptionalElement(visibilitySpecifier);
-        if (result == null) result = caseEnumDefinition(visibilitySpecifier);
-        if (result == null) result = caseVariableDeclarationOptionalElement(visibilitySpecifier);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyGrammarPackage.STRUCT_DEFINITION:
       {
         StructDefinition structDefinition = (StructDefinition)theEObject;
         T result = caseStructDefinition(structDefinition);
+        if (result == null) result = caseDeclaration(structDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -306,6 +322,8 @@ public class MyGrammarSwitch<T> extends Switch<T>
       {
         EnumDefinition enumDefinition = (EnumDefinition)theEObject;
         T result = caseEnumDefinition(enumDefinition);
+        if (result == null) result = caseFunctionDeclaration(enumDefinition);
+        if (result == null) result = caseDeclaration(enumDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -381,14 +399,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyGrammarPackage.LOCATION_SPECIFIER:
-      {
-        LocationSpecifier locationSpecifier = (LocationSpecifier)theEObject;
-        T result = caseLocationSpecifier(locationSpecifier);
-        if (result == null) result = caseVariableDeclarationOptionalElement(locationSpecifier);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyGrammarPackage.TYPE:
       {
         Type type = (Type)theEObject;
@@ -424,6 +434,16 @@ public class MyGrammarSwitch<T> extends Switch<T>
         if (result == null) result = caseSimpleStatement(elementaryType);
         if (result == null) result = caseSimpleStatement2(elementaryType);
         if (result == null) result = caseStatement(elementaryType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyGrammarPackage.MAPPING_DECLARATION:
+      {
+        MappingDeclaration mappingDeclaration = (MappingDeclaration)theEObject;
+        T result = caseMappingDeclaration(mappingDeclaration);
+        if (result == null) result = caseFunctionParameterDeclaration(mappingDeclaration);
+        if (result == null) result = caseFunctionDeclaration(mappingDeclaration);
+        if (result == null) result = caseDeclaration(mappingDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1204,6 +1224,54 @@ public class MyGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDeclaration(Declaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionDeclaration(FunctionDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Parameter Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Parameter Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionParameterDeclaration(FunctionParameterDeclaration object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Function Call List Arguments</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1295,22 +1363,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConst(Const object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Visibility Specifier</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Visibility Specifier</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVisibilitySpecifier(VisibilitySpecifier object)
   {
     return null;
   }
@@ -1492,22 +1544,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Location Specifier</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Location Specifier</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLocationSpecifier(LocationSpecifier object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1567,6 +1603,22 @@ public class MyGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseElementaryType(ElementaryType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mapping Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mapping Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMappingDeclaration(MappingDeclaration object)
   {
     return null;
   }

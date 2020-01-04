@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -22,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.unicam.tryGrammar.myGrammar.EnumDefinition;
 import org.unicam.tryGrammar.myGrammar.EnumValue;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
+import org.unicam.tryGrammar.myGrammar.VisibilityEnum;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +31,35 @@ import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.EnumDefinitionImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.EnumDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.EnumDefinitionImpl#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements EnumDefinition
+public class EnumDefinitionImpl extends FunctionDeclarationImpl implements EnumDefinition
 {
+  /**
+   * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibility()
+   * @generated
+   * @ordered
+   */
+  protected static final VisibilityEnum VISIBILITY_EDEFAULT = VisibilityEnum.PUBLIC;
+
+  /**
+   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibility()
+   * @generated
+   * @ordered
+   */
+  protected VisibilityEnum visibility = VISIBILITY_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -88,6 +109,31 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
   protected EClass eStaticClass()
   {
     return MyGrammarPackage.eINSTANCE.getEnumDefinition();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VisibilityEnum getVisibility()
+  {
+    return visibility;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVisibility(VisibilityEnum newVisibility)
+  {
+    VisibilityEnum oldVisibility = visibility;
+    visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.ENUM_DEFINITION__VISIBILITY, oldVisibility, visibility));
   }
 
   /**
@@ -156,6 +202,8 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case MyGrammarPackage.ENUM_DEFINITION__VISIBILITY:
+        return getVisibility();
       case MyGrammarPackage.ENUM_DEFINITION__NAME:
         return getName();
       case MyGrammarPackage.ENUM_DEFINITION__MEMBERS:
@@ -175,6 +223,9 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case MyGrammarPackage.ENUM_DEFINITION__VISIBILITY:
+        setVisibility((VisibilityEnum)newValue);
+        return;
       case MyGrammarPackage.ENUM_DEFINITION__NAME:
         setName((String)newValue);
         return;
@@ -196,6 +247,9 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case MyGrammarPackage.ENUM_DEFINITION__VISIBILITY:
+        setVisibility(VISIBILITY_EDEFAULT);
+        return;
       case MyGrammarPackage.ENUM_DEFINITION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -216,6 +270,8 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case MyGrammarPackage.ENUM_DEFINITION__VISIBILITY:
+        return visibility != VISIBILITY_EDEFAULT;
       case MyGrammarPackage.ENUM_DEFINITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyGrammarPackage.ENUM_DEFINITION__MEMBERS:
@@ -235,7 +291,9 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
+    result.append(" (visibility: ");
+    result.append(visibility);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

@@ -3,7 +3,18 @@
  */
 package org.unicam.tryGrammar.myGrammar.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.unicam.tryGrammar.myGrammar.Contract;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
@@ -12,11 +23,27 @@ import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Contract</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.ContractImpl#getBlocks <em>Blocks</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ContractImpl extends ContractOrLibraryImpl implements Contract
 {
+  /**
+   * The cached value of the '{@link #getBlocks() <em>Blocks</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBlocks()
+   * @generated
+   * @ordered
+   */
+  protected EList<EObject> blocks;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +63,105 @@ public class ContractImpl extends ContractOrLibraryImpl implements Contract
   protected EClass eStaticClass()
   {
     return MyGrammarPackage.eINSTANCE.getContract();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<EObject> getBlocks()
+  {
+    if (blocks == null)
+    {
+      blocks = new EObjectContainmentEList<EObject>(EObject.class, this, MyGrammarPackage.CONTRACT__BLOCKS);
+    }
+    return blocks;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MyGrammarPackage.CONTRACT__BLOCKS:
+        return ((InternalEList<?>)getBlocks()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case MyGrammarPackage.CONTRACT__BLOCKS:
+        return getBlocks();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case MyGrammarPackage.CONTRACT__BLOCKS:
+        getBlocks().clear();
+        getBlocks().addAll((Collection<? extends EObject>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case MyGrammarPackage.CONTRACT__BLOCKS:
+        getBlocks().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case MyGrammarPackage.CONTRACT__BLOCKS:
+        return blocks != null && !blocks.isEmpty();
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ContractImpl

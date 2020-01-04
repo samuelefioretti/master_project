@@ -14,14 +14,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.unicam.tryGrammar.myGrammar.Declaration;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
-import org.unicam.tryGrammar.myGrammar.Statement;
 import org.unicam.tryGrammar.myGrammar.StructDefinition;
+import org.unicam.tryGrammar.myGrammar.VisibilityEnum;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +31,35 @@ import org.unicam.tryGrammar.myGrammar.StructDefinition;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.StructDefinitionImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.StructDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.StructDefinitionImpl#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StructDefinitionImpl extends MinimalEObjectImpl.Container implements StructDefinition
+public class StructDefinitionImpl extends DeclarationImpl implements StructDefinition
 {
+  /**
+   * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibility()
+   * @generated
+   * @ordered
+   */
+  protected static final VisibilityEnum VISIBILITY_EDEFAULT = VisibilityEnum.PUBLIC;
+
+  /**
+   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibility()
+   * @generated
+   * @ordered
+   */
+  protected VisibilityEnum visibility = VISIBILITY_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -67,7 +88,7 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    * @ordered
    */
-  protected EList<Statement> members;
+  protected EList<Declaration> members;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,6 +109,31 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   protected EClass eStaticClass()
   {
     return MyGrammarPackage.eINSTANCE.getStructDefinition();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VisibilityEnum getVisibility()
+  {
+    return visibility;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVisibility(VisibilityEnum newVisibility)
+  {
+    VisibilityEnum oldVisibility = visibility;
+    visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.STRUCT_DEFINITION__VISIBILITY, oldVisibility, visibility));
   }
 
   /**
@@ -121,11 +167,11 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public EList<Statement> getMembers()
+  public EList<Declaration> getMembers()
   {
     if (members == null)
     {
-      members = new EObjectContainmentEList<Statement>(Statement.class, this, MyGrammarPackage.STRUCT_DEFINITION__MEMBERS);
+      members = new EObjectContainmentEList<Declaration>(Declaration.class, this, MyGrammarPackage.STRUCT_DEFINITION__MEMBERS);
     }
     return members;
   }
@@ -156,6 +202,8 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case MyGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+        return getVisibility();
       case MyGrammarPackage.STRUCT_DEFINITION__NAME:
         return getName();
       case MyGrammarPackage.STRUCT_DEFINITION__MEMBERS:
@@ -175,12 +223,15 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case MyGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+        setVisibility((VisibilityEnum)newValue);
+        return;
       case MyGrammarPackage.STRUCT_DEFINITION__NAME:
         setName((String)newValue);
         return;
       case MyGrammarPackage.STRUCT_DEFINITION__MEMBERS:
         getMembers().clear();
-        getMembers().addAll((Collection<? extends Statement>)newValue);
+        getMembers().addAll((Collection<? extends Declaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,6 +247,9 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case MyGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+        setVisibility(VISIBILITY_EDEFAULT);
+        return;
       case MyGrammarPackage.STRUCT_DEFINITION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -216,6 +270,8 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case MyGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+        return visibility != VISIBILITY_EDEFAULT;
       case MyGrammarPackage.STRUCT_DEFINITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyGrammarPackage.STRUCT_DEFINITION__MEMBERS:
@@ -235,7 +291,9 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
+    result.append(" (visibility: ");
+    result.append(visibility);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

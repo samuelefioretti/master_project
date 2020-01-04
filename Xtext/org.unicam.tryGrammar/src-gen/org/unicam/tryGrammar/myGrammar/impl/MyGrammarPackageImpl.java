@@ -102,6 +102,27 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass declarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionParameterDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass functionCallListArgumentsEClass = null;
 
   /**
@@ -138,13 +159,6 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   private EClass constEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass visibilitySpecifierEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -228,13 +242,6 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass locationSpecifierEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass typeEClass = null;
 
   /**
@@ -257,6 +264,13 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   private EClass elementaryTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mappingDeclarationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1149,28 +1163,6 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
-  public EReference getContractOrLibrary_InheritanceSpecifiers()
-  {
-        return (EReference)getContractOrLibrary().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getContractOrLibrary_Body()
-  {
-        return (EReference)getContractOrLibrary().getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getContract()
   {
     if (contractEClass == null)
@@ -1186,6 +1178,17 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
+  public EReference getContract_Blocks()
+  {
+        return (EReference)getContract().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getLibrary()
   {
     if (libraryEClass == null)
@@ -1193,6 +1196,28 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
       libraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(5);
     }
     return libraryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLibrary_InheritanceSpecifiers()
+  {
+        return (EReference)getLibrary().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLibrary_Body()
+  {
+        return (EReference)getLibrary().getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1319,11 +1344,56 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
+  public EClass getDeclaration()
+  {
+    if (declarationEClass == null)
+    {
+      declarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(8);
+    }
+    return declarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunctionDeclaration()
+  {
+    if (functionDeclarationEClass == null)
+    {
+      functionDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(9);
+    }
+    return functionDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunctionParameterDeclaration()
+  {
+    if (functionParameterDeclarationEClass == null)
+    {
+      functionParameterDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(10);
+    }
+    return functionParameterDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFunctionCallListArguments()
   {
     if (functionCallListArgumentsEClass == null)
     {
-      functionCallListArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(8);
+      functionCallListArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(11);
     }
     return functionCallListArgumentsEClass;
   }
@@ -1349,7 +1419,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (functionCallArgumentsEClass == null)
     {
-      functionCallArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(9);
+      functionCallArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(12);
     }
     return functionCallArgumentsEClass;
   }
@@ -1375,7 +1445,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (functionCallArgEClass == null)
     {
-      functionCallArgEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(10);
+      functionCallArgEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(13);
     }
     return functionCallArgEClass;
   }
@@ -1412,9 +1482,86 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (functionDefinitionEClass == null)
     {
-      functionDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(11);
+      functionDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(14);
     }
     return functionDefinitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFunctionDefinition_Visibility()
+  {
+        return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFunctionDefinition_Payable()
+  {
+        return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFunctionDefinition_Name()
+  {
+        return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionDefinition_Parameters()
+  {
+        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionDefinition_OptionalElements()
+  {
+        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionDefinition_ReturnParameters()
+  {
+        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionDefinition_Block()
+  {
+        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1427,7 +1574,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (functionDefinitionOptionalElementEClass == null)
     {
-      functionDefinitionOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(12);
+      functionDefinitionOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(15);
     }
     return functionDefinitionOptionalElementEClass;
   }
@@ -1442,90 +1589,9 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (constEClass == null)
     {
-      constEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(13);
+      constEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(16);
     }
     return constEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getVisibilitySpecifier()
-  {
-    if (visibilitySpecifierEClass == null)
-    {
-      visibilitySpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(14);
-    }
-    return visibilitySpecifierEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getVisibilitySpecifier_Payable()
-  {
-        return (EAttribute)getVisibilitySpecifier().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getVisibilitySpecifier_Parameters()
-  {
-        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getVisibilitySpecifier_OptionalElements()
-  {
-        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getVisibilitySpecifier_ReturnParameters()
-  {
-        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getVisibilitySpecifier_Block()
-  {
-        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getVisibilitySpecifier_Visibility()
-  {
-        return (EAttribute)getVisibilitySpecifier().getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1538,7 +1604,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (structDefinitionEClass == null)
     {
-      structDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(15);
+      structDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(17);
     }
     return structDefinitionEClass;
   }
@@ -1549,7 +1615,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
-  public EAttribute getStructDefinition_Name()
+  public EAttribute getStructDefinition_Visibility()
   {
         return (EAttribute)getStructDefinition().getEStructuralFeatures().get(0);
   }
@@ -1560,9 +1626,20 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
+  public EAttribute getStructDefinition_Name()
+  {
+        return (EAttribute)getStructDefinition().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getStructDefinition_Members()
   {
-        return (EReference)getStructDefinition().getEStructuralFeatures().get(1);
+        return (EReference)getStructDefinition().getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1575,7 +1652,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (enumDefinitionEClass == null)
     {
-      enumDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(16);
+      enumDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(18);
     }
     return enumDefinitionEClass;
   }
@@ -1586,7 +1663,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
-  public EAttribute getEnumDefinition_Name()
+  public EAttribute getEnumDefinition_Visibility()
   {
         return (EAttribute)getEnumDefinition().getEStructuralFeatures().get(0);
   }
@@ -1597,9 +1674,20 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
+  public EAttribute getEnumDefinition_Name()
+  {
+        return (EAttribute)getEnumDefinition().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getEnumDefinition_Members()
   {
-        return (EReference)getEnumDefinition().getEStructuralFeatures().get(1);
+        return (EReference)getEnumDefinition().getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1612,7 +1700,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (enumValueEClass == null)
     {
-      enumValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(17);
+      enumValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(19);
     }
     return enumValueEClass;
   }
@@ -1638,7 +1726,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (variableEClass == null)
     {
-      variableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(18);
+      variableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(20);
     }
     return variableEClass;
   }
@@ -1664,7 +1752,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (statementEClass == null)
     {
-      statementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(19);
+      statementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(21);
     }
     return statementEClass;
   }
@@ -1679,7 +1767,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (standardVariableDeclarationEClass == null)
     {
-      standardVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(20);
+      standardVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(22);
     }
     return standardVariableDeclarationEClass;
   }
@@ -1760,7 +1848,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (varVariableDeclarationEClass == null)
     {
-      varVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(21);
+      varVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(23);
     }
     return varVariableDeclarationEClass;
   }
@@ -1808,7 +1896,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (varVariableTupleVariableDeclarationEClass == null)
     {
-      varVariableTupleVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(22);
+      varVariableTupleVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(24);
     }
     return varVariableTupleVariableDeclarationEClass;
   }
@@ -1867,7 +1955,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (variableDeclarationOptionalElementEClass == null)
     {
-      variableDeclarationOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(23);
+      variableDeclarationOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(25);
     }
     return variableDeclarationOptionalElementEClass;
   }
@@ -1882,7 +1970,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (indexedSpeciferEClass == null)
     {
-      indexedSpeciferEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(24);
+      indexedSpeciferEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(26);
     }
     return indexedSpeciferEClass;
   }
@@ -1897,35 +1985,9 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (constantSpecifierEClass == null)
     {
-      constantSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(25);
+      constantSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(27);
     }
     return constantSpecifierEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getLocationSpecifier()
-  {
-    if (locationSpecifierEClass == null)
-    {
-      locationSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(26);
-    }
-    return locationSpecifierEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getLocationSpecifier_Location()
-  {
-        return (EAttribute)getLocationSpecifier().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1938,7 +2000,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (typeEClass == null)
     {
-      typeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(27);
+      typeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(28);
     }
     return typeEClass;
   }
@@ -1964,7 +2026,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (standardTypeEClass == null)
     {
-      standardTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(28);
+      standardTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(29);
     }
     return standardTypeEClass;
   }
@@ -1979,7 +2041,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (standardTypeWithoutQualifiedIdentifierEClass == null)
     {
-      standardTypeWithoutQualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(29);
+      standardTypeWithoutQualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(30);
     }
     return standardTypeWithoutQualifiedIdentifierEClass;
   }
@@ -1994,7 +2056,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (elementaryTypeEClass == null)
     {
-      elementaryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(30);
+      elementaryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(31);
     }
     return elementaryTypeEClass;
   }
@@ -2027,11 +2089,70 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
+  public EClass getMappingDeclaration()
+  {
+    if (mappingDeclarationEClass == null)
+    {
+      mappingDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(32);
+    }
+    return mappingDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMappingDeclaration_Location()
+  {
+        return (EAttribute)getMappingDeclaration().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMappingDeclaration_Visibility()
+  {
+        return (EAttribute)getMappingDeclaration().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMappingDeclaration_UnnamedMappingDeclaration()
+  {
+        return (EReference)getMappingDeclaration().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMappingDeclaration_Name()
+  {
+        return (EAttribute)getMappingDeclaration().getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getMapping()
   {
     if (mappingEClass == null)
     {
-      mappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(31);
+      mappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(33);
     }
     return mappingEClass;
   }
@@ -2068,7 +2189,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (arrayDimensionsEClass == null)
     {
-      arrayDimensionsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(32);
+      arrayDimensionsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(34);
     }
     return arrayDimensionsEClass;
   }
@@ -2094,7 +2215,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (tupleEClass == null)
     {
-      tupleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(33);
+      tupleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(35);
     }
     return tupleEClass;
   }
@@ -2120,7 +2241,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (tupleSeparatorEClass == null)
     {
-      tupleSeparatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(34);
+      tupleSeparatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(36);
     }
     return tupleSeparatorEClass;
   }
@@ -2135,7 +2256,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (simpleStatementEClass == null)
     {
-      simpleStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(35);
+      simpleStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(37);
     }
     return simpleStatementEClass;
   }
@@ -2150,7 +2271,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (simpleStatement2EClass == null)
     {
-      simpleStatement2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(36);
+      simpleStatement2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(38);
     }
     return simpleStatement2EClass;
   }
@@ -2165,7 +2286,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (expressionStatementEClass == null)
     {
-      expressionStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(37);
+      expressionStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(39);
     }
     return expressionStatementEClass;
   }
@@ -2202,7 +2323,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (qualifiedIdentifierEClass == null)
     {
-      qualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(38);
+      qualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(40);
     }
     return qualifiedIdentifierEClass;
   }
@@ -2239,7 +2360,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (qualifierEClass == null)
     {
-      qualifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(39);
+      qualifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(41);
     }
     return qualifierEClass;
   }
@@ -2254,7 +2375,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (fieldEClass == null)
     {
-      fieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(40);
+      fieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(42);
     }
     return fieldEClass;
   }
@@ -2280,7 +2401,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (indexEClass == null)
     {
-      indexEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(41);
+      indexEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(43);
     }
     return indexEClass;
   }
@@ -2306,7 +2427,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (argumentsEClass == null)
     {
-      argumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(42);
+      argumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(44);
     }
     return argumentsEClass;
   }
@@ -2332,7 +2453,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (modifierEClass == null)
     {
-      modifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(43);
+      modifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(45);
     }
     return modifierEClass;
   }
@@ -2380,7 +2501,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (eventEClass == null)
     {
-      eventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(44);
+      eventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(46);
     }
     return eventEClass;
   }
@@ -2428,7 +2549,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (modifierInvocationEClass == null)
     {
-      modifierInvocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(45);
+      modifierInvocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(47);
     }
     return modifierInvocationEClass;
   }
@@ -2465,7 +2586,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (parameterListEClass == null)
     {
-      parameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(46);
+      parameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(48);
     }
     return parameterListEClass;
   }
@@ -2491,7 +2612,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (returnsParameterListEClass == null)
     {
-      returnsParameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(47);
+      returnsParameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(49);
     }
     return returnsParameterListEClass;
   }
@@ -2517,7 +2638,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (returnParameterDeclarationEClass == null)
     {
-      returnParameterDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(48);
+      returnParameterDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(50);
     }
     return returnParameterDeclarationEClass;
   }
@@ -2554,7 +2675,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (primaryTypeDeclarationEClass == null)
     {
-      primaryTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(49);
+      primaryTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(51);
     }
     return primaryTypeDeclarationEClass;
   }
@@ -2576,9 +2697,9 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
    * @generated
    */
   @Override
-  public EReference getPrimaryTypeDeclaration_Visibility()
+  public EAttribute getPrimaryTypeDeclaration_Visibility()
   {
-        return (EReference)getPrimaryTypeDeclaration().getEStructuralFeatures().get(1);
+        return (EAttribute)getPrimaryTypeDeclaration().getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2613,7 +2734,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (nonArrayableDeclarationEClass == null)
     {
-      nonArrayableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(50);
+      nonArrayableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(52);
     }
     return nonArrayableDeclarationEClass;
   }
@@ -2639,7 +2760,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (arrayableDeclarationEClass == null)
     {
-      arrayableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(51);
+      arrayableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(53);
     }
     return arrayableDeclarationEClass;
   }
@@ -2654,7 +2775,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (simpleTypeDeclarationEClass == null)
     {
-      simpleTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(52);
+      simpleTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(54);
     }
     return simpleTypeDeclarationEClass;
   }
@@ -2680,7 +2801,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (deleteStatementEClass == null)
     {
-      deleteStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(53);
+      deleteStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(55);
     }
     return deleteStatementEClass;
   }
@@ -2706,7 +2827,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (ifStatementEClass == null)
     {
-      ifStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(54);
+      ifStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(56);
     }
     return ifStatementEClass;
   }
@@ -2754,7 +2875,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (whileStatementEClass == null)
     {
-      whileStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(55);
+      whileStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(57);
     }
     return whileStatementEClass;
   }
@@ -2791,7 +2912,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (forStatementEClass == null)
     {
-      forStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(56);
+      forStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(58);
     }
     return forStatementEClass;
   }
@@ -2850,7 +2971,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (bodyEClass == null)
     {
-      bodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(57);
+      bodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(59);
     }
     return bodyEClass;
   }
@@ -2865,7 +2986,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (continueStatementEClass == null)
     {
-      continueStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(58);
+      continueStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(60);
     }
     return continueStatementEClass;
   }
@@ -2880,7 +3001,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (breakStatementEClass == null)
     {
-      breakStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(59);
+      breakStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(61);
     }
     return breakStatementEClass;
   }
@@ -2895,7 +3016,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (returnStatementEClass == null)
     {
-      returnStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(60);
+      returnStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(62);
     }
     return returnStatementEClass;
   }
@@ -2921,7 +3042,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (throwStatementEClass == null)
     {
-      throwStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(61);
+      throwStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(63);
     }
     return throwStatementEClass;
   }
@@ -2936,7 +3057,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (placeHolderStatementEClass == null)
     {
-      placeHolderStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(62);
+      placeHolderStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(64);
     }
     return placeHolderStatementEClass;
   }
@@ -2951,7 +3072,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (expressionEClass == null)
     {
-      expressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(63);
+      expressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(65);
     }
     return expressionEClass;
   }
@@ -2966,7 +3087,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (specialExpressionEClass == null)
     {
-      specialExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(64);
+      specialExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(66);
     }
     return specialExpressionEClass;
   }
@@ -3014,7 +3135,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (notExpressionEClass == null)
     {
-      notExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(65);
+      notExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(67);
     }
     return notExpressionEClass;
   }
@@ -3040,7 +3161,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (preIncExpressionEClass == null)
     {
-      preIncExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(66);
+      preIncExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(68);
     }
     return preIncExpressionEClass;
   }
@@ -3066,7 +3187,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (preDecExpressionEClass == null)
     {
-      preDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(67);
+      preDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(69);
     }
     return preDecExpressionEClass;
   }
@@ -3092,7 +3213,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (binaryNotExpressionEClass == null)
     {
-      binaryNotExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(68);
+      binaryNotExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(70);
     }
     return binaryNotExpressionEClass;
   }
@@ -3118,7 +3239,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (signExpressionEClass == null)
     {
-      signExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(69);
+      signExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(71);
     }
     return signExpressionEClass;
   }
@@ -3155,7 +3276,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (newExpressionEClass == null)
     {
-      newExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(70);
+      newExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(72);
     }
     return newExpressionEClass;
   }
@@ -3192,7 +3313,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (literalEClass == null)
     {
-      literalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(71);
+      literalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(73);
     }
     return literalEClass;
   }
@@ -3207,7 +3328,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (intParameterEClass == null)
     {
-      intParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(72);
+      intParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(74);
     }
     return intParameterEClass;
   }
@@ -3255,7 +3376,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (arithmeticOperationsEClass == null)
     {
-      arithmeticOperationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(73);
+      arithmeticOperationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(75);
     }
     return arithmeticOperationsEClass;
   }
@@ -3292,7 +3413,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (primaryArithmeticEClass == null)
     {
-      primaryArithmeticEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(74);
+      primaryArithmeticEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(76);
     }
     return primaryArithmeticEClass;
   }
@@ -3307,7 +3428,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (secondOperatorsEClass == null)
     {
-      secondOperatorsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(75);
+      secondOperatorsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(77);
     }
     return secondOperatorsEClass;
   }
@@ -3344,7 +3465,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (logicalOperationsEClass == null)
     {
-      logicalOperationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(76);
+      logicalOperationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(78);
     }
     return logicalOperationsEClass;
   }
@@ -3425,7 +3546,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (conditionOperationEClass == null)
     {
-      conditionOperationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(77);
+      conditionOperationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(79);
     }
     return conditionOperationEClass;
   }
@@ -3473,7 +3594,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (numericLiteralEClass == null)
     {
-      numericLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(78);
+      numericLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(80);
     }
     return numericLiteralEClass;
   }
@@ -3532,7 +3653,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (unitTypesEClass == null)
     {
-      unitTypesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(79);
+      unitTypesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(81);
     }
     return unitTypesEClass;
   }
@@ -3569,7 +3690,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (gasleftFunctionEClass == null)
     {
-      gasleftFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(80);
+      gasleftFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(82);
     }
     return gasleftFunctionEClass;
   }
@@ -3595,7 +3716,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (booleanConstEClass == null)
     {
-      booleanConstEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(81);
+      booleanConstEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(83);
     }
     return booleanConstEClass;
   }
@@ -3621,7 +3742,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (numberEClass == null)
     {
-      numberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(82);
+      numberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(84);
     }
     return numberEClass;
   }
@@ -3636,7 +3757,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (numberDimensionlessEClass == null)
     {
-      numberDimensionlessEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(83);
+      numberDimensionlessEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(85);
     }
     return numberDimensionlessEClass;
   }
@@ -3662,7 +3783,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (etherEClass == null)
     {
-      etherEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(84);
+      etherEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(86);
     }
     return etherEClass;
   }
@@ -3699,7 +3820,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (timeEClass == null)
     {
-      timeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(85);
+      timeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(87);
     }
     return timeEClass;
   }
@@ -3736,7 +3857,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (stringLiteralEClass == null)
     {
-      stringLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(86);
+      stringLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(88);
     }
     return stringLiteralEClass;
   }
@@ -3762,7 +3883,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (hexLiteralEClass == null)
     {
-      hexLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(87);
+      hexLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(89);
     }
     return hexLiteralEClass;
   }
@@ -3788,7 +3909,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (decimalLiteralEClass == null)
     {
-      decimalLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(88);
+      decimalLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(90);
     }
     return decimalLiteralEClass;
   }
@@ -3814,7 +3935,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (typeCastEClass == null)
     {
-      typeCastEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(89);
+      typeCastEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(91);
     }
     return typeCastEClass;
   }
@@ -3851,7 +3972,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (nowEClass == null)
     {
-      nowEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(90);
+      nowEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(92);
     }
     return nowEClass;
   }
@@ -3866,7 +3987,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (specialVariablesEClass == null)
     {
-      specialVariablesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(91);
+      specialVariablesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(93);
     }
     return specialVariablesEClass;
   }
@@ -3914,7 +4035,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (specialVariablesTypeEnumEClass == null)
     {
-      specialVariablesTypeEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(106);
+      specialVariablesTypeEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(108);
     }
     return specialVariablesTypeEnumEClass;
   }
@@ -3940,7 +4061,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (varVariableTypeDeclarationEClass == null)
     {
-      varVariableTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(109);
+      varVariableTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(111);
     }
     return varVariableTypeDeclarationEClass;
   }
@@ -3988,7 +4109,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (blockEClass == null)
     {
-      blockEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(110);
+      blockEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(112);
     }
     return blockEClass;
   }
@@ -4014,7 +4135,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (continueEClass == null)
     {
-      continueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(111);
+      continueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(113);
     }
     return continueEClass;
   }
@@ -4029,7 +4150,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (assignmentEClass == null)
     {
-      assignmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(112);
+      assignmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(114);
     }
     return assignmentEClass;
   }
@@ -4077,7 +4198,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (variableDeclarationExpressionEClass == null)
     {
-      variableDeclarationExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(113);
+      variableDeclarationExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(115);
     }
     return variableDeclarationExpressionEClass;
   }
@@ -4125,7 +4246,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (orEClass == null)
     {
-      orEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(114);
+      orEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(116);
     }
     return orEClass;
   }
@@ -4162,7 +4283,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (andEClass == null)
     {
-      andEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(115);
+      andEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(117);
     }
     return andEClass;
   }
@@ -4199,7 +4320,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (equalityEClass == null)
     {
-      equalityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(116);
+      equalityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(118);
     }
     return equalityEClass;
   }
@@ -4247,7 +4368,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (comparisonEClass == null)
     {
-      comparisonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(117);
+      comparisonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(119);
     }
     return comparisonEClass;
   }
@@ -4295,7 +4416,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (bitOrEClass == null)
     {
-      bitOrEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(118);
+      bitOrEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(120);
     }
     return bitOrEClass;
   }
@@ -4332,7 +4453,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (bitXorEClass == null)
     {
-      bitXorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(119);
+      bitXorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(121);
     }
     return bitXorEClass;
   }
@@ -4369,7 +4490,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (bitAndEClass == null)
     {
-      bitAndEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(120);
+      bitAndEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(122);
     }
     return bitAndEClass;
   }
@@ -4406,7 +4527,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (shiftEClass == null)
     {
-      shiftEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(121);
+      shiftEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(123);
     }
     return shiftEClass;
   }
@@ -4454,7 +4575,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (addSubEClass == null)
     {
-      addSubEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(122);
+      addSubEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(124);
     }
     return addSubEClass;
   }
@@ -4502,7 +4623,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (mulDivModEClass == null)
     {
-      mulDivModEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(123);
+      mulDivModEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(125);
     }
     return mulDivModEClass;
   }
@@ -4550,7 +4671,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (exponentEClass == null)
     {
-      exponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(124);
+      exponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(126);
     }
     return exponentEClass;
   }
@@ -4587,7 +4708,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (postIncDecExpressionEClass == null)
     {
-      postIncDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(125);
+      postIncDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(127);
     }
     return postIncDecExpressionEClass;
   }
@@ -4624,7 +4745,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (elementaryTypeNameEnumEEnum == null)
     {
-      elementaryTypeNameEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(92);
+      elementaryTypeNameEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(94);
     }
     return elementaryTypeNameEnumEEnum;
   }
@@ -4639,7 +4760,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (locationSpecifierEnumEEnum == null)
     {
-      locationSpecifierEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(93);
+      locationSpecifierEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(95);
     }
     return locationSpecifierEnumEEnum;
   }
@@ -4654,7 +4775,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (visibilityEnumEEnum == null)
     {
-      visibilityEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(94);
+      visibilityEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(96);
     }
     return visibilityEnumEEnum;
   }
@@ -4669,7 +4790,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (assignmentOpEnumEEnum == null)
     {
-      assignmentOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(95);
+      assignmentOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(97);
     }
     return assignmentOpEnumEEnum;
   }
@@ -4684,7 +4805,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (logicalOperationLiteralEEnum == null)
     {
-      logicalOperationLiteralEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(96);
+      logicalOperationLiteralEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(98);
     }
     return logicalOperationLiteralEEnum;
   }
@@ -4699,7 +4820,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (equalityOpEnumEEnum == null)
     {
-      equalityOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(97);
+      equalityOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(99);
     }
     return equalityOpEnumEEnum;
   }
@@ -4714,7 +4835,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (comparisonOpEnumEEnum == null)
     {
-      comparisonOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(98);
+      comparisonOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(100);
     }
     return comparisonOpEnumEEnum;
   }
@@ -4729,7 +4850,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (shiftOpEnumEEnum == null)
     {
-      shiftOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(99);
+      shiftOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(101);
     }
     return shiftOpEnumEEnum;
   }
@@ -4744,7 +4865,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (additionOpEnumEEnum == null)
     {
-      additionOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(100);
+      additionOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(102);
     }
     return additionOpEnumEEnum;
   }
@@ -4759,7 +4880,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (mulDivModOpEnumEEnum == null)
     {
-      mulDivModOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(101);
+      mulDivModOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(103);
     }
     return mulDivModOpEnumEEnum;
   }
@@ -4774,7 +4895,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (incDecOpEnumEEnum == null)
     {
-      incDecOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(102);
+      incDecOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(104);
     }
     return incDecOpEnumEEnum;
   }
@@ -4789,7 +4910,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (booleanLiteralEnumEEnum == null)
     {
-      booleanLiteralEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(103);
+      booleanLiteralEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(105);
     }
     return booleanLiteralEnumEEnum;
   }
@@ -4804,7 +4925,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (etherSubDenominationEnumEEnum == null)
     {
-      etherSubDenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(104);
+      etherSubDenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(106);
     }
     return etherSubDenominationEnumEEnum;
   }
@@ -4819,7 +4940,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (timeSubdenominationEnumEEnum == null)
     {
-      timeSubdenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(105);
+      timeSubdenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(107);
     }
     return timeSubdenominationEnumEEnum;
   }
@@ -4834,7 +4955,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (specialExpressionTypeEnumEEnum == null)
     {
-      specialExpressionTypeEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(107);
+      specialExpressionTypeEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(109);
     }
     return specialExpressionTypeEnumEEnum;
   }
@@ -4849,7 +4970,7 @@ public class MyGrammarPackageImpl extends EPackageImpl implements MyGrammarPacka
   {
     if (reservedWordsEnumEEnum == null)
     {
-      reservedWordsEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(108);
+      reservedWordsEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(MyGrammarPackage.eNS_URI).getEClassifiers().get(110);
     }
     return reservedWordsEnumEEnum;
   }
