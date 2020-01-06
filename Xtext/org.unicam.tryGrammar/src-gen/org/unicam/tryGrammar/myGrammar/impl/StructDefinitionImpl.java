@@ -14,12 +14,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.unicam.tryGrammar.myGrammar.Declaration;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
+import org.unicam.tryGrammar.myGrammar.Statement;
 import org.unicam.tryGrammar.myGrammar.StructDefinition;
 import org.unicam.tryGrammar.myGrammar.VisibilityEnum;
 
@@ -38,7 +39,7 @@ import org.unicam.tryGrammar.myGrammar.VisibilityEnum;
  *
  * @generated
  */
-public class StructDefinitionImpl extends DeclarationImpl implements StructDefinition
+public class StructDefinitionImpl extends MinimalEObjectImpl.Container implements StructDefinition
 {
   /**
    * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
@@ -88,7 +89,7 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
    * @generated
    * @ordered
    */
-  protected EList<Declaration> members;
+  protected EList<Statement> members;
 
   /**
    * <!-- begin-user-doc -->
@@ -167,11 +168,11 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
    * @generated
    */
   @Override
-  public EList<Declaration> getMembers()
+  public EList<Statement> getMembers()
   {
     if (members == null)
     {
-      members = new EObjectContainmentEList<Declaration>(Declaration.class, this, MyGrammarPackage.STRUCT_DEFINITION__MEMBERS);
+      members = new EObjectContainmentEList<Statement>(Statement.class, this, MyGrammarPackage.STRUCT_DEFINITION__MEMBERS);
     }
     return members;
   }
@@ -231,7 +232,7 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
         return;
       case MyGrammarPackage.STRUCT_DEFINITION__MEMBERS:
         getMembers().clear();
-        getMembers().addAll((Collection<? extends Declaration>)newValue);
+        getMembers().addAll((Collection<? extends Statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

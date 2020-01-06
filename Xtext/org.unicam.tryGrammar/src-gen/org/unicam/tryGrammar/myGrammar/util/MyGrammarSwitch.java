@@ -11,9 +11,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.unicam.tryGrammar.myGrammar.AddSub;
 import org.unicam.tryGrammar.myGrammar.And;
 import org.unicam.tryGrammar.myGrammar.Arguments;
-import org.unicam.tryGrammar.myGrammar.ArithmeticOperations;
 import org.unicam.tryGrammar.myGrammar.ArrayDimensions;
-import org.unicam.tryGrammar.myGrammar.ArrayableDeclaration;
 import org.unicam.tryGrammar.myGrammar.Assignment;
 import org.unicam.tryGrammar.myGrammar.BinaryNotExpression;
 import org.unicam.tryGrammar.myGrammar.BitAnd;
@@ -24,7 +22,6 @@ import org.unicam.tryGrammar.myGrammar.Body;
 import org.unicam.tryGrammar.myGrammar.BooleanConst;
 import org.unicam.tryGrammar.myGrammar.BreakStatement;
 import org.unicam.tryGrammar.myGrammar.Comparison;
-import org.unicam.tryGrammar.myGrammar.ConditionOperation;
 import org.unicam.tryGrammar.myGrammar.Const;
 import org.unicam.tryGrammar.myGrammar.ConstantSpecifier;
 import org.unicam.tryGrammar.myGrammar.Continue;
@@ -32,7 +29,6 @@ import org.unicam.tryGrammar.myGrammar.ContinueStatement;
 import org.unicam.tryGrammar.myGrammar.Contract;
 import org.unicam.tryGrammar.myGrammar.ContractOrLibrary;
 import org.unicam.tryGrammar.myGrammar.DecimalLiteral;
-import org.unicam.tryGrammar.myGrammar.Declaration;
 import org.unicam.tryGrammar.myGrammar.DefinitionBody;
 import org.unicam.tryGrammar.myGrammar.DeleteStatement;
 import org.unicam.tryGrammar.myGrammar.ElementaryType;
@@ -49,10 +45,8 @@ import org.unicam.tryGrammar.myGrammar.ForStatement;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArg;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.myGrammar.FunctionCallListArguments;
-import org.unicam.tryGrammar.myGrammar.FunctionDeclaration;
 import org.unicam.tryGrammar.myGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.myGrammar.FunctionDefinitionOptionalElement;
-import org.unicam.tryGrammar.myGrammar.FunctionParameterDeclaration;
 import org.unicam.tryGrammar.myGrammar.GasleftFunction;
 import org.unicam.tryGrammar.myGrammar.HexLiteral;
 import org.unicam.tryGrammar.myGrammar.IfStatement;
@@ -60,41 +54,33 @@ import org.unicam.tryGrammar.myGrammar.ImportDirective;
 import org.unicam.tryGrammar.myGrammar.Index;
 import org.unicam.tryGrammar.myGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.myGrammar.InheritanceSpecifier;
-import org.unicam.tryGrammar.myGrammar.IntParameter;
 import org.unicam.tryGrammar.myGrammar.Library;
 import org.unicam.tryGrammar.myGrammar.Literal;
-import org.unicam.tryGrammar.myGrammar.LogicalOperations;
+import org.unicam.tryGrammar.myGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.myGrammar.Mapping;
-import org.unicam.tryGrammar.myGrammar.MappingDeclaration;
 import org.unicam.tryGrammar.myGrammar.Modifier;
 import org.unicam.tryGrammar.myGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.myGrammar.MulDivMod;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
 import org.unicam.tryGrammar.myGrammar.NewExpression;
-import org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration;
 import org.unicam.tryGrammar.myGrammar.NotExpression;
 import org.unicam.tryGrammar.myGrammar.Now;
 import org.unicam.tryGrammar.myGrammar.NumberDimensionless;
-import org.unicam.tryGrammar.myGrammar.NumericLiteral;
 import org.unicam.tryGrammar.myGrammar.Or;
 import org.unicam.tryGrammar.myGrammar.ParameterList;
 import org.unicam.tryGrammar.myGrammar.PlaceHolderStatement;
 import org.unicam.tryGrammar.myGrammar.PostIncDecExpression;
 import org.unicam.tryGrammar.myGrammar.PreDecExpression;
 import org.unicam.tryGrammar.myGrammar.PreIncExpression;
-import org.unicam.tryGrammar.myGrammar.PrimaryArithmetic;
-import org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.QualifiedIdentifier;
 import org.unicam.tryGrammar.myGrammar.Qualifier;
 import org.unicam.tryGrammar.myGrammar.ReturnParameterDeclaration;
 import org.unicam.tryGrammar.myGrammar.ReturnStatement;
 import org.unicam.tryGrammar.myGrammar.ReturnsParameterList;
-import org.unicam.tryGrammar.myGrammar.SecondOperators;
 import org.unicam.tryGrammar.myGrammar.Shift;
 import org.unicam.tryGrammar.myGrammar.SignExpression;
 import org.unicam.tryGrammar.myGrammar.SimpleStatement;
 import org.unicam.tryGrammar.myGrammar.SimpleStatement2;
-import org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Solidity;
 import org.unicam.tryGrammar.myGrammar.SpecialExpression;
 import org.unicam.tryGrammar.myGrammar.SpecialVariables;
@@ -112,13 +98,13 @@ import org.unicam.tryGrammar.myGrammar.Tuple;
 import org.unicam.tryGrammar.myGrammar.TupleSeparator;
 import org.unicam.tryGrammar.myGrammar.Type;
 import org.unicam.tryGrammar.myGrammar.TypeCast;
-import org.unicam.tryGrammar.myGrammar.UnitTypes;
 import org.unicam.tryGrammar.myGrammar.VarVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Variable;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationExpression;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationOptionalElement;
+import org.unicam.tryGrammar.myGrammar.VisibilitySpecifier;
 import org.unicam.tryGrammar.myGrammar.WhileStatement;
 
 /**
@@ -242,30 +228,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyGrammarPackage.DECLARATION:
-      {
-        Declaration declaration = (Declaration)theEObject;
-        T result = caseDeclaration(declaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.FUNCTION_DECLARATION:
-      {
-        FunctionDeclaration functionDeclaration = (FunctionDeclaration)theEObject;
-        T result = caseFunctionDeclaration(functionDeclaration);
-        if (result == null) result = caseDeclaration(functionDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.FUNCTION_PARAMETER_DECLARATION:
-      {
-        FunctionParameterDeclaration functionParameterDeclaration = (FunctionParameterDeclaration)theEObject;
-        T result = caseFunctionParameterDeclaration(functionParameterDeclaration);
-        if (result == null) result = caseFunctionDeclaration(functionParameterDeclaration);
-        if (result == null) result = caseDeclaration(functionParameterDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS:
       {
         FunctionCallListArguments functionCallListArguments = (FunctionCallListArguments)theEObject;
@@ -310,11 +272,19 @@ public class MyGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyGrammarPackage.VISIBILITY_SPECIFIER:
+      {
+        VisibilitySpecifier visibilitySpecifier = (VisibilitySpecifier)theEObject;
+        T result = caseVisibilitySpecifier(visibilitySpecifier);
+        if (result == null) result = caseFunctionDefinitionOptionalElement(visibilitySpecifier);
+        if (result == null) result = caseVariableDeclarationOptionalElement(visibilitySpecifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyGrammarPackage.STRUCT_DEFINITION:
       {
         StructDefinition structDefinition = (StructDefinition)theEObject;
         T result = caseStructDefinition(structDefinition);
-        if (result == null) result = caseDeclaration(structDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -322,8 +292,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
       {
         EnumDefinition enumDefinition = (EnumDefinition)theEObject;
         T result = caseEnumDefinition(enumDefinition);
-        if (result == null) result = caseFunctionDeclaration(enumDefinition);
-        if (result == null) result = caseDeclaration(enumDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -399,6 +367,14 @@ public class MyGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyGrammarPackage.LOCATION_SPECIFIER:
+      {
+        LocationSpecifier locationSpecifier = (LocationSpecifier)theEObject;
+        T result = caseLocationSpecifier(locationSpecifier);
+        if (result == null) result = caseVariableDeclarationOptionalElement(locationSpecifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyGrammarPackage.TYPE:
       {
         Type type = (Type)theEObject;
@@ -434,16 +410,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
         if (result == null) result = caseSimpleStatement(elementaryType);
         if (result == null) result = caseSimpleStatement2(elementaryType);
         if (result == null) result = caseStatement(elementaryType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.MAPPING_DECLARATION:
-      {
-        MappingDeclaration mappingDeclaration = (MappingDeclaration)theEObject;
-        T result = caseMappingDeclaration(mappingDeclaration);
-        if (result == null) result = caseFunctionParameterDeclaration(mappingDeclaration);
-        if (result == null) result = caseFunctionDeclaration(mappingDeclaration);
-        if (result == null) result = caseDeclaration(mappingDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -589,36 +555,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
       {
         ReturnParameterDeclaration returnParameterDeclaration = (ReturnParameterDeclaration)theEObject;
         T result = caseReturnParameterDeclaration(returnParameterDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.PRIMARY_TYPE_DECLARATION:
-      {
-        PrimaryTypeDeclaration primaryTypeDeclaration = (PrimaryTypeDeclaration)theEObject;
-        T result = casePrimaryTypeDeclaration(primaryTypeDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.NON_ARRAYABLE_DECLARATION:
-      {
-        NonArrayableDeclaration nonArrayableDeclaration = (NonArrayableDeclaration)theEObject;
-        T result = caseNonArrayableDeclaration(nonArrayableDeclaration);
-        if (result == null) result = casePrimaryTypeDeclaration(nonArrayableDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.ARRAYABLE_DECLARATION:
-      {
-        ArrayableDeclaration arrayableDeclaration = (ArrayableDeclaration)theEObject;
-        T result = caseArrayableDeclaration(arrayableDeclaration);
-        if (result == null) result = casePrimaryTypeDeclaration(arrayableDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.SIMPLE_TYPE_DECLARATION:
-      {
-        SimpleTypeDeclaration simpleTypeDeclaration = (SimpleTypeDeclaration)theEObject;
-        T result = caseSimpleTypeDeclaration(simpleTypeDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -770,64 +706,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
         Literal literal = (Literal)theEObject;
         T result = caseLiteral(literal);
         if (result == null) result = caseExpression(literal);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.INT_PARAMETER:
-      {
-        IntParameter intParameter = (IntParameter)theEObject;
-        T result = caseIntParameter(intParameter);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.ARITHMETIC_OPERATIONS:
-      {
-        ArithmeticOperations arithmeticOperations = (ArithmeticOperations)theEObject;
-        T result = caseArithmeticOperations(arithmeticOperations);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.PRIMARY_ARITHMETIC:
-      {
-        PrimaryArithmetic primaryArithmetic = (PrimaryArithmetic)theEObject;
-        T result = casePrimaryArithmetic(primaryArithmetic);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.SECOND_OPERATORS:
-      {
-        SecondOperators secondOperators = (SecondOperators)theEObject;
-        T result = caseSecondOperators(secondOperators);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.LOGICAL_OPERATIONS:
-      {
-        LogicalOperations logicalOperations = (LogicalOperations)theEObject;
-        T result = caseLogicalOperations(logicalOperations);
-        if (result == null) result = casePrimaryArithmetic(logicalOperations);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.CONDITION_OPERATION:
-      {
-        ConditionOperation conditionOperation = (ConditionOperation)theEObject;
-        T result = caseConditionOperation(conditionOperation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.NUMERIC_LITERAL:
-      {
-        NumericLiteral numericLiteral = (NumericLiteral)theEObject;
-        T result = caseNumericLiteral(numericLiteral);
-        if (result == null) result = casePrimaryArithmetic(numericLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyGrammarPackage.UNIT_TYPES:
-      {
-        UnitTypes unitTypes = (UnitTypes)theEObject;
-        T result = caseUnitTypes(unitTypes);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1224,54 +1102,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDeclaration(Declaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFunctionDeclaration(FunctionDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Function Parameter Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Function Parameter Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFunctionParameterDeclaration(FunctionParameterDeclaration object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Function Call List Arguments</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1363,6 +1193,22 @@ public class MyGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConst(Const object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Visibility Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Visibility Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVisibilitySpecifier(VisibilitySpecifier object)
   {
     return null;
   }
@@ -1544,6 +1390,22 @@ public class MyGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Location Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Location Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLocationSpecifier(LocationSpecifier object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1603,22 +1465,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseElementaryType(ElementaryType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Mapping Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mapping Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMappingDeclaration(MappingDeclaration object)
   {
     return null;
   }
@@ -1907,70 +1753,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseReturnParameterDeclaration(ReturnParameterDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Primary Type Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Primary Type Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePrimaryTypeDeclaration(PrimaryTypeDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Non Arrayable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Non Arrayable Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNonArrayableDeclaration(NonArrayableDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Arrayable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Arrayable Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseArrayableDeclaration(ArrayableDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSimpleTypeDeclaration(SimpleTypeDeclaration object)
   {
     return null;
   }
@@ -2275,134 +2057,6 @@ public class MyGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLiteral(Literal object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Int Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Int Parameter</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIntParameter(IntParameter object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Arithmetic Operations</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Arithmetic Operations</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseArithmeticOperations(ArithmeticOperations object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Primary Arithmetic</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Primary Arithmetic</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePrimaryArithmetic(PrimaryArithmetic object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Second Operators</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Second Operators</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSecondOperators(SecondOperators object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Logical Operations</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Logical Operations</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLogicalOperations(LogicalOperations object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Condition Operation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Condition Operation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConditionOperation(ConditionOperation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Numeric Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Numeric Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNumericLiteral(NumericLiteral object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unit Types</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unit Types</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnitTypes(UnitTypes object)
   {
     return null;
   }

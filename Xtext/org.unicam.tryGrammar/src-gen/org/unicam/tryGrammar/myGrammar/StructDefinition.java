@@ -5,6 +5,8 @@ package org.unicam.tryGrammar.myGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Struct Definition</b></em>'.
@@ -23,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface StructDefinition extends Declaration
+public interface StructDefinition extends EObject
 {
   /**
    * Returns the value of the '<em><b>Visibility</b></em>' attribute.
@@ -74,7 +76,7 @@ public interface StructDefinition extends Declaration
 
   /**
    * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.tryGrammar.myGrammar.Declaration}.
+   * The list contents are of type {@link org.unicam.tryGrammar.myGrammar.Statement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Members</em>' containment reference list.
@@ -82,6 +84,6 @@ public interface StructDefinition extends Declaration
    * @model containment="true"
    * @generated
    */
-  EList<Declaration> getMembers();
+  EList<Statement> getMembers();
 
 } // StructDefinition

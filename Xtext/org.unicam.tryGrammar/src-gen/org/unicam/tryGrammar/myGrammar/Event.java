@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.Event#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.Event#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.unicam.tryGrammar.myGrammar.Event#isIsAnonymous <em>Is Anonymous</em>}</li>
  * </ul>
  *
  * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getEvent()
@@ -68,27 +67,5 @@ public interface Event extends EObject
    * @generated
    */
   void setParameters(ParameterList value);
-
-  /**
-   * Returns the value of the '<em><b>Is Anonymous</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Is Anonymous</em>' attribute.
-   * @see #setIsAnonymous(boolean)
-   * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getEvent_IsAnonymous()
-   * @model
-   * @generated
-   */
-  boolean isIsAnonymous();
-
-  /**
-   * Sets the value of the '{@link org.unicam.tryGrammar.myGrammar.Event#isIsAnonymous <em>Is Anonymous</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Is Anonymous</em>' attribute.
-   * @see #isIsAnonymous()
-   * @generated
-   */
-  void setIsAnonymous(boolean value);
 
 } // Event

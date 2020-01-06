@@ -9,24 +9,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.unicam.tryGrammar.myGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.myGrammar.LocationSpecifierEnum;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
-import org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Non Arrayable Declaration</b></em>'.
+ * An implementation of the model object '<em><b>Location Specifier</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.NonArrayableDeclarationImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.LocationSpecifierImpl#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl implements NonArrayableDeclaration
+public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImpl implements LocationSpecifier
 {
   /**
    * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -53,7 +53,7 @@ public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl impl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NonArrayableDeclarationImpl()
+  protected LocationSpecifierImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl impl
   @Override
   protected EClass eStaticClass()
   {
-    return MyGrammarPackage.eINSTANCE.getNonArrayableDeclaration();
+    return MyGrammarPackage.eINSTANCE.getLocationSpecifier();
   }
 
   /**
@@ -91,7 +91,7 @@ public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl impl
     LocationSpecifierEnum oldLocation = location;
     location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.NON_ARRAYABLE_DECLARATION__LOCATION, oldLocation, location));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.LOCATION_SPECIFIER__LOCATION, oldLocation, location));
   }
 
   /**
@@ -104,7 +104,7 @@ public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl impl
   {
     switch (featureID)
     {
-      case MyGrammarPackage.NON_ARRAYABLE_DECLARATION__LOCATION:
+      case MyGrammarPackage.LOCATION_SPECIFIER__LOCATION:
         return getLocation();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -120,7 +120,7 @@ public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl impl
   {
     switch (featureID)
     {
-      case MyGrammarPackage.NON_ARRAYABLE_DECLARATION__LOCATION:
+      case MyGrammarPackage.LOCATION_SPECIFIER__LOCATION:
         setLocation((LocationSpecifierEnum)newValue);
         return;
     }
@@ -137,7 +137,7 @@ public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl impl
   {
     switch (featureID)
     {
-      case MyGrammarPackage.NON_ARRAYABLE_DECLARATION__LOCATION:
+      case MyGrammarPackage.LOCATION_SPECIFIER__LOCATION:
         setLocation(LOCATION_EDEFAULT);
         return;
     }
@@ -154,7 +154,7 @@ public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl impl
   {
     switch (featureID)
     {
-      case MyGrammarPackage.NON_ARRAYABLE_DECLARATION__LOCATION:
+      case MyGrammarPackage.LOCATION_SPECIFIER__LOCATION:
         return location != LOCATION_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -177,4 +177,4 @@ public class NonArrayableDeclarationImpl extends PrimaryTypeDeclarationImpl impl
     return result.toString();
   }
 
-} //NonArrayableDeclarationImpl
+} //LocationSpecifierImpl

@@ -96,33 +96,6 @@ public interface MyGrammarFactory extends EFactory
   InheritanceSpecifier createInheritanceSpecifier();
 
   /**
-   * Returns a new object of class '<em>Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Declaration</em>'.
-   * @generated
-   */
-  Declaration createDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Function Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Declaration</em>'.
-   * @generated
-   */
-  FunctionDeclaration createFunctionDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Function Parameter Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Parameter Declaration</em>'.
-   * @generated
-   */
-  FunctionParameterDeclaration createFunctionParameterDeclaration();
-
-  /**
    * Returns a new object of class '<em>Function Call List Arguments</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -175,6 +148,15 @@ public interface MyGrammarFactory extends EFactory
    * @generated
    */
   Const createConst();
+
+  /**
+   * Returns a new object of class '<em>Visibility Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Visibility Specifier</em>'.
+   * @generated
+   */
+  VisibilitySpecifier createVisibilitySpecifier();
 
   /**
    * Returns a new object of class '<em>Struct Definition</em>'.
@@ -276,6 +258,15 @@ public interface MyGrammarFactory extends EFactory
   ConstantSpecifier createConstantSpecifier();
 
   /**
+   * Returns a new object of class '<em>Location Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Location Specifier</em>'.
+   * @generated
+   */
+  LocationSpecifier createLocationSpecifier();
+
+  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -310,15 +301,6 @@ public interface MyGrammarFactory extends EFactory
    * @generated
    */
   ElementaryType createElementaryType();
-
-  /**
-   * Returns a new object of class '<em>Mapping Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mapping Declaration</em>'.
-   * @generated
-   */
-  MappingDeclaration createMappingDeclaration();
 
   /**
    * Returns a new object of class '<em>Mapping</em>'.
@@ -481,42 +463,6 @@ public interface MyGrammarFactory extends EFactory
    * @generated
    */
   ReturnParameterDeclaration createReturnParameterDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Primary Type Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primary Type Declaration</em>'.
-   * @generated
-   */
-  PrimaryTypeDeclaration createPrimaryTypeDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Non Arrayable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Non Arrayable Declaration</em>'.
-   * @generated
-   */
-  NonArrayableDeclaration createNonArrayableDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Arrayable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arrayable Declaration</em>'.
-   * @generated
-   */
-  ArrayableDeclaration createArrayableDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Simple Type Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Type Declaration</em>'.
-   * @generated
-   */
-  SimpleTypeDeclaration createSimpleTypeDeclaration();
 
   /**
    * Returns a new object of class '<em>Delete Statement</em>'.
@@ -688,78 +634,6 @@ public interface MyGrammarFactory extends EFactory
    * @generated
    */
   Literal createLiteral();
-
-  /**
-   * Returns a new object of class '<em>Int Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Int Parameter</em>'.
-   * @generated
-   */
-  IntParameter createIntParameter();
-
-  /**
-   * Returns a new object of class '<em>Arithmetic Operations</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arithmetic Operations</em>'.
-   * @generated
-   */
-  ArithmeticOperations createArithmeticOperations();
-
-  /**
-   * Returns a new object of class '<em>Primary Arithmetic</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primary Arithmetic</em>'.
-   * @generated
-   */
-  PrimaryArithmetic createPrimaryArithmetic();
-
-  /**
-   * Returns a new object of class '<em>Second Operators</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Second Operators</em>'.
-   * @generated
-   */
-  SecondOperators createSecondOperators();
-
-  /**
-   * Returns a new object of class '<em>Logical Operations</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Logical Operations</em>'.
-   * @generated
-   */
-  LogicalOperations createLogicalOperations();
-
-  /**
-   * Returns a new object of class '<em>Condition Operation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Condition Operation</em>'.
-   * @generated
-   */
-  ConditionOperation createConditionOperation();
-
-  /**
-   * Returns a new object of class '<em>Numeric Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Numeric Literal</em>'.
-   * @generated
-   */
-  NumericLiteral createNumericLiteral();
-
-  /**
-   * Returns a new object of class '<em>Unit Types</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unit Types</em>'.
-   * @generated
-   */
-  UnitTypes createUnitTypes();
 
   /**
    * Returns a new object of class '<em>Gasleft Function</em>'.

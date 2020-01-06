@@ -17,9 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.unicam.tryGrammar.myGrammar.AddSub;
 import org.unicam.tryGrammar.myGrammar.And;
 import org.unicam.tryGrammar.myGrammar.Arguments;
-import org.unicam.tryGrammar.myGrammar.ArithmeticOperations;
 import org.unicam.tryGrammar.myGrammar.ArrayDimensions;
-import org.unicam.tryGrammar.myGrammar.ArrayableDeclaration;
 import org.unicam.tryGrammar.myGrammar.Assignment;
 import org.unicam.tryGrammar.myGrammar.BinaryNotExpression;
 import org.unicam.tryGrammar.myGrammar.BitAnd;
@@ -29,7 +27,6 @@ import org.unicam.tryGrammar.myGrammar.Block;
 import org.unicam.tryGrammar.myGrammar.BooleanConst;
 import org.unicam.tryGrammar.myGrammar.BreakStatement;
 import org.unicam.tryGrammar.myGrammar.Comparison;
-import org.unicam.tryGrammar.myGrammar.ConditionOperation;
 import org.unicam.tryGrammar.myGrammar.Const;
 import org.unicam.tryGrammar.myGrammar.ConstantSpecifier;
 import org.unicam.tryGrammar.myGrammar.Continue;
@@ -58,21 +55,17 @@ import org.unicam.tryGrammar.myGrammar.ImportDirective;
 import org.unicam.tryGrammar.myGrammar.Index;
 import org.unicam.tryGrammar.myGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.myGrammar.InheritanceSpecifier;
-import org.unicam.tryGrammar.myGrammar.IntParameter;
 import org.unicam.tryGrammar.myGrammar.Library;
-import org.unicam.tryGrammar.myGrammar.LogicalOperations;
+import org.unicam.tryGrammar.myGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.myGrammar.Mapping;
-import org.unicam.tryGrammar.myGrammar.MappingDeclaration;
 import org.unicam.tryGrammar.myGrammar.Modifier;
 import org.unicam.tryGrammar.myGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.myGrammar.MulDivMod;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
 import org.unicam.tryGrammar.myGrammar.NewExpression;
-import org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration;
 import org.unicam.tryGrammar.myGrammar.NotExpression;
 import org.unicam.tryGrammar.myGrammar.Now;
 import org.unicam.tryGrammar.myGrammar.NumberDimensionless;
-import org.unicam.tryGrammar.myGrammar.NumericLiteral;
 import org.unicam.tryGrammar.myGrammar.Or;
 import org.unicam.tryGrammar.myGrammar.ParameterList;
 import org.unicam.tryGrammar.myGrammar.PlaceHolderStatement;
@@ -83,10 +76,8 @@ import org.unicam.tryGrammar.myGrammar.QualifiedIdentifier;
 import org.unicam.tryGrammar.myGrammar.ReturnParameterDeclaration;
 import org.unicam.tryGrammar.myGrammar.ReturnStatement;
 import org.unicam.tryGrammar.myGrammar.ReturnsParameterList;
-import org.unicam.tryGrammar.myGrammar.SecondOperators;
 import org.unicam.tryGrammar.myGrammar.Shift;
 import org.unicam.tryGrammar.myGrammar.SignExpression;
-import org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Solidity;
 import org.unicam.tryGrammar.myGrammar.SpecialExpression;
 import org.unicam.tryGrammar.myGrammar.SpecialVariables;
@@ -101,12 +92,12 @@ import org.unicam.tryGrammar.myGrammar.Tuple;
 import org.unicam.tryGrammar.myGrammar.TupleSeparator;
 import org.unicam.tryGrammar.myGrammar.Type;
 import org.unicam.tryGrammar.myGrammar.TypeCast;
-import org.unicam.tryGrammar.myGrammar.UnitTypes;
 import org.unicam.tryGrammar.myGrammar.VarVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Variable;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationExpression;
+import org.unicam.tryGrammar.myGrammar.VisibilitySpecifier;
 import org.unicam.tryGrammar.myGrammar.WhileStatement;
 import org.unicam.tryGrammar.services.MyGrammarGrammarAccess;
 
@@ -133,14 +124,8 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MyGrammarPackage.ARGUMENTS:
 				sequence_Arguments(context, (Arguments) semanticObject); 
 				return; 
-			case MyGrammarPackage.ARITHMETIC_OPERATIONS:
-				sequence_ArithmeticOperations(context, (ArithmeticOperations) semanticObject); 
-				return; 
 			case MyGrammarPackage.ARRAY_DIMENSIONS:
 				sequence_ArrayDimensions(context, (ArrayDimensions) semanticObject); 
-				return; 
-			case MyGrammarPackage.ARRAYABLE_DECLARATION:
-				sequence_ArrayableDeclaration(context, (ArrayableDeclaration) semanticObject); 
 				return; 
 			case MyGrammarPackage.ASSIGNMENT:
 				sequence_Assignment(context, (Assignment) semanticObject); 
@@ -168,9 +153,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case MyGrammarPackage.COMPARISON:
 				sequence_Comparison(context, (Comparison) semanticObject); 
-				return; 
-			case MyGrammarPackage.CONDITION_OPERATION:
-				sequence_ConditionOperation(context, (ConditionOperation) semanticObject); 
 				return; 
 			case MyGrammarPackage.CONST:
 				sequence_Const(context, (Const) semanticObject); 
@@ -279,20 +261,14 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MyGrammarPackage.INHERITANCE_SPECIFIER:
 				sequence_InheritanceSpecifier(context, (InheritanceSpecifier) semanticObject); 
 				return; 
-			case MyGrammarPackage.INT_PARAMETER:
-				sequence_IntParameter(context, (IntParameter) semanticObject); 
-				return; 
 			case MyGrammarPackage.LIBRARY:
 				sequence_Library(context, (Library) semanticObject); 
 				return; 
-			case MyGrammarPackage.LOGICAL_OPERATIONS:
-				sequence_LogicalOperations(context, (LogicalOperations) semanticObject); 
+			case MyGrammarPackage.LOCATION_SPECIFIER:
+				sequence_LocationSpecifier(context, (LocationSpecifier) semanticObject); 
 				return; 
 			case MyGrammarPackage.MAPPING:
 				sequence_Mapping(context, (Mapping) semanticObject); 
-				return; 
-			case MyGrammarPackage.MAPPING_DECLARATION:
-				sequence_MappingDeclaration(context, (MappingDeclaration) semanticObject); 
 				return; 
 			case MyGrammarPackage.MODIFIER:
 				sequence_Modifier(context, (Modifier) semanticObject); 
@@ -306,9 +282,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MyGrammarPackage.NEW_EXPRESSION:
 				sequence_NewExpression(context, (NewExpression) semanticObject); 
 				return; 
-			case MyGrammarPackage.NON_ARRAYABLE_DECLARATION:
-				sequence_NonArrayableDeclaration(context, (NonArrayableDeclaration) semanticObject); 
-				return; 
 			case MyGrammarPackage.NOT_EXPRESSION:
 				sequence_NotExpression(context, (NotExpression) semanticObject); 
 				return; 
@@ -317,9 +290,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case MyGrammarPackage.NUMBER_DIMENSIONLESS:
 				sequence_NumberDimensionless(context, (NumberDimensionless) semanticObject); 
-				return; 
-			case MyGrammarPackage.NUMERIC_LITERAL:
-				sequence_NumericLiteral(context, (NumericLiteral) semanticObject); 
 				return; 
 			case MyGrammarPackage.OR:
 				sequence_Or(context, (Or) semanticObject); 
@@ -433,17 +403,11 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MyGrammarPackage.RETURNS_PARAMETER_LIST:
 				sequence_ReturnsParameterList(context, (ReturnsParameterList) semanticObject); 
 				return; 
-			case MyGrammarPackage.SECOND_OPERATORS:
-				sequence_SecondOperators(context, (SecondOperators) semanticObject); 
-				return; 
 			case MyGrammarPackage.SHIFT:
 				sequence_Shift(context, (Shift) semanticObject); 
 				return; 
 			case MyGrammarPackage.SIGN_EXPRESSION:
 				sequence_SignExpression(context, (SignExpression) semanticObject); 
-				return; 
-			case MyGrammarPackage.SIMPLE_TYPE_DECLARATION:
-				sequence_SimpleTypeDeclaration(context, (SimpleTypeDeclaration) semanticObject); 
 				return; 
 			case MyGrammarPackage.SOLIDITY:
 				sequence_Solidity(context, (Solidity) semanticObject); 
@@ -541,9 +505,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case MyGrammarPackage.TYPE_CAST:
 				sequence_TypeCast(context, (TypeCast) semanticObject); 
 				return; 
-			case MyGrammarPackage.UNIT_TYPES:
-				sequence_UnitTypes(context, (UnitTypes) semanticObject); 
-				return; 
 			case MyGrammarPackage.VAR_VARIABLE_DECLARATION:
 				sequence_VarVariableDeclaration(context, (VarVariableDeclaration) semanticObject); 
 				return; 
@@ -579,6 +540,9 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case MyGrammarPackage.VARIABLE_DECLARATION_EXPRESSION:
 				sequence_Assignment(context, (VariableDeclarationExpression) semanticObject); 
+				return; 
+			case MyGrammarPackage.VISIBILITY_SPECIFIER:
+				sequence_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
 				return; 
 			case MyGrammarPackage.WHILE_STATEMENT:
 				sequence_WhileStatement(context, (WhileStatement) semanticObject); 
@@ -722,37 +686,12 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     ArithmeticOperations returns ArithmeticOperations
-	 *
-	 * Constraint:
-	 *     (first=PrimaryArithmetic seconds+=SecondOperators*)
-	 */
-	protected void sequence_ArithmeticOperations(ISerializationContext context, ArithmeticOperations semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     ArrayDimensions returns ArrayDimensions
 	 *
 	 * Constraint:
 	 *     (value+=Expression? value+=Expression*)
 	 */
 	protected void sequence_ArrayDimensions(ISerializationContext context, ArrayDimensions semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PrimaryTypeDeclaration returns ArrayableDeclaration
-	 *     ArrayableDeclaration returns ArrayableDeclaration
-	 *
-	 * Constraint:
-	 *     (constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID)
-	 */
-	protected void sequence_ArrayableDeclaration(ISerializationContext context, ArrayableDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1219,18 +1158,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     ConditionOperation returns ConditionOperation
-	 *
-	 * Constraint:
-	 *     (operation=LogicalOperationLiteral negateSecond='NOT'? seconds=Literal)
-	 */
-	protected void sequence_ConditionOperation(ISerializationContext context, ConditionOperation semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     FunctionDefinitionOptionalElement returns Const
 	 *     Const returns Const
 	 *
@@ -1274,7 +1201,7 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Contract returns Contract
 	 *
 	 * Constraint:
-	 *     (name=ID (blocks+=Declaration | blocks+=FunctionDefinition))
+	 *     (name=ID (inheritanceSpecifiers+=InheritanceSpecifier inheritanceSpecifiers+=InheritanceSpecifier*)? body=DefinitionBody)
 	 */
 	protected void sequence_Contract(ISerializationContext context, Contract semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1421,8 +1348,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     Declaration returns EnumDefinition
-	 *     FunctionDeclaration returns EnumDefinition
 	 *     EnumDefinition returns EnumDefinition
 	 *
 	 * Constraint:
@@ -1572,7 +1497,7 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Event returns Event
 	 *
 	 * Constraint:
-	 *     (name=ID parameters=ParameterList? isAnonymous?='anonymous'?)
+	 *     (name=ID parameters=ParameterList?)
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1947,18 +1872,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     IntParameter returns IntParameter
-	 *
-	 * Constraint:
-	 *     (ref=[ArrayableDeclaration|ID] | param=ArithmeticOperations | fun=FunctionCallListArguments)
-	 */
-	protected void sequence_IntParameter(ISerializationContext context, IntParameter semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     ContractOrLibrary returns Library
 	 *     Library returns Library
 	 *
@@ -1972,33 +1885,20 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     PrimaryArithmetic returns LogicalOperations
-	 *     LogicalOperations returns LogicalOperations
+	 *     VariableDeclarationOptionalElement returns LocationSpecifier
+	 *     LocationSpecifier returns LocationSpecifier
 	 *
 	 * Constraint:
-	 *     (
-	 *         (first=Literal operations+=ConditionOperation*) | 
-	 *         (negate?='NOT' first=Literal operations+=ConditionOperation*) | 
-	 *         (ternary?='TERNARY' first=Literal true=Literal false=Literal)
-	 *     )
+	 *     location=LocationSpecifierEnum
 	 */
-	protected void sequence_LogicalOperations(ISerializationContext context, LogicalOperations semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Declaration returns MappingDeclaration
-	 *     FunctionDeclaration returns MappingDeclaration
-	 *     FunctionParameterDeclaration returns MappingDeclaration
-	 *     MappingDeclaration returns MappingDeclaration
-	 *
-	 * Constraint:
-	 *     (location=MapLocationLiteral? visibility=VisibilityEnum? unnamedMappingDeclaration=Mapping name=ID)
-	 */
-	protected void sequence_MappingDeclaration(ISerializationContext context, MappingDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_LocationSpecifier(ISerializationContext context, LocationSpecifier semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyGrammarPackage.eINSTANCE.getLocationSpecifier_Location()) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyGrammarPackage.eINSTANCE.getLocationSpecifier_Location()));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumEnumRuleCall_0(), semanticObject.getLocation());
+		feeder.finish();
 	}
 	
 	
@@ -2169,19 +2069,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     PrimaryTypeDeclaration returns NonArrayableDeclaration
-	 *     NonArrayableDeclaration returns NonArrayableDeclaration
-	 *
-	 * Constraint:
-	 *     (location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID)
-	 */
-	protected void sequence_NonArrayableDeclaration(ISerializationContext context, NonArrayableDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Expression returns NotExpression
 	 *     Assignment returns NotExpression
 	 *     Assignment.Assignment_1_0_0 returns NotExpression
@@ -2334,19 +2221,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNumberDimensionlessAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PrimaryArithmetic returns NumericLiteral
-	 *     NumericLiteral returns NumericLiteral
-	 *
-	 * Constraint:
-	 *     ((intValue=NumberDimensionless | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?)
-	 */
-	protected void sequence_NumericLiteral(ISerializationContext context, NumericLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -2762,18 +2636,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     SecondOperators returns SecondOperators
-	 *
-	 * Constraint:
-	 *     ((operator='+' | operator='-' | operator='/' | operator='*') value=PrimaryArithmetic)
-	 */
-	protected void sequence_SecondOperators(ISerializationContext context, SecondOperators semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Expression returns Shift
 	 *     Assignment returns Shift
 	 *     Assignment.Assignment_1_0_0 returns Shift
@@ -3007,18 +2869,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     SimpleTypeDeclaration returns SimpleTypeDeclaration
-	 *
-	 * Constraint:
-	 *     (type='string' | type='bool')
-	 */
-	protected void sequence_SimpleTypeDeclaration(ISerializationContext context, SimpleTypeDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Solidity returns Solidity
 	 *
 	 * Constraint:
@@ -3205,11 +3055,10 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     Declaration returns StructDefinition
 	 *     StructDefinition returns StructDefinition
 	 *
 	 * Constraint:
-	 *     (visibility=VisibilityEnum? name=ID members+=Declaration*)
+	 *     (visibility=VisibilityEnum? name=ID members+=VariableDeclaration*)
 	 */
 	protected void sequence_StructDefinition(ISerializationContext context, StructDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -3409,18 +3258,6 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
-	 *     UnitTypes returns UnitTypes
-	 *
-	 * Constraint:
-	 *     (time=TimeSubdenominationEnum | units=EtherSubDenominationEnum)
-	 */
-	protected void sequence_UnitTypes(ISerializationContext context, UnitTypes semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     VariableDeclaration returns VarVariableDeclaration
 	 *     VarVariableDeclaration returns VarVariableDeclaration
 	 *
@@ -3459,6 +3296,26 @@ public class MyGrammarSemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FunctionDefinitionOptionalElement returns VisibilitySpecifier
+	 *     VisibilitySpecifier returns VisibilitySpecifier
+	 *     VariableDeclarationOptionalElement returns VisibilitySpecifier
+	 *
+	 * Constraint:
+	 *     visibility=VisibilityEnum
+	 */
+	protected void sequence_VisibilitySpecifier(ISerializationContext context, VisibilitySpecifier semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyGrammarPackage.eINSTANCE.getVisibilitySpecifier_Visibility()) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyGrammarPackage.eINSTANCE.getVisibilitySpecifier_Visibility()));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumEnumRuleCall_0(), semanticObject.getVisibility());
 		feeder.finish();
 	}
 	

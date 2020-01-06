@@ -16,9 +16,7 @@ import org.unicam.tryGrammar.myGrammar.AddSub;
 import org.unicam.tryGrammar.myGrammar.AdditionOpEnum;
 import org.unicam.tryGrammar.myGrammar.And;
 import org.unicam.tryGrammar.myGrammar.Arguments;
-import org.unicam.tryGrammar.myGrammar.ArithmeticOperations;
 import org.unicam.tryGrammar.myGrammar.ArrayDimensions;
-import org.unicam.tryGrammar.myGrammar.ArrayableDeclaration;
 import org.unicam.tryGrammar.myGrammar.Assignment;
 import org.unicam.tryGrammar.myGrammar.AssignmentOpEnum;
 import org.unicam.tryGrammar.myGrammar.BinaryNotExpression;
@@ -32,7 +30,6 @@ import org.unicam.tryGrammar.myGrammar.BooleanLiteralEnum;
 import org.unicam.tryGrammar.myGrammar.BreakStatement;
 import org.unicam.tryGrammar.myGrammar.Comparison;
 import org.unicam.tryGrammar.myGrammar.ComparisonOpEnum;
-import org.unicam.tryGrammar.myGrammar.ConditionOperation;
 import org.unicam.tryGrammar.myGrammar.Const;
 import org.unicam.tryGrammar.myGrammar.ConstantSpecifier;
 import org.unicam.tryGrammar.myGrammar.Continue;
@@ -40,7 +37,6 @@ import org.unicam.tryGrammar.myGrammar.ContinueStatement;
 import org.unicam.tryGrammar.myGrammar.Contract;
 import org.unicam.tryGrammar.myGrammar.ContractOrLibrary;
 import org.unicam.tryGrammar.myGrammar.DecimalLiteral;
-import org.unicam.tryGrammar.myGrammar.Declaration;
 import org.unicam.tryGrammar.myGrammar.DefinitionBody;
 import org.unicam.tryGrammar.myGrammar.DeleteStatement;
 import org.unicam.tryGrammar.myGrammar.ElementaryType;
@@ -60,10 +56,8 @@ import org.unicam.tryGrammar.myGrammar.ForStatement;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArg;
 import org.unicam.tryGrammar.myGrammar.FunctionCallArguments;
 import org.unicam.tryGrammar.myGrammar.FunctionCallListArguments;
-import org.unicam.tryGrammar.myGrammar.FunctionDeclaration;
 import org.unicam.tryGrammar.myGrammar.FunctionDefinition;
 import org.unicam.tryGrammar.myGrammar.FunctionDefinitionOptionalElement;
-import org.unicam.tryGrammar.myGrammar.FunctionParameterDeclaration;
 import org.unicam.tryGrammar.myGrammar.GasleftFunction;
 import org.unicam.tryGrammar.myGrammar.HexLiteral;
 import org.unicam.tryGrammar.myGrammar.IfStatement;
@@ -72,14 +66,11 @@ import org.unicam.tryGrammar.myGrammar.IncDecOpEnum;
 import org.unicam.tryGrammar.myGrammar.Index;
 import org.unicam.tryGrammar.myGrammar.IndexedSpecifer;
 import org.unicam.tryGrammar.myGrammar.InheritanceSpecifier;
-import org.unicam.tryGrammar.myGrammar.IntParameter;
 import org.unicam.tryGrammar.myGrammar.Library;
 import org.unicam.tryGrammar.myGrammar.Literal;
+import org.unicam.tryGrammar.myGrammar.LocationSpecifier;
 import org.unicam.tryGrammar.myGrammar.LocationSpecifierEnum;
-import org.unicam.tryGrammar.myGrammar.LogicalOperationLiteral;
-import org.unicam.tryGrammar.myGrammar.LogicalOperations;
 import org.unicam.tryGrammar.myGrammar.Mapping;
-import org.unicam.tryGrammar.myGrammar.MappingDeclaration;
 import org.unicam.tryGrammar.myGrammar.Modifier;
 import org.unicam.tryGrammar.myGrammar.ModifierInvocation;
 import org.unicam.tryGrammar.myGrammar.MulDivMod;
@@ -87,32 +78,26 @@ import org.unicam.tryGrammar.myGrammar.MulDivModOpEnum;
 import org.unicam.tryGrammar.myGrammar.MyGrammarFactory;
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
 import org.unicam.tryGrammar.myGrammar.NewExpression;
-import org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration;
 import org.unicam.tryGrammar.myGrammar.NotExpression;
 import org.unicam.tryGrammar.myGrammar.Now;
 import org.unicam.tryGrammar.myGrammar.NumberDimensionless;
-import org.unicam.tryGrammar.myGrammar.NumericLiteral;
 import org.unicam.tryGrammar.myGrammar.Or;
 import org.unicam.tryGrammar.myGrammar.ParameterList;
 import org.unicam.tryGrammar.myGrammar.PlaceHolderStatement;
 import org.unicam.tryGrammar.myGrammar.PostIncDecExpression;
 import org.unicam.tryGrammar.myGrammar.PreDecExpression;
 import org.unicam.tryGrammar.myGrammar.PreIncExpression;
-import org.unicam.tryGrammar.myGrammar.PrimaryArithmetic;
-import org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.QualifiedIdentifier;
 import org.unicam.tryGrammar.myGrammar.Qualifier;
 import org.unicam.tryGrammar.myGrammar.ReservedWordsEnum;
 import org.unicam.tryGrammar.myGrammar.ReturnParameterDeclaration;
 import org.unicam.tryGrammar.myGrammar.ReturnStatement;
 import org.unicam.tryGrammar.myGrammar.ReturnsParameterList;
-import org.unicam.tryGrammar.myGrammar.SecondOperators;
 import org.unicam.tryGrammar.myGrammar.Shift;
 import org.unicam.tryGrammar.myGrammar.ShiftOpEnum;
 import org.unicam.tryGrammar.myGrammar.SignExpression;
 import org.unicam.tryGrammar.myGrammar.SimpleStatement;
 import org.unicam.tryGrammar.myGrammar.SimpleStatement2;
-import org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration;
 import org.unicam.tryGrammar.myGrammar.Solidity;
 import org.unicam.tryGrammar.myGrammar.SpecialExpression;
 import org.unicam.tryGrammar.myGrammar.SpecialExpressionTypeEnum;
@@ -132,7 +117,6 @@ import org.unicam.tryGrammar.myGrammar.Tuple;
 import org.unicam.tryGrammar.myGrammar.TupleSeparator;
 import org.unicam.tryGrammar.myGrammar.Type;
 import org.unicam.tryGrammar.myGrammar.TypeCast;
-import org.unicam.tryGrammar.myGrammar.UnitTypes;
 import org.unicam.tryGrammar.myGrammar.VarVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.tryGrammar.myGrammar.VarVariableTypeDeclaration;
@@ -140,6 +124,7 @@ import org.unicam.tryGrammar.myGrammar.Variable;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationExpression;
 import org.unicam.tryGrammar.myGrammar.VariableDeclarationOptionalElement;
 import org.unicam.tryGrammar.myGrammar.VisibilityEnum;
+import org.unicam.tryGrammar.myGrammar.VisibilitySpecifier;
 import org.unicam.tryGrammar.myGrammar.WhileStatement;
 
 /**
@@ -202,15 +187,13 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
       case MyGrammarPackage.LIBRARY: return createLibrary();
       case MyGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
       case MyGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
-      case MyGrammarPackage.DECLARATION: return createDeclaration();
-      case MyGrammarPackage.FUNCTION_DECLARATION: return createFunctionDeclaration();
-      case MyGrammarPackage.FUNCTION_PARAMETER_DECLARATION: return createFunctionParameterDeclaration();
       case MyGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS: return createFunctionCallListArguments();
       case MyGrammarPackage.FUNCTION_CALL_ARGUMENTS: return createFunctionCallArguments();
       case MyGrammarPackage.FUNCTION_CALL_ARG: return createFunctionCallArg();
       case MyGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
       case MyGrammarPackage.FUNCTION_DEFINITION_OPTIONAL_ELEMENT: return createFunctionDefinitionOptionalElement();
       case MyGrammarPackage.CONST: return createConst();
+      case MyGrammarPackage.VISIBILITY_SPECIFIER: return createVisibilitySpecifier();
       case MyGrammarPackage.STRUCT_DEFINITION: return createStructDefinition();
       case MyGrammarPackage.ENUM_DEFINITION: return createEnumDefinition();
       case MyGrammarPackage.ENUM_VALUE: return createEnumValue();
@@ -222,11 +205,11 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
       case MyGrammarPackage.VARIABLE_DECLARATION_OPTIONAL_ELEMENT: return createVariableDeclarationOptionalElement();
       case MyGrammarPackage.INDEXED_SPECIFER: return createIndexedSpecifer();
       case MyGrammarPackage.CONSTANT_SPECIFIER: return createConstantSpecifier();
+      case MyGrammarPackage.LOCATION_SPECIFIER: return createLocationSpecifier();
       case MyGrammarPackage.TYPE: return createType();
       case MyGrammarPackage.STANDARD_TYPE: return createStandardType();
       case MyGrammarPackage.STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER: return createStandardTypeWithoutQualifiedIdentifier();
       case MyGrammarPackage.ELEMENTARY_TYPE: return createElementaryType();
-      case MyGrammarPackage.MAPPING_DECLARATION: return createMappingDeclaration();
       case MyGrammarPackage.MAPPING: return createMapping();
       case MyGrammarPackage.ARRAY_DIMENSIONS: return createArrayDimensions();
       case MyGrammarPackage.TUPLE: return createTuple();
@@ -245,10 +228,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
       case MyGrammarPackage.PARAMETER_LIST: return createParameterList();
       case MyGrammarPackage.RETURNS_PARAMETER_LIST: return createReturnsParameterList();
       case MyGrammarPackage.RETURN_PARAMETER_DECLARATION: return createReturnParameterDeclaration();
-      case MyGrammarPackage.PRIMARY_TYPE_DECLARATION: return createPrimaryTypeDeclaration();
-      case MyGrammarPackage.NON_ARRAYABLE_DECLARATION: return createNonArrayableDeclaration();
-      case MyGrammarPackage.ARRAYABLE_DECLARATION: return createArrayableDeclaration();
-      case MyGrammarPackage.SIMPLE_TYPE_DECLARATION: return createSimpleTypeDeclaration();
       case MyGrammarPackage.DELETE_STATEMENT: return createDeleteStatement();
       case MyGrammarPackage.IF_STATEMENT: return createIfStatement();
       case MyGrammarPackage.WHILE_STATEMENT: return createWhileStatement();
@@ -268,14 +247,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
       case MyGrammarPackage.SIGN_EXPRESSION: return createSignExpression();
       case MyGrammarPackage.NEW_EXPRESSION: return createNewExpression();
       case MyGrammarPackage.LITERAL: return createLiteral();
-      case MyGrammarPackage.INT_PARAMETER: return createIntParameter();
-      case MyGrammarPackage.ARITHMETIC_OPERATIONS: return createArithmeticOperations();
-      case MyGrammarPackage.PRIMARY_ARITHMETIC: return createPrimaryArithmetic();
-      case MyGrammarPackage.SECOND_OPERATORS: return createSecondOperators();
-      case MyGrammarPackage.LOGICAL_OPERATIONS: return createLogicalOperations();
-      case MyGrammarPackage.CONDITION_OPERATION: return createConditionOperation();
-      case MyGrammarPackage.NUMERIC_LITERAL: return createNumericLiteral();
-      case MyGrammarPackage.UNIT_TYPES: return createUnitTypes();
       case MyGrammarPackage.GASLEFT_FUNCTION: return createGasleftFunction();
       case MyGrammarPackage.BOOLEAN_CONST: return createBooleanConst();
       case MyGrammarPackage.NUMBER: return createNumber();
@@ -329,8 +300,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
         return createVisibilityEnumFromString(eDataType, initialValue);
       case MyGrammarPackage.ASSIGNMENT_OP_ENUM:
         return createAssignmentOpEnumFromString(eDataType, initialValue);
-      case MyGrammarPackage.LOGICAL_OPERATION_LITERAL:
-        return createLogicalOperationLiteralFromString(eDataType, initialValue);
       case MyGrammarPackage.EQUALITY_OP_ENUM:
         return createEqualityOpEnumFromString(eDataType, initialValue);
       case MyGrammarPackage.COMPARISON_OP_ENUM:
@@ -376,8 +345,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
         return convertVisibilityEnumToString(eDataType, instanceValue);
       case MyGrammarPackage.ASSIGNMENT_OP_ENUM:
         return convertAssignmentOpEnumToString(eDataType, instanceValue);
-      case MyGrammarPackage.LOGICAL_OPERATION_LITERAL:
-        return convertLogicalOperationLiteralToString(eDataType, instanceValue);
       case MyGrammarPackage.EQUALITY_OP_ENUM:
         return convertEqualityOpEnumToString(eDataType, instanceValue);
       case MyGrammarPackage.COMPARISON_OP_ENUM:
@@ -507,42 +474,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
    * @generated
    */
   @Override
-  public Declaration createDeclaration()
-  {
-    DeclarationImpl declaration = new DeclarationImpl();
-    return declaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public FunctionDeclaration createFunctionDeclaration()
-  {
-    FunctionDeclarationImpl functionDeclaration = new FunctionDeclarationImpl();
-    return functionDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public FunctionParameterDeclaration createFunctionParameterDeclaration()
-  {
-    FunctionParameterDeclarationImpl functionParameterDeclaration = new FunctionParameterDeclarationImpl();
-    return functionParameterDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public FunctionCallListArguments createFunctionCallListArguments()
   {
     FunctionCallListArgumentsImpl functionCallListArguments = new FunctionCallListArgumentsImpl();
@@ -607,6 +538,18 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
   {
     ConstImpl const_ = new ConstImpl();
     return const_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VisibilitySpecifier createVisibilitySpecifier()
+  {
+    VisibilitySpecifierImpl visibilitySpecifier = new VisibilitySpecifierImpl();
+    return visibilitySpecifier;
   }
 
   /**
@@ -747,6 +690,18 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
    * @generated
    */
   @Override
+  public LocationSpecifier createLocationSpecifier()
+  {
+    LocationSpecifierImpl locationSpecifier = new LocationSpecifierImpl();
+    return locationSpecifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Type createType()
   {
     TypeImpl type = new TypeImpl();
@@ -787,18 +742,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
   {
     ElementaryTypeImpl elementaryType = new ElementaryTypeImpl();
     return elementaryType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public MappingDeclaration createMappingDeclaration()
-  {
-    MappingDeclarationImpl mappingDeclaration = new MappingDeclarationImpl();
-    return mappingDeclaration;
   }
 
   /**
@@ -1015,54 +958,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
   {
     ReturnParameterDeclarationImpl returnParameterDeclaration = new ReturnParameterDeclarationImpl();
     return returnParameterDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public PrimaryTypeDeclaration createPrimaryTypeDeclaration()
-  {
-    PrimaryTypeDeclarationImpl primaryTypeDeclaration = new PrimaryTypeDeclarationImpl();
-    return primaryTypeDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NonArrayableDeclaration createNonArrayableDeclaration()
-  {
-    NonArrayableDeclarationImpl nonArrayableDeclaration = new NonArrayableDeclarationImpl();
-    return nonArrayableDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ArrayableDeclaration createArrayableDeclaration()
-  {
-    ArrayableDeclarationImpl arrayableDeclaration = new ArrayableDeclarationImpl();
-    return arrayableDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SimpleTypeDeclaration createSimpleTypeDeclaration()
-  {
-    SimpleTypeDeclarationImpl simpleTypeDeclaration = new SimpleTypeDeclarationImpl();
-    return simpleTypeDeclaration;
   }
 
   /**
@@ -1291,102 +1186,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
   {
     LiteralImpl literal = new LiteralImpl();
     return literal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntParameter createIntParameter()
-  {
-    IntParameterImpl intParameter = new IntParameterImpl();
-    return intParameter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ArithmeticOperations createArithmeticOperations()
-  {
-    ArithmeticOperationsImpl arithmeticOperations = new ArithmeticOperationsImpl();
-    return arithmeticOperations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public PrimaryArithmetic createPrimaryArithmetic()
-  {
-    PrimaryArithmeticImpl primaryArithmetic = new PrimaryArithmeticImpl();
-    return primaryArithmetic;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SecondOperators createSecondOperators()
-  {
-    SecondOperatorsImpl secondOperators = new SecondOperatorsImpl();
-    return secondOperators;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public LogicalOperations createLogicalOperations()
-  {
-    LogicalOperationsImpl logicalOperations = new LogicalOperationsImpl();
-    return logicalOperations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ConditionOperation createConditionOperation()
-  {
-    ConditionOperationImpl conditionOperation = new ConditionOperationImpl();
-    return conditionOperation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NumericLiteral createNumericLiteral()
-  {
-    NumericLiteralImpl numericLiteral = new NumericLiteralImpl();
-    return numericLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public UnitTypes createUnitTypes()
-  {
-    UnitTypesImpl unitTypes = new UnitTypesImpl();
-    return unitTypes;
   }
 
   /**
@@ -1833,28 +1632,6 @@ public class MyGrammarFactoryImpl extends EFactoryImpl implements MyGrammarFacto
    * @generated
    */
   public String convertAssignmentOpEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LogicalOperationLiteral createLogicalOperationLiteralFromString(EDataType eDataType, String initialValue)
-  {
-    LogicalOperationLiteral result = LogicalOperationLiteral.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertLogicalOperationLiteralToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

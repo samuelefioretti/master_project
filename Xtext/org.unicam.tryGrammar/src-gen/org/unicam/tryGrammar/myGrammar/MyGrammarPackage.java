@@ -207,13 +207,31 @@ public interface MyGrammarPackage extends EPackage
   int CONTRACT_OR_LIBRARY__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Inheritance Specifiers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS = 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTRACT_OR_LIBRARY__BODY = 2;
+
+  /**
    * The number of structural features of the '<em>Contract Or Library</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTRACT_OR_LIBRARY_FEATURE_COUNT = 1;
+  int CONTRACT_OR_LIBRARY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.ContractImpl <em>Contract</em>}' class.
@@ -235,13 +253,22 @@ public interface MyGrammarPackage extends EPackage
   int CONTRACT__NAME = CONTRACT_OR_LIBRARY__NAME;
 
   /**
-   * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
+   * The feature id for the '<em><b>Inheritance Specifiers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTRACT__BLOCKS = CONTRACT_OR_LIBRARY_FEATURE_COUNT + 0;
+  int CONTRACT__INHERITANCE_SPECIFIERS = CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTRACT__BODY = CONTRACT_OR_LIBRARY__BODY;
 
   /**
    * The number of structural features of the '<em>Contract</em>' class.
@@ -250,7 +277,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTRACT_FEATURE_COUNT = CONTRACT_OR_LIBRARY_FEATURE_COUNT + 1;
+  int CONTRACT_FEATURE_COUNT = CONTRACT_OR_LIBRARY_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.LibraryImpl <em>Library</em>}' class.
@@ -278,7 +305,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIBRARY__INHERITANCE_SPECIFIERS = CONTRACT_OR_LIBRARY_FEATURE_COUNT + 0;
+  int LIBRARY__INHERITANCE_SPECIFIERS = CONTRACT_OR_LIBRARY__INHERITANCE_SPECIFIERS;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -287,7 +314,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIBRARY__BODY = CONTRACT_OR_LIBRARY_FEATURE_COUNT + 1;
+  int LIBRARY__BODY = CONTRACT_OR_LIBRARY__BODY;
 
   /**
    * The number of structural features of the '<em>Library</em>' class.
@@ -296,7 +323,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LIBRARY_FEATURE_COUNT = CONTRACT_OR_LIBRARY_FEATURE_COUNT + 2;
+  int LIBRARY_FEATURE_COUNT = CONTRACT_OR_LIBRARY_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.DefinitionBodyImpl <em>Definition Body</em>}' class.
@@ -409,63 +436,6 @@ public interface MyGrammarPackage extends EPackage
   int INHERITANCE_SPECIFIER_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.DeclarationImpl <em>Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.DeclarationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getDeclaration()
-   * @generated
-   */
-  int DECLARATION = 8;
-
-  /**
-   * The number of structural features of the '<em>Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DECLARATION_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.FunctionDeclarationImpl <em>Function Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.FunctionDeclarationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getFunctionDeclaration()
-   * @generated
-   */
-  int FUNCTION_DECLARATION = 9;
-
-  /**
-   * The number of structural features of the '<em>Function Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.FunctionParameterDeclarationImpl <em>Function Parameter Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.FunctionParameterDeclarationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getFunctionParameterDeclaration()
-   * @generated
-   */
-  int FUNCTION_PARAMETER_DECLARATION = 10;
-
-  /**
-   * The number of structural features of the '<em>Function Parameter Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT = FUNCTION_DECLARATION_FEATURE_COUNT + 0;
-
-  /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.FunctionCallArgumentsImpl <em>Function Call Arguments</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -473,7 +443,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getFunctionCallArguments()
    * @generated
    */
-  int FUNCTION_CALL_ARGUMENTS = 12;
+  int FUNCTION_CALL_ARGUMENTS = 9;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -501,7 +471,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getFunctionCallListArguments()
    * @generated
    */
-  int FUNCTION_CALL_LIST_ARGUMENTS = 11;
+  int FUNCTION_CALL_LIST_ARGUMENTS = 8;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference list.
@@ -538,7 +508,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getFunctionCallArg()
    * @generated
    */
-  int FUNCTION_CALL_ARG = 13;
+  int FUNCTION_CALL_ARG = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -575,7 +545,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getFunctionDefinition()
    * @generated
    */
-  int FUNCTION_DEFINITION = 14;
+  int FUNCTION_DEFINITION = 11;
 
   /**
    * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -657,7 +627,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getFunctionDefinitionOptionalElement()
    * @generated
    */
-  int FUNCTION_DEFINITION_OPTIONAL_ELEMENT = 15;
+  int FUNCTION_DEFINITION_OPTIONAL_ELEMENT = 12;
 
   /**
    * The number of structural features of the '<em>Function Definition Optional Element</em>' class.
@@ -676,7 +646,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getConst()
    * @generated
    */
-  int CONST = 16;
+  int CONST = 13;
 
   /**
    * The number of structural features of the '<em>Const</em>' class.
@@ -688,14 +658,14 @@ public interface MyGrammarPackage extends EPackage
   int CONST_FEATURE_COUNT = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.StructDefinitionImpl <em>Struct Definition</em>}' class.
+   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.VisibilitySpecifierImpl <em>Visibility Specifier</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.StructDefinitionImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getStructDefinition()
+   * @see org.unicam.tryGrammar.myGrammar.impl.VisibilitySpecifierImpl
+   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getVisibilitySpecifier()
    * @generated
    */
-  int STRUCT_DEFINITION = 17;
+  int VISIBILITY_SPECIFIER = 14;
 
   /**
    * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -704,7 +674,35 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_DEFINITION__VISIBILITY = DECLARATION_FEATURE_COUNT + 0;
+  int VISIBILITY_SPECIFIER__VISIBILITY = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Visibility Specifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER_FEATURE_COUNT = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.StructDefinitionImpl <em>Struct Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.tryGrammar.myGrammar.impl.StructDefinitionImpl
+   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getStructDefinition()
+   * @generated
+   */
+  int STRUCT_DEFINITION = 15;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCT_DEFINITION__VISIBILITY = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -713,7 +711,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_DEFINITION__NAME = DECLARATION_FEATURE_COUNT + 1;
+  int STRUCT_DEFINITION__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -722,7 +720,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_DEFINITION__MEMBERS = DECLARATION_FEATURE_COUNT + 2;
+  int STRUCT_DEFINITION__MEMBERS = 2;
 
   /**
    * The number of structural features of the '<em>Struct Definition</em>' class.
@@ -731,7 +729,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_DEFINITION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
+  int STRUCT_DEFINITION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.EnumDefinitionImpl <em>Enum Definition</em>}' class.
@@ -741,7 +739,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getEnumDefinition()
    * @generated
    */
-  int ENUM_DEFINITION = 18;
+  int ENUM_DEFINITION = 16;
 
   /**
    * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -750,7 +748,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_DEFINITION__VISIBILITY = FUNCTION_DECLARATION_FEATURE_COUNT + 0;
+  int ENUM_DEFINITION__VISIBILITY = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -759,7 +757,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_DEFINITION__NAME = FUNCTION_DECLARATION_FEATURE_COUNT + 1;
+  int ENUM_DEFINITION__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -768,7 +766,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_DEFINITION__MEMBERS = FUNCTION_DECLARATION_FEATURE_COUNT + 2;
+  int ENUM_DEFINITION__MEMBERS = 2;
 
   /**
    * The number of structural features of the '<em>Enum Definition</em>' class.
@@ -777,7 +775,7 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_DEFINITION_FEATURE_COUNT = FUNCTION_DECLARATION_FEATURE_COUNT + 3;
+  int ENUM_DEFINITION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.EnumValueImpl <em>Enum Value</em>}' class.
@@ -787,7 +785,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getEnumValue()
    * @generated
    */
-  int ENUM_VALUE = 19;
+  int ENUM_VALUE = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -815,7 +813,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 20;
+  int VARIABLE = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -843,7 +841,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getStatement()
    * @generated
    */
-  int STATEMENT = 21;
+  int STATEMENT = 19;
 
   /**
    * The number of structural features of the '<em>Statement</em>' class.
@@ -862,7 +860,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getStandardVariableDeclaration()
    * @generated
    */
-  int STANDARD_VARIABLE_DECLARATION = 22;
+  int STANDARD_VARIABLE_DECLARATION = 20;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -935,7 +933,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getVarVariableDeclaration()
    * @generated
    */
-  int VAR_VARIABLE_DECLARATION = 23;
+  int VAR_VARIABLE_DECLARATION = 21;
 
   /**
    * The feature id for the '<em><b>Var Type</b></em>' attribute.
@@ -981,7 +979,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getVarVariableTupleVariableDeclaration()
    * @generated
    */
-  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION = 24;
+  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION = 22;
 
   /**
    * The feature id for the '<em><b>Var Type</b></em>' attribute.
@@ -1036,7 +1034,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getVariableDeclarationOptionalElement()
    * @generated
    */
-  int VARIABLE_DECLARATION_OPTIONAL_ELEMENT = 25;
+  int VARIABLE_DECLARATION_OPTIONAL_ELEMENT = 23;
 
   /**
    * The number of structural features of the '<em>Variable Declaration Optional Element</em>' class.
@@ -1055,7 +1053,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getIndexedSpecifer()
    * @generated
    */
-  int INDEXED_SPECIFER = 26;
+  int INDEXED_SPECIFER = 24;
 
   /**
    * The number of structural features of the '<em>Indexed Specifer</em>' class.
@@ -1074,7 +1072,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getConstantSpecifier()
    * @generated
    */
-  int CONSTANT_SPECIFIER = 27;
+  int CONSTANT_SPECIFIER = 25;
 
   /**
    * The number of structural features of the '<em>Constant Specifier</em>' class.
@@ -1086,6 +1084,34 @@ public interface MyGrammarPackage extends EPackage
   int CONSTANT_SPECIFIER_FEATURE_COUNT = VARIABLE_DECLARATION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.LocationSpecifierImpl <em>Location Specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.tryGrammar.myGrammar.impl.LocationSpecifierImpl
+   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getLocationSpecifier()
+   * @generated
+   */
+  int LOCATION_SPECIFIER = 26;
+
+  /**
+   * The feature id for the '<em><b>Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCATION_SPECIFIER__LOCATION = VARIABLE_DECLARATION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Location Specifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCATION_SPECIFIER_FEATURE_COUNT = VARIABLE_DECLARATION_OPTIONAL_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.TypeImpl <em>Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1093,7 +1119,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getType()
    * @generated
    */
-  int TYPE = 28;
+  int TYPE = 27;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -1121,7 +1147,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getStandardType()
    * @generated
    */
-  int STANDARD_TYPE = 29;
+  int STANDARD_TYPE = 28;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -1149,7 +1175,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSimpleStatement()
    * @generated
    */
-  int SIMPLE_STATEMENT = 37;
+  int SIMPLE_STATEMENT = 35;
 
   /**
    * The number of structural features of the '<em>Simple Statement</em>' class.
@@ -1168,7 +1194,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getStandardTypeWithoutQualifiedIdentifier()
    * @generated
    */
-  int STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER = 30;
+  int STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER = 29;
 
   /**
    * The number of structural features of the '<em>Standard Type Without Qualified Identifier</em>' class.
@@ -1187,7 +1213,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getElementaryType()
    * @generated
    */
-  int ELEMENTARY_TYPE = 31;
+  int ELEMENTARY_TYPE = 30;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -1226,61 +1252,6 @@ public interface MyGrammarPackage extends EPackage
   int ELEMENTARY_TYPE_FEATURE_COUNT = STANDARD_TYPE_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.MappingDeclarationImpl <em>Mapping Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.MappingDeclarationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getMappingDeclaration()
-   * @generated
-   */
-  int MAPPING_DECLARATION = 32;
-
-  /**
-   * The feature id for the '<em><b>Location</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING_DECLARATION__LOCATION = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING_DECLARATION__VISIBILITY = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Unnamed Mapping Declaration</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING_DECLARATION__UNNAMED_MAPPING_DECLARATION = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING_DECLARATION__NAME = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>Mapping Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING_DECLARATION_FEATURE_COUNT = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 4;
-
-  /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.MappingImpl <em>Mapping</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1288,7 +1259,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getMapping()
    * @generated
    */
-  int MAPPING = 33;
+  int MAPPING = 31;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -1334,7 +1305,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getArrayDimensions()
    * @generated
    */
-  int ARRAY_DIMENSIONS = 34;
+  int ARRAY_DIMENSIONS = 32;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference list.
@@ -1362,7 +1333,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 65;
+  int EXPRESSION = 59;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1381,7 +1352,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getTuple()
    * @generated
    */
-  int TUPLE = 35;
+  int TUPLE = 33;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -1409,7 +1380,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getTupleSeparator()
    * @generated
    */
-  int TUPLE_SEPARATOR = 36;
+  int TUPLE_SEPARATOR = 34;
 
   /**
    * The number of structural features of the '<em>Tuple Separator</em>' class.
@@ -1428,7 +1399,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSimpleStatement2()
    * @generated
    */
-  int SIMPLE_STATEMENT2 = 38;
+  int SIMPLE_STATEMENT2 = 36;
 
   /**
    * The number of structural features of the '<em>Simple Statement2</em>' class.
@@ -1447,7 +1418,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 39;
+  int EXPRESSION_STATEMENT = 37;
 
   /**
    * The feature id for the '<em><b>Semicolon</b></em>' attribute.
@@ -1484,7 +1455,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getQualifiedIdentifier()
    * @generated
    */
-  int QUALIFIED_IDENTIFIER = 40;
+  int QUALIFIED_IDENTIFIER = 38;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -1530,7 +1501,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getQualifier()
    * @generated
    */
-  int QUALIFIER = 41;
+  int QUALIFIER = 39;
 
   /**
    * The number of structural features of the '<em>Qualifier</em>' class.
@@ -1549,7 +1520,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getField()
    * @generated
    */
-  int FIELD = 42;
+  int FIELD = 40;
 
   /**
    * The feature id for the '<em><b>Field</b></em>' attribute.
@@ -1577,7 +1548,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getIndex()
    * @generated
    */
-  int INDEX = 43;
+  int INDEX = 41;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1605,7 +1576,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getArguments()
    * @generated
    */
-  int ARGUMENTS = 44;
+  int ARGUMENTS = 42;
 
   /**
    * The feature id for the '<em><b>Arguments</b></em>' containment reference.
@@ -1633,7 +1604,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getModifier()
    * @generated
    */
-  int MODIFIER = 45;
+  int MODIFIER = 43;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1679,7 +1650,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 46;
+  int EVENT = 44;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1700,22 +1671,13 @@ public interface MyGrammarPackage extends EPackage
   int EVENT__PARAMETERS = 1;
 
   /**
-   * The feature id for the '<em><b>Is Anonymous</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT__IS_ANONYMOUS = 2;
-
-  /**
    * The number of structural features of the '<em>Event</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EVENT_FEATURE_COUNT = 3;
+  int EVENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.ModifierInvocationImpl <em>Modifier Invocation</em>}' class.
@@ -1725,7 +1687,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getModifierInvocation()
    * @generated
    */
-  int MODIFIER_INVOCATION = 47;
+  int MODIFIER_INVOCATION = 45;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -1762,7 +1724,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getParameterList()
    * @generated
    */
-  int PARAMETER_LIST = 48;
+  int PARAMETER_LIST = 46;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1790,7 +1752,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getReturnsParameterList()
    * @generated
    */
-  int RETURNS_PARAMETER_LIST = 49;
+  int RETURNS_PARAMETER_LIST = 47;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1818,7 +1780,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getReturnParameterDeclaration()
    * @generated
    */
-  int RETURN_PARAMETER_DECLARATION = 50;
+  int RETURN_PARAMETER_DECLARATION = 48;
 
   /**
    * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
@@ -1848,208 +1810,6 @@ public interface MyGrammarPackage extends EPackage
   int RETURN_PARAMETER_DECLARATION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.PrimaryTypeDeclarationImpl <em>Primary Type Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.PrimaryTypeDeclarationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getPrimaryTypeDeclaration()
-   * @generated
-   */
-  int PRIMARY_TYPE_DECLARATION = 51;
-
-  /**
-   * The feature id for the '<em><b>Constant</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_TYPE_DECLARATION__CONSTANT = 0;
-
-  /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_TYPE_DECLARATION__VISIBILITY = 1;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_TYPE_DECLARATION__TYPE = 2;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_TYPE_DECLARATION__NAME = 3;
-
-  /**
-   * The number of structural features of the '<em>Primary Type Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_TYPE_DECLARATION_FEATURE_COUNT = 4;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.NonArrayableDeclarationImpl <em>Non Arrayable Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.NonArrayableDeclarationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getNonArrayableDeclaration()
-   * @generated
-   */
-  int NON_ARRAYABLE_DECLARATION = 52;
-
-  /**
-   * The feature id for the '<em><b>Constant</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_ARRAYABLE_DECLARATION__CONSTANT = PRIMARY_TYPE_DECLARATION__CONSTANT;
-
-  /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_ARRAYABLE_DECLARATION__VISIBILITY = PRIMARY_TYPE_DECLARATION__VISIBILITY;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_ARRAYABLE_DECLARATION__TYPE = PRIMARY_TYPE_DECLARATION__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_ARRAYABLE_DECLARATION__NAME = PRIMARY_TYPE_DECLARATION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Location</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_ARRAYABLE_DECLARATION__LOCATION = PRIMARY_TYPE_DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Non Arrayable Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NON_ARRAYABLE_DECLARATION_FEATURE_COUNT = PRIMARY_TYPE_DECLARATION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.ArrayableDeclarationImpl <em>Arrayable Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.ArrayableDeclarationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getArrayableDeclaration()
-   * @generated
-   */
-  int ARRAYABLE_DECLARATION = 53;
-
-  /**
-   * The feature id for the '<em><b>Constant</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAYABLE_DECLARATION__CONSTANT = PRIMARY_TYPE_DECLARATION__CONSTANT;
-
-  /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAYABLE_DECLARATION__VISIBILITY = PRIMARY_TYPE_DECLARATION__VISIBILITY;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAYABLE_DECLARATION__TYPE = PRIMARY_TYPE_DECLARATION__TYPE;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAYABLE_DECLARATION__NAME = PRIMARY_TYPE_DECLARATION__NAME;
-
-  /**
-   * The number of structural features of the '<em>Arrayable Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARRAYABLE_DECLARATION_FEATURE_COUNT = PRIMARY_TYPE_DECLARATION_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.SimpleTypeDeclarationImpl <em>Simple Type Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.SimpleTypeDeclarationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSimpleTypeDeclaration()
-   * @generated
-   */
-  int SIMPLE_TYPE_DECLARATION = 54;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_TYPE_DECLARATION__TYPE = 0;
-
-  /**
-   * The number of structural features of the '<em>Simple Type Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_TYPE_DECLARATION_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.DeleteStatementImpl <em>Delete Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2057,7 +1817,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getDeleteStatement()
    * @generated
    */
-  int DELETE_STATEMENT = 55;
+  int DELETE_STATEMENT = 49;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -2085,7 +1845,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getIfStatement()
    * @generated
    */
-  int IF_STATEMENT = 56;
+  int IF_STATEMENT = 50;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -2131,7 +1891,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getWhileStatement()
    * @generated
    */
-  int WHILE_STATEMENT = 57;
+  int WHILE_STATEMENT = 51;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -2168,7 +1928,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getForStatement()
    * @generated
    */
-  int FOR_STATEMENT = 58;
+  int FOR_STATEMENT = 52;
 
   /**
    * The feature id for the '<em><b>Init Expression</b></em>' containment reference.
@@ -2223,7 +1983,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBody()
    * @generated
    */
-  int BODY = 59;
+  int BODY = 53;
 
   /**
    * The number of structural features of the '<em>Body</em>' class.
@@ -2242,7 +2002,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getContinueStatement()
    * @generated
    */
-  int CONTINUE_STATEMENT = 60;
+  int CONTINUE_STATEMENT = 54;
 
   /**
    * The number of structural features of the '<em>Continue Statement</em>' class.
@@ -2261,7 +2021,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBreakStatement()
    * @generated
    */
-  int BREAK_STATEMENT = 61;
+  int BREAK_STATEMENT = 55;
 
   /**
    * The number of structural features of the '<em>Break Statement</em>' class.
@@ -2280,7 +2040,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getReturnStatement()
    * @generated
    */
-  int RETURN_STATEMENT = 62;
+  int RETURN_STATEMENT = 56;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2308,7 +2068,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getThrowStatement()
    * @generated
    */
-  int THROW_STATEMENT = 63;
+  int THROW_STATEMENT = 57;
 
   /**
    * The number of structural features of the '<em>Throw Statement</em>' class.
@@ -2327,7 +2087,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getPlaceHolderStatement()
    * @generated
    */
-  int PLACE_HOLDER_STATEMENT = 64;
+  int PLACE_HOLDER_STATEMENT = 58;
 
   /**
    * The number of structural features of the '<em>Place Holder Statement</em>' class.
@@ -2346,7 +2106,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSpecialExpression()
    * @generated
    */
-  int SPECIAL_EXPRESSION = 66;
+  int SPECIAL_EXPRESSION = 60;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2392,7 +2152,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getNotExpression()
    * @generated
    */
-  int NOT_EXPRESSION = 67;
+  int NOT_EXPRESSION = 61;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2420,7 +2180,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getPreIncExpression()
    * @generated
    */
-  int PRE_INC_EXPRESSION = 68;
+  int PRE_INC_EXPRESSION = 62;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2448,7 +2208,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getPreDecExpression()
    * @generated
    */
-  int PRE_DEC_EXPRESSION = 69;
+  int PRE_DEC_EXPRESSION = 63;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2476,7 +2236,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBinaryNotExpression()
    * @generated
    */
-  int BINARY_NOT_EXPRESSION = 70;
+  int BINARY_NOT_EXPRESSION = 64;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -2504,7 +2264,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSignExpression()
    * @generated
    */
-  int SIGN_EXPRESSION = 71;
+  int SIGN_EXPRESSION = 65;
 
   /**
    * The feature id for the '<em><b>Sign Op</b></em>' attribute.
@@ -2541,7 +2301,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getNewExpression()
    * @generated
    */
-  int NEW_EXPRESSION = 72;
+  int NEW_EXPRESSION = 66;
 
   /**
    * The feature id for the '<em><b>Contract</b></em>' reference.
@@ -2578,7 +2338,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getLiteral()
    * @generated
    */
-  int LITERAL = 73;
+  int LITERAL = 67;
 
   /**
    * The number of structural features of the '<em>Literal</em>' class.
@@ -2590,356 +2350,6 @@ public interface MyGrammarPackage extends EPackage
   int LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.IntParameterImpl <em>Int Parameter</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.IntParameterImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getIntParameter()
-   * @generated
-   */
-  int INT_PARAMETER = 74;
-
-  /**
-   * The feature id for the '<em><b>Ref</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_PARAMETER__REF = 0;
-
-  /**
-   * The feature id for the '<em><b>Param</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_PARAMETER__PARAM = 1;
-
-  /**
-   * The feature id for the '<em><b>Fun</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_PARAMETER__FUN = 2;
-
-  /**
-   * The number of structural features of the '<em>Int Parameter</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INT_PARAMETER_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.ArithmeticOperationsImpl <em>Arithmetic Operations</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.ArithmeticOperationsImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getArithmeticOperations()
-   * @generated
-   */
-  int ARITHMETIC_OPERATIONS = 75;
-
-  /**
-   * The feature id for the '<em><b>First</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARITHMETIC_OPERATIONS__FIRST = 0;
-
-  /**
-   * The feature id for the '<em><b>Seconds</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARITHMETIC_OPERATIONS__SECONDS = 1;
-
-  /**
-   * The number of structural features of the '<em>Arithmetic Operations</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ARITHMETIC_OPERATIONS_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.PrimaryArithmeticImpl <em>Primary Arithmetic</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.PrimaryArithmeticImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getPrimaryArithmetic()
-   * @generated
-   */
-  int PRIMARY_ARITHMETIC = 76;
-
-  /**
-   * The number of structural features of the '<em>Primary Arithmetic</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_ARITHMETIC_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.SecondOperatorsImpl <em>Second Operators</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.SecondOperatorsImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSecondOperators()
-   * @generated
-   */
-  int SECOND_OPERATORS = 77;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SECOND_OPERATORS__OPERATOR = 0;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SECOND_OPERATORS__VALUE = 1;
-
-  /**
-   * The number of structural features of the '<em>Second Operators</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SECOND_OPERATORS_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.LogicalOperationsImpl <em>Logical Operations</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.LogicalOperationsImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getLogicalOperations()
-   * @generated
-   */
-  int LOGICAL_OPERATIONS = 78;
-
-  /**
-   * The feature id for the '<em><b>First</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_OPERATIONS__FIRST = PRIMARY_ARITHMETIC_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Operations</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_OPERATIONS__OPERATIONS = PRIMARY_ARITHMETIC_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Negate</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_OPERATIONS__NEGATE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Ternary</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_OPERATIONS__TERNARY = PRIMARY_ARITHMETIC_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>True</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_OPERATIONS__TRUE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>False</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_OPERATIONS__FALSE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 5;
-
-  /**
-   * The number of structural features of the '<em>Logical Operations</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOGICAL_OPERATIONS_FEATURE_COUNT = PRIMARY_ARITHMETIC_FEATURE_COUNT + 6;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.ConditionOperationImpl <em>Condition Operation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.ConditionOperationImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getConditionOperation()
-   * @generated
-   */
-  int CONDITION_OPERATION = 79;
-
-  /**
-   * The feature id for the '<em><b>Operation</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITION_OPERATION__OPERATION = 0;
-
-  /**
-   * The feature id for the '<em><b>Negate Second</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITION_OPERATION__NEGATE_SECOND = 1;
-
-  /**
-   * The feature id for the '<em><b>Seconds</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITION_OPERATION__SECONDS = 2;
-
-  /**
-   * The number of structural features of the '<em>Condition Operation</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONDITION_OPERATION_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.NumericLiteralImpl <em>Numeric Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.NumericLiteralImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getNumericLiteral()
-   * @generated
-   */
-  int NUMERIC_LITERAL = 80;
-
-  /**
-   * The feature id for the '<em><b>Int Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMERIC_LITERAL__INT_VALUE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Hex Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMERIC_LITERAL__HEX_VALUE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Decimal Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMERIC_LITERAL__DECIMAL_VALUE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Ether Unit</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMERIC_LITERAL__ETHER_UNIT = PRIMARY_ARITHMETIC_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>Numeric Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NUMERIC_LITERAL_FEATURE_COUNT = PRIMARY_ARITHMETIC_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.UnitTypesImpl <em>Unit Types</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.impl.UnitTypesImpl
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getUnitTypes()
-   * @generated
-   */
-  int UNIT_TYPES = 81;
-
-  /**
-   * The feature id for the '<em><b>Time</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNIT_TYPES__TIME = 0;
-
-  /**
-   * The feature id for the '<em><b>Units</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNIT_TYPES__UNITS = 1;
-
-  /**
-   * The number of structural features of the '<em>Unit Types</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNIT_TYPES_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.impl.GasleftFunctionImpl <em>Gasleft Function</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2947,7 +2357,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getGasleftFunction()
    * @generated
    */
-  int GASLEFT_FUNCTION = 82;
+  int GASLEFT_FUNCTION = 68;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2975,7 +2385,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBooleanConst()
    * @generated
    */
-  int BOOLEAN_CONST = 83;
+  int BOOLEAN_CONST = 69;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3003,7 +2413,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getNumber()
    * @generated
    */
-  int NUMBER = 84;
+  int NUMBER = 70;
 
   /**
    * The number of structural features of the '<em>Number</em>' class.
@@ -3022,7 +2432,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getNumberDimensionless()
    * @generated
    */
-  int NUMBER_DIMENSIONLESS = 85;
+  int NUMBER_DIMENSIONLESS = 71;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3050,7 +2460,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getEther()
    * @generated
    */
-  int ETHER = 86;
+  int ETHER = 72;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3087,7 +2497,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getTime()
    * @generated
    */
-  int TIME = 87;
+  int TIME = 73;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3124,7 +2534,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 88;
+  int STRING_LITERAL = 74;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3152,7 +2562,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getHexLiteral()
    * @generated
    */
-  int HEX_LITERAL = 89;
+  int HEX_LITERAL = 75;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3180,7 +2590,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getDecimalLiteral()
    * @generated
    */
-  int DECIMAL_LITERAL = 90;
+  int DECIMAL_LITERAL = 76;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3208,7 +2618,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getTypeCast()
    * @generated
    */
-  int TYPE_CAST = 91;
+  int TYPE_CAST = 77;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3245,7 +2655,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getNow()
    * @generated
    */
-  int NOW = 92;
+  int NOW = 78;
 
   /**
    * The number of structural features of the '<em>Now</em>' class.
@@ -3264,7 +2674,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSpecialVariables()
    * @generated
    */
-  int SPECIAL_VARIABLES = 93;
+  int SPECIAL_VARIABLES = 79;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -3310,7 +2720,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSpecialVariablesTypeEnum()
    * @generated
    */
-  int SPECIAL_VARIABLES_TYPE_ENUM = 94;
+  int SPECIAL_VARIABLES_TYPE_ENUM = 80;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3338,7 +2748,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getVarVariableTypeDeclaration()
    * @generated
    */
-  int VAR_VARIABLE_TYPE_DECLARATION = 95;
+  int VAR_VARIABLE_TYPE_DECLARATION = 81;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -3384,7 +2794,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 96;
+  int BLOCK = 82;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -3412,7 +2822,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getContinue()
    * @generated
    */
-  int CONTINUE = 97;
+  int CONTINUE = 83;
 
   /**
    * The number of structural features of the '<em>Continue</em>' class.
@@ -3431,7 +2841,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 98;
+  int ASSIGNMENT = 84;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3477,7 +2887,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getVariableDeclarationExpression()
    * @generated
    */
-  int VARIABLE_DECLARATION_EXPRESSION = 99;
+  int VARIABLE_DECLARATION_EXPRESSION = 85;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -3523,7 +2933,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getOr()
    * @generated
    */
-  int OR = 100;
+  int OR = 86;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3560,7 +2970,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getAnd()
    * @generated
    */
-  int AND = 101;
+  int AND = 87;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3597,7 +3007,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getEquality()
    * @generated
    */
-  int EQUALITY = 102;
+  int EQUALITY = 88;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3643,7 +3053,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 103;
+  int COMPARISON = 89;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3689,7 +3099,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBitOr()
    * @generated
    */
-  int BIT_OR = 104;
+  int BIT_OR = 90;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3726,7 +3136,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBitXor()
    * @generated
    */
-  int BIT_XOR = 105;
+  int BIT_XOR = 91;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3763,7 +3173,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBitAnd()
    * @generated
    */
-  int BIT_AND = 106;
+  int BIT_AND = 92;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3800,7 +3210,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getShift()
    * @generated
    */
-  int SHIFT = 107;
+  int SHIFT = 93;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3846,7 +3256,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getAddSub()
    * @generated
    */
-  int ADD_SUB = 108;
+  int ADD_SUB = 94;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3892,7 +3302,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getMulDivMod()
    * @generated
    */
-  int MUL_DIV_MOD = 109;
+  int MUL_DIV_MOD = 95;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3938,7 +3348,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getExponent()
    * @generated
    */
-  int EXPONENT = 110;
+  int EXPONENT = 96;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3975,7 +3385,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getPostIncDecExpression()
    * @generated
    */
-  int POST_INC_DEC_EXPRESSION = 111;
+  int POST_INC_DEC_EXPRESSION = 97;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -4012,7 +3422,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getElementaryTypeNameEnum()
    * @generated
    */
-  int ELEMENTARY_TYPE_NAME_ENUM = 112;
+  int ELEMENTARY_TYPE_NAME_ENUM = 98;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}' enum.
@@ -4022,7 +3432,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getLocationSpecifierEnum()
    * @generated
    */
-  int LOCATION_SPECIFIER_ENUM = 113;
+  int LOCATION_SPECIFIER_ENUM = 99;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.VisibilityEnum <em>Visibility Enum</em>}' enum.
@@ -4032,7 +3442,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getVisibilityEnum()
    * @generated
    */
-  int VISIBILITY_ENUM = 114;
+  int VISIBILITY_ENUM = 100;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.AssignmentOpEnum <em>Assignment Op Enum</em>}' enum.
@@ -4042,17 +3452,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getAssignmentOpEnum()
    * @generated
    */
-  int ASSIGNMENT_OP_ENUM = 115;
-
-  /**
-   * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.LogicalOperationLiteral <em>Logical Operation Literal</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperationLiteral
-   * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getLogicalOperationLiteral()
-   * @generated
-   */
-  int LOGICAL_OPERATION_LITERAL = 116;
+  int ASSIGNMENT_OP_ENUM = 101;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.EqualityOpEnum <em>Equality Op Enum</em>}' enum.
@@ -4062,7 +3462,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getEqualityOpEnum()
    * @generated
    */
-  int EQUALITY_OP_ENUM = 117;
+  int EQUALITY_OP_ENUM = 102;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.ComparisonOpEnum <em>Comparison Op Enum</em>}' enum.
@@ -4072,7 +3472,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getComparisonOpEnum()
    * @generated
    */
-  int COMPARISON_OP_ENUM = 118;
+  int COMPARISON_OP_ENUM = 103;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.ShiftOpEnum <em>Shift Op Enum</em>}' enum.
@@ -4082,7 +3482,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getShiftOpEnum()
    * @generated
    */
-  int SHIFT_OP_ENUM = 119;
+  int SHIFT_OP_ENUM = 104;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.AdditionOpEnum <em>Addition Op Enum</em>}' enum.
@@ -4092,7 +3492,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getAdditionOpEnum()
    * @generated
    */
-  int ADDITION_OP_ENUM = 120;
+  int ADDITION_OP_ENUM = 105;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.MulDivModOpEnum <em>Mul Div Mod Op Enum</em>}' enum.
@@ -4102,7 +3502,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getMulDivModOpEnum()
    * @generated
    */
-  int MUL_DIV_MOD_OP_ENUM = 121;
+  int MUL_DIV_MOD_OP_ENUM = 106;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.IncDecOpEnum <em>Inc Dec Op Enum</em>}' enum.
@@ -4112,7 +3512,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getIncDecOpEnum()
    * @generated
    */
-  int INC_DEC_OP_ENUM = 122;
+  int INC_DEC_OP_ENUM = 107;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.BooleanLiteralEnum <em>Boolean Literal Enum</em>}' enum.
@@ -4122,7 +3522,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getBooleanLiteralEnum()
    * @generated
    */
-  int BOOLEAN_LITERAL_ENUM = 123;
+  int BOOLEAN_LITERAL_ENUM = 108;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.EtherSubDenominationEnum <em>Ether Sub Denomination Enum</em>}' enum.
@@ -4132,7 +3532,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getEtherSubDenominationEnum()
    * @generated
    */
-  int ETHER_SUB_DENOMINATION_ENUM = 124;
+  int ETHER_SUB_DENOMINATION_ENUM = 109;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.TimeSubdenominationEnum <em>Time Subdenomination Enum</em>}' enum.
@@ -4142,7 +3542,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getTimeSubdenominationEnum()
    * @generated
    */
-  int TIME_SUBDENOMINATION_ENUM = 125;
+  int TIME_SUBDENOMINATION_ENUM = 110;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.SpecialExpressionTypeEnum <em>Special Expression Type Enum</em>}' enum.
@@ -4152,7 +3552,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getSpecialExpressionTypeEnum()
    * @generated
    */
-  int SPECIAL_EXPRESSION_TYPE_ENUM = 126;
+  int SPECIAL_EXPRESSION_TYPE_ENUM = 111;
 
   /**
    * The meta object id for the '{@link org.unicam.tryGrammar.myGrammar.ReservedWordsEnum <em>Reserved Words Enum</em>}' enum.
@@ -4162,7 +3562,7 @@ public interface MyGrammarPackage extends EPackage
    * @see org.unicam.tryGrammar.myGrammar.impl.MyGrammarPackageImpl#getReservedWordsEnum()
    * @generated
    */
-  int RESERVED_WORDS_ENUM = 127;
+  int RESERVED_WORDS_ENUM = 112;
 
 
   /**
@@ -4305,6 +3705,28 @@ public interface MyGrammarPackage extends EPackage
   EAttribute getContractOrLibrary_Name();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.tryGrammar.myGrammar.ContractOrLibrary#getInheritanceSpecifiers <em>Inheritance Specifiers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Inheritance Specifiers</em>'.
+   * @see org.unicam.tryGrammar.myGrammar.ContractOrLibrary#getInheritanceSpecifiers()
+   * @see #getContractOrLibrary()
+   * @generated
+   */
+  EReference getContractOrLibrary_InheritanceSpecifiers();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.ContractOrLibrary#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see org.unicam.tryGrammar.myGrammar.ContractOrLibrary#getBody()
+   * @see #getContractOrLibrary()
+   * @generated
+   */
+  EReference getContractOrLibrary_Body();
+
+  /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.Contract <em>Contract</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4315,17 +3737,6 @@ public interface MyGrammarPackage extends EPackage
   EClass getContract();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.tryGrammar.myGrammar.Contract#getBlocks <em>Blocks</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Blocks</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.Contract#getBlocks()
-   * @see #getContract()
-   * @generated
-   */
-  EReference getContract_Blocks();
-
-  /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.Library <em>Library</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4334,28 +3745,6 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    */
   EClass getLibrary();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.tryGrammar.myGrammar.Library#getInheritanceSpecifiers <em>Inheritance Specifiers</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Inheritance Specifiers</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.Library#getInheritanceSpecifiers()
-   * @see #getLibrary()
-   * @generated
-   */
-  EReference getLibrary_InheritanceSpecifiers();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.Library#getBody <em>Body</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Body</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.Library#getBody()
-   * @see #getLibrary()
-   * @generated
-   */
-  EReference getLibrary_Body();
 
   /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.DefinitionBody <em>Definition Body</em>}'.
@@ -4464,36 +3853,6 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    */
   EReference getInheritanceSpecifier_Args();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.Declaration <em>Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.Declaration
-   * @generated
-   */
-  EClass getDeclaration();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.FunctionDeclaration <em>Function Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Function Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.FunctionDeclaration
-   * @generated
-   */
-  EClass getFunctionDeclaration();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.FunctionParameterDeclaration <em>Function Parameter Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Function Parameter Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.FunctionParameterDeclaration
-   * @generated
-   */
-  EClass getFunctionParameterDeclaration();
 
   /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.FunctionCallListArguments <em>Function Call List Arguments</em>}'.
@@ -4675,6 +4034,27 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    */
   EClass getConst();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.VisibilitySpecifier <em>Visibility Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Visibility Specifier</em>'.
+   * @see org.unicam.tryGrammar.myGrammar.VisibilitySpecifier
+   * @generated
+   */
+  EClass getVisibilitySpecifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.VisibilitySpecifier#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Visibility</em>'.
+   * @see org.unicam.tryGrammar.myGrammar.VisibilitySpecifier#getVisibility()
+   * @see #getVisibilitySpecifier()
+   * @generated
+   */
+  EAttribute getVisibilitySpecifier_Visibility();
 
   /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.StructDefinition <em>Struct Definition</em>}'.
@@ -5018,6 +4398,27 @@ public interface MyGrammarPackage extends EPackage
   EClass getConstantSpecifier();
 
   /**
+   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.LocationSpecifier <em>Location Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Location Specifier</em>'.
+   * @see org.unicam.tryGrammar.myGrammar.LocationSpecifier
+   * @generated
+   */
+  EClass getLocationSpecifier();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.LocationSpecifier#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Location</em>'.
+   * @see org.unicam.tryGrammar.myGrammar.LocationSpecifier#getLocation()
+   * @see #getLocationSpecifier()
+   * @generated
+   */
+  EAttribute getLocationSpecifier_Location();
+
+  /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5089,60 +4490,6 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    */
   EAttribute getElementaryType_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.MappingDeclaration <em>Mapping Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Mapping Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.MappingDeclaration
-   * @generated
-   */
-  EClass getMappingDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.MappingDeclaration#getLocation <em>Location</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Location</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.MappingDeclaration#getLocation()
-   * @see #getMappingDeclaration()
-   * @generated
-   */
-  EAttribute getMappingDeclaration_Location();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.MappingDeclaration#getVisibility <em>Visibility</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Visibility</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.MappingDeclaration#getVisibility()
-   * @see #getMappingDeclaration()
-   * @generated
-   */
-  EAttribute getMappingDeclaration_Visibility();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.MappingDeclaration#getUnnamedMappingDeclaration <em>Unnamed Mapping Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Unnamed Mapping Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.MappingDeclaration#getUnnamedMappingDeclaration()
-   * @see #getMappingDeclaration()
-   * @generated
-   */
-  EReference getMappingDeclaration_UnnamedMappingDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.MappingDeclaration#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.MappingDeclaration#getName()
-   * @see #getMappingDeclaration()
-   * @generated
-   */
-  EAttribute getMappingDeclaration_Name();
 
   /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.Mapping <em>Mapping</em>}'.
@@ -5461,17 +4808,6 @@ public interface MyGrammarPackage extends EPackage
   EReference getEvent_Parameters();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.Event#isIsAnonymous <em>Is Anonymous</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Is Anonymous</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.Event#isIsAnonymous()
-   * @see #getEvent()
-   * @generated
-   */
-  EAttribute getEvent_IsAnonymous();
-
-  /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.ModifierInvocation <em>Modifier Invocation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5576,112 +4912,6 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    */
   EReference getReturnParameterDeclaration_Variable();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration <em>Primary Type Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Primary Type Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration
-   * @generated
-   */
-  EClass getPrimaryTypeDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#isConstant <em>Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Constant</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#isConstant()
-   * @see #getPrimaryTypeDeclaration()
-   * @generated
-   */
-  EAttribute getPrimaryTypeDeclaration_Constant();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#getVisibility <em>Visibility</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Visibility</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#getVisibility()
-   * @see #getPrimaryTypeDeclaration()
-   * @generated
-   */
-  EAttribute getPrimaryTypeDeclaration_Visibility();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#getType()
-   * @see #getPrimaryTypeDeclaration()
-   * @generated
-   */
-  EAttribute getPrimaryTypeDeclaration_Type();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.PrimaryTypeDeclaration#getName()
-   * @see #getPrimaryTypeDeclaration()
-   * @generated
-   */
-  EAttribute getPrimaryTypeDeclaration_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration <em>Non Arrayable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Non Arrayable Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration
-   * @generated
-   */
-  EClass getNonArrayableDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration#getLocation <em>Location</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Location</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration#getLocation()
-   * @see #getNonArrayableDeclaration()
-   * @generated
-   */
-  EAttribute getNonArrayableDeclaration_Location();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.ArrayableDeclaration <em>Arrayable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Arrayable Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.ArrayableDeclaration
-   * @generated
-   */
-  EClass getArrayableDeclaration();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration <em>Simple Type Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Simple Type Declaration</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration
-   * @generated
-   */
-  EClass getSimpleTypeDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration#getType()
-   * @see #getSimpleTypeDeclaration()
-   * @generated
-   */
-  EAttribute getSimpleTypeDeclaration_Type();
 
   /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.DeleteStatement <em>Delete Statement</em>}'.
@@ -6114,328 +5344,6 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    */
   EClass getLiteral();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.IntParameter <em>Int Parameter</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Int Parameter</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.IntParameter
-   * @generated
-   */
-  EClass getIntParameter();
-
-  /**
-   * Returns the meta object for the reference '{@link org.unicam.tryGrammar.myGrammar.IntParameter#getRef <em>Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ref</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.IntParameter#getRef()
-   * @see #getIntParameter()
-   * @generated
-   */
-  EReference getIntParameter_Ref();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.IntParameter#getParam <em>Param</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Param</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.IntParameter#getParam()
-   * @see #getIntParameter()
-   * @generated
-   */
-  EReference getIntParameter_Param();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.IntParameter#getFun <em>Fun</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Fun</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.IntParameter#getFun()
-   * @see #getIntParameter()
-   * @generated
-   */
-  EReference getIntParameter_Fun();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.ArithmeticOperations <em>Arithmetic Operations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Arithmetic Operations</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.ArithmeticOperations
-   * @generated
-   */
-  EClass getArithmeticOperations();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.ArithmeticOperations#getFirst <em>First</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>First</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.ArithmeticOperations#getFirst()
-   * @see #getArithmeticOperations()
-   * @generated
-   */
-  EReference getArithmeticOperations_First();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.tryGrammar.myGrammar.ArithmeticOperations#getSeconds <em>Seconds</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Seconds</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.ArithmeticOperations#getSeconds()
-   * @see #getArithmeticOperations()
-   * @generated
-   */
-  EReference getArithmeticOperations_Seconds();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.PrimaryArithmetic <em>Primary Arithmetic</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Primary Arithmetic</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.PrimaryArithmetic
-   * @generated
-   */
-  EClass getPrimaryArithmetic();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.SecondOperators <em>Second Operators</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Second Operators</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.SecondOperators
-   * @generated
-   */
-  EClass getSecondOperators();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.SecondOperators#getOperator <em>Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.SecondOperators#getOperator()
-   * @see #getSecondOperators()
-   * @generated
-   */
-  EAttribute getSecondOperators_Operator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.SecondOperators#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.SecondOperators#getValue()
-   * @see #getSecondOperators()
-   * @generated
-   */
-  EReference getSecondOperators_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.LogicalOperations <em>Logical Operations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Logical Operations</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperations
-   * @generated
-   */
-  EClass getLogicalOperations();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.LogicalOperations#getFirst <em>First</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>First</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperations#getFirst()
-   * @see #getLogicalOperations()
-   * @generated
-   */
-  EReference getLogicalOperations_First();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.tryGrammar.myGrammar.LogicalOperations#getOperations <em>Operations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Operations</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperations#getOperations()
-   * @see #getLogicalOperations()
-   * @generated
-   */
-  EReference getLogicalOperations_Operations();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.LogicalOperations#isNegate <em>Negate</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Negate</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperations#isNegate()
-   * @see #getLogicalOperations()
-   * @generated
-   */
-  EAttribute getLogicalOperations_Negate();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.LogicalOperations#isTernary <em>Ternary</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Ternary</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperations#isTernary()
-   * @see #getLogicalOperations()
-   * @generated
-   */
-  EAttribute getLogicalOperations_Ternary();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.LogicalOperations#getTrue <em>True</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>True</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperations#getTrue()
-   * @see #getLogicalOperations()
-   * @generated
-   */
-  EReference getLogicalOperations_True();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.LogicalOperations#getFalse <em>False</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>False</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperations#getFalse()
-   * @see #getLogicalOperations()
-   * @generated
-   */
-  EReference getLogicalOperations_False();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.ConditionOperation <em>Condition Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Condition Operation</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.ConditionOperation
-   * @generated
-   */
-  EClass getConditionOperation();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.ConditionOperation#getOperation <em>Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operation</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.ConditionOperation#getOperation()
-   * @see #getConditionOperation()
-   * @generated
-   */
-  EAttribute getConditionOperation_Operation();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.ConditionOperation#getNegateSecond <em>Negate Second</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Negate Second</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.ConditionOperation#getNegateSecond()
-   * @see #getConditionOperation()
-   * @generated
-   */
-  EAttribute getConditionOperation_NegateSecond();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.ConditionOperation#getSeconds <em>Seconds</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Seconds</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.ConditionOperation#getSeconds()
-   * @see #getConditionOperation()
-   * @generated
-   */
-  EReference getConditionOperation_Seconds();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.NumericLiteral <em>Numeric Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Numeric Literal</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.NumericLiteral
-   * @generated
-   */
-  EClass getNumericLiteral();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.NumericLiteral#getIntValue <em>Int Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Int Value</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.NumericLiteral#getIntValue()
-   * @see #getNumericLiteral()
-   * @generated
-   */
-  EReference getNumericLiteral_IntValue();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.NumericLiteral#getHexValue <em>Hex Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Hex Value</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.NumericLiteral#getHexValue()
-   * @see #getNumericLiteral()
-   * @generated
-   */
-  EReference getNumericLiteral_HexValue();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.NumericLiteral#getDecimalValue <em>Decimal Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Decimal Value</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.NumericLiteral#getDecimalValue()
-   * @see #getNumericLiteral()
-   * @generated
-   */
-  EReference getNumericLiteral_DecimalValue();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.tryGrammar.myGrammar.NumericLiteral#getEtherUnit <em>Ether Unit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ether Unit</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.NumericLiteral#getEtherUnit()
-   * @see #getNumericLiteral()
-   * @generated
-   */
-  EReference getNumericLiteral_EtherUnit();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.UnitTypes <em>Unit Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Unit Types</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.UnitTypes
-   * @generated
-   */
-  EClass getUnitTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.UnitTypes#getTime <em>Time</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Time</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.UnitTypes#getTime()
-   * @see #getUnitTypes()
-   * @generated
-   */
-  EAttribute getUnitTypes_Time();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.tryGrammar.myGrammar.UnitTypes#getUnits <em>Units</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Units</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.UnitTypes#getUnits()
-   * @see #getUnitTypes()
-   * @generated
-   */
-  EAttribute getUnitTypes_Units();
 
   /**
    * Returns the meta object for class '{@link org.unicam.tryGrammar.myGrammar.GasleftFunction <em>Gasleft Function</em>}'.
@@ -7381,16 +6289,6 @@ public interface MyGrammarPackage extends EPackage
    * @generated
    */
   EEnum getAssignmentOpEnum();
-
-  /**
-   * Returns the meta object for enum '{@link org.unicam.tryGrammar.myGrammar.LogicalOperationLiteral <em>Logical Operation Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Logical Operation Literal</em>'.
-   * @see org.unicam.tryGrammar.myGrammar.LogicalOperationLiteral
-   * @generated
-   */
-  EEnum getLogicalOperationLiteral();
 
   /**
    * Returns the meta object for enum '{@link org.unicam.tryGrammar.myGrammar.EqualityOpEnum <em>Equality Op Enum</em>}'.

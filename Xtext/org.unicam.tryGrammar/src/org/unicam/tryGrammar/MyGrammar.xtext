@@ -1,3 +1,5 @@
+//language: gsol
+
 grammar org.unicam.tryGrammar.MyGrammar hidden (WS, ML_COMMENT, SL_COMMENT)
 
 generate myGrammar "http://www.unicam.org/tryGrammar/MyGrammar"
@@ -29,9 +31,10 @@ ContractOrLibrary:
  
 Contract:
 	"contract" name=ID (
-		blocks+=Declaration ';'
-		| blocks+=FunctionDefinition
-	)
+		"is" inheritanceSpecifiers+=InheritanceSpecifier
+		("," inheritanceSpecifiers+=InheritanceSpecifier)*
+	)?
+	body=DefinitionBody
 ;
 
 Library:
@@ -55,23 +58,6 @@ DefinitionBody:
 
 InheritanceSpecifier:
 	superType=[ContractOrLibrary] (args=FunctionCallListArguments)?
-;
-
-Declaration:
-	FunctionDeclaration |
-	StructDefinition
-;
-
-FunctionDeclaration:
-	EnumDefinition |
-	FunctionParameterDeclaration
-;
-
-FunctionParameterDeclaration:
-	//ArrayDefinitionDeclaration |
-	MappingDeclaration //|
-	//PrimaryTypeDefinitionDeclaration |
-	//ConcreteStructureDefinitionDeclaration
 ;
 
 FunctionCallListArguments:
@@ -111,17 +97,22 @@ FunctionDefinition:
 
 FunctionDefinitionOptionalElement:
 	Const |
-	ModifierInvocation
+	ModifierInvocation |
+	VisibilitySpecifier
 ;
 
 Const:
 	"constant" {Const}
 ;
 
+VisibilitySpecifier:
+	visibility=VisibilityEnum
+;
+
 StructDefinition:
 	visibility=VisibilityEnum? "struct" name=ID "{"
 		(
-			members+=Declaration ";"
+			members+=VariableDeclaration ";"
 		)*
 	"}"
 ;
@@ -168,8 +159,10 @@ VarVariableTupleVariableDeclaration:
 ;
 
 VariableDeclarationOptionalElement:
+	VisibilitySpecifier |
 	IndexedSpecifer |
-	ConstantSpecifier
+	ConstantSpecifier |
+	LocationSpecifier
 ;
 
 IndexedSpecifer:
@@ -178,6 +171,10 @@ IndexedSpecifer:
 
 ConstantSpecifier:
 	 "constant" {ConstantSpecifier}
+;
+
+LocationSpecifier:
+	location=LocationSpecifierEnum
 ;
 
 // Types
@@ -198,14 +195,6 @@ StandardTypeWithoutQualifiedIdentifier:
 
 ElementaryType:
 	name=ElementaryTypeNameEnum
-;
-
-MappingDeclaration:
-	location=MapLocationLiteral? visibility=VisibilityEnum? unnamedMappingDeclaration=Mapping name=ID
-;
-
-MapLocationLiteral:
-	"storage"
 ;
 
 Mapping:
@@ -310,7 +299,7 @@ Modifier:
 ;
 
 Event:
-	"event" name=ID parameters=ParameterList? isAnonymous?="anonymous"? ";"
+	"event" name=ID parameters=ParameterList? ";"
 ;
 
 ModifierInvocation:
@@ -335,26 +324,6 @@ ReturnsParameterList:
 
 ReturnParameterDeclaration:
 	typeRef=Type variable=Variable?
-;
-
-PrimaryTypeDeclaration:
-	ArrayableDeclaration |
-	NonArrayableDeclaration
-;
-
-NonArrayableDeclaration:
-	location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID
-;
-
-ArrayableDeclaration:
-	constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID
-;
-
-SimpleTypeDeclaration:
-	type=(
-		'string' |
-		'bool'
-	)
 ;
 
 Statement:
@@ -612,49 +581,6 @@ Literal:
 	//EcrecoverFunction
 ;
 
-IntParameter:
-	ref=[ArrayableDeclaration] |
-	param=ArithmeticOperations |
-	fun=FunctionCallListArguments
-;
-
-ArithmeticOperations:
-	first=PrimaryArithmetic seconds+=(SecondOperators)*
-;
-
-PrimaryArithmetic:
-	NumericLiteral |
-	'(' LogicalOperations ')'
-;
-
-SecondOperators:
-	operator=('+' | '-' | '/' | '*') value=PrimaryArithmetic
-;
-
-LogicalOperations:
-	first=Literal operations+=ConditionOperation* |
-	negate?='NOT' first=Literal operations+=ConditionOperation* |
-	ternary?='TERNARY' first=Literal '?' true=Literal ':' false=Literal
-;
-
-ConditionOperation:
-	operation=LogicalOperationLiteral negateSecond='NOT'? seconds=Literal
-;
-
-NumericLiteral:
-	(
-		intValue=NumberDimensionless |
-		hexValue=HexLiteral |
-		decimalValue=DecimalLiteral
-	)
-	etherUnit=UnitTypes?
-;
-
-UnitTypes:
-	time=TimeSubdenominationEnum |
-	units=EtherSubDenominationEnum
-;
-
 GasleftFunction:
 	name='gasleft' '(' ')'
 ;
@@ -664,16 +590,14 @@ GasleftFunction:
  * 'blockhash' '(' parameter=IntParameter ')';
  * 
  * HashFunction:
- * name=('keccak256' | 'sha256' | 'ripemd160') '(' parameters=IntParameter ')'
- * ;
- *
+ * name=('keccak256' | 'sha256' | 'ripemd160') '(' parameters=IntParameter ')';
+ * 
  * MathematicalFunction:
  * function=('addmod' | 'mulmod') '('
  * parameters+=IntParameter ','
  * parameters+=IntParameter ','
  * parameters+=IntParameter
- * ')'
- * ;
+ * ')';
  * EcrecoverFunction:
  * function='ecrecover' '('
  * parameters+=IntParameter ','
@@ -911,17 +835,6 @@ enum AssignmentOpEnum:
 	ASSIGN_MULT="*=" |
 	ASSIGN_DIV="/=" |
 	ASSIGN_MOD="%="
-;
-
-enum LogicalOperationLiteral:
-	NOTEQUAL='!=' |
-	EQUAL='==' |
-	AND='&&' |
-	OR='||' |
-	GTE='>=' |
-	LTE='<=' |
-	GT='>' |
-	LT='<'
 ;
 
 enum EqualityOpEnum:

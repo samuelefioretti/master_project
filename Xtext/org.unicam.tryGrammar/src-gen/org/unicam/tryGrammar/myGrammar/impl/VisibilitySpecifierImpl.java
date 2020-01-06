@@ -8,52 +8,52 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.tryGrammar.myGrammar.MyGrammarPackage;
-import org.unicam.tryGrammar.myGrammar.SimpleTypeDeclaration;
+import org.unicam.tryGrammar.myGrammar.VisibilityEnum;
+import org.unicam.tryGrammar.myGrammar.VisibilitySpecifier;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Simple Type Declaration</b></em>'.
+ * An implementation of the model object '<em><b>Visibility Specifier</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.SimpleTypeDeclarationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.VisibilitySpecifierImpl#getVisibility <em>Visibility</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container implements SimpleTypeDeclaration
+public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementImpl implements VisibilitySpecifier
 {
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getVisibility()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
+  protected static final VisibilityEnum VISIBILITY_EDEFAULT = VisibilityEnum.PUBLIC;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getVisibility()
    * @generated
    * @ordered
    */
-  protected String type = TYPE_EDEFAULT;
+  protected VisibilityEnum visibility = VISIBILITY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SimpleTypeDeclarationImpl()
+  protected VisibilitySpecifierImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container impl
   @Override
   protected EClass eStaticClass()
   {
-    return MyGrammarPackage.eINSTANCE.getSimpleTypeDeclaration();
+    return MyGrammarPackage.eINSTANCE.getVisibilitySpecifier();
   }
 
   /**
@@ -75,9 +75,9 @@ public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container impl
    * @generated
    */
   @Override
-  public String getType()
+  public VisibilityEnum getVisibility()
   {
-    return type;
+    return visibility;
   }
 
   /**
@@ -86,12 +86,12 @@ public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container impl
    * @generated
    */
   @Override
-  public void setType(String newType)
+  public void setVisibility(VisibilityEnum newVisibility)
   {
-    String oldType = type;
-    type = newType;
+    VisibilityEnum oldVisibility = visibility;
+    visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY, oldVisibility, visibility));
   }
 
   /**
@@ -104,8 +104,8 @@ public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case MyGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE:
-        return getType();
+      case MyGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
+        return getVisibility();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +120,8 @@ public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case MyGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE:
-        setType((String)newValue);
+      case MyGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
+        setVisibility((VisibilityEnum)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case MyGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE:
-        setType(TYPE_EDEFAULT);
+      case MyGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
+        setVisibility(VISIBILITY_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +154,8 @@ public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container impl
   {
     switch (featureID)
     {
-      case MyGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case MyGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
+        return visibility != VISIBILITY_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -171,10 +171,10 @@ public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container impl
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (type: ");
-    result.append(type);
+    result.append(" (visibility: ");
+    result.append(visibility);
     result.append(')');
     return result.toString();
   }
 
-} //SimpleTypeDeclarationImpl
+} //VisibilitySpecifierImpl

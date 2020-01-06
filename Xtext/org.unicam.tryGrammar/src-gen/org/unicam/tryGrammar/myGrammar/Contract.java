@@ -3,21 +3,12 @@
  */
 package org.unicam.tryGrammar.myGrammar;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Contract</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.unicam.tryGrammar.myGrammar.Contract#getBlocks <em>Blocks</em>}</li>
- * </ul>
  *
  * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getContract()
  * @model
@@ -25,16 +16,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Contract extends ContractOrLibrary
 {
-  /**
-   * Returns the value of the '<em><b>Blocks</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Blocks</em>' containment reference list.
-   * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getContract_Blocks()
-   * @model containment="true"
-   * @generated
-   */
-  EList<EObject> getBlocks();
-
 } // Contract

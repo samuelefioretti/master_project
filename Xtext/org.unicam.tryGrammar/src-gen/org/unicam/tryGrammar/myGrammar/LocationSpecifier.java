@@ -6,21 +6,21 @@ package org.unicam.tryGrammar.myGrammar;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Non Arrayable Declaration</b></em>'.
+ * A representation of the model object '<em><b>Location Specifier</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.unicam.tryGrammar.myGrammar.LocationSpecifier#getLocation <em>Location</em>}</li>
  * </ul>
  *
- * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getNonArrayableDeclaration()
+ * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getLocationSpecifier()
  * @model
  * @generated
  */
-public interface NonArrayableDeclaration extends PrimaryTypeDeclaration
+public interface LocationSpecifier extends VariableDeclarationOptionalElement
 {
   /**
    * Returns the value of the '<em><b>Location</b></em>' attribute.
@@ -30,14 +30,14 @@ public interface NonArrayableDeclaration extends PrimaryTypeDeclaration
    * @return the value of the '<em>Location</em>' attribute.
    * @see org.unicam.tryGrammar.myGrammar.LocationSpecifierEnum
    * @see #setLocation(LocationSpecifierEnum)
-   * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getNonArrayableDeclaration_Location()
+   * @see org.unicam.tryGrammar.myGrammar.MyGrammarPackage#getLocationSpecifier_Location()
    * @model
    * @generated
    */
   LocationSpecifierEnum getLocation();
 
   /**
-   * Sets the value of the '{@link org.unicam.tryGrammar.myGrammar.NonArrayableDeclaration#getLocation <em>Location</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.tryGrammar.myGrammar.LocationSpecifier#getLocation <em>Location</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Location</em>' attribute.
@@ -47,4 +47,4 @@ public interface NonArrayableDeclaration extends PrimaryTypeDeclaration
    */
   void setLocation(LocationSpecifierEnum value);
 
-} // NonArrayableDeclaration
+} // LocationSpecifier

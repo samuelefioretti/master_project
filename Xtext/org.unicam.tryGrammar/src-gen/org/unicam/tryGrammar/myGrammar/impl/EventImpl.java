@@ -26,7 +26,6 @@ import org.unicam.tryGrammar.myGrammar.ParameterList;
  * <ul>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.EventImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.EventImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.unicam.tryGrammar.myGrammar.impl.EventImpl#isIsAnonymous <em>Is Anonymous</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,26 +61,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @ordered
    */
   protected ParameterList parameters;
-
-  /**
-   * The default value of the '{@link #isIsAnonymous() <em>Is Anonymous</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isIsAnonymous()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean IS_ANONYMOUS_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isIsAnonymous() <em>Is Anonymous</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isIsAnonymous()
-   * @generated
-   * @ordered
-   */
-  protected boolean isAnonymous = IS_ANONYMOUS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -185,31 +164,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @generated
    */
   @Override
-  public boolean isIsAnonymous()
-  {
-    return isAnonymous;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setIsAnonymous(boolean newIsAnonymous)
-  {
-    boolean oldIsAnonymous = isAnonymous;
-    isAnonymous = newIsAnonymous;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyGrammarPackage.EVENT__IS_ANONYMOUS, oldIsAnonymous, isAnonymous));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -234,8 +188,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
         return getName();
       case MyGrammarPackage.EVENT__PARAMETERS:
         return getParameters();
-      case MyGrammarPackage.EVENT__IS_ANONYMOUS:
-        return isIsAnonymous();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -255,9 +207,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
         return;
       case MyGrammarPackage.EVENT__PARAMETERS:
         setParameters((ParameterList)newValue);
-        return;
-      case MyGrammarPackage.EVENT__IS_ANONYMOUS:
-        setIsAnonymous((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -279,9 +228,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
       case MyGrammarPackage.EVENT__PARAMETERS:
         setParameters((ParameterList)null);
         return;
-      case MyGrammarPackage.EVENT__IS_ANONYMOUS:
-        setIsAnonymous(IS_ANONYMOUS_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -300,8 +246,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyGrammarPackage.EVENT__PARAMETERS:
         return parameters != null;
-      case MyGrammarPackage.EVENT__IS_ANONYMOUS:
-        return isAnonymous != IS_ANONYMOUS_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -319,8 +263,6 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", isAnonymous: ");
-    result.append(isAnonymous);
     result.append(')');
     return result.toString();
   }
