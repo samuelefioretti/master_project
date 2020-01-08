@@ -3,6 +3,8 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,4 +18,7 @@ package org.unicam.myGrammar.optGrammar;
  */
 public interface Contract extends ContractOrLibrary
 {
+	String getName();
+	void setName(String value);
+	EList<EObject> getBlocks();
 } // Contract
