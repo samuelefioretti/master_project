@@ -3,8 +3,9 @@
  */
 package org.unicam.myGrammar.optGrammar.impl;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.EObject;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
@@ -37,5 +38,11 @@ public class ContractImpl extends ContractOrLibraryImpl implements Contract
   {
     return OptGrammarPackage.eINSTANCE.getContract();
   }
+
+@Override
+public EList<EObject> getBlocks() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 } //ContractImpl
