@@ -48,7 +48,7 @@ contract HotelBooking {
         _;
     }
 
-    function init() internal{
+    function init() internal {
        bool result=true;
        	for(uint i=0; i<roleList.length;i++){
        	     if(roles[roleList[i]]==0x0000000000000000000000000000000000000000){
