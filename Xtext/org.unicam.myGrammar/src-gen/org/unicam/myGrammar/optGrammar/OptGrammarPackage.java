@@ -548,22 +548,13 @@ public interface OptGrammarPackage extends EPackage
   int FUNCTION_DEFINITION = 11;
 
   /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__VISIBILITY = 0;
-
-  /**
    * The feature id for the '<em><b>Payable</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUNCTION_DEFINITION__PAYABLE = 1;
+  int FUNCTION_DEFINITION__PAYABLE = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -572,7 +563,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DEFINITION__NAME = 2;
+  int FUNCTION_DEFINITION__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference.
@@ -581,7 +572,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DEFINITION__PARAMETERS = 3;
+  int FUNCTION_DEFINITION__PARAMETERS = 2;
 
   /**
    * The feature id for the '<em><b>Optional Elements</b></em>' containment reference list.
@@ -590,7 +581,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DEFINITION__OPTIONAL_ELEMENTS = 4;
+  int FUNCTION_DEFINITION__OPTIONAL_ELEMENTS = 3;
 
   /**
    * The feature id for the '<em><b>Return Parameters</b></em>' containment reference.
@@ -599,7 +590,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DEFINITION__RETURN_PARAMETERS = 5;
+  int FUNCTION_DEFINITION__RETURN_PARAMETERS = 4;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -608,7 +599,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DEFINITION__BLOCK = 6;
+  int FUNCTION_DEFINITION__BLOCK = 5;
 
   /**
    * The number of structural features of the '<em>Function Definition</em>' class.
@@ -617,7 +608,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUNCTION_DEFINITION_FEATURE_COUNT = 7;
+  int FUNCTION_DEFINITION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionOptionalElementImpl <em>Function Definition Optional Element</em>}' class.
@@ -4325,17 +4316,6 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    */
   EClass getFunctionDefinition();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getVisibility <em>Visibility</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Visibility</em>'.
-   * @see org.unicam.myGrammar.optGrammar.FunctionDefinition#getVisibility()
-   * @see #getFunctionDefinition()
-   * @generated
-   */
-  EAttribute getFunctionDefinition_Visibility();
 
   /**
    * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#isPayable <em>Payable</em>}'.

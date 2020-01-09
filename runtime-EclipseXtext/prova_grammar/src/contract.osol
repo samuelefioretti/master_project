@@ -48,7 +48,7 @@ contract HotelBooking {
         _;
     }
 
-    private function init() internal{
+    function init() internal{
        bool result=true;
        	for(uint i=0; i<roleList.length;i++){
        	     if(roles[roleList[i]]==0x0000000000000000000000000000000000000000){
@@ -62,7 +62,7 @@ contract HotelBooking {
        	}
    }
    
-   private function ExclusiveGateway_106je4z() private {
+   function ExclusiveGateway_106je4z() private {
        require(elements[position["ExclusiveGateway_106je4z"]].status==State.ENABLED);
        done("ExclusiveGateway_106je4z");
        
@@ -76,20 +76,20 @@ contract HotelBooking {
         }
     }
     
-    private function disable(string memory _taskID) internal {
+    function disable(string memory _taskID) internal {
         elements[position[_taskID]].status=State.DISABLED;
     }
     
-    private function done(string memory _taskID) internal {
+    function done(string memory _taskID) internal {
         elements[position[_taskID]].status=State.DONE;
     }
     
-    private function getCurrentState() public {
+    function getCurrentState() public {
         // Emit stateChanged(elements, currentMemory);
         return (elements, currentMemory);
     }
     
-    private function compareStrings (string memory a, string memory b) internal pure returns (bool) {
-        return keccak256(abi.encode(a)) == keccak256(abi.encode(b));
+    function compareStrings (string memory a, string memory b) internal returns (bool) {
+        return keccak256(abi.encode(a))==keccak256(abi.encode(b));
     }
 }

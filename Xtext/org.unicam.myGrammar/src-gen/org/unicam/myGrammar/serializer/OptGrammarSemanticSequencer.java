@@ -2014,7 +2014,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         visibility=VisibilityEnum 
 	 *         payable?='payable'? 
 	 *         name=ID 
 	 *         parameters=ParameterList 

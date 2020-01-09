@@ -1402,7 +1402,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getFunctionDefinition_Visibility()
+  public EAttribute getFunctionDefinition_Payable()
   {
         return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(0);
   }
@@ -1413,7 +1413,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getFunctionDefinition_Payable()
+  public EAttribute getFunctionDefinition_Name()
   {
         return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(1);
   }
@@ -1424,20 +1424,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getFunctionDefinition_Name()
-  {
-        return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getFunctionDefinition_Parameters()
   {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(3);
+        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1448,7 +1437,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionDefinition_OptionalElements()
   {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(4);
+        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1459,7 +1448,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionDefinition_ReturnParameters()
   {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(5);
+        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1470,7 +1459,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionDefinition_Block()
   {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(6);
+        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(5);
   }
 
   /**

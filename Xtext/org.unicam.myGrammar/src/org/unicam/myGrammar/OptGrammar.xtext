@@ -4,6 +4,15 @@ grammar org.unicam.myGrammar.OptGrammar with org.eclipse.xtext.common.Terminals
 generate optGrammar "http://www.unicam.org/myGrammar/OptGrammar"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
+// ---------- TODO ----------
+/*
+ * Controllare gli array
+ * Controllare gli elementi all'interno della struttura
+ * Controllare le regole functionCall
+ * Controllare la visibilità delle funzioni
+ */
+// ---------- TODO ----------
+
 Solidity:
 	(
 		importDirective+=ImportDirective |
@@ -84,7 +93,7 @@ FunctionCallArg:
 
 // Anonymous function allowed when "name" is not specified.
 FunctionDefinition:
-	visibility=VisibilityEnum payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
+	payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
 		"returns" returnParameters=ReturnsParameterList
 	)?
 	(

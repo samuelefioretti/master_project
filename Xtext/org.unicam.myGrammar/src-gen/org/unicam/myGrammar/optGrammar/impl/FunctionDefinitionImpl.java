@@ -25,7 +25,6 @@ import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.ParameterList;
 import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
-import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +34,6 @@ import org.unicam.myGrammar.optGrammar.VisibilityEnum;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#isPayable <em>Payable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getParameters <em>Parameters</em>}</li>
@@ -48,26 +46,6 @@ import org.unicam.myGrammar.optGrammar.VisibilityEnum;
  */
 public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container implements FunctionDefinition
 {
-  /**
-   * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVisibility()
-   * @generated
-   * @ordered
-   */
-  protected static final VisibilityEnum VISIBILITY_EDEFAULT = VisibilityEnum.PUBLIC;
-
-  /**
-   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVisibility()
-   * @generated
-   * @ordered
-   */
-  protected VisibilityEnum visibility = VISIBILITY_EDEFAULT;
-
   /**
    * The default value of the '{@link #isPayable() <em>Payable</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -167,31 +145,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   protected EClass eStaticClass()
   {
     return OptGrammarPackage.eINSTANCE.getFunctionDefinition();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public VisibilityEnum getVisibility()
-  {
-    return visibility;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setVisibility(VisibilityEnum newVisibility)
-  {
-    VisibilityEnum oldVisibility = visibility;
-    visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY, oldVisibility, visibility));
   }
 
   /**
@@ -441,8 +394,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
-        return getVisibility();
       case OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE:
         return isPayable();
       case OptGrammarPackage.FUNCTION_DEFINITION__NAME:
@@ -470,9 +421,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
-        setVisibility((VisibilityEnum)newValue);
-        return;
       case OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE:
         setPayable((Boolean)newValue);
         return;
@@ -506,9 +454,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
-        setVisibility(VISIBILITY_EDEFAULT);
-        return;
       case OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE:
         setPayable(PAYABLE_EDEFAULT);
         return;
@@ -541,8 +486,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
-        return visibility != VISIBILITY_EDEFAULT;
       case OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE:
         return payable != PAYABLE_EDEFAULT;
       case OptGrammarPackage.FUNCTION_DEFINITION__NAME:
@@ -570,9 +513,7 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (visibility: ");
-    result.append(visibility);
-    result.append(", payable: ");
+    result.append(" (payable: ");
     result.append(payable);
     result.append(", name: ");
     result.append(name);

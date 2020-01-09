@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#isPayable <em>Payable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters <em>Parameters</em>}</li>
@@ -31,31 +30,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface FunctionDefinition extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Visibility</b></em>' attribute.
-   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.VisibilityEnum}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Visibility</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
-   * @see #setVisibility(VisibilityEnum)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Visibility()
-   * @model
-   * @generated
-   */
-  VisibilityEnum getVisibility();
-
-  /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getVisibility <em>Visibility</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Visibility</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
-   * @see #getVisibility()
-   * @generated
-   */
-  void setVisibility(VisibilityEnum value);
-
   /**
    * Returns the value of the '<em><b>Payable</b></em>' attribute.
    * <!-- begin-user-doc -->

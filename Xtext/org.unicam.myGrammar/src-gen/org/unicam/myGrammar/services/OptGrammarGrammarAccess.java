@@ -37,6 +37,13 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cLibraryAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
 		private final RuleCall cLibraryLibraryParserRuleCall_2_0 = (RuleCall)cLibraryAssignment_2.eContents().get(0);
 		
+		//// ---------- TODO ----------
+		///*
+		// * Controllare gli array
+		// * Controllare gli elementi all'interno della struttura
+		// * Controllare le regole functionCall
+		// * Controllare la visibilità delle funzioni
+		// */ // ---------- TODO ----------
 		//Solidity:
 		//	(importDirective+=ImportDirective | contract+=Contract | library+=Library)*;
 		@Override public ParserRule getRule() { return rule; }
@@ -650,94 +657,85 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class FunctionDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.FunctionDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cVisibilityAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cVisibilityVisibilityEnumEnumRuleCall_0_0 = (RuleCall)cVisibilityAssignment_0.eContents().get(0);
-		private final Assignment cPayableAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cPayablePayableKeyword_1_0 = (Keyword)cPayableAssignment_1.eContents().get(0);
-		private final Keyword cFunctionKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Assignment cParametersAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cParametersParameterListParserRuleCall_4_0 = (RuleCall)cParametersAssignment_4.eContents().get(0);
-		private final Assignment cOptionalElementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_5_0 = (RuleCall)cOptionalElementsAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cReturnsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cReturnParametersAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cReturnParametersReturnsParameterListParserRuleCall_6_1_0 = (RuleCall)cReturnParametersAssignment_6_1.eContents().get(0);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Assignment cBlockAssignment_7_0 = (Assignment)cAlternatives_7.eContents().get(0);
-		private final RuleCall cBlockBodyParserRuleCall_7_0_0 = (RuleCall)cBlockAssignment_7_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_7_1 = (Keyword)cAlternatives_7.eContents().get(1);
+		private final Assignment cPayableAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cPayablePayableKeyword_0_0 = (Keyword)cPayableAssignment_0.eContents().get(0);
+		private final Keyword cFunctionKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cParametersAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cParametersParameterListParserRuleCall_3_0 = (RuleCall)cParametersAssignment_3.eContents().get(0);
+		private final Assignment cOptionalElementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0 = (RuleCall)cOptionalElementsAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cReturnsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cReturnParametersAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cReturnParametersReturnsParameterListParserRuleCall_5_1_0 = (RuleCall)cReturnParametersAssignment_5_1.eContents().get(0);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Assignment cBlockAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
+		private final RuleCall cBlockBodyParserRuleCall_6_0_0 = (RuleCall)cBlockAssignment_6_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6_1 = (Keyword)cAlternatives_6.eContents().get(1);
 		
 		//// Anonymous function allowed when "name" is not specified.
 		//FunctionDefinition:
-		//	visibility=VisibilityEnum payable?='payable'? "function" name=ID parameters=ParameterList
-		//	optionalElements+=FunctionDefinitionOptionalElement* ("returns" returnParameters=ReturnsParameterList)? (block=Body |
+		//	payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
+		//	("returns" returnParameters=ReturnsParameterList)? (block=Body |
 		//	";");
 		@Override public ParserRule getRule() { return rule; }
 		
-		//visibility=VisibilityEnum payable?='payable'? "function" name=ID parameters=ParameterList
-		//optionalElements+=FunctionDefinitionOptionalElement* ("returns" returnParameters=ReturnsParameterList)? (block=Body |
-		//";")
+		//payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
+		//("returns" returnParameters=ReturnsParameterList)? (block=Body | ";")
 		public Group getGroup() { return cGroup; }
 		
-		//visibility=VisibilityEnum
-		public Assignment getVisibilityAssignment_0() { return cVisibilityAssignment_0; }
-		
-		//VisibilityEnum
-		public RuleCall getVisibilityVisibilityEnumEnumRuleCall_0_0() { return cVisibilityVisibilityEnumEnumRuleCall_0_0; }
-		
 		//payable?='payable'?
-		public Assignment getPayableAssignment_1() { return cPayableAssignment_1; }
+		public Assignment getPayableAssignment_0() { return cPayableAssignment_0; }
 		
 		//'payable'
-		public Keyword getPayablePayableKeyword_1_0() { return cPayablePayableKeyword_1_0; }
+		public Keyword getPayablePayableKeyword_0_0() { return cPayablePayableKeyword_0_0; }
 		
 		//"function"
-		public Keyword getFunctionKeyword_2() { return cFunctionKeyword_2; }
+		public Keyword getFunctionKeyword_1() { return cFunctionKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
 		//parameters=ParameterList
-		public Assignment getParametersAssignment_4() { return cParametersAssignment_4; }
+		public Assignment getParametersAssignment_3() { return cParametersAssignment_3; }
 		
 		//ParameterList
-		public RuleCall getParametersParameterListParserRuleCall_4_0() { return cParametersParameterListParserRuleCall_4_0; }
+		public RuleCall getParametersParameterListParserRuleCall_3_0() { return cParametersParameterListParserRuleCall_3_0; }
 		
 		//optionalElements+=FunctionDefinitionOptionalElement*
-		public Assignment getOptionalElementsAssignment_5() { return cOptionalElementsAssignment_5; }
+		public Assignment getOptionalElementsAssignment_4() { return cOptionalElementsAssignment_4; }
 		
 		//FunctionDefinitionOptionalElement
-		public RuleCall getOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_5_0() { return cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_5_0; }
+		public RuleCall getOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0() { return cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0; }
 		
 		//("returns" returnParameters=ReturnsParameterList)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//"returns"
-		public Keyword getReturnsKeyword_6_0() { return cReturnsKeyword_6_0; }
+		public Keyword getReturnsKeyword_5_0() { return cReturnsKeyword_5_0; }
 		
 		//returnParameters=ReturnsParameterList
-		public Assignment getReturnParametersAssignment_6_1() { return cReturnParametersAssignment_6_1; }
+		public Assignment getReturnParametersAssignment_5_1() { return cReturnParametersAssignment_5_1; }
 		
 		//ReturnsParameterList
-		public RuleCall getReturnParametersReturnsParameterListParserRuleCall_6_1_0() { return cReturnParametersReturnsParameterListParserRuleCall_6_1_0; }
+		public RuleCall getReturnParametersReturnsParameterListParserRuleCall_5_1_0() { return cReturnParametersReturnsParameterListParserRuleCall_5_1_0; }
 		
 		//(block=Body | ";")
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 		
 		//block=Body
-		public Assignment getBlockAssignment_7_0() { return cBlockAssignment_7_0; }
+		public Assignment getBlockAssignment_6_0() { return cBlockAssignment_6_0; }
 		
 		//Body
-		public RuleCall getBlockBodyParserRuleCall_7_0_0() { return cBlockBodyParserRuleCall_7_0_0; }
+		public RuleCall getBlockBodyParserRuleCall_6_0_0() { return cBlockBodyParserRuleCall_6_0_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_7_1() { return cSemicolonKeyword_7_1; }
+		public Keyword getSemicolonKeyword_6_1() { return cSemicolonKeyword_6_1; }
 	}
 	public class FunctionDefinitionOptionalElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.FunctionDefinitionOptionalElement");
@@ -6263,6 +6261,13 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
+	//// ---------- TODO ----------
+	///*
+	// * Controllare gli array
+	// * Controllare gli elementi all'interno della struttura
+	// * Controllare le regole functionCall
+	// * Controllare la visibilità delle funzioni
+	// */ // ---------- TODO ----------
 	//Solidity:
 	//	(importDirective+=ImportDirective | contract+=Contract | library+=Library)*;
 	public SolidityElements getSolidityAccess() {
@@ -6388,8 +6393,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// Anonymous function allowed when "name" is not specified.
 	//FunctionDefinition:
-	//	visibility=VisibilityEnum payable?='payable'? "function" name=ID parameters=ParameterList
-	//	optionalElements+=FunctionDefinitionOptionalElement* ("returns" returnParameters=ReturnsParameterList)? (block=Body |
+	//	payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
+	//	("returns" returnParameters=ReturnsParameterList)? (block=Body |
 	//	";");
 	public FunctionDefinitionElements getFunctionDefinitionAccess() {
 		return pFunctionDefinition;
