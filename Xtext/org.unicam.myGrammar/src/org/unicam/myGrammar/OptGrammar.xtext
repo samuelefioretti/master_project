@@ -1,4 +1,8 @@
-//language: osol
+/*
+ * Grammar for Solidity 0.5.2
+ * 
+ * Language name: osol
+ */
 grammar org.unicam.myGrammar.OptGrammar with org.eclipse.xtext.common.Terminals
 
 generate optGrammar "http://www.unicam.org/myGrammar/OptGrammar"
@@ -34,7 +38,7 @@ Model:
 
 Contract:
 	"contract" name=ID (
-		"is" inheritanceSpecifiers+=InheritanceSpecifier
+		inheritanceSpecifiers+=InheritanceSpecifier
 		("," inheritanceSpecifiers+=InheritanceSpecifier)*
 	)?
 	body=DefinitionBody
