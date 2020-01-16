@@ -25,7 +25,7 @@ public class OptGrammarValidator extends AbstractOptGrammarValidator {
       + "\nThe method or field field is undefined for the type ArrayDimensions"
       + "\nThe method or field first is undefined for the type EList<Expression> & Expression"
       + "\nThe method or field first is undefined for the type EList<Expression> & Expression"
-      + "\nThe method or field CustomSolidityPackage is undefined"
+      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
       + "\nasDeclaration cannot be resolved"
       + "\ntype cannot be resolved"
       + "\n!== cannot be resolved"
@@ -35,7 +35,6 @@ public class OptGrammarValidator extends AbstractOptGrammarValidator {
       + "\n=== cannot be resolved"
       + "\n|| cannot be resolved"
       + "\nref cannot be resolved"
-      + "\nLiterals cannot be resolved"
       + "\nARRAY_DEFINITION__VALUE cannot be resolved");
   }
 }

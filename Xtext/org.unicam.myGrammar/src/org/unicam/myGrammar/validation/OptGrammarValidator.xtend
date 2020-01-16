@@ -7,6 +7,7 @@ import org.eclipse.xtext.validation.Check
 import org.unicam.myGrammar.optGrammar.Expression
 import org.unicam.myGrammar.optGrammar.ArrayDimensions
 import org.eclipse.xtext.validation.ComposedChecks
+import org.unicam.myGrammar.optGrammar.OptGrammarPackage
 
 /**
  * This class contains custom validation rules. 
@@ -24,7 +25,7 @@ class OptGrammarValidator extends AbstractOptGrammarValidator {
 			Expression:
 				if (arrayDefinition.field.nullOrEmpty &&
 					(value.first.ref === null || !(value.first.ref instanceof ConcreteStructDeclaration)))
-					error("The value must be a structure", CustomSolidityPackage.Literals.ARRAY_DEFINITION__VALUE)
+					error("The value must be a structure", OptGrammarPackage.Literals.ARRAY_DEFINITION__VALUE)
 		}
 	}
 }
