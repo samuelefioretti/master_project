@@ -4,18 +4,14 @@
 package org.unicam.myGrammar.generator;
 
 import com.google.common.collect.Iterables;
-import com.google.inject.Inject;
 import java.util.function.Consumer;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.unicam.myGrammar.optGrammar.Contract;
-import org.unicam.myGrammar.optGrammar.FunctionDefinition;
 
 /**
  * Generates code from your model files on save.
@@ -24,64 +20,10 @@ import org.unicam.myGrammar.optGrammar.FunctionDefinition;
  */
 @SuppressWarnings("all")
 public class OptGrammarGenerator extends AbstractGenerator {
-  @Inject
-  @Extension
-  private IQualifiedNameProvider _iQualifiedNameProvider;
-  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Consumer<Contract> _function = (Contract c) -> {
-      String _string = this._iQualifiedNameProvider.getFullyQualifiedName(c).toString("/");
-      String _plus = (_string + ".sol");
-      fsa.generateFile(_plus, this.compile(c));
     };
     Iterables.<Contract>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Contract.class).forEach(_function);
-  }
-  
-  public CharSequence compile(final Contract c) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method compileBlock(EObject) from the type OptGrammarGenerator refers to the missing type Object");
-  }
-  
-  public Object compileBlock(final EObject b) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nDeclaration cannot be resolved to a type."
-      + "\nThe method or field compileDeclaration is undefined for the type EObject"
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition.");
-  }
-  
-  public String compileFunctionDefinition(final FunctionDefinition funDef) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field compileDeclaration is undefined for the type Object"
-      + "\nThe method or field compileTypes is undefined for the type ReturnsParameterList"
-      + "\nThe method or field compileInternalBlock is undefined for the type Object"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nType mismatch: cannot convert from ParameterList to Iterable<?>"
-      + "\nType mismatch: cannot convert from Body to Iterable<?>"
-      + "\n!== cannot be resolved"
-      + "\n^def cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\n^def cannot be resolved"
-      + "\ncompileDefinitions cannot be resolved"
-      + "\ndefDec cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\ndefDec cannot be resolved"
-      + "\ncompileDeclaration cannot be resolved"
-      + "\n^val cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\n^val cannot be resolved"
-      + "\ncompileCondition cannot be resolved"
-      + "\ncall cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\ncall cannot be resolved"
-      + "\ncompileCondition cannot be resolved");
   }
 }

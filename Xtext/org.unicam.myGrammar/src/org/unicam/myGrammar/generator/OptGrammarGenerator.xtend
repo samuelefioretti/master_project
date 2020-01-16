@@ -7,74 +7,72 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import com.google.inject.Inject
-import org.eclipse.xtext.naming.IQualifiedNameProvider
+//import com.google.inject.Inject
+//import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.unicam.myGrammar.optGrammar.Contract
-import org.eclipse.emf.ecore.EObject
-import org.unicam.myGrammar.optGrammar.FunctionDefinition
 
+//import org.eclipse.emf.ecore.EObject
+//import org.unicam.myGrammar.optGrammar.FunctionDefinition
 /**
  * Generates code from your model files on save.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class OptGrammarGenerator extends AbstractGenerator {
-	@Inject extension IQualifiedNameProvider
-
+	// @Inject extension IQualifiedNameProvider
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		resource.allContents.toIterable.filter(Contract).forEach [ c |
-			fsa.generateFile(c.fullyQualifiedName.toString("/") + ".sol", c.compile)
+		resource.allContents.toIterable.filter(Contract).forEach [c |
+			//fsa.generateFile(c.fullyQualifiedName.toString("/") + ".sol", c.compile)
 		]
 	}
 
-	def compile(Contract c) '''
-		pragma solidity ^0.5.2;
-		
-		contract «c.name» {
-			«FOR block : c.inheritanceSpecifiers»
-				«block.compileBlock»
-			«ENDFOR»
-		}
-	'''
-
-	def compileBlock(EObject b) {
-		return switch b {
-			Declaration: b.compileDeclaration
-			FunctionDefinition: b.compileFunctionDefinition
-		}
-	}
-
-	def compileFunctionDefinition(FunctionDefinition funDef) {
-		return '''function «funDef.name»(''' + {
-			(funDef.parameters !== null)
-				? '''«FOR param : funDef.parameters SEPARATOR ', '»«param.compileDeclaration»«ENDFOR») '''
-		} + {
-			(funDef.payable)
-				? '''payable ''' : ""
-		} + {
-			(funDef.returnParameters !== null)
-				? '''returns («funDef.returnParameters.compileTypes»)''' : ""
-		} + '''{
-		«FOR elem : funDef.getBlock»
-			«elem.compileInternalBlock»
-		«ENDFOR»''' + '''«IF funDef.returnVal !== null»return «IF funDef.returnVal.^def !== null»«funDef.returnVal.^def.compileDefinitions»;
-			«ELSEIF funDef.returnVal.defDec !== null»«funDef.returnVal.defDec.compileDeclaration»
-			«ELSEIF funDef.returnVal.^val !== null»«funDef.returnVal.^val.compileCondition»;
-			«ELSEIF funDef.returnVal.call !== null»«funDef.returnVal.call.compileCondition»;«ENDIF»«ENDIF»''' + '''}'''
-	}
-
 /*
- * def String compileDeclaration(Declaration dec) {
- * 	return switch dec {
- * 		MappingDeclaration: dec.compileMapping+";"
- * 		EnumDeclaration: dec.compileEnum
- * 		StructDeclaration: dec.compileStruct
- * 		PrimaryTypeDefinitionDeclaration: dec.compilePrimaryTypeDefinitionDeclaration+";"
- * 	 	ArrayDeclaration: dec.compileArray+";"
- *   			ConcreteStructureDefinitionDeclaration: dec.compileConcreteStructure+";"
+ * def compile(Contract c) '''
+ * 		pragma solidity ^0.5.2;
+ * 		
+ * 		contract «c.name» {
+ * 			«FOR block : c.inheritanceSpecifiers»
+ * 				«block.compileBlock»
+ * 			«ENDFOR»
+ * 		}
+ * 	'''
+
+ * def compileBlock(EObject b) {
+ * 		return switch b {
+ * 			Declaration: b.compileDeclaration
+ * 			FunctionDefinition: b.compileFunctionDefinition
  * 		}
  * 	}
- * 	
+
+ * 	def compileFunctionDefinition(FunctionDefinition funDef) {
+ * 		return '''function «funDef.name»(''' + {
+ * 			(funDef.parameters !== null)
+ * 				? '''«FOR param : funDef.parameters SEPARATOR ', '»«param.compileDeclaration»«ENDFOR») '''
+ * 		} + {
+ * 			(funDef.payable)
+ * 				? '''payable ''' : ""
+ * 		} + {
+ * 			(funDef.returnParameters !== null)
+ * 				? '''returns («funDef.returnParameters.compileTypes»)''' : ""
+ * 		} + '''{
+ * 		«FOR elem : funDef.getBlock»
+ * 			«elem.compileInternalBlock»
+ * 		«ENDFOR»''' + '''«IF funDef.returnVal !== null»return «IF funDef.returnVal.^def !== null»«funDef.returnVal.^def.compileDefinitions»;
+ * 			«ELSEIF funDef.returnVal.defDec !== null»«funDef.returnVal.defDec.compileDeclaration»
+ * 			«ELSEIF funDef.returnVal.^val !== null»«funDef.returnVal.^val.compileCondition»;
+ * 			«ELSEIF funDef.returnVal.call !== null»«funDef.returnVal.call.compileCondition»;«ENDIF»«ENDIF»''' + '''}'''
+ * 	}
+
+ * 	def String compileDeclaration(Declaration dec) {
+ * 		return switch dec {
+ * 			MappingDeclaration: dec.compileMapping + ";"
+ * 			EnumDeclaration: dec.compileEnum
+ * 			StructDeclaration: dec.compileStruct
+ * 			PrimaryTypeDefinitionDeclaration: dec.compilePrimaryTypeDefinitionDeclaration + ";"
+ * 			ArrayDeclaration: dec.compileArray + ";"
+ * 			ConcreteStructureDefinitionDeclaration: dec.compileConcreteStructure + ";"
+ * 		}
+ * 	}
  * //	Returns variable name
  * def compileDeclarationReference(EObject dec){
  * 	return switch dec {
