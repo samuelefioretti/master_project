@@ -16,10 +16,12 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class OptGrammarGenerator extends AbstractGenerator {
 	// @Inject extension IQualifiedNameProvider
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		/*resource.allContents.toIterable.filter(Contract).forEach[
-		 * 	c |
-		 * 	fsa.generateFile(c.fullyQualifiedName.toString("/")+".sol", c.compile)
-		 ]*/
+		/*
+		 * resource.allContents.toIterable.filter(Contract).forEach[
+		 * c |
+		 * fsa.generateFile(c.fullyQualifiedName.toString("/")+".sol", c.compile)
+		 * ]
+		 */
 	}
 /*
  * def compile(Contract c)
