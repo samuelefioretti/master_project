@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Solidity#getImportDirective <em>Import Directive</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Solidity#getContract <em>Contract</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Solidity#getLibrary <em>Library</em>}</li>
  * </ul>
  *
  * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getSolidity()
@@ -50,17 +49,5 @@ public interface Solidity extends EObject
    * @generated
    */
   EList<Contract> getContract();
-
-  /**
-   * Returns the value of the '<em><b>Library</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Library}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Library</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getSolidity_Library()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Library> getLibrary();
 
 } // Solidity

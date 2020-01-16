@@ -207,7 +207,6 @@
     <genClasses ecoreClass="OptGrammar.ecore#//Solidity">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Solidity/importDirective"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Solidity/contract"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Solidity/library"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//ImportDirective">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ImportDirective/importURI"/>
@@ -218,13 +217,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SymbolAlias/symbol"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SymbolAlias/alias"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ContractOrLibrary">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ContractOrLibrary/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ContractOrLibrary/inheritanceSpecifiers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ContractOrLibrary/body"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//Contract">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Contract/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Contract/inheritanceSpecifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Contract/body"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//Contract"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//Library"/>
     <genClasses ecoreClass="OptGrammar.ecore#//DefinitionBody">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/functions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/structs"/>
@@ -234,7 +231,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/events"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//InheritanceSpecifier">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//InheritanceSpecifier/superType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//InheritanceSpecifier/args"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//FunctionCallListArguments">
@@ -414,7 +410,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//SignExpression/expression"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//NewExpression">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NewExpression/contract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NewExpression/contract"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NewExpression/args"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Literal"/>

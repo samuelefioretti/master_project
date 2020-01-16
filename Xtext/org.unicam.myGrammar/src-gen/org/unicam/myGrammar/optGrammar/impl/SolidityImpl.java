@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.ImportDirective;
-import org.unicam.myGrammar.optGrammar.Library;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Solidity;
 
@@ -33,7 +32,6 @@ import org.unicam.myGrammar.optGrammar.Solidity;
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.SolidityImpl#getImportDirective <em>Import Directive</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.SolidityImpl#getContract <em>Contract</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.SolidityImpl#getLibrary <em>Library</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,16 +57,6 @@ public class SolidityImpl extends MinimalEObjectImpl.Container implements Solidi
    * @ordered
    */
   protected EList<Contract> contract;
-
-  /**
-   * The cached value of the '{@link #getLibrary() <em>Library</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLibrary()
-   * @generated
-   * @ordered
-   */
-  protected EList<Library> library;
 
   /**
    * <!-- begin-user-doc -->
@@ -127,21 +115,6 @@ public class SolidityImpl extends MinimalEObjectImpl.Container implements Solidi
    * @generated
    */
   @Override
-  public EList<Library> getLibrary()
-  {
-    if (library == null)
-    {
-      library = new EObjectContainmentEList<Library>(Library.class, this, OptGrammarPackage.SOLIDITY__LIBRARY);
-    }
-    return library;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -150,8 +123,6 @@ public class SolidityImpl extends MinimalEObjectImpl.Container implements Solidi
         return ((InternalEList<?>)getImportDirective()).basicRemove(otherEnd, msgs);
       case OptGrammarPackage.SOLIDITY__CONTRACT:
         return ((InternalEList<?>)getContract()).basicRemove(otherEnd, msgs);
-      case OptGrammarPackage.SOLIDITY__LIBRARY:
-        return ((InternalEList<?>)getLibrary()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -170,8 +141,6 @@ public class SolidityImpl extends MinimalEObjectImpl.Container implements Solidi
         return getImportDirective();
       case OptGrammarPackage.SOLIDITY__CONTRACT:
         return getContract();
-      case OptGrammarPackage.SOLIDITY__LIBRARY:
-        return getLibrary();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -195,10 +164,6 @@ public class SolidityImpl extends MinimalEObjectImpl.Container implements Solidi
         getContract().clear();
         getContract().addAll((Collection<? extends Contract>)newValue);
         return;
-      case OptGrammarPackage.SOLIDITY__LIBRARY:
-        getLibrary().clear();
-        getLibrary().addAll((Collection<? extends Library>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -219,9 +184,6 @@ public class SolidityImpl extends MinimalEObjectImpl.Container implements Solidi
       case OptGrammarPackage.SOLIDITY__CONTRACT:
         getContract().clear();
         return;
-      case OptGrammarPackage.SOLIDITY__LIBRARY:
-        getLibrary().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -240,8 +202,6 @@ public class SolidityImpl extends MinimalEObjectImpl.Container implements Solidi
         return importDirective != null && !importDirective.isEmpty();
       case OptGrammarPackage.SOLIDITY__CONTRACT:
         return contract != null && !contract.isEmpty();
-      case OptGrammarPackage.SOLIDITY__LIBRARY:
-        return library != null && !library.isEmpty();
     }
     return super.eIsSet(featureID);
   }

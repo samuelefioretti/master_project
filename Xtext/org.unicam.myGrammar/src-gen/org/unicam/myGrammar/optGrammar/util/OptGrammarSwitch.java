@@ -29,7 +29,6 @@ import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
 import org.unicam.myGrammar.optGrammar.Continue;
 import org.unicam.myGrammar.optGrammar.ContinueStatement;
 import org.unicam.myGrammar.optGrammar.Contract;
-import org.unicam.myGrammar.optGrammar.ContractOrLibrary;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.DefinitionBody;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
@@ -60,7 +59,6 @@ import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
-import org.unicam.myGrammar.optGrammar.Library;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.Mapping;
@@ -201,26 +199,10 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.CONTRACT_OR_LIBRARY:
-      {
-        ContractOrLibrary contractOrLibrary = (ContractOrLibrary)theEObject;
-        T result = caseContractOrLibrary(contractOrLibrary);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OptGrammarPackage.CONTRACT:
       {
         Contract contract = (Contract)theEObject;
         T result = caseContract(contract);
-        if (result == null) result = caseContractOrLibrary(contract);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.LIBRARY:
-      {
-        Library library = (Library)theEObject;
-        T result = caseLibrary(library);
-        if (result == null) result = caseContractOrLibrary(library);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1144,22 +1126,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Contract Or Library</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Contract Or Library</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseContractOrLibrary(ContractOrLibrary object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Contract</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1171,22 +1137,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseContract(Contract object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Library</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Library</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLibrary(Library object)
   {
     return null;
   }

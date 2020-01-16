@@ -61,7 +61,6 @@ import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
-import org.unicam.myGrammar.optGrammar.Library;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
@@ -375,9 +374,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.INT_PARAMETER:
 				sequence_IntParameter(context, (IntParameter) semanticObject); 
-				return; 
-			case OptGrammarPackage.LIBRARY:
-				sequence_Library(context, (Library) semanticObject); 
 				return; 
 			case OptGrammarPackage.LOCATION_SPECIFIER:
 				sequence_LocationSpecifier(context, (LocationSpecifier) semanticObject); 
@@ -1489,7 +1485,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     ContractOrLibrary returns Contract
 	 *     Contract returns Contract
 	 *
 	 * Constraint:
@@ -2254,7 +2249,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     InheritanceSpecifier returns InheritanceSpecifier
 	 *
 	 * Constraint:
-	 *     (superType=[ContractOrLibrary|ID] args=FunctionCallListArguments?)
+	 *     args=FunctionCallListArguments?
 	 */
 	protected void sequence_InheritanceSpecifier(ISerializationContext context, InheritanceSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2269,19 +2264,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (param=ArithmeticOperations | fun=FunctionCall)
 	 */
 	protected void sequence_IntParameter(ISerializationContext context, IntParameter semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ContractOrLibrary returns Library
-	 *     Library returns Library
-	 *
-	 * Constraint:
-	 *     (name=ID (inheritanceSpecifiers+=InheritanceSpecifier inheritanceSpecifiers+=InheritanceSpecifier*)? body=DefinitionBody)
-	 */
-	protected void sequence_Library(ISerializationContext context, Library semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2505,7 +2487,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PrimaryArithmetic returns NewExpression
 	 *
 	 * Constraint:
-	 *     (contract=[ContractOrLibrary|ID] args=FunctionCallListArguments)
+	 *     (contract=Contract args=FunctionCallListArguments)
 	 */
 	protected void sequence_NewExpression(ISerializationContext context, NewExpression semanticObject) {
 		if (errorAcceptor != null) {
@@ -2515,7 +2497,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getNewExpression_Args()));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNewExpressionAccess().getContractContractOrLibraryIDTerminalRuleCall_1_0_1(), semanticObject.eGet(OptGrammarPackage.eINSTANCE.getNewExpression_Contract(), false));
+		feeder.accept(grammarAccess.getNewExpressionAccess().getContractContractParserRuleCall_1_0(), semanticObject.getContract());
 		feeder.accept(grammarAccess.getNewExpressionAccess().getArgsFunctionCallListArgumentsParserRuleCall_2_0(), semanticObject.getArgs());
 		feeder.finish();
 	}
@@ -3371,7 +3353,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Solidity returns Solidity
 	 *
 	 * Constraint:
-	 *     (importDirective+=ImportDirective | contract+=Contract | library+=Library)+
+	 *     (importDirective+=ImportDirective | contract+=Contract)+
 	 */
 	protected void sequence_Solidity(ISerializationContext context, Solidity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -34,21 +34,16 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImportDirectiveImportDirectiveParserRuleCall_0_0 = (RuleCall)cImportDirectiveAssignment_0.eContents().get(0);
 		private final Assignment cContractAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cContractContractParserRuleCall_1_0 = (RuleCall)cContractAssignment_1.eContents().get(0);
-		private final Assignment cLibraryAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cLibraryLibraryParserRuleCall_2_0 = (RuleCall)cLibraryAssignment_2.eContents().get(0);
 		
-		//// ---------- TODO ----------
+		//// ---------- TO DO ----------
 		///*
 		// * Controllare gli array
 		// * Controllare gli elementi all'interno della struttura
-		// * Controllare le regole functionCall
-		// * Controllare la visibilità delle funzioni
-		// */ // ---------- TODO ----------
-		//Solidity:
-		//	(importDirective+=ImportDirective | contract+=Contract | library+=Library)*;
+		// */ Solidity:
+		//	(importDirective+=ImportDirective | contract+=Contract)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(importDirective+=ImportDirective | contract+=Contract | library+=Library)*
+		//(importDirective+=ImportDirective | contract+=Contract)*
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//importDirective+=ImportDirective
@@ -62,12 +57,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Contract
 		public RuleCall getContractContractParserRuleCall_1_0() { return cContractContractParserRuleCall_1_0; }
-		
-		//library+=Library
-		public Assignment getLibraryAssignment_2() { return cLibraryAssignment_2; }
-		
-		//Library
-		public RuleCall getLibraryLibraryParserRuleCall_2_0() { return cLibraryLibraryParserRuleCall_2_0; }
 	}
 	public class ImportDirectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ImportDirective");
@@ -230,25 +219,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getAliasIDTerminalRuleCall_2_0() { return cAliasIDTerminalRuleCall_2_0; }
 	}
-	public class ContractOrLibraryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ContractOrLibrary");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cContractParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cLibraryParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//ContractOrLibrary:
-		//	Contract | Library;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Contract | Library
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Contract
-		public RuleCall getContractParserRuleCall_0() { return cContractParserRuleCall_0; }
-		
-		//Library
-		public RuleCall getLibraryParserRuleCall_1() { return cLibraryParserRuleCall_1; }
-	}
 	public class ContractElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Contract");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -278,72 +248,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"contract"
 		public Keyword getContractKeyword_0() { return cContractKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//("is" inheritanceSpecifiers+=InheritanceSpecifier ("," inheritanceSpecifiers+=InheritanceSpecifier)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//"is"
-		public Keyword getIsKeyword_2_0() { return cIsKeyword_2_0; }
-		
-		//inheritanceSpecifiers+=InheritanceSpecifier
-		public Assignment getInheritanceSpecifiersAssignment_2_1() { return cInheritanceSpecifiersAssignment_2_1; }
-		
-		//InheritanceSpecifier
-		public RuleCall getInheritanceSpecifiersInheritanceSpecifierParserRuleCall_2_1_0() { return cInheritanceSpecifiersInheritanceSpecifierParserRuleCall_2_1_0; }
-		
-		//("," inheritanceSpecifiers+=InheritanceSpecifier)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//","
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
-		
-		//inheritanceSpecifiers+=InheritanceSpecifier
-		public Assignment getInheritanceSpecifiersAssignment_2_2_1() { return cInheritanceSpecifiersAssignment_2_2_1; }
-		
-		//InheritanceSpecifier
-		public RuleCall getInheritanceSpecifiersInheritanceSpecifierParserRuleCall_2_2_1_0() { return cInheritanceSpecifiersInheritanceSpecifierParserRuleCall_2_2_1_0; }
-		
-		//body=DefinitionBody
-		public Assignment getBodyAssignment_3() { return cBodyAssignment_3; }
-		
-		//DefinitionBody
-		public RuleCall getBodyDefinitionBodyParserRuleCall_3_0() { return cBodyDefinitionBodyParserRuleCall_3_0; }
-	}
-	public class LibraryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Library");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLibraryKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cIsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInheritanceSpecifiersAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInheritanceSpecifiersInheritanceSpecifierParserRuleCall_2_1_0 = (RuleCall)cInheritanceSpecifiersAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInheritanceSpecifiersAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInheritanceSpecifiersInheritanceSpecifierParserRuleCall_2_2_1_0 = (RuleCall)cInheritanceSpecifiersAssignment_2_2_1.eContents().get(0);
-		private final Assignment cBodyAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cBodyDefinitionBodyParserRuleCall_3_0 = (RuleCall)cBodyAssignment_3.eContents().get(0);
-		
-		//Library:
-		//	"library" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier (","
-		//	inheritanceSpecifiers+=InheritanceSpecifier)*)?
-		//	body=DefinitionBody;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//"library" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier ("," inheritanceSpecifiers+=InheritanceSpecifier)*)?
-		//body=DefinitionBody
-		public Group getGroup() { return cGroup; }
-		
-		//"library"
-		public Keyword getLibraryKeyword_0() { return cLibraryKeyword_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -471,27 +375,19 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class InheritanceSpecifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.InheritanceSpecifier");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSuperTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cSuperTypeContractOrLibraryCrossReference_0_0 = (CrossReference)cSuperTypeAssignment_0.eContents().get(0);
-		private final RuleCall cSuperTypeContractOrLibraryIDTerminalRuleCall_0_0_1 = (RuleCall)cSuperTypeContractOrLibraryCrossReference_0_0.eContents().get(1);
+		private final Action cInheritanceSpecifierAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cArgsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cArgsFunctionCallListArgumentsParserRuleCall_1_0 = (RuleCall)cArgsAssignment_1.eContents().get(0);
 		
 		//InheritanceSpecifier:
-		//	superType=[ContractOrLibrary] args=FunctionCallListArguments?;
+		//	{InheritanceSpecifier} args=FunctionCallListArguments?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//superType=[ContractOrLibrary] args=FunctionCallListArguments?
+		//{InheritanceSpecifier} args=FunctionCallListArguments?
 		public Group getGroup() { return cGroup; }
 		
-		//superType=[ContractOrLibrary]
-		public Assignment getSuperTypeAssignment_0() { return cSuperTypeAssignment_0; }
-		
-		//[ContractOrLibrary]
-		public CrossReference getSuperTypeContractOrLibraryCrossReference_0_0() { return cSuperTypeContractOrLibraryCrossReference_0_0; }
-		
-		//ID
-		public RuleCall getSuperTypeContractOrLibraryIDTerminalRuleCall_0_0_1() { return cSuperTypeContractOrLibraryIDTerminalRuleCall_0_0_1; }
+		//{InheritanceSpecifier}
+		public Action getInheritanceSpecifierAction_0() { return cInheritanceSpecifierAction_0; }
 		
 		//args=FunctionCallListArguments?
 		public Assignment getArgsAssignment_1() { return cArgsAssignment_1; }
@@ -3292,29 +3188,25 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNewKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cContractAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cContractContractOrLibraryCrossReference_1_0 = (CrossReference)cContractAssignment_1.eContents().get(0);
-		private final RuleCall cContractContractOrLibraryIDTerminalRuleCall_1_0_1 = (RuleCall)cContractContractOrLibraryCrossReference_1_0.eContents().get(1);
+		private final RuleCall cContractContractParserRuleCall_1_0 = (RuleCall)cContractAssignment_1.eContents().get(0);
 		private final Assignment cArgsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cArgsFunctionCallListArgumentsParserRuleCall_2_0 = (RuleCall)cArgsAssignment_2.eContents().get(0);
 		
 		//NewExpression:
-		//	"new" contract=[ContractOrLibrary] args=FunctionCallListArguments;
+		//	"new" contract=Contract args=FunctionCallListArguments;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"new" contract=[ContractOrLibrary] args=FunctionCallListArguments
+		//"new" contract=Contract args=FunctionCallListArguments
 		public Group getGroup() { return cGroup; }
 		
 		//"new"
 		public Keyword getNewKeyword_0() { return cNewKeyword_0; }
 		
-		//contract=[ContractOrLibrary]
+		//contract=Contract
 		public Assignment getContractAssignment_1() { return cContractAssignment_1; }
 		
-		//[ContractOrLibrary]
-		public CrossReference getContractContractOrLibraryCrossReference_1_0() { return cContractContractOrLibraryCrossReference_1_0; }
-		
-		//ID
-		public RuleCall getContractContractOrLibraryIDTerminalRuleCall_1_0_1() { return cContractContractOrLibraryIDTerminalRuleCall_1_0_1; }
+		//Contract
+		public RuleCall getContractContractParserRuleCall_1_0() { return cContractContractParserRuleCall_1_0; }
 		
 		//args=FunctionCallListArguments
 		public Assignment getArgsAssignment_2() { return cArgsAssignment_2; }
@@ -5965,9 +5857,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final SolidityElements pSolidity;
 	private final ImportDirectiveElements pImportDirective;
 	private final SymbolAliasElements pSymbolAlias;
-	private final ContractOrLibraryElements pContractOrLibrary;
 	private final ContractElements pContract;
-	private final LibraryElements pLibrary;
 	private final DefinitionBodyElements pDefinitionBody;
 	private final InheritanceSpecifierElements pInheritanceSpecifier;
 	private final FunctionCallListArgumentsElements pFunctionCallListArguments;
@@ -6105,9 +5995,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSolidity = new SolidityElements();
 		this.pImportDirective = new ImportDirectiveElements();
 		this.pSymbolAlias = new SymbolAliasElements();
-		this.pContractOrLibrary = new ContractOrLibraryElements();
 		this.pContract = new ContractElements();
-		this.pLibrary = new LibraryElements();
 		this.pDefinitionBody = new DefinitionBodyElements();
 		this.pInheritanceSpecifier = new InheritanceSpecifierElements();
 		this.pFunctionCallListArguments = new FunctionCallListArgumentsElements();
@@ -6261,15 +6149,12 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//// ---------- TODO ----------
+	//// ---------- TO DO ----------
 	///*
 	// * Controllare gli array
 	// * Controllare gli elementi all'interno della struttura
-	// * Controllare le regole functionCall
-	// * Controllare la visibilità delle funzioni
-	// */ // ---------- TODO ----------
-	//Solidity:
-	//	(importDirective+=ImportDirective | contract+=Contract | library+=Library)*;
+	// */ Solidity:
+	//	(importDirective+=ImportDirective | contract+=Contract)*;
 	public SolidityElements getSolidityAccess() {
 		return pSolidity;
 	}
@@ -6300,16 +6185,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getSymbolAliasAccess().getRule();
 	}
 	
-	//ContractOrLibrary:
-	//	Contract | Library;
-	public ContractOrLibraryElements getContractOrLibraryAccess() {
-		return pContractOrLibrary;
-	}
-	
-	public ParserRule getContractOrLibraryRule() {
-		return getContractOrLibraryAccess().getRule();
-	}
-	
 	//Contract:
 	//	"contract" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier (","
 	//	inheritanceSpecifiers+=InheritanceSpecifier)*)?
@@ -6320,18 +6195,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getContractRule() {
 		return getContractAccess().getRule();
-	}
-	
-	//Library:
-	//	"library" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier (","
-	//	inheritanceSpecifiers+=InheritanceSpecifier)*)?
-	//	body=DefinitionBody;
-	public LibraryElements getLibraryAccess() {
-		return pLibrary;
-	}
-	
-	public ParserRule getLibraryRule() {
-		return getLibraryAccess().getRule();
 	}
 	
 	//DefinitionBody:
@@ -6347,7 +6210,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//InheritanceSpecifier:
-	//	superType=[ContractOrLibrary] args=FunctionCallListArguments?;
+	//	{InheritanceSpecifier} args=FunctionCallListArguments?;
 	public InheritanceSpecifierElements getInheritanceSpecifierAccess() {
 		return pInheritanceSpecifier;
 	}
@@ -7148,7 +7011,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NewExpression:
-	//	"new" contract=[ContractOrLibrary] args=FunctionCallListArguments;
+	//	"new" contract=Contract args=FunctionCallListArguments;
 	public NewExpressionElements getNewExpressionAccess() {
 		return pNewExpression;
 	}

@@ -37,7 +37,6 @@ import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
 import org.unicam.myGrammar.optGrammar.Continue;
 import org.unicam.myGrammar.optGrammar.ContinueStatement;
 import org.unicam.myGrammar.optGrammar.Contract;
-import org.unicam.myGrammar.optGrammar.ContractOrLibrary;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.DefinitionBody;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
@@ -72,7 +71,6 @@ import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
-import org.unicam.myGrammar.optGrammar.Library;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
@@ -192,9 +190,7 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.SOLIDITY: return createSolidity();
       case OptGrammarPackage.IMPORT_DIRECTIVE: return createImportDirective();
       case OptGrammarPackage.SYMBOL_ALIAS: return createSymbolAlias();
-      case OptGrammarPackage.CONTRACT_OR_LIBRARY: return createContractOrLibrary();
       case OptGrammarPackage.CONTRACT: return createContract();
-      case OptGrammarPackage.LIBRARY: return createLibrary();
       case OptGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
       case OptGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
       case OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS: return createFunctionCallListArguments();
@@ -434,34 +430,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public ContractOrLibrary createContractOrLibrary()
-  {
-    ContractOrLibraryImpl contractOrLibrary = new ContractOrLibraryImpl();
-    return contractOrLibrary;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Contract createContract()
   {
     ContractImpl contract = new ContractImpl();
     return contract;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Library createLibrary()
-  {
-    LibraryImpl library = new LibraryImpl();
-    return library;
   }
 
   /**

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.ContractOrLibrary;
+import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
 import org.unicam.myGrammar.optGrammar.NewExpression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
@@ -33,14 +33,14 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 public class NewExpressionImpl extends ExpressionImpl implements NewExpression
 {
   /**
-   * The cached value of the '{@link #getContract() <em>Contract</em>}' reference.
+   * The cached value of the '{@link #getContract() <em>Contract</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getContract()
    * @generated
    * @ordered
    */
-  protected ContractOrLibrary contract;
+  protected Contract contract;
 
   /**
    * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference.
@@ -79,18 +79,8 @@ public class NewExpressionImpl extends ExpressionImpl implements NewExpression
    * @generated
    */
   @Override
-  public ContractOrLibrary getContract()
+  public Contract getContract()
   {
-    if (contract != null && contract.eIsProxy())
-    {
-      InternalEObject oldContract = (InternalEObject)contract;
-      contract = (ContractOrLibrary)eResolveProxy(oldContract);
-      if (contract != oldContract)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OptGrammarPackage.NEW_EXPRESSION__CONTRACT, oldContract, contract));
-      }
-    }
     return contract;
   }
 
@@ -99,9 +89,16 @@ public class NewExpressionImpl extends ExpressionImpl implements NewExpression
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContractOrLibrary basicGetContract()
+  public NotificationChain basicSetContract(Contract newContract, NotificationChain msgs)
   {
-    return contract;
+    Contract oldContract = contract;
+    contract = newContract;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.NEW_EXPRESSION__CONTRACT, oldContract, newContract);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -110,12 +107,20 @@ public class NewExpressionImpl extends ExpressionImpl implements NewExpression
    * @generated
    */
   @Override
-  public void setContract(ContractOrLibrary newContract)
+  public void setContract(Contract newContract)
   {
-    ContractOrLibrary oldContract = contract;
-    contract = newContract;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.NEW_EXPRESSION__CONTRACT, oldContract, contract));
+    if (newContract != contract)
+    {
+      NotificationChain msgs = null;
+      if (contract != null)
+        msgs = ((InternalEObject)contract).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.NEW_EXPRESSION__CONTRACT, null, msgs);
+      if (newContract != null)
+        msgs = ((InternalEObject)newContract).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.NEW_EXPRESSION__CONTRACT, null, msgs);
+      msgs = basicSetContract(newContract, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.NEW_EXPRESSION__CONTRACT, newContract, newContract));
   }
 
   /**
@@ -178,6 +183,8 @@ public class NewExpressionImpl extends ExpressionImpl implements NewExpression
   {
     switch (featureID)
     {
+      case OptGrammarPackage.NEW_EXPRESSION__CONTRACT:
+        return basicSetContract(null, msgs);
       case OptGrammarPackage.NEW_EXPRESSION__ARGS:
         return basicSetArgs(null, msgs);
     }
@@ -195,8 +202,7 @@ public class NewExpressionImpl extends ExpressionImpl implements NewExpression
     switch (featureID)
     {
       case OptGrammarPackage.NEW_EXPRESSION__CONTRACT:
-        if (resolve) return getContract();
-        return basicGetContract();
+        return getContract();
       case OptGrammarPackage.NEW_EXPRESSION__ARGS:
         return getArgs();
     }
@@ -214,7 +220,7 @@ public class NewExpressionImpl extends ExpressionImpl implements NewExpression
     switch (featureID)
     {
       case OptGrammarPackage.NEW_EXPRESSION__CONTRACT:
-        setContract((ContractOrLibrary)newValue);
+        setContract((Contract)newValue);
         return;
       case OptGrammarPackage.NEW_EXPRESSION__ARGS:
         setArgs((FunctionCallListArguments)newValue);
@@ -234,7 +240,7 @@ public class NewExpressionImpl extends ExpressionImpl implements NewExpression
     switch (featureID)
     {
       case OptGrammarPackage.NEW_EXPRESSION__CONTRACT:
-        setContract((ContractOrLibrary)null);
+        setContract((Contract)null);
         return;
       case OptGrammarPackage.NEW_EXPRESSION__ARGS:
         setArgs((FunctionCallListArguments)null);

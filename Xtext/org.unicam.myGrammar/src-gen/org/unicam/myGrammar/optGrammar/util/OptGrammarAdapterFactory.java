@@ -31,7 +31,6 @@ import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
 import org.unicam.myGrammar.optGrammar.Continue;
 import org.unicam.myGrammar.optGrammar.ContinueStatement;
 import org.unicam.myGrammar.optGrammar.Contract;
-import org.unicam.myGrammar.optGrammar.ContractOrLibrary;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.DefinitionBody;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
@@ -62,7 +61,6 @@ import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
-import org.unicam.myGrammar.optGrammar.Library;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.Mapping;
@@ -198,19 +196,9 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createSymbolAliasAdapter();
       }
       @Override
-      public Adapter caseContractOrLibrary(ContractOrLibrary object)
-      {
-        return createContractOrLibraryAdapter();
-      }
-      @Override
       public Adapter caseContract(Contract object)
       {
         return createContractAdapter();
-      }
-      @Override
-      public Adapter caseLibrary(Library object)
-      {
-        return createLibraryAdapter();
       }
       @Override
       public Adapter caseDefinitionBody(DefinitionBody object)
@@ -790,21 +778,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ContractOrLibrary <em>Contract Or Library</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.ContractOrLibrary
-   * @generated
-   */
-  public Adapter createContractOrLibraryAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Contract <em>Contract</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -815,21 +788,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createContractAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Library <em>Library</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Library
-   * @generated
-   */
-  public Adapter createLibraryAdapter()
   {
     return null;
   }

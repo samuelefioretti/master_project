@@ -51,15 +51,6 @@ public interface OptGrammarFactory extends EFactory
   SymbolAlias createSymbolAlias();
 
   /**
-   * Returns a new object of class '<em>Contract Or Library</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contract Or Library</em>'.
-   * @generated
-   */
-  ContractOrLibrary createContractOrLibrary();
-
-  /**
    * Returns a new object of class '<em>Contract</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -67,15 +58,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   Contract createContract();
-
-  /**
-   * Returns a new object of class '<em>Library</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Library</em>'.
-   * @generated
-   */
-  Library createLibrary();
 
   /**
    * Returns a new object of class '<em>Definition Body</em>'.

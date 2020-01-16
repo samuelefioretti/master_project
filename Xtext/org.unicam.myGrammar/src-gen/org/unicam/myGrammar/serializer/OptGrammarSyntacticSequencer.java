@@ -137,7 +137,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '(' (ambiguity) '!' expression=UnaryExpression
 	 *     (rule start) '(' (ambiguity) '(' ')' ')' (rule start)
 	 *     (rule start) '(' (ambiguity) 'blockhash' '(' parameter=IntParameter
-	 *     (rule start) '(' (ambiguity) 'new' contract=[ContractOrLibrary|ID]
+	 *     (rule start) '(' (ambiguity) 'new' contract=Contract
 	 *     (rule start) '(' (ambiguity) '~' expression=UnaryExpression
 	 *     (rule start) '(' (ambiguity) function='addmod'
 	 *     (rule start) '(' (ambiguity) function='ecrecover'
@@ -218,7 +218,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '!' expression=UnaryExpression
 	 *     (rule start) (ambiguity) '(' ')' (rule start)
 	 *     (rule start) (ambiguity) 'blockhash' '(' parameter=IntParameter
-	 *     (rule start) (ambiguity) 'new' contract=[ContractOrLibrary|ID]
+	 *     (rule start) (ambiguity) 'new' contract=Contract
 	 *     (rule start) (ambiguity) 'now' (rule start)
 	 *     (rule start) (ambiguity) 'now' etherUnit=UnitTypes
 	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
@@ -268,7 +268,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) '++' (ambiguity) '!' expression=UnaryExpression
-	 *     (rule start) '++' (ambiguity) 'new' contract=[ContractOrLibrary|ID]
+	 *     (rule start) '++' (ambiguity) 'new' contract=Contract
 	 *     (rule start) '++' (ambiguity) '~' expression=UnaryExpression
 	 *     (rule start) '++' (ambiguity) signOp='+'
 	 *     (rule start) '++' (ambiguity) signOp='-'
@@ -288,7 +288,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '++' (ambiguity) {Shift.left=}
 	 *     (rule start) '++' (ambiguity) {VariableDeclarationExpression.type=}
 	 *     (rule start) '--' (ambiguity) '!' expression=UnaryExpression
-	 *     (rule start) '--' (ambiguity) 'new' contract=[ContractOrLibrary|ID]
+	 *     (rule start) '--' (ambiguity) 'new' contract=Contract
 	 *     (rule start) '--' (ambiguity) '~' expression=UnaryExpression
 	 *     (rule start) '--' (ambiguity) signOp='+'
 	 *     (rule start) '--' (ambiguity) signOp='-'
@@ -310,7 +310,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '!' expression=UnaryExpression
 	 *     (rule start) (ambiguity) '(' ')' (rule start)
 	 *     (rule start) (ambiguity) 'blockhash' '(' parameter=IntParameter
-	 *     (rule start) (ambiguity) 'new' contract=[ContractOrLibrary|ID]
+	 *     (rule start) (ambiguity) 'new' contract=Contract
 	 *     (rule start) (ambiguity) 'now' (rule start)
 	 *     (rule start) (ambiguity) 'now' etherUnit=UnitTypes
 	 *     (rule start) (ambiguity) '~' expression=UnaryExpression

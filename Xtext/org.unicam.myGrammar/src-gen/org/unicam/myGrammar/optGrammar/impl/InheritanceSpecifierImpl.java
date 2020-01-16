@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.ContractOrLibrary;
 import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
@@ -25,7 +24,6 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.InheritanceSpecifierImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.InheritanceSpecifierImpl#getArgs <em>Args</em>}</li>
  * </ul>
  *
@@ -33,16 +31,6 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  */
 public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container implements InheritanceSpecifier
 {
-  /**
-   * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSuperType()
-   * @generated
-   * @ordered
-   */
-  protected ContractOrLibrary superType;
-
   /**
    * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -72,51 +60,6 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   protected EClass eStaticClass()
   {
     return OptGrammarPackage.eINSTANCE.getInheritanceSpecifier();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ContractOrLibrary getSuperType()
-  {
-    if (superType != null && superType.eIsProxy())
-    {
-      InternalEObject oldSuperType = (InternalEObject)superType;
-      superType = (ContractOrLibrary)eResolveProxy(oldSuperType);
-      if (superType != oldSuperType)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE, oldSuperType, superType));
-      }
-    }
-    return superType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ContractOrLibrary basicGetSuperType()
-  {
-    return superType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setSuperType(ContractOrLibrary newSuperType)
-  {
-    ContractOrLibrary oldSuperType = superType;
-    superType = newSuperType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE, oldSuperType, superType));
   }
 
   /**
@@ -195,9 +138,6 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE:
-        if (resolve) return getSuperType();
-        return basicGetSuperType();
       case OptGrammarPackage.INHERITANCE_SPECIFIER__ARGS:
         return getArgs();
     }
@@ -214,9 +154,6 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE:
-        setSuperType((ContractOrLibrary)newValue);
-        return;
       case OptGrammarPackage.INHERITANCE_SPECIFIER__ARGS:
         setArgs((FunctionCallListArguments)newValue);
         return;
@@ -234,9 +171,6 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE:
-        setSuperType((ContractOrLibrary)null);
-        return;
       case OptGrammarPackage.INHERITANCE_SPECIFIER__ARGS:
         setArgs((FunctionCallListArguments)null);
         return;
@@ -254,8 +188,6 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE:
-        return superType != null;
       case OptGrammarPackage.INHERITANCE_SPECIFIER__ARGS:
         return args != null;
     }

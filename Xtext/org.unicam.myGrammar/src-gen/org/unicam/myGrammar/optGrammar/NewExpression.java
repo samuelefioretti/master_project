@@ -24,26 +24,26 @@ package org.unicam.myGrammar.optGrammar;
 public interface NewExpression extends Expression
 {
   /**
-   * Returns the value of the '<em><b>Contract</b></em>' reference.
+   * Returns the value of the '<em><b>Contract</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Contract</em>' reference.
-   * @see #setContract(ContractOrLibrary)
+   * @return the value of the '<em>Contract</em>' containment reference.
+   * @see #setContract(Contract)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getNewExpression_Contract()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  ContractOrLibrary getContract();
+  Contract getContract();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.NewExpression#getContract <em>Contract</em>}' reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.NewExpression#getContract <em>Contract</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Contract</em>' reference.
+   * @param value the new value of the '<em>Contract</em>' containment reference.
    * @see #getContract()
    * @generated
    */
-  void setContract(ContractOrLibrary value);
+  void setContract(Contract value);
 
   /**
    * Returns the value of the '<em><b>Args</b></em>' containment reference.
