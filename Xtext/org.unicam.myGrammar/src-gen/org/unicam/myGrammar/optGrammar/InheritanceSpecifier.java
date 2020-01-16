@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier#getArgs <em>Args</em>}</li>
  * </ul>
  *
@@ -23,6 +24,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface InheritanceSpecifier extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Super Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Super Type</em>' containment reference.
+   * @see #setSuperType(Contract)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getInheritanceSpecifier_SuperType()
+   * @model containment="true"
+   * @generated
+   */
+  Contract getSuperType();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier#getSuperType <em>Super Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Super Type</em>' containment reference.
+   * @see #getSuperType()
+   * @generated
+   */
+  void setSuperType(Contract value);
+
   /**
    * Returns the value of the '<em><b>Args</b></em>' containment reference.
    * <!-- begin-user-doc -->

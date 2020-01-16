@@ -14,54 +14,53 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class OptGrammarGenerator extends AbstractGenerator {
-	
-	//@Inject extension IQualifiedNameProvider
+	// @Inject extension IQualifiedNameProvider
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		/*resource.allContents.toIterable.filter(Contract).forEach[
-			c |
-			fsa.generateFile(c.fullyQualifiedName.toString("/")+".sol", c.compile)
-		]*/
+		 * 	c |
+		 * 	fsa.generateFile(c.fullyQualifiedName.toString("/")+".sol", c.compile)
+		 ]*/
 	}
-	/*
-	def compile(Contract c)
-	'''
-		pragma solidity ^0.5.2;
-		
-		contract «c.name» {
-			«FOR block: c.blocks»
-			«block.compileBlock»
-			«ENDFOR»
-		}
-	'''
-	
-	def compileBlock(EObject b){
-		return switch b {
-		 	Declaration : b.compileDeclaration
-			FunctionDefinition: b.compileFunctionDefinition	
-		 }		 
-	}
-	
-	def compileFunctionDefinition(FunctionDefinition funDef) {
-		return 
-			'''function «funDef.name»('''
-			+ { (funDef.parameters !== null)? '''«FOR param: funDef.parameters SEPARATOR ', '»«param.compileDeclaration»«ENDFOR») '''}
-			+ { (funDef.payable)? '''payable ''' : ""}
-			+ { (funDef.returnParameters !== null)? '''returns («funDef.returnParameters.compileTypes»)''' : ""}
-			+ '''{
-				«FOR elem: funDef.getBlock»
-				«elem.compileInternalBlock»
-				«ENDFOR»'''
-				+'''«IF funDef.returnVal !== null»return «IF funDef.returnVal.^def !== null»«funDef.returnVal.^def.compileDefinitions»;
-				«ELSEIF funDef.returnVal.defDec !== null»«funDef.returnVal.defDec.compileDeclaration»
-				«ELSEIF funDef.returnVal.^val !== null»«funDef.returnVal.^val.compileCondition»;
-				«ELSEIF funDef.returnVal.call !== null»«funDef.returnVal.call.compileCondition»;«ENDIF»«ENDIF»'''
-			+ '''}'''
-	}
-	
-	def compileTypes(EObject type){
-		return switch type {
-			SizedDeclaration: type.unsigned ? 'u' + type.type : type.type,
-			SimpleTypeDeclaration: type.type
-		}
-	} */
+/*
+ * def compile(Contract c)
+ * '''
+ * 	pragma solidity ^0.5.2;
+ * 	
+ * 	contract «c.name» {
+ * 		«FOR block: c.blocks»
+ * 		«block.compileBlock»
+ * 		«ENDFOR»
+ * 	}
+ * '''
+ * 
+ * def compileBlock(EObject b){
+ * 	return switch b {
+ * 	 	Declaration : b.compileDeclaration
+ * 		FunctionDefinition: b.compileFunctionDefinition	
+ * 	 }		 
+ * }
+ * 
+ * def compileFunctionDefinition(FunctionDefinition funDef) {
+ * 	return 
+ * 		'''function «funDef.name»('''
+ * 		+ { (funDef.parameters !== null)? '''«FOR param: funDef.parameters SEPARATOR ', '»«param.compileDeclaration»«ENDFOR») '''}
+ * 		+ { (funDef.payable)? '''payable ''' : ""}
+ * 		+ { (funDef.returnParameters !== null)? '''returns («funDef.returnParameters.compileTypes»)''' : ""}
+ * 		+ '''{
+ * 			«FOR elem: funDef.getBlock»
+ * 			«elem.compileInternalBlock»
+ * 			«ENDFOR»'''
+ * 			+'''«IF funDef.returnVal !== null»return «IF funDef.returnVal.^def !== null»«funDef.returnVal.^def.compileDefinitions»;
+ * 			«ELSEIF funDef.returnVal.defDec !== null»«funDef.returnVal.defDec.compileDeclaration»
+ * 			«ELSEIF funDef.returnVal.^val !== null»«funDef.returnVal.^val.compileCondition»;
+ * 			«ELSEIF funDef.returnVal.call !== null»«funDef.returnVal.call.compileCondition»;«ENDIF»«ENDIF»'''
+ * 		+ '''}'''
+ * }
+ * 
+ * def compileTypes(EObject type){
+ * 	return switch type {
+ * 		SizedDeclaration: type.unsigned ? 'u' + type.type : type.type,
+ * 		SimpleTypeDeclaration: type.type
+ * 	}
+ } */
 }

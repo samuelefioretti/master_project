@@ -27,7 +27,7 @@ public class OptGrammarParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Solidity";
+		return "Model";
 	}
 
 	public OptGrammarGrammarAccess getGrammarAccess() {

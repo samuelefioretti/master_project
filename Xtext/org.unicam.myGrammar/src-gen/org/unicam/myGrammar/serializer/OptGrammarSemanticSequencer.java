@@ -56,7 +56,6 @@ import org.unicam.myGrammar.optGrammar.GasleftFunction;
 import org.unicam.myGrammar.optGrammar.HashFunction;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IfStatement;
-import org.unicam.myGrammar.optGrammar.ImportDirective;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
@@ -64,6 +63,7 @@ import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
+import org.unicam.myGrammar.optGrammar.Model;
 import org.unicam.myGrammar.optGrammar.Modifier;
 import org.unicam.myGrammar.optGrammar.ModifierInvocation;
 import org.unicam.myGrammar.optGrammar.MulDivMod;
@@ -85,14 +85,12 @@ import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
 import org.unicam.myGrammar.optGrammar.SecondOperators;
 import org.unicam.myGrammar.optGrammar.Shift;
 import org.unicam.myGrammar.optGrammar.SignExpression;
-import org.unicam.myGrammar.optGrammar.Solidity;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialVariables;
 import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
 import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.StringLiteral;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.SymbolAlias;
 import org.unicam.myGrammar.optGrammar.ThrowStatement;
 import org.unicam.myGrammar.optGrammar.Time;
 import org.unicam.myGrammar.optGrammar.Tuple;
@@ -360,9 +358,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.IF_STATEMENT:
 				sequence_IfStatement(context, (IfStatement) semanticObject); 
 				return; 
-			case OptGrammarPackage.IMPORT_DIRECTIVE:
-				sequence_ImportDirective(context, (ImportDirective) semanticObject); 
-				return; 
 			case OptGrammarPackage.INDEX:
 				sequence_Index(context, (Index) semanticObject); 
 				return; 
@@ -383,6 +378,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.MATHEMATICAL_FUNCTION:
 				sequence_MathematicalFunction(context, (MathematicalFunction) semanticObject); 
+				return; 
+			case OptGrammarPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case OptGrammarPackage.MODIFIER:
 				sequence_Modifier(context, (Modifier) semanticObject); 
@@ -616,9 +614,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.SIGN_EXPRESSION:
 				sequence_SignExpression(context, (SignExpression) semanticObject); 
 				return; 
-			case OptGrammarPackage.SOLIDITY:
-				sequence_Solidity(context, (Solidity) semanticObject); 
-				return; 
 			case OptGrammarPackage.SPECIAL_EXPRESSION:
 				sequence_SpecialExpression(context, (SpecialExpression) semanticObject); 
 				return; 
@@ -649,9 +644,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.STRUCT_DEFINITION:
 				sequence_StructDefinition(context, (StructDefinition) semanticObject); 
-				return; 
-			case OptGrammarPackage.SYMBOL_ALIAS:
-				sequence_SymbolAlias(context, (SymbolAlias) semanticObject); 
 				return; 
 			case OptGrammarPackage.THROW_STATEMENT:
 				sequence_ThrowStatement(context, (ThrowStatement) semanticObject); 
@@ -2208,18 +2200,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     ImportDirective returns ImportDirective
-	 *
-	 * Constraint:
-	 *     (importURI=STRING | (unitAlias=ID importURI=STRING) | (symbolAliases+=SymbolAlias symbolAliases+=SymbolAlias? importURI=STRING))
-	 */
-	protected void sequence_ImportDirective(ISerializationContext context, ImportDirective semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Qualifier returns Index
 	 *     Index returns Index
 	 *
@@ -2249,7 +2229,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     InheritanceSpecifier returns InheritanceSpecifier
 	 *
 	 * Constraint:
-	 *     args=FunctionCallListArguments?
+	 *     (SuperType=Contract args=FunctionCallListArguments?)
 	 */
 	protected void sequence_InheritanceSpecifier(ISerializationContext context, InheritanceSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2358,6 +2338,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ((function='addmod' | function='mulmod') parameters+=IntParameter parameters+=IntParameter parameters+=IntParameter)
 	 */
 	protected void sequence_MathematicalFunction(ISerializationContext context, MathematicalFunction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Model returns Model
+	 *
+	 * Constraint:
+	 *     operations+=Contract+
+	 */
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -3350,18 +3342,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Solidity returns Solidity
-	 *
-	 * Constraint:
-	 *     (importDirective+=ImportDirective | contract+=Contract)+
-	 */
-	protected void sequence_Solidity(ISerializationContext context, Solidity semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Expression returns SpecialExpression
 	 *     SpecialExpression returns SpecialExpression
 	 *     Assignment returns SpecialExpression
@@ -3546,27 +3526,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_StructDefinition(ISerializationContext context, StructDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SymbolAlias returns SymbolAlias
-	 *
-	 * Constraint:
-	 *     (symbol=ID alias=ID)
-	 */
-	protected void sequence_SymbolAlias(ISerializationContext context, SymbolAlias semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getSymbolAlias_Symbol()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getSymbolAlias_Symbol()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getSymbolAlias_Alias()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getSymbolAlias_Alias()));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSymbolAliasAccess().getSymbolIDTerminalRuleCall_0_0(), semanticObject.getSymbol());
-		feeder.accept(grammarAccess.getSymbolAliasAccess().getAliasIDTerminalRuleCall_2_0(), semanticObject.getAlias());
-		feeder.finish();
 	}
 	
 	

@@ -56,7 +56,6 @@ import org.unicam.myGrammar.optGrammar.GasleftFunction;
 import org.unicam.myGrammar.optGrammar.HashFunction;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IfStatement;
-import org.unicam.myGrammar.optGrammar.ImportDirective;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
@@ -65,6 +64,7 @@ import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
+import org.unicam.myGrammar.optGrammar.Model;
 import org.unicam.myGrammar.optGrammar.Modifier;
 import org.unicam.myGrammar.optGrammar.ModifierInvocation;
 import org.unicam.myGrammar.optGrammar.MulDivMod;
@@ -90,7 +90,6 @@ import org.unicam.myGrammar.optGrammar.Shift;
 import org.unicam.myGrammar.optGrammar.SignExpression;
 import org.unicam.myGrammar.optGrammar.SimpleStatement;
 import org.unicam.myGrammar.optGrammar.SimpleStatement2;
-import org.unicam.myGrammar.optGrammar.Solidity;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialVariables;
 import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
@@ -100,7 +99,6 @@ import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.Statement;
 import org.unicam.myGrammar.optGrammar.StringLiteral;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.SymbolAlias;
 import org.unicam.myGrammar.optGrammar.ThrowStatement;
 import org.unicam.myGrammar.optGrammar.Time;
 import org.unicam.myGrammar.optGrammar.Tuple;
@@ -181,19 +179,9 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
     new OptGrammarSwitch<Adapter>()
     {
       @Override
-      public Adapter caseSolidity(Solidity object)
+      public Adapter caseModel(Model object)
       {
-        return createSolidityAdapter();
-      }
-      @Override
-      public Adapter caseImportDirective(ImportDirective object)
-      {
-        return createImportDirectiveAdapter();
-      }
-      @Override
-      public Adapter caseSymbolAlias(SymbolAlias object)
-      {
-        return createSymbolAliasAdapter();
+        return createModelAdapter();
       }
       @Override
       public Adapter caseContract(Contract object)
@@ -201,14 +189,19 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createContractAdapter();
       }
       @Override
+      public Adapter caseInheritanceSpecifier(InheritanceSpecifier object)
+      {
+        return createInheritanceSpecifierAdapter();
+      }
+      @Override
       public Adapter caseDefinitionBody(DefinitionBody object)
       {
         return createDefinitionBodyAdapter();
       }
       @Override
-      public Adapter caseInheritanceSpecifier(InheritanceSpecifier object)
+      public Adapter caseFunctionDefinition(FunctionDefinition object)
       {
-        return createInheritanceSpecifierAdapter();
+        return createFunctionDefinitionAdapter();
       }
       @Override
       public Adapter caseFunctionCallListArguments(FunctionCallListArguments object)
@@ -224,11 +217,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFunctionCallArg(FunctionCallArg object)
       {
         return createFunctionCallArgAdapter();
-      }
-      @Override
-      public Adapter caseFunctionDefinition(FunctionDefinition object)
-      {
-        return createFunctionDefinitionAdapter();
       }
       @Override
       public Adapter caseFunctionDefinitionOptionalElement(FunctionDefinitionOptionalElement object)
@@ -733,46 +721,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Solidity <em>Solidity</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Model <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Solidity
+   * @see org.unicam.myGrammar.optGrammar.Model
    * @generated
    */
-  public Adapter createSolidityAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ImportDirective <em>Import Directive</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.ImportDirective
-   * @generated
-   */
-  public Adapter createImportDirectiveAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SymbolAlias <em>Symbol Alias</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.SymbolAlias
-   * @generated
-   */
-  public Adapter createSymbolAliasAdapter()
+  public Adapter createModelAdapter()
   {
     return null;
   }
@@ -793,6 +751,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier <em>Inheritance Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.InheritanceSpecifier
+   * @generated
+   */
+  public Adapter createInheritanceSpecifierAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.DefinitionBody <em>Definition Body</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -808,16 +781,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier <em>Inheritance Specifier</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition <em>Function Definition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.InheritanceSpecifier
+   * @see org.unicam.myGrammar.optGrammar.FunctionDefinition
    * @generated
    */
-  public Adapter createInheritanceSpecifierAdapter()
+  public Adapter createFunctionDefinitionAdapter()
   {
     return null;
   }
@@ -863,21 +836,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFunctionCallArgAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition <em>Function Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.FunctionDefinition
-   * @generated
-   */
-  public Adapter createFunctionDefinitionAdapter()
   {
     return null;
   }

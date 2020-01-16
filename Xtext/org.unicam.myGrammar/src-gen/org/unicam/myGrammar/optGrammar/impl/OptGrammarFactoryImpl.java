@@ -65,7 +65,6 @@ import org.unicam.myGrammar.optGrammar.GasleftFunction;
 import org.unicam.myGrammar.optGrammar.HashFunction;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IfStatement;
-import org.unicam.myGrammar.optGrammar.ImportDirective;
 import org.unicam.myGrammar.optGrammar.IncDecOpEnum;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
@@ -76,6 +75,7 @@ import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
+import org.unicam.myGrammar.optGrammar.Model;
 import org.unicam.myGrammar.optGrammar.Modifier;
 import org.unicam.myGrammar.optGrammar.ModifierInvocation;
 import org.unicam.myGrammar.optGrammar.MulDivMod;
@@ -105,7 +105,6 @@ import org.unicam.myGrammar.optGrammar.ShiftOpEnum;
 import org.unicam.myGrammar.optGrammar.SignExpression;
 import org.unicam.myGrammar.optGrammar.SimpleStatement;
 import org.unicam.myGrammar.optGrammar.SimpleStatement2;
-import org.unicam.myGrammar.optGrammar.Solidity;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialExpressionTypeEnum;
 import org.unicam.myGrammar.optGrammar.SpecialVariables;
@@ -116,7 +115,6 @@ import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.Statement;
 import org.unicam.myGrammar.optGrammar.StringLiteral;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.SymbolAlias;
 import org.unicam.myGrammar.optGrammar.ThrowStatement;
 import org.unicam.myGrammar.optGrammar.Time;
 import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
@@ -187,16 +185,14 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     switch (eClass.getClassifierID())
     {
-      case OptGrammarPackage.SOLIDITY: return createSolidity();
-      case OptGrammarPackage.IMPORT_DIRECTIVE: return createImportDirective();
-      case OptGrammarPackage.SYMBOL_ALIAS: return createSymbolAlias();
+      case OptGrammarPackage.MODEL: return createModel();
       case OptGrammarPackage.CONTRACT: return createContract();
-      case OptGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
       case OptGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
+      case OptGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
+      case OptGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
       case OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS: return createFunctionCallListArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARGUMENTS: return createFunctionCallArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARG: return createFunctionCallArg();
-      case OptGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
       case OptGrammarPackage.FUNCTION_DEFINITION_OPTIONAL_ELEMENT: return createFunctionDefinitionOptionalElement();
       case OptGrammarPackage.CONST: return createConst();
       case OptGrammarPackage.VISIBILITY_SPECIFIER: return createVisibilitySpecifier();
@@ -394,34 +390,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public Solidity createSolidity()
+  public Model createModel()
   {
-    SolidityImpl solidity = new SolidityImpl();
-    return solidity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ImportDirective createImportDirective()
-  {
-    ImportDirectiveImpl importDirective = new ImportDirectiveImpl();
-    return importDirective;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SymbolAlias createSymbolAlias()
-  {
-    SymbolAliasImpl symbolAlias = new SymbolAliasImpl();
-    return symbolAlias;
+    ModelImpl model = new ModelImpl();
+    return model;
   }
 
   /**
@@ -442,6 +414,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
+  public InheritanceSpecifier createInheritanceSpecifier()
+  {
+    InheritanceSpecifierImpl inheritanceSpecifier = new InheritanceSpecifierImpl();
+    return inheritanceSpecifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public DefinitionBody createDefinitionBody()
   {
     DefinitionBodyImpl definitionBody = new DefinitionBodyImpl();
@@ -454,10 +438,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public InheritanceSpecifier createInheritanceSpecifier()
+  public FunctionDefinition createFunctionDefinition()
   {
-    InheritanceSpecifierImpl inheritanceSpecifier = new InheritanceSpecifierImpl();
-    return inheritanceSpecifier;
+    FunctionDefinitionImpl functionDefinition = new FunctionDefinitionImpl();
+    return functionDefinition;
   }
 
   /**
@@ -494,18 +478,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     FunctionCallArgImpl functionCallArg = new FunctionCallArgImpl();
     return functionCallArg;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public FunctionDefinition createFunctionDefinition()
-  {
-    FunctionDefinitionImpl functionDefinition = new FunctionDefinitionImpl();
-    return functionDefinition;
   }
 
   /**

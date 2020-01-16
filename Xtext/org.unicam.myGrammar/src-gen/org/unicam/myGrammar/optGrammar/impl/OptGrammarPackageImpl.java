@@ -46,21 +46,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass solidityEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass importDirectiveEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass symbolAliasEClass = null;
+  private EClass modelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,6 +60,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass inheritanceSpecifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass definitionBodyEClass = null;
 
   /**
@@ -81,7 +74,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass inheritanceSpecifierEClass = null;
+  private EClass functionDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -103,13 +96,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   private EClass functionCallArgEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass functionDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -955,13 +941,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getSolidity()
+  public EClass getModel()
   {
-    if (solidityEClass == null)
+    if (modelEClass == null)
     {
-      solidityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(0);
+      modelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(0);
     }
-    return solidityEClass;
+    return modelEClass;
   }
 
   /**
@@ -970,105 +956,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EReference getSolidity_ImportDirective()
+  public EReference getModel_Operations()
   {
-        return (EReference)getSolidity().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getSolidity_Contract()
-  {
-        return (EReference)getSolidity().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getImportDirective()
-  {
-    if (importDirectiveEClass == null)
-    {
-      importDirectiveEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(1);
-    }
-    return importDirectiveEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getImportDirective_ImportURI()
-  {
-        return (EAttribute)getImportDirective().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getImportDirective_UnitAlias()
-  {
-        return (EAttribute)getImportDirective().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getImportDirective_SymbolAliases()
-  {
-        return (EReference)getImportDirective().getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSymbolAlias()
-  {
-    if (symbolAliasEClass == null)
-    {
-      symbolAliasEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(2);
-    }
-    return symbolAliasEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSymbolAlias_Symbol()
-  {
-        return (EAttribute)getSymbolAlias().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSymbolAlias_Alias()
-  {
-        return (EAttribute)getSymbolAlias().getEStructuralFeatures().get(1);
+        return (EReference)getModel().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1081,7 +971,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (contractEClass == null)
     {
-      contractEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(3);
+      contractEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(1);
     }
     return contractEClass;
   }
@@ -1125,11 +1015,48 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EClass getInheritanceSpecifier()
+  {
+    if (inheritanceSpecifierEClass == null)
+    {
+      inheritanceSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(2);
+    }
+    return inheritanceSpecifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInheritanceSpecifier_SuperType()
+  {
+        return (EReference)getInheritanceSpecifier().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInheritanceSpecifier_Args()
+  {
+        return (EReference)getInheritanceSpecifier().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getDefinitionBody()
   {
     if (definitionBodyEClass == null)
     {
-      definitionBodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(4);
+      definitionBodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(3);
     }
     return definitionBodyEClass;
   }
@@ -1206,126 +1133,11 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getInheritanceSpecifier()
-  {
-    if (inheritanceSpecifierEClass == null)
-    {
-      inheritanceSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(5);
-    }
-    return inheritanceSpecifierEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getInheritanceSpecifier_Args()
-  {
-        return (EReference)getInheritanceSpecifier().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getFunctionCallListArguments()
-  {
-    if (functionCallListArgumentsEClass == null)
-    {
-      functionCallListArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(6);
-    }
-    return functionCallListArgumentsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunctionCallListArguments_Arguments()
-  {
-        return (EReference)getFunctionCallListArguments().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getFunctionCallArguments()
-  {
-    if (functionCallArgumentsEClass == null)
-    {
-      functionCallArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(7);
-    }
-    return functionCallArgumentsEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunctionCallArguments_Args()
-  {
-        return (EReference)getFunctionCallArguments().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getFunctionCallArg()
-  {
-    if (functionCallArgEClass == null)
-    {
-      functionCallArgEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(8);
-    }
-    return functionCallArgEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getFunctionCallArg_Name()
-  {
-        return (EAttribute)getFunctionCallArg().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFunctionCallArg_Expr()
-  {
-        return (EReference)getFunctionCallArg().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getFunctionDefinition()
   {
     if (functionDefinitionEClass == null)
     {
-      functionDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(9);
+      functionDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(4);
     }
     return functionDefinitionEClass;
   }
@@ -1402,11 +1214,100 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EClass getFunctionCallListArguments()
+  {
+    if (functionCallListArgumentsEClass == null)
+    {
+      functionCallListArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(5);
+    }
+    return functionCallListArgumentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionCallListArguments_Arguments()
+  {
+        return (EReference)getFunctionCallListArguments().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunctionCallArguments()
+  {
+    if (functionCallArgumentsEClass == null)
+    {
+      functionCallArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(6);
+    }
+    return functionCallArgumentsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionCallArguments_Args()
+  {
+        return (EReference)getFunctionCallArguments().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFunctionCallArg()
+  {
+    if (functionCallArgEClass == null)
+    {
+      functionCallArgEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(7);
+    }
+    return functionCallArgEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFunctionCallArg_Name()
+  {
+        return (EAttribute)getFunctionCallArg().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunctionCallArg_Expr()
+  {
+        return (EReference)getFunctionCallArg().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFunctionDefinitionOptionalElement()
   {
     if (functionDefinitionOptionalElementEClass == null)
     {
-      functionDefinitionOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(10);
+      functionDefinitionOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(8);
     }
     return functionDefinitionOptionalElementEClass;
   }
@@ -1421,7 +1322,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (constEClass == null)
     {
-      constEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(11);
+      constEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(9);
     }
     return constEClass;
   }
@@ -1436,7 +1337,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (visibilitySpecifierEClass == null)
     {
-      visibilitySpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(12);
+      visibilitySpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(10);
     }
     return visibilitySpecifierEClass;
   }
@@ -1462,7 +1363,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (structDefinitionEClass == null)
     {
-      structDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(13);
+      structDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(11);
     }
     return structDefinitionEClass;
   }
@@ -1510,7 +1411,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (enumDefinitionEClass == null)
     {
-      enumDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(14);
+      enumDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(12);
     }
     return enumDefinitionEClass;
   }
@@ -1558,7 +1459,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (enumValueEClass == null)
     {
-      enumValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(15);
+      enumValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(13);
     }
     return enumValueEClass;
   }
@@ -1584,7 +1485,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (variableEClass == null)
     {
-      variableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(16);
+      variableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(14);
     }
     return variableEClass;
   }
@@ -1610,7 +1511,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (statementEClass == null)
     {
-      statementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(17);
+      statementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(15);
     }
     return statementEClass;
   }
@@ -1625,7 +1526,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (standardVariableDeclarationEClass == null)
     {
-      standardVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(18);
+      standardVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(16);
     }
     return standardVariableDeclarationEClass;
   }
@@ -1706,7 +1607,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (varVariableDeclarationEClass == null)
     {
-      varVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(19);
+      varVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(17);
     }
     return varVariableDeclarationEClass;
   }
@@ -1754,7 +1655,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (varVariableTupleVariableDeclarationEClass == null)
     {
-      varVariableTupleVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(20);
+      varVariableTupleVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(18);
     }
     return varVariableTupleVariableDeclarationEClass;
   }
@@ -1813,7 +1714,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (variableDeclarationOptionalElementEClass == null)
     {
-      variableDeclarationOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(21);
+      variableDeclarationOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(19);
     }
     return variableDeclarationOptionalElementEClass;
   }
@@ -1828,7 +1729,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (indexedSpeciferEClass == null)
     {
-      indexedSpeciferEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(22);
+      indexedSpeciferEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(20);
     }
     return indexedSpeciferEClass;
   }
@@ -1843,7 +1744,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (constantSpecifierEClass == null)
     {
-      constantSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(23);
+      constantSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(21);
     }
     return constantSpecifierEClass;
   }
@@ -1858,7 +1759,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (locationSpecifierEClass == null)
     {
-      locationSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(24);
+      locationSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(22);
     }
     return locationSpecifierEClass;
   }
@@ -1884,7 +1785,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (typeEClass == null)
     {
-      typeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(25);
+      typeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(23);
     }
     return typeEClass;
   }
@@ -1910,7 +1811,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (standardTypeEClass == null)
     {
-      standardTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(26);
+      standardTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(24);
     }
     return standardTypeEClass;
   }
@@ -1925,7 +1826,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (standardTypeWithoutQualifiedIdentifierEClass == null)
     {
-      standardTypeWithoutQualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(27);
+      standardTypeWithoutQualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(25);
     }
     return standardTypeWithoutQualifiedIdentifierEClass;
   }
@@ -1940,7 +1841,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (elementaryTypeEClass == null)
     {
-      elementaryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(28);
+      elementaryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(26);
     }
     return elementaryTypeEClass;
   }
@@ -1977,7 +1878,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (mappingEClass == null)
     {
-      mappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(29);
+      mappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(27);
     }
     return mappingEClass;
   }
@@ -2014,7 +1915,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (arrayDimensionsEClass == null)
     {
-      arrayDimensionsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(30);
+      arrayDimensionsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(28);
     }
     return arrayDimensionsEClass;
   }
@@ -2040,7 +1941,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (tupleEClass == null)
     {
-      tupleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(31);
+      tupleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(29);
     }
     return tupleEClass;
   }
@@ -2066,7 +1967,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (tupleSeparatorEClass == null)
     {
-      tupleSeparatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(32);
+      tupleSeparatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(30);
     }
     return tupleSeparatorEClass;
   }
@@ -2081,7 +1982,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (simpleStatementEClass == null)
     {
-      simpleStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(33);
+      simpleStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(31);
     }
     return simpleStatementEClass;
   }
@@ -2096,7 +1997,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (simpleStatement2EClass == null)
     {
-      simpleStatement2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(34);
+      simpleStatement2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(32);
     }
     return simpleStatement2EClass;
   }
@@ -2111,7 +2012,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (expressionStatementEClass == null)
     {
-      expressionStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(35);
+      expressionStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(33);
     }
     return expressionStatementEClass;
   }
@@ -2148,7 +2049,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (qualifiedIdentifierEClass == null)
     {
-      qualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(36);
+      qualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(34);
     }
     return qualifiedIdentifierEClass;
   }
@@ -2185,7 +2086,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (qualifierEClass == null)
     {
-      qualifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(37);
+      qualifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(35);
     }
     return qualifierEClass;
   }
@@ -2200,7 +2101,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (fieldEClass == null)
     {
-      fieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(38);
+      fieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(36);
     }
     return fieldEClass;
   }
@@ -2226,7 +2127,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (indexEClass == null)
     {
-      indexEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(39);
+      indexEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(37);
     }
     return indexEClass;
   }
@@ -2252,7 +2153,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (argumentsEClass == null)
     {
-      argumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(40);
+      argumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(38);
     }
     return argumentsEClass;
   }
@@ -2278,7 +2179,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (modifierEClass == null)
     {
-      modifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(41);
+      modifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(39);
     }
     return modifierEClass;
   }
@@ -2326,7 +2227,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (eventEClass == null)
     {
-      eventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(42);
+      eventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(40);
     }
     return eventEClass;
   }
@@ -2363,7 +2264,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (modifierInvocationEClass == null)
     {
-      modifierInvocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(43);
+      modifierInvocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(41);
     }
     return modifierInvocationEClass;
   }
@@ -2400,7 +2301,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (parameterListEClass == null)
     {
-      parameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(44);
+      parameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(42);
     }
     return parameterListEClass;
   }
@@ -2426,7 +2327,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (returnsParameterListEClass == null)
     {
-      returnsParameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(45);
+      returnsParameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(43);
     }
     return returnsParameterListEClass;
   }
@@ -2452,7 +2353,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (returnParameterDeclarationEClass == null)
     {
-      returnParameterDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(46);
+      returnParameterDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(44);
     }
     return returnParameterDeclarationEClass;
   }
@@ -2489,7 +2390,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (deleteStatementEClass == null)
     {
-      deleteStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(47);
+      deleteStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(45);
     }
     return deleteStatementEClass;
   }
@@ -2515,7 +2416,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (ifStatementEClass == null)
     {
-      ifStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(48);
+      ifStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(46);
     }
     return ifStatementEClass;
   }
@@ -2563,7 +2464,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (whileStatementEClass == null)
     {
-      whileStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(49);
+      whileStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(47);
     }
     return whileStatementEClass;
   }
@@ -2600,7 +2501,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (forStatementEClass == null)
     {
-      forStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(50);
+      forStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(48);
     }
     return forStatementEClass;
   }
@@ -2659,7 +2560,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (bodyEClass == null)
     {
-      bodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(51);
+      bodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(49);
     }
     return bodyEClass;
   }
@@ -2674,7 +2575,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (continueStatementEClass == null)
     {
-      continueStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(52);
+      continueStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(50);
     }
     return continueStatementEClass;
   }
@@ -2689,7 +2590,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (breakStatementEClass == null)
     {
-      breakStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(53);
+      breakStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(51);
     }
     return breakStatementEClass;
   }
@@ -2704,7 +2605,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (returnStatementEClass == null)
     {
-      returnStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(54);
+      returnStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(52);
     }
     return returnStatementEClass;
   }
@@ -2730,7 +2631,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (throwStatementEClass == null)
     {
-      throwStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(55);
+      throwStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(53);
     }
     return throwStatementEClass;
   }
@@ -2745,7 +2646,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (placeHolderStatementEClass == null)
     {
-      placeHolderStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(56);
+      placeHolderStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(54);
     }
     return placeHolderStatementEClass;
   }
@@ -2760,7 +2661,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (expressionEClass == null)
     {
-      expressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(57);
+      expressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(55);
     }
     return expressionEClass;
   }
@@ -2775,7 +2676,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (specialExpressionEClass == null)
     {
-      specialExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(58);
+      specialExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(56);
     }
     return specialExpressionEClass;
   }
@@ -2823,7 +2724,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (notExpressionEClass == null)
     {
-      notExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(59);
+      notExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(57);
     }
     return notExpressionEClass;
   }
@@ -2849,7 +2750,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (preIncExpressionEClass == null)
     {
-      preIncExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(60);
+      preIncExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(58);
     }
     return preIncExpressionEClass;
   }
@@ -2875,7 +2776,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (preDecExpressionEClass == null)
     {
-      preDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(61);
+      preDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(59);
     }
     return preDecExpressionEClass;
   }
@@ -2901,7 +2802,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (binaryNotExpressionEClass == null)
     {
-      binaryNotExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(62);
+      binaryNotExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(60);
     }
     return binaryNotExpressionEClass;
   }
@@ -2927,7 +2828,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (signExpressionEClass == null)
     {
-      signExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(63);
+      signExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(61);
     }
     return signExpressionEClass;
   }
@@ -2964,7 +2865,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (newExpressionEClass == null)
     {
-      newExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(64);
+      newExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(62);
     }
     return newExpressionEClass;
   }
@@ -3001,7 +2902,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (literalEClass == null)
     {
-      literalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(65);
+      literalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(63);
     }
     return literalEClass;
   }
@@ -3016,7 +2917,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (gasleftFunctionEClass == null)
     {
-      gasleftFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(66);
+      gasleftFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(64);
     }
     return gasleftFunctionEClass;
   }
@@ -3042,7 +2943,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (blockhashFunctionEClass == null)
     {
-      blockhashFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(67);
+      blockhashFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(65);
     }
     return blockhashFunctionEClass;
   }
@@ -3068,7 +2969,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (mathematicalFunctionEClass == null)
     {
-      mathematicalFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(68);
+      mathematicalFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(66);
     }
     return mathematicalFunctionEClass;
   }
@@ -3105,7 +3006,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (ecrecoverFunctionEClass == null)
     {
-      ecrecoverFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(69);
+      ecrecoverFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(67);
     }
     return ecrecoverFunctionEClass;
   }
@@ -3142,7 +3043,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (hashFunctionEClass == null)
     {
-      hashFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(70);
+      hashFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(68);
     }
     return hashFunctionEClass;
   }
@@ -3179,7 +3080,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (intParameterEClass == null)
     {
-      intParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(71);
+      intParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(69);
     }
     return intParameterEClass;
   }
@@ -3216,7 +3117,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (functionCallEClass == null)
     {
-      functionCallEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(72);
+      functionCallEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(70);
     }
     return functionCallEClass;
   }
@@ -3253,7 +3154,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (arithmeticOperationsEClass == null)
     {
-      arithmeticOperationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(73);
+      arithmeticOperationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(71);
     }
     return arithmeticOperationsEClass;
   }
@@ -3290,7 +3191,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (primaryArithmeticEClass == null)
     {
-      primaryArithmeticEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(74);
+      primaryArithmeticEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(72);
     }
     return primaryArithmeticEClass;
   }
@@ -3305,7 +3206,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (secondOperatorsEClass == null)
     {
-      secondOperatorsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(75);
+      secondOperatorsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(73);
     }
     return secondOperatorsEClass;
   }
@@ -3342,7 +3243,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (booleanConstEClass == null)
     {
-      booleanConstEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(76);
+      booleanConstEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(74);
     }
     return booleanConstEClass;
   }
@@ -3368,7 +3269,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (numberEClass == null)
     {
-      numberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(77);
+      numberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(75);
     }
     return numberEClass;
   }
@@ -3394,7 +3295,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (nowEClass == null)
     {
-      nowEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(78);
+      nowEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(76);
     }
     return nowEClass;
   }
@@ -3409,7 +3310,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (unitTypesEClass == null)
     {
-      unitTypesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(79);
+      unitTypesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(77);
     }
     return unitTypesEClass;
   }
@@ -3446,7 +3347,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (numberDimensionlessEClass == null)
     {
-      numberDimensionlessEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(80);
+      numberDimensionlessEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(78);
     }
     return numberDimensionlessEClass;
   }
@@ -3472,7 +3373,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (etherEClass == null)
     {
-      etherEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(81);
+      etherEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(79);
     }
     return etherEClass;
   }
@@ -3509,7 +3410,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (timeEClass == null)
     {
-      timeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(82);
+      timeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(80);
     }
     return timeEClass;
   }
@@ -3546,7 +3447,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (stringLiteralEClass == null)
     {
-      stringLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(83);
+      stringLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(81);
     }
     return stringLiteralEClass;
   }
@@ -3572,7 +3473,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (hexLiteralEClass == null)
     {
-      hexLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(84);
+      hexLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(82);
     }
     return hexLiteralEClass;
   }
@@ -3598,7 +3499,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (decimalLiteralEClass == null)
     {
-      decimalLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(85);
+      decimalLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(83);
     }
     return decimalLiteralEClass;
   }
@@ -3624,7 +3525,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (typeCastEClass == null)
     {
-      typeCastEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(86);
+      typeCastEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(84);
     }
     return typeCastEClass;
   }
@@ -3661,7 +3562,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (specialVariablesEClass == null)
     {
-      specialVariablesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(87);
+      specialVariablesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(85);
     }
     return specialVariablesEClass;
   }
@@ -3709,7 +3610,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (specialVariablesTypeEnumEClass == null)
     {
-      specialVariablesTypeEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(101);
+      specialVariablesTypeEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(99);
     }
     return specialVariablesTypeEnumEClass;
   }
@@ -3735,7 +3636,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (varVariableTypeDeclarationEClass == null)
     {
-      varVariableTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(104);
+      varVariableTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(102);
     }
     return varVariableTypeDeclarationEClass;
   }
@@ -3783,7 +3684,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (blockEClass == null)
     {
-      blockEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(105);
+      blockEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(103);
     }
     return blockEClass;
   }
@@ -3809,7 +3710,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (continueEClass == null)
     {
-      continueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(106);
+      continueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(104);
     }
     return continueEClass;
   }
@@ -3824,7 +3725,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (assignmentEClass == null)
     {
-      assignmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(107);
+      assignmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(105);
     }
     return assignmentEClass;
   }
@@ -3872,7 +3773,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (variableDeclarationExpressionEClass == null)
     {
-      variableDeclarationExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(108);
+      variableDeclarationExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(106);
     }
     return variableDeclarationExpressionEClass;
   }
@@ -3920,7 +3821,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (orEClass == null)
     {
-      orEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(109);
+      orEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(107);
     }
     return orEClass;
   }
@@ -3957,7 +3858,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (andEClass == null)
     {
-      andEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(110);
+      andEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(108);
     }
     return andEClass;
   }
@@ -3994,7 +3895,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (equalityEClass == null)
     {
-      equalityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(111);
+      equalityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(109);
     }
     return equalityEClass;
   }
@@ -4042,7 +3943,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (comparisonEClass == null)
     {
-      comparisonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(112);
+      comparisonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(110);
     }
     return comparisonEClass;
   }
@@ -4090,7 +3991,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (bitOrEClass == null)
     {
-      bitOrEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(113);
+      bitOrEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(111);
     }
     return bitOrEClass;
   }
@@ -4127,7 +4028,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (bitXorEClass == null)
     {
-      bitXorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(114);
+      bitXorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(112);
     }
     return bitXorEClass;
   }
@@ -4164,7 +4065,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (bitAndEClass == null)
     {
-      bitAndEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(115);
+      bitAndEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(113);
     }
     return bitAndEClass;
   }
@@ -4201,7 +4102,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (shiftEClass == null)
     {
-      shiftEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(116);
+      shiftEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(114);
     }
     return shiftEClass;
   }
@@ -4249,7 +4150,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (addSubEClass == null)
     {
-      addSubEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(117);
+      addSubEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(115);
     }
     return addSubEClass;
   }
@@ -4297,7 +4198,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (mulDivModEClass == null)
     {
-      mulDivModEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(118);
+      mulDivModEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(116);
     }
     return mulDivModEClass;
   }
@@ -4345,7 +4246,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (exponentEClass == null)
     {
-      exponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(119);
+      exponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(117);
     }
     return exponentEClass;
   }
@@ -4382,7 +4283,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (postIncDecExpressionEClass == null)
     {
-      postIncDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(120);
+      postIncDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(118);
     }
     return postIncDecExpressionEClass;
   }
@@ -4419,7 +4320,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (elementaryTypeNameEnumEEnum == null)
     {
-      elementaryTypeNameEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(88);
+      elementaryTypeNameEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(86);
     }
     return elementaryTypeNameEnumEEnum;
   }
@@ -4434,7 +4335,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (locationSpecifierEnumEEnum == null)
     {
-      locationSpecifierEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(89);
+      locationSpecifierEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(87);
     }
     return locationSpecifierEnumEEnum;
   }
@@ -4449,7 +4350,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (visibilityEnumEEnum == null)
     {
-      visibilityEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(90);
+      visibilityEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(88);
     }
     return visibilityEnumEEnum;
   }
@@ -4464,7 +4365,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (assignmentOpEnumEEnum == null)
     {
-      assignmentOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(91);
+      assignmentOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(89);
     }
     return assignmentOpEnumEEnum;
   }
@@ -4479,7 +4380,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (equalityOpEnumEEnum == null)
     {
-      equalityOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(92);
+      equalityOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(90);
     }
     return equalityOpEnumEEnum;
   }
@@ -4494,7 +4395,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (comparisonOpEnumEEnum == null)
     {
-      comparisonOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(93);
+      comparisonOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(91);
     }
     return comparisonOpEnumEEnum;
   }
@@ -4509,7 +4410,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (shiftOpEnumEEnum == null)
     {
-      shiftOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(94);
+      shiftOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(92);
     }
     return shiftOpEnumEEnum;
   }
@@ -4524,7 +4425,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (additionOpEnumEEnum == null)
     {
-      additionOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(95);
+      additionOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(93);
     }
     return additionOpEnumEEnum;
   }
@@ -4539,7 +4440,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (mulDivModOpEnumEEnum == null)
     {
-      mulDivModOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(96);
+      mulDivModOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(94);
     }
     return mulDivModOpEnumEEnum;
   }
@@ -4554,7 +4455,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (incDecOpEnumEEnum == null)
     {
-      incDecOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(97);
+      incDecOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(95);
     }
     return incDecOpEnumEEnum;
   }
@@ -4569,7 +4470,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (booleanLiteralEnumEEnum == null)
     {
-      booleanLiteralEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(98);
+      booleanLiteralEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(96);
     }
     return booleanLiteralEnumEEnum;
   }
@@ -4584,7 +4485,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (etherSubDenominationEnumEEnum == null)
     {
-      etherSubDenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(99);
+      etherSubDenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(97);
     }
     return etherSubDenominationEnumEEnum;
   }
@@ -4599,7 +4500,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (timeSubdenominationEnumEEnum == null)
     {
-      timeSubdenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(100);
+      timeSubdenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(98);
     }
     return timeSubdenominationEnumEEnum;
   }
@@ -4614,7 +4515,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (specialExpressionTypeEnumEEnum == null)
     {
-      specialExpressionTypeEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(102);
+      specialExpressionTypeEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(100);
     }
     return specialExpressionTypeEnumEEnum;
   }
@@ -4629,7 +4530,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   {
     if (reservedWordsEnumEEnum == null)
     {
-      reservedWordsEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(103);
+      reservedWordsEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(101);
     }
     return reservedWordsEnumEEnum;
   }

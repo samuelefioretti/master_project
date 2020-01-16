@@ -54,7 +54,6 @@ import org.unicam.myGrammar.optGrammar.GasleftFunction;
 import org.unicam.myGrammar.optGrammar.HashFunction;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IfStatement;
-import org.unicam.myGrammar.optGrammar.ImportDirective;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
@@ -63,6 +62,7 @@ import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
+import org.unicam.myGrammar.optGrammar.Model;
 import org.unicam.myGrammar.optGrammar.Modifier;
 import org.unicam.myGrammar.optGrammar.ModifierInvocation;
 import org.unicam.myGrammar.optGrammar.MulDivMod;
@@ -88,7 +88,6 @@ import org.unicam.myGrammar.optGrammar.Shift;
 import org.unicam.myGrammar.optGrammar.SignExpression;
 import org.unicam.myGrammar.optGrammar.SimpleStatement;
 import org.unicam.myGrammar.optGrammar.SimpleStatement2;
-import org.unicam.myGrammar.optGrammar.Solidity;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialVariables;
 import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
@@ -98,7 +97,6 @@ import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.Statement;
 import org.unicam.myGrammar.optGrammar.StringLiteral;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.SymbolAlias;
 import org.unicam.myGrammar.optGrammar.ThrowStatement;
 import org.unicam.myGrammar.optGrammar.Time;
 import org.unicam.myGrammar.optGrammar.Tuple;
@@ -178,24 +176,10 @@ public class OptGrammarSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case OptGrammarPackage.SOLIDITY:
+      case OptGrammarPackage.MODEL:
       {
-        Solidity solidity = (Solidity)theEObject;
-        T result = caseSolidity(solidity);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.IMPORT_DIRECTIVE:
-      {
-        ImportDirective importDirective = (ImportDirective)theEObject;
-        T result = caseImportDirective(importDirective);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.SYMBOL_ALIAS:
-      {
-        SymbolAlias symbolAlias = (SymbolAlias)theEObject;
-        T result = caseSymbolAlias(symbolAlias);
+        Model model = (Model)theEObject;
+        T result = caseModel(model);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -206,6 +190,13 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.INHERITANCE_SPECIFIER:
+      {
+        InheritanceSpecifier inheritanceSpecifier = (InheritanceSpecifier)theEObject;
+        T result = caseInheritanceSpecifier(inheritanceSpecifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.DEFINITION_BODY:
       {
         DefinitionBody definitionBody = (DefinitionBody)theEObject;
@@ -213,10 +204,10 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.INHERITANCE_SPECIFIER:
+      case OptGrammarPackage.FUNCTION_DEFINITION:
       {
-        InheritanceSpecifier inheritanceSpecifier = (InheritanceSpecifier)theEObject;
-        T result = caseInheritanceSpecifier(inheritanceSpecifier);
+        FunctionDefinition functionDefinition = (FunctionDefinition)theEObject;
+        T result = caseFunctionDefinition(functionDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -239,13 +230,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         FunctionCallArg functionCallArg = (FunctionCallArg)theEObject;
         T result = caseFunctionCallArg(functionCallArg);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.FUNCTION_DEFINITION:
-      {
-        FunctionDefinition functionDefinition = (FunctionDefinition)theEObject;
-        T result = caseFunctionDefinition(functionDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1078,49 +1062,17 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Solidity</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Solidity</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSolidity(Solidity object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Import Directive</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Import Directive</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseImportDirective(ImportDirective object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Symbol Alias</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Symbol Alias</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSymbolAlias(SymbolAlias object)
+  public T caseModel(Model object)
   {
     return null;
   }
@@ -1142,6 +1094,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Inheritance Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inheritance Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInheritanceSpecifier(InheritanceSpecifier object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Definition Body</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1158,17 +1126,17 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Inheritance Specifier</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Function Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Inheritance Specifier</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Function Definition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInheritanceSpecifier(InheritanceSpecifier object)
+  public T caseFunctionDefinition(FunctionDefinition object)
   {
     return null;
   }
@@ -1217,22 +1185,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFunctionCallArg(FunctionCallArg object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Function Definition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Function Definition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFunctionDefinition(FunctionDefinition object)
   {
     return null;
   }

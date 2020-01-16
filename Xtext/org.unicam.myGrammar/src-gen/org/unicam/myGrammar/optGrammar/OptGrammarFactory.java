@@ -24,31 +24,13 @@ public interface OptGrammarFactory extends EFactory
   OptGrammarFactory eINSTANCE = org.unicam.myGrammar.optGrammar.impl.OptGrammarFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Solidity</em>'.
+   * Returns a new object of class '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Solidity</em>'.
+   * @return a new object of class '<em>Model</em>'.
    * @generated
    */
-  Solidity createSolidity();
-
-  /**
-   * Returns a new object of class '<em>Import Directive</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Import Directive</em>'.
-   * @generated
-   */
-  ImportDirective createImportDirective();
-
-  /**
-   * Returns a new object of class '<em>Symbol Alias</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol Alias</em>'.
-   * @generated
-   */
-  SymbolAlias createSymbolAlias();
+  Model createModel();
 
   /**
    * Returns a new object of class '<em>Contract</em>'.
@@ -60,6 +42,15 @@ public interface OptGrammarFactory extends EFactory
   Contract createContract();
 
   /**
+   * Returns a new object of class '<em>Inheritance Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inheritance Specifier</em>'.
+   * @generated
+   */
+  InheritanceSpecifier createInheritanceSpecifier();
+
+  /**
    * Returns a new object of class '<em>Definition Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,13 +60,13 @@ public interface OptGrammarFactory extends EFactory
   DefinitionBody createDefinitionBody();
 
   /**
-   * Returns a new object of class '<em>Inheritance Specifier</em>'.
+   * Returns a new object of class '<em>Function Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Inheritance Specifier</em>'.
+   * @return a new object of class '<em>Function Definition</em>'.
    * @generated
    */
-  InheritanceSpecifier createInheritanceSpecifier();
+  FunctionDefinition createFunctionDefinition();
 
   /**
    * Returns a new object of class '<em>Function Call List Arguments</em>'.
@@ -103,15 +94,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   FunctionCallArg createFunctionCallArg();
-
-  /**
-   * Returns a new object of class '<em>Function Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Definition</em>'.
-   * @generated
-   */
-  FunctionDefinition createFunctionDefinition();
 
   /**
    * Returns a new object of class '<em>Function Definition Optional Element</em>'.

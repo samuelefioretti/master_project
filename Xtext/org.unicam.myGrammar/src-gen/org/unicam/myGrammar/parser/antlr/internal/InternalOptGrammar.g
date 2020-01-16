@@ -44,7 +44,7 @@ import org.unicam.myGrammar.services.OptGrammarGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Solidity";
+    	return "Model";
    	}
 
    	@Override
@@ -61,15 +61,15 @@ import org.unicam.myGrammar.services.OptGrammarGrammarAccess;
     }
 }
 
-// Entry rule entryRuleSolidity
-entryRuleSolidity returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSolidityRule()); }
-	iv_ruleSolidity=ruleSolidity
-	{ $current=$iv_ruleSolidity.current; }
+// Entry rule entryRuleModel
+entryRuleModel returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getModelRule()); }
+	iv_ruleModel=ruleModel
+	{ $current=$iv_ruleModel.current; }
 	EOF;
 
-// Rule Solidity
-ruleSolidity returns [EObject current=null]
+// Rule Model
+ruleModel returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -78,295 +78,23 @@ ruleSolidity returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSolidityAccess().getImportDirectiveImportDirectiveParserRuleCall_0_0());
+			{
+				newCompositeNode(grammarAccess.getModelAccess().getOperationsContractParserRuleCall_0());
+			}
+			lv_operations_0_0=ruleContract
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getModelRule());
 				}
-				lv_importDirective_0_0=ruleImportDirective
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSolidityRule());
-					}
-					add(
-						$current,
-						"importDirective",
-						lv_importDirective_0_0,
-						"org.unicam.myGrammar.OptGrammar.ImportDirective");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		    |
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSolidityAccess().getContractContractParserRuleCall_1_0());
-				}
-				lv_contract_1_0=ruleContract
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSolidityRule());
-					}
-					add(
-						$current,
-						"contract",
-						lv_contract_1_0,
-						"org.unicam.myGrammar.OptGrammar.Contract");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				add(
+					$current,
+					"operations",
+					lv_operations_0_0,
+					"org.unicam.myGrammar.OptGrammar.Contract");
+				afterParserOrEnumRuleCall();
+			}
 		)
 	)*
-;
-
-// Entry rule entryRuleImportDirective
-entryRuleImportDirective returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getImportDirectiveRule()); }
-	iv_ruleImportDirective=ruleImportDirective
-	{ $current=$iv_ruleImportDirective.current; }
-	EOF;
-
-// Rule ImportDirective
-ruleImportDirective returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			otherlv_0='import'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getImportDirectiveAccess().getImportKeyword_0_0());
-			}
-			(
-				(
-					lv_importURI_1_0=RULE_STRING
-					{
-						newLeafNode(lv_importURI_1_0, grammarAccess.getImportDirectiveAccess().getImportURISTRINGTerminalRuleCall_0_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getImportDirectiveRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"importURI",
-							lv_importURI_1_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-			otherlv_2=';'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getImportDirectiveAccess().getSemicolonKeyword_0_2());
-			}
-		)
-		    |
-		(
-			otherlv_3='import'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getImportDirectiveAccess().getImportKeyword_1_0());
-			}
-			otherlv_4='*'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getImportDirectiveAccess().getAsteriskKeyword_1_1());
-			}
-			otherlv_5='as'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getImportDirectiveAccess().getAsKeyword_1_2());
-			}
-			(
-				(
-					lv_unitAlias_6_0=RULE_ID
-					{
-						newLeafNode(lv_unitAlias_6_0, grammarAccess.getImportDirectiveAccess().getUnitAliasIDTerminalRuleCall_1_3_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getImportDirectiveRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"unitAlias",
-							lv_unitAlias_6_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
-			)
-			otherlv_7='from'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getImportDirectiveAccess().getFromKeyword_1_4());
-			}
-			(
-				(
-					lv_importURI_8_0=RULE_STRING
-					{
-						newLeafNode(lv_importURI_8_0, grammarAccess.getImportDirectiveAccess().getImportURISTRINGTerminalRuleCall_1_5_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getImportDirectiveRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"importURI",
-							lv_importURI_8_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-			otherlv_9=';'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getImportDirectiveAccess().getSemicolonKeyword_1_6());
-			}
-		)
-		    |
-		(
-			otherlv_10='import'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getImportDirectiveAccess().getImportKeyword_2_0());
-			}
-			otherlv_11='{'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getImportDirectiveAccess().getLeftCurlyBracketKeyword_2_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getImportDirectiveAccess().getSymbolAliasesSymbolAliasParserRuleCall_2_2_0());
-					}
-					lv_symbolAliases_12_0=ruleSymbolAlias
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getImportDirectiveRule());
-						}
-						add(
-							$current,
-							"symbolAliases",
-							lv_symbolAliases_12_0,
-							"org.unicam.myGrammar.OptGrammar.SymbolAlias");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_13=','
-				{
-					newLeafNode(otherlv_13, grammarAccess.getImportDirectiveAccess().getCommaKeyword_2_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getImportDirectiveAccess().getSymbolAliasesSymbolAliasParserRuleCall_2_3_1_0());
-						}
-						lv_symbolAliases_14_0=ruleSymbolAlias
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getImportDirectiveRule());
-							}
-							add(
-								$current,
-								"symbolAliases",
-								lv_symbolAliases_14_0,
-								"org.unicam.myGrammar.OptGrammar.SymbolAlias");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)?
-			otherlv_15='}'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getImportDirectiveAccess().getRightCurlyBracketKeyword_2_4());
-			}
-			otherlv_16='from'
-			{
-				newLeafNode(otherlv_16, grammarAccess.getImportDirectiveAccess().getFromKeyword_2_5());
-			}
-			(
-				(
-					lv_importURI_17_0=RULE_STRING
-					{
-						newLeafNode(lv_importURI_17_0, grammarAccess.getImportDirectiveAccess().getImportURISTRINGTerminalRuleCall_2_6_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getImportDirectiveRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"importURI",
-							lv_importURI_17_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
-				)
-			)
-			otherlv_18=';'
-			{
-				newLeafNode(otherlv_18, grammarAccess.getImportDirectiveAccess().getSemicolonKeyword_2_7());
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleSymbolAlias
-entryRuleSymbolAlias returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSymbolAliasRule()); }
-	iv_ruleSymbolAlias=ruleSymbolAlias
-	{ $current=$iv_ruleSymbolAlias.current; }
-	EOF;
-
-// Rule SymbolAlias
-ruleSymbolAlias returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_symbol_0_0=RULE_ID
-				{
-					newLeafNode(lv_symbol_0_0, grammarAccess.getSymbolAliasAccess().getSymbolIDTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSymbolAliasRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"symbol",
-						lv_symbol_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_1='as'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSymbolAliasAccess().getAsKeyword_1());
-		}
-		(
-			(
-				lv_alias_2_0=RULE_ID
-				{
-					newLeafNode(lv_alias_2_0, grammarAccess.getSymbolAliasAccess().getAliasIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSymbolAliasRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"alias",
-						lv_alias_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-	)
 ;
 
 // Entry rule entryRuleContract
@@ -476,6 +204,63 @@ ruleContract returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRuleInheritanceSpecifier
+entryRuleInheritanceSpecifier returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInheritanceSpecifierRule()); }
+	iv_ruleInheritanceSpecifier=ruleInheritanceSpecifier
+	{ $current=$iv_ruleInheritanceSpecifier.current; }
+	EOF;
+
+// Rule InheritanceSpecifier
+ruleInheritanceSpecifier returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInheritanceSpecifierAccess().getSuperTypeContractParserRuleCall_0_0());
+				}
+				lv_SuperType_0_0=ruleContract
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInheritanceSpecifierRule());
+					}
+					set(
+						$current,
+						"SuperType",
+						lv_SuperType_0_0,
+						"org.unicam.myGrammar.OptGrammar.Contract");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInheritanceSpecifierAccess().getArgsFunctionCallListArgumentsParserRuleCall_1_0());
+				}
+				lv_args_1_0=ruleFunctionCallListArguments
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInheritanceSpecifierRule());
+					}
+					set(
+						$current,
+						"args",
+						lv_args_1_0,
+						"org.unicam.myGrammar.OptGrammar.FunctionCallListArguments");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -640,15 +425,15 @@ ruleDefinitionBody returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleInheritanceSpecifier
-entryRuleInheritanceSpecifier returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getInheritanceSpecifierRule()); }
-	iv_ruleInheritanceSpecifier=ruleInheritanceSpecifier
-	{ $current=$iv_ruleInheritanceSpecifier.current; }
+// Entry rule entryRuleFunctionDefinition
+entryRuleFunctionDefinition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFunctionDefinitionRule()); }
+	iv_ruleFunctionDefinition=ruleFunctionDefinition
+	{ $current=$iv_ruleFunctionDefinition.current; }
 	EOF;
 
-// Rule InheritanceSpecifier
-ruleInheritanceSpecifier returns [EObject current=null]
+// Rule FunctionDefinition
+ruleFunctionDefinition returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -657,31 +442,130 @@ ruleInheritanceSpecifier returns [EObject current=null]
 }:
 	(
 		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getInheritanceSpecifierAccess().getInheritanceSpecifierAction_0(),
-					$current);
-			}
+			(
+				lv_payable_0_0='payable'
+				{
+					newLeafNode(lv_payable_0_0, grammarAccess.getFunctionDefinitionAccess().getPayablePayableKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFunctionDefinitionRule());
+					}
+					setWithLastConsumed($current, "payable", true, "payable");
+				}
+			)
+		)?
+		otherlv_1='function'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getFunctionDefinitionAccess().getFunctionKeyword_1());
+		}
+		(
+			(
+				lv_name_2_0=RULE_ID
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getFunctionDefinitionAccess().getNameIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFunctionDefinitionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getInheritanceSpecifierAccess().getArgsFunctionCallListArgumentsParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getFunctionDefinitionAccess().getParametersParameterListParserRuleCall_3_0());
 				}
-				lv_args_1_0=ruleFunctionCallListArguments
+				lv_parameters_3_0=ruleParameterList
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getInheritanceSpecifierRule());
+						$current = createModelElementForParent(grammarAccess.getFunctionDefinitionRule());
 					}
 					set(
 						$current,
-						"args",
-						lv_args_1_0,
-						"org.unicam.myGrammar.OptGrammar.FunctionCallListArguments");
+						"parameters",
+						lv_parameters_3_0,
+						"org.unicam.myGrammar.OptGrammar.ParameterList");
 					afterParserOrEnumRuleCall();
 				}
 			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFunctionDefinitionAccess().getOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0());
+				}
+				lv_optionalElements_4_0=ruleFunctionDefinitionOptionalElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFunctionDefinitionRule());
+					}
+					add(
+						$current,
+						"optionalElements",
+						lv_optionalElements_4_0,
+						"org.unicam.myGrammar.OptGrammar.FunctionDefinitionOptionalElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			otherlv_5='returns'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getFunctionDefinitionAccess().getReturnsKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFunctionDefinitionAccess().getReturnParametersReturnsParameterListParserRuleCall_5_1_0());
+					}
+					lv_returnParameters_6_0=ruleReturnsParameterList
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFunctionDefinitionRule());
+						}
+						set(
+							$current,
+							"returnParameters",
+							lv_returnParameters_6_0,
+							"org.unicam.myGrammar.OptGrammar.ReturnsParameterList");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)?
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFunctionDefinitionAccess().getBlockBodyParserRuleCall_6_0_0());
+					}
+					lv_block_7_0=ruleBody
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFunctionDefinitionRule());
+						}
+						set(
+							$current,
+							"block",
+							lv_block_7_0,
+							"org.unicam.myGrammar.OptGrammar.Body");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			otherlv_8=';'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getFunctionDefinitionAccess().getSemicolonKeyword_6_1());
+			}
+		)
 	)
 ;
 
@@ -920,150 +804,6 @@ ruleFunctionCallArg returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
-	)
-;
-
-// Entry rule entryRuleFunctionDefinition
-entryRuleFunctionDefinition returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getFunctionDefinitionRule()); }
-	iv_ruleFunctionDefinition=ruleFunctionDefinition
-	{ $current=$iv_ruleFunctionDefinition.current; }
-	EOF;
-
-// Rule FunctionDefinition
-ruleFunctionDefinition returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_payable_0_0='payable'
-				{
-					newLeafNode(lv_payable_0_0, grammarAccess.getFunctionDefinitionAccess().getPayablePayableKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFunctionDefinitionRule());
-					}
-					setWithLastConsumed($current, "payable", true, "payable");
-				}
-			)
-		)?
-		otherlv_1='function'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getFunctionDefinitionAccess().getFunctionKeyword_1());
-		}
-		(
-			(
-				lv_name_2_0=RULE_ID
-				{
-					newLeafNode(lv_name_2_0, grammarAccess.getFunctionDefinitionAccess().getNameIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFunctionDefinitionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getFunctionDefinitionAccess().getParametersParameterListParserRuleCall_3_0());
-				}
-				lv_parameters_3_0=ruleParameterList
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFunctionDefinitionRule());
-					}
-					set(
-						$current,
-						"parameters",
-						lv_parameters_3_0,
-						"org.unicam.myGrammar.OptGrammar.ParameterList");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getFunctionDefinitionAccess().getOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0());
-				}
-				lv_optionalElements_4_0=ruleFunctionDefinitionOptionalElement
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFunctionDefinitionRule());
-					}
-					add(
-						$current,
-						"optionalElements",
-						lv_optionalElements_4_0,
-						"org.unicam.myGrammar.OptGrammar.FunctionDefinitionOptionalElement");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		(
-			otherlv_5='returns'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getFunctionDefinitionAccess().getReturnsKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFunctionDefinitionAccess().getReturnParametersReturnsParameterListParserRuleCall_5_1_0());
-					}
-					lv_returnParameters_6_0=ruleReturnsParameterList
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFunctionDefinitionRule());
-						}
-						set(
-							$current,
-							"returnParameters",
-							lv_returnParameters_6_0,
-							"org.unicam.myGrammar.OptGrammar.ReturnsParameterList");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFunctionDefinitionAccess().getBlockBodyParserRuleCall_6_0_0());
-					}
-					lv_block_7_0=ruleBody
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFunctionDefinitionRule());
-						}
-						set(
-							$current,
-							"block",
-							lv_block_7_0,
-							"org.unicam.myGrammar.OptGrammar.Body");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			otherlv_8=';'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getFunctionDefinitionAccess().getSemicolonKeyword_6_1());
-			}
 		)
 	)
 ;

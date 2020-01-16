@@ -27,197 +27,40 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class SolidityElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Solidity");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cImportDirectiveAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cImportDirectiveImportDirectiveParserRuleCall_0_0 = (RuleCall)cImportDirectiveAssignment_0.eContents().get(0);
-		private final Assignment cContractAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cContractContractParserRuleCall_1_0 = (RuleCall)cContractAssignment_1.eContents().get(0);
+	public class ModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Model");
+		private final Assignment cOperationsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cOperationsContractParserRuleCall_0 = (RuleCall)cOperationsAssignment.eContents().get(0);
 		
 		//// ---------- TO DO ----------
 		///*
 		// * Controllare gli array
 		// * Controllare gli elementi all'interno della struttura
-		// */ Solidity:
-		//	(importDirective+=ImportDirective | contract+=Contract)*;
+		// */ /*
+		// * Solidity:
+		// * (
+		// * importDirective+=ImportDirective |
+		// * contract+=Contract
+		// * )*
+		// * ;
+		// * 
+		// * ImportDirective:
+		// * "import" importURI=STRING ";" |
+		// * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+		// * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
+		// * ;
+		// * SymbolAlias:
+		// * symbol=ID "as" alias=ID
+		// * ;
+		// */ Model:
+		//	operations+=Contract*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(importDirective+=ImportDirective | contract+=Contract)*
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//importDirective+=ImportDirective
-		public Assignment getImportDirectiveAssignment_0() { return cImportDirectiveAssignment_0; }
-		
-		//ImportDirective
-		public RuleCall getImportDirectiveImportDirectiveParserRuleCall_0_0() { return cImportDirectiveImportDirectiveParserRuleCall_0_0; }
-		
-		//contract+=Contract
-		public Assignment getContractAssignment_1() { return cContractAssignment_1; }
+		//operations+=Contract*
+		public Assignment getOperationsAssignment() { return cOperationsAssignment; }
 		
 		//Contract
-		public RuleCall getContractContractParserRuleCall_1_0() { return cContractContractParserRuleCall_1_0; }
-	}
-	public class ImportDirectiveElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ImportDirective");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cImportKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cImportURIAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cImportURISTRINGTerminalRuleCall_0_1_0 = (RuleCall)cImportURIAssignment_0_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cImportKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cAsteriskKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Keyword cAsKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Assignment cUnitAliasAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final RuleCall cUnitAliasIDTerminalRuleCall_1_3_0 = (RuleCall)cUnitAliasAssignment_1_3.eContents().get(0);
-		private final Keyword cFromKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
-		private final Assignment cImportURIAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
-		private final RuleCall cImportURISTRINGTerminalRuleCall_1_5_0 = (RuleCall)cImportURIAssignment_1_5.eContents().get(0);
-		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cImportKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cSymbolAliasesAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cSymbolAliasesSymbolAliasParserRuleCall_2_2_0 = (RuleCall)cSymbolAliasesAssignment_2_2.eContents().get(0);
-		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
-		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Assignment cSymbolAliasesAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final RuleCall cSymbolAliasesSymbolAliasParserRuleCall_2_3_1_0 = (RuleCall)cSymbolAliasesAssignment_2_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
-		private final Keyword cFromKeyword_2_5 = (Keyword)cGroup_2.eContents().get(5);
-		private final Assignment cImportURIAssignment_2_6 = (Assignment)cGroup_2.eContents().get(6);
-		private final RuleCall cImportURISTRINGTerminalRuleCall_2_6_0 = (RuleCall)cImportURIAssignment_2_6.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2_7 = (Keyword)cGroup_2.eContents().get(7);
-		
-		//ImportDirective:
-		//	"import" importURI=STRING ";" |
-		//	"import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
-		//	"import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
-		@Override public ParserRule getRule() { return rule; }
-		
-		//"import" importURI=STRING ";" | "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" | "import" "{"
-		//symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//"import" importURI=STRING ";"
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//"import"
-		public Keyword getImportKeyword_0_0() { return cImportKeyword_0_0; }
-		
-		//importURI=STRING
-		public Assignment getImportURIAssignment_0_1() { return cImportURIAssignment_0_1; }
-		
-		//STRING
-		public RuleCall getImportURISTRINGTerminalRuleCall_0_1_0() { return cImportURISTRINGTerminalRuleCall_0_1_0; }
-		
-		//";"
-		public Keyword getSemicolonKeyword_0_2() { return cSemicolonKeyword_0_2; }
-		
-		//"import" "*" "as" unitAlias=ID "from" importURI=STRING ";"
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//"import"
-		public Keyword getImportKeyword_1_0() { return cImportKeyword_1_0; }
-		
-		//"*"
-		public Keyword getAsteriskKeyword_1_1() { return cAsteriskKeyword_1_1; }
-		
-		//"as"
-		public Keyword getAsKeyword_1_2() { return cAsKeyword_1_2; }
-		
-		//unitAlias=ID
-		public Assignment getUnitAliasAssignment_1_3() { return cUnitAliasAssignment_1_3; }
-		
-		//ID
-		public RuleCall getUnitAliasIDTerminalRuleCall_1_3_0() { return cUnitAliasIDTerminalRuleCall_1_3_0; }
-		
-		//"from"
-		public Keyword getFromKeyword_1_4() { return cFromKeyword_1_4; }
-		
-		//importURI=STRING
-		public Assignment getImportURIAssignment_1_5() { return cImportURIAssignment_1_5; }
-		
-		//STRING
-		public RuleCall getImportURISTRINGTerminalRuleCall_1_5_0() { return cImportURISTRINGTerminalRuleCall_1_5_0; }
-		
-		//";"
-		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
-		
-		//"import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//"import"
-		public Keyword getImportKeyword_2_0() { return cImportKeyword_2_0; }
-		
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
-		
-		//symbolAliases+=SymbolAlias
-		public Assignment getSymbolAliasesAssignment_2_2() { return cSymbolAliasesAssignment_2_2; }
-		
-		//SymbolAlias
-		public RuleCall getSymbolAliasesSymbolAliasParserRuleCall_2_2_0() { return cSymbolAliasesSymbolAliasParserRuleCall_2_2_0; }
-		
-		//("," symbolAliases+=SymbolAlias)?
-		public Group getGroup_2_3() { return cGroup_2_3; }
-		
-		//","
-		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
-		
-		//symbolAliases+=SymbolAlias
-		public Assignment getSymbolAliasesAssignment_2_3_1() { return cSymbolAliasesAssignment_2_3_1; }
-		
-		//SymbolAlias
-		public RuleCall getSymbolAliasesSymbolAliasParserRuleCall_2_3_1_0() { return cSymbolAliasesSymbolAliasParserRuleCall_2_3_1_0; }
-		
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_2_4() { return cRightCurlyBracketKeyword_2_4; }
-		
-		//"from"
-		public Keyword getFromKeyword_2_5() { return cFromKeyword_2_5; }
-		
-		//importURI=STRING
-		public Assignment getImportURIAssignment_2_6() { return cImportURIAssignment_2_6; }
-		
-		//STRING
-		public RuleCall getImportURISTRINGTerminalRuleCall_2_6_0() { return cImportURISTRINGTerminalRuleCall_2_6_0; }
-		
-		//";"
-		public Keyword getSemicolonKeyword_2_7() { return cSemicolonKeyword_2_7; }
-	}
-	public class SymbolAliasElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SymbolAlias");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cSymbolAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cSymbolIDTerminalRuleCall_0_0 = (RuleCall)cSymbolAssignment_0.eContents().get(0);
-		private final Keyword cAsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cAliasAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cAliasIDTerminalRuleCall_2_0 = (RuleCall)cAliasAssignment_2.eContents().get(0);
-		
-		//SymbolAlias:
-		//	symbol=ID "as" alias=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//symbol=ID "as" alias=ID
-		public Group getGroup() { return cGroup; }
-		
-		//symbol=ID
-		public Assignment getSymbolAssignment_0() { return cSymbolAssignment_0; }
-		
-		//ID
-		public RuleCall getSymbolIDTerminalRuleCall_0_0() { return cSymbolIDTerminalRuleCall_0_0; }
-		
-		//"as"
-		public Keyword getAsKeyword_1() { return cAsKeyword_1; }
-		
-		//alias=ID
-		public Assignment getAliasAssignment_2() { return cAliasAssignment_2; }
-		
-		//ID
-		public RuleCall getAliasIDTerminalRuleCall_2_0() { return cAliasIDTerminalRuleCall_2_0; }
+		public RuleCall getOperationsContractParserRuleCall_0() { return cOperationsContractParserRuleCall_0; }
 	}
 	public class ContractElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Contract");
@@ -284,6 +127,33 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//DefinitionBody
 		public RuleCall getBodyDefinitionBodyParserRuleCall_3_0() { return cBodyDefinitionBodyParserRuleCall_3_0; }
+	}
+	public class InheritanceSpecifierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.InheritanceSpecifier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSuperTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSuperTypeContractParserRuleCall_0_0 = (RuleCall)cSuperTypeAssignment_0.eContents().get(0);
+		private final Assignment cArgsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cArgsFunctionCallListArgumentsParserRuleCall_1_0 = (RuleCall)cArgsAssignment_1.eContents().get(0);
+		
+		//InheritanceSpecifier:
+		//	SuperType=Contract args=FunctionCallListArguments?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//SuperType=Contract args=FunctionCallListArguments?
+		public Group getGroup() { return cGroup; }
+		
+		//SuperType=Contract
+		public Assignment getSuperTypeAssignment_0() { return cSuperTypeAssignment_0; }
+		
+		//Contract
+		public RuleCall getSuperTypeContractParserRuleCall_0_0() { return cSuperTypeContractParserRuleCall_0_0; }
+		
+		//args=FunctionCallListArguments?
+		public Assignment getArgsAssignment_1() { return cArgsAssignment_1; }
+		
+		//FunctionCallListArguments
+		public RuleCall getArgsFunctionCallListArgumentsParserRuleCall_1_0() { return cArgsFunctionCallListArgumentsParserRuleCall_1_0; }
 	}
 	public class DefinitionBodyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.DefinitionBody");
@@ -372,28 +242,88 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
-	public class InheritanceSpecifierElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.InheritanceSpecifier");
+	public class FunctionDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.FunctionDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cInheritanceSpecifierAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cArgsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cArgsFunctionCallListArgumentsParserRuleCall_1_0 = (RuleCall)cArgsAssignment_1.eContents().get(0);
+		private final Assignment cPayableAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cPayablePayableKeyword_0_0 = (Keyword)cPayableAssignment_0.eContents().get(0);
+		private final Keyword cFunctionKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cParametersAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cParametersParameterListParserRuleCall_3_0 = (RuleCall)cParametersAssignment_3.eContents().get(0);
+		private final Assignment cOptionalElementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0 = (RuleCall)cOptionalElementsAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cReturnsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cReturnParametersAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cReturnParametersReturnsParameterListParserRuleCall_5_1_0 = (RuleCall)cReturnParametersAssignment_5_1.eContents().get(0);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Assignment cBlockAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
+		private final RuleCall cBlockBodyParserRuleCall_6_0_0 = (RuleCall)cBlockAssignment_6_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6_1 = (Keyword)cAlternatives_6.eContents().get(1);
 		
-		//InheritanceSpecifier:
-		//	{InheritanceSpecifier} args=FunctionCallListArguments?;
+		//// Anonymous function allowed when "name" is not specified.
+		//FunctionDefinition:
+		//	payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
+		//	("returns" returnParameters=ReturnsParameterList)? (block=Body |
+		//	";");
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{InheritanceSpecifier} args=FunctionCallListArguments?
+		//payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
+		//("returns" returnParameters=ReturnsParameterList)? (block=Body | ";")
 		public Group getGroup() { return cGroup; }
 		
-		//{InheritanceSpecifier}
-		public Action getInheritanceSpecifierAction_0() { return cInheritanceSpecifierAction_0; }
+		//payable?='payable'?
+		public Assignment getPayableAssignment_0() { return cPayableAssignment_0; }
 		
-		//args=FunctionCallListArguments?
-		public Assignment getArgsAssignment_1() { return cArgsAssignment_1; }
+		//'payable'
+		public Keyword getPayablePayableKeyword_0_0() { return cPayablePayableKeyword_0_0; }
 		
-		//FunctionCallListArguments
-		public RuleCall getArgsFunctionCallListArgumentsParserRuleCall_1_0() { return cArgsFunctionCallListArgumentsParserRuleCall_1_0; }
+		//"function"
+		public Keyword getFunctionKeyword_1() { return cFunctionKeyword_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		
+		//parameters=ParameterList
+		public Assignment getParametersAssignment_3() { return cParametersAssignment_3; }
+		
+		//ParameterList
+		public RuleCall getParametersParameterListParserRuleCall_3_0() { return cParametersParameterListParserRuleCall_3_0; }
+		
+		//optionalElements+=FunctionDefinitionOptionalElement*
+		public Assignment getOptionalElementsAssignment_4() { return cOptionalElementsAssignment_4; }
+		
+		//FunctionDefinitionOptionalElement
+		public RuleCall getOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0() { return cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0; }
+		
+		//("returns" returnParameters=ReturnsParameterList)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//"returns"
+		public Keyword getReturnsKeyword_5_0() { return cReturnsKeyword_5_0; }
+		
+		//returnParameters=ReturnsParameterList
+		public Assignment getReturnParametersAssignment_5_1() { return cReturnParametersAssignment_5_1; }
+		
+		//ReturnsParameterList
+		public RuleCall getReturnParametersReturnsParameterListParserRuleCall_5_1_0() { return cReturnParametersReturnsParameterListParserRuleCall_5_1_0; }
+		
+		//(block=Body | ";")
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
+		
+		//block=Body
+		public Assignment getBlockAssignment_6_0() { return cBlockAssignment_6_0; }
+		
+		//Body
+		public RuleCall getBlockBodyParserRuleCall_6_0_0() { return cBlockBodyParserRuleCall_6_0_0; }
+		
+		//";"
+		public Keyword getSemicolonKeyword_6_1() { return cSemicolonKeyword_6_1; }
 	}
 	public class FunctionCallListArgumentsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.FunctionCallListArguments");
@@ -549,89 +479,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Expression
 		public RuleCall getExprExpressionParserRuleCall_2_0() { return cExprExpressionParserRuleCall_2_0; }
-	}
-	public class FunctionDefinitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.FunctionDefinition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cPayableAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cPayablePayableKeyword_0_0 = (Keyword)cPayableAssignment_0.eContents().get(0);
-		private final Keyword cFunctionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cParametersAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cParametersParameterListParserRuleCall_3_0 = (RuleCall)cParametersAssignment_3.eContents().get(0);
-		private final Assignment cOptionalElementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0 = (RuleCall)cOptionalElementsAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cReturnsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cReturnParametersAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cReturnParametersReturnsParameterListParserRuleCall_5_1_0 = (RuleCall)cReturnParametersAssignment_5_1.eContents().get(0);
-		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
-		private final Assignment cBlockAssignment_6_0 = (Assignment)cAlternatives_6.eContents().get(0);
-		private final RuleCall cBlockBodyParserRuleCall_6_0_0 = (RuleCall)cBlockAssignment_6_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_1 = (Keyword)cAlternatives_6.eContents().get(1);
-		
-		//// Anonymous function allowed when "name" is not specified.
-		//FunctionDefinition:
-		//	payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
-		//	("returns" returnParameters=ReturnsParameterList)? (block=Body |
-		//	";");
-		@Override public ParserRule getRule() { return rule; }
-		
-		//payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
-		//("returns" returnParameters=ReturnsParameterList)? (block=Body | ";")
-		public Group getGroup() { return cGroup; }
-		
-		//payable?='payable'?
-		public Assignment getPayableAssignment_0() { return cPayableAssignment_0; }
-		
-		//'payable'
-		public Keyword getPayablePayableKeyword_0_0() { return cPayablePayableKeyword_0_0; }
-		
-		//"function"
-		public Keyword getFunctionKeyword_1() { return cFunctionKeyword_1; }
-		
-		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
-		
-		//parameters=ParameterList
-		public Assignment getParametersAssignment_3() { return cParametersAssignment_3; }
-		
-		//ParameterList
-		public RuleCall getParametersParameterListParserRuleCall_3_0() { return cParametersParameterListParserRuleCall_3_0; }
-		
-		//optionalElements+=FunctionDefinitionOptionalElement*
-		public Assignment getOptionalElementsAssignment_4() { return cOptionalElementsAssignment_4; }
-		
-		//FunctionDefinitionOptionalElement
-		public RuleCall getOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0() { return cOptionalElementsFunctionDefinitionOptionalElementParserRuleCall_4_0; }
-		
-		//("returns" returnParameters=ReturnsParameterList)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//"returns"
-		public Keyword getReturnsKeyword_5_0() { return cReturnsKeyword_5_0; }
-		
-		//returnParameters=ReturnsParameterList
-		public Assignment getReturnParametersAssignment_5_1() { return cReturnParametersAssignment_5_1; }
-		
-		//ReturnsParameterList
-		public RuleCall getReturnParametersReturnsParameterListParserRuleCall_5_1_0() { return cReturnParametersReturnsParameterListParserRuleCall_5_1_0; }
-		
-		//(block=Body | ";")
-		public Alternatives getAlternatives_6() { return cAlternatives_6; }
-		
-		//block=Body
-		public Assignment getBlockAssignment_6_0() { return cBlockAssignment_6_0; }
-		
-		//Body
-		public RuleCall getBlockBodyParserRuleCall_6_0_0() { return cBlockBodyParserRuleCall_6_0_0; }
-		
-		//";"
-		public Keyword getSemicolonKeyword_6_1() { return cSemicolonKeyword_6_1; }
 	}
 	public class FunctionDefinitionOptionalElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.FunctionDefinitionOptionalElement");
@@ -5854,16 +5701,14 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getILLEGALILLEGALKeyword_13_0() { return cILLEGALILLEGALKeyword_13_0; }
 	}
 	
-	private final SolidityElements pSolidity;
-	private final ImportDirectiveElements pImportDirective;
-	private final SymbolAliasElements pSymbolAlias;
+	private final ModelElements pModel;
 	private final ContractElements pContract;
-	private final DefinitionBodyElements pDefinitionBody;
 	private final InheritanceSpecifierElements pInheritanceSpecifier;
+	private final DefinitionBodyElements pDefinitionBody;
+	private final FunctionDefinitionElements pFunctionDefinition;
 	private final FunctionCallListArgumentsElements pFunctionCallListArguments;
 	private final FunctionCallArgumentsElements pFunctionCallArguments;
 	private final FunctionCallArgElements pFunctionCallArg;
-	private final FunctionDefinitionElements pFunctionDefinition;
 	private final FunctionDefinitionOptionalElementElements pFunctionDefinitionOptionalElement;
 	private final ConstElements pConst;
 	private final VisibilitySpecifierElements pVisibilitySpecifier;
@@ -5992,16 +5837,14 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pSolidity = new SolidityElements();
-		this.pImportDirective = new ImportDirectiveElements();
-		this.pSymbolAlias = new SymbolAliasElements();
+		this.pModel = new ModelElements();
 		this.pContract = new ContractElements();
-		this.pDefinitionBody = new DefinitionBodyElements();
 		this.pInheritanceSpecifier = new InheritanceSpecifierElements();
+		this.pDefinitionBody = new DefinitionBodyElements();
+		this.pFunctionDefinition = new FunctionDefinitionElements();
 		this.pFunctionCallListArguments = new FunctionCallListArgumentsElements();
 		this.pFunctionCallArguments = new FunctionCallArgumentsElements();
 		this.pFunctionCallArg = new FunctionCallArgElements();
-		this.pFunctionDefinition = new FunctionDefinitionElements();
 		this.pFunctionDefinitionOptionalElement = new FunctionDefinitionOptionalElementElements();
 		this.pConst = new ConstElements();
 		this.pVisibilitySpecifier = new VisibilitySpecifierElements();
@@ -6153,36 +5996,30 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * Controllare gli array
 	// * Controllare gli elementi all'interno della struttura
-	// */ Solidity:
-	//	(importDirective+=ImportDirective | contract+=Contract)*;
-	public SolidityElements getSolidityAccess() {
-		return pSolidity;
+	// */ /*
+	// * Solidity:
+	// * (
+	// * importDirective+=ImportDirective |
+	// * contract+=Contract
+	// * )*
+	// * ;
+	// * 
+	// * ImportDirective:
+	// * "import" importURI=STRING ";" |
+	// * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+	// * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
+	// * ;
+	// * SymbolAlias:
+	// * symbol=ID "as" alias=ID
+	// * ;
+	// */ Model:
+	//	operations+=Contract*;
+	public ModelElements getModelAccess() {
+		return pModel;
 	}
 	
-	public ParserRule getSolidityRule() {
-		return getSolidityAccess().getRule();
-	}
-	
-	//ImportDirective:
-	//	"import" importURI=STRING ";" |
-	//	"import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
-	//	"import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
-	public ImportDirectiveElements getImportDirectiveAccess() {
-		return pImportDirective;
-	}
-	
-	public ParserRule getImportDirectiveRule() {
-		return getImportDirectiveAccess().getRule();
-	}
-	
-	//SymbolAlias:
-	//	symbol=ID "as" alias=ID;
-	public SymbolAliasElements getSymbolAliasAccess() {
-		return pSymbolAlias;
-	}
-	
-	public ParserRule getSymbolAliasRule() {
-		return getSymbolAliasAccess().getRule();
+	public ParserRule getModelRule() {
+		return getModelAccess().getRule();
 	}
 	
 	//Contract:
@@ -6197,6 +6034,16 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getContractAccess().getRule();
 	}
 	
+	//InheritanceSpecifier:
+	//	SuperType=Contract args=FunctionCallListArguments?;
+	public InheritanceSpecifierElements getInheritanceSpecifierAccess() {
+		return pInheritanceSpecifier;
+	}
+	
+	public ParserRule getInheritanceSpecifierRule() {
+		return getInheritanceSpecifierAccess().getRule();
+	}
+	
 	//DefinitionBody:
 	//	{DefinitionBody} "{" (functions+=FunctionDefinition | structs+=StructDefinition | enums+=EnumDefinition |
 	//	variables+=VariableDeclaration ";" | modifiers+=Modifier | events+=Event)*
@@ -6209,14 +6056,17 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getDefinitionBodyAccess().getRule();
 	}
 	
-	//InheritanceSpecifier:
-	//	{InheritanceSpecifier} args=FunctionCallListArguments?;
-	public InheritanceSpecifierElements getInheritanceSpecifierAccess() {
-		return pInheritanceSpecifier;
+	//// Anonymous function allowed when "name" is not specified.
+	//FunctionDefinition:
+	//	payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
+	//	("returns" returnParameters=ReturnsParameterList)? (block=Body |
+	//	";");
+	public FunctionDefinitionElements getFunctionDefinitionAccess() {
+		return pFunctionDefinition;
 	}
 	
-	public ParserRule getInheritanceSpecifierRule() {
-		return getInheritanceSpecifierAccess().getRule();
+	public ParserRule getFunctionDefinitionRule() {
+		return getFunctionDefinitionAccess().getRule();
 	}
 	
 	//FunctionCallListArguments:
@@ -6252,19 +6102,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getFunctionCallArgRule() {
 		return getFunctionCallArgAccess().getRule();
-	}
-	
-	//// Anonymous function allowed when "name" is not specified.
-	//FunctionDefinition:
-	//	payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
-	//	("returns" returnParameters=ReturnsParameterList)? (block=Body |
-	//	";");
-	public FunctionDefinitionElements getFunctionDefinitionAccess() {
-		return pFunctionDefinition;
-	}
-	
-	public ParserRule getFunctionDefinitionRule() {
-		return getFunctionDefinitionAccess().getRule();
 	}
 	
 	//FunctionDefinitionOptionalElement:
