@@ -8,31 +8,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inheritanceSpecifiers"
-        upperBound="-1" eType="#//InheritanceSpecifier" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//DefinitionBody"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InheritanceSpecifier">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperType" eType="#//Contract"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="args" eType="#//FunctionCallListArguments"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionBody">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
-        eType="#//FunctionDefinition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="structs" upperBound="-1"
-        eType="#//StructDefinition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enums" upperBound="-1"
-        eType="#//EnumDefinition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-        eType="#//Statement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
-        eType="#//Modifier" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
-        eType="#//Event" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionDeclaration" eSuperTypes="#//Declaration"/>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="payable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -63,13 +43,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="VisibilitySpecifier" eSuperTypes="#//FunctionDefinitionOptionalElement #//VariableDeclarationOptionalElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//VisibilityEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StructDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="StructDefinition" eSuperTypes="#//Declaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//VisibilityEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
         eType="#//Statement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="EnumDefinition" eSuperTypes="#//FunctionDeclaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//VisibilityEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
@@ -183,7 +163,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="args" eType="#//FunctionCallListArguments"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterList">
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//FunctionDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Statement" containment="true"/>
   </eClassifiers>

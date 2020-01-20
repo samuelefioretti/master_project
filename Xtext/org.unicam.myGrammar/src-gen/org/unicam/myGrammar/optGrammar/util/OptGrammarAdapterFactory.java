@@ -32,7 +32,7 @@ import org.unicam.myGrammar.optGrammar.Continue;
 import org.unicam.myGrammar.optGrammar.ContinueStatement;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
-import org.unicam.myGrammar.optGrammar.DefinitionBody;
+import org.unicam.myGrammar.optGrammar.Declaration;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
 import org.unicam.myGrammar.optGrammar.ElementaryType;
@@ -50,6 +50,7 @@ import org.unicam.myGrammar.optGrammar.FunctionCall;
 import org.unicam.myGrammar.optGrammar.FunctionCallArg;
 import org.unicam.myGrammar.optGrammar.FunctionCallArguments;
 import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
+import org.unicam.myGrammar.optGrammar.FunctionDeclaration;
 import org.unicam.myGrammar.optGrammar.FunctionDefinition;
 import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
 import org.unicam.myGrammar.optGrammar.GasleftFunction;
@@ -58,7 +59,6 @@ import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IfStatement;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
@@ -189,14 +189,14 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createContractAdapter();
       }
       @Override
-      public Adapter caseInheritanceSpecifier(InheritanceSpecifier object)
+      public Adapter caseDeclaration(Declaration object)
       {
-        return createInheritanceSpecifierAdapter();
+        return createDeclarationAdapter();
       }
       @Override
-      public Adapter caseDefinitionBody(DefinitionBody object)
+      public Adapter caseFunctionDeclaration(FunctionDeclaration object)
       {
-        return createDefinitionBodyAdapter();
+        return createFunctionDeclarationAdapter();
       }
       @Override
       public Adapter caseFunctionDefinition(FunctionDefinition object)
@@ -751,31 +751,31 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier <em>Inheritance Specifier</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Declaration <em>Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.InheritanceSpecifier
+   * @see org.unicam.myGrammar.optGrammar.Declaration
    * @generated
    */
-  public Adapter createInheritanceSpecifierAdapter()
+  public Adapter createDeclarationAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.DefinitionBody <em>Definition Body</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.FunctionDeclaration <em>Function Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.DefinitionBody
+   * @see org.unicam.myGrammar.optGrammar.FunctionDeclaration
    * @generated
    */
-  public Adapter createDefinitionBodyAdapter()
+  public Adapter createFunctionDeclarationAdapter()
   {
     return null;
   }

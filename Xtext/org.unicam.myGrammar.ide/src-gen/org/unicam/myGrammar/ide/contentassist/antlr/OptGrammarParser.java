@@ -31,7 +31,9 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, OptGrammarGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getDefinitionBodyAccess().getAlternatives_2(), "rule__DefinitionBody__Alternatives_2");
+			builder.put(grammarAccess.getContractAccess().getAlternatives_3(), "rule__Contract__Alternatives_3");
+			builder.put(grammarAccess.getDeclarationAccess().getAlternatives(), "rule__Declaration__Alternatives");
+			builder.put(grammarAccess.getFunctionDeclarationAccess().getAlternatives(), "rule__FunctionDeclaration__Alternatives");
 			builder.put(grammarAccess.getFunctionDefinitionAccess().getAlternatives_6(), "rule__FunctionDefinition__Alternatives_6");
 			builder.put(grammarAccess.getFunctionCallArgumentsAccess().getAlternatives(), "rule__FunctionCallArguments__Alternatives");
 			builder.put(grammarAccess.getFunctionDefinitionOptionalElementAccess().getAlternatives(), "rule__FunctionDefinitionOptionalElement__Alternatives");
@@ -78,11 +80,7 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSpecialExpressionTypeEnumAccess().getAlternatives(), "rule__SpecialExpressionTypeEnum__Alternatives");
 			builder.put(grammarAccess.getReservedWordsEnumAccess().getAlternatives(), "rule__ReservedWordsEnum__Alternatives");
 			builder.put(grammarAccess.getContractAccess().getGroup(), "rule__Contract__Group__0");
-			builder.put(grammarAccess.getContractAccess().getGroup_2(), "rule__Contract__Group_2__0");
-			builder.put(grammarAccess.getContractAccess().getGroup_2_2(), "rule__Contract__Group_2_2__0");
-			builder.put(grammarAccess.getInheritanceSpecifierAccess().getGroup(), "rule__InheritanceSpecifier__Group__0");
-			builder.put(grammarAccess.getDefinitionBodyAccess().getGroup(), "rule__DefinitionBody__Group__0");
-			builder.put(grammarAccess.getDefinitionBodyAccess().getGroup_2_3(), "rule__DefinitionBody__Group_2_3__0");
+			builder.put(grammarAccess.getContractAccess().getGroup_3_0(), "rule__Contract__Group_3_0__0");
 			builder.put(grammarAccess.getFunctionDefinitionAccess().getGroup(), "rule__FunctionDefinition__Group__0");
 			builder.put(grammarAccess.getFunctionDefinitionAccess().getGroup_5(), "rule__FunctionDefinition__Group_5__0");
 			builder.put(grammarAccess.getFunctionCallListArgumentsAccess().getGroup(), "rule__FunctionCallListArguments__Group__0");
@@ -219,17 +217,8 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSpecialVariablesAccess().getGroup(), "rule__SpecialVariables__Group__0");
 			builder.put(grammarAccess.getModelAccess().getOperationsAssignment(), "rule__Model__OperationsAssignment");
 			builder.put(grammarAccess.getContractAccess().getNameAssignment_1(), "rule__Contract__NameAssignment_1");
-			builder.put(grammarAccess.getContractAccess().getInheritanceSpecifiersAssignment_2_1(), "rule__Contract__InheritanceSpecifiersAssignment_2_1");
-			builder.put(grammarAccess.getContractAccess().getInheritanceSpecifiersAssignment_2_2_1(), "rule__Contract__InheritanceSpecifiersAssignment_2_2_1");
-			builder.put(grammarAccess.getContractAccess().getBodyAssignment_3(), "rule__Contract__BodyAssignment_3");
-			builder.put(grammarAccess.getInheritanceSpecifierAccess().getSuperTypeAssignment_0(), "rule__InheritanceSpecifier__SuperTypeAssignment_0");
-			builder.put(grammarAccess.getInheritanceSpecifierAccess().getArgsAssignment_1(), "rule__InheritanceSpecifier__ArgsAssignment_1");
-			builder.put(grammarAccess.getDefinitionBodyAccess().getFunctionsAssignment_2_0(), "rule__DefinitionBody__FunctionsAssignment_2_0");
-			builder.put(grammarAccess.getDefinitionBodyAccess().getStructsAssignment_2_1(), "rule__DefinitionBody__StructsAssignment_2_1");
-			builder.put(grammarAccess.getDefinitionBodyAccess().getEnumsAssignment_2_2(), "rule__DefinitionBody__EnumsAssignment_2_2");
-			builder.put(grammarAccess.getDefinitionBodyAccess().getVariablesAssignment_2_3_0(), "rule__DefinitionBody__VariablesAssignment_2_3_0");
-			builder.put(grammarAccess.getDefinitionBodyAccess().getModifiersAssignment_2_4(), "rule__DefinitionBody__ModifiersAssignment_2_4");
-			builder.put(grammarAccess.getDefinitionBodyAccess().getEventsAssignment_2_5(), "rule__DefinitionBody__EventsAssignment_2_5");
+			builder.put(grammarAccess.getContractAccess().getBlocksAssignment_3_0_0(), "rule__Contract__BlocksAssignment_3_0_0");
+			builder.put(grammarAccess.getContractAccess().getBlocksAssignment_3_1(), "rule__Contract__BlocksAssignment_3_1");
 			builder.put(grammarAccess.getFunctionDefinitionAccess().getPayableAssignment_0(), "rule__FunctionDefinition__PayableAssignment_0");
 			builder.put(grammarAccess.getFunctionDefinitionAccess().getNameAssignment_2(), "rule__FunctionDefinition__NameAssignment_2");
 			builder.put(grammarAccess.getFunctionDefinitionAccess().getParametersAssignment_3(), "rule__FunctionDefinition__ParametersAssignment_3");

@@ -11,7 +11,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 // ---------- TO DO ----------
 /*
  * Controllare gli array
- * Controllare gli elementi all'interno della struttura
+ * Controllare le strutture
  */
 
 /*
@@ -27,6 +27,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
  * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
  * ;
+ * 
  * SymbolAlias:
  * symbol=ID "as" alias=ID
  * ;
@@ -37,31 +38,42 @@ Model:
 ;
 
 Contract:
-	"contract" name=ID (
-		inheritanceSpecifiers+=InheritanceSpecifier
-		("," inheritanceSpecifiers+=InheritanceSpecifier)*
-	)?
-	body=DefinitionBody
+	"contract" name=ID "{" (
+		blocks+=Declaration ";" |
+		blocks+=FunctionDefinition
+	)* "}"
 ;
 
-InheritanceSpecifier:
-	SuperType=Contract (args=FunctionCallListArguments)?
+Declaration:
+	FunctionDeclaration |
+	StructDefinition
 ;
 
-DefinitionBody:
-	{DefinitionBody} "{" (
-		functions+=FunctionDefinition |
-		structs+=StructDefinition |
-		enums+=EnumDefinition |
-		variables+=VariableDeclaration ";" |
-		modifiers+=Modifier |
-		events+=Event)*
-	"}"
+FunctionDeclaration:
+	EnumDefinition |
+	ParameterList
 ;
+
+/*
+ * InheritanceSpecifier:
+ * SuperType=Contract (args=FunctionCallListArguments)?
+ * ;
+ * 
+ * DefinitionBody:
+ * {DefinitionBody} "{" (
+ * functions+=FunctionDefinition |
+ * structs+=StructDefinition |
+ * enums+=EnumDefinition |
+ * variables+=VariableDeclaration ";" |
+ * modifiers+=Modifier |
+ * events+=Event
+ * )* "}"
+ * ;
+ */
 
 // Anonymous function allowed when "name" is not specified.
 FunctionDefinition:
-	payable?='payable'? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
+	payable?="payable"? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
 		"returns" returnParameters=ReturnsParameterList
 	)?
 	(
@@ -579,32 +591,32 @@ Literal:
 ;
 
 GasleftFunction:
-	name='gasleft' '(' ')'
+	name="gasleft" "(" ")"
 ;
 
 BlockhashFunction:
-	'blockhash' '(' parameter=IntParameter ')'
+	"blockhash" "(" parameter=IntParameter ")"
 ;
 
 MathematicalFunction:
-	function=('addmod' | 'mulmod') '('
-		parameters+=IntParameter ','
-		parameters+=IntParameter ','
+	function=("addmod" | "mulmod") "("
+		parameters+=IntParameter ","
+		parameters+=IntParameter ","
 		parameters+=IntParameter
 	')'
 ;
 
 EcrecoverFunction:
-	function='ecrecover' '('
-		parameters+=IntParameter ','
-		parameters+=IntParameter ','
-		parameters+=IntParameter ','
+	function="ecrecover" "("
+		parameters+=IntParameter ","
+		parameters+=IntParameter ","
+		parameters+=IntParameter ","
 		parameters+=IntParameter
 	')'
 ;
 
 HashFunction:
-	name=('keccak256' | 'sha256' | 'ripemd160') '(' parameters=IntParameter ')'
+	name=("keccak256" | "sha256" | "ripemd160") "(" parameters=IntParameter ")"
 ;
 
 IntParameter:
@@ -613,7 +625,7 @@ IntParameter:
 ;
 
 FunctionCall:
-	name=[FunctionDefinition] '(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
+	name=[FunctionDefinition] "(" (parameters+=Expression ("," parameters+=Expression)*)? ")"
 ;
 
 ArithmeticOperations:
@@ -621,11 +633,11 @@ ArithmeticOperations:
 
 PrimaryArithmetic:
 	Number |
-	'(' Expression ')'
+	"(" Expression ")"
 ;
 
 SecondOperators:
-	operator=('+' | '-' | '/' | '*') value=PrimaryArithmetic
+	operator=("+" | "-" | "/" | "*") value=PrimaryArithmetic
 ;
 	
 BooleanConst:
@@ -686,11 +698,11 @@ SpecialVariables:
 ;
 
 terminal HEX:
-	'0x' ('0'..'9'|'A'..'F'|'a'..'f')+
+	"0x" ("0".."9"|"A".."F"|"a".."f")+
 ;
 
 terminal DECIMAL returns ecore::EDouble:
-	INT('.' INT)
+	INT("." INT)
 ;
 
 // Enums
@@ -900,29 +912,29 @@ SpecialVariablesTypeEnum:
 ;
 
 terminal BLOCK:
-	'block.' (
-		'coinbase' |
-		'difficulty' |
-		'gaslimit' |
-		'number' |
-		'timestamp'
+	"block." (
+		"coinbase" |
+		"difficulty" |
+		"gaslimit" |
+		"number" |
+		"timestamp"
 	)
 ;
 
 terminal MSG:
-	'msg.' (
-		'data' |
-		'gas' |
-		'sender' |
-		'sig' |
-		'value'
+	"msg." (
+		"data" |
+		"gas" |
+		"sender" |
+		"sig" |
+		"value"
 	)
 ;
 
 terminal TX:
-	'tx.' (
-		'gasprice' |
-		'origin'
+	"tx." (
+		"gasprice" |
+		"origin"
 	)
 ;
 

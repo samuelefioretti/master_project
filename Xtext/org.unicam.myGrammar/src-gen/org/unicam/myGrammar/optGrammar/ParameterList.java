@@ -5,8 +5,6 @@ package org.unicam.myGrammar.optGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter List</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ParameterList extends EObject
+public interface ParameterList extends FunctionDeclaration
 {
   /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.

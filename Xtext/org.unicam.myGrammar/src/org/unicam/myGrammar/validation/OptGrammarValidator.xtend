@@ -16,16 +16,18 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage
  */
 @ComposedChecks(validators=LocationAndVisibilityValidator)
 class OptGrammarValidator extends AbstractOptGrammarValidator {
-	@Check
-	def structAssegnationAreStructs(ArrayDimensions arrayDefinition) {
-		if(arrayDefinition.ref.asDeclaration.type !== null) return
+	/*
+	 * @Check
+	 * def structAssegnationAreStructs(ArrayDimensions arrayDefinition) {
+	 * 	if(arrayDefinition.ref.asDeclaration.type !== null) return
 
-		val value = arrayDefinition.value
-		switch value {
-			Expression:
-				if (arrayDefinition.field.nullOrEmpty &&
-					(value.first.ref === null || !(value.first.ref instanceof ConcreteStructDeclaration)))
-					error("The value must be a structure", OptGrammarPackage.Literals.ARRAY_DEFINITION__VALUE)
-		}
-	}
+	 * 	val value = arrayDefinition.value
+	 * 	switch value {
+	 * 		Expression:
+	 * 			if (arrayDefinition.field.nullOrEmpty &&
+	 * 				(value.first.ref === null || !(value.first.ref instanceof ConcreteStructDeclaration)))
+	 * 				error("The value must be a structure", OptGrammarPackage.Literals.ARRAY_DEFINITION__VALUE)
+	 * 	}
+	 * }
+	 */
 }

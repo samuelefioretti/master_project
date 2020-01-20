@@ -38,7 +38,7 @@ import org.unicam.myGrammar.optGrammar.Continue;
 import org.unicam.myGrammar.optGrammar.ContinueStatement;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
-import org.unicam.myGrammar.optGrammar.DefinitionBody;
+import org.unicam.myGrammar.optGrammar.Declaration;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
 import org.unicam.myGrammar.optGrammar.ElementaryType;
@@ -59,6 +59,7 @@ import org.unicam.myGrammar.optGrammar.FunctionCall;
 import org.unicam.myGrammar.optGrammar.FunctionCallArg;
 import org.unicam.myGrammar.optGrammar.FunctionCallArguments;
 import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
+import org.unicam.myGrammar.optGrammar.FunctionDeclaration;
 import org.unicam.myGrammar.optGrammar.FunctionDefinition;
 import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
 import org.unicam.myGrammar.optGrammar.GasleftFunction;
@@ -68,7 +69,6 @@ import org.unicam.myGrammar.optGrammar.IfStatement;
 import org.unicam.myGrammar.optGrammar.IncDecOpEnum;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
@@ -187,8 +187,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
     {
       case OptGrammarPackage.MODEL: return createModel();
       case OptGrammarPackage.CONTRACT: return createContract();
-      case OptGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
-      case OptGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
+      case OptGrammarPackage.DECLARATION: return createDeclaration();
+      case OptGrammarPackage.FUNCTION_DECLARATION: return createFunctionDeclaration();
       case OptGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
       case OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS: return createFunctionCallListArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARGUMENTS: return createFunctionCallArguments();
@@ -414,10 +414,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public InheritanceSpecifier createInheritanceSpecifier()
+  public Declaration createDeclaration()
   {
-    InheritanceSpecifierImpl inheritanceSpecifier = new InheritanceSpecifierImpl();
-    return inheritanceSpecifier;
+    DeclarationImpl declaration = new DeclarationImpl();
+    return declaration;
   }
 
   /**
@@ -426,10 +426,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public DefinitionBody createDefinitionBody()
+  public FunctionDeclaration createFunctionDeclaration()
   {
-    DefinitionBodyImpl definitionBody = new DefinitionBodyImpl();
-    return definitionBody;
+    FunctionDeclarationImpl functionDeclaration = new FunctionDeclarationImpl();
+    return functionDeclaration;
   }
 
   /**

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,8 +21,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.unicam.myGrammar.optGrammar.Contract;
-import org.unicam.myGrammar.optGrammar.DefinitionBody;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
@@ -33,8 +32,7 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  * </p>
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ContractImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ContractImpl#getInheritanceSpecifiers <em>Inheritance Specifiers</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ContractImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ContractImpl#getBlocks <em>Blocks</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,24 +60,14 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getInheritanceSpecifiers() <em>Inheritance Specifiers</em>}' containment reference list.
+   * The cached value of the '{@link #getBlocks() <em>Blocks</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInheritanceSpecifiers()
+   * @see #getBlocks()
    * @generated
    * @ordered
    */
-  protected EList<InheritanceSpecifier> inheritanceSpecifiers;
-
-  /**
-   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBody()
-   * @generated
-   * @ordered
-   */
-  protected DefinitionBody body;
+  protected EList<EObject> blocks;
 
   /**
    * <!-- begin-user-doc -->
@@ -133,63 +121,13 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
    * @generated
    */
   @Override
-  public EList<InheritanceSpecifier> getInheritanceSpecifiers()
+  public EList<EObject> getBlocks()
   {
-    if (inheritanceSpecifiers == null)
+    if (blocks == null)
     {
-      inheritanceSpecifiers = new EObjectContainmentEList<InheritanceSpecifier>(InheritanceSpecifier.class, this, OptGrammarPackage.CONTRACT__INHERITANCE_SPECIFIERS);
+      blocks = new EObjectContainmentEList<EObject>(EObject.class, this, OptGrammarPackage.CONTRACT__BLOCKS);
     }
-    return inheritanceSpecifiers;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DefinitionBody getBody()
-  {
-    return body;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetBody(DefinitionBody newBody, NotificationChain msgs)
-  {
-    DefinitionBody oldBody = body;
-    body = newBody;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.CONTRACT__BODY, oldBody, newBody);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setBody(DefinitionBody newBody)
-  {
-    if (newBody != body)
-    {
-      NotificationChain msgs = null;
-      if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.CONTRACT__BODY, null, msgs);
-      if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.CONTRACT__BODY, null, msgs);
-      msgs = basicSetBody(newBody, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.CONTRACT__BODY, newBody, newBody));
+    return blocks;
   }
 
   /**
@@ -202,10 +140,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
   {
     switch (featureID)
     {
-      case OptGrammarPackage.CONTRACT__INHERITANCE_SPECIFIERS:
-        return ((InternalEList<?>)getInheritanceSpecifiers()).basicRemove(otherEnd, msgs);
-      case OptGrammarPackage.CONTRACT__BODY:
-        return basicSetBody(null, msgs);
+      case OptGrammarPackage.CONTRACT__BLOCKS:
+        return ((InternalEList<?>)getBlocks()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -222,10 +158,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
     {
       case OptGrammarPackage.CONTRACT__NAME:
         return getName();
-      case OptGrammarPackage.CONTRACT__INHERITANCE_SPECIFIERS:
-        return getInheritanceSpecifiers();
-      case OptGrammarPackage.CONTRACT__BODY:
-        return getBody();
+      case OptGrammarPackage.CONTRACT__BLOCKS:
+        return getBlocks();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -244,12 +178,9 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
       case OptGrammarPackage.CONTRACT__NAME:
         setName((String)newValue);
         return;
-      case OptGrammarPackage.CONTRACT__INHERITANCE_SPECIFIERS:
-        getInheritanceSpecifiers().clear();
-        getInheritanceSpecifiers().addAll((Collection<? extends InheritanceSpecifier>)newValue);
-        return;
-      case OptGrammarPackage.CONTRACT__BODY:
-        setBody((DefinitionBody)newValue);
+      case OptGrammarPackage.CONTRACT__BLOCKS:
+        getBlocks().clear();
+        getBlocks().addAll((Collection<? extends EObject>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -268,11 +199,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
       case OptGrammarPackage.CONTRACT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case OptGrammarPackage.CONTRACT__INHERITANCE_SPECIFIERS:
-        getInheritanceSpecifiers().clear();
-        return;
-      case OptGrammarPackage.CONTRACT__BODY:
-        setBody((DefinitionBody)null);
+      case OptGrammarPackage.CONTRACT__BLOCKS:
+        getBlocks().clear();
         return;
     }
     super.eUnset(featureID);
@@ -290,10 +218,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
     {
       case OptGrammarPackage.CONTRACT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case OptGrammarPackage.CONTRACT__INHERITANCE_SPECIFIERS:
-        return inheritanceSpecifiers != null && !inheritanceSpecifiers.isEmpty();
-      case OptGrammarPackage.CONTRACT__BODY:
-        return body != null;
+      case OptGrammarPackage.CONTRACT__BLOCKS:
+        return blocks != null && !blocks.isEmpty();
     }
     return super.eIsSet(featureID);
   }

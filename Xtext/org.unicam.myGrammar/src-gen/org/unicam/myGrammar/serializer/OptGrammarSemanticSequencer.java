@@ -34,7 +34,6 @@ import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
 import org.unicam.myGrammar.optGrammar.Continue;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
-import org.unicam.myGrammar.optGrammar.DefinitionBody;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
 import org.unicam.myGrammar.optGrammar.ElementaryType;
@@ -58,7 +57,6 @@ import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IfStatement;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.Mapping;
@@ -225,9 +223,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
-			case OptGrammarPackage.DEFINITION_BODY:
-				sequence_DefinitionBody(context, (DefinitionBody) semanticObject); 
-				return; 
 			case OptGrammarPackage.DELETE_STATEMENT:
 				sequence_DeleteStatement(context, (DeleteStatement) semanticObject); 
 				return; 
@@ -363,9 +358,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.INDEXED_SPECIFER:
 				sequence_IndexedSpecifer(context, (IndexedSpecifer) semanticObject); 
-				return; 
-			case OptGrammarPackage.INHERITANCE_SPECIFIER:
-				sequence_InheritanceSpecifier(context, (InheritanceSpecifier) semanticObject); 
 				return; 
 			case OptGrammarPackage.INT_PARAMETER:
 				sequence_IntParameter(context, (IntParameter) semanticObject); 
@@ -1480,7 +1472,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Contract returns Contract
 	 *
 	 * Constraint:
-	 *     (name=ID (inheritanceSpecifiers+=InheritanceSpecifier inheritanceSpecifiers+=InheritanceSpecifier*)? body=DefinitionBody)
+	 *     (name=ID (blocks+=Declaration | blocks+=FunctionDefinition)*)
 	 */
 	protected void sequence_Contract(ISerializationContext context, Contract semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1550,25 +1542,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (value=DECIMAL etherUnit=UnitTypes?)
 	 */
 	protected void sequence_DecimalLiteral_Number(ISerializationContext context, DecimalLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DefinitionBody returns DefinitionBody
-	 *
-	 * Constraint:
-	 *     (
-	 *         functions+=FunctionDefinition | 
-	 *         structs+=StructDefinition | 
-	 *         enums+=EnumDefinition | 
-	 *         variables+=VariableDeclaration | 
-	 *         modifiers+=Modifier | 
-	 *         events+=Event
-	 *     )*
-	 */
-	protected void sequence_DefinitionBody(ISerializationContext context, DefinitionBody semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1688,6 +1661,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Declaration returns EnumDefinition
+	 *     FunctionDeclaration returns EnumDefinition
 	 *     EnumDefinition returns EnumDefinition
 	 *
 	 * Constraint:
@@ -2226,18 +2201,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     InheritanceSpecifier returns InheritanceSpecifier
-	 *
-	 * Constraint:
-	 *     (SuperType=Contract args=FunctionCallListArguments?)
-	 */
-	protected void sequence_InheritanceSpecifier(ISerializationContext context, InheritanceSpecifier semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     IntParameter returns IntParameter
 	 *
 	 * Constraint:
@@ -2735,6 +2698,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Declaration returns ParameterList
+	 *     FunctionDeclaration returns ParameterList
 	 *     ParameterList returns ParameterList
 	 *
 	 * Constraint:
@@ -3519,6 +3484,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Declaration returns StructDefinition
 	 *     StructDefinition returns StructDefinition
 	 *
 	 * Constraint:
