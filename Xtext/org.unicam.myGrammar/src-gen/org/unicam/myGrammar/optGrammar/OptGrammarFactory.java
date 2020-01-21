@@ -42,22 +42,22 @@ public interface OptGrammarFactory extends EFactory
   Contract createContract();
 
   /**
-   * Returns a new object of class '<em>Declaration</em>'.
+   * Returns a new object of class '<em>Inheritance Specifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Declaration</em>'.
+   * @return a new object of class '<em>Inheritance Specifier</em>'.
    * @generated
    */
-  Declaration createDeclaration();
+  InheritanceSpecifier createInheritanceSpecifier();
 
   /**
-   * Returns a new object of class '<em>Function Declaration</em>'.
+   * Returns a new object of class '<em>Definition Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Declaration</em>'.
+   * @return a new object of class '<em>Definition Body</em>'.
    * @generated
    */
-  FunctionDeclaration createFunctionDeclaration();
+  DefinitionBody createDefinitionBody();
 
   /**
    * Returns a new object of class '<em>Function Definition</em>'.

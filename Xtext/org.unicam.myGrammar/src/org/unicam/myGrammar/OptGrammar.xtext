@@ -15,6 +15,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  */
 // ---------- TO DO ----------
 
+// ---------- Old grammar ----------
 /*
  * Solidity:
  * (
@@ -39,47 +40,93 @@ Model:
 ;
 
 Contract:
-	"contract" name=ID "{" (
-		blocks+=Declaration ";" |
-		blocks+=FunctionDefinition
+	"contract" name=ID (
+		inheritanceSpecifiers+=InheritanceSpecifier
+		("," inheritanceSpecifiers+=InheritanceSpecifier)*
+	)? body=DefinitionBody
+;
+
+InheritanceSpecifier:
+	SuperType=Contract (args=FunctionCallListArguments)?
+;
+
+DefinitionBody:
+	{DefinitionBody} "{" (
+		functions+=FunctionDefinition |
+		structs+=StructDefinition |
+		enums+=EnumDefinition |
+		variables+=VariableDeclaration ";" |
+		modifiers+=Modifier |
+		events+=Event
 	)* "}"
 ;
+// ---------- End Old grammar ----------
 
-Declaration:
-	FunctionDeclaration |
-	StructDefinition
-;
-
-FunctionDeclaration:
-	EnumDefinition// |
-	//FunctionParameterDeclaration
-;
-
+// ---------- New grammar ----------
 /*
- * FunctionParameterDeclaration:
- * ArrayDefinitionDeclaration |
- * MappingDeclaration |
- * PrimaryTypeDefinitionDeclaration |
- * ConcreteStructureDefinitionDeclaration
- * ;
- */
-
-/*
- * InheritanceSpecifier:
- * SuperType=Contract (args=FunctionCallListArguments)?
- * ;
- * 
- * DefinitionBody:
- * {DefinitionBody} "{" (
- * functions+=FunctionDefinition |
- * structs+=StructDefinition |
- * enums+=EnumDefinition |
- * variables+=VariableDeclaration ";" |
- * modifiers+=Modifier |
- * events+=Event
+ * Contract:
+ * "contract" name=ID "{" (
+ * blocks+=Declaration ";" |
+ * blocks+=FunctionDefinition
  * )* "}"
  * ;
+ * Declaration:
+ * FunctionDeclaration |
+ * StructDefinition
+ * ;
+ * 
+ * FunctionDeclaration:
+ * EnumDefinition |
+ * FunctionParameterDeclaration
+ * ;
+ * 
+ * FunctionParameterDeclaration:
+ * //ArrayDefinitionDeclaration |
+ * Mapping |
+ * PrimaryTypeDefinitionDeclaration// |
+ * //ConcreteStructureDefinitionDeclaration
+ * ;
+ * 
+ * PrimaryTypeDefinitionDeclaration:
+ * (
+ * PrimaryTypeDeclaration |
+ * ref=[PrimaryTypeDeclaration]
+ * )
+ * (
+ * operator=OperationAssegnationLiteral value=(
+ * Expression |
+ * SingleDefinition
+ * )
+ * )?
+ * ;
+ * 
+ * PrimaryTypeDeclaration:
+ * ArrayableDeclaration |
+ * NonArrayableDeclaration
+ * ;
+ * 
+ * NonArrayableDeclaration:
+ * location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilityEnum? type=SimpleTypeDeclaration name=ID
+ * ;
+ * 
+ * ArrayableDeclaration:
+ * constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID
+ * ;
+ * 
+ * OperationAssegnationLiteral:
+ * value = ('=' | '*=' | '+=' | '-=' | '/=')
+ * ;
+ * 
+ * SimpleTypeDeclaration:
+ * type=('string' | 'bool')
+ * ;
+ * 
+ * SingleDefinition:
+ * first=('++' | '--') name=[PrimaryTypeDeclaration] |
+ * name=[PrimaryTypeDeclaration] second=('++' | '--')
+ * ;
  */
+// ---------- End New grammar ----------
 
 // Anonymous function allowed when "name" is not specified.
 FunctionDefinition:
@@ -213,9 +260,7 @@ ElementaryType:
 ;
 
 Mapping:
-	"mapping" "("
-		keyType=ElementaryTypeNameEnum "=>" valueType=Type
-	")"
+	"mapping" "(" keyType=ElementaryTypeNameEnum "=>" valueType=Type ")"
 ;
 
 ArrayDimensions:
@@ -228,13 +273,11 @@ VarType:
 
 // Tuples
 Tuple:
-	"("
-		{Tuple} (
-			members+=Expression? (
-				members+=TupleSeparator members+=Expression?
-			)+
-		)?
-	")"
+	"(" {Tuple} (
+		members+=Expression? (
+			members+=TupleSeparator members+=Expression?
+		)+
+	)? ")"
 ;
 
 TupleSeparator:
@@ -815,9 +858,13 @@ enum ElementaryTypeNameEnum:
 	UREAL="ureal"
 ;
 
+MapLocationLiteral:
+	"storage"
+;
+
 enum LocationSpecifierEnum:
 	MEMORY="memory" |
-	STORAGE="storage" |
+	MapLocationLiteral |
 	CALLDATA="calldata"
 ;
 

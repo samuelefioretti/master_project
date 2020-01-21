@@ -60,14 +60,14 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass declarationEClass = null;
+  private EClass inheritanceSpecifierEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass functionDeclarationEClass = null;
+  private EClass definitionBodyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -993,7 +993,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EReference getContract_Blocks()
+  public EReference getContract_InheritanceSpecifiers()
   {
         return (EReference)getContract().getEStructuralFeatures().get(1);
   }
@@ -1004,13 +1004,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getDeclaration()
+  public EReference getContract_Body()
   {
-    if (declarationEClass == null)
-    {
-      declarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(2);
-    }
-    return declarationEClass;
+        return (EReference)getContract().getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1019,13 +1015,116 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getFunctionDeclaration()
+  public EClass getInheritanceSpecifier()
   {
-    if (functionDeclarationEClass == null)
+    if (inheritanceSpecifierEClass == null)
     {
-      functionDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(3);
+      inheritanceSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(2);
     }
-    return functionDeclarationEClass;
+    return inheritanceSpecifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInheritanceSpecifier_SuperType()
+  {
+        return (EReference)getInheritanceSpecifier().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getInheritanceSpecifier_Args()
+  {
+        return (EReference)getInheritanceSpecifier().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefinitionBody()
+  {
+    if (definitionBodyEClass == null)
+    {
+      definitionBodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(3);
+    }
+    return definitionBodyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionBody_Functions()
+  {
+        return (EReference)getDefinitionBody().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionBody_Structs()
+  {
+        return (EReference)getDefinitionBody().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionBody_Enums()
+  {
+        return (EReference)getDefinitionBody().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionBody_Variables()
+  {
+        return (EReference)getDefinitionBody().getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionBody_Modifiers()
+  {
+        return (EReference)getDefinitionBody().getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionBody_Events()
+  {
+        return (EReference)getDefinitionBody().getEStructuralFeatures().get(5);
   }
 
   /**

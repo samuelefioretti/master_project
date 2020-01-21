@@ -5,6 +5,8 @@ package org.unicam.myGrammar.optGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Struct Definition</b></em>'.
@@ -23,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface StructDefinition extends Declaration
+public interface StructDefinition extends EObject
 {
   /**
    * Returns the value of the '<em><b>Visibility</b></em>' attribute.

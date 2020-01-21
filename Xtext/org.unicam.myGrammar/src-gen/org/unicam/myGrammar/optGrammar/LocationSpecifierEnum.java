@@ -31,14 +31,14 @@ public enum LocationSpecifierEnum implements Enumerator
   MEMORY(0, "MEMORY", "memory"),
 
   /**
-   * The '<em><b>STORAGE</b></em>' literal object.
+   * The '<em><b>Map Location Literal</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #STORAGE_VALUE
+   * @see #MAP_LOCATION_LITERAL_VALUE
    * @generated
    * @ordered
    */
-  STORAGE(1, "STORAGE", "storage"),
+  MAP_LOCATION_LITERAL(1, "MapLocationLiteral", "MapLocationLiteral"),
 
   /**
    * The '<em><b>CALLDATA</b></em>' literal object.
@@ -62,15 +62,15 @@ public enum LocationSpecifierEnum implements Enumerator
   public static final int MEMORY_VALUE = 0;
 
   /**
-   * The '<em><b>STORAGE</b></em>' literal value.
+   * The '<em><b>Map Location Literal</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #STORAGE
-   * @model literal="storage"
+   * @see #MAP_LOCATION_LITERAL
+   * @model name="MapLocationLiteral"
    * @generated
    * @ordered
    */
-  public static final int STORAGE_VALUE = 1;
+  public static final int MAP_LOCATION_LITERAL_VALUE = 1;
 
   /**
    * The '<em><b>CALLDATA</b></em>' literal value.
@@ -93,7 +93,7 @@ public enum LocationSpecifierEnum implements Enumerator
     new LocationSpecifierEnum[]
     {
       MEMORY,
-      STORAGE,
+      MAP_LOCATION_LITERAL,
       CALLDATA,
     };
 
@@ -160,7 +160,7 @@ public enum LocationSpecifierEnum implements Enumerator
     switch (value)
     {
       case MEMORY_VALUE: return MEMORY;
-      case STORAGE_VALUE: return STORAGE;
+      case MAP_LOCATION_LITERAL_VALUE: return MAP_LOCATION_LITERAL;
       case CALLDATA_VALUE: return CALLDATA;
     }
     return null;

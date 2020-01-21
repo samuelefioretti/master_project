@@ -3,15 +3,10 @@
  */
 package org.unicam.myGrammar.generator;
 
-import com.google.common.collect.Iterables;
-import java.util.function.Consumer;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.unicam.myGrammar.optGrammar.Contract;
 
 /**
  * Generates code from your model files on save.
@@ -22,8 +17,5 @@ import org.unicam.myGrammar.optGrammar.Contract;
 public class OptGrammarGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    final Consumer<Contract> _function = (Contract c) -> {
-    };
-    Iterables.<Contract>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Contract.class).forEach(_function);
   }
 }

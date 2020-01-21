@@ -5,6 +5,8 @@ package org.unicam.myGrammar.optGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Enum Definition</b></em>'.
@@ -23,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface EnumDefinition extends FunctionDeclaration
+public interface EnumDefinition extends EObject
 {
   /**
    * Returns the value of the '<em><b>Visibility</b></em>' attribute.
