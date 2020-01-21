@@ -13,6 +13,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  * Controllare gli array
  * Controllare le strutture
  */
+// ---------- TO DO ----------
 
 /*
  * Solidity:
@@ -50,9 +51,18 @@ Declaration:
 ;
 
 FunctionDeclaration:
-	EnumDefinition |
-	ParameterList
+	EnumDefinition// |
+	//FunctionParameterDeclaration
 ;
+
+/*
+ * FunctionParameterDeclaration:
+ * ArrayDefinitionDeclaration |
+ * MappingDeclaration |
+ * PrimaryTypeDefinitionDeclaration |
+ * ConcreteStructureDefinitionDeclaration
+ * ;
+ */
 
 /*
  * InheritanceSpecifier:
@@ -127,11 +137,7 @@ StructDefinition:
 ;
 
 EnumDefinition:
-	visibility=VisibilityEnum? "enum" name=ID "{"
-		(
-			members+=EnumValue ("," members+=EnumValue)*
-		)?
-	"}"
+	visibility=VisibilityEnum? "enum" name=ID "{" members+=EnumValue ("," members+=EnumValue)* "}"
 ;
 
 EnumValue:
@@ -240,12 +246,10 @@ TupleSeparator:
 // SimpleStatement:
 // SimpleStatement2 ";"
 // ;
-
 SimpleStatement:
 	(
 		StandardTypeWithoutQualifiedIdentifier (
-			{StandardVariableDeclaration.type=current}
-			ptionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?
+			{StandardVariableDeclaration.type=current} ptionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?
 		) |
 		VarType (
 			(
@@ -262,8 +266,7 @@ SimpleStatement:
 SimpleStatement2:
 	(
 		StandardTypeWithoutQualifiedIdentifier (
-			{StandardVariableDeclaration.type=current}
-			optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?
+			{StandardVariableDeclaration.type=current} optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?
 		) |
 		VarType (
 			(
@@ -375,13 +378,9 @@ ForStatement:
 ;
 
 Body:
-	"{"
-		{Block} (
-			statements+=Statement (
-				statements+=Statement
-			)*
-		)?
-	"}"
+	"{" {Block} (
+		statements+=Statement (statements+=Statement)*
+	)? "}"
 ;
 
 ContinueStatement:
@@ -691,7 +690,6 @@ TypeCast:
 		expression=Expression
 	")"
 ;
-
 
 SpecialVariables:
 	type=SpecialVariablesTypeEnum "." field=ID qualifiers+=Qualifier*
