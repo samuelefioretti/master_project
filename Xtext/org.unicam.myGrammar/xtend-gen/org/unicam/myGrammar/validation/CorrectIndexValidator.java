@@ -5,6 +5,7 @@ import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ComposedChecks;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
 import org.unicam.myGrammar.optGrammar.Expression;
+import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
 import org.unicam.myGrammar.validation.AbstractOptGrammarValidator;
 import org.unicam.myGrammar.validation.FieldExistenceValidator;
 
@@ -135,13 +136,26 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
       + "\ncheckValidIndex cannot be resolved");
   }
   
-  public Object getErrorString(final /* PrimaryArithmetic */Object primaryArithmetic) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nLogicalOperations cannot be resolved to a type."
-      + "\nNumericLiteral cannot be resolved to a type."
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
-      + "\ngetErrorString cannot be resolved"
-      + "\nvalidIntoArrayIndex cannot be resolved");
+  public String getErrorString(final PrimaryArithmetic primaryArithmetic) {
+    boolean _matched = false;
+    if (primaryArithmetic instanceof Expression) {
+      _matched=true;
+      return this.getErrorString(((Expression)primaryArithmetic));
+    }
+    if (!_matched) {
+      if (primaryArithmetic instanceof Number) {
+        _matched=true;
+        String _xifexpression = null;
+        boolean _validIntoArrayIndex = this.validIntoArrayIndex(((Number)primaryArithmetic));
+        if (_validIntoArrayIndex) {
+          _xifexpression = null;
+        } else {
+          _xifexpression = "The inserted number is not correct";
+        }
+        return _xifexpression;
+      }
+    }
+    return null;
   }
   
   public boolean validIntoArrayIndex(final /* Declaration */Object dec) {
@@ -161,16 +175,14 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
       + "\nunsigned cannot be resolved");
   }
   
-  public boolean validIntoArrayIndex(final /* NumericLiteral */Object numLit) {
+  public boolean validIntoArrayIndex(final Number numLit) {
     throw new Error("Unresolved compilation problems:"
-      + "\netherUnit cannot be resolved"
+      + "\nThe method or field etherUnit is undefined for the type Number"
+      + "\nThe method or field decimalValue is undefined for the type Number"
+      + "\nThe field value is not visible"
       + "\n!== cannot be resolved"
       + "\n|| cannot be resolved"
-      + "\ndecimalValue cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\nintValue cannot be resolved"
-      + "\nvalue cannot be resolved"
-      + "\n>= cannot be resolved");
+      + "\n!== cannot be resolved");
   }
   
   public boolean validIntoArrayIndex(final /* NamedType */Object namedType) {

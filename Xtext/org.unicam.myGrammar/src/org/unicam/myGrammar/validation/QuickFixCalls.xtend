@@ -6,10 +6,12 @@ import java.util.Comparator
 import org.eclipse.xtext.validation.Check
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage
 import org.unicam.myGrammar.optGrammar.Contract
+import org.unicam.myGrammar.optGrammar.StructDefinition
+import org.eclipse.emf.ecore.EStructuralFeature
 
 /**
  * This class contains custom validation rules. 
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class QuickFixCalls extends AbstractOptGrammarValidator {
@@ -25,18 +27,18 @@ class QuickFixCalls extends AbstractOptGrammarValidator {
 	}
 
 	@Check
-	def orderedStructureFields(StructDeclaration str) {
-		if (!str.fields.empty) {
+	def orderedStructureFields(StructDefinition str) {
+		if (!str.members.empty) {
 			val orderedFields = newArrayList();
 			val newOrderedFields = newArrayList();
 			val orderedIndexes = newArrayList();
 
-			orderedFields.addAll(str.fields);
+			orderedFields.addAll(str.members);
 			orderedFields.sortInplace(declarationSizeComparator);
 
 			orderedFields.getOptimizedOrder(newOrderedFields, 0, getSize(orderedFields.get(0)));
-			if (!str.fields.equals(newOrderedFields)) {
-				orderedIndexes.addAll(newOrderedFields.map[x|str.fields.indexOf(x)]);
+			if (!str.members.equals(newOrderedFields)) {
+				orderedIndexes.addAll(newOrderedFields.map[x|str.members.indexOf(x)]);
 				warning(
 					"This structure can be optimized",
 					OptGrammarPackage.Literals.STRUCT_DECLARATION__NAME,
@@ -114,14 +116,14 @@ class QuickFixCalls extends AbstractOptGrammarValidator {
 			var EStructuralFeature reference = null;
 			switch e {
 				PrimaryTypeDefinitionDeclaration:
-					reference = CustomSolidityPackage.Literals.PRIMARY_TYPE_DEFINITION_DECLARATION__REF
+					reference = OptGrammarPackage.Literals.PRIMARY_TYPE_DEFINITION_DECLARATION__REF
 				ArrayDefinition:
 					if (e.indexes !== null && e.indexes.areAllNumericLiteral && e.field.nullOrEmpty)
-						reference = CustomSolidityPackage.Literals.ARRAY_DEFINITION__REF
+						reference = OptGrammarPackage.Literals.ARRAY_DEFINITION__REF
 				FieldAccess:
-					reference = CustomSolidityPackage.Literals.FIELD_ACCESS__FIELD
+					reference = OptGrammarPackage.Literals.FIELD_ACCESS__FIELD
 				SingleDefinition:
-					reference = CustomSolidityPackage.Literals.SINGLE_DEFINITION__NAME
+					reference = OptGrammarPackage.Literals.SINGLE_DEFINITION__NAME
 			}
 			if (reference !== null)
 				warning(e.getName, e, reference, ValidatorSupport.OPTIMIZE_INTERNAL_FOR)
@@ -146,9 +148,8 @@ class QuickFixCalls extends AbstractOptGrammarValidator {
 			ArrayableDeclaration: // int, bytes or address(20 byte)
 				return dec.type.type.startsWith('int')
 					? (dec.type.type.substring(3).empty ? 32 : (Integer.parseInt(dec.type.type.substring(3)) / 8))
-					: dec.type.type.startsWith('bytes')
-					? (dec.type.type.substring(5).empty ? 32 : Integer.parseInt(dec.type.type.substring(5)))
-					: 20
+					: dec.type.type.startsWith('bytes') ? (dec.type.type.substring(5).empty ? 32 : Integer.parseInt(
+					dec.type.type.substring(5))) : 20
 			default:
 				return 33
 		}

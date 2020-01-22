@@ -6,6 +6,7 @@ import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.EValidatorRegistrar
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage
 import org.unicam.myGrammar.optGrammar.Expression
+import org.unicam.myGrammar.optGrammar.PrimaryArithmetic
 
 /**
  * This class contains custom validation rules. 
@@ -83,9 +84,9 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 
 	def getErrorString(PrimaryArithmetic primaryArithmetic) {
 		switch (primaryArithmetic) {
-			LogicalOperations:
+			Expression:
 				return primaryArithmetic.getErrorString
-			NumericLiteral:
+			Number:
 				return primaryArithmetic.validIntoArrayIndex ? null : "The inserted number is not correct"
 		}
 	}
@@ -99,7 +100,7 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 		return false;
 	}
 
-	def boolean validIntoArrayIndex(NumericLiteral numLit) {
+	def boolean validIntoArrayIndex(Number numLit) {
 		if (numLit.etherUnit !== null || numLit.decimalValue !== null)
 			return false;
 		return numLit.intValue.value >= 0

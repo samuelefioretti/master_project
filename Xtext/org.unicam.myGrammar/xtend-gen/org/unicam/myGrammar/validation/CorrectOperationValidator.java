@@ -1,6 +1,7 @@
 package org.unicam.myGrammar.validation;
 
 import com.google.inject.Inject;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ComposedChecks;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
@@ -145,23 +146,23 @@ public class CorrectOperationValidator extends AbstractOptGrammarValidator {
       + "\nexistsAssignment cannot be resolved");
   }
   
-  public boolean existsAssignment(final /* EObject */Object dec) {
+  public boolean existsAssignment(final EObject dec) {
     throw new Error("Unresolved compilation problems:"
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
       + "\nSingleDefinition cannot be resolved to a type."
       + "\nFunctionDefinition cannot be resolved to a type."
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
+      + "\nThe method or field ref is undefined for the type EObject"
+      + "\nThe method or field name is undefined for the type EObject"
+      + "\nThe method getRoot((Object)=>boolean) is undefined for the type EObject"
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\nref cannot be resolved"
       + "\nasDeclaration cannot be resolved"
       + "\nname cannot be resolved"
-      + "\nname cannot be resolved"
       + "\nasDeclaration cannot be resolved"
       + "\nname cannot be resolved"
-      + "\ngetRoot cannot be resolved"
       + "\neAllContents cannot be resolved"
       + "\ntakeWhile cannot be resolved"
       + "\nfilter cannot be resolved"

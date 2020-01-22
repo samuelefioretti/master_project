@@ -5,6 +5,7 @@ import com.google.inject.Inject
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.EValidatorRegistrar
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage
+import org.eclipse.emf.ecore.EObject
 
 /**
  * This class contains custom validation rules. 

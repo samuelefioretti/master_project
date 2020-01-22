@@ -1,6 +1,10 @@
 package org.unicam.myGrammar.validation;
 
+import java.util.List;
+import java.util.function.Predicate;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.unicam.myGrammar.optGrammar.Contract;
 
 @SuppressWarnings("all")
 public class ValidatorSupport {
@@ -49,7 +53,6 @@ public class ValidatorSupport {
   public static EObject getDefinitionType(final EObject obj) {
     throw new Error("Unresolved compilation problems:"
       + "\nArrayDefinition cannot be resolved to a type."
-      + "\nMappingDefinition cannot be resolved to a type."
       + "\nSingleDefinition cannot be resolved to a type."
       + "\nFieldDefinition cannot be resolved to a type."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
@@ -57,11 +60,12 @@ public class ValidatorSupport {
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition.");
   }
   
-  public static EObject getRoot(final EObject eObj, final /* Predicate<EObject> */Object predicate) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nContract cannot be resolved to a type."
-      + "\ntest cannot be resolved"
-      + "\n! cannot be resolved");
+  public static EObject getRoot(final EObject eObj, final Predicate<EObject> predicate) {
+    EObject current = eObj;
+    while (((!(current instanceof Contract)) && (!predicate.test(current)))) {
+      current = current.eContainer();
+    }
+    return current;
   }
   
   public static PrimaryTypeDeclaration asDeclaration(final /* PrimaryTypeDefinitionDeclaration */Object dec) {
@@ -81,11 +85,7 @@ public class ValidatorSupport {
   
   public static boolean areAllNumericLiteral(final /* EList<ArrayIndex> */Object indexes) {
     throw new Error("Unresolved compilation problems:"
-      + "\nArithmeticOperations cannot be resolved to a type."
-      + "\nNumericLiteral cannot be resolved to a type."
-      + "\nThe method or field value is undefined for the type Object"
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\nmap cannot be resolved"
+      + "\nvalue cannot be resolved"
       + "\nnegate cannot be resolved"
       + "\n|| cannot be resolved"
       + "\nternary cannot be resolved"
@@ -100,30 +100,13 @@ public class ValidatorSupport {
       + "\n! cannot be resolved");
   }
   
-  public static Object equalsTo(final /* List<ArrayIndex> */Object indexes, final /* List<ArrayIndex> */Object toCompare) {
+  public static boolean equalsTo(final /* List<ArrayIndex> */Object indexes, final /* List<ArrayIndex> */Object toCompare) {
     throw new Error("Unresolved compilation problems:"
-      + "\nArithmeticOperations cannot be resolved to a type."
-      + "\nNumericLiteral cannot be resolved to a type."
-      + "\nArithmeticOperations cannot be resolved to a type."
-      + "\nNumericLiteral cannot be resolved to a type."
-      + "\nThe method or field value is undefined for the type Object"
-      + "\nThe method or field value is undefined for the type Object"
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\nsize cannot be resolved"
-      + "\n=== cannot be resolved"
-      + "\nsize cannot be resolved"
-      + "\n&& cannot be resolved"
-      + "\nmap cannot be resolved"
-      + "\nfirst cannot be resolved"
-      + "\nfirst cannot be resolved"
-      + "\nintValue cannot be resolved"
+      + "\nThe field value is not visible"
+      + "\nThe field value is not visible"
       + "\nvalue cannot be resolved"
-      + "\nequals cannot be resolved"
-      + "\nmap cannot be resolved"
       + "\nfirst cannot be resolved"
-      + "\nfirst cannot be resolved"
-      + "\nintValue cannot be resolved"
-      + "\nvalue cannot be resolved");
+      + "\nvalue cannot be resolved"
+      + "\nfirst cannot be resolved");
   }
 }

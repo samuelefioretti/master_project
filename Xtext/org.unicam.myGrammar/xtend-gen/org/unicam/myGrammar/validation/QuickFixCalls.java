@@ -5,6 +5,7 @@ import java.util.Comparator;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
 import org.unicam.myGrammar.optGrammar.Contract;
+import org.unicam.myGrammar.optGrammar.StructDefinition;
 import org.unicam.myGrammar.validation.AbstractOptGrammarValidator;
 
 /**
@@ -22,21 +23,12 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
   private /* Comparator<Declaration> */Object declarationSizeComparator /* Skipped initializer because of errors */;
   
   @Check
-  public void orderedStructureFields(final /* StructDeclaration */Object str) {
+  public void orderedStructureFields(final StructDefinition str) {
     throw new Error("Unresolved compilation problems:"
       + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
       + "\nThe field QuickFixCalls.declarationSizeComparator refers to the missing type Declaration"
       + "\nThe method getOptimizedOrder(ArrayList, ArrayList, Integer, Integer) from the type QuickFixCalls refers to the missing type ArrayList"
       + "\nThe method getSize(Declaration) from the type QuickFixCalls refers to the missing type Declaration"
-      + "\nfields cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nfields cannot be resolved"
-      + "\nfields cannot be resolved"
-      + "\nequals cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nfields cannot be resolved"
-      + "\nindexOf cannot be resolved"
       + "\nSTRUCT_DECLARATION__NAME cannot be resolved");
   }
   
@@ -71,7 +63,6 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\nSingleDefinition cannot be resolved to a type."
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
       + "\nFunctionDefinition cannot be resolved to a type."
-      + "\nEStructuralFeature cannot be resolved to a type."
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
       + "\nArrayDefinition cannot be resolved to a type."
       + "\nFieldAccess cannot be resolved to a type."
@@ -80,12 +71,12 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\nThe method or field def is undefined for the type Object"
       + "\nThe method or field dec is undefined for the type Object"
       + "\nThe method or field dec is undefined for the type Object"
-      + "\nThe method or field CustomSolidityPackage is undefined"
-      + "\nThe method or field CustomSolidityPackage is undefined"
-      + "\nThe method or field CustomSolidityPackage is undefined"
-      + "\nThe method or field CustomSolidityPackage is undefined"
+      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
       + "\nThe method or field getName is undefined for the type Object"
-      + "\nType mismatch: cannot convert from Object to EStructuralFeature"
+      + "\nType mismatch: cannot convert from Object to EObject"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
@@ -108,7 +99,6 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\n!== cannot be resolved"
       + "\n&& cannot be resolved"
       + "\ngetRoot cannot be resolved"
-      + "\nLiterals cannot be resolved"
       + "\nPRIMARY_TYPE_DEFINITION_DECLARATION__REF cannot be resolved"
       + "\nindexes cannot be resolved"
       + "\n!== cannot be resolved"
@@ -118,13 +108,9 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\n&& cannot be resolved"
       + "\nfield cannot be resolved"
       + "\nnullOrEmpty cannot be resolved"
-      + "\nLiterals cannot be resolved"
       + "\nARRAY_DEFINITION__REF cannot be resolved"
-      + "\nLiterals cannot be resolved"
       + "\nFIELD_ACCESS__FIELD cannot be resolved"
-      + "\nLiterals cannot be resolved"
-      + "\nSINGLE_DEFINITION__NAME cannot be resolved"
-      + "\n!== cannot be resolved");
+      + "\nSINGLE_DEFINITION__NAME cannot be resolved");
   }
   
   public void getOptimizedOrder(final /* ArrayList<Declaration> */Object arr, final /* ArrayList<Declaration> */Object newArr, final Integer index, final Integer currentSum) {

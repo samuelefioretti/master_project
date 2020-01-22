@@ -4,6 +4,11 @@ import org.eclipse.emf.ecore.EObject
 import org.unicam.myGrammar.optGrammar.EnumDefinition
 import org.unicam.myGrammar.optGrammar.StructDefinition
 import org.unicam.myGrammar.optGrammar.Mapping
+import org.unicam.myGrammar.optGrammar.Contract
+import java.util.function.Predicate
+import org.eclipse.emf.common.util.EList
+import java.util.List
+import org.unicam.myGrammar.optGrammar.ArithmeticOperations
 
 class ValidatorSupport {
 	protected static val ISSUE_CODE_PREFIX = "it.unicam.cs.gp.customSolidity.";
@@ -29,7 +34,7 @@ class ValidatorSupport {
 	def static getDefinitionType(EObject obj) {
 		return switch obj {
 			ArrayDefinition: obj
-			MappingDefinition: obj
+			Mapping: obj
 			SingleDefinition: obj
 			FieldDefinition: obj
 		}
@@ -60,7 +65,7 @@ class ValidatorSupport {
 			val first = current.first
 			switch (first) {
 				ArithmeticOperations: {
-					if(!(first.first instanceof NumericLiteral) || !first.seconds.empty) return false
+					if(!(first.first instanceof Number) || !first.seconds.empty) return false
 				}
 				default:
 					return false
@@ -71,8 +76,8 @@ class ValidatorSupport {
 
 	def static equalsTo(List<ArrayIndex> indexes, List<ArrayIndex> toCompare) {
 		return indexes.size === toCompare.size && toCompare.map [ e |
-			((e.value.first as ArithmeticOperations).first as NumericLiteral).intValue.value
-		].equals(indexes.map[e|((e.value.first as ArithmeticOperations).first as NumericLiteral).intValue.value])
+			((e.value.first as ArithmeticOperations).first as Number).intValue.value
+		].equals(indexes.map[e|((e.value.first as ArithmeticOperations).first as Number).intValue.value])
 
 	}
 }
