@@ -4,14 +4,15 @@
  * Language name: osol
  */
 grammar org.unicam.myGrammar.OptGrammar with org.eclipse.xtext.common.Terminals
-
 generate optGrammar "http://www.unicam.org/myGrammar/OptGrammar"
+
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 // ---------- TO DO ----------
 /*
  * Controllare gli array
  * Controllare le strutture
+ * Controllare le functionCall
  */
 // ---------- TO DO ----------
 
@@ -444,7 +445,7 @@ ThrowStatement:
 
 // Only allowed in a Modifier DAF
 PlaceHolderStatement:
-	"_" {PlaceHolderStatement}
+	"_" {PlaceHolderStatement} ";"?
 ;
 
 Expression:

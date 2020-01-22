@@ -19,16 +19,24 @@ class ValidatorSupport {
 
 	def static String getName(EObject dec) {
 		switch dec {
-			EnumDefinition: dec.name
-			ArrayDeclaration: dec.name
-			StructDefinition: dec.name
-			Mapping: dec.name
-			ConcreteStructureDefinitionDeclaration: dec.ref !== null ? dec.ref.
-				name : (dec as ConcreteStructDeclaration).name
-			PrimaryTypeDefinitionDeclaration: dec.ref !== null ? dec.ref.name : (dec as PrimaryTypeDeclaration).name
-			ArrayDefinition: (dec.ref as ArrayDeclaration).name
-			FieldAccess: dec.field
-			SingleDefinition: (dec.name as PrimaryTypeDeclaration).name
+			EnumDefinition:
+				dec.name
+			ArrayDeclaration:
+				dec.name
+			StructDefinition:
+				dec.name
+			Mapping:
+				dec.name
+			ConcreteStructureDefinitionDeclaration:
+				dec.ref !== null ? dec.ref.name : (dec as ConcreteStructDeclaration).name
+			PrimaryTypeDefinitionDeclaration:
+				dec.ref !== null ? dec.ref.name : (dec as PrimaryTypeDeclaration).name
+			ArrayDefinition:
+				(dec.ref as ArrayDeclaration).name
+			FieldAccess:
+				dec.field
+			SingleDefinition:
+				(dec.name as PrimaryTypeDeclaration).name
 		}
 	}
 

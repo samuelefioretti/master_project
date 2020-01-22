@@ -149,8 +149,11 @@ class QuickFixCalls extends AbstractOptGrammarValidator {
 			ArrayableDeclaration: // int, bytes or address(20 byte)
 				return dec.type.type.startsWith('int')
 					? (dec.type.type.substring(3).empty ? 32 : (Integer.parseInt(dec.type.type.substring(3)) / 8))
-					: dec.type.type.startsWith('bytes') ? (dec.type.type.substring(5).empty ? 32 : Integer.parseInt(
-					dec.type.type.substring(5))) : 20
+					: dec.type.type.startsWith('bytes')
+					? (dec.type.type.substring(5).empty
+					? 32
+					: Integer.parseInt(dec.type.type.substring(5)))
+					: 20
 			default:
 				return 33
 		}
