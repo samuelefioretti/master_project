@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
@@ -25,7 +26,7 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  *
  * @generated
  */
-public class DecimalLiteralImpl extends NumberImpl implements DecimalLiteral
+public class DecimalLiteralImpl extends MinimalEObjectImpl.Container implements DecimalLiteral
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

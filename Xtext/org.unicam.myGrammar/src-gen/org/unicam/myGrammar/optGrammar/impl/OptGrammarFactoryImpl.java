@@ -12,126 +12,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.unicam.myGrammar.optGrammar.AddSub;
-import org.unicam.myGrammar.optGrammar.AdditionOpEnum;
-import org.unicam.myGrammar.optGrammar.And;
-import org.unicam.myGrammar.optGrammar.Arguments;
-import org.unicam.myGrammar.optGrammar.ArithmeticOperations;
-import org.unicam.myGrammar.optGrammar.ArrayDimensions;
-import org.unicam.myGrammar.optGrammar.Assignment;
-import org.unicam.myGrammar.optGrammar.AssignmentOpEnum;
-import org.unicam.myGrammar.optGrammar.BinaryNotExpression;
-import org.unicam.myGrammar.optGrammar.BitAnd;
-import org.unicam.myGrammar.optGrammar.BitOr;
-import org.unicam.myGrammar.optGrammar.BitXor;
-import org.unicam.myGrammar.optGrammar.Block;
-import org.unicam.myGrammar.optGrammar.BlockhashFunction;
-import org.unicam.myGrammar.optGrammar.Body;
-import org.unicam.myGrammar.optGrammar.BooleanConst;
-import org.unicam.myGrammar.optGrammar.BooleanLiteralEnum;
-import org.unicam.myGrammar.optGrammar.BreakStatement;
-import org.unicam.myGrammar.optGrammar.Comparison;
-import org.unicam.myGrammar.optGrammar.ComparisonOpEnum;
-import org.unicam.myGrammar.optGrammar.Const;
-import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
-import org.unicam.myGrammar.optGrammar.Continue;
-import org.unicam.myGrammar.optGrammar.ContinueStatement;
-import org.unicam.myGrammar.optGrammar.Contract;
-import org.unicam.myGrammar.optGrammar.DecimalLiteral;
-import org.unicam.myGrammar.optGrammar.DefinitionBody;
-import org.unicam.myGrammar.optGrammar.DeleteStatement;
-import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
-import org.unicam.myGrammar.optGrammar.ElementaryType;
-import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
-import org.unicam.myGrammar.optGrammar.EnumDefinition;
-import org.unicam.myGrammar.optGrammar.EnumValue;
-import org.unicam.myGrammar.optGrammar.Equality;
-import org.unicam.myGrammar.optGrammar.EqualityOpEnum;
-import org.unicam.myGrammar.optGrammar.Ether;
-import org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum;
-import org.unicam.myGrammar.optGrammar.Event;
-import org.unicam.myGrammar.optGrammar.Exponent;
-import org.unicam.myGrammar.optGrammar.Expression;
-import org.unicam.myGrammar.optGrammar.ExpressionStatement;
-import org.unicam.myGrammar.optGrammar.Field;
-import org.unicam.myGrammar.optGrammar.ForStatement;
-import org.unicam.myGrammar.optGrammar.FunctionCall;
-import org.unicam.myGrammar.optGrammar.FunctionCallArg;
-import org.unicam.myGrammar.optGrammar.FunctionCallArguments;
-import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
-import org.unicam.myGrammar.optGrammar.FunctionDefinition;
-import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
-import org.unicam.myGrammar.optGrammar.GasleftFunction;
-import org.unicam.myGrammar.optGrammar.HashFunction;
-import org.unicam.myGrammar.optGrammar.HexLiteral;
-import org.unicam.myGrammar.optGrammar.IfStatement;
-import org.unicam.myGrammar.optGrammar.IncDecOpEnum;
-import org.unicam.myGrammar.optGrammar.Index;
-import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
-import org.unicam.myGrammar.optGrammar.IntParameter;
-import org.unicam.myGrammar.optGrammar.Literal;
-import org.unicam.myGrammar.optGrammar.LocationSpecifier;
-import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
-import org.unicam.myGrammar.optGrammar.Mapping;
-import org.unicam.myGrammar.optGrammar.MathematicalFunction;
-import org.unicam.myGrammar.optGrammar.Model;
-import org.unicam.myGrammar.optGrammar.Modifier;
-import org.unicam.myGrammar.optGrammar.ModifierInvocation;
-import org.unicam.myGrammar.optGrammar.MulDivMod;
-import org.unicam.myGrammar.optGrammar.MulDivModOpEnum;
-import org.unicam.myGrammar.optGrammar.NewExpression;
-import org.unicam.myGrammar.optGrammar.NotExpression;
-import org.unicam.myGrammar.optGrammar.Now;
-import org.unicam.myGrammar.optGrammar.NumberDimensionless;
-import org.unicam.myGrammar.optGrammar.OptGrammarFactory;
-import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.Or;
-import org.unicam.myGrammar.optGrammar.ParameterList;
-import org.unicam.myGrammar.optGrammar.PlaceHolderStatement;
-import org.unicam.myGrammar.optGrammar.PostIncDecExpression;
-import org.unicam.myGrammar.optGrammar.PreDecExpression;
-import org.unicam.myGrammar.optGrammar.PreIncExpression;
-import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
-import org.unicam.myGrammar.optGrammar.QualifiedIdentifier;
-import org.unicam.myGrammar.optGrammar.Qualifier;
-import org.unicam.myGrammar.optGrammar.ReservedWordsEnum;
-import org.unicam.myGrammar.optGrammar.ReturnParameterDeclaration;
-import org.unicam.myGrammar.optGrammar.ReturnStatement;
-import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
-import org.unicam.myGrammar.optGrammar.SecondOperators;
-import org.unicam.myGrammar.optGrammar.Shift;
-import org.unicam.myGrammar.optGrammar.ShiftOpEnum;
-import org.unicam.myGrammar.optGrammar.SignExpression;
-import org.unicam.myGrammar.optGrammar.SimpleStatement;
-import org.unicam.myGrammar.optGrammar.SimpleStatement2;
-import org.unicam.myGrammar.optGrammar.SpecialExpression;
-import org.unicam.myGrammar.optGrammar.SpecialExpressionTypeEnum;
-import org.unicam.myGrammar.optGrammar.SpecialVariables;
-import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
-import org.unicam.myGrammar.optGrammar.StandardType;
-import org.unicam.myGrammar.optGrammar.StandardTypeWithoutQualifiedIdentifier;
-import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.Statement;
-import org.unicam.myGrammar.optGrammar.StringLiteral;
-import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.ThrowStatement;
-import org.unicam.myGrammar.optGrammar.Time;
-import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
-import org.unicam.myGrammar.optGrammar.Tuple;
-import org.unicam.myGrammar.optGrammar.TupleSeparator;
-import org.unicam.myGrammar.optGrammar.Type;
-import org.unicam.myGrammar.optGrammar.TypeCast;
-import org.unicam.myGrammar.optGrammar.UnitTypes;
-import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
-import org.unicam.myGrammar.optGrammar.Variable;
-import org.unicam.myGrammar.optGrammar.VariableDeclarationExpression;
-import org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement;
-import org.unicam.myGrammar.optGrammar.VisibilityEnum;
-import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
-import org.unicam.myGrammar.optGrammar.WhileStatement;
+import org.unicam.myGrammar.optGrammar.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -260,7 +141,7 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.PRIMARY_ARITHMETIC: return createPrimaryArithmetic();
       case OptGrammarPackage.SECOND_OPERATORS: return createSecondOperators();
       case OptGrammarPackage.BOOLEAN_CONST: return createBooleanConst();
-      case OptGrammarPackage.NUMBER: return createNumber();
+      case OptGrammarPackage.NUMERIC_LITERAL: return createNumericLiteral();
       case OptGrammarPackage.NOW: return createNow();
       case OptGrammarPackage.UNIT_TYPES: return createUnitTypes();
       case OptGrammarPackage.NUMBER_DIMENSIONLESS: return createNumberDimensionless();
@@ -271,6 +152,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.DECIMAL_LITERAL: return createDecimalLiteral();
       case OptGrammarPackage.TYPE_CAST: return createTypeCast();
       case OptGrammarPackage.SPECIAL_VARIABLES: return createSpecialVariables();
+      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM: return createLocationSpecifierEnum();
+      case OptGrammarPackage.VISIBILITY_ENUM: return createVisibilityEnum();
       case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM: return createSpecialVariablesTypeEnum();
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION: return createVarVariableTypeDeclaration();
       case OptGrammarPackage.BLOCK: return createBlock();
@@ -306,10 +189,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
     {
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
         return createElementaryTypeNameEnumFromString(eDataType, initialValue);
-      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
-        return createLocationSpecifierEnumFromString(eDataType, initialValue);
-      case OptGrammarPackage.VISIBILITY_ENUM:
-        return createVisibilityEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.ASSIGNMENT_OP_ENUM:
         return createAssignmentOpEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.EQUALITY_OP_ENUM:
@@ -351,10 +230,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
     {
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
         return convertElementaryTypeNameEnumToString(eDataType, instanceValue);
-      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
-        return convertLocationSpecifierEnumToString(eDataType, instanceValue);
-      case OptGrammarPackage.VISIBILITY_ENUM:
-        return convertVisibilityEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.ASSIGNMENT_OP_ENUM:
         return convertAssignmentOpEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.EQUALITY_OP_ENUM:
@@ -1290,10 +1165,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public org.unicam.myGrammar.optGrammar.Number createNumber()
+  public NumericLiteral createNumericLiteral()
   {
-    NumberImpl number = new NumberImpl();
-    return number;
+    NumericLiteralImpl numericLiteral = new NumericLiteralImpl();
+    return numericLiteral;
   }
 
   /**
@@ -1414,6 +1289,30 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     SpecialVariablesImpl specialVariables = new SpecialVariablesImpl();
     return specialVariables;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LocationSpecifierEnum createLocationSpecifierEnum()
+  {
+    LocationSpecifierEnumImpl locationSpecifierEnum = new LocationSpecifierEnumImpl();
+    return locationSpecifierEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VisibilityEnum createVisibilityEnum()
+  {
+    VisibilityEnumImpl visibilityEnum = new VisibilityEnumImpl();
+    return visibilityEnum;
   }
 
   /**
@@ -1650,50 +1549,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   public String convertElementaryTypeNameEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LocationSpecifierEnum createLocationSpecifierEnumFromString(EDataType eDataType, String initialValue)
-  {
-    LocationSpecifierEnum result = LocationSpecifierEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertLocationSpecifierEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VisibilityEnum createVisibilityEnumFromString(EDataType eDataType, String initialValue)
-  {
-    VisibilityEnum result = VisibilityEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertVisibilityEnumToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

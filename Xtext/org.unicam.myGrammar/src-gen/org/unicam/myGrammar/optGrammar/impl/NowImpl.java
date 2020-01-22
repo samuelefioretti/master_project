@@ -5,6 +5,8 @@ package org.unicam.myGrammar.optGrammar.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.unicam.myGrammar.optGrammar.Now;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
@@ -15,7 +17,7 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  *
  * @generated
  */
-public class NowImpl extends NumberImpl implements Now
+public class NowImpl extends MinimalEObjectImpl.Container implements Now
 {
   /**
    * <!-- begin-user-doc -->

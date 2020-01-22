@@ -699,13 +699,13 @@ public interface OptGrammarFactory extends EFactory
   BooleanConst createBooleanConst();
 
   /**
-   * Returns a new object of class '<em>Number</em>'.
+   * Returns a new object of class '<em>Numeric Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Number</em>'.
+   * @return a new object of class '<em>Numeric Literal</em>'.
    * @generated
    */
-  Number createNumber();
+  NumericLiteral createNumericLiteral();
 
   /**
    * Returns a new object of class '<em>Now</em>'.
@@ -796,6 +796,24 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   SpecialVariables createSpecialVariables();
+
+  /**
+   * Returns a new object of class '<em>Location Specifier Enum</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Location Specifier Enum</em>'.
+   * @generated
+   */
+  LocationSpecifierEnum createLocationSpecifierEnum();
+
+  /**
+   * Returns a new object of class '<em>Visibility Enum</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Visibility Enum</em>'.
+   * @generated
+   */
+  VisibilityEnum createVisibilityEnum();
 
   /**
    * Returns a new object of class '<em>Special Variables Type Enum</em>'.

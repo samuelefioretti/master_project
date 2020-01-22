@@ -3,6 +3,7 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface NumberDimensionless extends org.unicam.myGrammar.optGrammar.Number
+public interface NumberDimensionless extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

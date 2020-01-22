@@ -7,6 +7,17 @@ import org.eclipse.xtext.validation.EValidatorRegistrar
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage
 import org.unicam.myGrammar.optGrammar.Expression
 import org.unicam.myGrammar.optGrammar.PrimaryArithmetic
+import org.unicam.myGrammar.optGrammar.Literal
+import org.unicam.myGrammar.optGrammar.StringLiteral
+import org.unicam.myGrammar.optGrammar.BooleanConst
+import org.unicam.myGrammar.optGrammar.SpecialVariables
+import org.unicam.myGrammar.optGrammar.BlockhashFunction
+import org.unicam.myGrammar.optGrammar.GasleftFunction
+import org.unicam.myGrammar.optGrammar.HashFunction
+import org.unicam.myGrammar.optGrammar.EcrecoverFunction
+import org.unicam.myGrammar.optGrammar.ArithmeticOperations
+import org.unicam.myGrammar.optGrammar.SecondOperators
+import org.unicam.myGrammar.optGrammar.NumericLiteral
 
 /**
  * This class contains custom validation rules. 
@@ -25,10 +36,10 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 			error(result, OptGrammarPackage.Literals.ARRAY_INDEX__VALUE);
 	}
 
-	def checkValidIndex(Condition toCheck) {
+	def checkValidIndex(Literal toCheck) {
 		var String toReturn = null;
 		switch (toCheck) {
-			SpecialLiteral
+			SpecialVariables
 			| BlockhashFunction
 			| GasleftFunction
 			| HashFunction
@@ -36,7 +47,7 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 			}
 			StringLiteral:
 				toReturn = "Strings are not usable as Array Index"
-			BooleanLiteral:
+			BooleanConst:
 				toReturn = "Booleans are not usable as Array Index"
 			FunctionCall:
 				if (toCheck.name.returnType === null)
@@ -84,10 +95,10 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 
 	def getErrorString(PrimaryArithmetic primaryArithmetic) {
 		switch (primaryArithmetic) {
+			NumericLiteral:
+				return primaryArithmetic.validIntoArrayIndex ? null : "The inserted number is not correct"
 			Expression:
 				return primaryArithmetic.getErrorString
-			Number:
-				return primaryArithmetic.validIntoArrayIndex ? null : "The inserted number is not correct"
 		}
 	}
 
@@ -100,7 +111,7 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 		return false;
 	}
 
-	def boolean validIntoArrayIndex(Number numLit) {
+	def boolean validIntoArrayIndex(NumericLiteral numLit) {
 		if (numLit.etherUnit !== null || numLit.decimalValue !== null)
 			return false;
 		return numLit.intValue.value >= 0

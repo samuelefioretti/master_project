@@ -571,7 +571,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass numberEClass = null;
+  private EClass numericLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -642,6 +642,20 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   private EClass specialVariablesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass locationSpecifierEnumEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass visibilityEnumEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -775,20 +789,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   private EEnum elementaryTypeNameEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum locationSpecifierEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum visibilityEnumEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1348,9 +1348,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getVisibilitySpecifier_Visibility()
+  public EReference getVisibilitySpecifier_Visibility()
   {
-        return (EAttribute)getVisibilitySpecifier().getEStructuralFeatures().get(0);
+        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1374,9 +1374,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getStructDefinition_Visibility()
+  public EReference getStructDefinition_Visibility()
   {
-        return (EAttribute)getStructDefinition().getEStructuralFeatures().get(0);
+        return (EReference)getStructDefinition().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1422,9 +1422,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getEnumDefinition_Visibility()
+  public EReference getEnumDefinition_Visibility()
   {
-        return (EAttribute)getEnumDefinition().getEStructuralFeatures().get(0);
+        return (EReference)getEnumDefinition().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1770,9 +1770,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getLocationSpecifier_Location()
+  public EReference getLocationSpecifier_Location()
   {
-        return (EAttribute)getLocationSpecifier().getEStructuralFeatures().get(0);
+        return (EReference)getLocationSpecifier().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3265,13 +3265,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getNumber()
+  public EClass getNumericLiteral()
   {
-    if (numberEClass == null)
+    if (numericLiteralEClass == null)
     {
-      numberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(75);
+      numericLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(75);
     }
-    return numberEClass;
+    return numericLiteralEClass;
   }
 
   /**
@@ -3280,9 +3280,53 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EReference getNumber_EtherUnit()
+  public EReference getNumericLiteral_IntValue()
   {
-        return (EReference)getNumber().getEStructuralFeatures().get(0);
+        return (EReference)getNumericLiteral().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNumericLiteral_HexValue()
+  {
+        return (EReference)getNumericLiteral().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNumericLiteral_DecimalValue()
+  {
+        return (EReference)getNumericLiteral().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNumericLiteral_Now()
+  {
+        return (EReference)getNumericLiteral().getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNumericLiteral_EtherUnit()
+  {
+        return (EReference)getNumericLiteral().getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3598,6 +3642,58 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   public EReference getSpecialVariables_Qualifiers()
   {
         return (EReference)getSpecialVariables().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLocationSpecifierEnum()
+  {
+    if (locationSpecifierEnumEClass == null)
+    {
+      locationSpecifierEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(87);
+    }
+    return locationSpecifierEnumEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLocationSpecifierEnum_Type()
+  {
+        return (EAttribute)getLocationSpecifierEnum().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getVisibilityEnum()
+  {
+    if (visibilityEnumEClass == null)
+    {
+      visibilityEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(88);
+    }
+    return visibilityEnumEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVisibilityEnum_Type()
+  {
+        return (EAttribute)getVisibilityEnum().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4323,36 +4419,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
       elementaryTypeNameEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(86);
     }
     return elementaryTypeNameEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EEnum getLocationSpecifierEnum()
-  {
-    if (locationSpecifierEnumEEnum == null)
-    {
-      locationSpecifierEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(87);
-    }
-    return locationSpecifierEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EEnum getVisibilityEnum()
-  {
-    if (visibilityEnumEEnum == null)
-    {
-      visibilityEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(88);
-    }
-    return visibilityEnumEEnum;
   }
 
   /**

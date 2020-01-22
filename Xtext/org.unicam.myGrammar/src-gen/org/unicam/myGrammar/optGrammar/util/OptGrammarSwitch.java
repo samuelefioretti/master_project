@@ -8,110 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.unicam.myGrammar.optGrammar.AddSub;
-import org.unicam.myGrammar.optGrammar.And;
-import org.unicam.myGrammar.optGrammar.Arguments;
-import org.unicam.myGrammar.optGrammar.ArithmeticOperations;
-import org.unicam.myGrammar.optGrammar.ArrayDimensions;
-import org.unicam.myGrammar.optGrammar.Assignment;
-import org.unicam.myGrammar.optGrammar.BinaryNotExpression;
-import org.unicam.myGrammar.optGrammar.BitAnd;
-import org.unicam.myGrammar.optGrammar.BitOr;
-import org.unicam.myGrammar.optGrammar.BitXor;
-import org.unicam.myGrammar.optGrammar.Block;
-import org.unicam.myGrammar.optGrammar.BlockhashFunction;
-import org.unicam.myGrammar.optGrammar.Body;
-import org.unicam.myGrammar.optGrammar.BooleanConst;
-import org.unicam.myGrammar.optGrammar.BreakStatement;
-import org.unicam.myGrammar.optGrammar.Comparison;
-import org.unicam.myGrammar.optGrammar.Const;
-import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
-import org.unicam.myGrammar.optGrammar.Continue;
-import org.unicam.myGrammar.optGrammar.ContinueStatement;
-import org.unicam.myGrammar.optGrammar.Contract;
-import org.unicam.myGrammar.optGrammar.DecimalLiteral;
-import org.unicam.myGrammar.optGrammar.DefinitionBody;
-import org.unicam.myGrammar.optGrammar.DeleteStatement;
-import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
-import org.unicam.myGrammar.optGrammar.ElementaryType;
-import org.unicam.myGrammar.optGrammar.EnumDefinition;
-import org.unicam.myGrammar.optGrammar.EnumValue;
-import org.unicam.myGrammar.optGrammar.Equality;
-import org.unicam.myGrammar.optGrammar.Ether;
-import org.unicam.myGrammar.optGrammar.Event;
-import org.unicam.myGrammar.optGrammar.Exponent;
-import org.unicam.myGrammar.optGrammar.Expression;
-import org.unicam.myGrammar.optGrammar.ExpressionStatement;
-import org.unicam.myGrammar.optGrammar.Field;
-import org.unicam.myGrammar.optGrammar.ForStatement;
-import org.unicam.myGrammar.optGrammar.FunctionCall;
-import org.unicam.myGrammar.optGrammar.FunctionCallArg;
-import org.unicam.myGrammar.optGrammar.FunctionCallArguments;
-import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
-import org.unicam.myGrammar.optGrammar.FunctionDefinition;
-import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
-import org.unicam.myGrammar.optGrammar.GasleftFunction;
-import org.unicam.myGrammar.optGrammar.HashFunction;
-import org.unicam.myGrammar.optGrammar.HexLiteral;
-import org.unicam.myGrammar.optGrammar.IfStatement;
-import org.unicam.myGrammar.optGrammar.Index;
-import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
-import org.unicam.myGrammar.optGrammar.IntParameter;
-import org.unicam.myGrammar.optGrammar.Literal;
-import org.unicam.myGrammar.optGrammar.LocationSpecifier;
-import org.unicam.myGrammar.optGrammar.Mapping;
-import org.unicam.myGrammar.optGrammar.MathematicalFunction;
-import org.unicam.myGrammar.optGrammar.Model;
-import org.unicam.myGrammar.optGrammar.Modifier;
-import org.unicam.myGrammar.optGrammar.ModifierInvocation;
-import org.unicam.myGrammar.optGrammar.MulDivMod;
-import org.unicam.myGrammar.optGrammar.NewExpression;
-import org.unicam.myGrammar.optGrammar.NotExpression;
-import org.unicam.myGrammar.optGrammar.Now;
-import org.unicam.myGrammar.optGrammar.NumberDimensionless;
-import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.Or;
-import org.unicam.myGrammar.optGrammar.ParameterList;
-import org.unicam.myGrammar.optGrammar.PlaceHolderStatement;
-import org.unicam.myGrammar.optGrammar.PostIncDecExpression;
-import org.unicam.myGrammar.optGrammar.PreDecExpression;
-import org.unicam.myGrammar.optGrammar.PreIncExpression;
-import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
-import org.unicam.myGrammar.optGrammar.QualifiedIdentifier;
-import org.unicam.myGrammar.optGrammar.Qualifier;
-import org.unicam.myGrammar.optGrammar.ReturnParameterDeclaration;
-import org.unicam.myGrammar.optGrammar.ReturnStatement;
-import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
-import org.unicam.myGrammar.optGrammar.SecondOperators;
-import org.unicam.myGrammar.optGrammar.Shift;
-import org.unicam.myGrammar.optGrammar.SignExpression;
-import org.unicam.myGrammar.optGrammar.SimpleStatement;
-import org.unicam.myGrammar.optGrammar.SimpleStatement2;
-import org.unicam.myGrammar.optGrammar.SpecialExpression;
-import org.unicam.myGrammar.optGrammar.SpecialVariables;
-import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
-import org.unicam.myGrammar.optGrammar.StandardType;
-import org.unicam.myGrammar.optGrammar.StandardTypeWithoutQualifiedIdentifier;
-import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.Statement;
-import org.unicam.myGrammar.optGrammar.StringLiteral;
-import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.ThrowStatement;
-import org.unicam.myGrammar.optGrammar.Time;
-import org.unicam.myGrammar.optGrammar.Tuple;
-import org.unicam.myGrammar.optGrammar.TupleSeparator;
-import org.unicam.myGrammar.optGrammar.Type;
-import org.unicam.myGrammar.optGrammar.TypeCast;
-import org.unicam.myGrammar.optGrammar.UnitTypes;
-import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
-import org.unicam.myGrammar.optGrammar.Variable;
-import org.unicam.myGrammar.optGrammar.VariableDeclarationExpression;
-import org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement;
-import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
-import org.unicam.myGrammar.optGrammar.WhileStatement;
+import org.unicam.myGrammar.optGrammar.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -792,13 +689,13 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.NUMBER:
+      case OptGrammarPackage.NUMERIC_LITERAL:
       {
-        org.unicam.myGrammar.optGrammar.Number number = (org.unicam.myGrammar.optGrammar.Number)theEObject;
-        T result = caseNumber(number);
-        if (result == null) result = caseLiteral(number);
-        if (result == null) result = caseExpression(number);
-        if (result == null) result = casePrimaryArithmetic(number);
+        NumericLiteral numericLiteral = (NumericLiteral)theEObject;
+        T result = caseNumericLiteral(numericLiteral);
+        if (result == null) result = caseLiteral(numericLiteral);
+        if (result == null) result = caseExpression(numericLiteral);
+        if (result == null) result = casePrimaryArithmetic(numericLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -806,10 +703,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         Now now = (Now)theEObject;
         T result = caseNow(now);
-        if (result == null) result = caseNumber(now);
-        if (result == null) result = caseLiteral(now);
-        if (result == null) result = caseExpression(now);
-        if (result == null) result = casePrimaryArithmetic(now);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -824,10 +717,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         NumberDimensionless numberDimensionless = (NumberDimensionless)theEObject;
         T result = caseNumberDimensionless(numberDimensionless);
-        if (result == null) result = caseNumber(numberDimensionless);
-        if (result == null) result = caseLiteral(numberDimensionless);
-        if (result == null) result = caseExpression(numberDimensionless);
-        if (result == null) result = casePrimaryArithmetic(numberDimensionless);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -859,10 +748,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         HexLiteral hexLiteral = (HexLiteral)theEObject;
         T result = caseHexLiteral(hexLiteral);
-        if (result == null) result = caseNumber(hexLiteral);
-        if (result == null) result = caseLiteral(hexLiteral);
-        if (result == null) result = caseExpression(hexLiteral);
-        if (result == null) result = casePrimaryArithmetic(hexLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -870,10 +755,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         DecimalLiteral decimalLiteral = (DecimalLiteral)theEObject;
         T result = caseDecimalLiteral(decimalLiteral);
-        if (result == null) result = caseNumber(decimalLiteral);
-        if (result == null) result = caseLiteral(decimalLiteral);
-        if (result == null) result = caseExpression(decimalLiteral);
-        if (result == null) result = casePrimaryArithmetic(decimalLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -893,6 +774,20 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = caseLiteral(specialVariables);
         if (result == null) result = caseExpression(specialVariables);
         if (result == null) result = casePrimaryArithmetic(specialVariables);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
+      {
+        LocationSpecifierEnum locationSpecifierEnum = (LocationSpecifierEnum)theEObject;
+        T result = caseLocationSpecifierEnum(locationSpecifierEnum);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.VISIBILITY_ENUM:
+      {
+        VisibilityEnum visibilityEnum = (VisibilityEnum)theEObject;
+        T result = caseVisibilityEnum(visibilityEnum);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2262,17 +2157,17 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Number</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Numeric Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Number</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Numeric Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNumber(org.unicam.myGrammar.optGrammar.Number object)
+  public T caseNumericLiteral(NumericLiteral object)
   {
     return null;
   }
@@ -2433,6 +2328,38 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSpecialVariables(SpecialVariables object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Location Specifier Enum</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Location Specifier Enum</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLocationSpecifierEnum(LocationSpecifierEnum object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Visibility Enum</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Visibility Enum</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVisibilityEnum(VisibilityEnum object)
   {
     return null;
   }

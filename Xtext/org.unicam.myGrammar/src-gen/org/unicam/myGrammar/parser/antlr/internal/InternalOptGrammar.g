@@ -897,7 +897,7 @@ ruleVisibilitySpecifier returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumEnumRuleCall_0());
+				newCompositeNode(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumParserRuleCall_0());
 			}
 			lv_visibility_0_0=ruleVisibilityEnum
 			{
@@ -934,7 +934,7 @@ ruleStructDefinition returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStructDefinitionAccess().getVisibilityVisibilityEnumEnumRuleCall_0_0());
+					newCompositeNode(grammarAccess.getStructDefinitionAccess().getVisibilityVisibilityEnumParserRuleCall_0_0());
 				}
 				lv_visibility_0_0=ruleVisibilityEnum
 				{
@@ -1027,7 +1027,7 @@ ruleEnumDefinition returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEnumDefinitionAccess().getVisibilityVisibilityEnumEnumRuleCall_0_0());
+					newCompositeNode(grammarAccess.getEnumDefinitionAccess().getVisibilityVisibilityEnumParserRuleCall_0_0());
 				}
 				lv_visibility_0_0=ruleVisibilityEnum
 				{
@@ -1632,7 +1632,7 @@ ruleLocationSpecifier returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumEnumRuleCall_0());
+				newCompositeNode(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumParserRuleCall_0());
 			}
 			lv_location_0_0=ruleLocationSpecifierEnum
 			{
@@ -5694,11 +5694,11 @@ ruleLiteral returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getNumberParserRuleCall_2());
+			newCompositeNode(grammarAccess.getLiteralAccess().getNumericLiteralParserRuleCall_2());
 		}
-		this_Number_2=ruleNumber
+		this_NumericLiteral_2=ruleNumericLiteral
 		{
-			$current = $this_Number_2.current;
+			$current = $this_NumericLiteral_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -6399,11 +6399,11 @@ rulePrimaryArithmetic returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getPrimaryArithmeticAccess().getNumberParserRuleCall_0());
+			newCompositeNode(grammarAccess.getPrimaryArithmeticAccess().getNumericLiteralParserRuleCall_0());
 		}
-		this_Number_0=ruleNumber
+		this_NumericLiteral_0=ruleNumericLiteral
 		{
-			$current = $this_Number_0.current;
+			$current = $this_NumericLiteral_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -6551,15 +6551,15 @@ ruleBooleanConst returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleNumber
-entryRuleNumber returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNumberRule()); }
-	iv_ruleNumber=ruleNumber
-	{ $current=$iv_ruleNumber.current; }
+// Entry rule entryRuleNumericLiteral
+entryRuleNumericLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNumericLiteralRule()); }
+	iv_ruleNumericLiteral=ruleNumericLiteral
+	{ $current=$iv_ruleNumericLiteral.current; }
 	EOF;
 
-// Rule Number
-ruleNumber returns [EObject current=null]
+// Rule NumericLiteral
+ruleNumericLiteral returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -6568,51 +6568,95 @@ ruleNumber returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getNumberAccess().getNumberDimensionlessParserRuleCall_0_0());
-			}
-			this_NumberDimensionless_0=ruleNumberDimensionless
-			{
-				$current = $this_NumberDimensionless_0.current;
-				afterParserOrEnumRuleCall();
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNumericLiteralAccess().getIntValueNumberDimensionlessParserRuleCall_0_0_0());
+					}
+					lv_intValue_0_0=ruleNumberDimensionless
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+						}
+						set(
+							$current,
+							"intValue",
+							lv_intValue_0_0,
+							"org.unicam.myGrammar.OptGrammar.NumberDimensionless");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 			    |
-			{
-				newCompositeNode(grammarAccess.getNumberAccess().getHexLiteralParserRuleCall_0_1());
-			}
-			this_HexLiteral_1=ruleHexLiteral
-			{
-				$current = $this_HexLiteral_1.current;
-				afterParserOrEnumRuleCall();
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNumericLiteralAccess().getHexValueHexLiteralParserRuleCall_0_1_0());
+					}
+					lv_hexValue_1_0=ruleHexLiteral
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+						}
+						set(
+							$current,
+							"hexValue",
+							lv_hexValue_1_0,
+							"org.unicam.myGrammar.OptGrammar.HexLiteral");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 			    |
-			{
-				newCompositeNode(grammarAccess.getNumberAccess().getDecimalLiteralParserRuleCall_0_2());
-			}
-			this_DecimalLiteral_2=ruleDecimalLiteral
-			{
-				$current = $this_DecimalLiteral_2.current;
-				afterParserOrEnumRuleCall();
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNumericLiteralAccess().getDecimalValueDecimalLiteralParserRuleCall_0_2_0());
+					}
+					lv_decimalValue_2_0=ruleDecimalLiteral
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+						}
+						set(
+							$current,
+							"decimalValue",
+							lv_decimalValue_2_0,
+							"org.unicam.myGrammar.OptGrammar.DecimalLiteral");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 			    |
-			{
-				newCompositeNode(grammarAccess.getNumberAccess().getNowParserRuleCall_0_3());
-			}
-			this_Now_3=ruleNow
-			{
-				$current = $this_Now_3.current;
-				afterParserOrEnumRuleCall();
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNumericLiteralAccess().getNowNowParserRuleCall_0_3_0());
+					}
+					lv_now_3_0=ruleNow
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+						}
+						set(
+							$current,
+							"now",
+							lv_now_3_0,
+							"org.unicam.myGrammar.OptGrammar.Now");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNumberAccess().getEtherUnitUnitTypesParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getNumericLiteralAccess().getEtherUnitUnitTypesParserRuleCall_1_0());
 				}
 				lv_etherUnit_4_0=ruleUnitTypes
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getNumberRule());
+						$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
 					}
 					set(
 						$current,
@@ -7107,6 +7151,154 @@ ruleSpecialVariables returns [EObject current=null]
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleMapLocationLiteral
+entryRuleMapLocationLiteral returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getMapLocationLiteralRule()); }
+	iv_ruleMapLocationLiteral=ruleMapLocationLiteral
+	{ $current=$iv_ruleMapLocationLiteral.current.getText(); }
+	EOF;
+
+// Rule MapLocationLiteral
+ruleMapLocationLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	kw='storage'
+	{
+		$current.merge(kw);
+		newLeafNode(kw, grammarAccess.getMapLocationLiteralAccess().getStorageKeyword());
+	}
+;
+
+// Entry rule entryRuleLocationSpecifierEnum
+entryRuleLocationSpecifierEnum returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLocationSpecifierEnumRule()); }
+	iv_ruleLocationSpecifierEnum=ruleLocationSpecifierEnum
+	{ $current=$iv_ruleLocationSpecifierEnum.current; }
+	EOF;
+
+// Rule LocationSpecifierEnum
+ruleLocationSpecifierEnum returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_type_0_1='memory'
+				{
+					newLeafNode(lv_type_0_1, grammarAccess.getLocationSpecifierEnumAccess().getTypeMemoryKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLocationSpecifierEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_1, null);
+				}
+				    |
+				{
+					newCompositeNode(grammarAccess.getLocationSpecifierEnumAccess().getTypeMapLocationLiteralParserRuleCall_0_1());
+				}
+				lv_type_0_2=ruleMapLocationLiteral
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLocationSpecifierEnumRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_0_2,
+						"org.unicam.myGrammar.OptGrammar.MapLocationLiteral");
+					afterParserOrEnumRuleCall();
+				}
+				    |
+				lv_type_0_3='calldata'
+				{
+					newLeafNode(lv_type_0_3, grammarAccess.getLocationSpecifierEnumAccess().getTypeCalldataKeyword_0_2());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLocationSpecifierEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_3, null);
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleVisibilityEnum
+entryRuleVisibilityEnum returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getVisibilityEnumRule()); }
+	iv_ruleVisibilityEnum=ruleVisibilityEnum
+	{ $current=$iv_ruleVisibilityEnum.current; }
+	EOF;
+
+// Rule VisibilityEnum
+ruleVisibilityEnum returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_type_0_1='public'
+				{
+					newLeafNode(lv_type_0_1, grammarAccess.getVisibilityEnumAccess().getTypePublicKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVisibilityEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_1, null);
+				}
+				    |
+				lv_type_0_2='internal'
+				{
+					newLeafNode(lv_type_0_2, grammarAccess.getVisibilityEnumAccess().getTypeInternalKeyword_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVisibilityEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_2, null);
+				}
+				    |
+				lv_type_0_3='private'
+				{
+					newLeafNode(lv_type_0_3, grammarAccess.getVisibilityEnumAccess().getTypePrivateKeyword_0_2());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVisibilityEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_3, null);
+				}
+				    |
+				lv_type_0_4='external'
+				{
+					newLeafNode(lv_type_0_4, grammarAccess.getVisibilityEnumAccess().getTypeExternalKeyword_0_3());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVisibilityEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_4, null);
+				}
+			)
+		)
 	)
 ;
 
@@ -8015,84 +8207,6 @@ ruleElementaryTypeNameEnum returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUREALEnumLiteralDeclaration_103().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_103, grammarAccess.getElementaryTypeNameEnumAccess().getUREALEnumLiteralDeclaration_103());
-			}
-		)
-	)
-;
-
-// Rule LocationSpecifierEnum
-ruleLocationSpecifierEnum returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='memory'
-			{
-				$current = grammarAccess.getLocationSpecifierEnumAccess().getMEMORYEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getLocationSpecifierEnumAccess().getMEMORYEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='MapLocationLiteral'
-			{
-				$current = grammarAccess.getLocationSpecifierEnumAccess().getMapLocationLiteralEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getLocationSpecifierEnumAccess().getMapLocationLiteralEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='calldata'
-			{
-				$current = grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2());
-			}
-		)
-	)
-;
-
-// Rule VisibilityEnum
-ruleVisibilityEnum returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='public'
-			{
-				$current = grammarAccess.getVisibilityEnumAccess().getPUBLICEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getVisibilityEnumAccess().getPUBLICEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='internal'
-			{
-				$current = grammarAccess.getVisibilityEnumAccess().getINTERNALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getVisibilityEnumAccess().getINTERNALEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='private'
-			{
-				$current = grammarAccess.getVisibilityEnumAccess().getPRIVATEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getVisibilityEnumAccess().getPRIVATEEnumLiteralDeclaration_2());
-			}
-		)
-		    |
-		(
-			enumLiteral_3='external'
-			{
-				$current = grammarAccess.getVisibilityEnumAccess().getEXTERNALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getVisibilityEnumAccess().getEXTERNALEnumLiteralDeclaration_3());
 			}
 		)
 	)

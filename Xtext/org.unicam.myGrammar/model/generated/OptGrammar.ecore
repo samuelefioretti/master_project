@@ -61,16 +61,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="FunctionDefinitionOptionalElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Const" eSuperTypes="#//FunctionDefinitionOptionalElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="VisibilitySpecifier" eSuperTypes="#//FunctionDefinitionOptionalElement #//VariableDeclarationOptionalElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//VisibilityEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="#//VisibilityEnum"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructDefinition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//VisibilityEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="#//VisibilityEnum"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
         eType="#//Statement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumDefinition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//VisibilityEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="#//VisibilityEnum"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
         eType="#//EnumValue" containment="true"/>
@@ -115,7 +118,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="IndexedSpecifer" eSuperTypes="#//VariableDeclarationOptionalElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantSpecifier" eSuperTypes="#//VariableDeclarationOptionalElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="LocationSpecifier" eSuperTypes="#//VariableDeclarationOptionalElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//LocationSpecifierEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//LocationSpecifierEnum"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVarType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -318,17 +322,24 @@
   <eClassifiers xsi:type="ecore:EClass" name="BooleanConst" eSuperTypes="#//Literal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//BooleanLiteralEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//Literal #//PrimaryArithmetic">
+  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" eSuperTypes="#//Literal #//PrimaryArithmetic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intValue" eType="#//NumberDimensionless"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hexValue" eType="#//HexLiteral"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decimalValue" eType="#//DecimalLiteral"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="now" eType="#//Now" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="etherUnit" eType="#//UnitTypes"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Now" eSuperTypes="#//Number"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Now"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnitTypes">
     <eStructuralFeatures xsi:type="ecore:EReference" name="time" eType="#//Time" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="units" eType="#//Ether"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberDimensionless" eSuperTypes="#//Number">
+  <eClassifiers xsi:type="ecore:EClass" name="NumberDimensionless">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ether">
@@ -342,10 +353,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//Literal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HexLiteral" eSuperTypes="#//Number">
+  <eClassifiers xsi:type="ecore:EClass" name="HexLiteral">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DecimalLiteral" eSuperTypes="#//Number">
+  <eClassifiers xsi:type="ecore:EClass" name="DecimalLiteral">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeCast" eSuperTypes="#//Expression">
@@ -466,16 +477,11 @@
     <eLiterals name="REAL" value="102" literal="real"/>
     <eLiterals name="UREAL" value="103" literal="ureal"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="LocationSpecifierEnum">
-    <eLiterals name="MEMORY" literal="memory"/>
-    <eLiterals name="MapLocationLiteral" value="1" literal="MapLocationLiteral"/>
-    <eLiterals name="CALLDATA" value="2" literal="calldata"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationSpecifierEnum">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="VisibilityEnum">
-    <eLiterals name="PUBLIC" literal="public"/>
-    <eLiterals name="INTERNAL" value="1" literal="internal"/>
-    <eLiterals name="PRIVATE" value="2" literal="private"/>
-    <eLiterals name="EXTERNAL" value="3" literal="external"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VisibilityEnum">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AssignmentOpEnum">
     <eLiterals name="ASSIGN" literal="="/>

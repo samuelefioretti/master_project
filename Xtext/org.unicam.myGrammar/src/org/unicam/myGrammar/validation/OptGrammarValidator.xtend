@@ -8,6 +8,7 @@ import org.eclipse.xtext.validation.Check
 import org.unicam.myGrammar.optGrammar.Expression
 import org.unicam.myGrammar.optGrammar.StructDefinition
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage
+import static extension org.unicam.myGrammar.validation.ValidatorSupport.*
 
 /**
  * This class contains custom validation rules.

@@ -623,7 +623,7 @@ PrimaryExpression returns Expression:
 Literal:
 	SpecialVariables |
 	BooleanConst |
-	Number |
+	NumericLiteral |
 	StringLiteral |
 	GasleftFunction |
 	BlockhashFunction |
@@ -674,7 +674,7 @@ ArithmeticOperations:
 	first=PrimaryArithmetic seconds+=(SecondOperators)*;
 
 PrimaryArithmetic:
-	Number |
+	NumericLiteral |
 	"(" Expression ")"
 ;
 
@@ -686,12 +686,12 @@ BooleanConst:
 	value=BooleanLiteralEnum
 ;
 
-Number:
+NumericLiteral:
 	(
-		NumberDimensionless |
-		HexLiteral |
-		DecimalLiteral |
-		Now
+		intValue=NumberDimensionless |
+		hexValue=HexLiteral |
+		decimalValue=DecimalLiteral |
+		now=Now
 	) etherUnit=UnitTypes?
 ;
 
@@ -862,17 +862,12 @@ MapLocationLiteral:
 	"storage"
 ;
 
-enum LocationSpecifierEnum:
-	MEMORY="memory" |
-	MapLocationLiteral |
-	CALLDATA="calldata"
+LocationSpecifierEnum:
+	type= ("memory" | MapLocationLiteral | "calldata")
 ;
 
-enum VisibilityEnum:
-	PUBLIC="public" |
-	INTERNAL="internal" |
-	PRIVATE="private" |
-	EXTERNAL="external"
+VisibilityEnum:
+	type=("public" | "internal" | "private" | "external")
 ;
 
 enum AssignmentOpEnum:

@@ -112,17 +112,6 @@
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/REAL"/>
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UREAL"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//LocationSpecifierEnum">
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//LocationSpecifierEnum/MEMORY"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//LocationSpecifierEnum/MapLocationLiteral"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//LocationSpecifierEnum/CALLDATA"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//VisibilityEnum">
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//VisibilityEnum/PUBLIC"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//VisibilityEnum/INTERNAL"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//VisibilityEnum/PRIVATE"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//VisibilityEnum/EXTERNAL"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//AssignmentOpEnum">
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//AssignmentOpEnum/ASSIGN"/>
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//AssignmentOpEnum/ASSIGN_OR"/>
@@ -245,15 +234,15 @@
     <genClasses ecoreClass="OptGrammar.ecore#//FunctionDefinitionOptionalElement"/>
     <genClasses ecoreClass="OptGrammar.ecore#//Const"/>
     <genClasses ecoreClass="OptGrammar.ecore#//VisibilitySpecifier">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VisibilitySpecifier/visibility"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VisibilitySpecifier/visibility"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//StructDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StructDefinition/visibility"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StructDefinition/visibility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StructDefinition/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StructDefinition/members"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//EnumDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//EnumDefinition/visibility"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//EnumDefinition/visibility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//EnumDefinition/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//EnumDefinition/members"/>
     </genClasses>
@@ -287,7 +276,7 @@
     <genClasses ecoreClass="OptGrammar.ecore#//IndexedSpecifer"/>
     <genClasses ecoreClass="OptGrammar.ecore#//ConstantSpecifier"/>
     <genClasses ecoreClass="OptGrammar.ecore#//LocationSpecifier">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//LocationSpecifier/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//LocationSpecifier/location"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Type/isVarType"/>
@@ -443,8 +432,12 @@
     <genClasses ecoreClass="OptGrammar.ecore#//BooleanConst">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//BooleanConst/value"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//Number">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Number/etherUnit"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//NumericLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NumericLiteral/intValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NumericLiteral/hexValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NumericLiteral/decimalValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NumericLiteral/now"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NumericLiteral/etherUnit"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Now"/>
     <genClasses ecoreClass="OptGrammar.ecore#//UnitTypes">
@@ -479,6 +472,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//SpecialVariables/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialVariables/field"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//SpecialVariables/qualifiers"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//LocationSpecifierEnum">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//LocationSpecifierEnum/type"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//VisibilityEnum">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VisibilityEnum/type"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//SpecialVariablesTypeEnum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialVariablesTypeEnum/name"/>

@@ -102,8 +102,6 @@ public class ValidatorSupport {
   
   public static boolean equalsTo(final /* List<ArrayIndex> */Object indexes, final /* List<ArrayIndex> */Object toCompare) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe field value is not visible"
-      + "\nThe field value is not visible"
       + "\nvalue cannot be resolved"
       + "\nfirst cannot be resolved"
       + "\nvalue cannot be resolved"

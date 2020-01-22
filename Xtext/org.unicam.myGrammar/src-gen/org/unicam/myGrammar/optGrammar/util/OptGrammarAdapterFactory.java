@@ -10,110 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.unicam.myGrammar.optGrammar.AddSub;
-import org.unicam.myGrammar.optGrammar.And;
-import org.unicam.myGrammar.optGrammar.Arguments;
-import org.unicam.myGrammar.optGrammar.ArithmeticOperations;
-import org.unicam.myGrammar.optGrammar.ArrayDimensions;
-import org.unicam.myGrammar.optGrammar.Assignment;
-import org.unicam.myGrammar.optGrammar.BinaryNotExpression;
-import org.unicam.myGrammar.optGrammar.BitAnd;
-import org.unicam.myGrammar.optGrammar.BitOr;
-import org.unicam.myGrammar.optGrammar.BitXor;
-import org.unicam.myGrammar.optGrammar.Block;
-import org.unicam.myGrammar.optGrammar.BlockhashFunction;
-import org.unicam.myGrammar.optGrammar.Body;
-import org.unicam.myGrammar.optGrammar.BooleanConst;
-import org.unicam.myGrammar.optGrammar.BreakStatement;
-import org.unicam.myGrammar.optGrammar.Comparison;
-import org.unicam.myGrammar.optGrammar.Const;
-import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
-import org.unicam.myGrammar.optGrammar.Continue;
-import org.unicam.myGrammar.optGrammar.ContinueStatement;
-import org.unicam.myGrammar.optGrammar.Contract;
-import org.unicam.myGrammar.optGrammar.DecimalLiteral;
-import org.unicam.myGrammar.optGrammar.DefinitionBody;
-import org.unicam.myGrammar.optGrammar.DeleteStatement;
-import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
-import org.unicam.myGrammar.optGrammar.ElementaryType;
-import org.unicam.myGrammar.optGrammar.EnumDefinition;
-import org.unicam.myGrammar.optGrammar.EnumValue;
-import org.unicam.myGrammar.optGrammar.Equality;
-import org.unicam.myGrammar.optGrammar.Ether;
-import org.unicam.myGrammar.optGrammar.Event;
-import org.unicam.myGrammar.optGrammar.Exponent;
-import org.unicam.myGrammar.optGrammar.Expression;
-import org.unicam.myGrammar.optGrammar.ExpressionStatement;
-import org.unicam.myGrammar.optGrammar.Field;
-import org.unicam.myGrammar.optGrammar.ForStatement;
-import org.unicam.myGrammar.optGrammar.FunctionCall;
-import org.unicam.myGrammar.optGrammar.FunctionCallArg;
-import org.unicam.myGrammar.optGrammar.FunctionCallArguments;
-import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
-import org.unicam.myGrammar.optGrammar.FunctionDefinition;
-import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
-import org.unicam.myGrammar.optGrammar.GasleftFunction;
-import org.unicam.myGrammar.optGrammar.HashFunction;
-import org.unicam.myGrammar.optGrammar.HexLiteral;
-import org.unicam.myGrammar.optGrammar.IfStatement;
-import org.unicam.myGrammar.optGrammar.Index;
-import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
-import org.unicam.myGrammar.optGrammar.IntParameter;
-import org.unicam.myGrammar.optGrammar.Literal;
-import org.unicam.myGrammar.optGrammar.LocationSpecifier;
-import org.unicam.myGrammar.optGrammar.Mapping;
-import org.unicam.myGrammar.optGrammar.MathematicalFunction;
-import org.unicam.myGrammar.optGrammar.Model;
-import org.unicam.myGrammar.optGrammar.Modifier;
-import org.unicam.myGrammar.optGrammar.ModifierInvocation;
-import org.unicam.myGrammar.optGrammar.MulDivMod;
-import org.unicam.myGrammar.optGrammar.NewExpression;
-import org.unicam.myGrammar.optGrammar.NotExpression;
-import org.unicam.myGrammar.optGrammar.Now;
-import org.unicam.myGrammar.optGrammar.NumberDimensionless;
-import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.Or;
-import org.unicam.myGrammar.optGrammar.ParameterList;
-import org.unicam.myGrammar.optGrammar.PlaceHolderStatement;
-import org.unicam.myGrammar.optGrammar.PostIncDecExpression;
-import org.unicam.myGrammar.optGrammar.PreDecExpression;
-import org.unicam.myGrammar.optGrammar.PreIncExpression;
-import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
-import org.unicam.myGrammar.optGrammar.QualifiedIdentifier;
-import org.unicam.myGrammar.optGrammar.Qualifier;
-import org.unicam.myGrammar.optGrammar.ReturnParameterDeclaration;
-import org.unicam.myGrammar.optGrammar.ReturnStatement;
-import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
-import org.unicam.myGrammar.optGrammar.SecondOperators;
-import org.unicam.myGrammar.optGrammar.Shift;
-import org.unicam.myGrammar.optGrammar.SignExpression;
-import org.unicam.myGrammar.optGrammar.SimpleStatement;
-import org.unicam.myGrammar.optGrammar.SimpleStatement2;
-import org.unicam.myGrammar.optGrammar.SpecialExpression;
-import org.unicam.myGrammar.optGrammar.SpecialVariables;
-import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
-import org.unicam.myGrammar.optGrammar.StandardType;
-import org.unicam.myGrammar.optGrammar.StandardTypeWithoutQualifiedIdentifier;
-import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.Statement;
-import org.unicam.myGrammar.optGrammar.StringLiteral;
-import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.ThrowStatement;
-import org.unicam.myGrammar.optGrammar.Time;
-import org.unicam.myGrammar.optGrammar.Tuple;
-import org.unicam.myGrammar.optGrammar.TupleSeparator;
-import org.unicam.myGrammar.optGrammar.Type;
-import org.unicam.myGrammar.optGrammar.TypeCast;
-import org.unicam.myGrammar.optGrammar.UnitTypes;
-import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
-import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
-import org.unicam.myGrammar.optGrammar.Variable;
-import org.unicam.myGrammar.optGrammar.VariableDeclarationExpression;
-import org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement;
-import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
-import org.unicam.myGrammar.optGrammar.WhileStatement;
+import org.unicam.myGrammar.optGrammar.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -554,9 +451,9 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createBooleanConstAdapter();
       }
       @Override
-      public Adapter caseNumber(org.unicam.myGrammar.optGrammar.Number object)
+      public Adapter caseNumericLiteral(NumericLiteral object)
       {
-        return createNumberAdapter();
+        return createNumericLiteralAdapter();
       }
       @Override
       public Adapter caseNow(Now object)
@@ -607,6 +504,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSpecialVariables(SpecialVariables object)
       {
         return createSpecialVariablesAdapter();
+      }
+      @Override
+      public Adapter caseLocationSpecifierEnum(LocationSpecifierEnum object)
+      {
+        return createLocationSpecifierEnumAdapter();
+      }
+      @Override
+      public Adapter caseVisibilityEnum(VisibilityEnum object)
+      {
+        return createVisibilityEnumAdapter();
       }
       @Override
       public Adapter caseSpecialVariablesTypeEnum(SpecialVariablesTypeEnum object)
@@ -1846,16 +1753,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Number <em>Number</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.NumericLiteral <em>Numeric Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Number
+   * @see org.unicam.myGrammar.optGrammar.NumericLiteral
    * @generated
    */
-  public Adapter createNumberAdapter()
+  public Adapter createNumericLiteralAdapter()
   {
     return null;
   }
@@ -2006,6 +1913,36 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSpecialVariablesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum
+   * @generated
+   */
+  public Adapter createLocationSpecifierEnumAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.VisibilityEnum <em>Visibility Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
+   * @generated
+   */
+  public Adapter createVisibilityEnumAdapter()
   {
     return null;
   }

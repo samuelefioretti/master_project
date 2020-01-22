@@ -10,50 +10,50 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
+import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Hex Literal</b></em>'.
+ * An implementation of the model object '<em><b>Visibility Enum</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.HexLiteralImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VisibilityEnumImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexLiteral
+public class VisibilityEnumImpl extends MinimalEObjectImpl.Container implements VisibilityEnum
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected static final String TYPE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected String type = TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected HexLiteralImpl()
+  protected VisibilityEnumImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getHexLiteral();
+    return OptGrammarPackage.eINSTANCE.getVisibilityEnum();
   }
 
   /**
@@ -75,9 +75,9 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
    * @generated
    */
   @Override
-  public String getValue()
+  public String getType()
   {
-    return value;
+    return type;
   }
 
   /**
@@ -86,12 +86,12 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
    * @generated
    */
   @Override
-  public void setValue(String newValue)
+  public void setType(String newType)
   {
-    String oldValue = value;
-    value = newValue;
+    String oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.HEX_LITERAL__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VISIBILITY_ENUM__TYPE, oldType, type));
   }
 
   /**
@@ -104,8 +104,8 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
   {
     switch (featureID)
     {
-      case OptGrammarPackage.HEX_LITERAL__VALUE:
-        return getValue();
+      case OptGrammarPackage.VISIBILITY_ENUM__TYPE:
+        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +120,8 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
   {
     switch (featureID)
     {
-      case OptGrammarPackage.HEX_LITERAL__VALUE:
-        setValue((String)newValue);
+      case OptGrammarPackage.VISIBILITY_ENUM__TYPE:
+        setType((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
   {
     switch (featureID)
     {
-      case OptGrammarPackage.HEX_LITERAL__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case OptGrammarPackage.VISIBILITY_ENUM__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +154,8 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
   {
     switch (featureID)
     {
-      case OptGrammarPackage.HEX_LITERAL__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case OptGrammarPackage.VISIBILITY_ENUM__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
     return super.eIsSet(featureID);
   }
@@ -171,10 +171,10 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
-    result.append(value);
+    result.append(" (type: ");
+    result.append(type);
     result.append(')');
     return result.toString();
   }
 
-} //HexLiteralImpl
+} //VisibilityEnumImpl

@@ -61,6 +61,7 @@ import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
+import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.Model;
@@ -71,6 +72,7 @@ import org.unicam.myGrammar.optGrammar.NewExpression;
 import org.unicam.myGrammar.optGrammar.NotExpression;
 import org.unicam.myGrammar.optGrammar.Now;
 import org.unicam.myGrammar.optGrammar.NumberDimensionless;
+import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Or;
 import org.unicam.myGrammar.optGrammar.ParameterList;
@@ -103,6 +105,7 @@ import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.Variable;
 import org.unicam.myGrammar.optGrammar.VariableDeclarationExpression;
+import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
 import org.unicam.myGrammar.optGrammar.WhileStatement;
 import org.unicam.myGrammar.services.OptGrammarGrammarAccess;
@@ -179,52 +182,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_Contract(context, (Contract) semanticObject); 
 				return; 
 			case OptGrammarPackage.DECIMAL_LITERAL:
-				if (rule == grammarAccess.getDecimalLiteralRule()) {
-					sequence_DecimalLiteral(context, (DecimalLiteral) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()
-						|| rule == grammarAccess.getAssignmentRule()
-						|| action == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0()
-						|| action == grammarAccess.getAssignmentAccess().getVariableDeclarationExpressionTypeAction_1_1_0()
-						|| rule == grammarAccess.getBinaryExpressionRule()
-						|| rule == grammarAccess.getOrRule()
-						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
-						|| rule == grammarAccess.getAndRule()
-						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
-						|| rule == grammarAccess.getEqualityRule()
-						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
-						|| rule == grammarAccess.getComparisonRule()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
-						|| rule == grammarAccess.getBitOrRule()
-						|| action == grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0()
-						|| rule == grammarAccess.getBitXorRule()
-						|| action == grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0()
-						|| rule == grammarAccess.getBitAndRule()
-						|| action == grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0()
-						|| rule == grammarAccess.getShiftRule()
-						|| action == grammarAccess.getShiftAccess().getShiftLeftAction_1_0()
-						|| rule == grammarAccess.getAddSubRule()
-						|| action == grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0()
-						|| rule == grammarAccess.getMulDivModRule()
-						|| action == grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0()
-						|| rule == grammarAccess.getExponentRule()
-						|| action == grammarAccess.getExponentAccess().getExponentLeftAction_1_0()
-						|| rule == grammarAccess.getUnaryExpressionRule()
-						|| rule == grammarAccess.getPreExpressionRule()
-						|| action == grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2()
-						|| action == grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2()
-						|| rule == grammarAccess.getPostIncDecExpressionRule()
-						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
-						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
-						|| rule == grammarAccess.getLiteralRule()
-						|| rule == grammarAccess.getPrimaryArithmeticRule()
-						|| rule == grammarAccess.getNumberRule()) {
-					sequence_DecimalLiteral_Number(context, (DecimalLiteral) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_DecimalLiteral(context, (DecimalLiteral) semanticObject); 
+				return; 
 			case OptGrammarPackage.DEFINITION_BODY:
 				sequence_DefinitionBody(context, (DefinitionBody) semanticObject); 
 				return; 
@@ -309,52 +268,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_HashFunction(context, (HashFunction) semanticObject); 
 				return; 
 			case OptGrammarPackage.HEX_LITERAL:
-				if (rule == grammarAccess.getHexLiteralRule()) {
-					sequence_HexLiteral(context, (HexLiteral) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()
-						|| rule == grammarAccess.getAssignmentRule()
-						|| action == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0()
-						|| action == grammarAccess.getAssignmentAccess().getVariableDeclarationExpressionTypeAction_1_1_0()
-						|| rule == grammarAccess.getBinaryExpressionRule()
-						|| rule == grammarAccess.getOrRule()
-						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
-						|| rule == grammarAccess.getAndRule()
-						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
-						|| rule == grammarAccess.getEqualityRule()
-						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
-						|| rule == grammarAccess.getComparisonRule()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
-						|| rule == grammarAccess.getBitOrRule()
-						|| action == grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0()
-						|| rule == grammarAccess.getBitXorRule()
-						|| action == grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0()
-						|| rule == grammarAccess.getBitAndRule()
-						|| action == grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0()
-						|| rule == grammarAccess.getShiftRule()
-						|| action == grammarAccess.getShiftAccess().getShiftLeftAction_1_0()
-						|| rule == grammarAccess.getAddSubRule()
-						|| action == grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0()
-						|| rule == grammarAccess.getMulDivModRule()
-						|| action == grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0()
-						|| rule == grammarAccess.getExponentRule()
-						|| action == grammarAccess.getExponentAccess().getExponentLeftAction_1_0()
-						|| rule == grammarAccess.getUnaryExpressionRule()
-						|| rule == grammarAccess.getPreExpressionRule()
-						|| action == grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2()
-						|| action == grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2()
-						|| rule == grammarAccess.getPostIncDecExpressionRule()
-						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
-						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
-						|| rule == grammarAccess.getLiteralRule()
-						|| rule == grammarAccess.getPrimaryArithmeticRule()
-						|| rule == grammarAccess.getNumberRule()) {
-					sequence_HexLiteral_Number(context, (HexLiteral) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_HexLiteral(context, (HexLiteral) semanticObject); 
+				return; 
 			case OptGrammarPackage.IF_STATEMENT:
 				sequence_IfStatement(context, (IfStatement) semanticObject); 
 				return; 
@@ -372,6 +287,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.LOCATION_SPECIFIER:
 				sequence_LocationSpecifier(context, (LocationSpecifier) semanticObject); 
+				return; 
+			case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
+				sequence_LocationSpecifierEnum(context, (LocationSpecifierEnum) semanticObject); 
 				return; 
 			case OptGrammarPackage.MAPPING:
 				sequence_Mapping(context, (Mapping) semanticObject); 
@@ -398,99 +316,14 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_NotExpression(context, (NotExpression) semanticObject); 
 				return; 
 			case OptGrammarPackage.NOW:
-				if (rule == grammarAccess.getNowRule()) {
-					sequence_Now(context, (Now) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()
-						|| rule == grammarAccess.getAssignmentRule()
-						|| action == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0()
-						|| action == grammarAccess.getAssignmentAccess().getVariableDeclarationExpressionTypeAction_1_1_0()
-						|| rule == grammarAccess.getBinaryExpressionRule()
-						|| rule == grammarAccess.getOrRule()
-						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
-						|| rule == grammarAccess.getAndRule()
-						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
-						|| rule == grammarAccess.getEqualityRule()
-						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
-						|| rule == grammarAccess.getComparisonRule()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
-						|| rule == grammarAccess.getBitOrRule()
-						|| action == grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0()
-						|| rule == grammarAccess.getBitXorRule()
-						|| action == grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0()
-						|| rule == grammarAccess.getBitAndRule()
-						|| action == grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0()
-						|| rule == grammarAccess.getShiftRule()
-						|| action == grammarAccess.getShiftAccess().getShiftLeftAction_1_0()
-						|| rule == grammarAccess.getAddSubRule()
-						|| action == grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0()
-						|| rule == grammarAccess.getMulDivModRule()
-						|| action == grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0()
-						|| rule == grammarAccess.getExponentRule()
-						|| action == grammarAccess.getExponentAccess().getExponentLeftAction_1_0()
-						|| rule == grammarAccess.getUnaryExpressionRule()
-						|| rule == grammarAccess.getPreExpressionRule()
-						|| action == grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2()
-						|| action == grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2()
-						|| rule == grammarAccess.getPostIncDecExpressionRule()
-						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
-						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
-						|| rule == grammarAccess.getLiteralRule()
-						|| rule == grammarAccess.getPrimaryArithmeticRule()
-						|| rule == grammarAccess.getNumberRule()) {
-					sequence_Now_Number(context, (Now) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Now(context, (Now) semanticObject); 
+				return; 
 			case OptGrammarPackage.NUMBER_DIMENSIONLESS:
-				if (rule == grammarAccess.getNumberDimensionlessRule()) {
-					sequence_NumberDimensionless(context, (NumberDimensionless) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()
-						|| rule == grammarAccess.getAssignmentRule()
-						|| action == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0()
-						|| action == grammarAccess.getAssignmentAccess().getVariableDeclarationExpressionTypeAction_1_1_0()
-						|| rule == grammarAccess.getBinaryExpressionRule()
-						|| rule == grammarAccess.getOrRule()
-						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
-						|| rule == grammarAccess.getAndRule()
-						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
-						|| rule == grammarAccess.getEqualityRule()
-						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
-						|| rule == grammarAccess.getComparisonRule()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
-						|| rule == grammarAccess.getBitOrRule()
-						|| action == grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0()
-						|| rule == grammarAccess.getBitXorRule()
-						|| action == grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0()
-						|| rule == grammarAccess.getBitAndRule()
-						|| action == grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0()
-						|| rule == grammarAccess.getShiftRule()
-						|| action == grammarAccess.getShiftAccess().getShiftLeftAction_1_0()
-						|| rule == grammarAccess.getAddSubRule()
-						|| action == grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0()
-						|| rule == grammarAccess.getMulDivModRule()
-						|| action == grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0()
-						|| rule == grammarAccess.getExponentRule()
-						|| action == grammarAccess.getExponentAccess().getExponentLeftAction_1_0()
-						|| rule == grammarAccess.getUnaryExpressionRule()
-						|| rule == grammarAccess.getPreExpressionRule()
-						|| action == grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2()
-						|| action == grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2()
-						|| rule == grammarAccess.getPostIncDecExpressionRule()
-						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
-						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
-						|| rule == grammarAccess.getLiteralRule()
-						|| rule == grammarAccess.getPrimaryArithmeticRule()
-						|| rule == grammarAccess.getNumberRule()) {
-					sequence_Number_NumberDimensionless(context, (NumberDimensionless) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_NumberDimensionless(context, (NumberDimensionless) semanticObject); 
+				return; 
+			case OptGrammarPackage.NUMERIC_LITERAL:
+				sequence_NumericLiteral(context, (NumericLiteral) semanticObject); 
+				return; 
 			case OptGrammarPackage.OR:
 				sequence_Or(context, (Or) semanticObject); 
 				return; 
@@ -743,6 +576,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.VARIABLE_DECLARATION_EXPRESSION:
 				sequence_Assignment(context, (VariableDeclarationExpression) semanticObject); 
+				return; 
+			case OptGrammarPackage.VISIBILITY_ENUM:
+				sequence_VisibilityEnum(context, (VisibilityEnum) semanticObject); 
 				return; 
 			case OptGrammarPackage.VISIBILITY_SPECIFIER:
 				sequence_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
@@ -1507,55 +1343,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns DecimalLiteral
-	 *     Assignment returns DecimalLiteral
-	 *     Assignment.Assignment_1_0_0 returns DecimalLiteral
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns DecimalLiteral
-	 *     BinaryExpression returns DecimalLiteral
-	 *     Or returns DecimalLiteral
-	 *     Or.Or_1_0 returns DecimalLiteral
-	 *     And returns DecimalLiteral
-	 *     And.And_1_0 returns DecimalLiteral
-	 *     Equality returns DecimalLiteral
-	 *     Equality.Equality_1_0 returns DecimalLiteral
-	 *     Comparison returns DecimalLiteral
-	 *     Comparison.Comparison_1_0 returns DecimalLiteral
-	 *     BitOr returns DecimalLiteral
-	 *     BitOr.BitOr_1_0 returns DecimalLiteral
-	 *     BitXor returns DecimalLiteral
-	 *     BitXor.BitXor_1_0 returns DecimalLiteral
-	 *     BitAnd returns DecimalLiteral
-	 *     BitAnd.BitAnd_1_0 returns DecimalLiteral
-	 *     Shift returns DecimalLiteral
-	 *     Shift.Shift_1_0 returns DecimalLiteral
-	 *     AddSub returns DecimalLiteral
-	 *     AddSub.AddSub_1_0_0 returns DecimalLiteral
-	 *     MulDivMod returns DecimalLiteral
-	 *     MulDivMod.MulDivMod_1_0 returns DecimalLiteral
-	 *     Exponent returns DecimalLiteral
-	 *     Exponent.Exponent_1_0 returns DecimalLiteral
-	 *     UnaryExpression returns DecimalLiteral
-	 *     PreExpression returns DecimalLiteral
-	 *     PreExpression.PreIncExpression_1_2 returns DecimalLiteral
-	 *     PreExpression.PreDecExpression_2_2 returns DecimalLiteral
-	 *     PostIncDecExpression returns DecimalLiteral
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns DecimalLiteral
-	 *     PrimaryExpression returns DecimalLiteral
-	 *     PrimaryExpression.Tuple_4_2_0 returns DecimalLiteral
-	 *     Literal returns DecimalLiteral
-	 *     PrimaryArithmetic returns DecimalLiteral
-	 *     Number returns DecimalLiteral
-	 *
-	 * Constraint:
-	 *     (value=DECIMAL etherUnit=UnitTypes?)
-	 */
-	protected void sequence_DecimalLiteral_Number(ISerializationContext context, DecimalLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DefinitionBody returns DefinitionBody
 	 *
 	 * Constraint:
@@ -2138,55 +1925,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns HexLiteral
-	 *     Assignment returns HexLiteral
-	 *     Assignment.Assignment_1_0_0 returns HexLiteral
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns HexLiteral
-	 *     BinaryExpression returns HexLiteral
-	 *     Or returns HexLiteral
-	 *     Or.Or_1_0 returns HexLiteral
-	 *     And returns HexLiteral
-	 *     And.And_1_0 returns HexLiteral
-	 *     Equality returns HexLiteral
-	 *     Equality.Equality_1_0 returns HexLiteral
-	 *     Comparison returns HexLiteral
-	 *     Comparison.Comparison_1_0 returns HexLiteral
-	 *     BitOr returns HexLiteral
-	 *     BitOr.BitOr_1_0 returns HexLiteral
-	 *     BitXor returns HexLiteral
-	 *     BitXor.BitXor_1_0 returns HexLiteral
-	 *     BitAnd returns HexLiteral
-	 *     BitAnd.BitAnd_1_0 returns HexLiteral
-	 *     Shift returns HexLiteral
-	 *     Shift.Shift_1_0 returns HexLiteral
-	 *     AddSub returns HexLiteral
-	 *     AddSub.AddSub_1_0_0 returns HexLiteral
-	 *     MulDivMod returns HexLiteral
-	 *     MulDivMod.MulDivMod_1_0 returns HexLiteral
-	 *     Exponent returns HexLiteral
-	 *     Exponent.Exponent_1_0 returns HexLiteral
-	 *     UnaryExpression returns HexLiteral
-	 *     PreExpression returns HexLiteral
-	 *     PreExpression.PreIncExpression_1_2 returns HexLiteral
-	 *     PreExpression.PreDecExpression_2_2 returns HexLiteral
-	 *     PostIncDecExpression returns HexLiteral
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns HexLiteral
-	 *     PrimaryExpression returns HexLiteral
-	 *     PrimaryExpression.Tuple_4_2_0 returns HexLiteral
-	 *     Literal returns HexLiteral
-	 *     PrimaryArithmetic returns HexLiteral
-	 *     Number returns HexLiteral
-	 *
-	 * Constraint:
-	 *     (value=HEX etherUnit=UnitTypes?)
-	 */
-	protected void sequence_HexLiteral_Number(ISerializationContext context, HexLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Statement returns IfStatement
 	 *     IfStatement returns IfStatement
 	 *
@@ -2250,6 +1988,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     LocationSpecifierEnum returns LocationSpecifierEnum
+	 *
+	 * Constraint:
+	 *     (type='memory' | type=MapLocationLiteral | type='calldata')
+	 */
+	protected void sequence_LocationSpecifierEnum(ISerializationContext context, LocationSpecifierEnum semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     VariableDeclarationOptionalElement returns LocationSpecifier
 	 *     LocationSpecifier returns LocationSpecifier
 	 *
@@ -2262,7 +2012,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getLocationSpecifier_Location()));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumEnumRuleCall_0(), semanticObject.getLocation());
+		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumParserRuleCall_0(), semanticObject.getLocation());
 		feeder.finish();
 	}
 	
@@ -2563,55 +2313,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Now
-	 *     Assignment returns Now
-	 *     Assignment.Assignment_1_0_0 returns Now
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns Now
-	 *     BinaryExpression returns Now
-	 *     Or returns Now
-	 *     Or.Or_1_0 returns Now
-	 *     And returns Now
-	 *     And.And_1_0 returns Now
-	 *     Equality returns Now
-	 *     Equality.Equality_1_0 returns Now
-	 *     Comparison returns Now
-	 *     Comparison.Comparison_1_0 returns Now
-	 *     BitOr returns Now
-	 *     BitOr.BitOr_1_0 returns Now
-	 *     BitXor returns Now
-	 *     BitXor.BitXor_1_0 returns Now
-	 *     BitAnd returns Now
-	 *     BitAnd.BitAnd_1_0 returns Now
-	 *     Shift returns Now
-	 *     Shift.Shift_1_0 returns Now
-	 *     AddSub returns Now
-	 *     AddSub.AddSub_1_0_0 returns Now
-	 *     MulDivMod returns Now
-	 *     MulDivMod.MulDivMod_1_0 returns Now
-	 *     Exponent returns Now
-	 *     Exponent.Exponent_1_0 returns Now
-	 *     UnaryExpression returns Now
-	 *     PreExpression returns Now
-	 *     PreExpression.PreIncExpression_1_2 returns Now
-	 *     PreExpression.PreDecExpression_2_2 returns Now
-	 *     PostIncDecExpression returns Now
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Now
-	 *     PrimaryExpression returns Now
-	 *     PrimaryExpression.Tuple_4_2_0 returns Now
-	 *     Literal returns Now
-	 *     PrimaryArithmetic returns Now
-	 *     Number returns Now
-	 *
-	 * Constraint:
-	 *     etherUnit=UnitTypes?
-	 */
-	protected void sequence_Now_Number(ISerializationContext context, Now semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     NumberDimensionless returns NumberDimensionless
 	 *
 	 * Constraint:
@@ -2630,49 +2331,49 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns NumberDimensionless
-	 *     Assignment returns NumberDimensionless
-	 *     Assignment.Assignment_1_0_0 returns NumberDimensionless
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns NumberDimensionless
-	 *     BinaryExpression returns NumberDimensionless
-	 *     Or returns NumberDimensionless
-	 *     Or.Or_1_0 returns NumberDimensionless
-	 *     And returns NumberDimensionless
-	 *     And.And_1_0 returns NumberDimensionless
-	 *     Equality returns NumberDimensionless
-	 *     Equality.Equality_1_0 returns NumberDimensionless
-	 *     Comparison returns NumberDimensionless
-	 *     Comparison.Comparison_1_0 returns NumberDimensionless
-	 *     BitOr returns NumberDimensionless
-	 *     BitOr.BitOr_1_0 returns NumberDimensionless
-	 *     BitXor returns NumberDimensionless
-	 *     BitXor.BitXor_1_0 returns NumberDimensionless
-	 *     BitAnd returns NumberDimensionless
-	 *     BitAnd.BitAnd_1_0 returns NumberDimensionless
-	 *     Shift returns NumberDimensionless
-	 *     Shift.Shift_1_0 returns NumberDimensionless
-	 *     AddSub returns NumberDimensionless
-	 *     AddSub.AddSub_1_0_0 returns NumberDimensionless
-	 *     MulDivMod returns NumberDimensionless
-	 *     MulDivMod.MulDivMod_1_0 returns NumberDimensionless
-	 *     Exponent returns NumberDimensionless
-	 *     Exponent.Exponent_1_0 returns NumberDimensionless
-	 *     UnaryExpression returns NumberDimensionless
-	 *     PreExpression returns NumberDimensionless
-	 *     PreExpression.PreIncExpression_1_2 returns NumberDimensionless
-	 *     PreExpression.PreDecExpression_2_2 returns NumberDimensionless
-	 *     PostIncDecExpression returns NumberDimensionless
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NumberDimensionless
-	 *     PrimaryExpression returns NumberDimensionless
-	 *     PrimaryExpression.Tuple_4_2_0 returns NumberDimensionless
-	 *     Literal returns NumberDimensionless
-	 *     PrimaryArithmetic returns NumberDimensionless
-	 *     Number returns NumberDimensionless
+	 *     Expression returns NumericLiteral
+	 *     Assignment returns NumericLiteral
+	 *     Assignment.Assignment_1_0_0 returns NumericLiteral
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns NumericLiteral
+	 *     BinaryExpression returns NumericLiteral
+	 *     Or returns NumericLiteral
+	 *     Or.Or_1_0 returns NumericLiteral
+	 *     And returns NumericLiteral
+	 *     And.And_1_0 returns NumericLiteral
+	 *     Equality returns NumericLiteral
+	 *     Equality.Equality_1_0 returns NumericLiteral
+	 *     Comparison returns NumericLiteral
+	 *     Comparison.Comparison_1_0 returns NumericLiteral
+	 *     BitOr returns NumericLiteral
+	 *     BitOr.BitOr_1_0 returns NumericLiteral
+	 *     BitXor returns NumericLiteral
+	 *     BitXor.BitXor_1_0 returns NumericLiteral
+	 *     BitAnd returns NumericLiteral
+	 *     BitAnd.BitAnd_1_0 returns NumericLiteral
+	 *     Shift returns NumericLiteral
+	 *     Shift.Shift_1_0 returns NumericLiteral
+	 *     AddSub returns NumericLiteral
+	 *     AddSub.AddSub_1_0_0 returns NumericLiteral
+	 *     MulDivMod returns NumericLiteral
+	 *     MulDivMod.MulDivMod_1_0 returns NumericLiteral
+	 *     Exponent returns NumericLiteral
+	 *     Exponent.Exponent_1_0 returns NumericLiteral
+	 *     UnaryExpression returns NumericLiteral
+	 *     PreExpression returns NumericLiteral
+	 *     PreExpression.PreIncExpression_1_2 returns NumericLiteral
+	 *     PreExpression.PreDecExpression_2_2 returns NumericLiteral
+	 *     PostIncDecExpression returns NumericLiteral
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NumericLiteral
+	 *     PrimaryExpression returns NumericLiteral
+	 *     PrimaryExpression.Tuple_4_2_0 returns NumericLiteral
+	 *     Literal returns NumericLiteral
+	 *     PrimaryArithmetic returns NumericLiteral
+	 *     NumericLiteral returns NumericLiteral
 	 *
 	 * Constraint:
-	 *     (value=INT etherUnit=UnitTypes?)
+	 *     ((intValue=NumberDimensionless | hexValue=HexLiteral | decimalValue=DecimalLiteral | now=Now) etherUnit=UnitTypes?)
 	 */
-	protected void sequence_Number_NumberDimensionless(ISerializationContext context, NumberDimensionless semanticObject) {
+	protected void sequence_NumericLiteral(ISerializationContext context, NumericLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -3721,6 +3422,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     VisibilityEnum returns VisibilityEnum
+	 *
+	 * Constraint:
+	 *     (type='public' | type='internal' | type='private' | type='external')
+	 */
+	protected void sequence_VisibilityEnum(ISerializationContext context, VisibilityEnum semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     FunctionDefinitionOptionalElement returns VisibilitySpecifier
 	 *     VisibilitySpecifier returns VisibilitySpecifier
 	 *     VariableDeclarationOptionalElement returns VisibilitySpecifier
@@ -3734,7 +3447,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVisibilitySpecifier_Visibility()));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumEnumRuleCall_0(), semanticObject.getVisibility());
+		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumParserRuleCall_0(), semanticObject.getVisibility());
 		feeder.finish();
 	}
 	

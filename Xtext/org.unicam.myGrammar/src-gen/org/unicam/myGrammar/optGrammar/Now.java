@@ -3,6 +3,7 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,6 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface Now extends org.unicam.myGrammar.optGrammar.Number
+public interface Now extends EObject
 {
 } // Now

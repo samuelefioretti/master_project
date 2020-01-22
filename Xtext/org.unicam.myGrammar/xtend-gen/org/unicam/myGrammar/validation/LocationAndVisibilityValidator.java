@@ -26,11 +26,7 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   @Check
   public void noWrongLocation(final LocationSpecifierEnum locationLiteral) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field eContainer is undefined for the type LocationSpecifierEnum"
       + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\neContainer cannot be resolved"
-      + "\ngetRoot cannot be resolved"
       + "\nLOCATION_LITERAL__TYPE cannot be resolved");
   }
   
@@ -51,11 +47,7 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   @Check
   public void noWrongVisibility(final VisibilityEnum visibilityLiteral) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field eContainer is undefined for the type VisibilityEnum"
       + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\neContainer cannot be resolved"
-      + "\ngetRoot cannot be resolved"
       + "\nVISIBILITY_LITERAL__TYPE cannot be resolved");
   }
   
