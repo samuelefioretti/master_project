@@ -50,7 +50,6 @@ public class CorrectOperationValidator extends AbstractOptGrammarValidator {
   
   public boolean existsAssignment(final /* ArrayDefinition */Object arrDef) {
     throw new Error("Unresolved compilation problems:"
-      + "\nFunctionDefinition cannot be resolved to a type."
       + "\nArrayDefinition cannot be resolved to a type."
       + "\nArrayDefinition cannot be resolved to a type."
       + "\nThe method or field ref is undefined for the type Object"
@@ -150,7 +149,6 @@ public class CorrectOperationValidator extends AbstractOptGrammarValidator {
     throw new Error("Unresolved compilation problems:"
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
       + "\nSingleDefinition cannot be resolved to a type."
-      + "\nFunctionDefinition cannot be resolved to a type."
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
       + "\nThe method or field ref is undefined for the type EObject"
       + "\nThe method or field name is undefined for the type EObject"

@@ -79,7 +79,7 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   @Check
   public void checkDataLocation(final /* NonArrayableDeclaration */Object inDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field CustomSolidityPackage is undefined"
+      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\ngetRoot cannot be resolved"
       + "\nlocation cannot be resolved"
@@ -88,7 +88,6 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
       + "\ntype cannot be resolved"
       + "\nequals cannot be resolved"
       + "\nasDeclaration cannot be resolved"
-      + "\nLiterals cannot be resolved"
       + "\nNON_ARRAYABLE_DECLARATION__TYPE cannot be resolved");
   }
   

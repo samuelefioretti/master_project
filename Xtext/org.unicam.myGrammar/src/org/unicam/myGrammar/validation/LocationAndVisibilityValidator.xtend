@@ -68,7 +68,7 @@ class LocationAndVisibilityValidator extends AbstractOptGrammarValidator {
 		if (inDec.getRoot[obj|obj instanceof FunctionDefinition] instanceof FunctionDefinition &&
 			inDec.location === null && inDec.type.type.equals("string"))
 			error("Strings must have a data location", inDec.asDeclaration,
-				CustomSolidityPackage.Literals.NON_ARRAYABLE_DECLARATION__TYPE)
+				OptGrammarPackage.Literals.NON_ARRAYABLE_DECLARATION__TYPE)
 	}
 
 	@Check

@@ -8,6 +8,7 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage
 import org.unicam.myGrammar.optGrammar.Contract
 import org.unicam.myGrammar.optGrammar.StructDefinition
 import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.emf.ecore.EObject
 
 /**
  * This class contains custom validation rules. 
