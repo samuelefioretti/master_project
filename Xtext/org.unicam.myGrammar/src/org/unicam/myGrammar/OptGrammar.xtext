@@ -42,8 +42,7 @@ Model:
 
 Contract:
 	"contract" name=ID (
-		inheritanceSpecifiers+=InheritanceSpecifier
-		("," inheritanceSpecifiers+=InheritanceSpecifier)*
+		inheritanceSpecifiers+=InheritanceSpecifier ("," inheritanceSpecifiers+=InheritanceSpecifier)*
 	)? body=DefinitionBody
 ;
 
@@ -133,8 +132,7 @@ DefinitionBody:
 FunctionDefinition:
 	payable?="payable"? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
 		"returns" returnParameters=ReturnsParameterList
-	)?
-	(
+	)? (
 		block=Body |
 		";"
 	)
@@ -177,11 +175,9 @@ VisibilitySpecifier:
 ;
 
 StructDefinition:
-	visibility=VisibilityEnum? "struct" name=ID "{"
-		(
-			members+=VariableDeclaration ";"
-		)*
-	"}"
+	visibility=VisibilityEnum? "struct" name=ID "{" (
+		members+=VariableDeclaration ";"
+	)* "}"
 ;
 
 EnumDefinition:
@@ -242,7 +238,8 @@ LocationSpecifier:
 
 // Types
 Type:
-	StandardType | isVarType?=VarType
+	StandardType |
+	isVarType?=VarType
 ;
 
 StandardType:
@@ -285,11 +282,13 @@ TupleSeparator:
 	"," {TupleSeparator}
 ;
 
-// SimpleStatement
-// ---------------------
-// SimpleStatement:
-// SimpleStatement2 ";"
-// ;
+/*
+ * SimpleStatement
+ * --------------------
+ * SimpleStatement:
+ * SimpleStatement2 ";"
+ * ;
+ */
 SimpleStatement:
 	(
 		StandardTypeWithoutQualifiedIdentifier (
@@ -510,7 +509,7 @@ BitOr returns Expression:
 	)*
 ;
 
-// Precedence: 9, Left associativ
+// Precedence: 9, Left associative
 BitXor returns Expression:
 	BitAnd (
 		{BitXor.left=current} "^" right=BitAnd
@@ -608,16 +607,12 @@ PrimaryExpression returns Expression:
 	QualifiedIdentifier |
 	Literal |
 	TypeCast |
-	"("
-		Expression (
-			{Tuple.members+=current} (members+=TupleSeparator members+=Expression?)+
-		)?
-	")" |
-	"("
-		TupleSeparator (
-			{Tuple.members+=current} members+=Expression? (members+=TupleSeparator members+=Expression?)*
-		)
-	")" |
+	"(" Expression (
+		{Tuple.members+=current} (members+=TupleSeparator members+=Expression?)+
+	)? ")" |
+	"(" TupleSeparator (
+		{Tuple.members+=current} members+=Expression? (members+=TupleSeparator members+=Expression?)*
+	) ")" |
 	"(" ")" {Tuple}
 ;
 
@@ -668,7 +663,9 @@ IntParameter:
 ;
 
 FunctionCall:
-	name=[FunctionDefinition] "(" (parameters+=Expression ("," parameters+=Expression)*)? ")"
+	name=[FunctionDefinition] "(" (
+		parameters+=Expression ("," parameters+=Expression)*
+	)? ")"
 ;
 
 ArithmeticOperations:
@@ -943,7 +940,6 @@ enum TimeSubdenominationEnum:
 ;
 
 // Also "EOS" DAF
-
 SpecialVariablesTypeEnum:
 	name=(
 		BLOCK |
