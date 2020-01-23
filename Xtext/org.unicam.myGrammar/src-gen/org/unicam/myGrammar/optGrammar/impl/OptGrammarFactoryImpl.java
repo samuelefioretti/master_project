@@ -68,8 +68,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
     {
       case OptGrammarPackage.MODEL: return createModel();
       case OptGrammarPackage.CONTRACT: return createContract();
-      case OptGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
-      case OptGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
+      case OptGrammarPackage.DECLARATION: return createDeclaration();
+      case OptGrammarPackage.FUNCTION_DECLARATION: return createFunctionDeclaration();
       case OptGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
       case OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS: return createFunctionCallListArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARGUMENTS: return createFunctionCallArguments();
@@ -152,7 +152,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.DECIMAL_LITERAL: return createDecimalLiteral();
       case OptGrammarPackage.TYPE_CAST: return createTypeCast();
       case OptGrammarPackage.SPECIAL_VARIABLES: return createSpecialVariables();
-      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION: return createSimpleTypeDeclaration();
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM: return createElementaryTypeNameEnum();
       case OptGrammarPackage.LOCATION_SPECIFIER_ENUM: return createLocationSpecifierEnum();
       case OptGrammarPackage.VISIBILITY_ENUM: return createVisibilityEnum();
@@ -287,10 +286,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public InheritanceSpecifier createInheritanceSpecifier()
+  public Declaration createDeclaration()
   {
-    InheritanceSpecifierImpl inheritanceSpecifier = new InheritanceSpecifierImpl();
-    return inheritanceSpecifier;
+    DeclarationImpl declaration = new DeclarationImpl();
+    return declaration;
   }
 
   /**
@@ -299,10 +298,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public DefinitionBody createDefinitionBody()
+  public FunctionDeclaration createFunctionDeclaration()
   {
-    DefinitionBodyImpl definitionBody = new DefinitionBodyImpl();
-    return definitionBody;
+    FunctionDeclarationImpl functionDeclaration = new FunctionDeclarationImpl();
+    return functionDeclaration;
   }
 
   /**
@@ -1287,18 +1286,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     SpecialVariablesImpl specialVariables = new SpecialVariablesImpl();
     return specialVariables;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SimpleTypeDeclaration createSimpleTypeDeclaration()
-  {
-    SimpleTypeDeclarationImpl simpleTypeDeclaration = new SimpleTypeDeclarationImpl();
-    return simpleTypeDeclaration;
   }
 
   /**

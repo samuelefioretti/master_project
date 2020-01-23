@@ -23,7 +23,6 @@ import org.unicam.myGrammar.optGrammar.BlockhashFunction;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
-import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Ether;
@@ -39,7 +38,6 @@ import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
 import org.unicam.myGrammar.optGrammar.SecondOperators;
-import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
 import org.unicam.myGrammar.optGrammar.Time;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
@@ -67,9 +65,26 @@ public class OptGrammarGenerator extends AbstractGenerator {
   }
   
   public CharSequence compile(final Contract c) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field blocks is undefined for the type Contract"
-      + "\ncompileBlock cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("pragma solidity ^0.5.2;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("contract ");
+    String _name = c.getName();
+    _builder.append(_name);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<EObject> _blocks = c.getBlocks();
+      for(final EObject block : _blocks) {
+        String _compileBlock = this.compileBlock(block);
+        _builder.append(_compileBlock);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   public String compileBlock(final EObject b) {
@@ -307,24 +322,10 @@ public class OptGrammarGenerator extends AbstractGenerator {
   }
   
   public String compileTypes(final EObject type) {
-    String _switchResult = null;
-    boolean _matched = false;
-    if (type instanceof ElementaryTypeNameEnum) {
-      _matched=true;
-      _switchResult = ((ElementaryTypeNameEnum)type).getType();
-    }
-    if (!_matched) {
-      _matched=true;
-      if (!_matched) {
-        if (type instanceof SimpleTypeDeclaration) {
-          _matched=true;
-        }
-      }
-      if (_matched) {
-        _switchResult = ((SimpleTypeDeclaration)type).getType();
-      }
-    }
-    return _switchResult;
+    throw new Error("Unresolved compilation problems:"
+      + "\nSimpleTypeDeclaration cannot be resolved to a type."
+      + "\nThe method or field type is undefined for the type EObject"
+      + "\nUnreachable code: The case can never match. It is already handled by a previous condition.");
   }
   
   public String compileStruct(final StructDefinition st) {

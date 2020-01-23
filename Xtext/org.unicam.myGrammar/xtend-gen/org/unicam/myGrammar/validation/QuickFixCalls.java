@@ -36,17 +36,12 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
     throw new Error("Unresolved compilation problems:"
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
       + "\nDeclaration cannot be resolved to a type."
-      + "\nThe method or field blocks is undefined for the type Contract"
-      + "\nThe method or field blocks is undefined for the type Contract"
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nThe method or field ref is undefined for the type EObject"
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\nThe field QuickFixCalls.declarationSizeComparator refers to the missing type Declaration"
       + "\nThe method getOptimizedOrder(ArrayList, ArrayList, Integer, Integer) from the type QuickFixCalls refers to the missing type ArrayList"
       + "\nThe method getSize(Declaration) from the type QuickFixCalls refers to the missing type Declaration"
-      + "\nforEach cannot be resolved"
-      + "\nref cannot be resolved"
-      + "\n=== cannot be resolved"
-      + "\nindexOf cannot be resolved");
+      + "\n=== cannot be resolved");
   }
   
   @Check

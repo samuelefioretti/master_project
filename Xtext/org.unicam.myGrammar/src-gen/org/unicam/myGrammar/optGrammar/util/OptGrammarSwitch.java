@@ -87,17 +87,18 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.INHERITANCE_SPECIFIER:
+      case OptGrammarPackage.DECLARATION:
       {
-        InheritanceSpecifier inheritanceSpecifier = (InheritanceSpecifier)theEObject;
-        T result = caseInheritanceSpecifier(inheritanceSpecifier);
+        Declaration declaration = (Declaration)theEObject;
+        T result = caseDeclaration(declaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.DEFINITION_BODY:
+      case OptGrammarPackage.FUNCTION_DECLARATION:
       {
-        DefinitionBody definitionBody = (DefinitionBody)theEObject;
-        T result = caseDefinitionBody(definitionBody);
+        FunctionDeclaration functionDeclaration = (FunctionDeclaration)theEObject;
+        T result = caseFunctionDeclaration(functionDeclaration);
+        if (result == null) result = caseDeclaration(functionDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -158,6 +159,7 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         StructDefinition structDefinition = (StructDefinition)theEObject;
         T result = caseStructDefinition(structDefinition);
+        if (result == null) result = caseDeclaration(structDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -165,6 +167,8 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         EnumDefinition enumDefinition = (EnumDefinition)theEObject;
         T result = caseEnumDefinition(enumDefinition);
+        if (result == null) result = caseFunctionDeclaration(enumDefinition);
+        if (result == null) result = caseDeclaration(enumDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -777,13 +781,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION:
-      {
-        SimpleTypeDeclaration simpleTypeDeclaration = (SimpleTypeDeclaration)theEObject;
-        T result = caseSimpleTypeDeclaration(simpleTypeDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
       {
         ElementaryTypeNameEnum elementaryTypeNameEnum = (ElementaryTypeNameEnum)theEObject;
@@ -1003,33 +1000,33 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Inheritance Specifier</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Inheritance Specifier</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInheritanceSpecifier(InheritanceSpecifier object)
+  public T caseDeclaration(Declaration object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Definition Body</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Definition Body</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Function Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDefinitionBody(DefinitionBody object)
+  public T caseFunctionDeclaration(FunctionDeclaration object)
   {
     return null;
   }
@@ -2342,22 +2339,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSpecialVariables(SpecialVariables object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSimpleTypeDeclaration(SimpleTypeDeclaration object)
   {
     return null;
   }

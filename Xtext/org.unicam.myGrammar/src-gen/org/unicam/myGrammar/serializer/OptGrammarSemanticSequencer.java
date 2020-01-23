@@ -34,7 +34,6 @@ import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
 import org.unicam.myGrammar.optGrammar.Continue;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
-import org.unicam.myGrammar.optGrammar.DefinitionBody;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
 import org.unicam.myGrammar.optGrammar.ElementaryType;
@@ -59,7 +58,6 @@ import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IfStatement;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
@@ -88,7 +86,6 @@ import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
 import org.unicam.myGrammar.optGrammar.SecondOperators;
 import org.unicam.myGrammar.optGrammar.Shift;
 import org.unicam.myGrammar.optGrammar.SignExpression;
-import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialVariables;
 import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
@@ -186,9 +183,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.DECIMAL_LITERAL:
 				sequence_DecimalLiteral(context, (DecimalLiteral) semanticObject); 
 				return; 
-			case OptGrammarPackage.DEFINITION_BODY:
-				sequence_DefinitionBody(context, (DefinitionBody) semanticObject); 
-				return; 
 			case OptGrammarPackage.DELETE_STATEMENT:
 				sequence_DeleteStatement(context, (DeleteStatement) semanticObject); 
 				return; 
@@ -283,9 +277,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.INDEXED_SPECIFER:
 				sequence_IndexedSpecifer(context, (IndexedSpecifer) semanticObject); 
-				return; 
-			case OptGrammarPackage.INHERITANCE_SPECIFIER:
-				sequence_InheritanceSpecifier(context, (InheritanceSpecifier) semanticObject); 
 				return; 
 			case OptGrammarPackage.INT_PARAMETER:
 				sequence_IntParameter(context, (IntParameter) semanticObject); 
@@ -451,9 +442,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.SIGN_EXPRESSION:
 				sequence_SignExpression(context, (SignExpression) semanticObject); 
-				return; 
-			case OptGrammarPackage.SIMPLE_TYPE_DECLARATION:
-				sequence_SimpleTypeDeclaration(context, (SimpleTypeDeclaration) semanticObject); 
 				return; 
 			case OptGrammarPackage.SPECIAL_EXPRESSION:
 				sequence_SpecialExpression(context, (SpecialExpression) semanticObject); 
@@ -1324,7 +1312,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Contract returns Contract
 	 *
 	 * Constraint:
-	 *     (name=ID (inheritanceSpecifiers+=InheritanceSpecifier inheritanceSpecifiers+=InheritanceSpecifier*)? body=DefinitionBody)
+	 *     (name=ID (blocks+=Declaration | blocks+=FunctionDefinition)*)
 	 */
 	protected void sequence_Contract(ISerializationContext context, Contract semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1346,25 +1334,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDecimalLiteralAccess().getValueDECIMALTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DefinitionBody returns DefinitionBody
-	 *
-	 * Constraint:
-	 *     (
-	 *         functions+=FunctionDefinition | 
-	 *         structs+=StructDefinition | 
-	 *         enums+=EnumDefinition | 
-	 *         variables+=VariableDeclaration | 
-	 *         modifiers+=Modifier | 
-	 *         events+=Event
-	 *     )*
-	 */
-	protected void sequence_DefinitionBody(ISerializationContext context, DefinitionBody semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1600,6 +1569,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Declaration returns EnumDefinition
+	 *     FunctionDeclaration returns EnumDefinition
 	 *     EnumDefinition returns EnumDefinition
 	 *
 	 * Constraint:
@@ -2083,18 +2054,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     {IndexedSpecifer}
 	 */
 	protected void sequence_IndexedSpecifer(ISerializationContext context, IndexedSpecifer semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     InheritanceSpecifier returns InheritanceSpecifier
-	 *
-	 * Constraint:
-	 *     (SuperType=Contract args=FunctionCallListArguments?)
-	 */
-	protected void sequence_InheritanceSpecifier(ISerializationContext context, InheritanceSpecifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -3168,18 +3127,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     SimpleTypeDeclaration returns SimpleTypeDeclaration
-	 *
-	 * Constraint:
-	 *     (type='string' | type='bool')
-	 */
-	protected void sequence_SimpleTypeDeclaration(ISerializationContext context, SimpleTypeDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Expression returns SpecialExpression
 	 *     SpecialExpression returns SpecialExpression
 	 *     Assignment returns SpecialExpression
@@ -3357,6 +3304,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Declaration returns StructDefinition
 	 *     StructDefinition returns StructDefinition
 	 *
 	 * Constraint:
