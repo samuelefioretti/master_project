@@ -80,7 +80,7 @@ public class FunctionCallArgImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getFunctionCallArg();
+    return OptGrammarPackage.Literals.FUNCTION_CALL_ARG;
   }
 
   /**

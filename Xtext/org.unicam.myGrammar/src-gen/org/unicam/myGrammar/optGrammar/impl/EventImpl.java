@@ -80,7 +80,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getEvent();
+    return OptGrammarPackage.Literals.EVENT;
   }
 
   /**

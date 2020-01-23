@@ -88,7 +88,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getTime();
+    return OptGrammarPackage.Literals.TIME;
   }
 
   /**

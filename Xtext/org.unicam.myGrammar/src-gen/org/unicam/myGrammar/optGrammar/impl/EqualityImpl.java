@@ -91,7 +91,7 @@ public class EqualityImpl extends ExpressionImpl implements Equality
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getEquality();
+    return OptGrammarPackage.Literals.EQUALITY;
   }
 
   /**

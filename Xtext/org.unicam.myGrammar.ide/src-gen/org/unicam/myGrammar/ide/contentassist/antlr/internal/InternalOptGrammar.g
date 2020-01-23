@@ -2625,6 +2625,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleElementaryTypeNameEnum
+entryRuleElementaryTypeNameEnum
+:
+{ before(grammarAccess.getElementaryTypeNameEnumRule()); }
+	 ruleElementaryTypeNameEnum
+{ after(grammarAccess.getElementaryTypeNameEnumRule()); } 
+	 EOF 
+;
+
+// Rule ElementaryTypeNameEnum
+ruleElementaryTypeNameEnum 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment()); }
+		(rule__ElementaryTypeNameEnum__TypeAssignment)
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleMapLocationLiteral
 entryRuleMapLocationLiteral
 :
@@ -2719,22 +2744,6 @@ ruleSpecialVariablesTypeEnum
 		{ before(grammarAccess.getSpecialVariablesTypeEnumAccess().getNameAssignment()); }
 		(rule__SpecialVariablesTypeEnum__NameAssignment)
 		{ after(grammarAccess.getSpecialVariablesTypeEnumAccess().getNameAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-// Rule ElementaryTypeNameEnum
-ruleElementaryTypeNameEnum
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getAlternatives()); }
-		(rule__ElementaryTypeNameEnum__Alternatives)
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getAlternatives()); }
 	)
 ;
 finally {
@@ -3793,6 +3802,639 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__ElementaryTypeNameEnum__TypeAlternatives_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeIntKeyword_0_0()); }
+		'int'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeIntKeyword_0_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt16Keyword_0_1()); }
+		'int16'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt16Keyword_0_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt24Keyword_0_2()); }
+		'int24'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt24Keyword_0_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt32Keyword_0_3()); }
+		'int32'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt32Keyword_0_3()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt40Keyword_0_4()); }
+		'int40'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt40Keyword_0_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt48Keyword_0_5()); }
+		'int48'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt48Keyword_0_5()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt56Keyword_0_6()); }
+		'int56'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt56Keyword_0_6()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt64Keyword_0_7()); }
+		'int64'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt64Keyword_0_7()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt72Keyword_0_8()); }
+		'int72'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt72Keyword_0_8()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt80Keyword_0_9()); }
+		'int80'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt80Keyword_0_9()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt88Keyword_0_10()); }
+		'int88'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt88Keyword_0_10()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt96Keyword_0_11()); }
+		'int96'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt96Keyword_0_11()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt104Keyword_0_12()); }
+		'int104'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt104Keyword_0_12()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt112Keyword_0_13()); }
+		'int112'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt112Keyword_0_13()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt120Keyword_0_14()); }
+		'int120'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt120Keyword_0_14()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt128Keyword_0_15()); }
+		'int128'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt128Keyword_0_15()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt136Keyword_0_16()); }
+		'int136'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt136Keyword_0_16()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt144Keyword_0_17()); }
+		'int144'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt144Keyword_0_17()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt152Keyword_0_18()); }
+		'int152'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt152Keyword_0_18()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt160Keyword_0_19()); }
+		'int160'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt160Keyword_0_19()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt168Keyword_0_20()); }
+		'int168'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt168Keyword_0_20()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt178Keyword_0_21()); }
+		'int178'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt178Keyword_0_21()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt184Keyword_0_22()); }
+		'int184'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt184Keyword_0_22()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt192Keyword_0_23()); }
+		'int192'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt192Keyword_0_23()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt200Keyword_0_24()); }
+		'int200'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt200Keyword_0_24()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt208Keyword_0_25()); }
+		'int208'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt208Keyword_0_25()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt216Keyword_0_26()); }
+		'int216'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt216Keyword_0_26()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt224Keyword_0_27()); }
+		'int224'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt224Keyword_0_27()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt232Keyword_0_28()); }
+		'int232'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt232Keyword_0_28()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt240Keyword_0_29()); }
+		'int240'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt240Keyword_0_29()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt248Keyword_0_30()); }
+		'int248'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt248Keyword_0_30()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt256Keyword_0_31()); }
+		'int256'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt256Keyword_0_31()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUintKeyword_0_32()); }
+		'uint'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUintKeyword_0_32()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint8Keyword_0_33()); }
+		'uint8'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint8Keyword_0_33()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint16Keyword_0_34()); }
+		'uint16'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint16Keyword_0_34()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint24Keyword_0_35()); }
+		'uint24'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint24Keyword_0_35()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint32Keyword_0_36()); }
+		'uint32'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint32Keyword_0_36()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint40Keyword_0_37()); }
+		'uint40'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint40Keyword_0_37()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint48Keyword_0_38()); }
+		'uint48'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint48Keyword_0_38()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint56Keyword_0_39()); }
+		'uint56'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint56Keyword_0_39()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint64Keyword_0_40()); }
+		'uint64'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint64Keyword_0_40()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint72Keyword_0_41()); }
+		'uint72'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint72Keyword_0_41()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint80Keyword_0_42()); }
+		'uint80'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint80Keyword_0_42()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint88Keyword_0_43()); }
+		'uint88'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint88Keyword_0_43()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint96Keyword_0_44()); }
+		'uint96'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint96Keyword_0_44()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint104Keyword_0_45()); }
+		'uint104'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint104Keyword_0_45()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint112Keyword_0_46()); }
+		'uint112'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint112Keyword_0_46()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint120Keyword_0_47()); }
+		'uint120'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint120Keyword_0_47()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint128Keyword_0_48()); }
+		'uint128'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint128Keyword_0_48()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint136Keyword_0_49()); }
+		'uint136'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint136Keyword_0_49()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint144Keyword_0_50()); }
+		'uint144'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint144Keyword_0_50()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint152Keyword_0_51()); }
+		'uint152'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint152Keyword_0_51()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint160Keyword_0_52()); }
+		'uint160'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint160Keyword_0_52()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint168Keyword_0_53()); }
+		'uint168'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint168Keyword_0_53()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint178Keyword_0_54()); }
+		'uint178'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint178Keyword_0_54()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint184Keyword_0_55()); }
+		'uint184'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint184Keyword_0_55()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint192Keyword_0_56()); }
+		'uint192'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint192Keyword_0_56()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint200Keyword_0_57()); }
+		'uint200'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint200Keyword_0_57()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint208Keyword_0_58()); }
+		'uint208'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint208Keyword_0_58()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint216Keyword_0_59()); }
+		'uint216'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint216Keyword_0_59()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint224Keyword_0_60()); }
+		'uint224'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint224Keyword_0_60()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint232Keyword_0_61()); }
+		'uint232'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint232Keyword_0_61()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint240Keyword_0_62()); }
+		'uint240'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint240Keyword_0_62()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint248Keyword_0_63()); }
+		'uint248'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint248Keyword_0_63()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint256Keyword_0_64()); }
+		'uint256'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint256Keyword_0_64()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeByteKeyword_0_65()); }
+		'byte'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeByteKeyword_0_65()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytesKeyword_0_66()); }
+		'bytes'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytesKeyword_0_66()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes1Keyword_0_67()); }
+		'bytes1'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes1Keyword_0_67()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes2Keyword_0_68()); }
+		'bytes2'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes2Keyword_0_68()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes3Keyword_0_69()); }
+		'bytes3'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes3Keyword_0_69()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes4Keyword_0_70()); }
+		'bytes4'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes4Keyword_0_70()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes5Keyword_0_71()); }
+		'bytes5'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes5Keyword_0_71()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes6Keyword_0_72()); }
+		'bytes6'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes6Keyword_0_72()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes7Keyword_0_73()); }
+		'bytes7'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes7Keyword_0_73()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes8Keyword_0_74()); }
+		'bytes8'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes8Keyword_0_74()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes9Keyword_0_75()); }
+		'bytes9'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes9Keyword_0_75()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes10Keyword_0_76()); }
+		'bytes10'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes10Keyword_0_76()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes11Keyword_0_77()); }
+		'bytes11'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes11Keyword_0_77()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes12Keyword_0_78()); }
+		'bytes12'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes12Keyword_0_78()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes13Keyword_0_79()); }
+		'bytes13'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes13Keyword_0_79()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes14Keyword_0_80()); }
+		'bytes14'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes14Keyword_0_80()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes15Keyword_0_81()); }
+		'bytes15'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes15Keyword_0_81()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes16Keyword_0_82()); }
+		'bytes16'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes16Keyword_0_82()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes17Keyword_0_83()); }
+		'bytes17'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes17Keyword_0_83()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes18Keyword_0_84()); }
+		'bytes18'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes18Keyword_0_84()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes19Keyword_0_85()); }
+		'bytes19'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes19Keyword_0_85()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes20Keyword_0_86()); }
+		'bytes20'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes20Keyword_0_86()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes21Keyword_0_87()); }
+		'bytes21'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes21Keyword_0_87()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes22Keyword_0_88()); }
+		'bytes22'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes22Keyword_0_88()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes23Keyword_0_89()); }
+		'bytes23'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes23Keyword_0_89()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes24Keyword_0_90()); }
+		'bytes24'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes24Keyword_0_90()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes25Keyword_0_91()); }
+		'bytes25'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes25Keyword_0_91()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes26Keyword_0_92()); }
+		'bytes26'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes26Keyword_0_92()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes27Keyword_0_93()); }
+		'bytes27'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes27Keyword_0_93()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes28Keyword_0_94()); }
+		'bytes28'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes28Keyword_0_94()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes29Keyword_0_95()); }
+		'bytes29'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes29Keyword_0_95()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes30Keyword_0_96()); }
+		'bytes30'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes30Keyword_0_96()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes31Keyword_0_97()); }
+		'bytes31'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes31Keyword_0_97()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes32Keyword_0_98()); }
+		'bytes32'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes32Keyword_0_98()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeStringKeyword_0_99()); }
+		'string'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeStringKeyword_0_99()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAddressKeyword_0_100()); }
+		'address'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAddressKeyword_0_100()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBoolKeyword_0_101()); }
+		'bool'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeBoolKeyword_0_101()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeRealKeyword_0_102()); }
+		'real'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeRealKeyword_0_102()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUrealKeyword_0_103()); }
+		'ureal'
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeUrealKeyword_0_103()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__LocationSpecifierEnum__TypeAlternatives_0
 	@init {
 		int stackSize = keepStackSize();
@@ -3874,639 +4516,6 @@ rule__SpecialVariablesTypeEnum__NameAlternatives_0
 		{ before(grammarAccess.getSpecialVariablesTypeEnumAccess().getNameTXTerminalRuleCall_0_2()); }
 		RULE_TX
 		{ after(grammarAccess.getSpecialVariablesTypeEnumAccess().getNameTXTerminalRuleCall_0_2()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__ElementaryTypeNameEnum__Alternatives
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINTEnumLiteralDeclaration_0()); }
-		('int')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINTEnumLiteralDeclaration_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT16EnumLiteralDeclaration_1()); }
-		('int16')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT16EnumLiteralDeclaration_1()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT24EnumLiteralDeclaration_2()); }
-		('int24')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT24EnumLiteralDeclaration_2()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT32EnumLiteralDeclaration_3()); }
-		('int32')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT32EnumLiteralDeclaration_3()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT40EnumLiteralDeclaration_4()); }
-		('int40')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT40EnumLiteralDeclaration_4()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT48EnumLiteralDeclaration_5()); }
-		('int48')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT48EnumLiteralDeclaration_5()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT56EnumLiteralDeclaration_6()); }
-		('int56')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT56EnumLiteralDeclaration_6()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT64EnumLiteralDeclaration_7()); }
-		('int64')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT64EnumLiteralDeclaration_7()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT72EnumLiteralDeclaration_8()); }
-		('int72')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT72EnumLiteralDeclaration_8()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT80EnumLiteralDeclaration_9()); }
-		('int80')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT80EnumLiteralDeclaration_9()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT88EnumLiteralDeclaration_10()); }
-		('int88')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT88EnumLiteralDeclaration_10()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT96EnumLiteralDeclaration_11()); }
-		('int96')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT96EnumLiteralDeclaration_11()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT104EnumLiteralDeclaration_12()); }
-		('int104')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT104EnumLiteralDeclaration_12()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT112EnumLiteralDeclaration_13()); }
-		('int112')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT112EnumLiteralDeclaration_13()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT120EnumLiteralDeclaration_14()); }
-		('int120')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT120EnumLiteralDeclaration_14()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT128EnumLiteralDeclaration_15()); }
-		('int128')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT128EnumLiteralDeclaration_15()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT136EnumLiteralDeclaration_16()); }
-		('int136')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT136EnumLiteralDeclaration_16()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT144EnumLiteralDeclaration_17()); }
-		('int144')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT144EnumLiteralDeclaration_17()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT152EnumLiteralDeclaration_18()); }
-		('int152')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT152EnumLiteralDeclaration_18()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT160EnumLiteralDeclaration_19()); }
-		('int160')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT160EnumLiteralDeclaration_19()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT168EnumLiteralDeclaration_20()); }
-		('int168')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT168EnumLiteralDeclaration_20()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT178EnumLiteralDeclaration_21()); }
-		('int178')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT178EnumLiteralDeclaration_21()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT184EnumLiteralDeclaration_22()); }
-		('int184')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT184EnumLiteralDeclaration_22()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT192EnumLiteralDeclaration_23()); }
-		('int192')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT192EnumLiteralDeclaration_23()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT200EnumLiteralDeclaration_24()); }
-		('int200')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT200EnumLiteralDeclaration_24()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT208EnumLiteralDeclaration_25()); }
-		('int208')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT208EnumLiteralDeclaration_25()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT216EnumLiteralDeclaration_26()); }
-		('int216')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT216EnumLiteralDeclaration_26()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT224EnumLiteralDeclaration_27()); }
-		('int224')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT224EnumLiteralDeclaration_27()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT232EnumLiteralDeclaration_28()); }
-		('int232')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT232EnumLiteralDeclaration_28()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT240EnumLiteralDeclaration_29()); }
-		('int240')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT240EnumLiteralDeclaration_29()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT248EnumLiteralDeclaration_30()); }
-		('int248')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT248EnumLiteralDeclaration_30()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getINT256EnumLiteralDeclaration_31()); }
-		('int256')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getINT256EnumLiteralDeclaration_31()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINTEnumLiteralDeclaration_32()); }
-		('uint')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINTEnumLiteralDeclaration_32()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT8EnumLiteralDeclaration_33()); }
-		('uint8')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT8EnumLiteralDeclaration_33()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT16EnumLiteralDeclaration_34()); }
-		('uint16')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT16EnumLiteralDeclaration_34()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUNIT24EnumLiteralDeclaration_35()); }
-		('uint24')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUNIT24EnumLiteralDeclaration_35()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT32EnumLiteralDeclaration_36()); }
-		('uint32')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT32EnumLiteralDeclaration_36()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT40EnumLiteralDeclaration_37()); }
-		('uint40')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT40EnumLiteralDeclaration_37()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT48EnumLiteralDeclaration_38()); }
-		('uint48')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT48EnumLiteralDeclaration_38()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUNIT56EnumLiteralDeclaration_39()); }
-		('uint56')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUNIT56EnumLiteralDeclaration_39()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT64EnumLiteralDeclaration_40()); }
-		('uint64')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT64EnumLiteralDeclaration_40()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT72EnumLiteralDeclaration_41()); }
-		('uint72')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT72EnumLiteralDeclaration_41()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT80EnumLiteralDeclaration_42()); }
-		('uint80')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT80EnumLiteralDeclaration_42()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT88EnumLiteralDeclaration_43()); }
-		('uint88')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT88EnumLiteralDeclaration_43()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT96EnumLiteralDeclaration_44()); }
-		('uint96')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT96EnumLiteralDeclaration_44()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT104EnumLiteralDeclaration_45()); }
-		('uint104')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT104EnumLiteralDeclaration_45()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT112EnumLiteralDeclaration_46()); }
-		('uint112')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT112EnumLiteralDeclaration_46()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT120EnumLiteralDeclaration_47()); }
-		('uint120')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT120EnumLiteralDeclaration_47()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT128EnumLiteralDeclaration_48()); }
-		('uint128')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT128EnumLiteralDeclaration_48()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT136EnumLiteralDeclaration_49()); }
-		('uint136')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT136EnumLiteralDeclaration_49()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT144EnumLiteralDeclaration_50()); }
-		('uint144')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT144EnumLiteralDeclaration_50()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT152EnumLiteralDeclaration_51()); }
-		('uint152')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT152EnumLiteralDeclaration_51()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT160EnumLiteralDeclaration_52()); }
-		('uint160')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT160EnumLiteralDeclaration_52()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT168EnumLiteralDeclaration_53()); }
-		('uint168')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT168EnumLiteralDeclaration_53()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT178EnumLiteralDeclaration_54()); }
-		('uint178')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT178EnumLiteralDeclaration_54()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT184EnumLiteralDeclaration_55()); }
-		('uint184')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT184EnumLiteralDeclaration_55()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT192EnumLiteralDeclaration_56()); }
-		('uint192')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT192EnumLiteralDeclaration_56()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT200EnumLiteralDeclaration_57()); }
-		('uint200')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT200EnumLiteralDeclaration_57()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT208EnumLiteralDeclaration_58()); }
-		('uint208')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT208EnumLiteralDeclaration_58()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT216EnumLiteralDeclaration_59()); }
-		('uint216')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT216EnumLiteralDeclaration_59()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT244EnumLiteralDeclaration_60()); }
-		('uint224')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT244EnumLiteralDeclaration_60()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT232EnumLiteralDeclaration_61()); }
-		('uint232')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT232EnumLiteralDeclaration_61()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT240EnumLiteralDeclaration_62()); }
-		('uint240')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT240EnumLiteralDeclaration_62()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT248EnumLiteralDeclaration_63()); }
-		('uint248')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT248EnumLiteralDeclaration_63()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUINT256EnumLiteralDeclaration_64()); }
-		('uint256')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUINT256EnumLiteralDeclaration_64()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTEEnumLiteralDeclaration_65()); }
-		('byte')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTEEnumLiteralDeclaration_65()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTESEnumLiteralDeclaration_66()); }
-		('bytes')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTESEnumLiteralDeclaration_66()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES1EnumLiteralDeclaration_67()); }
-		('bytes1')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES1EnumLiteralDeclaration_67()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES2EnumLiteralDeclaration_68()); }
-		('bytes2')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES2EnumLiteralDeclaration_68()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES3EnumLiteralDeclaration_69()); }
-		('bytes3')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES3EnumLiteralDeclaration_69()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES4EnumLiteralDeclaration_70()); }
-		('bytes4')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES4EnumLiteralDeclaration_70()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES5EnumLiteralDeclaration_71()); }
-		('bytes5')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES5EnumLiteralDeclaration_71()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES6EnumLiteralDeclaration_72()); }
-		('bytes6')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES6EnumLiteralDeclaration_72()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES7EnumLiteralDeclaration_73()); }
-		('bytes7')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES7EnumLiteralDeclaration_73()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES8EnumLiteralDeclaration_74()); }
-		('bytes8')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES8EnumLiteralDeclaration_74()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES9EnumLiteralDeclaration_75()); }
-		('bytes9')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES9EnumLiteralDeclaration_75()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES10EnumLiteralDeclaration_76()); }
-		('bytes10')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES10EnumLiteralDeclaration_76()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES11EnumLiteralDeclaration_77()); }
-		('bytes11')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES11EnumLiteralDeclaration_77()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES12EnumLiteralDeclaration_78()); }
-		('bytes12')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES12EnumLiteralDeclaration_78()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES13EnumLiteralDeclaration_79()); }
-		('bytes13')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES13EnumLiteralDeclaration_79()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES14EnumLiteralDeclaration_80()); }
-		('bytes14')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES14EnumLiteralDeclaration_80()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES15EnumLiteralDeclaration_81()); }
-		('bytes15')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES15EnumLiteralDeclaration_81()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES16EnumLiteralDeclaration_82()); }
-		('bytes16')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES16EnumLiteralDeclaration_82()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES17EnumLiteralDeclaration_83()); }
-		('bytes17')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES17EnumLiteralDeclaration_83()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES18EnumLiteralDeclaration_84()); }
-		('bytes18')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES18EnumLiteralDeclaration_84()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES19EnumLiteralDeclaration_85()); }
-		('bytes19')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES19EnumLiteralDeclaration_85()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES20EnumLiteralDeclaration_86()); }
-		('bytes20')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES20EnumLiteralDeclaration_86()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES21EnumLiteralDeclaration_87()); }
-		('bytes21')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES21EnumLiteralDeclaration_87()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES22EnumLiteralDeclaration_88()); }
-		('bytes22')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES22EnumLiteralDeclaration_88()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES23EnumLiteralDeclaration_89()); }
-		('bytes23')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES23EnumLiteralDeclaration_89()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES24EnumLiteralDeclaration_90()); }
-		('bytes24')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES24EnumLiteralDeclaration_90()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES25EnumLiteralDeclaration_91()); }
-		('bytes25')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES25EnumLiteralDeclaration_91()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES26EnumLiteralDeclaration_92()); }
-		('bytes26')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES26EnumLiteralDeclaration_92()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES27EnumLiteralDeclaration_93()); }
-		('bytes27')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES27EnumLiteralDeclaration_93()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES28EnumLiteralDeclaration_94()); }
-		('bytes28')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES28EnumLiteralDeclaration_94()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES29EnumLiteralDeclaration_95()); }
-		('bytes29')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES29EnumLiteralDeclaration_95()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES30EnumLiteralDeclaration_96()); }
-		('bytes30')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES30EnumLiteralDeclaration_96()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES31EnumLiteralDeclaration_97()); }
-		('bytes31')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES31EnumLiteralDeclaration_97()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES32EnumLiteralDeclaration_98()); }
-		('bytes32')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBYTES32EnumLiteralDeclaration_98()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getSTRINGEnumLiteralDeclaration_99()); }
-		('string')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getSTRINGEnumLiteralDeclaration_99()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getADDRESSEnumLiteralDeclaration_100()); }
-		('address')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getADDRESSEnumLiteralDeclaration_100()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getBOOLEnumLiteralDeclaration_101()); }
-		('bool')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getBOOLEnumLiteralDeclaration_101()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getREALEnumLiteralDeclaration_102()); }
-		('real')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getREALEnumLiteralDeclaration_102()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getUREALEnumLiteralDeclaration_103()); }
-		('ureal')
-		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getUREALEnumLiteralDeclaration_103()); }
 	)
 ;
 finally {
@@ -11255,6 +11264,7 @@ rule__PlaceHolderStatement__Group__1
 	}
 :
 	rule__PlaceHolderStatement__Group__1__Impl
+	rule__PlaceHolderStatement__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -11269,6 +11279,32 @@ rule__PlaceHolderStatement__Group__1__Impl
 	{ before(grammarAccess.getPlaceHolderStatementAccess().getPlaceHolderStatementAction_1()); }
 	()
 	{ after(grammarAccess.getPlaceHolderStatementAccess().getPlaceHolderStatementAction_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PlaceHolderStatement__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PlaceHolderStatement__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PlaceHolderStatement__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPlaceHolderStatementAccess().getSemicolonKeyword_2()); }
+	(';')?
+	{ after(grammarAccess.getPlaceHolderStatementAccess().getSemicolonKeyword_2()); }
 )
 ;
 finally {
@@ -16564,9 +16600,9 @@ rule__ElementaryType__NameAssignment
 	}
 :
 	(
-		{ before(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumEnumRuleCall_0()); }
+		{ before(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumParserRuleCall_0()); }
 		ruleElementaryTypeNameEnum
-		{ after(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumEnumRuleCall_0()); }
+		{ after(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumParserRuleCall_0()); }
 	)
 ;
 finally {
@@ -16579,9 +16615,9 @@ rule__Mapping__KeyTypeAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0()); }
+		{ before(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0()); }
 		ruleElementaryTypeNameEnum
-		{ after(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0()); }
+		{ after(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0()); }
 	)
 ;
 finally {
@@ -18504,9 +18540,9 @@ rule__TypeCast__ValueAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumEnumRuleCall_0_0()); }
+		{ before(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumParserRuleCall_0_0()); }
 		ruleElementaryTypeNameEnum
-		{ after(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumEnumRuleCall_0_0()); }
+		{ after(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumParserRuleCall_0_0()); }
 	)
 ;
 finally {
@@ -18567,6 +18603,21 @@ rule__SpecialVariables__QualifiersAssignment_3
 		{ before(grammarAccess.getSpecialVariablesAccess().getQualifiersQualifierParserRuleCall_3_0()); }
 		ruleQualifier
 		{ after(grammarAccess.getSpecialVariablesAccess().getQualifiersQualifierParserRuleCall_3_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ElementaryTypeNameEnum__TypeAssignment
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_0()); }
+		(rule__ElementaryTypeNameEnum__TypeAlternatives_0)
+		{ after(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_0()); }
 	)
 ;
 finally {

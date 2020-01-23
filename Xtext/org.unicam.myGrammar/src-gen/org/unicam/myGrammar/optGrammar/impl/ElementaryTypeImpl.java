@@ -43,24 +43,14 @@ public class ElementaryTypeImpl extends StandardTypeImpl implements ElementaryTy
   protected ArrayDimensions dimension;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final ElementaryTypeNameEnum NAME_EDEFAULT = ElementaryTypeNameEnum.INT;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected ElementaryTypeNameEnum name = NAME_EDEFAULT;
+  protected ElementaryTypeNameEnum name;
 
   /**
    * <!-- begin-user-doc -->
@@ -80,7 +70,7 @@ public class ElementaryTypeImpl extends StandardTypeImpl implements ElementaryTy
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getElementaryType();
+    return OptGrammarPackage.Literals.ELEMENTARY_TYPE;
   }
 
   /**
@@ -149,13 +139,38 @@ public class ElementaryTypeImpl extends StandardTypeImpl implements ElementaryTy
    * <!-- end-user-doc -->
    * @generated
    */
+  public NotificationChain basicSetName(ElementaryTypeNameEnum newName, NotificationChain msgs)
+  {
+    ElementaryTypeNameEnum oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ELEMENTARY_TYPE__NAME, oldName, newName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public void setName(ElementaryTypeNameEnum newName)
   {
-    ElementaryTypeNameEnum oldName = name;
-    name = newName == null ? NAME_EDEFAULT : newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ELEMENTARY_TYPE__NAME, oldName, name));
+    if (newName != name)
+    {
+      NotificationChain msgs = null;
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.ELEMENTARY_TYPE__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.ELEMENTARY_TYPE__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ELEMENTARY_TYPE__NAME, newName, newName));
   }
 
   /**
@@ -170,6 +185,8 @@ public class ElementaryTypeImpl extends StandardTypeImpl implements ElementaryTy
     {
       case OptGrammarPackage.ELEMENTARY_TYPE__DIMENSION:
         return basicSetDimension(null, msgs);
+      case OptGrammarPackage.ELEMENTARY_TYPE__NAME:
+        return basicSetName(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -226,7 +243,7 @@ public class ElementaryTypeImpl extends StandardTypeImpl implements ElementaryTy
         setDimension((ArrayDimensions)null);
         return;
       case OptGrammarPackage.ELEMENTARY_TYPE__NAME:
-        setName(NAME_EDEFAULT);
+        setName((ElementaryTypeNameEnum)null);
         return;
     }
     super.eUnset(featureID);
@@ -245,26 +262,9 @@ public class ElementaryTypeImpl extends StandardTypeImpl implements ElementaryTy
       case OptGrammarPackage.ELEMENTARY_TYPE__DIMENSION:
         return dimension != null;
       case OptGrammarPackage.ELEMENTARY_TYPE__NAME:
-        return name != NAME_EDEFAULT;
+        return name != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ElementaryTypeImpl

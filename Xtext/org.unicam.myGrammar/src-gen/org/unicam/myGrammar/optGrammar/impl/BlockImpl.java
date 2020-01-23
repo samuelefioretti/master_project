@@ -62,7 +62,7 @@ public class BlockImpl extends BodyImpl implements Block
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getBlock();
+    return OptGrammarPackage.Literals.BLOCK;
   }
 
   /**

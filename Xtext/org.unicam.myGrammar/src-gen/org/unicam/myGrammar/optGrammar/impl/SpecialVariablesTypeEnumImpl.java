@@ -66,7 +66,7 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getSpecialVariablesTypeEnum();
+    return OptGrammarPackage.Literals.SPECIAL_VARIABLES_TYPE_ENUM;
   }
 
   /**

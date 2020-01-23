@@ -777,6 +777,20 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION:
+      {
+        SimpleTypeDeclaration simpleTypeDeclaration = (SimpleTypeDeclaration)theEObject;
+        T result = caseSimpleTypeDeclaration(simpleTypeDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
+      {
+        ElementaryTypeNameEnum elementaryTypeNameEnum = (ElementaryTypeNameEnum)theEObject;
+        T result = caseElementaryTypeNameEnum(elementaryTypeNameEnum);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
       {
         LocationSpecifierEnum locationSpecifierEnum = (LocationSpecifierEnum)theEObject;
@@ -2328,6 +2342,38 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSpecialVariables(SpecialVariables object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleTypeDeclaration(SimpleTypeDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Elementary Type Name Enum</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Elementary Type Name Enum</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElementaryTypeNameEnum(ElementaryTypeNameEnum object)
   {
     return null;
   }

@@ -99,7 +99,7 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getStructDefinition();
+    return OptGrammarPackage.Literals.STRUCT_DEFINITION;
   }
 
   /**

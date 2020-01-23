@@ -24,25 +24,22 @@ package org.unicam.myGrammar.optGrammar;
 public interface TypeCast extends Expression
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
-   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum}.
+   * Returns the value of the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum
+   * @return the value of the '<em>Value</em>' containment reference.
    * @see #setValue(ElementaryTypeNameEnum)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getTypeCast_Value()
-   * @model
+   * @model containment="true"
    * @generated
    */
   ElementaryTypeNameEnum getValue();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.TypeCast#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.TypeCast#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum
+   * @param value the new value of the '<em>Value</em>' containment reference.
    * @see #getValue()
    * @generated
    */

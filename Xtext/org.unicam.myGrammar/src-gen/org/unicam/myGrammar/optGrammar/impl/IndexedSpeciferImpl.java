@@ -35,7 +35,7 @@ public class IndexedSpeciferImpl extends VariableDeclarationOptionalElementImpl 
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getIndexedSpecifer();
+    return OptGrammarPackage.Literals.INDEXED_SPECIFER;
   }
 
 } //IndexedSpeciferImpl

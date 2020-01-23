@@ -58,7 +58,7 @@ public class PreIncExpressionImpl extends ExpressionImpl implements PreIncExpres
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getPreIncExpression();
+    return OptGrammarPackage.Literals.PRE_INC_EXPRESSION;
   }
 
   /**

@@ -78,7 +78,7 @@ public class ArithmeticOperationsImpl extends MinimalEObjectImpl.Container imple
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getArithmeticOperations();
+    return OptGrammarPackage.Literals.ARITHMETIC_OPERATIONS;
   }
 
   /**

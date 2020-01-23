@@ -24,7 +24,7 @@ public class FieldExistenceValidator extends AbstractOptGrammarValidator {
   public void fieldExists(final /* FieldAccess */Object fieldAccess) {
     throw new Error("Unresolved compilation problems:"
       + "\nConcreteStructDeclaration cannot be resolved to a type."
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field FIELD_ACCESS__FIELD is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nref cannot be resolved"
       + "\ntype cannot be resolved"
@@ -35,14 +35,13 @@ public class FieldExistenceValidator extends AbstractOptGrammarValidator {
       + "\n! cannot be resolved"
       + "\nfield cannot be resolved"
       + "\ntype cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nFIELD_ACCESS__FIELD cannot be resolved");
+      + "\nname cannot be resolved");
   }
   
   @Check
   public void fieldExists(final /* ArrayDefinition */Object arrayDefinition) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field ARRAY_DEFINITION__FIELD is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nfield cannot be resolved"
       + "\n=== cannot be resolved"
@@ -62,8 +61,7 @@ public class FieldExistenceValidator extends AbstractOptGrammarValidator {
       + "\nref cannot be resolved"
       + "\nasDeclaration cannot be resolved"
       + "\nstrucType cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nARRAY_DEFINITION__FIELD cannot be resolved");
+      + "\nname cannot be resolved");
   }
   
   @Check
@@ -72,7 +70,7 @@ public class FieldExistenceValidator extends AbstractOptGrammarValidator {
       + "\nArrayDeclaration cannot be resolved to a type."
       + "\nArrayDeclaration cannot be resolved to a type."
       + "\nArrayDeclaration cannot be resolved to a type."
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field ARRAY_ACCESS__FIELD is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nfield cannot be resolved"
       + "\n=== cannot be resolved"
@@ -89,8 +87,7 @@ public class FieldExistenceValidator extends AbstractOptGrammarValidator {
       + "\nfield cannot be resolved"
       + "\nvariable cannot be resolved"
       + "\nstrucType cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nARRAY_ACCESS__FIELD cannot be resolved");
+      + "\nname cannot be resolved");
   }
   
   public Object fieldExists(final String field, final /* Declaration */Object dec) {

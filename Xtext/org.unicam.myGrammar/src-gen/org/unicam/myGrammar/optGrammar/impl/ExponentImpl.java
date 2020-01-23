@@ -69,7 +69,7 @@ public class ExponentImpl extends ExpressionImpl implements Exponent
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getExponent();
+    return OptGrammarPackage.Literals.EXPONENT;
   }
 
   /**

@@ -58,7 +58,7 @@ public class NotExpressionImpl extends ExpressionImpl implements NotExpression
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getNotExpression();
+    return OptGrammarPackage.Literals.NOT_EXPRESSION;
   }
 
   /**

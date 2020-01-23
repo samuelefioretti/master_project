@@ -70,7 +70,7 @@ public class ModifierInvocationImpl extends FunctionDefinitionOptionalElementImp
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getModifierInvocation();
+    return OptGrammarPackage.Literals.MODIFIER_INVOCATION;
   }
 
   /**

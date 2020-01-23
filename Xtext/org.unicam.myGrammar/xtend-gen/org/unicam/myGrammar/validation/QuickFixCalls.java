@@ -25,11 +25,10 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
   @Check
   public void orderedStructureFields(final StructDefinition str) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field STRUCT_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\nThe field QuickFixCalls.declarationSizeComparator refers to the missing type Declaration"
       + "\nThe method getOptimizedOrder(ArrayList, ArrayList, Integer, Integer) from the type QuickFixCalls refers to the missing type ArrayList"
-      + "\nThe method getSize(Declaration) from the type QuickFixCalls refers to the missing type Declaration"
-      + "\nSTRUCT_DECLARATION__NAME cannot be resolved");
+      + "\nThe method getSize(Declaration) from the type QuickFixCalls refers to the missing type Declaration");
   }
   
   @Check
@@ -39,7 +38,6 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\nDeclaration cannot be resolved to a type."
       + "\nThe method or field blocks is undefined for the type Contract"
       + "\nThe method or field blocks is undefined for the type Contract"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\nThe field QuickFixCalls.declarationSizeComparator refers to the missing type Declaration"
@@ -48,8 +46,7 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\nforEach cannot be resolved"
       + "\nref cannot be resolved"
       + "\n=== cannot be resolved"
-      + "\nindexOf cannot be resolved"
-      + "\nCONTRACT__NAME cannot be resolved");
+      + "\nindexOf cannot be resolved");
   }
   
   @Check
@@ -74,10 +71,10 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\nThe method or field operator is undefined for the type EObject"
       + "\nThe method or field ref is undefined for the type EObject"
       + "\nThe method getRoot((Object)=>boolean) is undefined for the type EObject"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field PRIMARY_TYPE_DEFINITION_DECLARATION__REF is undefined for the type Class<Literals>"
+      + "\nThe method or field ARRAY_DEFINITION__REF is undefined for the type Class<Literals>"
+      + "\nThe method or field FIELD_ACCESS__FIELD is undefined for the type Class<Literals>"
+      + "\nThe method or field SINGLE_DEFINITION__NAME is undefined for the type Class<Literals>"
       + "\nThe method or field getName is undefined for the type EObject"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
@@ -94,7 +91,6 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\nref cannot be resolved"
       + "\n!== cannot be resolved"
       + "\n!== cannot be resolved"
-      + "\nPRIMARY_TYPE_DEFINITION_DECLARATION__REF cannot be resolved"
       + "\nindexes cannot be resolved"
       + "\n!== cannot be resolved"
       + "\n&& cannot be resolved"
@@ -102,10 +98,7 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\nareAllNumericLiteral cannot be resolved"
       + "\n&& cannot be resolved"
       + "\nfield cannot be resolved"
-      + "\nnullOrEmpty cannot be resolved"
-      + "\nARRAY_DEFINITION__REF cannot be resolved"
-      + "\nFIELD_ACCESS__FIELD cannot be resolved"
-      + "\nSINGLE_DEFINITION__NAME cannot be resolved");
+      + "\nnullOrEmpty cannot be resolved");
   }
   
   public void getOptimizedOrder(final /* ArrayList<Declaration> */Object arr, final /* ArrayList<Declaration> */Object newArr, final Integer index, final Integer currentSum) {

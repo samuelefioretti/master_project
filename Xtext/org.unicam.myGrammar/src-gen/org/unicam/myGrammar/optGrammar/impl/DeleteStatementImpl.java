@@ -58,7 +58,7 @@ public class DeleteStatementImpl extends StatementImpl implements DeleteStatemen
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getDeleteStatement();
+    return OptGrammarPackage.Literals.DELETE_STATEMENT;
   }
 
   /**

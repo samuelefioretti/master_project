@@ -79,7 +79,7 @@ public class ExpressionStatementImpl extends SimpleStatementImpl implements Expr
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getExpressionStatement();
+    return OptGrammarPackage.Literals.EXPRESSION_STATEMENT;
   }
 
   /**

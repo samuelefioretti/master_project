@@ -99,7 +99,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getContract();
+    return OptGrammarPackage.Literals.CONTRACT;
   }
 
   /**

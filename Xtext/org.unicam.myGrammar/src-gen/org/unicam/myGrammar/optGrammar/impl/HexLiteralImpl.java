@@ -66,7 +66,7 @@ public class HexLiteralImpl extends MinimalEObjectImpl.Container implements HexL
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getHexLiteral();
+    return OptGrammarPackage.Literals.HEX_LITERAL;
   }
 
   /**

@@ -35,7 +35,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getExpression();
+    return OptGrammarPackage.Literals.EXPRESSION;
   }
 
 } //ExpressionImpl

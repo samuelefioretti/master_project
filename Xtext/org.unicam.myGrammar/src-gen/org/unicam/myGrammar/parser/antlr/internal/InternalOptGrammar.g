@@ -1838,7 +1838,7 @@ ruleElementaryType returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumEnumRuleCall_0());
+				newCompositeNode(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumParserRuleCall_0());
 			}
 			lv_name_0_0=ruleElementaryTypeNameEnum
 			{
@@ -1883,7 +1883,7 @@ ruleMapping returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0());
+					newCompositeNode(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0());
 				}
 				lv_keyType_2_0=ruleElementaryTypeNameEnum
 				{
@@ -4015,6 +4015,12 @@ rulePlaceHolderStatement returns [EObject current=null]
 					$current);
 			}
 		)
+		(
+			otherlv_2=';'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getPlaceHolderStatementAccess().getSemicolonKeyword_2());
+			}
+		)?
 	)
 ;
 
@@ -7029,7 +7035,7 @@ ruleTypeCast returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumEnumRuleCall_0_0());
+					newCompositeNode(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumParserRuleCall_0_0());
 				}
 				lv_value_0_0=ruleElementaryTypeNameEnum
 				{
@@ -7151,6 +7157,1172 @@ ruleSpecialVariables returns [EObject current=null]
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleElementaryTypeNameEnum
+entryRuleElementaryTypeNameEnum returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getElementaryTypeNameEnumRule()); }
+	iv_ruleElementaryTypeNameEnum=ruleElementaryTypeNameEnum
+	{ $current=$iv_ruleElementaryTypeNameEnum.current; }
+	EOF;
+
+// Rule ElementaryTypeNameEnum
+ruleElementaryTypeNameEnum returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_type_0_1='int'
+				{
+					newLeafNode(lv_type_0_1, grammarAccess.getElementaryTypeNameEnumAccess().getTypeIntKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_1, null);
+				}
+				    |
+				lv_type_0_2='int16'
+				{
+					newLeafNode(lv_type_0_2, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt16Keyword_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_2, null);
+				}
+				    |
+				lv_type_0_3='int24'
+				{
+					newLeafNode(lv_type_0_3, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt24Keyword_0_2());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_3, null);
+				}
+				    |
+				lv_type_0_4='int32'
+				{
+					newLeafNode(lv_type_0_4, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt32Keyword_0_3());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_4, null);
+				}
+				    |
+				lv_type_0_5='int40'
+				{
+					newLeafNode(lv_type_0_5, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt40Keyword_0_4());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_5, null);
+				}
+				    |
+				lv_type_0_6='int48'
+				{
+					newLeafNode(lv_type_0_6, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt48Keyword_0_5());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_6, null);
+				}
+				    |
+				lv_type_0_7='int56'
+				{
+					newLeafNode(lv_type_0_7, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt56Keyword_0_6());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_7, null);
+				}
+				    |
+				lv_type_0_8='int64'
+				{
+					newLeafNode(lv_type_0_8, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt64Keyword_0_7());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_8, null);
+				}
+				    |
+				lv_type_0_9='int72'
+				{
+					newLeafNode(lv_type_0_9, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt72Keyword_0_8());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_9, null);
+				}
+				    |
+				lv_type_0_10='int80'
+				{
+					newLeafNode(lv_type_0_10, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt80Keyword_0_9());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_10, null);
+				}
+				    |
+				lv_type_0_11='int88'
+				{
+					newLeafNode(lv_type_0_11, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt88Keyword_0_10());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_11, null);
+				}
+				    |
+				lv_type_0_12='int96'
+				{
+					newLeafNode(lv_type_0_12, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt96Keyword_0_11());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_12, null);
+				}
+				    |
+				lv_type_0_13='int104'
+				{
+					newLeafNode(lv_type_0_13, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt104Keyword_0_12());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_13, null);
+				}
+				    |
+				lv_type_0_14='int112'
+				{
+					newLeafNode(lv_type_0_14, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt112Keyword_0_13());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_14, null);
+				}
+				    |
+				lv_type_0_15='int120'
+				{
+					newLeafNode(lv_type_0_15, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt120Keyword_0_14());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_15, null);
+				}
+				    |
+				lv_type_0_16='int128'
+				{
+					newLeafNode(lv_type_0_16, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt128Keyword_0_15());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_16, null);
+				}
+				    |
+				lv_type_0_17='int136'
+				{
+					newLeafNode(lv_type_0_17, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt136Keyword_0_16());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_17, null);
+				}
+				    |
+				lv_type_0_18='int144'
+				{
+					newLeafNode(lv_type_0_18, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt144Keyword_0_17());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_18, null);
+				}
+				    |
+				lv_type_0_19='int152'
+				{
+					newLeafNode(lv_type_0_19, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt152Keyword_0_18());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_19, null);
+				}
+				    |
+				lv_type_0_20='int160'
+				{
+					newLeafNode(lv_type_0_20, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt160Keyword_0_19());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_20, null);
+				}
+				    |
+				lv_type_0_21='int168'
+				{
+					newLeafNode(lv_type_0_21, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt168Keyword_0_20());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_21, null);
+				}
+				    |
+				lv_type_0_22='int178'
+				{
+					newLeafNode(lv_type_0_22, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt178Keyword_0_21());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_22, null);
+				}
+				    |
+				lv_type_0_23='int184'
+				{
+					newLeafNode(lv_type_0_23, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt184Keyword_0_22());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_23, null);
+				}
+				    |
+				lv_type_0_24='int192'
+				{
+					newLeafNode(lv_type_0_24, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt192Keyword_0_23());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_24, null);
+				}
+				    |
+				lv_type_0_25='int200'
+				{
+					newLeafNode(lv_type_0_25, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt200Keyword_0_24());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_25, null);
+				}
+				    |
+				lv_type_0_26='int208'
+				{
+					newLeafNode(lv_type_0_26, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt208Keyword_0_25());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_26, null);
+				}
+				    |
+				lv_type_0_27='int216'
+				{
+					newLeafNode(lv_type_0_27, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt216Keyword_0_26());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_27, null);
+				}
+				    |
+				lv_type_0_28='int224'
+				{
+					newLeafNode(lv_type_0_28, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt224Keyword_0_27());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_28, null);
+				}
+				    |
+				lv_type_0_29='int232'
+				{
+					newLeafNode(lv_type_0_29, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt232Keyword_0_28());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_29, null);
+				}
+				    |
+				lv_type_0_30='int240'
+				{
+					newLeafNode(lv_type_0_30, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt240Keyword_0_29());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_30, null);
+				}
+				    |
+				lv_type_0_31='int248'
+				{
+					newLeafNode(lv_type_0_31, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt248Keyword_0_30());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_31, null);
+				}
+				    |
+				lv_type_0_32='int256'
+				{
+					newLeafNode(lv_type_0_32, grammarAccess.getElementaryTypeNameEnumAccess().getTypeInt256Keyword_0_31());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_32, null);
+				}
+				    |
+				lv_type_0_33='uint'
+				{
+					newLeafNode(lv_type_0_33, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUintKeyword_0_32());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_33, null);
+				}
+				    |
+				lv_type_0_34='uint8'
+				{
+					newLeafNode(lv_type_0_34, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint8Keyword_0_33());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_34, null);
+				}
+				    |
+				lv_type_0_35='uint16'
+				{
+					newLeafNode(lv_type_0_35, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint16Keyword_0_34());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_35, null);
+				}
+				    |
+				lv_type_0_36='uint24'
+				{
+					newLeafNode(lv_type_0_36, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint24Keyword_0_35());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_36, null);
+				}
+				    |
+				lv_type_0_37='uint32'
+				{
+					newLeafNode(lv_type_0_37, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint32Keyword_0_36());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_37, null);
+				}
+				    |
+				lv_type_0_38='uint40'
+				{
+					newLeafNode(lv_type_0_38, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint40Keyword_0_37());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_38, null);
+				}
+				    |
+				lv_type_0_39='uint48'
+				{
+					newLeafNode(lv_type_0_39, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint48Keyword_0_38());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_39, null);
+				}
+				    |
+				lv_type_0_40='uint56'
+				{
+					newLeafNode(lv_type_0_40, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint56Keyword_0_39());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_40, null);
+				}
+				    |
+				lv_type_0_41='uint64'
+				{
+					newLeafNode(lv_type_0_41, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint64Keyword_0_40());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_41, null);
+				}
+				    |
+				lv_type_0_42='uint72'
+				{
+					newLeafNode(lv_type_0_42, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint72Keyword_0_41());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_42, null);
+				}
+				    |
+				lv_type_0_43='uint80'
+				{
+					newLeafNode(lv_type_0_43, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint80Keyword_0_42());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_43, null);
+				}
+				    |
+				lv_type_0_44='uint88'
+				{
+					newLeafNode(lv_type_0_44, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint88Keyword_0_43());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_44, null);
+				}
+				    |
+				lv_type_0_45='uint96'
+				{
+					newLeafNode(lv_type_0_45, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint96Keyword_0_44());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_45, null);
+				}
+				    |
+				lv_type_0_46='uint104'
+				{
+					newLeafNode(lv_type_0_46, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint104Keyword_0_45());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_46, null);
+				}
+				    |
+				lv_type_0_47='uint112'
+				{
+					newLeafNode(lv_type_0_47, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint112Keyword_0_46());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_47, null);
+				}
+				    |
+				lv_type_0_48='uint120'
+				{
+					newLeafNode(lv_type_0_48, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint120Keyword_0_47());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_48, null);
+				}
+				    |
+				lv_type_0_49='uint128'
+				{
+					newLeafNode(lv_type_0_49, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint128Keyword_0_48());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_49, null);
+				}
+				    |
+				lv_type_0_50='uint136'
+				{
+					newLeafNode(lv_type_0_50, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint136Keyword_0_49());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_50, null);
+				}
+				    |
+				lv_type_0_51='uint144'
+				{
+					newLeafNode(lv_type_0_51, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint144Keyword_0_50());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_51, null);
+				}
+				    |
+				lv_type_0_52='uint152'
+				{
+					newLeafNode(lv_type_0_52, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint152Keyword_0_51());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_52, null);
+				}
+				    |
+				lv_type_0_53='uint160'
+				{
+					newLeafNode(lv_type_0_53, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint160Keyword_0_52());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_53, null);
+				}
+				    |
+				lv_type_0_54='uint168'
+				{
+					newLeafNode(lv_type_0_54, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint168Keyword_0_53());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_54, null);
+				}
+				    |
+				lv_type_0_55='uint178'
+				{
+					newLeafNode(lv_type_0_55, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint178Keyword_0_54());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_55, null);
+				}
+				    |
+				lv_type_0_56='uint184'
+				{
+					newLeafNode(lv_type_0_56, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint184Keyword_0_55());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_56, null);
+				}
+				    |
+				lv_type_0_57='uint192'
+				{
+					newLeafNode(lv_type_0_57, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint192Keyword_0_56());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_57, null);
+				}
+				    |
+				lv_type_0_58='uint200'
+				{
+					newLeafNode(lv_type_0_58, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint200Keyword_0_57());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_58, null);
+				}
+				    |
+				lv_type_0_59='uint208'
+				{
+					newLeafNode(lv_type_0_59, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint208Keyword_0_58());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_59, null);
+				}
+				    |
+				lv_type_0_60='uint216'
+				{
+					newLeafNode(lv_type_0_60, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint216Keyword_0_59());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_60, null);
+				}
+				    |
+				lv_type_0_61='uint224'
+				{
+					newLeafNode(lv_type_0_61, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint224Keyword_0_60());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_61, null);
+				}
+				    |
+				lv_type_0_62='uint232'
+				{
+					newLeafNode(lv_type_0_62, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint232Keyword_0_61());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_62, null);
+				}
+				    |
+				lv_type_0_63='uint240'
+				{
+					newLeafNode(lv_type_0_63, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint240Keyword_0_62());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_63, null);
+				}
+				    |
+				lv_type_0_64='uint248'
+				{
+					newLeafNode(lv_type_0_64, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint248Keyword_0_63());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_64, null);
+				}
+				    |
+				lv_type_0_65='uint256'
+				{
+					newLeafNode(lv_type_0_65, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUint256Keyword_0_64());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_65, null);
+				}
+				    |
+				lv_type_0_66='byte'
+				{
+					newLeafNode(lv_type_0_66, grammarAccess.getElementaryTypeNameEnumAccess().getTypeByteKeyword_0_65());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_66, null);
+				}
+				    |
+				lv_type_0_67='bytes'
+				{
+					newLeafNode(lv_type_0_67, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytesKeyword_0_66());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_67, null);
+				}
+				    |
+				lv_type_0_68='bytes1'
+				{
+					newLeafNode(lv_type_0_68, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes1Keyword_0_67());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_68, null);
+				}
+				    |
+				lv_type_0_69='bytes2'
+				{
+					newLeafNode(lv_type_0_69, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes2Keyword_0_68());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_69, null);
+				}
+				    |
+				lv_type_0_70='bytes3'
+				{
+					newLeafNode(lv_type_0_70, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes3Keyword_0_69());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_70, null);
+				}
+				    |
+				lv_type_0_71='bytes4'
+				{
+					newLeafNode(lv_type_0_71, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes4Keyword_0_70());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_71, null);
+				}
+				    |
+				lv_type_0_72='bytes5'
+				{
+					newLeafNode(lv_type_0_72, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes5Keyword_0_71());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_72, null);
+				}
+				    |
+				lv_type_0_73='bytes6'
+				{
+					newLeafNode(lv_type_0_73, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes6Keyword_0_72());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_73, null);
+				}
+				    |
+				lv_type_0_74='bytes7'
+				{
+					newLeafNode(lv_type_0_74, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes7Keyword_0_73());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_74, null);
+				}
+				    |
+				lv_type_0_75='bytes8'
+				{
+					newLeafNode(lv_type_0_75, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes8Keyword_0_74());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_75, null);
+				}
+				    |
+				lv_type_0_76='bytes9'
+				{
+					newLeafNode(lv_type_0_76, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes9Keyword_0_75());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_76, null);
+				}
+				    |
+				lv_type_0_77='bytes10'
+				{
+					newLeafNode(lv_type_0_77, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes10Keyword_0_76());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_77, null);
+				}
+				    |
+				lv_type_0_78='bytes11'
+				{
+					newLeafNode(lv_type_0_78, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes11Keyword_0_77());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_78, null);
+				}
+				    |
+				lv_type_0_79='bytes12'
+				{
+					newLeafNode(lv_type_0_79, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes12Keyword_0_78());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_79, null);
+				}
+				    |
+				lv_type_0_80='bytes13'
+				{
+					newLeafNode(lv_type_0_80, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes13Keyword_0_79());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_80, null);
+				}
+				    |
+				lv_type_0_81='bytes14'
+				{
+					newLeafNode(lv_type_0_81, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes14Keyword_0_80());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_81, null);
+				}
+				    |
+				lv_type_0_82='bytes15'
+				{
+					newLeafNode(lv_type_0_82, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes15Keyword_0_81());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_82, null);
+				}
+				    |
+				lv_type_0_83='bytes16'
+				{
+					newLeafNode(lv_type_0_83, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes16Keyword_0_82());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_83, null);
+				}
+				    |
+				lv_type_0_84='bytes17'
+				{
+					newLeafNode(lv_type_0_84, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes17Keyword_0_83());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_84, null);
+				}
+				    |
+				lv_type_0_85='bytes18'
+				{
+					newLeafNode(lv_type_0_85, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes18Keyword_0_84());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_85, null);
+				}
+				    |
+				lv_type_0_86='bytes19'
+				{
+					newLeafNode(lv_type_0_86, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes19Keyword_0_85());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_86, null);
+				}
+				    |
+				lv_type_0_87='bytes20'
+				{
+					newLeafNode(lv_type_0_87, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes20Keyword_0_86());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_87, null);
+				}
+				    |
+				lv_type_0_88='bytes21'
+				{
+					newLeafNode(lv_type_0_88, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes21Keyword_0_87());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_88, null);
+				}
+				    |
+				lv_type_0_89='bytes22'
+				{
+					newLeafNode(lv_type_0_89, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes22Keyword_0_88());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_89, null);
+				}
+				    |
+				lv_type_0_90='bytes23'
+				{
+					newLeafNode(lv_type_0_90, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes23Keyword_0_89());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_90, null);
+				}
+				    |
+				lv_type_0_91='bytes24'
+				{
+					newLeafNode(lv_type_0_91, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes24Keyword_0_90());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_91, null);
+				}
+				    |
+				lv_type_0_92='bytes25'
+				{
+					newLeafNode(lv_type_0_92, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes25Keyword_0_91());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_92, null);
+				}
+				    |
+				lv_type_0_93='bytes26'
+				{
+					newLeafNode(lv_type_0_93, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes26Keyword_0_92());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_93, null);
+				}
+				    |
+				lv_type_0_94='bytes27'
+				{
+					newLeafNode(lv_type_0_94, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes27Keyword_0_93());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_94, null);
+				}
+				    |
+				lv_type_0_95='bytes28'
+				{
+					newLeafNode(lv_type_0_95, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes28Keyword_0_94());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_95, null);
+				}
+				    |
+				lv_type_0_96='bytes29'
+				{
+					newLeafNode(lv_type_0_96, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes29Keyword_0_95());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_96, null);
+				}
+				    |
+				lv_type_0_97='bytes30'
+				{
+					newLeafNode(lv_type_0_97, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes30Keyword_0_96());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_97, null);
+				}
+				    |
+				lv_type_0_98='bytes31'
+				{
+					newLeafNode(lv_type_0_98, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes31Keyword_0_97());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_98, null);
+				}
+				    |
+				lv_type_0_99='bytes32'
+				{
+					newLeafNode(lv_type_0_99, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes32Keyword_0_98());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_99, null);
+				}
+				    |
+				lv_type_0_100='string'
+				{
+					newLeafNode(lv_type_0_100, grammarAccess.getElementaryTypeNameEnumAccess().getTypeStringKeyword_0_99());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_100, null);
+				}
+				    |
+				lv_type_0_101='address'
+				{
+					newLeafNode(lv_type_0_101, grammarAccess.getElementaryTypeNameEnumAccess().getTypeAddressKeyword_0_100());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_101, null);
+				}
+				    |
+				lv_type_0_102='bool'
+				{
+					newLeafNode(lv_type_0_102, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBoolKeyword_0_101());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_102, null);
+				}
+				    |
+				lv_type_0_103='real'
+				{
+					newLeafNode(lv_type_0_103, grammarAccess.getElementaryTypeNameEnumAccess().getTypeRealKeyword_0_102());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_103, null);
+				}
+				    |
+				lv_type_0_104='ureal'
+				{
+					newLeafNode(lv_type_0_104, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUrealKeyword_0_103());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_104, null);
+				}
+			)
+		)
 	)
 ;
 
@@ -7365,849 +8537,6 @@ ruleSpecialVariablesTypeEnum returns [EObject current=null]
 						"org.unicam.myGrammar.OptGrammar.TX");
 				}
 			)
-		)
-	)
-;
-
-// Rule ElementaryTypeNameEnum
-ruleElementaryTypeNameEnum returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='int'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getElementaryTypeNameEnumAccess().getINTEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='int16'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT16EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getElementaryTypeNameEnumAccess().getINT16EnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='int24'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT24EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getElementaryTypeNameEnumAccess().getINT24EnumLiteralDeclaration_2());
-			}
-		)
-		    |
-		(
-			enumLiteral_3='int32'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT32EnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getElementaryTypeNameEnumAccess().getINT32EnumLiteralDeclaration_3());
-			}
-		)
-		    |
-		(
-			enumLiteral_4='int40'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT40EnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_4, grammarAccess.getElementaryTypeNameEnumAccess().getINT40EnumLiteralDeclaration_4());
-			}
-		)
-		    |
-		(
-			enumLiteral_5='int48'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT48EnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_5, grammarAccess.getElementaryTypeNameEnumAccess().getINT48EnumLiteralDeclaration_5());
-			}
-		)
-		    |
-		(
-			enumLiteral_6='int56'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT56EnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_6, grammarAccess.getElementaryTypeNameEnumAccess().getINT56EnumLiteralDeclaration_6());
-			}
-		)
-		    |
-		(
-			enumLiteral_7='int64'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT64EnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_7, grammarAccess.getElementaryTypeNameEnumAccess().getINT64EnumLiteralDeclaration_7());
-			}
-		)
-		    |
-		(
-			enumLiteral_8='int72'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT72EnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_8, grammarAccess.getElementaryTypeNameEnumAccess().getINT72EnumLiteralDeclaration_8());
-			}
-		)
-		    |
-		(
-			enumLiteral_9='int80'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT80EnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_9, grammarAccess.getElementaryTypeNameEnumAccess().getINT80EnumLiteralDeclaration_9());
-			}
-		)
-		    |
-		(
-			enumLiteral_10='int88'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT88EnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_10, grammarAccess.getElementaryTypeNameEnumAccess().getINT88EnumLiteralDeclaration_10());
-			}
-		)
-		    |
-		(
-			enumLiteral_11='int96'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT96EnumLiteralDeclaration_11().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_11, grammarAccess.getElementaryTypeNameEnumAccess().getINT96EnumLiteralDeclaration_11());
-			}
-		)
-		    |
-		(
-			enumLiteral_12='int104'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT104EnumLiteralDeclaration_12().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_12, grammarAccess.getElementaryTypeNameEnumAccess().getINT104EnumLiteralDeclaration_12());
-			}
-		)
-		    |
-		(
-			enumLiteral_13='int112'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT112EnumLiteralDeclaration_13().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_13, grammarAccess.getElementaryTypeNameEnumAccess().getINT112EnumLiteralDeclaration_13());
-			}
-		)
-		    |
-		(
-			enumLiteral_14='int120'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT120EnumLiteralDeclaration_14().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_14, grammarAccess.getElementaryTypeNameEnumAccess().getINT120EnumLiteralDeclaration_14());
-			}
-		)
-		    |
-		(
-			enumLiteral_15='int128'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT128EnumLiteralDeclaration_15().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_15, grammarAccess.getElementaryTypeNameEnumAccess().getINT128EnumLiteralDeclaration_15());
-			}
-		)
-		    |
-		(
-			enumLiteral_16='int136'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT136EnumLiteralDeclaration_16().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_16, grammarAccess.getElementaryTypeNameEnumAccess().getINT136EnumLiteralDeclaration_16());
-			}
-		)
-		    |
-		(
-			enumLiteral_17='int144'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT144EnumLiteralDeclaration_17().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_17, grammarAccess.getElementaryTypeNameEnumAccess().getINT144EnumLiteralDeclaration_17());
-			}
-		)
-		    |
-		(
-			enumLiteral_18='int152'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT152EnumLiteralDeclaration_18().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_18, grammarAccess.getElementaryTypeNameEnumAccess().getINT152EnumLiteralDeclaration_18());
-			}
-		)
-		    |
-		(
-			enumLiteral_19='int160'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT160EnumLiteralDeclaration_19().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_19, grammarAccess.getElementaryTypeNameEnumAccess().getINT160EnumLiteralDeclaration_19());
-			}
-		)
-		    |
-		(
-			enumLiteral_20='int168'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT168EnumLiteralDeclaration_20().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_20, grammarAccess.getElementaryTypeNameEnumAccess().getINT168EnumLiteralDeclaration_20());
-			}
-		)
-		    |
-		(
-			enumLiteral_21='int178'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT178EnumLiteralDeclaration_21().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_21, grammarAccess.getElementaryTypeNameEnumAccess().getINT178EnumLiteralDeclaration_21());
-			}
-		)
-		    |
-		(
-			enumLiteral_22='int184'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT184EnumLiteralDeclaration_22().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_22, grammarAccess.getElementaryTypeNameEnumAccess().getINT184EnumLiteralDeclaration_22());
-			}
-		)
-		    |
-		(
-			enumLiteral_23='int192'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT192EnumLiteralDeclaration_23().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_23, grammarAccess.getElementaryTypeNameEnumAccess().getINT192EnumLiteralDeclaration_23());
-			}
-		)
-		    |
-		(
-			enumLiteral_24='int200'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT200EnumLiteralDeclaration_24().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_24, grammarAccess.getElementaryTypeNameEnumAccess().getINT200EnumLiteralDeclaration_24());
-			}
-		)
-		    |
-		(
-			enumLiteral_25='int208'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT208EnumLiteralDeclaration_25().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_25, grammarAccess.getElementaryTypeNameEnumAccess().getINT208EnumLiteralDeclaration_25());
-			}
-		)
-		    |
-		(
-			enumLiteral_26='int216'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT216EnumLiteralDeclaration_26().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_26, grammarAccess.getElementaryTypeNameEnumAccess().getINT216EnumLiteralDeclaration_26());
-			}
-		)
-		    |
-		(
-			enumLiteral_27='int224'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT224EnumLiteralDeclaration_27().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_27, grammarAccess.getElementaryTypeNameEnumAccess().getINT224EnumLiteralDeclaration_27());
-			}
-		)
-		    |
-		(
-			enumLiteral_28='int232'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT232EnumLiteralDeclaration_28().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_28, grammarAccess.getElementaryTypeNameEnumAccess().getINT232EnumLiteralDeclaration_28());
-			}
-		)
-		    |
-		(
-			enumLiteral_29='int240'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT240EnumLiteralDeclaration_29().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_29, grammarAccess.getElementaryTypeNameEnumAccess().getINT240EnumLiteralDeclaration_29());
-			}
-		)
-		    |
-		(
-			enumLiteral_30='int248'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT248EnumLiteralDeclaration_30().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_30, grammarAccess.getElementaryTypeNameEnumAccess().getINT248EnumLiteralDeclaration_30());
-			}
-		)
-		    |
-		(
-			enumLiteral_31='int256'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getINT256EnumLiteralDeclaration_31().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_31, grammarAccess.getElementaryTypeNameEnumAccess().getINT256EnumLiteralDeclaration_31());
-			}
-		)
-		    |
-		(
-			enumLiteral_32='uint'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINTEnumLiteralDeclaration_32().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_32, grammarAccess.getElementaryTypeNameEnumAccess().getUINTEnumLiteralDeclaration_32());
-			}
-		)
-		    |
-		(
-			enumLiteral_33='uint8'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT8EnumLiteralDeclaration_33().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_33, grammarAccess.getElementaryTypeNameEnumAccess().getUINT8EnumLiteralDeclaration_33());
-			}
-		)
-		    |
-		(
-			enumLiteral_34='uint16'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT16EnumLiteralDeclaration_34().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_34, grammarAccess.getElementaryTypeNameEnumAccess().getUINT16EnumLiteralDeclaration_34());
-			}
-		)
-		    |
-		(
-			enumLiteral_35='uint24'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUNIT24EnumLiteralDeclaration_35().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_35, grammarAccess.getElementaryTypeNameEnumAccess().getUNIT24EnumLiteralDeclaration_35());
-			}
-		)
-		    |
-		(
-			enumLiteral_36='uint32'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT32EnumLiteralDeclaration_36().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_36, grammarAccess.getElementaryTypeNameEnumAccess().getUINT32EnumLiteralDeclaration_36());
-			}
-		)
-		    |
-		(
-			enumLiteral_37='uint40'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT40EnumLiteralDeclaration_37().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_37, grammarAccess.getElementaryTypeNameEnumAccess().getUINT40EnumLiteralDeclaration_37());
-			}
-		)
-		    |
-		(
-			enumLiteral_38='uint48'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT48EnumLiteralDeclaration_38().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_38, grammarAccess.getElementaryTypeNameEnumAccess().getUINT48EnumLiteralDeclaration_38());
-			}
-		)
-		    |
-		(
-			enumLiteral_39='uint56'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUNIT56EnumLiteralDeclaration_39().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_39, grammarAccess.getElementaryTypeNameEnumAccess().getUNIT56EnumLiteralDeclaration_39());
-			}
-		)
-		    |
-		(
-			enumLiteral_40='uint64'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT64EnumLiteralDeclaration_40().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_40, grammarAccess.getElementaryTypeNameEnumAccess().getUINT64EnumLiteralDeclaration_40());
-			}
-		)
-		    |
-		(
-			enumLiteral_41='uint72'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT72EnumLiteralDeclaration_41().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_41, grammarAccess.getElementaryTypeNameEnumAccess().getUINT72EnumLiteralDeclaration_41());
-			}
-		)
-		    |
-		(
-			enumLiteral_42='uint80'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT80EnumLiteralDeclaration_42().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_42, grammarAccess.getElementaryTypeNameEnumAccess().getUINT80EnumLiteralDeclaration_42());
-			}
-		)
-		    |
-		(
-			enumLiteral_43='uint88'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT88EnumLiteralDeclaration_43().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_43, grammarAccess.getElementaryTypeNameEnumAccess().getUINT88EnumLiteralDeclaration_43());
-			}
-		)
-		    |
-		(
-			enumLiteral_44='uint96'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT96EnumLiteralDeclaration_44().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_44, grammarAccess.getElementaryTypeNameEnumAccess().getUINT96EnumLiteralDeclaration_44());
-			}
-		)
-		    |
-		(
-			enumLiteral_45='uint104'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT104EnumLiteralDeclaration_45().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_45, grammarAccess.getElementaryTypeNameEnumAccess().getUINT104EnumLiteralDeclaration_45());
-			}
-		)
-		    |
-		(
-			enumLiteral_46='uint112'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT112EnumLiteralDeclaration_46().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_46, grammarAccess.getElementaryTypeNameEnumAccess().getUINT112EnumLiteralDeclaration_46());
-			}
-		)
-		    |
-		(
-			enumLiteral_47='uint120'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT120EnumLiteralDeclaration_47().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_47, grammarAccess.getElementaryTypeNameEnumAccess().getUINT120EnumLiteralDeclaration_47());
-			}
-		)
-		    |
-		(
-			enumLiteral_48='uint128'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT128EnumLiteralDeclaration_48().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_48, grammarAccess.getElementaryTypeNameEnumAccess().getUINT128EnumLiteralDeclaration_48());
-			}
-		)
-		    |
-		(
-			enumLiteral_49='uint136'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT136EnumLiteralDeclaration_49().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_49, grammarAccess.getElementaryTypeNameEnumAccess().getUINT136EnumLiteralDeclaration_49());
-			}
-		)
-		    |
-		(
-			enumLiteral_50='uint144'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT144EnumLiteralDeclaration_50().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_50, grammarAccess.getElementaryTypeNameEnumAccess().getUINT144EnumLiteralDeclaration_50());
-			}
-		)
-		    |
-		(
-			enumLiteral_51='uint152'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT152EnumLiteralDeclaration_51().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_51, grammarAccess.getElementaryTypeNameEnumAccess().getUINT152EnumLiteralDeclaration_51());
-			}
-		)
-		    |
-		(
-			enumLiteral_52='uint160'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT160EnumLiteralDeclaration_52().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_52, grammarAccess.getElementaryTypeNameEnumAccess().getUINT160EnumLiteralDeclaration_52());
-			}
-		)
-		    |
-		(
-			enumLiteral_53='uint168'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT168EnumLiteralDeclaration_53().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_53, grammarAccess.getElementaryTypeNameEnumAccess().getUINT168EnumLiteralDeclaration_53());
-			}
-		)
-		    |
-		(
-			enumLiteral_54='uint178'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT178EnumLiteralDeclaration_54().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_54, grammarAccess.getElementaryTypeNameEnumAccess().getUINT178EnumLiteralDeclaration_54());
-			}
-		)
-		    |
-		(
-			enumLiteral_55='uint184'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT184EnumLiteralDeclaration_55().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_55, grammarAccess.getElementaryTypeNameEnumAccess().getUINT184EnumLiteralDeclaration_55());
-			}
-		)
-		    |
-		(
-			enumLiteral_56='uint192'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT192EnumLiteralDeclaration_56().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_56, grammarAccess.getElementaryTypeNameEnumAccess().getUINT192EnumLiteralDeclaration_56());
-			}
-		)
-		    |
-		(
-			enumLiteral_57='uint200'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT200EnumLiteralDeclaration_57().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_57, grammarAccess.getElementaryTypeNameEnumAccess().getUINT200EnumLiteralDeclaration_57());
-			}
-		)
-		    |
-		(
-			enumLiteral_58='uint208'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT208EnumLiteralDeclaration_58().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_58, grammarAccess.getElementaryTypeNameEnumAccess().getUINT208EnumLiteralDeclaration_58());
-			}
-		)
-		    |
-		(
-			enumLiteral_59='uint216'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT216EnumLiteralDeclaration_59().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_59, grammarAccess.getElementaryTypeNameEnumAccess().getUINT216EnumLiteralDeclaration_59());
-			}
-		)
-		    |
-		(
-			enumLiteral_60='uint224'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT244EnumLiteralDeclaration_60().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_60, grammarAccess.getElementaryTypeNameEnumAccess().getUINT244EnumLiteralDeclaration_60());
-			}
-		)
-		    |
-		(
-			enumLiteral_61='uint232'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT232EnumLiteralDeclaration_61().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_61, grammarAccess.getElementaryTypeNameEnumAccess().getUINT232EnumLiteralDeclaration_61());
-			}
-		)
-		    |
-		(
-			enumLiteral_62='uint240'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT240EnumLiteralDeclaration_62().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_62, grammarAccess.getElementaryTypeNameEnumAccess().getUINT240EnumLiteralDeclaration_62());
-			}
-		)
-		    |
-		(
-			enumLiteral_63='uint248'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT248EnumLiteralDeclaration_63().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_63, grammarAccess.getElementaryTypeNameEnumAccess().getUINT248EnumLiteralDeclaration_63());
-			}
-		)
-		    |
-		(
-			enumLiteral_64='uint256'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUINT256EnumLiteralDeclaration_64().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_64, grammarAccess.getElementaryTypeNameEnumAccess().getUINT256EnumLiteralDeclaration_64());
-			}
-		)
-		    |
-		(
-			enumLiteral_65='byte'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTEEnumLiteralDeclaration_65().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_65, grammarAccess.getElementaryTypeNameEnumAccess().getBYTEEnumLiteralDeclaration_65());
-			}
-		)
-		    |
-		(
-			enumLiteral_66='bytes'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTESEnumLiteralDeclaration_66().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_66, grammarAccess.getElementaryTypeNameEnumAccess().getBYTESEnumLiteralDeclaration_66());
-			}
-		)
-		    |
-		(
-			enumLiteral_67='bytes1'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES1EnumLiteralDeclaration_67().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_67, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES1EnumLiteralDeclaration_67());
-			}
-		)
-		    |
-		(
-			enumLiteral_68='bytes2'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES2EnumLiteralDeclaration_68().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_68, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES2EnumLiteralDeclaration_68());
-			}
-		)
-		    |
-		(
-			enumLiteral_69='bytes3'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES3EnumLiteralDeclaration_69().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_69, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES3EnumLiteralDeclaration_69());
-			}
-		)
-		    |
-		(
-			enumLiteral_70='bytes4'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES4EnumLiteralDeclaration_70().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_70, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES4EnumLiteralDeclaration_70());
-			}
-		)
-		    |
-		(
-			enumLiteral_71='bytes5'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES5EnumLiteralDeclaration_71().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_71, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES5EnumLiteralDeclaration_71());
-			}
-		)
-		    |
-		(
-			enumLiteral_72='bytes6'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES6EnumLiteralDeclaration_72().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_72, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES6EnumLiteralDeclaration_72());
-			}
-		)
-		    |
-		(
-			enumLiteral_73='bytes7'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES7EnumLiteralDeclaration_73().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_73, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES7EnumLiteralDeclaration_73());
-			}
-		)
-		    |
-		(
-			enumLiteral_74='bytes8'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES8EnumLiteralDeclaration_74().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_74, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES8EnumLiteralDeclaration_74());
-			}
-		)
-		    |
-		(
-			enumLiteral_75='bytes9'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES9EnumLiteralDeclaration_75().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_75, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES9EnumLiteralDeclaration_75());
-			}
-		)
-		    |
-		(
-			enumLiteral_76='bytes10'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES10EnumLiteralDeclaration_76().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_76, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES10EnumLiteralDeclaration_76());
-			}
-		)
-		    |
-		(
-			enumLiteral_77='bytes11'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES11EnumLiteralDeclaration_77().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_77, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES11EnumLiteralDeclaration_77());
-			}
-		)
-		    |
-		(
-			enumLiteral_78='bytes12'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES12EnumLiteralDeclaration_78().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_78, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES12EnumLiteralDeclaration_78());
-			}
-		)
-		    |
-		(
-			enumLiteral_79='bytes13'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES13EnumLiteralDeclaration_79().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_79, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES13EnumLiteralDeclaration_79());
-			}
-		)
-		    |
-		(
-			enumLiteral_80='bytes14'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES14EnumLiteralDeclaration_80().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_80, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES14EnumLiteralDeclaration_80());
-			}
-		)
-		    |
-		(
-			enumLiteral_81='bytes15'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES15EnumLiteralDeclaration_81().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_81, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES15EnumLiteralDeclaration_81());
-			}
-		)
-		    |
-		(
-			enumLiteral_82='bytes16'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES16EnumLiteralDeclaration_82().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_82, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES16EnumLiteralDeclaration_82());
-			}
-		)
-		    |
-		(
-			enumLiteral_83='bytes17'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES17EnumLiteralDeclaration_83().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_83, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES17EnumLiteralDeclaration_83());
-			}
-		)
-		    |
-		(
-			enumLiteral_84='bytes18'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES18EnumLiteralDeclaration_84().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_84, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES18EnumLiteralDeclaration_84());
-			}
-		)
-		    |
-		(
-			enumLiteral_85='bytes19'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES19EnumLiteralDeclaration_85().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_85, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES19EnumLiteralDeclaration_85());
-			}
-		)
-		    |
-		(
-			enumLiteral_86='bytes20'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES20EnumLiteralDeclaration_86().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_86, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES20EnumLiteralDeclaration_86());
-			}
-		)
-		    |
-		(
-			enumLiteral_87='bytes21'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES21EnumLiteralDeclaration_87().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_87, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES21EnumLiteralDeclaration_87());
-			}
-		)
-		    |
-		(
-			enumLiteral_88='bytes22'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES22EnumLiteralDeclaration_88().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_88, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES22EnumLiteralDeclaration_88());
-			}
-		)
-		    |
-		(
-			enumLiteral_89='bytes23'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES23EnumLiteralDeclaration_89().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_89, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES23EnumLiteralDeclaration_89());
-			}
-		)
-		    |
-		(
-			enumLiteral_90='bytes24'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES24EnumLiteralDeclaration_90().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_90, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES24EnumLiteralDeclaration_90());
-			}
-		)
-		    |
-		(
-			enumLiteral_91='bytes25'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES25EnumLiteralDeclaration_91().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_91, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES25EnumLiteralDeclaration_91());
-			}
-		)
-		    |
-		(
-			enumLiteral_92='bytes26'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES26EnumLiteralDeclaration_92().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_92, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES26EnumLiteralDeclaration_92());
-			}
-		)
-		    |
-		(
-			enumLiteral_93='bytes27'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES27EnumLiteralDeclaration_93().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_93, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES27EnumLiteralDeclaration_93());
-			}
-		)
-		    |
-		(
-			enumLiteral_94='bytes28'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES28EnumLiteralDeclaration_94().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_94, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES28EnumLiteralDeclaration_94());
-			}
-		)
-		    |
-		(
-			enumLiteral_95='bytes29'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES29EnumLiteralDeclaration_95().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_95, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES29EnumLiteralDeclaration_95());
-			}
-		)
-		    |
-		(
-			enumLiteral_96='bytes30'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES30EnumLiteralDeclaration_96().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_96, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES30EnumLiteralDeclaration_96());
-			}
-		)
-		    |
-		(
-			enumLiteral_97='bytes31'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES31EnumLiteralDeclaration_97().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_97, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES31EnumLiteralDeclaration_97());
-			}
-		)
-		    |
-		(
-			enumLiteral_98='bytes32'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBYTES32EnumLiteralDeclaration_98().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_98, grammarAccess.getElementaryTypeNameEnumAccess().getBYTES32EnumLiteralDeclaration_98());
-			}
-		)
-		    |
-		(
-			enumLiteral_99='string'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getSTRINGEnumLiteralDeclaration_99().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_99, grammarAccess.getElementaryTypeNameEnumAccess().getSTRINGEnumLiteralDeclaration_99());
-			}
-		)
-		    |
-		(
-			enumLiteral_100='address'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getADDRESSEnumLiteralDeclaration_100().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_100, grammarAccess.getElementaryTypeNameEnumAccess().getADDRESSEnumLiteralDeclaration_100());
-			}
-		)
-		    |
-		(
-			enumLiteral_101='bool'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getBOOLEnumLiteralDeclaration_101().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_101, grammarAccess.getElementaryTypeNameEnumAccess().getBOOLEnumLiteralDeclaration_101());
-			}
-		)
-		    |
-		(
-			enumLiteral_102='real'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getREALEnumLiteralDeclaration_102().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_102, grammarAccess.getElementaryTypeNameEnumAccess().getREALEnumLiteralDeclaration_102());
-			}
-		)
-		    |
-		(
-			enumLiteral_103='ureal'
-			{
-				$current = grammarAccess.getElementaryTypeNameEnumAccess().getUREALEnumLiteralDeclaration_103().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_103, grammarAccess.getElementaryTypeNameEnumAccess().getUREALEnumLiteralDeclaration_103());
-			}
 		)
 	)
 ;

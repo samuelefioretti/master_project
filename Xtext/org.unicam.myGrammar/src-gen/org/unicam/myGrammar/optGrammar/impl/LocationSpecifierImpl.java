@@ -58,7 +58,7 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getLocationSpecifier();
+    return OptGrammarPackage.Literals.LOCATION_SPECIFIER;
   }
 
   /**

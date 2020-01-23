@@ -35,7 +35,7 @@ public class ConstImpl extends FunctionDefinitionOptionalElementImpl implements 
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getConst();
+    return OptGrammarPackage.Literals.CONST;
   }
 
 } //ConstImpl

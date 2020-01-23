@@ -66,7 +66,7 @@ public class LocationSpecifierEnumImpl extends MinimalEObjectImpl.Container impl
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getLocationSpecifierEnum();
+    return OptGrammarPackage.Literals.LOCATION_SPECIFIER_ENUM;
   }
 
   /**

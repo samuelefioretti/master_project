@@ -79,7 +79,7 @@ public class SignExpressionImpl extends ExpressionImpl implements SignExpression
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getSignExpression();
+    return OptGrammarPackage.Literals.SIGN_EXPRESSION;
   }
 
   /**

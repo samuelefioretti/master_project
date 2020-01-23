@@ -35,7 +35,7 @@ public class ConstantSpecifierImpl extends VariableDeclarationOptionalElementImp
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getConstantSpecifier();
+    return OptGrammarPackage.Literals.CONSTANT_SPECIFIER;
   }
 
 } //ConstantSpecifierImpl

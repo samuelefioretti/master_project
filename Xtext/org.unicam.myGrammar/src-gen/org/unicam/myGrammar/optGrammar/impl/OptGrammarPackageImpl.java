@@ -3,28 +3,136 @@
  */
 package org.unicam.myGrammar.optGrammar.impl;
 
-import java.io.IOException;
-
-import java.net.URL;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.common.util.WrappedException;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipse.emf.ecore.resource.Resource;
-
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
-
+import org.unicam.myGrammar.optGrammar.AddSub;
+import org.unicam.myGrammar.optGrammar.AdditionOpEnum;
+import org.unicam.myGrammar.optGrammar.And;
+import org.unicam.myGrammar.optGrammar.Arguments;
+import org.unicam.myGrammar.optGrammar.ArithmeticOperations;
+import org.unicam.myGrammar.optGrammar.ArrayDimensions;
+import org.unicam.myGrammar.optGrammar.Assignment;
+import org.unicam.myGrammar.optGrammar.AssignmentOpEnum;
+import org.unicam.myGrammar.optGrammar.BinaryNotExpression;
+import org.unicam.myGrammar.optGrammar.BitAnd;
+import org.unicam.myGrammar.optGrammar.BitOr;
+import org.unicam.myGrammar.optGrammar.BitXor;
+import org.unicam.myGrammar.optGrammar.Block;
+import org.unicam.myGrammar.optGrammar.BlockhashFunction;
+import org.unicam.myGrammar.optGrammar.Body;
+import org.unicam.myGrammar.optGrammar.BooleanConst;
+import org.unicam.myGrammar.optGrammar.BooleanLiteralEnum;
+import org.unicam.myGrammar.optGrammar.BreakStatement;
+import org.unicam.myGrammar.optGrammar.Comparison;
+import org.unicam.myGrammar.optGrammar.ComparisonOpEnum;
+import org.unicam.myGrammar.optGrammar.Const;
+import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
+import org.unicam.myGrammar.optGrammar.Continue;
+import org.unicam.myGrammar.optGrammar.ContinueStatement;
+import org.unicam.myGrammar.optGrammar.Contract;
+import org.unicam.myGrammar.optGrammar.DecimalLiteral;
+import org.unicam.myGrammar.optGrammar.DefinitionBody;
+import org.unicam.myGrammar.optGrammar.DeleteStatement;
+import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
+import org.unicam.myGrammar.optGrammar.ElementaryType;
+import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
+import org.unicam.myGrammar.optGrammar.EnumDefinition;
+import org.unicam.myGrammar.optGrammar.EnumValue;
+import org.unicam.myGrammar.optGrammar.Equality;
+import org.unicam.myGrammar.optGrammar.EqualityOpEnum;
+import org.unicam.myGrammar.optGrammar.Ether;
+import org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum;
+import org.unicam.myGrammar.optGrammar.Event;
+import org.unicam.myGrammar.optGrammar.Exponent;
+import org.unicam.myGrammar.optGrammar.Expression;
+import org.unicam.myGrammar.optGrammar.ExpressionStatement;
+import org.unicam.myGrammar.optGrammar.Field;
+import org.unicam.myGrammar.optGrammar.ForStatement;
+import org.unicam.myGrammar.optGrammar.FunctionCall;
+import org.unicam.myGrammar.optGrammar.FunctionCallArg;
+import org.unicam.myGrammar.optGrammar.FunctionCallArguments;
+import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
+import org.unicam.myGrammar.optGrammar.FunctionDefinition;
+import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.myGrammar.optGrammar.GasleftFunction;
+import org.unicam.myGrammar.optGrammar.HashFunction;
+import org.unicam.myGrammar.optGrammar.HexLiteral;
+import org.unicam.myGrammar.optGrammar.IfStatement;
+import org.unicam.myGrammar.optGrammar.IncDecOpEnum;
+import org.unicam.myGrammar.optGrammar.Index;
+import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
+import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
+import org.unicam.myGrammar.optGrammar.IntParameter;
+import org.unicam.myGrammar.optGrammar.Literal;
+import org.unicam.myGrammar.optGrammar.LocationSpecifier;
+import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
+import org.unicam.myGrammar.optGrammar.Mapping;
+import org.unicam.myGrammar.optGrammar.MathematicalFunction;
+import org.unicam.myGrammar.optGrammar.Model;
+import org.unicam.myGrammar.optGrammar.Modifier;
+import org.unicam.myGrammar.optGrammar.ModifierInvocation;
+import org.unicam.myGrammar.optGrammar.MulDivMod;
+import org.unicam.myGrammar.optGrammar.MulDivModOpEnum;
+import org.unicam.myGrammar.optGrammar.NewExpression;
+import org.unicam.myGrammar.optGrammar.NotExpression;
+import org.unicam.myGrammar.optGrammar.Now;
+import org.unicam.myGrammar.optGrammar.NumberDimensionless;
+import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarFactory;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
+import org.unicam.myGrammar.optGrammar.Or;
+import org.unicam.myGrammar.optGrammar.ParameterList;
+import org.unicam.myGrammar.optGrammar.PlaceHolderStatement;
+import org.unicam.myGrammar.optGrammar.PostIncDecExpression;
+import org.unicam.myGrammar.optGrammar.PreDecExpression;
+import org.unicam.myGrammar.optGrammar.PreIncExpression;
+import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
+import org.unicam.myGrammar.optGrammar.QualifiedIdentifier;
+import org.unicam.myGrammar.optGrammar.Qualifier;
+import org.unicam.myGrammar.optGrammar.ReservedWordsEnum;
+import org.unicam.myGrammar.optGrammar.ReturnParameterDeclaration;
+import org.unicam.myGrammar.optGrammar.ReturnStatement;
+import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
+import org.unicam.myGrammar.optGrammar.SecondOperators;
+import org.unicam.myGrammar.optGrammar.Shift;
+import org.unicam.myGrammar.optGrammar.ShiftOpEnum;
+import org.unicam.myGrammar.optGrammar.SignExpression;
+import org.unicam.myGrammar.optGrammar.SimpleStatement;
+import org.unicam.myGrammar.optGrammar.SimpleStatement2;
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
+import org.unicam.myGrammar.optGrammar.SpecialExpression;
+import org.unicam.myGrammar.optGrammar.SpecialExpressionTypeEnum;
+import org.unicam.myGrammar.optGrammar.SpecialVariables;
+import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
+import org.unicam.myGrammar.optGrammar.StandardType;
+import org.unicam.myGrammar.optGrammar.StandardTypeWithoutQualifiedIdentifier;
+import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
+import org.unicam.myGrammar.optGrammar.Statement;
+import org.unicam.myGrammar.optGrammar.StringLiteral;
+import org.unicam.myGrammar.optGrammar.StructDefinition;
+import org.unicam.myGrammar.optGrammar.ThrowStatement;
+import org.unicam.myGrammar.optGrammar.Time;
+import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
+import org.unicam.myGrammar.optGrammar.Tuple;
+import org.unicam.myGrammar.optGrammar.TupleSeparator;
+import org.unicam.myGrammar.optGrammar.Type;
+import org.unicam.myGrammar.optGrammar.TypeCast;
+import org.unicam.myGrammar.optGrammar.UnitTypes;
+import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
+import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
+import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
+import org.unicam.myGrammar.optGrammar.Variable;
+import org.unicam.myGrammar.optGrammar.VariableDeclarationExpression;
+import org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement;
+import org.unicam.myGrammar.optGrammar.VisibilityEnum;
+import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
+import org.unicam.myGrammar.optGrammar.WhileStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,13 +142,6 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  */
 public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPackage
 {
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected String packageFilename = "optGrammar.loadinitialization_ecore";
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -648,6 +749,20 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass simpleTypeDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elementaryTypeNameEnumEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass locationSpecifierEnumEClass = null;
 
   /**
@@ -788,13 +903,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum elementaryTypeNameEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EEnum assignmentOpEnumEEnum = null;
 
   /**
@@ -909,6 +1017,8 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #eNS_URI
+   * @see #createPackageContents()
+   * @see #initializePackageContents()
    * @generated
    */
   public static OptGrammarPackage init()
@@ -921,11 +1031,11 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     isInited = true;
 
-    // Load packages
-    theOptGrammarPackage.loadPackage();
+    // Create package meta-data objects
+    theOptGrammarPackage.createPackageContents();
 
-    // Fix loaded packages
-    theOptGrammarPackage.fixPackageContents();
+    // Initialize created meta-data
+    theOptGrammarPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theOptGrammarPackage.freeze();
@@ -943,10 +1053,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getModel()
   {
-    if (modelEClass == null)
-    {
-      modelEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(0);
-    }
     return modelEClass;
   }
 
@@ -958,7 +1064,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getModel_Operations()
   {
-        return (EReference)getModel().getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -969,10 +1075,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getContract()
   {
-    if (contractEClass == null)
-    {
-      contractEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(1);
-    }
     return contractEClass;
   }
 
@@ -984,7 +1086,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getContract_Name()
   {
-        return (EAttribute)getContract().getEStructuralFeatures().get(0);
+    return (EAttribute)contractEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -995,7 +1097,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getContract_InheritanceSpecifiers()
   {
-        return (EReference)getContract().getEStructuralFeatures().get(1);
+    return (EReference)contractEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1006,7 +1108,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getContract_Body()
   {
-        return (EReference)getContract().getEStructuralFeatures().get(2);
+    return (EReference)contractEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1017,10 +1119,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getInheritanceSpecifier()
   {
-    if (inheritanceSpecifierEClass == null)
-    {
-      inheritanceSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(2);
-    }
     return inheritanceSpecifierEClass;
   }
 
@@ -1032,7 +1130,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getInheritanceSpecifier_SuperType()
   {
-        return (EReference)getInheritanceSpecifier().getEStructuralFeatures().get(0);
+    return (EReference)inheritanceSpecifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1043,7 +1141,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getInheritanceSpecifier_Args()
   {
-        return (EReference)getInheritanceSpecifier().getEStructuralFeatures().get(1);
+    return (EReference)inheritanceSpecifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1054,10 +1152,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getDefinitionBody()
   {
-    if (definitionBodyEClass == null)
-    {
-      definitionBodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(3);
-    }
     return definitionBodyEClass;
   }
 
@@ -1069,7 +1163,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getDefinitionBody_Functions()
   {
-        return (EReference)getDefinitionBody().getEStructuralFeatures().get(0);
+    return (EReference)definitionBodyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1080,7 +1174,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getDefinitionBody_Structs()
   {
-        return (EReference)getDefinitionBody().getEStructuralFeatures().get(1);
+    return (EReference)definitionBodyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1091,7 +1185,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getDefinitionBody_Enums()
   {
-        return (EReference)getDefinitionBody().getEStructuralFeatures().get(2);
+    return (EReference)definitionBodyEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1102,7 +1196,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getDefinitionBody_Variables()
   {
-        return (EReference)getDefinitionBody().getEStructuralFeatures().get(3);
+    return (EReference)definitionBodyEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1113,7 +1207,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getDefinitionBody_Modifiers()
   {
-        return (EReference)getDefinitionBody().getEStructuralFeatures().get(4);
+    return (EReference)definitionBodyEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1124,7 +1218,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getDefinitionBody_Events()
   {
-        return (EReference)getDefinitionBody().getEStructuralFeatures().get(5);
+    return (EReference)definitionBodyEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1135,10 +1229,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getFunctionDefinition()
   {
-    if (functionDefinitionEClass == null)
-    {
-      functionDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(4);
-    }
     return functionDefinitionEClass;
   }
 
@@ -1150,7 +1240,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getFunctionDefinition_Payable()
   {
-        return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(0);
+    return (EAttribute)functionDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1161,7 +1251,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getFunctionDefinition_Name()
   {
-        return (EAttribute)getFunctionDefinition().getEStructuralFeatures().get(1);
+    return (EAttribute)functionDefinitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1172,7 +1262,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionDefinition_Parameters()
   {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(2);
+    return (EReference)functionDefinitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1183,7 +1273,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionDefinition_OptionalElements()
   {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(3);
+    return (EReference)functionDefinitionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1194,7 +1284,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionDefinition_ReturnParameters()
   {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(4);
+    return (EReference)functionDefinitionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1205,7 +1295,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionDefinition_Block()
   {
-        return (EReference)getFunctionDefinition().getEStructuralFeatures().get(5);
+    return (EReference)functionDefinitionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1216,10 +1306,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getFunctionCallListArguments()
   {
-    if (functionCallListArgumentsEClass == null)
-    {
-      functionCallListArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(5);
-    }
     return functionCallListArgumentsEClass;
   }
 
@@ -1231,7 +1317,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionCallListArguments_Arguments()
   {
-        return (EReference)getFunctionCallListArguments().getEStructuralFeatures().get(0);
+    return (EReference)functionCallListArgumentsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1242,10 +1328,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getFunctionCallArguments()
   {
-    if (functionCallArgumentsEClass == null)
-    {
-      functionCallArgumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(6);
-    }
     return functionCallArgumentsEClass;
   }
 
@@ -1257,7 +1339,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionCallArguments_Args()
   {
-        return (EReference)getFunctionCallArguments().getEStructuralFeatures().get(0);
+    return (EReference)functionCallArgumentsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1268,10 +1350,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getFunctionCallArg()
   {
-    if (functionCallArgEClass == null)
-    {
-      functionCallArgEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(7);
-    }
     return functionCallArgEClass;
   }
 
@@ -1283,7 +1361,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getFunctionCallArg_Name()
   {
-        return (EAttribute)getFunctionCallArg().getEStructuralFeatures().get(0);
+    return (EAttribute)functionCallArgEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1294,7 +1372,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionCallArg_Expr()
   {
-        return (EReference)getFunctionCallArg().getEStructuralFeatures().get(1);
+    return (EReference)functionCallArgEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1305,10 +1383,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getFunctionDefinitionOptionalElement()
   {
-    if (functionDefinitionOptionalElementEClass == null)
-    {
-      functionDefinitionOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(8);
-    }
     return functionDefinitionOptionalElementEClass;
   }
 
@@ -1320,10 +1394,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getConst()
   {
-    if (constEClass == null)
-    {
-      constEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(9);
-    }
     return constEClass;
   }
 
@@ -1335,10 +1405,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getVisibilitySpecifier()
   {
-    if (visibilitySpecifierEClass == null)
-    {
-      visibilitySpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(10);
-    }
     return visibilitySpecifierEClass;
   }
 
@@ -1350,7 +1416,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVisibilitySpecifier_Visibility()
   {
-        return (EReference)getVisibilitySpecifier().getEStructuralFeatures().get(0);
+    return (EReference)visibilitySpecifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1361,10 +1427,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getStructDefinition()
   {
-    if (structDefinitionEClass == null)
-    {
-      structDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(11);
-    }
     return structDefinitionEClass;
   }
 
@@ -1376,7 +1438,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getStructDefinition_Visibility()
   {
-        return (EReference)getStructDefinition().getEStructuralFeatures().get(0);
+    return (EReference)structDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1387,7 +1449,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getStructDefinition_Name()
   {
-        return (EAttribute)getStructDefinition().getEStructuralFeatures().get(1);
+    return (EAttribute)structDefinitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1398,7 +1460,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getStructDefinition_Members()
   {
-        return (EReference)getStructDefinition().getEStructuralFeatures().get(2);
+    return (EReference)structDefinitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1409,10 +1471,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getEnumDefinition()
   {
-    if (enumDefinitionEClass == null)
-    {
-      enumDefinitionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(12);
-    }
     return enumDefinitionEClass;
   }
 
@@ -1424,7 +1482,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getEnumDefinition_Visibility()
   {
-        return (EReference)getEnumDefinition().getEStructuralFeatures().get(0);
+    return (EReference)enumDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1435,7 +1493,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getEnumDefinition_Name()
   {
-        return (EAttribute)getEnumDefinition().getEStructuralFeatures().get(1);
+    return (EAttribute)enumDefinitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1446,7 +1504,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getEnumDefinition_Members()
   {
-        return (EReference)getEnumDefinition().getEStructuralFeatures().get(2);
+    return (EReference)enumDefinitionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1457,10 +1515,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getEnumValue()
   {
-    if (enumValueEClass == null)
-    {
-      enumValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(13);
-    }
     return enumValueEClass;
   }
 
@@ -1472,7 +1526,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getEnumValue_Name()
   {
-        return (EAttribute)getEnumValue().getEStructuralFeatures().get(0);
+    return (EAttribute)enumValueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1483,10 +1537,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getVariable()
   {
-    if (variableEClass == null)
-    {
-      variableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(14);
-    }
     return variableEClass;
   }
 
@@ -1498,7 +1548,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getVariable_Name()
   {
-        return (EAttribute)getVariable().getEStructuralFeatures().get(0);
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1509,10 +1559,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getStatement()
   {
-    if (statementEClass == null)
-    {
-      statementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(15);
-    }
     return statementEClass;
   }
 
@@ -1524,10 +1570,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getStandardVariableDeclaration()
   {
-    if (standardVariableDeclarationEClass == null)
-    {
-      standardVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(16);
-    }
     return standardVariableDeclarationEClass;
   }
 
@@ -1539,7 +1581,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getStandardVariableDeclaration_Type()
   {
-        return (EReference)getStandardVariableDeclaration().getEStructuralFeatures().get(0);
+    return (EReference)standardVariableDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1550,7 +1592,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getStandardVariableDeclaration_OptionalElements()
   {
-        return (EReference)getStandardVariableDeclaration().getEStructuralFeatures().get(1);
+    return (EReference)standardVariableDeclarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1561,7 +1603,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getStandardVariableDeclaration_Variable()
   {
-        return (EReference)getStandardVariableDeclaration().getEStructuralFeatures().get(2);
+    return (EReference)standardVariableDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1572,7 +1614,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getStandardVariableDeclaration_Expression()
   {
-        return (EReference)getStandardVariableDeclaration().getEStructuralFeatures().get(3);
+    return (EReference)standardVariableDeclarationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1583,7 +1625,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getStandardVariableDeclaration_PtionalElements()
   {
-        return (EReference)getStandardVariableDeclaration().getEStructuralFeatures().get(4);
+    return (EReference)standardVariableDeclarationEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1594,7 +1636,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getStandardVariableDeclaration_Semicolon()
   {
-        return (EAttribute)getStandardVariableDeclaration().getEStructuralFeatures().get(5);
+    return (EAttribute)standardVariableDeclarationEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1605,10 +1647,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getVarVariableDeclaration()
   {
-    if (varVariableDeclarationEClass == null)
-    {
-      varVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(17);
-    }
     return varVariableDeclarationEClass;
   }
 
@@ -1620,7 +1658,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getVarVariableDeclaration_VarType()
   {
-        return (EAttribute)getVarVariableDeclaration().getEStructuralFeatures().get(0);
+    return (EAttribute)varVariableDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1631,7 +1669,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVarVariableDeclaration_Variable()
   {
-        return (EReference)getVarVariableDeclaration().getEStructuralFeatures().get(1);
+    return (EReference)varVariableDeclarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1642,7 +1680,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVarVariableDeclaration_Expression()
   {
-        return (EReference)getVarVariableDeclaration().getEStructuralFeatures().get(2);
+    return (EReference)varVariableDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1653,10 +1691,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getVarVariableTupleVariableDeclaration()
   {
-    if (varVariableTupleVariableDeclarationEClass == null)
-    {
-      varVariableTupleVariableDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(18);
-    }
     return varVariableTupleVariableDeclarationEClass;
   }
 
@@ -1668,7 +1702,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getVarVariableTupleVariableDeclaration_VarType()
   {
-        return (EAttribute)getVarVariableTupleVariableDeclaration().getEStructuralFeatures().get(0);
+    return (EAttribute)varVariableTupleVariableDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1679,7 +1713,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVarVariableTupleVariableDeclaration_Tuple()
   {
-        return (EReference)getVarVariableTupleVariableDeclaration().getEStructuralFeatures().get(1);
+    return (EReference)varVariableTupleVariableDeclarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1690,7 +1724,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVarVariableTupleVariableDeclaration_Expression()
   {
-        return (EReference)getVarVariableTupleVariableDeclaration().getEStructuralFeatures().get(2);
+    return (EReference)varVariableTupleVariableDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1701,7 +1735,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getVarVariableTupleVariableDeclaration_Semicolon()
   {
-        return (EAttribute)getVarVariableTupleVariableDeclaration().getEStructuralFeatures().get(3);
+    return (EAttribute)varVariableTupleVariableDeclarationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1712,10 +1746,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getVariableDeclarationOptionalElement()
   {
-    if (variableDeclarationOptionalElementEClass == null)
-    {
-      variableDeclarationOptionalElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(19);
-    }
     return variableDeclarationOptionalElementEClass;
   }
 
@@ -1727,10 +1757,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getIndexedSpecifer()
   {
-    if (indexedSpeciferEClass == null)
-    {
-      indexedSpeciferEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(20);
-    }
     return indexedSpeciferEClass;
   }
 
@@ -1742,10 +1768,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getConstantSpecifier()
   {
-    if (constantSpecifierEClass == null)
-    {
-      constantSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(21);
-    }
     return constantSpecifierEClass;
   }
 
@@ -1757,10 +1779,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getLocationSpecifier()
   {
-    if (locationSpecifierEClass == null)
-    {
-      locationSpecifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(22);
-    }
     return locationSpecifierEClass;
   }
 
@@ -1772,7 +1790,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getLocationSpecifier_Location()
   {
-        return (EReference)getLocationSpecifier().getEStructuralFeatures().get(0);
+    return (EReference)locationSpecifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1783,10 +1801,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getType()
   {
-    if (typeEClass == null)
-    {
-      typeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(23);
-    }
     return typeEClass;
   }
 
@@ -1798,7 +1812,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getType_IsVarType()
   {
-        return (EAttribute)getType().getEStructuralFeatures().get(0);
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1809,10 +1823,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getStandardType()
   {
-    if (standardTypeEClass == null)
-    {
-      standardTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(24);
-    }
     return standardTypeEClass;
   }
 
@@ -1824,10 +1834,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getStandardTypeWithoutQualifiedIdentifier()
   {
-    if (standardTypeWithoutQualifiedIdentifierEClass == null)
-    {
-      standardTypeWithoutQualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(25);
-    }
     return standardTypeWithoutQualifiedIdentifierEClass;
   }
 
@@ -1839,10 +1845,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getElementaryType()
   {
-    if (elementaryTypeEClass == null)
-    {
-      elementaryTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(26);
-    }
     return elementaryTypeEClass;
   }
 
@@ -1854,7 +1856,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getElementaryType_Dimension()
   {
-        return (EReference)getElementaryType().getEStructuralFeatures().get(0);
+    return (EReference)elementaryTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1863,9 +1865,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getElementaryType_Name()
+  public EReference getElementaryType_Name()
   {
-        return (EAttribute)getElementaryType().getEStructuralFeatures().get(1);
+    return (EReference)elementaryTypeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1876,10 +1878,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getMapping()
   {
-    if (mappingEClass == null)
-    {
-      mappingEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(27);
-    }
     return mappingEClass;
   }
 
@@ -1889,9 +1887,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getMapping_KeyType()
+  public EReference getMapping_KeyType()
   {
-        return (EAttribute)getMapping().getEStructuralFeatures().get(0);
+    return (EReference)mappingEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1902,7 +1900,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getMapping_ValueType()
   {
-        return (EReference)getMapping().getEStructuralFeatures().get(1);
+    return (EReference)mappingEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1913,10 +1911,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getArrayDimensions()
   {
-    if (arrayDimensionsEClass == null)
-    {
-      arrayDimensionsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(28);
-    }
     return arrayDimensionsEClass;
   }
 
@@ -1928,7 +1922,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getArrayDimensions_Value()
   {
-        return (EReference)getArrayDimensions().getEStructuralFeatures().get(0);
+    return (EReference)arrayDimensionsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1939,10 +1933,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getTuple()
   {
-    if (tupleEClass == null)
-    {
-      tupleEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(29);
-    }
     return tupleEClass;
   }
 
@@ -1954,7 +1944,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getTuple_Members()
   {
-        return (EReference)getTuple().getEStructuralFeatures().get(0);
+    return (EReference)tupleEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1965,10 +1955,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getTupleSeparator()
   {
-    if (tupleSeparatorEClass == null)
-    {
-      tupleSeparatorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(30);
-    }
     return tupleSeparatorEClass;
   }
 
@@ -1980,10 +1966,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getSimpleStatement()
   {
-    if (simpleStatementEClass == null)
-    {
-      simpleStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(31);
-    }
     return simpleStatementEClass;
   }
 
@@ -1995,10 +1977,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getSimpleStatement2()
   {
-    if (simpleStatement2EClass == null)
-    {
-      simpleStatement2EClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(32);
-    }
     return simpleStatement2EClass;
   }
 
@@ -2010,10 +1988,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getExpressionStatement()
   {
-    if (expressionStatementEClass == null)
-    {
-      expressionStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(33);
-    }
     return expressionStatementEClass;
   }
 
@@ -2025,7 +1999,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getExpressionStatement_Semicolon()
   {
-        return (EAttribute)getExpressionStatement().getEStructuralFeatures().get(0);
+    return (EAttribute)expressionStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2036,7 +2010,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getExpressionStatement_Expression()
   {
-        return (EReference)getExpressionStatement().getEStructuralFeatures().get(1);
+    return (EReference)expressionStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2047,10 +2021,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getQualifiedIdentifier()
   {
-    if (qualifiedIdentifierEClass == null)
-    {
-      qualifiedIdentifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(34);
-    }
     return qualifiedIdentifierEClass;
   }
 
@@ -2062,7 +2032,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getQualifiedIdentifier_Identifier()
   {
-        return (EAttribute)getQualifiedIdentifier().getEStructuralFeatures().get(0);
+    return (EAttribute)qualifiedIdentifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2073,7 +2043,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getQualifiedIdentifier_Qualifiers()
   {
-        return (EReference)getQualifiedIdentifier().getEStructuralFeatures().get(1);
+    return (EReference)qualifiedIdentifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2084,10 +2054,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getQualifier()
   {
-    if (qualifierEClass == null)
-    {
-      qualifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(35);
-    }
     return qualifierEClass;
   }
 
@@ -2099,10 +2065,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getField()
   {
-    if (fieldEClass == null)
-    {
-      fieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(36);
-    }
     return fieldEClass;
   }
 
@@ -2114,7 +2076,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getField_Field()
   {
-        return (EAttribute)getField().getEStructuralFeatures().get(0);
+    return (EAttribute)fieldEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2125,10 +2087,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getIndex()
   {
-    if (indexEClass == null)
-    {
-      indexEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(37);
-    }
     return indexEClass;
   }
 
@@ -2140,7 +2098,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getIndex_Value()
   {
-        return (EReference)getIndex().getEStructuralFeatures().get(0);
+    return (EReference)indexEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2151,10 +2109,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getArguments()
   {
-    if (argumentsEClass == null)
-    {
-      argumentsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(38);
-    }
     return argumentsEClass;
   }
 
@@ -2166,7 +2120,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getArguments_Arguments()
   {
-        return (EReference)getArguments().getEStructuralFeatures().get(0);
+    return (EReference)argumentsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2177,10 +2131,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getModifier()
   {
-    if (modifierEClass == null)
-    {
-      modifierEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(39);
-    }
     return modifierEClass;
   }
 
@@ -2192,7 +2142,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getModifier_Name()
   {
-        return (EAttribute)getModifier().getEStructuralFeatures().get(0);
+    return (EAttribute)modifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2203,7 +2153,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getModifier_Parameters()
   {
-        return (EReference)getModifier().getEStructuralFeatures().get(1);
+    return (EReference)modifierEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2214,7 +2164,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getModifier_Block()
   {
-        return (EReference)getModifier().getEStructuralFeatures().get(2);
+    return (EReference)modifierEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2225,10 +2175,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getEvent()
   {
-    if (eventEClass == null)
-    {
-      eventEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(40);
-    }
     return eventEClass;
   }
 
@@ -2240,7 +2186,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getEvent_Name()
   {
-        return (EAttribute)getEvent().getEStructuralFeatures().get(0);
+    return (EAttribute)eventEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2251,7 +2197,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getEvent_Parameters()
   {
-        return (EReference)getEvent().getEStructuralFeatures().get(1);
+    return (EReference)eventEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2262,10 +2208,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getModifierInvocation()
   {
-    if (modifierInvocationEClass == null)
-    {
-      modifierInvocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(41);
-    }
     return modifierInvocationEClass;
   }
 
@@ -2277,7 +2219,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getModifierInvocation_Name()
   {
-        return (EReference)getModifierInvocation().getEStructuralFeatures().get(0);
+    return (EReference)modifierInvocationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2288,7 +2230,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getModifierInvocation_Args()
   {
-        return (EReference)getModifierInvocation().getEStructuralFeatures().get(1);
+    return (EReference)modifierInvocationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2299,10 +2241,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getParameterList()
   {
-    if (parameterListEClass == null)
-    {
-      parameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(42);
-    }
     return parameterListEClass;
   }
 
@@ -2314,7 +2252,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getParameterList_Parameters()
   {
-        return (EReference)getParameterList().getEStructuralFeatures().get(0);
+    return (EReference)parameterListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2325,10 +2263,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getReturnsParameterList()
   {
-    if (returnsParameterListEClass == null)
-    {
-      returnsParameterListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(43);
-    }
     return returnsParameterListEClass;
   }
 
@@ -2340,7 +2274,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getReturnsParameterList_Parameters()
   {
-        return (EReference)getReturnsParameterList().getEStructuralFeatures().get(0);
+    return (EReference)returnsParameterListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2351,10 +2285,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getReturnParameterDeclaration()
   {
-    if (returnParameterDeclarationEClass == null)
-    {
-      returnParameterDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(44);
-    }
     return returnParameterDeclarationEClass;
   }
 
@@ -2366,7 +2296,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getReturnParameterDeclaration_TypeRef()
   {
-        return (EReference)getReturnParameterDeclaration().getEStructuralFeatures().get(0);
+    return (EReference)returnParameterDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2377,7 +2307,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getReturnParameterDeclaration_Variable()
   {
-        return (EReference)getReturnParameterDeclaration().getEStructuralFeatures().get(1);
+    return (EReference)returnParameterDeclarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2388,10 +2318,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getDeleteStatement()
   {
-    if (deleteStatementEClass == null)
-    {
-      deleteStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(45);
-    }
     return deleteStatementEClass;
   }
 
@@ -2403,7 +2329,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getDeleteStatement_Variable()
   {
-        return (EReference)getDeleteStatement().getEStructuralFeatures().get(0);
+    return (EReference)deleteStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2414,10 +2340,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getIfStatement()
   {
-    if (ifStatementEClass == null)
-    {
-      ifStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(46);
-    }
     return ifStatementEClass;
   }
 
@@ -2429,7 +2351,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getIfStatement_Condition()
   {
-        return (EReference)getIfStatement().getEStructuralFeatures().get(0);
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2440,7 +2362,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getIfStatement_TrueBody()
   {
-        return (EReference)getIfStatement().getEStructuralFeatures().get(1);
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2451,7 +2373,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getIfStatement_FalseBody()
   {
-        return (EReference)getIfStatement().getEStructuralFeatures().get(2);
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2462,10 +2384,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getWhileStatement()
   {
-    if (whileStatementEClass == null)
-    {
-      whileStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(47);
-    }
     return whileStatementEClass;
   }
 
@@ -2477,7 +2395,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getWhileStatement_Condition()
   {
-        return (EReference)getWhileStatement().getEStructuralFeatures().get(0);
+    return (EReference)whileStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2488,7 +2406,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getWhileStatement_Body()
   {
-        return (EReference)getWhileStatement().getEStructuralFeatures().get(1);
+    return (EReference)whileStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2499,10 +2417,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getForStatement()
   {
-    if (forStatementEClass == null)
-    {
-      forStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(48);
-    }
     return forStatementEClass;
   }
 
@@ -2514,7 +2428,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getForStatement_InitExpression()
   {
-        return (EReference)getForStatement().getEStructuralFeatures().get(0);
+    return (EReference)forStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2525,7 +2439,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getForStatement_ConditionExpression()
   {
-        return (EReference)getForStatement().getEStructuralFeatures().get(1);
+    return (EReference)forStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2536,7 +2450,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getForStatement_LoopExpression()
   {
-        return (EReference)getForStatement().getEStructuralFeatures().get(2);
+    return (EReference)forStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2547,7 +2461,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getForStatement_Body()
   {
-        return (EReference)getForStatement().getEStructuralFeatures().get(3);
+    return (EReference)forStatementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2558,10 +2472,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBody()
   {
-    if (bodyEClass == null)
-    {
-      bodyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(49);
-    }
     return bodyEClass;
   }
 
@@ -2573,10 +2483,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getContinueStatement()
   {
-    if (continueStatementEClass == null)
-    {
-      continueStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(50);
-    }
     return continueStatementEClass;
   }
 
@@ -2588,10 +2494,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBreakStatement()
   {
-    if (breakStatementEClass == null)
-    {
-      breakStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(51);
-    }
     return breakStatementEClass;
   }
 
@@ -2603,10 +2505,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getReturnStatement()
   {
-    if (returnStatementEClass == null)
-    {
-      returnStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(52);
-    }
     return returnStatementEClass;
   }
 
@@ -2618,7 +2516,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getReturnStatement_Expression()
   {
-        return (EReference)getReturnStatement().getEStructuralFeatures().get(0);
+    return (EReference)returnStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2629,10 +2527,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getThrowStatement()
   {
-    if (throwStatementEClass == null)
-    {
-      throwStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(53);
-    }
     return throwStatementEClass;
   }
 
@@ -2644,10 +2538,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getPlaceHolderStatement()
   {
-    if (placeHolderStatementEClass == null)
-    {
-      placeHolderStatementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(54);
-    }
     return placeHolderStatementEClass;
   }
 
@@ -2659,10 +2549,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getExpression()
   {
-    if (expressionEClass == null)
-    {
-      expressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(55);
-    }
     return expressionEClass;
   }
 
@@ -2674,10 +2560,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getSpecialExpression()
   {
-    if (specialExpressionEClass == null)
-    {
-      specialExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(56);
-    }
     return specialExpressionEClass;
   }
 
@@ -2689,7 +2571,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getSpecialExpression_Type()
   {
-        return (EAttribute)getSpecialExpression().getEStructuralFeatures().get(0);
+    return (EAttribute)specialExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2700,7 +2582,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getSpecialExpression_FieldOrMethod()
   {
-        return (EReference)getSpecialExpression().getEStructuralFeatures().get(1);
+    return (EReference)specialExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2711,7 +2593,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getSpecialExpression_Qualifiers()
   {
-        return (EReference)getSpecialExpression().getEStructuralFeatures().get(2);
+    return (EReference)specialExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2722,10 +2604,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getNotExpression()
   {
-    if (notExpressionEClass == null)
-    {
-      notExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(57);
-    }
     return notExpressionEClass;
   }
 
@@ -2737,7 +2615,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getNotExpression_Expression()
   {
-        return (EReference)getNotExpression().getEStructuralFeatures().get(0);
+    return (EReference)notExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2748,10 +2626,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getPreIncExpression()
   {
-    if (preIncExpressionEClass == null)
-    {
-      preIncExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(58);
-    }
     return preIncExpressionEClass;
   }
 
@@ -2763,7 +2637,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getPreIncExpression_Expression()
   {
-        return (EReference)getPreIncExpression().getEStructuralFeatures().get(0);
+    return (EReference)preIncExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2774,10 +2648,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getPreDecExpression()
   {
-    if (preDecExpressionEClass == null)
-    {
-      preDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(59);
-    }
     return preDecExpressionEClass;
   }
 
@@ -2789,7 +2659,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getPreDecExpression_Expression()
   {
-        return (EReference)getPreDecExpression().getEStructuralFeatures().get(0);
+    return (EReference)preDecExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2800,10 +2670,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBinaryNotExpression()
   {
-    if (binaryNotExpressionEClass == null)
-    {
-      binaryNotExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(60);
-    }
     return binaryNotExpressionEClass;
   }
 
@@ -2815,7 +2681,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBinaryNotExpression_Expression()
   {
-        return (EReference)getBinaryNotExpression().getEStructuralFeatures().get(0);
+    return (EReference)binaryNotExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2826,10 +2692,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getSignExpression()
   {
-    if (signExpressionEClass == null)
-    {
-      signExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(61);
-    }
     return signExpressionEClass;
   }
 
@@ -2841,7 +2703,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getSignExpression_SignOp()
   {
-        return (EAttribute)getSignExpression().getEStructuralFeatures().get(0);
+    return (EAttribute)signExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2852,7 +2714,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getSignExpression_Expression()
   {
-        return (EReference)getSignExpression().getEStructuralFeatures().get(1);
+    return (EReference)signExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2863,10 +2725,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getNewExpression()
   {
-    if (newExpressionEClass == null)
-    {
-      newExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(62);
-    }
     return newExpressionEClass;
   }
 
@@ -2878,7 +2736,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getNewExpression_Contract()
   {
-        return (EReference)getNewExpression().getEStructuralFeatures().get(0);
+    return (EReference)newExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2889,7 +2747,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getNewExpression_Args()
   {
-        return (EReference)getNewExpression().getEStructuralFeatures().get(1);
+    return (EReference)newExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2900,10 +2758,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getLiteral()
   {
-    if (literalEClass == null)
-    {
-      literalEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(63);
-    }
     return literalEClass;
   }
 
@@ -2915,10 +2769,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getGasleftFunction()
   {
-    if (gasleftFunctionEClass == null)
-    {
-      gasleftFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(64);
-    }
     return gasleftFunctionEClass;
   }
 
@@ -2930,7 +2780,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getGasleftFunction_Name()
   {
-        return (EAttribute)getGasleftFunction().getEStructuralFeatures().get(0);
+    return (EAttribute)gasleftFunctionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2941,10 +2791,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBlockhashFunction()
   {
-    if (blockhashFunctionEClass == null)
-    {
-      blockhashFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(65);
-    }
     return blockhashFunctionEClass;
   }
 
@@ -2956,7 +2802,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBlockhashFunction_Parameter()
   {
-        return (EReference)getBlockhashFunction().getEStructuralFeatures().get(0);
+    return (EReference)blockhashFunctionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2967,10 +2813,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getMathematicalFunction()
   {
-    if (mathematicalFunctionEClass == null)
-    {
-      mathematicalFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(66);
-    }
     return mathematicalFunctionEClass;
   }
 
@@ -2982,7 +2824,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getMathematicalFunction_Function()
   {
-        return (EAttribute)getMathematicalFunction().getEStructuralFeatures().get(0);
+    return (EAttribute)mathematicalFunctionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2993,7 +2835,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getMathematicalFunction_Parameters()
   {
-        return (EReference)getMathematicalFunction().getEStructuralFeatures().get(1);
+    return (EReference)mathematicalFunctionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3004,10 +2846,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getEcrecoverFunction()
   {
-    if (ecrecoverFunctionEClass == null)
-    {
-      ecrecoverFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(67);
-    }
     return ecrecoverFunctionEClass;
   }
 
@@ -3019,7 +2857,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getEcrecoverFunction_Function()
   {
-        return (EAttribute)getEcrecoverFunction().getEStructuralFeatures().get(0);
+    return (EAttribute)ecrecoverFunctionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3030,7 +2868,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getEcrecoverFunction_Parameters()
   {
-        return (EReference)getEcrecoverFunction().getEStructuralFeatures().get(1);
+    return (EReference)ecrecoverFunctionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3041,10 +2879,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getHashFunction()
   {
-    if (hashFunctionEClass == null)
-    {
-      hashFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(68);
-    }
     return hashFunctionEClass;
   }
 
@@ -3056,7 +2890,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getHashFunction_Name()
   {
-        return (EAttribute)getHashFunction().getEStructuralFeatures().get(0);
+    return (EAttribute)hashFunctionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3067,7 +2901,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getHashFunction_Parameters()
   {
-        return (EReference)getHashFunction().getEStructuralFeatures().get(1);
+    return (EReference)hashFunctionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3078,10 +2912,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getIntParameter()
   {
-    if (intParameterEClass == null)
-    {
-      intParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(69);
-    }
     return intParameterEClass;
   }
 
@@ -3093,7 +2923,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getIntParameter_Param()
   {
-        return (EReference)getIntParameter().getEStructuralFeatures().get(0);
+    return (EReference)intParameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3104,7 +2934,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getIntParameter_Fun()
   {
-        return (EReference)getIntParameter().getEStructuralFeatures().get(1);
+    return (EReference)intParameterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3115,10 +2945,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getFunctionCall()
   {
-    if (functionCallEClass == null)
-    {
-      functionCallEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(70);
-    }
     return functionCallEClass;
   }
 
@@ -3130,7 +2956,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionCall_Name()
   {
-        return (EReference)getFunctionCall().getEStructuralFeatures().get(0);
+    return (EReference)functionCallEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3141,7 +2967,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getFunctionCall_Parameters()
   {
-        return (EReference)getFunctionCall().getEStructuralFeatures().get(1);
+    return (EReference)functionCallEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3152,10 +2978,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getArithmeticOperations()
   {
-    if (arithmeticOperationsEClass == null)
-    {
-      arithmeticOperationsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(71);
-    }
     return arithmeticOperationsEClass;
   }
 
@@ -3167,7 +2989,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getArithmeticOperations_First()
   {
-        return (EReference)getArithmeticOperations().getEStructuralFeatures().get(0);
+    return (EReference)arithmeticOperationsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3178,7 +3000,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getArithmeticOperations_Seconds()
   {
-        return (EReference)getArithmeticOperations().getEStructuralFeatures().get(1);
+    return (EReference)arithmeticOperationsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3189,10 +3011,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getPrimaryArithmetic()
   {
-    if (primaryArithmeticEClass == null)
-    {
-      primaryArithmeticEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(72);
-    }
     return primaryArithmeticEClass;
   }
 
@@ -3204,10 +3022,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getSecondOperators()
   {
-    if (secondOperatorsEClass == null)
-    {
-      secondOperatorsEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(73);
-    }
     return secondOperatorsEClass;
   }
 
@@ -3219,7 +3033,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getSecondOperators_Operator()
   {
-        return (EAttribute)getSecondOperators().getEStructuralFeatures().get(0);
+    return (EAttribute)secondOperatorsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3230,7 +3044,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getSecondOperators_Value()
   {
-        return (EReference)getSecondOperators().getEStructuralFeatures().get(1);
+    return (EReference)secondOperatorsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3241,10 +3055,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBooleanConst()
   {
-    if (booleanConstEClass == null)
-    {
-      booleanConstEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(74);
-    }
     return booleanConstEClass;
   }
 
@@ -3256,7 +3066,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getBooleanConst_Value()
   {
-        return (EAttribute)getBooleanConst().getEStructuralFeatures().get(0);
+    return (EAttribute)booleanConstEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3267,10 +3077,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getNumericLiteral()
   {
-    if (numericLiteralEClass == null)
-    {
-      numericLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(75);
-    }
     return numericLiteralEClass;
   }
 
@@ -3282,7 +3088,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getNumericLiteral_IntValue()
   {
-        return (EReference)getNumericLiteral().getEStructuralFeatures().get(0);
+    return (EReference)numericLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3293,7 +3099,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getNumericLiteral_HexValue()
   {
-        return (EReference)getNumericLiteral().getEStructuralFeatures().get(1);
+    return (EReference)numericLiteralEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3304,7 +3110,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getNumericLiteral_DecimalValue()
   {
-        return (EReference)getNumericLiteral().getEStructuralFeatures().get(2);
+    return (EReference)numericLiteralEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3315,7 +3121,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getNumericLiteral_Now()
   {
-        return (EReference)getNumericLiteral().getEStructuralFeatures().get(3);
+    return (EReference)numericLiteralEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3326,7 +3132,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getNumericLiteral_EtherUnit()
   {
-        return (EReference)getNumericLiteral().getEStructuralFeatures().get(4);
+    return (EReference)numericLiteralEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3337,10 +3143,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getNow()
   {
-    if (nowEClass == null)
-    {
-      nowEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(76);
-    }
     return nowEClass;
   }
 
@@ -3352,10 +3154,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getUnitTypes()
   {
-    if (unitTypesEClass == null)
-    {
-      unitTypesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(77);
-    }
     return unitTypesEClass;
   }
 
@@ -3367,7 +3165,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getUnitTypes_Time()
   {
-        return (EReference)getUnitTypes().getEStructuralFeatures().get(0);
+    return (EReference)unitTypesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3378,7 +3176,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getUnitTypes_Units()
   {
-        return (EReference)getUnitTypes().getEStructuralFeatures().get(1);
+    return (EReference)unitTypesEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3389,10 +3187,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getNumberDimensionless()
   {
-    if (numberDimensionlessEClass == null)
-    {
-      numberDimensionlessEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(78);
-    }
     return numberDimensionlessEClass;
   }
 
@@ -3404,7 +3198,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getNumberDimensionless_Value()
   {
-        return (EAttribute)getNumberDimensionless().getEStructuralFeatures().get(0);
+    return (EAttribute)numberDimensionlessEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3415,10 +3209,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getEther()
   {
-    if (etherEClass == null)
-    {
-      etherEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(79);
-    }
     return etherEClass;
   }
 
@@ -3430,7 +3220,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getEther_Value()
   {
-        return (EAttribute)getEther().getEStructuralFeatures().get(0);
+    return (EAttribute)etherEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3441,7 +3231,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getEther_Ether()
   {
-        return (EAttribute)getEther().getEStructuralFeatures().get(1);
+    return (EAttribute)etherEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3452,10 +3242,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getTime()
   {
-    if (timeEClass == null)
-    {
-      timeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(80);
-    }
     return timeEClass;
   }
 
@@ -3467,7 +3253,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getTime_Value()
   {
-        return (EAttribute)getTime().getEStructuralFeatures().get(0);
+    return (EAttribute)timeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3478,7 +3264,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getTime_Time()
   {
-        return (EAttribute)getTime().getEStructuralFeatures().get(1);
+    return (EAttribute)timeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3489,10 +3275,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getStringLiteral()
   {
-    if (stringLiteralEClass == null)
-    {
-      stringLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(81);
-    }
     return stringLiteralEClass;
   }
 
@@ -3504,7 +3286,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getStringLiteral_Value()
   {
-        return (EAttribute)getStringLiteral().getEStructuralFeatures().get(0);
+    return (EAttribute)stringLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3515,10 +3297,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getHexLiteral()
   {
-    if (hexLiteralEClass == null)
-    {
-      hexLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(82);
-    }
     return hexLiteralEClass;
   }
 
@@ -3530,7 +3308,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getHexLiteral_Value()
   {
-        return (EAttribute)getHexLiteral().getEStructuralFeatures().get(0);
+    return (EAttribute)hexLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3541,10 +3319,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getDecimalLiteral()
   {
-    if (decimalLiteralEClass == null)
-    {
-      decimalLiteralEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(83);
-    }
     return decimalLiteralEClass;
   }
 
@@ -3556,7 +3330,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getDecimalLiteral_Value()
   {
-        return (EAttribute)getDecimalLiteral().getEStructuralFeatures().get(0);
+    return (EAttribute)decimalLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3567,10 +3341,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getTypeCast()
   {
-    if (typeCastEClass == null)
-    {
-      typeCastEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(84);
-    }
     return typeCastEClass;
   }
 
@@ -3580,9 +3350,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getTypeCast_Value()
+  public EReference getTypeCast_Value()
   {
-        return (EAttribute)getTypeCast().getEStructuralFeatures().get(0);
+    return (EReference)typeCastEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3593,7 +3363,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getTypeCast_Expression()
   {
-        return (EReference)getTypeCast().getEStructuralFeatures().get(1);
+    return (EReference)typeCastEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3604,10 +3374,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getSpecialVariables()
   {
-    if (specialVariablesEClass == null)
-    {
-      specialVariablesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(85);
-    }
     return specialVariablesEClass;
   }
 
@@ -3619,7 +3385,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getSpecialVariables_Type()
   {
-        return (EReference)getSpecialVariables().getEStructuralFeatures().get(0);
+    return (EReference)specialVariablesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3630,7 +3396,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getSpecialVariables_Field()
   {
-        return (EAttribute)getSpecialVariables().getEStructuralFeatures().get(1);
+    return (EAttribute)specialVariablesEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3641,7 +3407,51 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getSpecialVariables_Qualifiers()
   {
-        return (EReference)getSpecialVariables().getEStructuralFeatures().get(2);
+    return (EReference)specialVariablesEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSimpleTypeDeclaration()
+  {
+    return simpleTypeDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSimpleTypeDeclaration_Type()
+  {
+    return (EAttribute)simpleTypeDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getElementaryTypeNameEnum()
+  {
+    return elementaryTypeNameEnumEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getElementaryTypeNameEnum_Type()
+  {
+    return (EAttribute)elementaryTypeNameEnumEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3652,10 +3462,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getLocationSpecifierEnum()
   {
-    if (locationSpecifierEnumEClass == null)
-    {
-      locationSpecifierEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(87);
-    }
     return locationSpecifierEnumEClass;
   }
 
@@ -3667,7 +3473,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getLocationSpecifierEnum_Type()
   {
-        return (EAttribute)getLocationSpecifierEnum().getEStructuralFeatures().get(0);
+    return (EAttribute)locationSpecifierEnumEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3678,10 +3484,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getVisibilityEnum()
   {
-    if (visibilityEnumEClass == null)
-    {
-      visibilityEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(88);
-    }
     return visibilityEnumEClass;
   }
 
@@ -3693,7 +3495,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getVisibilityEnum_Type()
   {
-        return (EAttribute)getVisibilityEnum().getEStructuralFeatures().get(0);
+    return (EAttribute)visibilityEnumEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3704,10 +3506,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getSpecialVariablesTypeEnum()
   {
-    if (specialVariablesTypeEnumEClass == null)
-    {
-      specialVariablesTypeEnumEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(99);
-    }
     return specialVariablesTypeEnumEClass;
   }
 
@@ -3719,7 +3517,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getSpecialVariablesTypeEnum_Name()
   {
-        return (EAttribute)getSpecialVariablesTypeEnum().getEStructuralFeatures().get(0);
+    return (EAttribute)specialVariablesTypeEnumEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3730,10 +3528,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getVarVariableTypeDeclaration()
   {
-    if (varVariableTypeDeclarationEClass == null)
-    {
-      varVariableTypeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(102);
-    }
     return varVariableTypeDeclarationEClass;
   }
 
@@ -3745,7 +3539,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVarVariableTypeDeclaration_Variable()
   {
-        return (EReference)getVarVariableTypeDeclaration().getEStructuralFeatures().get(0);
+    return (EReference)varVariableTypeDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3756,7 +3550,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVarVariableTypeDeclaration_Expression()
   {
-        return (EReference)getVarVariableTypeDeclaration().getEStructuralFeatures().get(1);
+    return (EReference)varVariableTypeDeclarationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3767,7 +3561,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getVarVariableTypeDeclaration_Semicolon()
   {
-        return (EAttribute)getVarVariableTypeDeclaration().getEStructuralFeatures().get(2);
+    return (EAttribute)varVariableTypeDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3778,10 +3572,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBlock()
   {
-    if (blockEClass == null)
-    {
-      blockEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(103);
-    }
     return blockEClass;
   }
 
@@ -3793,7 +3583,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBlock_Statements()
   {
-        return (EReference)getBlock().getEStructuralFeatures().get(0);
+    return (EReference)blockEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3804,10 +3594,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getContinue()
   {
-    if (continueEClass == null)
-    {
-      continueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(104);
-    }
     return continueEClass;
   }
 
@@ -3819,10 +3605,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getAssignment()
   {
-    if (assignmentEClass == null)
-    {
-      assignmentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(105);
-    }
     return assignmentEClass;
   }
 
@@ -3834,7 +3616,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getAssignment_Left()
   {
-        return (EReference)getAssignment().getEStructuralFeatures().get(0);
+    return (EReference)assignmentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3845,7 +3627,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getAssignment_AssignmentOp()
   {
-        return (EAttribute)getAssignment().getEStructuralFeatures().get(1);
+    return (EAttribute)assignmentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3856,7 +3638,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getAssignment_Expression()
   {
-        return (EReference)getAssignment().getEStructuralFeatures().get(2);
+    return (EReference)assignmentEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3867,10 +3649,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getVariableDeclarationExpression()
   {
-    if (variableDeclarationExpressionEClass == null)
-    {
-      variableDeclarationExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(106);
-    }
     return variableDeclarationExpressionEClass;
   }
 
@@ -3882,7 +3660,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVariableDeclarationExpression_Type()
   {
-        return (EReference)getVariableDeclarationExpression().getEStructuralFeatures().get(0);
+    return (EReference)variableDeclarationExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3893,7 +3671,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVariableDeclarationExpression_Variable()
   {
-        return (EReference)getVariableDeclarationExpression().getEStructuralFeatures().get(1);
+    return (EReference)variableDeclarationExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3904,7 +3682,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getVariableDeclarationExpression_Expression()
   {
-        return (EReference)getVariableDeclarationExpression().getEStructuralFeatures().get(2);
+    return (EReference)variableDeclarationExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3915,10 +3693,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getOr()
   {
-    if (orEClass == null)
-    {
-      orEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(107);
-    }
     return orEClass;
   }
 
@@ -3930,7 +3704,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getOr_Left()
   {
-        return (EReference)getOr().getEStructuralFeatures().get(0);
+    return (EReference)orEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3941,7 +3715,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getOr_Right()
   {
-        return (EReference)getOr().getEStructuralFeatures().get(1);
+    return (EReference)orEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3952,10 +3726,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getAnd()
   {
-    if (andEClass == null)
-    {
-      andEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(108);
-    }
     return andEClass;
   }
 
@@ -3967,7 +3737,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getAnd_Left()
   {
-        return (EReference)getAnd().getEStructuralFeatures().get(0);
+    return (EReference)andEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3978,7 +3748,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getAnd_Right()
   {
-        return (EReference)getAnd().getEStructuralFeatures().get(1);
+    return (EReference)andEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3989,10 +3759,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getEquality()
   {
-    if (equalityEClass == null)
-    {
-      equalityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(109);
-    }
     return equalityEClass;
   }
 
@@ -4004,7 +3770,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getEquality_Left()
   {
-        return (EReference)getEquality().getEStructuralFeatures().get(0);
+    return (EReference)equalityEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4015,7 +3781,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getEquality_EqualityOp()
   {
-        return (EAttribute)getEquality().getEStructuralFeatures().get(1);
+    return (EAttribute)equalityEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4026,7 +3792,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getEquality_Right()
   {
-        return (EReference)getEquality().getEStructuralFeatures().get(2);
+    return (EReference)equalityEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4037,10 +3803,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getComparison()
   {
-    if (comparisonEClass == null)
-    {
-      comparisonEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(110);
-    }
     return comparisonEClass;
   }
 
@@ -4052,7 +3814,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getComparison_Left()
   {
-        return (EReference)getComparison().getEStructuralFeatures().get(0);
+    return (EReference)comparisonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4063,7 +3825,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getComparison_ComparisonOp()
   {
-        return (EAttribute)getComparison().getEStructuralFeatures().get(1);
+    return (EAttribute)comparisonEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4074,7 +3836,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getComparison_Right()
   {
-        return (EReference)getComparison().getEStructuralFeatures().get(2);
+    return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4085,10 +3847,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBitOr()
   {
-    if (bitOrEClass == null)
-    {
-      bitOrEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(111);
-    }
     return bitOrEClass;
   }
 
@@ -4100,7 +3858,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBitOr_Left()
   {
-        return (EReference)getBitOr().getEStructuralFeatures().get(0);
+    return (EReference)bitOrEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4111,7 +3869,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBitOr_Right()
   {
-        return (EReference)getBitOr().getEStructuralFeatures().get(1);
+    return (EReference)bitOrEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4122,10 +3880,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBitXor()
   {
-    if (bitXorEClass == null)
-    {
-      bitXorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(112);
-    }
     return bitXorEClass;
   }
 
@@ -4137,7 +3891,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBitXor_Left()
   {
-        return (EReference)getBitXor().getEStructuralFeatures().get(0);
+    return (EReference)bitXorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4148,7 +3902,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBitXor_Right()
   {
-        return (EReference)getBitXor().getEStructuralFeatures().get(1);
+    return (EReference)bitXorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4159,10 +3913,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getBitAnd()
   {
-    if (bitAndEClass == null)
-    {
-      bitAndEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(113);
-    }
     return bitAndEClass;
   }
 
@@ -4174,7 +3924,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBitAnd_Left()
   {
-        return (EReference)getBitAnd().getEStructuralFeatures().get(0);
+    return (EReference)bitAndEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4185,7 +3935,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getBitAnd_Right()
   {
-        return (EReference)getBitAnd().getEStructuralFeatures().get(1);
+    return (EReference)bitAndEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4196,10 +3946,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getShift()
   {
-    if (shiftEClass == null)
-    {
-      shiftEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(114);
-    }
     return shiftEClass;
   }
 
@@ -4211,7 +3957,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getShift_Left()
   {
-        return (EReference)getShift().getEStructuralFeatures().get(0);
+    return (EReference)shiftEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4222,7 +3968,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getShift_ShiftOp()
   {
-        return (EAttribute)getShift().getEStructuralFeatures().get(1);
+    return (EAttribute)shiftEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4233,7 +3979,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getShift_Right()
   {
-        return (EReference)getShift().getEStructuralFeatures().get(2);
+    return (EReference)shiftEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4244,10 +3990,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getAddSub()
   {
-    if (addSubEClass == null)
-    {
-      addSubEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(115);
-    }
     return addSubEClass;
   }
 
@@ -4259,7 +4001,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getAddSub_Left()
   {
-        return (EReference)getAddSub().getEStructuralFeatures().get(0);
+    return (EReference)addSubEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4270,7 +4012,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getAddSub_AdditionOp()
   {
-        return (EAttribute)getAddSub().getEStructuralFeatures().get(1);
+    return (EAttribute)addSubEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4281,7 +4023,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getAddSub_Right()
   {
-        return (EReference)getAddSub().getEStructuralFeatures().get(2);
+    return (EReference)addSubEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4292,10 +4034,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getMulDivMod()
   {
-    if (mulDivModEClass == null)
-    {
-      mulDivModEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(116);
-    }
     return mulDivModEClass;
   }
 
@@ -4307,7 +4045,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getMulDivMod_Left()
   {
-        return (EReference)getMulDivMod().getEStructuralFeatures().get(0);
+    return (EReference)mulDivModEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4318,7 +4056,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getMulDivMod_MultipliciativeOp()
   {
-        return (EAttribute)getMulDivMod().getEStructuralFeatures().get(1);
+    return (EAttribute)mulDivModEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4329,7 +4067,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getMulDivMod_Right()
   {
-        return (EReference)getMulDivMod().getEStructuralFeatures().get(2);
+    return (EReference)mulDivModEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -4340,10 +4078,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getExponent()
   {
-    if (exponentEClass == null)
-    {
-      exponentEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(117);
-    }
     return exponentEClass;
   }
 
@@ -4355,7 +4089,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getExponent_Left()
   {
-        return (EReference)getExponent().getEStructuralFeatures().get(0);
+    return (EReference)exponentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4366,7 +4100,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getExponent_Right()
   {
-        return (EReference)getExponent().getEStructuralFeatures().get(1);
+    return (EReference)exponentEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4377,10 +4111,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EClass getPostIncDecExpression()
   {
-    if (postIncDecExpressionEClass == null)
-    {
-      postIncDecExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(118);
-    }
     return postIncDecExpressionEClass;
   }
 
@@ -4392,7 +4122,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getPostIncDecExpression_Expression()
   {
-        return (EReference)getPostIncDecExpression().getEStructuralFeatures().get(0);
+    return (EReference)postIncDecExpressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -4403,22 +4133,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EAttribute getPostIncDecExpression_PostOp()
   {
-        return (EAttribute)getPostIncDecExpression().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EEnum getElementaryTypeNameEnum()
-  {
-    if (elementaryTypeNameEnumEEnum == null)
-    {
-      elementaryTypeNameEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(86);
-    }
-    return elementaryTypeNameEnumEEnum;
+    return (EAttribute)postIncDecExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -4429,10 +4144,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getAssignmentOpEnum()
   {
-    if (assignmentOpEnumEEnum == null)
-    {
-      assignmentOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(89);
-    }
     return assignmentOpEnumEEnum;
   }
 
@@ -4444,10 +4155,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getEqualityOpEnum()
   {
-    if (equalityOpEnumEEnum == null)
-    {
-      equalityOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(90);
-    }
     return equalityOpEnumEEnum;
   }
 
@@ -4459,10 +4166,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getComparisonOpEnum()
   {
-    if (comparisonOpEnumEEnum == null)
-    {
-      comparisonOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(91);
-    }
     return comparisonOpEnumEEnum;
   }
 
@@ -4474,10 +4177,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getShiftOpEnum()
   {
-    if (shiftOpEnumEEnum == null)
-    {
-      shiftOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(92);
-    }
     return shiftOpEnumEEnum;
   }
 
@@ -4489,10 +4188,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getAdditionOpEnum()
   {
-    if (additionOpEnumEEnum == null)
-    {
-      additionOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(93);
-    }
     return additionOpEnumEEnum;
   }
 
@@ -4504,10 +4199,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getMulDivModOpEnum()
   {
-    if (mulDivModOpEnumEEnum == null)
-    {
-      mulDivModOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(94);
-    }
     return mulDivModOpEnumEEnum;
   }
 
@@ -4519,10 +4210,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getIncDecOpEnum()
   {
-    if (incDecOpEnumEEnum == null)
-    {
-      incDecOpEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(95);
-    }
     return incDecOpEnumEEnum;
   }
 
@@ -4534,10 +4221,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getBooleanLiteralEnum()
   {
-    if (booleanLiteralEnumEEnum == null)
-    {
-      booleanLiteralEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(96);
-    }
     return booleanLiteralEnumEEnum;
   }
 
@@ -4549,10 +4232,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getEtherSubDenominationEnum()
   {
-    if (etherSubDenominationEnumEEnum == null)
-    {
-      etherSubDenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(97);
-    }
     return etherSubDenominationEnumEEnum;
   }
 
@@ -4564,10 +4243,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getTimeSubdenominationEnum()
   {
-    if (timeSubdenominationEnumEEnum == null)
-    {
-      timeSubdenominationEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(98);
-    }
     return timeSubdenominationEnumEEnum;
   }
 
@@ -4579,10 +4254,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getSpecialExpressionTypeEnum()
   {
-    if (specialExpressionTypeEnumEEnum == null)
-    {
-      specialExpressionTypeEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(100);
-    }
     return specialExpressionTypeEnumEEnum;
   }
 
@@ -4594,10 +4265,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EEnum getReservedWordsEnum()
   {
-    if (reservedWordsEnumEEnum == null)
-    {
-      reservedWordsEnumEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(OptGrammarPackage.eNS_URI).getEClassifiers().get(101);
-    }
     return reservedWordsEnumEEnum;
   }
 
@@ -4617,73 +4284,1009 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private boolean isLoaded = false;
+  private boolean isCreated = false;
 
   /**
-   * Laods the package and any sub-packages from their serialized form.
+   * Creates the meta-model objects for the package.  This method is
+   * guarded to have no affect on any invocation but its first.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public void loadPackage()
+  public void createPackageContents()
   {
-    if (isLoaded) return;
-    isLoaded = true;
+    if (isCreated) return;
+    isCreated = true;
 
-    URL url = getClass().getResource(packageFilename);
-    if (url == null)
-    {
-      throw new RuntimeException("Missing serialized package: " + packageFilename);
-    }
-    URI uri = URI.createURI(url.toString());
-    Resource resource = new EcoreResourceFactoryImpl().createResource(uri);
-    try
-    {
-      resource.load(null);
-    }
-    catch (IOException exception)
-    {
-      throw new WrappedException(exception);
-    }
-    initializeFromLoadedEPackage(this, (EPackage)resource.getContents().get(0));
+    // Create classes and their features
+    modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__OPERATIONS);
+
+    contractEClass = createEClass(CONTRACT);
+    createEAttribute(contractEClass, CONTRACT__NAME);
+    createEReference(contractEClass, CONTRACT__INHERITANCE_SPECIFIERS);
+    createEReference(contractEClass, CONTRACT__BODY);
+
+    inheritanceSpecifierEClass = createEClass(INHERITANCE_SPECIFIER);
+    createEReference(inheritanceSpecifierEClass, INHERITANCE_SPECIFIER__SUPER_TYPE);
+    createEReference(inheritanceSpecifierEClass, INHERITANCE_SPECIFIER__ARGS);
+
+    definitionBodyEClass = createEClass(DEFINITION_BODY);
+    createEReference(definitionBodyEClass, DEFINITION_BODY__FUNCTIONS);
+    createEReference(definitionBodyEClass, DEFINITION_BODY__STRUCTS);
+    createEReference(definitionBodyEClass, DEFINITION_BODY__ENUMS);
+    createEReference(definitionBodyEClass, DEFINITION_BODY__VARIABLES);
+    createEReference(definitionBodyEClass, DEFINITION_BODY__MODIFIERS);
+    createEReference(definitionBodyEClass, DEFINITION_BODY__EVENTS);
+
+    functionDefinitionEClass = createEClass(FUNCTION_DEFINITION);
+    createEAttribute(functionDefinitionEClass, FUNCTION_DEFINITION__PAYABLE);
+    createEAttribute(functionDefinitionEClass, FUNCTION_DEFINITION__NAME);
+    createEReference(functionDefinitionEClass, FUNCTION_DEFINITION__PARAMETERS);
+    createEReference(functionDefinitionEClass, FUNCTION_DEFINITION__OPTIONAL_ELEMENTS);
+    createEReference(functionDefinitionEClass, FUNCTION_DEFINITION__RETURN_PARAMETERS);
+    createEReference(functionDefinitionEClass, FUNCTION_DEFINITION__BLOCK);
+
+    functionCallListArgumentsEClass = createEClass(FUNCTION_CALL_LIST_ARGUMENTS);
+    createEReference(functionCallListArgumentsEClass, FUNCTION_CALL_LIST_ARGUMENTS__ARGUMENTS);
+
+    functionCallArgumentsEClass = createEClass(FUNCTION_CALL_ARGUMENTS);
+    createEReference(functionCallArgumentsEClass, FUNCTION_CALL_ARGUMENTS__ARGS);
+
+    functionCallArgEClass = createEClass(FUNCTION_CALL_ARG);
+    createEAttribute(functionCallArgEClass, FUNCTION_CALL_ARG__NAME);
+    createEReference(functionCallArgEClass, FUNCTION_CALL_ARG__EXPR);
+
+    functionDefinitionOptionalElementEClass = createEClass(FUNCTION_DEFINITION_OPTIONAL_ELEMENT);
+
+    constEClass = createEClass(CONST);
+
+    visibilitySpecifierEClass = createEClass(VISIBILITY_SPECIFIER);
+    createEReference(visibilitySpecifierEClass, VISIBILITY_SPECIFIER__VISIBILITY);
+
+    structDefinitionEClass = createEClass(STRUCT_DEFINITION);
+    createEReference(structDefinitionEClass, STRUCT_DEFINITION__VISIBILITY);
+    createEAttribute(structDefinitionEClass, STRUCT_DEFINITION__NAME);
+    createEReference(structDefinitionEClass, STRUCT_DEFINITION__MEMBERS);
+
+    enumDefinitionEClass = createEClass(ENUM_DEFINITION);
+    createEReference(enumDefinitionEClass, ENUM_DEFINITION__VISIBILITY);
+    createEAttribute(enumDefinitionEClass, ENUM_DEFINITION__NAME);
+    createEReference(enumDefinitionEClass, ENUM_DEFINITION__MEMBERS);
+
+    enumValueEClass = createEClass(ENUM_VALUE);
+    createEAttribute(enumValueEClass, ENUM_VALUE__NAME);
+
+    variableEClass = createEClass(VARIABLE);
+    createEAttribute(variableEClass, VARIABLE__NAME);
+
+    statementEClass = createEClass(STATEMENT);
+
+    standardVariableDeclarationEClass = createEClass(STANDARD_VARIABLE_DECLARATION);
+    createEReference(standardVariableDeclarationEClass, STANDARD_VARIABLE_DECLARATION__TYPE);
+    createEReference(standardVariableDeclarationEClass, STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS);
+    createEReference(standardVariableDeclarationEClass, STANDARD_VARIABLE_DECLARATION__VARIABLE);
+    createEReference(standardVariableDeclarationEClass, STANDARD_VARIABLE_DECLARATION__EXPRESSION);
+    createEReference(standardVariableDeclarationEClass, STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS);
+    createEAttribute(standardVariableDeclarationEClass, STANDARD_VARIABLE_DECLARATION__SEMICOLON);
+
+    varVariableDeclarationEClass = createEClass(VAR_VARIABLE_DECLARATION);
+    createEAttribute(varVariableDeclarationEClass, VAR_VARIABLE_DECLARATION__VAR_TYPE);
+    createEReference(varVariableDeclarationEClass, VAR_VARIABLE_DECLARATION__VARIABLE);
+    createEReference(varVariableDeclarationEClass, VAR_VARIABLE_DECLARATION__EXPRESSION);
+
+    varVariableTupleVariableDeclarationEClass = createEClass(VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION);
+    createEAttribute(varVariableTupleVariableDeclarationEClass, VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__VAR_TYPE);
+    createEReference(varVariableTupleVariableDeclarationEClass, VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE);
+    createEReference(varVariableTupleVariableDeclarationEClass, VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION);
+    createEAttribute(varVariableTupleVariableDeclarationEClass, VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON);
+
+    variableDeclarationOptionalElementEClass = createEClass(VARIABLE_DECLARATION_OPTIONAL_ELEMENT);
+
+    indexedSpeciferEClass = createEClass(INDEXED_SPECIFER);
+
+    constantSpecifierEClass = createEClass(CONSTANT_SPECIFIER);
+
+    locationSpecifierEClass = createEClass(LOCATION_SPECIFIER);
+    createEReference(locationSpecifierEClass, LOCATION_SPECIFIER__LOCATION);
+
+    typeEClass = createEClass(TYPE);
+    createEAttribute(typeEClass, TYPE__IS_VAR_TYPE);
+
+    standardTypeEClass = createEClass(STANDARD_TYPE);
+
+    standardTypeWithoutQualifiedIdentifierEClass = createEClass(STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER);
+
+    elementaryTypeEClass = createEClass(ELEMENTARY_TYPE);
+    createEReference(elementaryTypeEClass, ELEMENTARY_TYPE__DIMENSION);
+    createEReference(elementaryTypeEClass, ELEMENTARY_TYPE__NAME);
+
+    mappingEClass = createEClass(MAPPING);
+    createEReference(mappingEClass, MAPPING__KEY_TYPE);
+    createEReference(mappingEClass, MAPPING__VALUE_TYPE);
+
+    arrayDimensionsEClass = createEClass(ARRAY_DIMENSIONS);
+    createEReference(arrayDimensionsEClass, ARRAY_DIMENSIONS__VALUE);
+
+    tupleEClass = createEClass(TUPLE);
+    createEReference(tupleEClass, TUPLE__MEMBERS);
+
+    tupleSeparatorEClass = createEClass(TUPLE_SEPARATOR);
+
+    simpleStatementEClass = createEClass(SIMPLE_STATEMENT);
+
+    simpleStatement2EClass = createEClass(SIMPLE_STATEMENT2);
+
+    expressionStatementEClass = createEClass(EXPRESSION_STATEMENT);
+    createEAttribute(expressionStatementEClass, EXPRESSION_STATEMENT__SEMICOLON);
+    createEReference(expressionStatementEClass, EXPRESSION_STATEMENT__EXPRESSION);
+
+    qualifiedIdentifierEClass = createEClass(QUALIFIED_IDENTIFIER);
+    createEAttribute(qualifiedIdentifierEClass, QUALIFIED_IDENTIFIER__IDENTIFIER);
+    createEReference(qualifiedIdentifierEClass, QUALIFIED_IDENTIFIER__QUALIFIERS);
+
+    qualifierEClass = createEClass(QUALIFIER);
+
+    fieldEClass = createEClass(FIELD);
+    createEAttribute(fieldEClass, FIELD__FIELD);
+
+    indexEClass = createEClass(INDEX);
+    createEReference(indexEClass, INDEX__VALUE);
+
+    argumentsEClass = createEClass(ARGUMENTS);
+    createEReference(argumentsEClass, ARGUMENTS__ARGUMENTS);
+
+    modifierEClass = createEClass(MODIFIER);
+    createEAttribute(modifierEClass, MODIFIER__NAME);
+    createEReference(modifierEClass, MODIFIER__PARAMETERS);
+    createEReference(modifierEClass, MODIFIER__BLOCK);
+
+    eventEClass = createEClass(EVENT);
+    createEAttribute(eventEClass, EVENT__NAME);
+    createEReference(eventEClass, EVENT__PARAMETERS);
+
+    modifierInvocationEClass = createEClass(MODIFIER_INVOCATION);
+    createEReference(modifierInvocationEClass, MODIFIER_INVOCATION__NAME);
+    createEReference(modifierInvocationEClass, MODIFIER_INVOCATION__ARGS);
+
+    parameterListEClass = createEClass(PARAMETER_LIST);
+    createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
+
+    returnsParameterListEClass = createEClass(RETURNS_PARAMETER_LIST);
+    createEReference(returnsParameterListEClass, RETURNS_PARAMETER_LIST__PARAMETERS);
+
+    returnParameterDeclarationEClass = createEClass(RETURN_PARAMETER_DECLARATION);
+    createEReference(returnParameterDeclarationEClass, RETURN_PARAMETER_DECLARATION__TYPE_REF);
+    createEReference(returnParameterDeclarationEClass, RETURN_PARAMETER_DECLARATION__VARIABLE);
+
+    deleteStatementEClass = createEClass(DELETE_STATEMENT);
+    createEReference(deleteStatementEClass, DELETE_STATEMENT__VARIABLE);
+
+    ifStatementEClass = createEClass(IF_STATEMENT);
+    createEReference(ifStatementEClass, IF_STATEMENT__CONDITION);
+    createEReference(ifStatementEClass, IF_STATEMENT__TRUE_BODY);
+    createEReference(ifStatementEClass, IF_STATEMENT__FALSE_BODY);
+
+    whileStatementEClass = createEClass(WHILE_STATEMENT);
+    createEReference(whileStatementEClass, WHILE_STATEMENT__CONDITION);
+    createEReference(whileStatementEClass, WHILE_STATEMENT__BODY);
+
+    forStatementEClass = createEClass(FOR_STATEMENT);
+    createEReference(forStatementEClass, FOR_STATEMENT__INIT_EXPRESSION);
+    createEReference(forStatementEClass, FOR_STATEMENT__CONDITION_EXPRESSION);
+    createEReference(forStatementEClass, FOR_STATEMENT__LOOP_EXPRESSION);
+    createEReference(forStatementEClass, FOR_STATEMENT__BODY);
+
+    bodyEClass = createEClass(BODY);
+
+    continueStatementEClass = createEClass(CONTINUE_STATEMENT);
+
+    breakStatementEClass = createEClass(BREAK_STATEMENT);
+
+    returnStatementEClass = createEClass(RETURN_STATEMENT);
+    createEReference(returnStatementEClass, RETURN_STATEMENT__EXPRESSION);
+
+    throwStatementEClass = createEClass(THROW_STATEMENT);
+
+    placeHolderStatementEClass = createEClass(PLACE_HOLDER_STATEMENT);
+
+    expressionEClass = createEClass(EXPRESSION);
+
+    specialExpressionEClass = createEClass(SPECIAL_EXPRESSION);
+    createEAttribute(specialExpressionEClass, SPECIAL_EXPRESSION__TYPE);
+    createEReference(specialExpressionEClass, SPECIAL_EXPRESSION__FIELD_OR_METHOD);
+    createEReference(specialExpressionEClass, SPECIAL_EXPRESSION__QUALIFIERS);
+
+    notExpressionEClass = createEClass(NOT_EXPRESSION);
+    createEReference(notExpressionEClass, NOT_EXPRESSION__EXPRESSION);
+
+    preIncExpressionEClass = createEClass(PRE_INC_EXPRESSION);
+    createEReference(preIncExpressionEClass, PRE_INC_EXPRESSION__EXPRESSION);
+
+    preDecExpressionEClass = createEClass(PRE_DEC_EXPRESSION);
+    createEReference(preDecExpressionEClass, PRE_DEC_EXPRESSION__EXPRESSION);
+
+    binaryNotExpressionEClass = createEClass(BINARY_NOT_EXPRESSION);
+    createEReference(binaryNotExpressionEClass, BINARY_NOT_EXPRESSION__EXPRESSION);
+
+    signExpressionEClass = createEClass(SIGN_EXPRESSION);
+    createEAttribute(signExpressionEClass, SIGN_EXPRESSION__SIGN_OP);
+    createEReference(signExpressionEClass, SIGN_EXPRESSION__EXPRESSION);
+
+    newExpressionEClass = createEClass(NEW_EXPRESSION);
+    createEReference(newExpressionEClass, NEW_EXPRESSION__CONTRACT);
+    createEReference(newExpressionEClass, NEW_EXPRESSION__ARGS);
+
+    literalEClass = createEClass(LITERAL);
+
+    gasleftFunctionEClass = createEClass(GASLEFT_FUNCTION);
+    createEAttribute(gasleftFunctionEClass, GASLEFT_FUNCTION__NAME);
+
+    blockhashFunctionEClass = createEClass(BLOCKHASH_FUNCTION);
+    createEReference(blockhashFunctionEClass, BLOCKHASH_FUNCTION__PARAMETER);
+
+    mathematicalFunctionEClass = createEClass(MATHEMATICAL_FUNCTION);
+    createEAttribute(mathematicalFunctionEClass, MATHEMATICAL_FUNCTION__FUNCTION);
+    createEReference(mathematicalFunctionEClass, MATHEMATICAL_FUNCTION__PARAMETERS);
+
+    ecrecoverFunctionEClass = createEClass(ECRECOVER_FUNCTION);
+    createEAttribute(ecrecoverFunctionEClass, ECRECOVER_FUNCTION__FUNCTION);
+    createEReference(ecrecoverFunctionEClass, ECRECOVER_FUNCTION__PARAMETERS);
+
+    hashFunctionEClass = createEClass(HASH_FUNCTION);
+    createEAttribute(hashFunctionEClass, HASH_FUNCTION__NAME);
+    createEReference(hashFunctionEClass, HASH_FUNCTION__PARAMETERS);
+
+    intParameterEClass = createEClass(INT_PARAMETER);
+    createEReference(intParameterEClass, INT_PARAMETER__PARAM);
+    createEReference(intParameterEClass, INT_PARAMETER__FUN);
+
+    functionCallEClass = createEClass(FUNCTION_CALL);
+    createEReference(functionCallEClass, FUNCTION_CALL__NAME);
+    createEReference(functionCallEClass, FUNCTION_CALL__PARAMETERS);
+
+    arithmeticOperationsEClass = createEClass(ARITHMETIC_OPERATIONS);
+    createEReference(arithmeticOperationsEClass, ARITHMETIC_OPERATIONS__FIRST);
+    createEReference(arithmeticOperationsEClass, ARITHMETIC_OPERATIONS__SECONDS);
+
+    primaryArithmeticEClass = createEClass(PRIMARY_ARITHMETIC);
+
+    secondOperatorsEClass = createEClass(SECOND_OPERATORS);
+    createEAttribute(secondOperatorsEClass, SECOND_OPERATORS__OPERATOR);
+    createEReference(secondOperatorsEClass, SECOND_OPERATORS__VALUE);
+
+    booleanConstEClass = createEClass(BOOLEAN_CONST);
+    createEAttribute(booleanConstEClass, BOOLEAN_CONST__VALUE);
+
+    numericLiteralEClass = createEClass(NUMERIC_LITERAL);
+    createEReference(numericLiteralEClass, NUMERIC_LITERAL__INT_VALUE);
+    createEReference(numericLiteralEClass, NUMERIC_LITERAL__HEX_VALUE);
+    createEReference(numericLiteralEClass, NUMERIC_LITERAL__DECIMAL_VALUE);
+    createEReference(numericLiteralEClass, NUMERIC_LITERAL__NOW);
+    createEReference(numericLiteralEClass, NUMERIC_LITERAL__ETHER_UNIT);
+
+    nowEClass = createEClass(NOW);
+
+    unitTypesEClass = createEClass(UNIT_TYPES);
+    createEReference(unitTypesEClass, UNIT_TYPES__TIME);
+    createEReference(unitTypesEClass, UNIT_TYPES__UNITS);
+
+    numberDimensionlessEClass = createEClass(NUMBER_DIMENSIONLESS);
+    createEAttribute(numberDimensionlessEClass, NUMBER_DIMENSIONLESS__VALUE);
+
+    etherEClass = createEClass(ETHER);
+    createEAttribute(etherEClass, ETHER__VALUE);
+    createEAttribute(etherEClass, ETHER__ETHER);
+
+    timeEClass = createEClass(TIME);
+    createEAttribute(timeEClass, TIME__VALUE);
+    createEAttribute(timeEClass, TIME__TIME);
+
+    stringLiteralEClass = createEClass(STRING_LITERAL);
+    createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
+
+    hexLiteralEClass = createEClass(HEX_LITERAL);
+    createEAttribute(hexLiteralEClass, HEX_LITERAL__VALUE);
+
+    decimalLiteralEClass = createEClass(DECIMAL_LITERAL);
+    createEAttribute(decimalLiteralEClass, DECIMAL_LITERAL__VALUE);
+
+    typeCastEClass = createEClass(TYPE_CAST);
+    createEReference(typeCastEClass, TYPE_CAST__VALUE);
+    createEReference(typeCastEClass, TYPE_CAST__EXPRESSION);
+
+    specialVariablesEClass = createEClass(SPECIAL_VARIABLES);
+    createEReference(specialVariablesEClass, SPECIAL_VARIABLES__TYPE);
+    createEAttribute(specialVariablesEClass, SPECIAL_VARIABLES__FIELD);
+    createEReference(specialVariablesEClass, SPECIAL_VARIABLES__QUALIFIERS);
+
+    simpleTypeDeclarationEClass = createEClass(SIMPLE_TYPE_DECLARATION);
+    createEAttribute(simpleTypeDeclarationEClass, SIMPLE_TYPE_DECLARATION__TYPE);
+
+    elementaryTypeNameEnumEClass = createEClass(ELEMENTARY_TYPE_NAME_ENUM);
+    createEAttribute(elementaryTypeNameEnumEClass, ELEMENTARY_TYPE_NAME_ENUM__TYPE);
+
+    locationSpecifierEnumEClass = createEClass(LOCATION_SPECIFIER_ENUM);
+    createEAttribute(locationSpecifierEnumEClass, LOCATION_SPECIFIER_ENUM__TYPE);
+
+    visibilityEnumEClass = createEClass(VISIBILITY_ENUM);
+    createEAttribute(visibilityEnumEClass, VISIBILITY_ENUM__TYPE);
+
+    specialVariablesTypeEnumEClass = createEClass(SPECIAL_VARIABLES_TYPE_ENUM);
+    createEAttribute(specialVariablesTypeEnumEClass, SPECIAL_VARIABLES_TYPE_ENUM__NAME);
+
+    varVariableTypeDeclarationEClass = createEClass(VAR_VARIABLE_TYPE_DECLARATION);
+    createEReference(varVariableTypeDeclarationEClass, VAR_VARIABLE_TYPE_DECLARATION__VARIABLE);
+    createEReference(varVariableTypeDeclarationEClass, VAR_VARIABLE_TYPE_DECLARATION__EXPRESSION);
+    createEAttribute(varVariableTypeDeclarationEClass, VAR_VARIABLE_TYPE_DECLARATION__SEMICOLON);
+
+    blockEClass = createEClass(BLOCK);
+    createEReference(blockEClass, BLOCK__STATEMENTS);
+
+    continueEClass = createEClass(CONTINUE);
+
+    assignmentEClass = createEClass(ASSIGNMENT);
+    createEReference(assignmentEClass, ASSIGNMENT__LEFT);
+    createEAttribute(assignmentEClass, ASSIGNMENT__ASSIGNMENT_OP);
+    createEReference(assignmentEClass, ASSIGNMENT__EXPRESSION);
+
+    variableDeclarationExpressionEClass = createEClass(VARIABLE_DECLARATION_EXPRESSION);
+    createEReference(variableDeclarationExpressionEClass, VARIABLE_DECLARATION_EXPRESSION__TYPE);
+    createEReference(variableDeclarationExpressionEClass, VARIABLE_DECLARATION_EXPRESSION__VARIABLE);
+    createEReference(variableDeclarationExpressionEClass, VARIABLE_DECLARATION_EXPRESSION__EXPRESSION);
+
+    orEClass = createEClass(OR);
+    createEReference(orEClass, OR__LEFT);
+    createEReference(orEClass, OR__RIGHT);
+
+    andEClass = createEClass(AND);
+    createEReference(andEClass, AND__LEFT);
+    createEReference(andEClass, AND__RIGHT);
+
+    equalityEClass = createEClass(EQUALITY);
+    createEReference(equalityEClass, EQUALITY__LEFT);
+    createEAttribute(equalityEClass, EQUALITY__EQUALITY_OP);
+    createEReference(equalityEClass, EQUALITY__RIGHT);
+
+    comparisonEClass = createEClass(COMPARISON);
+    createEReference(comparisonEClass, COMPARISON__LEFT);
+    createEAttribute(comparisonEClass, COMPARISON__COMPARISON_OP);
+    createEReference(comparisonEClass, COMPARISON__RIGHT);
+
+    bitOrEClass = createEClass(BIT_OR);
+    createEReference(bitOrEClass, BIT_OR__LEFT);
+    createEReference(bitOrEClass, BIT_OR__RIGHT);
+
+    bitXorEClass = createEClass(BIT_XOR);
+    createEReference(bitXorEClass, BIT_XOR__LEFT);
+    createEReference(bitXorEClass, BIT_XOR__RIGHT);
+
+    bitAndEClass = createEClass(BIT_AND);
+    createEReference(bitAndEClass, BIT_AND__LEFT);
+    createEReference(bitAndEClass, BIT_AND__RIGHT);
+
+    shiftEClass = createEClass(SHIFT);
+    createEReference(shiftEClass, SHIFT__LEFT);
+    createEAttribute(shiftEClass, SHIFT__SHIFT_OP);
+    createEReference(shiftEClass, SHIFT__RIGHT);
+
+    addSubEClass = createEClass(ADD_SUB);
+    createEReference(addSubEClass, ADD_SUB__LEFT);
+    createEAttribute(addSubEClass, ADD_SUB__ADDITION_OP);
+    createEReference(addSubEClass, ADD_SUB__RIGHT);
+
+    mulDivModEClass = createEClass(MUL_DIV_MOD);
+    createEReference(mulDivModEClass, MUL_DIV_MOD__LEFT);
+    createEAttribute(mulDivModEClass, MUL_DIV_MOD__MULTIPLICIATIVE_OP);
+    createEReference(mulDivModEClass, MUL_DIV_MOD__RIGHT);
+
+    exponentEClass = createEClass(EXPONENT);
+    createEReference(exponentEClass, EXPONENT__LEFT);
+    createEReference(exponentEClass, EXPONENT__RIGHT);
+
+    postIncDecExpressionEClass = createEClass(POST_INC_DEC_EXPRESSION);
+    createEReference(postIncDecExpressionEClass, POST_INC_DEC_EXPRESSION__EXPRESSION);
+    createEAttribute(postIncDecExpressionEClass, POST_INC_DEC_EXPRESSION__POST_OP);
+
+    // Create enums
+    assignmentOpEnumEEnum = createEEnum(ASSIGNMENT_OP_ENUM);
+    equalityOpEnumEEnum = createEEnum(EQUALITY_OP_ENUM);
+    comparisonOpEnumEEnum = createEEnum(COMPARISON_OP_ENUM);
+    shiftOpEnumEEnum = createEEnum(SHIFT_OP_ENUM);
+    additionOpEnumEEnum = createEEnum(ADDITION_OP_ENUM);
+    mulDivModOpEnumEEnum = createEEnum(MUL_DIV_MOD_OP_ENUM);
+    incDecOpEnumEEnum = createEEnum(INC_DEC_OP_ENUM);
+    booleanLiteralEnumEEnum = createEEnum(BOOLEAN_LITERAL_ENUM);
+    etherSubDenominationEnumEEnum = createEEnum(ETHER_SUB_DENOMINATION_ENUM);
+    timeSubdenominationEnumEEnum = createEEnum(TIME_SUBDENOMINATION_ENUM);
+    specialExpressionTypeEnumEEnum = createEEnum(SPECIAL_EXPRESSION_TYPE_ENUM);
+    reservedWordsEnumEEnum = createEEnum(RESERVED_WORDS_ENUM);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private boolean isInitialized = false;
+
+  /**
+   * Complete the initialization of the package and its meta-model.  This
+   * method is guarded to have no affect on any invocation but its first.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void initializePackageContents()
+  {
+    if (isInitialized) return;
+    isInitialized = true;
+
+    // Initialize package
+    setName(eNAME);
+    setNsPrefix(eNS_PREFIX);
+    setNsURI(eNS_URI);
+
+    // Create type parameters
+
+    // Set bounds for type parameters
+
+    // Add supertypes to classes
+    functionCallListArgumentsEClass.getESuperTypes().add(this.getFunctionCallArguments());
+    constEClass.getESuperTypes().add(this.getFunctionDefinitionOptionalElement());
+    visibilitySpecifierEClass.getESuperTypes().add(this.getFunctionDefinitionOptionalElement());
+    visibilitySpecifierEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
+    standardVariableDeclarationEClass.getESuperTypes().add(this.getStatement());
+    standardVariableDeclarationEClass.getESuperTypes().add(this.getSimpleStatement());
+    standardVariableDeclarationEClass.getESuperTypes().add(this.getSimpleStatement2());
+    varVariableDeclarationEClass.getESuperTypes().add(this.getStatement());
+    varVariableTupleVariableDeclarationEClass.getESuperTypes().add(this.getStatement());
+    varVariableTupleVariableDeclarationEClass.getESuperTypes().add(this.getSimpleStatement());
+    varVariableTupleVariableDeclarationEClass.getESuperTypes().add(this.getSimpleStatement2());
+    indexedSpeciferEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
+    constantSpecifierEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
+    locationSpecifierEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
+    standardTypeEClass.getESuperTypes().add(this.getType());
+    standardTypeWithoutQualifiedIdentifierEClass.getESuperTypes().add(this.getSimpleStatement());
+    standardTypeWithoutQualifiedIdentifierEClass.getESuperTypes().add(this.getSimpleStatement2());
+    elementaryTypeEClass.getESuperTypes().add(this.getStandardType());
+    elementaryTypeEClass.getESuperTypes().add(this.getStandardTypeWithoutQualifiedIdentifier());
+    mappingEClass.getESuperTypes().add(this.getStandardType());
+    mappingEClass.getESuperTypes().add(this.getStandardTypeWithoutQualifiedIdentifier());
+    tupleEClass.getESuperTypes().add(this.getExpression());
+    tupleSeparatorEClass.getESuperTypes().add(this.getExpression());
+    simpleStatementEClass.getESuperTypes().add(this.getStatement());
+    expressionStatementEClass.getESuperTypes().add(this.getSimpleStatement());
+    expressionStatementEClass.getESuperTypes().add(this.getSimpleStatement2());
+    qualifiedIdentifierEClass.getESuperTypes().add(this.getStandardType());
+    qualifiedIdentifierEClass.getESuperTypes().add(this.getExpression());
+    fieldEClass.getESuperTypes().add(this.getQualifier());
+    indexEClass.getESuperTypes().add(this.getQualifier());
+    argumentsEClass.getESuperTypes().add(this.getQualifier());
+    modifierInvocationEClass.getESuperTypes().add(this.getFunctionDefinitionOptionalElement());
+    deleteStatementEClass.getESuperTypes().add(this.getStatement());
+    ifStatementEClass.getESuperTypes().add(this.getStatement());
+    whileStatementEClass.getESuperTypes().add(this.getStatement());
+    forStatementEClass.getESuperTypes().add(this.getStatement());
+    bodyEClass.getESuperTypes().add(this.getStatement());
+    continueStatementEClass.getESuperTypes().add(this.getStatement());
+    breakStatementEClass.getESuperTypes().add(this.getStatement());
+    returnStatementEClass.getESuperTypes().add(this.getStatement());
+    throwStatementEClass.getESuperTypes().add(this.getStatement());
+    placeHolderStatementEClass.getESuperTypes().add(this.getStatement());
+    expressionEClass.getESuperTypes().add(this.getPrimaryArithmetic());
+    specialExpressionEClass.getESuperTypes().add(this.getExpression());
+    notExpressionEClass.getESuperTypes().add(this.getExpression());
+    preIncExpressionEClass.getESuperTypes().add(this.getExpression());
+    preDecExpressionEClass.getESuperTypes().add(this.getExpression());
+    binaryNotExpressionEClass.getESuperTypes().add(this.getExpression());
+    signExpressionEClass.getESuperTypes().add(this.getExpression());
+    newExpressionEClass.getESuperTypes().add(this.getExpression());
+    literalEClass.getESuperTypes().add(this.getExpression());
+    gasleftFunctionEClass.getESuperTypes().add(this.getLiteral());
+    blockhashFunctionEClass.getESuperTypes().add(this.getLiteral());
+    mathematicalFunctionEClass.getESuperTypes().add(this.getLiteral());
+    ecrecoverFunctionEClass.getESuperTypes().add(this.getLiteral());
+    hashFunctionEClass.getESuperTypes().add(this.getLiteral());
+    booleanConstEClass.getESuperTypes().add(this.getLiteral());
+    numericLiteralEClass.getESuperTypes().add(this.getLiteral());
+    numericLiteralEClass.getESuperTypes().add(this.getPrimaryArithmetic());
+    stringLiteralEClass.getESuperTypes().add(this.getLiteral());
+    typeCastEClass.getESuperTypes().add(this.getExpression());
+    specialVariablesEClass.getESuperTypes().add(this.getLiteral());
+    varVariableTypeDeclarationEClass.getESuperTypes().add(this.getSimpleStatement());
+    varVariableTypeDeclarationEClass.getESuperTypes().add(this.getSimpleStatement2());
+    blockEClass.getESuperTypes().add(this.getBody());
+    continueEClass.getESuperTypes().add(this.getContinueStatement());
+    assignmentEClass.getESuperTypes().add(this.getExpression());
+    variableDeclarationExpressionEClass.getESuperTypes().add(this.getExpression());
+    orEClass.getESuperTypes().add(this.getExpression());
+    andEClass.getESuperTypes().add(this.getExpression());
+    equalityEClass.getESuperTypes().add(this.getExpression());
+    comparisonEClass.getESuperTypes().add(this.getExpression());
+    bitOrEClass.getESuperTypes().add(this.getExpression());
+    bitXorEClass.getESuperTypes().add(this.getExpression());
+    bitAndEClass.getESuperTypes().add(this.getExpression());
+    shiftEClass.getESuperTypes().add(this.getExpression());
+    addSubEClass.getESuperTypes().add(this.getExpression());
+    mulDivModEClass.getESuperTypes().add(this.getExpression());
+    exponentEClass.getESuperTypes().add(this.getExpression());
+    postIncDecExpressionEClass.getESuperTypes().add(this.getExpression());
+
+    // Initialize classes and features; add operations and parameters
+    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Operations(), this.getContract(), null, "operations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contractEClass, Contract.class, "Contract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContract_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContract_InheritanceSpecifiers(), this.getInheritanceSpecifier(), null, "inheritanceSpecifiers", null, 0, -1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContract_Body(), this.getDefinitionBody(), null, "body", null, 0, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inheritanceSpecifierEClass, InheritanceSpecifier.class, "InheritanceSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInheritanceSpecifier_SuperType(), this.getContract(), null, "SuperType", null, 0, 1, InheritanceSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInheritanceSpecifier_Args(), this.getFunctionCallListArguments(), null, "args", null, 0, 1, InheritanceSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(definitionBodyEClass, DefinitionBody.class, "DefinitionBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDefinitionBody_Functions(), this.getFunctionDefinition(), null, "functions", null, 0, -1, DefinitionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinitionBody_Structs(), this.getStructDefinition(), null, "structs", null, 0, -1, DefinitionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinitionBody_Enums(), this.getEnumDefinition(), null, "enums", null, 0, -1, DefinitionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinitionBody_Variables(), this.getStatement(), null, "variables", null, 0, -1, DefinitionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinitionBody_Modifiers(), this.getModifier(), null, "modifiers", null, 0, -1, DefinitionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinitionBody_Events(), this.getEvent(), null, "events", null, 0, -1, DefinitionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionDefinitionEClass, FunctionDefinition.class, "FunctionDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionDefinition_Payable(), ecorePackage.getEBoolean(), "payable", null, 0, 1, FunctionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFunctionDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDefinition_Parameters(), this.getParameterList(), null, "parameters", null, 0, 1, FunctionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDefinition_OptionalElements(), this.getFunctionDefinitionOptionalElement(), null, "optionalElements", null, 0, -1, FunctionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDefinition_ReturnParameters(), this.getReturnsParameterList(), null, "returnParameters", null, 0, 1, FunctionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionDefinition_Block(), this.getBody(), null, "block", null, 0, 1, FunctionDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionCallListArgumentsEClass, FunctionCallListArguments.class, "FunctionCallListArguments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionCallListArguments_Arguments(), this.getExpression(), null, "arguments", null, 0, -1, FunctionCallListArguments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionCallArgumentsEClass, FunctionCallArguments.class, "FunctionCallArguments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionCallArguments_Args(), this.getFunctionCallArg(), null, "args", null, 0, -1, FunctionCallArguments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionCallArgEClass, FunctionCallArg.class, "FunctionCallArg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionCallArg_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionCallArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionCallArg_Expr(), this.getExpression(), null, "expr", null, 0, 1, FunctionCallArg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionDefinitionOptionalElementEClass, FunctionDefinitionOptionalElement.class, "FunctionDefinitionOptionalElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(constEClass, Const.class, "Const", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(visibilitySpecifierEClass, VisibilitySpecifier.class, "VisibilitySpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVisibilitySpecifier_Visibility(), this.getVisibilityEnum(), null, "visibility", null, 0, 1, VisibilitySpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(structDefinitionEClass, StructDefinition.class, "StructDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStructDefinition_Visibility(), this.getVisibilityEnum(), null, "visibility", null, 0, 1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStructDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStructDefinition_Members(), this.getStatement(), null, "members", null, 0, -1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(enumDefinitionEClass, EnumDefinition.class, "EnumDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnumDefinition_Visibility(), this.getVisibilityEnum(), null, "visibility", null, 0, 1, EnumDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEnumDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnumDefinition_Members(), this.getEnumValue(), null, "members", null, 0, -1, EnumDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(enumValueEClass, EnumValue.class, "EnumValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEnumValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(standardVariableDeclarationEClass, StandardVariableDeclaration.class, "StandardVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStandardVariableDeclaration_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, StandardVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStandardVariableDeclaration_OptionalElements(), this.getVariableDeclarationOptionalElement(), null, "optionalElements", null, 0, -1, StandardVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStandardVariableDeclaration_Variable(), this.getVariable(), null, "variable", null, 0, 1, StandardVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStandardVariableDeclaration_Expression(), this.getExpression(), null, "expression", null, 0, 1, StandardVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStandardVariableDeclaration_PtionalElements(), this.getVariableDeclarationOptionalElement(), null, "ptionalElements", null, 0, -1, StandardVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStandardVariableDeclaration_Semicolon(), ecorePackage.getEBoolean(), "semicolon", null, 0, 1, StandardVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varVariableDeclarationEClass, VarVariableDeclaration.class, "VarVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarVariableDeclaration_VarType(), ecorePackage.getEString(), "varType", null, 0, 1, VarVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarVariableDeclaration_Variable(), this.getVariable(), null, "variable", null, 0, 1, VarVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarVariableDeclaration_Expression(), this.getExpression(), null, "expression", null, 0, 1, VarVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varVariableTupleVariableDeclarationEClass, VarVariableTupleVariableDeclaration.class, "VarVariableTupleVariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarVariableTupleVariableDeclaration_VarType(), ecorePackage.getEString(), "varType", null, 0, 1, VarVariableTupleVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarVariableTupleVariableDeclaration_Tuple(), this.getTuple(), null, "tuple", null, 0, 1, VarVariableTupleVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarVariableTupleVariableDeclaration_Expression(), this.getExpression(), null, "expression", null, 0, 1, VarVariableTupleVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarVariableTupleVariableDeclaration_Semicolon(), ecorePackage.getEBoolean(), "semicolon", null, 0, 1, VarVariableTupleVariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableDeclarationOptionalElementEClass, VariableDeclarationOptionalElement.class, "VariableDeclarationOptionalElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(indexedSpeciferEClass, IndexedSpecifer.class, "IndexedSpecifer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(constantSpecifierEClass, ConstantSpecifier.class, "ConstantSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(locationSpecifierEClass, LocationSpecifier.class, "LocationSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLocationSpecifier_Location(), this.getLocationSpecifierEnum(), null, "location", null, 0, 1, LocationSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getType_IsVarType(), ecorePackage.getEBoolean(), "isVarType", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(standardTypeEClass, StandardType.class, "StandardType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(standardTypeWithoutQualifiedIdentifierEClass, StandardTypeWithoutQualifiedIdentifier.class, "StandardTypeWithoutQualifiedIdentifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(elementaryTypeEClass, ElementaryType.class, "ElementaryType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElementaryType_Dimension(), this.getArrayDimensions(), null, "dimension", null, 0, 1, ElementaryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getElementaryType_Name(), this.getElementaryTypeNameEnum(), null, "name", null, 0, 1, ElementaryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMapping_KeyType(), this.getElementaryTypeNameEnum(), null, "keyType", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMapping_ValueType(), this.getType(), null, "valueType", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arrayDimensionsEClass, ArrayDimensions.class, "ArrayDimensions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayDimensions_Value(), this.getExpression(), null, "value", null, 0, -1, ArrayDimensions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(tupleEClass, Tuple.class, "Tuple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTuple_Members(), this.getExpression(), null, "members", null, 0, -1, Tuple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(tupleSeparatorEClass, TupleSeparator.class, "TupleSeparator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(simpleStatementEClass, SimpleStatement.class, "SimpleStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(simpleStatement2EClass, SimpleStatement2.class, "SimpleStatement2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(expressionStatementEClass, ExpressionStatement.class, "ExpressionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExpressionStatement_Semicolon(), ecorePackage.getEBoolean(), "semicolon", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpressionStatement_Expression(), this.getExpression(), null, "expression", null, 0, 1, ExpressionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(qualifiedIdentifierEClass, QualifiedIdentifier.class, "QualifiedIdentifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getQualifiedIdentifier_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, QualifiedIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getQualifiedIdentifier_Qualifiers(), this.getQualifier(), null, "qualifiers", null, 0, -1, QualifiedIdentifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(qualifierEClass, Qualifier.class, "Qualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getField_Field(), ecorePackage.getEString(), "field", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIndex_Value(), this.getExpression(), null, "value", null, 0, 1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(argumentsEClass, Arguments.class, "Arguments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArguments_Arguments(), this.getFunctionCallArguments(), null, "arguments", null, 0, 1, Arguments.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(modifierEClass, Modifier.class, "Modifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModifier_Name(), ecorePackage.getEString(), "name", null, 0, 1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModifier_Parameters(), this.getParameterList(), null, "parameters", null, 0, 1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModifier_Block(), this.getBody(), null, "block", null, 0, 1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEvent_Parameters(), this.getParameterList(), null, "parameters", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(modifierInvocationEClass, ModifierInvocation.class, "ModifierInvocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModifierInvocation_Name(), this.getModifier(), null, "name", null, 0, 1, ModifierInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModifierInvocation_Args(), this.getFunctionCallListArguments(), null, "args", null, 0, 1, ModifierInvocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterList_Parameters(), this.getStatement(), null, "parameters", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(returnsParameterListEClass, ReturnsParameterList.class, "ReturnsParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReturnsParameterList_Parameters(), this.getReturnParameterDeclaration(), null, "parameters", null, 0, -1, ReturnsParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(returnParameterDeclarationEClass, ReturnParameterDeclaration.class, "ReturnParameterDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReturnParameterDeclaration_TypeRef(), this.getType(), null, "typeRef", null, 0, 1, ReturnParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getReturnParameterDeclaration_Variable(), this.getVariable(), null, "variable", null, 0, 1, ReturnParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(deleteStatementEClass, DeleteStatement.class, "DeleteStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDeleteStatement_Variable(), this.getQualifiedIdentifier(), null, "variable", null, 0, 1, DeleteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ifStatementEClass, IfStatement.class, "IfStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIfStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStatement_TrueBody(), this.getStatement(), null, "trueBody", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStatement_FalseBody(), this.getStatement(), null, "falseBody", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(whileStatementEClass, WhileStatement.class, "WhileStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWhileStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhileStatement_Body(), this.getStatement(), null, "body", null, 0, 1, WhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(forStatementEClass, ForStatement.class, "ForStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForStatement_InitExpression(), this.getSimpleStatement2(), null, "initExpression", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStatement_ConditionExpression(), this.getExpression(), null, "conditionExpression", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStatement_LoopExpression(), this.getExpressionStatement(), null, "loopExpression", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForStatement_Body(), this.getStatement(), null, "body", null, 0, 1, ForStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bodyEClass, Body.class, "Body", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(continueStatementEClass, ContinueStatement.class, "ContinueStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(breakStatementEClass, BreakStatement.class, "BreakStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(returnStatementEClass, ReturnStatement.class, "ReturnStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReturnStatement_Expression(), this.getExpression(), null, "expression", null, 0, 1, ReturnStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(throwStatementEClass, ThrowStatement.class, "ThrowStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(placeHolderStatementEClass, PlaceHolderStatement.class, "PlaceHolderStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(specialExpressionEClass, SpecialExpression.class, "SpecialExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSpecialExpression_Type(), this.getSpecialExpressionTypeEnum(), "type", null, 0, 1, SpecialExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecialExpression_FieldOrMethod(), this.getField(), null, "fieldOrMethod", null, 0, 1, SpecialExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecialExpression_Qualifiers(), this.getQualifier(), null, "qualifiers", null, 0, -1, SpecialExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(notExpressionEClass, NotExpression.class, "NotExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNotExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, NotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(preIncExpressionEClass, PreIncExpression.class, "PreIncExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPreIncExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, PreIncExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(preDecExpressionEClass, PreDecExpression.class, "PreDecExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPreDecExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, PreDecExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(binaryNotExpressionEClass, BinaryNotExpression.class, "BinaryNotExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBinaryNotExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, BinaryNotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(signExpressionEClass, SignExpression.class, "SignExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSignExpression_SignOp(), ecorePackage.getEString(), "signOp", null, 0, 1, SignExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSignExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, SignExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(newExpressionEClass, NewExpression.class, "NewExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNewExpression_Contract(), this.getContract(), null, "contract", null, 0, 1, NewExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNewExpression_Args(), this.getFunctionCallListArguments(), null, "args", null, 0, 1, NewExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(gasleftFunctionEClass, GasleftFunction.class, "GasleftFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGasleftFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, GasleftFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(blockhashFunctionEClass, BlockhashFunction.class, "BlockhashFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBlockhashFunction_Parameter(), this.getIntParameter(), null, "parameter", null, 0, 1, BlockhashFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mathematicalFunctionEClass, MathematicalFunction.class, "MathematicalFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMathematicalFunction_Function(), ecorePackage.getEString(), "function", null, 0, 1, MathematicalFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMathematicalFunction_Parameters(), this.getIntParameter(), null, "parameters", null, 0, -1, MathematicalFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ecrecoverFunctionEClass, EcrecoverFunction.class, "EcrecoverFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEcrecoverFunction_Function(), ecorePackage.getEString(), "function", null, 0, 1, EcrecoverFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEcrecoverFunction_Parameters(), this.getIntParameter(), null, "parameters", null, 0, -1, EcrecoverFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(hashFunctionEClass, HashFunction.class, "HashFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getHashFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, HashFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getHashFunction_Parameters(), this.getIntParameter(), null, "parameters", null, 0, 1, HashFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(intParameterEClass, IntParameter.class, "IntParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIntParameter_Param(), this.getArithmeticOperations(), null, "param", null, 0, 1, IntParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIntParameter_Fun(), this.getFunctionCall(), null, "fun", null, 0, 1, IntParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionCallEClass, FunctionCall.class, "FunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionCall_Name(), this.getFunctionDefinition(), null, "name", null, 0, 1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionCall_Parameters(), this.getExpression(), null, "parameters", null, 0, -1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arithmeticOperationsEClass, ArithmeticOperations.class, "ArithmeticOperations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArithmeticOperations_First(), this.getPrimaryArithmetic(), null, "first", null, 0, 1, ArithmeticOperations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArithmeticOperations_Seconds(), this.getSecondOperators(), null, "seconds", null, 0, -1, ArithmeticOperations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(primaryArithmeticEClass, PrimaryArithmetic.class, "PrimaryArithmetic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(secondOperatorsEClass, SecondOperators.class, "SecondOperators", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSecondOperators_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, SecondOperators.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSecondOperators_Value(), this.getPrimaryArithmetic(), null, "value", null, 0, 1, SecondOperators.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanConstEClass, BooleanConst.class, "BooleanConst", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanConst_Value(), this.getBooleanLiteralEnum(), "value", null, 0, 1, BooleanConst.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(numericLiteralEClass, NumericLiteral.class, "NumericLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNumericLiteral_IntValue(), this.getNumberDimensionless(), null, "intValue", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNumericLiteral_HexValue(), this.getHexLiteral(), null, "hexValue", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNumericLiteral_DecimalValue(), this.getDecimalLiteral(), null, "decimalValue", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNumericLiteral_Now(), this.getNow(), null, "now", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNumericLiteral_EtherUnit(), this.getUnitTypes(), null, "etherUnit", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(nowEClass, Now.class, "Now", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(unitTypesEClass, UnitTypes.class, "UnitTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUnitTypes_Time(), this.getTime(), null, "time", null, 0, 1, UnitTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnitTypes_Units(), this.getEther(), null, "units", null, 0, 1, UnitTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(numberDimensionlessEClass, NumberDimensionless.class, "NumberDimensionless", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNumberDimensionless_Value(), ecorePackage.getEInt(), "value", null, 0, 1, NumberDimensionless.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(etherEClass, Ether.class, "Ether", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEther_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Ether.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEther_Ether(), this.getEtherSubDenominationEnum(), "ether", null, 0, 1, Ether.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTime_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTime_Time(), this.getTimeSubdenominationEnum(), "time", null, 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(hexLiteralEClass, HexLiteral.class, "HexLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getHexLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, HexLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(decimalLiteralEClass, DecimalLiteral.class, "DecimalLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDecimalLiteral_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, DecimalLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeCastEClass, TypeCast.class, "TypeCast", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeCast_Value(), this.getElementaryTypeNameEnum(), null, "value", null, 0, 1, TypeCast.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeCast_Expression(), this.getExpression(), null, "expression", null, 0, 1, TypeCast.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(specialVariablesEClass, SpecialVariables.class, "SpecialVariables", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSpecialVariables_Type(), this.getSpecialVariablesTypeEnum(), null, "type", null, 0, 1, SpecialVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSpecialVariables_Field(), ecorePackage.getEString(), "field", null, 0, 1, SpecialVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSpecialVariables_Qualifiers(), this.getQualifier(), null, "qualifiers", null, 0, -1, SpecialVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleTypeDeclarationEClass, SimpleTypeDeclaration.class, "SimpleTypeDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleTypeDeclaration_Type(), ecorePackage.getEString(), "type", null, 0, 1, SimpleTypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elementaryTypeNameEnumEClass, ElementaryTypeNameEnum.class, "ElementaryTypeNameEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getElementaryTypeNameEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, ElementaryTypeNameEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(locationSpecifierEnumEClass, LocationSpecifierEnum.class, "LocationSpecifierEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLocationSpecifierEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, LocationSpecifierEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(visibilityEnumEClass, VisibilityEnum.class, "VisibilityEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVisibilityEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, VisibilityEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(specialVariablesTypeEnumEClass, SpecialVariablesTypeEnum.class, "SpecialVariablesTypeEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSpecialVariablesTypeEnum_Name(), ecorePackage.getEString(), "name", null, 0, 1, SpecialVariablesTypeEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varVariableTypeDeclarationEClass, VarVariableTypeDeclaration.class, "VarVariableTypeDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVarVariableTypeDeclaration_Variable(), this.getVariable(), null, "variable", null, 0, 1, VarVariableTypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarVariableTypeDeclaration_Expression(), this.getExpression(), null, "expression", null, 0, 1, VarVariableTypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarVariableTypeDeclaration_Semicolon(), ecorePackage.getEBoolean(), "semicolon", null, 0, 1, VarVariableTypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBlock_Statements(), this.getStatement(), null, "statements", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(continueEClass, Continue.class, "Continue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(assignmentEClass, Assignment.class, "Assignment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAssignment_Left(), this.getExpression(), null, "left", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssignment_AssignmentOp(), this.getAssignmentOpEnum(), "assignmentOp", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssignment_Expression(), this.getExpression(), null, "expression", null, 0, 1, Assignment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableDeclarationExpressionEClass, VariableDeclarationExpression.class, "VariableDeclarationExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariableDeclarationExpression_Type(), this.getExpression(), null, "type", null, 0, 1, VariableDeclarationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariableDeclarationExpression_Variable(), this.getVariable(), null, "variable", null, 0, 1, VariableDeclarationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariableDeclarationExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, VariableDeclarationExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOr_Left(), this.getExpression(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOr_Right(), this.getExpression(), null, "right", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAnd_Left(), this.getExpression(), null, "left", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAnd_Right(), this.getExpression(), null, "right", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(equalityEClass, Equality.class, "Equality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEquality_Left(), this.getExpression(), null, "left", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEquality_EqualityOp(), this.getEqualityOpEnum(), "equalityOp", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEquality_Right(), this.getExpression(), null, "right", null, 0, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComparison_Left(), this.getExpression(), null, "left", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComparison_ComparisonOp(), this.getComparisonOpEnum(), "comparisonOp", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComparison_Right(), this.getExpression(), null, "right", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bitOrEClass, BitOr.class, "BitOr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBitOr_Left(), this.getExpression(), null, "left", null, 0, 1, BitOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBitOr_Right(), this.getExpression(), null, "right", null, 0, 1, BitOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bitXorEClass, BitXor.class, "BitXor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBitXor_Left(), this.getExpression(), null, "left", null, 0, 1, BitXor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBitXor_Right(), this.getExpression(), null, "right", null, 0, 1, BitXor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bitAndEClass, BitAnd.class, "BitAnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBitAnd_Left(), this.getExpression(), null, "left", null, 0, 1, BitAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBitAnd_Right(), this.getExpression(), null, "right", null, 0, 1, BitAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(shiftEClass, Shift.class, "Shift", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getShift_Left(), this.getExpression(), null, "left", null, 0, 1, Shift.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getShift_ShiftOp(), this.getShiftOpEnum(), "shiftOp", null, 0, 1, Shift.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getShift_Right(), this.getExpression(), null, "right", null, 0, 1, Shift.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(addSubEClass, AddSub.class, "AddSub", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAddSub_Left(), this.getExpression(), null, "left", null, 0, 1, AddSub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddSub_AdditionOp(), this.getAdditionOpEnum(), "additionOp", null, 0, 1, AddSub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAddSub_Right(), this.getExpression(), null, "right", null, 0, 1, AddSub.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(mulDivModEClass, MulDivMod.class, "MulDivMod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMulDivMod_Left(), this.getExpression(), null, "left", null, 0, 1, MulDivMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMulDivMod_MultipliciativeOp(), this.getMulDivModOpEnum(), "multipliciativeOp", null, 0, 1, MulDivMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMulDivMod_Right(), this.getExpression(), null, "right", null, 0, 1, MulDivMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exponentEClass, Exponent.class, "Exponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExponent_Left(), this.getExpression(), null, "left", null, 0, 1, Exponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExponent_Right(), this.getExpression(), null, "right", null, 0, 1, Exponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(postIncDecExpressionEClass, PostIncDecExpression.class, "PostIncDecExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPostIncDecExpression_Expression(), this.getExpression(), null, "expression", null, 0, 1, PostIncDecExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPostIncDecExpression_PostOp(), this.getIncDecOpEnum(), "postOp", null, 0, 1, PostIncDecExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(assignmentOpEnumEEnum, AssignmentOpEnum.class, "AssignmentOpEnum");
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_OR);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_XOR);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_AND);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_SHIFT_LEFT);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_SHIFT_RIGHT);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_SHIFT_RIGHT_ARIMETIC);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_ADD);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_SUB);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_MULT);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_DIV);
+    addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN_MOD);
+
+    initEEnum(equalityOpEnumEEnum, EqualityOpEnum.class, "EqualityOpEnum");
+    addEEnumLiteral(equalityOpEnumEEnum, EqualityOpEnum.EQ);
+    addEEnumLiteral(equalityOpEnumEEnum, EqualityOpEnum.NOTEQ);
+
+    initEEnum(comparisonOpEnumEEnum, ComparisonOpEnum.class, "ComparisonOpEnum");
+    addEEnumLiteral(comparisonOpEnumEEnum, ComparisonOpEnum.LT);
+    addEEnumLiteral(comparisonOpEnumEEnum, ComparisonOpEnum.GT);
+    addEEnumLiteral(comparisonOpEnumEEnum, ComparisonOpEnum.LTE);
+    addEEnumLiteral(comparisonOpEnumEEnum, ComparisonOpEnum.GTE);
+    addEEnumLiteral(comparisonOpEnumEEnum, ComparisonOpEnum.IN);
+
+    initEEnum(shiftOpEnumEEnum, ShiftOpEnum.class, "ShiftOpEnum");
+    addEEnumLiteral(shiftOpEnumEEnum, ShiftOpEnum.LEFT_SHIFT);
+    addEEnumLiteral(shiftOpEnumEEnum, ShiftOpEnum.RIGHT_SHIFT);
+    addEEnumLiteral(shiftOpEnumEEnum, ShiftOpEnum.ARITHMETIC_RIGHT_SHIFT);
+
+    initEEnum(additionOpEnumEEnum, AdditionOpEnum.class, "AdditionOpEnum");
+    addEEnumLiteral(additionOpEnumEEnum, AdditionOpEnum.ADD);
+    addEEnumLiteral(additionOpEnumEEnum, AdditionOpEnum.SUB);
+
+    initEEnum(mulDivModOpEnumEEnum, MulDivModOpEnum.class, "MulDivModOpEnum");
+    addEEnumLiteral(mulDivModOpEnumEEnum, MulDivModOpEnum.MULT);
+    addEEnumLiteral(mulDivModOpEnumEEnum, MulDivModOpEnum.DIV);
+    addEEnumLiteral(mulDivModOpEnumEEnum, MulDivModOpEnum.MOD);
+
+    initEEnum(incDecOpEnumEEnum, IncDecOpEnum.class, "IncDecOpEnum");
+    addEEnumLiteral(incDecOpEnumEEnum, IncDecOpEnum.INC);
+    addEEnumLiteral(incDecOpEnumEEnum, IncDecOpEnum.DEC);
+
+    initEEnum(booleanLiteralEnumEEnum, BooleanLiteralEnum.class, "BooleanLiteralEnum");
+    addEEnumLiteral(booleanLiteralEnumEEnum, BooleanLiteralEnum.TRUE);
+    addEEnumLiteral(booleanLiteralEnumEEnum, BooleanLiteralEnum.FALSE);
+
+    initEEnum(etherSubDenominationEnumEEnum, EtherSubDenominationEnum.class, "EtherSubDenominationEnum");
+    addEEnumLiteral(etherSubDenominationEnumEEnum, EtherSubDenominationEnum.WEI);
+    addEEnumLiteral(etherSubDenominationEnumEEnum, EtherSubDenominationEnum.SZABO);
+    addEEnumLiteral(etherSubDenominationEnumEEnum, EtherSubDenominationEnum.FINNEY);
+    addEEnumLiteral(etherSubDenominationEnumEEnum, EtherSubDenominationEnum.ETHER);
+
+    initEEnum(timeSubdenominationEnumEEnum, TimeSubdenominationEnum.class, "TimeSubdenominationEnum");
+    addEEnumLiteral(timeSubdenominationEnumEEnum, TimeSubdenominationEnum.SECONDS);
+    addEEnumLiteral(timeSubdenominationEnumEEnum, TimeSubdenominationEnum.MINUTES);
+    addEEnumLiteral(timeSubdenominationEnumEEnum, TimeSubdenominationEnum.HOURS);
+    addEEnumLiteral(timeSubdenominationEnumEEnum, TimeSubdenominationEnum.DAYS);
+    addEEnumLiteral(timeSubdenominationEnumEEnum, TimeSubdenominationEnum.WEEKS);
+    addEEnumLiteral(timeSubdenominationEnumEEnum, TimeSubdenominationEnum.YEARS);
+
+    initEEnum(specialExpressionTypeEnumEEnum, SpecialExpressionTypeEnum.class, "SpecialExpressionTypeEnum");
+    addEEnumLiteral(specialExpressionTypeEnumEEnum, SpecialExpressionTypeEnum.SUPER);
+    addEEnumLiteral(specialExpressionTypeEnumEEnum, SpecialExpressionTypeEnum.THIS);
+
+    initEEnum(reservedWordsEnumEEnum, ReservedWordsEnum.class, "ReservedWordsEnum");
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.AS);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.CASE);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.CATCH);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.FINAL);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.LET);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.MATCH);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.OF);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.RELOCATABLE);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.SWITCH);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.TRY);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.TYPE);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.TYPEOF);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.USING);
+    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.ILLEGAL);
+
+    // Create resource
     createResource(eNS_URI);
-  }
-
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private boolean isFixed = false;
-
-  /**
-   * Fixes up the loaded package, to make it appear as if it had been programmatically built.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void fixPackageContents()
-  {
-    if (isFixed) return;
-    isFixed = true;
-    fixEClassifiers();
-  }
-
-  /**
-   * Sets the instance class on the given classifier.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  protected void fixInstanceClass(EClassifier eClassifier)
-  {
-    if (eClassifier.getInstanceClassName() == null)
-    {
-      eClassifier.setInstanceClassName("org.unicam.myGrammar.optGrammar." + eClassifier.getName());
-      setGeneratedClassName(eClassifier);
-    }
   }
 
 } //OptGrammarPackageImpl

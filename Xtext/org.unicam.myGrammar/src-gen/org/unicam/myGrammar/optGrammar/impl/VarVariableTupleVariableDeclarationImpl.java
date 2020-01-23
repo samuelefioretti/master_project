@@ -112,7 +112,7 @@ public class VarVariableTupleVariableDeclarationImpl extends StatementImpl imple
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration();
+    return OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION;
   }
 
   /**

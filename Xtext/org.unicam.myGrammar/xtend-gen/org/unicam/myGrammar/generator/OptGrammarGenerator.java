@@ -23,6 +23,7 @@ import org.unicam.myGrammar.optGrammar.BlockhashFunction;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
+import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Ether;
@@ -36,6 +37,9 @@ import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
+import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
+import org.unicam.myGrammar.optGrammar.SecondOperators;
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
 import org.unicam.myGrammar.optGrammar.Time;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
@@ -303,14 +307,24 @@ public class OptGrammarGenerator extends AbstractGenerator {
   }
   
   public String compileTypes(final EObject type) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nSizedDeclaration cannot be resolved to a type."
-      + "\nSimpleTypeDeclaration cannot be resolved to a type."
-      + "\nThe method or field unsigned is undefined for the type EObject"
-      + "\nThe method or field type is undefined for the type EObject"
-      + "\nThe method or field type is undefined for the type EObject"
-      + "\nThe method or field type is undefined for the type EObject"
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition.");
+    String _switchResult = null;
+    boolean _matched = false;
+    if (type instanceof ElementaryTypeNameEnum) {
+      _matched=true;
+      _switchResult = ((ElementaryTypeNameEnum)type).getType();
+    }
+    if (!_matched) {
+      _matched=true;
+      if (!_matched) {
+        if (type instanceof SimpleTypeDeclaration) {
+          _matched=true;
+        }
+      }
+      if (_matched) {
+        _switchResult = ((SimpleTypeDeclaration)type).getType();
+      }
+    }
+    return _switchResult;
   }
   
   public String compileStruct(final StructDefinition st) {
@@ -363,22 +377,20 @@ public class OptGrammarGenerator extends AbstractGenerator {
       + "\n!== cannot be resolved"
       + "\nvisibility cannot be resolved"
       + "\ntype cannot be resolved"
-      + "\nunnamedMappingDeclaration cannot be resolved"
-      + "\ncompileUnnamedMappingDeclaration cannot be resolved"
+      + "\nMapping cannot be resolved"
+      + "\ncompileMapping cannot be resolved"
       + "\nlocation cannot be resolved"
       + "\n!== cannot be resolved"
       + "\nname cannot be resolved");
   }
   
-  public String compileUnnamedMappingDeclaration(final Mapping dec) {
+  public String compileMapping(final Mapping dec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nUnnamedMappingDeclaration cannot be resolved to a type."
       + "\nThe method or field type is undefined for the type Mapping"
       + "\nThe method or field secondRef is undefined for the type Mapping"
       + "\nThe method or field secondRef is undefined for the type Mapping"
       + "\nThe method or field second is undefined for the type Mapping"
       + "\nThe method or field second is undefined for the type Mapping"
-      + "\nThe method or field UnnamedMappingDeclaration is undefined"
       + "\nThe method or field second is undefined for the type Mapping"
       + "\nThe method or field second is undefined for the type Mapping"
       + "\nThe method or field array is undefined for the type Mapping"
@@ -386,8 +398,6 @@ public class OptGrammarGenerator extends AbstractGenerator {
       + "\n!== cannot be resolved"
       + "\ncompileDeclarationReference cannot be resolved"
       + "\n!== cannot be resolved"
-      + "\ncast cannot be resolved"
-      + "\ncompileUnnamedMappingDeclaration cannot be resolved"
       + "\ncompileTypes cannot be resolved");
   }
   
@@ -587,15 +597,36 @@ public class OptGrammarGenerator extends AbstractGenerator {
   }
   
   public String compileArithmeticOperations(final ArithmeticOperations op) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method compilePrimaryArithmetic(PrimaryArithmetic) from the type OptGrammarGenerator refers to the missing type Object"
-      + "\nThe method compilePrimaryArithmetic(PrimaryArithmetic) from the type OptGrammarGenerator refers to the missing type Object");
+    StringConcatenation _builder = new StringConcatenation();
+    String _compilePrimaryArithmetic = this.compilePrimaryArithmetic(op.getFirst());
+    _builder.append(_compilePrimaryArithmetic);
+    StringConcatenation _builder_1 = new StringConcatenation();
+    {
+      EList<SecondOperators> _seconds = op.getSeconds();
+      for(final SecondOperators operation : _seconds) {
+        String _operator = operation.getOperator();
+        _builder_1.append(_operator);
+        String _compilePrimaryArithmetic_1 = this.compilePrimaryArithmetic(operation.getValue());
+        _builder_1.append(_compilePrimaryArithmetic_1);
+      }
+    }
+    return (_builder.toString() + _builder_1);
   }
   
-  public Object compilePrimaryArithmetic(final /* PrimaryArithmetic */Object primary) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ncompileNumericLiteral cannot be resolved"
-      + "\ncompileExpression cannot be resolved");
+  public String compilePrimaryArithmetic(final PrimaryArithmetic primary) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if (primary instanceof NumericLiteral) {
+      _matched=true;
+      _switchResult = this.compileNumericLiteral(((NumericLiteral)primary));
+    }
+    if (!_matched) {
+      if (primary instanceof Expression) {
+        _matched=true;
+        _switchResult = this.compileExpression(((Expression)primary));
+      }
+    }
+    return _switchResult;
   }
   
   public String compileNumericLiteral(final NumericLiteral num) {
@@ -761,11 +792,12 @@ public class OptGrammarGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     String _name = call.getName().getName();
     _builder.append(_name);
-    _builder.append(" (");
+    _builder.append("(");
     {
       EList<Expression> _parameters = call.getParameters();
       boolean _tripleNotEquals = (_parameters != null);
       if (_tripleNotEquals) {
+        _builder.newLineIfNotEmpty();
         {
           EList<Expression> _parameters_1 = call.getParameters();
           boolean _hasElements = false;
@@ -777,8 +809,10 @@ public class OptGrammarGenerator extends AbstractGenerator {
             }
             String _compileExpression = this.compileExpression(param);
             _builder.append(_compileExpression);
+            _builder.newLineIfNotEmpty();
           }
         }
+        _builder.append("\t\t");
       }
     }
     _builder.append(")");

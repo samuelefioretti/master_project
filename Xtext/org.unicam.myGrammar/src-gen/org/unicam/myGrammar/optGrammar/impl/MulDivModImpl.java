@@ -91,7 +91,7 @@ public class MulDivModImpl extends ExpressionImpl implements MulDivMod
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getMulDivMod();
+    return OptGrammarPackage.Literals.MUL_DIV_MOD;
   }
 
   /**

@@ -58,7 +58,7 @@ public class IndexImpl extends QualifierImpl implements Index
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getIndex();
+    return OptGrammarPackage.Literals.INDEX;
   }
 
   /**

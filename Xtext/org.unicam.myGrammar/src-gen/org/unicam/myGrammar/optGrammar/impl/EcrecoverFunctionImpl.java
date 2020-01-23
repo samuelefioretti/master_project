@@ -86,7 +86,7 @@ public class EcrecoverFunctionImpl extends LiteralImpl implements EcrecoverFunct
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getEcrecoverFunction();
+    return OptGrammarPackage.Literals.ECRECOVER_FUNCTION;
   }
 
   /**

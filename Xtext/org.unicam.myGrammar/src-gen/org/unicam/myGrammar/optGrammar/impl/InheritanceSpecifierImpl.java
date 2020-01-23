@@ -71,7 +71,7 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getInheritanceSpecifier();
+    return OptGrammarPackage.Literals.INHERITANCE_SPECIFIER;
   }
 
   /**

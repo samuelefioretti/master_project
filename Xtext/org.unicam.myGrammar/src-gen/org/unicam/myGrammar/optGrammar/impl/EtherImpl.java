@@ -88,7 +88,7 @@ public class EtherImpl extends MinimalEObjectImpl.Container implements Ether
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getEther();
+    return OptGrammarPackage.Literals.ETHER;
   }
 
   /**

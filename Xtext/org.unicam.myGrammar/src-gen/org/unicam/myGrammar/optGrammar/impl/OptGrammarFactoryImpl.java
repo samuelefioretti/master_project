@@ -152,6 +152,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.DECIMAL_LITERAL: return createDecimalLiteral();
       case OptGrammarPackage.TYPE_CAST: return createTypeCast();
       case OptGrammarPackage.SPECIAL_VARIABLES: return createSpecialVariables();
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION: return createSimpleTypeDeclaration();
+      case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM: return createElementaryTypeNameEnum();
       case OptGrammarPackage.LOCATION_SPECIFIER_ENUM: return createLocationSpecifierEnum();
       case OptGrammarPackage.VISIBILITY_ENUM: return createVisibilityEnum();
       case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM: return createSpecialVariablesTypeEnum();
@@ -187,8 +189,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     switch (eDataType.getClassifierID())
     {
-      case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
-        return createElementaryTypeNameEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.ASSIGNMENT_OP_ENUM:
         return createAssignmentOpEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.EQUALITY_OP_ENUM:
@@ -228,8 +228,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     switch (eDataType.getClassifierID())
     {
-      case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
-        return convertElementaryTypeNameEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.ASSIGNMENT_OP_ENUM:
         return convertAssignmentOpEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.EQUALITY_OP_ENUM:
@@ -1297,6 +1295,30 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
+  public SimpleTypeDeclaration createSimpleTypeDeclaration()
+  {
+    SimpleTypeDeclarationImpl simpleTypeDeclaration = new SimpleTypeDeclarationImpl();
+    return simpleTypeDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ElementaryTypeNameEnum createElementaryTypeNameEnum()
+  {
+    ElementaryTypeNameEnumImpl elementaryTypeNameEnum = new ElementaryTypeNameEnumImpl();
+    return elementaryTypeNameEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public LocationSpecifierEnum createLocationSpecifierEnum()
   {
     LocationSpecifierEnumImpl locationSpecifierEnum = new LocationSpecifierEnumImpl();
@@ -1529,28 +1551,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     PostIncDecExpressionImpl postIncDecExpression = new PostIncDecExpressionImpl();
     return postIncDecExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ElementaryTypeNameEnum createElementaryTypeNameEnumFromString(EDataType eDataType, String initialValue)
-  {
-    ElementaryTypeNameEnum result = ElementaryTypeNameEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertElementaryTypeNameEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

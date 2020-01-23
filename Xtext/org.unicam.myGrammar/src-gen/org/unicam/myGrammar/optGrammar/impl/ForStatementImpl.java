@@ -94,7 +94,7 @@ public class ForStatementImpl extends StatementImpl implements ForStatement
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getForStatement();
+    return OptGrammarPackage.Literals.FOR_STATEMENT;
   }
 
   /**

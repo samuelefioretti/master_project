@@ -37,7 +37,7 @@ public class SimpleStatement2Impl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getSimpleStatement2();
+    return OptGrammarPackage.Literals.SIMPLE_STATEMENT2;
   }
 
 } //SimpleStatement2Impl

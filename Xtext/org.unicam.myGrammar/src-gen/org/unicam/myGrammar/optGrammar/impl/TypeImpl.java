@@ -66,7 +66,7 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getType();
+    return OptGrammarPackage.Literals.TYPE;
   }
 
   /**

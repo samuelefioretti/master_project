@@ -36,6 +36,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		///*
 		// * Controllare gli array
 		// * Controllare le strutture
+		// * Controllare le functionCall
 		// */ // ---------- TO DO ----------
 		//// ---------- Old grammar ----------
 		///*
@@ -615,8 +616,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//StructDefinition:
-		//	visibility=VisibilityEnum? "struct" name=ID "{" (members+=VariableDeclaration ";")*
-		//	"}";
+		//	visibility=VisibilityEnum? "struct" name=ID "{" (members+=VariableDeclaration ";")* "}";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//visibility=VisibilityEnum? "struct" name=ID "{" (members+=VariableDeclaration ";")* "}"
@@ -1083,7 +1083,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class ElementaryTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ElementaryType");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameElementaryTypeNameEnumEnumRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final RuleCall cNameElementaryTypeNameEnumParserRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		//ElementaryType:
 		//	name=ElementaryTypeNameEnum;
@@ -1093,7 +1093,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getNameAssignment() { return cNameAssignment; }
 		
 		//ElementaryTypeNameEnum
-		public RuleCall getNameElementaryTypeNameEnumEnumRuleCall_0() { return cNameElementaryTypeNameEnumEnumRuleCall_0; }
+		public RuleCall getNameElementaryTypeNameEnumParserRuleCall_0() { return cNameElementaryTypeNameEnumParserRuleCall_0; }
 	}
 	public class MappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Mapping");
@@ -1101,7 +1101,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMappingKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cKeyTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0 = (RuleCall)cKeyTypeAssignment_2.eContents().get(0);
+		private final RuleCall cKeyTypeElementaryTypeNameEnumParserRuleCall_2_0 = (RuleCall)cKeyTypeAssignment_2.eContents().get(0);
 		private final Keyword cEqualsSignGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cValueTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cValueTypeTypeParserRuleCall_4_0 = (RuleCall)cValueTypeAssignment_4.eContents().get(0);
@@ -1124,7 +1124,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getKeyTypeAssignment_2() { return cKeyTypeAssignment_2; }
 		
 		//ElementaryTypeNameEnum
-		public RuleCall getKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0() { return cKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0; }
+		public RuleCall getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0() { return cKeyTypeElementaryTypeNameEnumParserRuleCall_2_0; }
 		
 		//"=>"
 		public Keyword getEqualsSignGreaterThanSignKeyword_3() { return cEqualsSignGreaterThanSignKeyword_3; }
@@ -1314,12 +1314,13 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSemicolonAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cSemicolonSemicolonKeyword_1_0 = (Keyword)cSemicolonAssignment_1.eContents().get(0);
 		
-		//// SimpleStatement
-		//// ---------------------
-		//// SimpleStatement:
-		//// SimpleStatement2 ";"
-		//// ;
-		//SimpleStatement:
+		///*
+		// * SimpleStatement
+		// * --------------------
+		// * SimpleStatement:
+		// * SimpleStatement2 ";"
+		// * ;
+		// */ SimpleStatement:
 		//	(StandardTypeWithoutQualifiedIdentifier ({StandardVariableDeclaration.type=current}
 		//	ptionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) | VarType
 		//	({VarVariableTypeDeclaration} variable=Variable ("=" expression=Expression) | {VarVariableTupleVariableDeclaration}
@@ -2361,13 +2362,14 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword c_Keyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Action cPlaceHolderStatementAction_1 = (Action)cGroup.eContents().get(1);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//// Only allowed in a Modifier DAF
 		//PlaceHolderStatement:
-		//	"_" {PlaceHolderStatement};
+		//	"_" {PlaceHolderStatement} ";"?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"_" {PlaceHolderStatement}
+		//"_" {PlaceHolderStatement} ";"?
 		public Group getGroup() { return cGroup; }
 		
 		//"_"
@@ -2375,6 +2377,9 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//{PlaceHolderStatement}
 		public Action getPlaceHolderStatementAction_1() { return cPlaceHolderStatementAction_1; }
+		
+		//";"?
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Expression");
@@ -2718,7 +2723,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightBitAndParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//// Precedence: 9, Left associativ
+		//// Precedence: 9, Left associative
 		//BitXor Expression:
 		//	BitAnd ({BitXor.left=current} "^" right=BitAnd)*;
 		@Override public ParserRule getRule() { return rule; }
@@ -3232,11 +3237,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PrimaryExpression Expression:
 		//	SpecialExpression | QualifiedIdentifier | Literal | TypeCast |
-		//	"("
-		//	Expression ({Tuple.members+=current} (members+=TupleSeparator members+=Expression?)+)?
-		//	")" |
-		//	"("
-		//	TupleSeparator ({Tuple.members+=current} members+=Expression? (members+=TupleSeparator members+=Expression?)*)
+		//	"(" Expression ({Tuple.members+=current} (members+=TupleSeparator members+=Expression?)+)? ")" |
+		//	"(" TupleSeparator ({Tuple.members+=current} members+=Expression? (members+=TupleSeparator members+=Expression?)*)
 		//	")" |
 		//	"(" ")" {Tuple};
 		@Override public ParserRule getRule() { return rule; }
@@ -4067,7 +4069,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.TypeCast");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cValueAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cValueElementaryTypeNameEnumEnumRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
+		private final RuleCall cValueElementaryTypeNameEnumParserRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cExpressionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cExpressionExpressionParserRuleCall_2_0 = (RuleCall)cExpressionAssignment_2.eContents().get(0);
@@ -4086,7 +4088,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getValueAssignment_0() { return cValueAssignment_0; }
 		
 		//ElementaryTypeNameEnum
-		public RuleCall getValueElementaryTypeNameEnumEnumRuleCall_0_0() { return cValueElementaryTypeNameEnumEnumRuleCall_0_0; }
+		public RuleCall getValueElementaryTypeNameEnumParserRuleCall_0_0() { return cValueElementaryTypeNameEnumParserRuleCall_0_0; }
 		
 		//"("
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
@@ -4138,6 +4140,591 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Qualifier
 		public RuleCall getQualifiersQualifierParserRuleCall_3_0() { return cQualifiersQualifierParserRuleCall_3_0; }
+	}
+	public class SimpleTypeDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SimpleTypeDeclaration");
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cTypeAlternatives_0 = (Alternatives)cTypeAssignment.eContents().get(0);
+		private final Keyword cTypeStringKeyword_0_0 = (Keyword)cTypeAlternatives_0.eContents().get(0);
+		private final Keyword cTypeBoolKeyword_0_1 = (Keyword)cTypeAlternatives_0.eContents().get(1);
+		
+		//SimpleTypeDeclaration:
+		//	type=('string' | 'bool');
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=('string' | 'bool')
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
+		
+		//('string' | 'bool')
+		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
+		
+		//'string'
+		public Keyword getTypeStringKeyword_0_0() { return cTypeStringKeyword_0_0; }
+		
+		//'bool'
+		public Keyword getTypeBoolKeyword_0_1() { return cTypeBoolKeyword_0_1; }
+	}
+	public class ElementaryTypeNameEnumElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ElementaryTypeNameEnum");
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cTypeAlternatives_0 = (Alternatives)cTypeAssignment.eContents().get(0);
+		private final Keyword cTypeIntKeyword_0_0 = (Keyword)cTypeAlternatives_0.eContents().get(0);
+		private final Keyword cTypeInt16Keyword_0_1 = (Keyword)cTypeAlternatives_0.eContents().get(1);
+		private final Keyword cTypeInt24Keyword_0_2 = (Keyword)cTypeAlternatives_0.eContents().get(2);
+		private final Keyword cTypeInt32Keyword_0_3 = (Keyword)cTypeAlternatives_0.eContents().get(3);
+		private final Keyword cTypeInt40Keyword_0_4 = (Keyword)cTypeAlternatives_0.eContents().get(4);
+		private final Keyword cTypeInt48Keyword_0_5 = (Keyword)cTypeAlternatives_0.eContents().get(5);
+		private final Keyword cTypeInt56Keyword_0_6 = (Keyword)cTypeAlternatives_0.eContents().get(6);
+		private final Keyword cTypeInt64Keyword_0_7 = (Keyword)cTypeAlternatives_0.eContents().get(7);
+		private final Keyword cTypeInt72Keyword_0_8 = (Keyword)cTypeAlternatives_0.eContents().get(8);
+		private final Keyword cTypeInt80Keyword_0_9 = (Keyword)cTypeAlternatives_0.eContents().get(9);
+		private final Keyword cTypeInt88Keyword_0_10 = (Keyword)cTypeAlternatives_0.eContents().get(10);
+		private final Keyword cTypeInt96Keyword_0_11 = (Keyword)cTypeAlternatives_0.eContents().get(11);
+		private final Keyword cTypeInt104Keyword_0_12 = (Keyword)cTypeAlternatives_0.eContents().get(12);
+		private final Keyword cTypeInt112Keyword_0_13 = (Keyword)cTypeAlternatives_0.eContents().get(13);
+		private final Keyword cTypeInt120Keyword_0_14 = (Keyword)cTypeAlternatives_0.eContents().get(14);
+		private final Keyword cTypeInt128Keyword_0_15 = (Keyword)cTypeAlternatives_0.eContents().get(15);
+		private final Keyword cTypeInt136Keyword_0_16 = (Keyword)cTypeAlternatives_0.eContents().get(16);
+		private final Keyword cTypeInt144Keyword_0_17 = (Keyword)cTypeAlternatives_0.eContents().get(17);
+		private final Keyword cTypeInt152Keyword_0_18 = (Keyword)cTypeAlternatives_0.eContents().get(18);
+		private final Keyword cTypeInt160Keyword_0_19 = (Keyword)cTypeAlternatives_0.eContents().get(19);
+		private final Keyword cTypeInt168Keyword_0_20 = (Keyword)cTypeAlternatives_0.eContents().get(20);
+		private final Keyword cTypeInt178Keyword_0_21 = (Keyword)cTypeAlternatives_0.eContents().get(21);
+		private final Keyword cTypeInt184Keyword_0_22 = (Keyword)cTypeAlternatives_0.eContents().get(22);
+		private final Keyword cTypeInt192Keyword_0_23 = (Keyword)cTypeAlternatives_0.eContents().get(23);
+		private final Keyword cTypeInt200Keyword_0_24 = (Keyword)cTypeAlternatives_0.eContents().get(24);
+		private final Keyword cTypeInt208Keyword_0_25 = (Keyword)cTypeAlternatives_0.eContents().get(25);
+		private final Keyword cTypeInt216Keyword_0_26 = (Keyword)cTypeAlternatives_0.eContents().get(26);
+		private final Keyword cTypeInt224Keyword_0_27 = (Keyword)cTypeAlternatives_0.eContents().get(27);
+		private final Keyword cTypeInt232Keyword_0_28 = (Keyword)cTypeAlternatives_0.eContents().get(28);
+		private final Keyword cTypeInt240Keyword_0_29 = (Keyword)cTypeAlternatives_0.eContents().get(29);
+		private final Keyword cTypeInt248Keyword_0_30 = (Keyword)cTypeAlternatives_0.eContents().get(30);
+		private final Keyword cTypeInt256Keyword_0_31 = (Keyword)cTypeAlternatives_0.eContents().get(31);
+		private final Keyword cTypeUintKeyword_0_32 = (Keyword)cTypeAlternatives_0.eContents().get(32);
+		private final Keyword cTypeUint8Keyword_0_33 = (Keyword)cTypeAlternatives_0.eContents().get(33);
+		private final Keyword cTypeUint16Keyword_0_34 = (Keyword)cTypeAlternatives_0.eContents().get(34);
+		private final Keyword cTypeUint24Keyword_0_35 = (Keyword)cTypeAlternatives_0.eContents().get(35);
+		private final Keyword cTypeUint32Keyword_0_36 = (Keyword)cTypeAlternatives_0.eContents().get(36);
+		private final Keyword cTypeUint40Keyword_0_37 = (Keyword)cTypeAlternatives_0.eContents().get(37);
+		private final Keyword cTypeUint48Keyword_0_38 = (Keyword)cTypeAlternatives_0.eContents().get(38);
+		private final Keyword cTypeUint56Keyword_0_39 = (Keyword)cTypeAlternatives_0.eContents().get(39);
+		private final Keyword cTypeUint64Keyword_0_40 = (Keyword)cTypeAlternatives_0.eContents().get(40);
+		private final Keyword cTypeUint72Keyword_0_41 = (Keyword)cTypeAlternatives_0.eContents().get(41);
+		private final Keyword cTypeUint80Keyword_0_42 = (Keyword)cTypeAlternatives_0.eContents().get(42);
+		private final Keyword cTypeUint88Keyword_0_43 = (Keyword)cTypeAlternatives_0.eContents().get(43);
+		private final Keyword cTypeUint96Keyword_0_44 = (Keyword)cTypeAlternatives_0.eContents().get(44);
+		private final Keyword cTypeUint104Keyword_0_45 = (Keyword)cTypeAlternatives_0.eContents().get(45);
+		private final Keyword cTypeUint112Keyword_0_46 = (Keyword)cTypeAlternatives_0.eContents().get(46);
+		private final Keyword cTypeUint120Keyword_0_47 = (Keyword)cTypeAlternatives_0.eContents().get(47);
+		private final Keyword cTypeUint128Keyword_0_48 = (Keyword)cTypeAlternatives_0.eContents().get(48);
+		private final Keyword cTypeUint136Keyword_0_49 = (Keyword)cTypeAlternatives_0.eContents().get(49);
+		private final Keyword cTypeUint144Keyword_0_50 = (Keyword)cTypeAlternatives_0.eContents().get(50);
+		private final Keyword cTypeUint152Keyword_0_51 = (Keyword)cTypeAlternatives_0.eContents().get(51);
+		private final Keyword cTypeUint160Keyword_0_52 = (Keyword)cTypeAlternatives_0.eContents().get(52);
+		private final Keyword cTypeUint168Keyword_0_53 = (Keyword)cTypeAlternatives_0.eContents().get(53);
+		private final Keyword cTypeUint178Keyword_0_54 = (Keyword)cTypeAlternatives_0.eContents().get(54);
+		private final Keyword cTypeUint184Keyword_0_55 = (Keyword)cTypeAlternatives_0.eContents().get(55);
+		private final Keyword cTypeUint192Keyword_0_56 = (Keyword)cTypeAlternatives_0.eContents().get(56);
+		private final Keyword cTypeUint200Keyword_0_57 = (Keyword)cTypeAlternatives_0.eContents().get(57);
+		private final Keyword cTypeUint208Keyword_0_58 = (Keyword)cTypeAlternatives_0.eContents().get(58);
+		private final Keyword cTypeUint216Keyword_0_59 = (Keyword)cTypeAlternatives_0.eContents().get(59);
+		private final Keyword cTypeUint224Keyword_0_60 = (Keyword)cTypeAlternatives_0.eContents().get(60);
+		private final Keyword cTypeUint232Keyword_0_61 = (Keyword)cTypeAlternatives_0.eContents().get(61);
+		private final Keyword cTypeUint240Keyword_0_62 = (Keyword)cTypeAlternatives_0.eContents().get(62);
+		private final Keyword cTypeUint248Keyword_0_63 = (Keyword)cTypeAlternatives_0.eContents().get(63);
+		private final Keyword cTypeUint256Keyword_0_64 = (Keyword)cTypeAlternatives_0.eContents().get(64);
+		private final Keyword cTypeByteKeyword_0_65 = (Keyword)cTypeAlternatives_0.eContents().get(65);
+		private final Keyword cTypeBytesKeyword_0_66 = (Keyword)cTypeAlternatives_0.eContents().get(66);
+		private final Keyword cTypeBytes1Keyword_0_67 = (Keyword)cTypeAlternatives_0.eContents().get(67);
+		private final Keyword cTypeBytes2Keyword_0_68 = (Keyword)cTypeAlternatives_0.eContents().get(68);
+		private final Keyword cTypeBytes3Keyword_0_69 = (Keyword)cTypeAlternatives_0.eContents().get(69);
+		private final Keyword cTypeBytes4Keyword_0_70 = (Keyword)cTypeAlternatives_0.eContents().get(70);
+		private final Keyword cTypeBytes5Keyword_0_71 = (Keyword)cTypeAlternatives_0.eContents().get(71);
+		private final Keyword cTypeBytes6Keyword_0_72 = (Keyword)cTypeAlternatives_0.eContents().get(72);
+		private final Keyword cTypeBytes7Keyword_0_73 = (Keyword)cTypeAlternatives_0.eContents().get(73);
+		private final Keyword cTypeBytes8Keyword_0_74 = (Keyword)cTypeAlternatives_0.eContents().get(74);
+		private final Keyword cTypeBytes9Keyword_0_75 = (Keyword)cTypeAlternatives_0.eContents().get(75);
+		private final Keyword cTypeBytes10Keyword_0_76 = (Keyword)cTypeAlternatives_0.eContents().get(76);
+		private final Keyword cTypeBytes11Keyword_0_77 = (Keyword)cTypeAlternatives_0.eContents().get(77);
+		private final Keyword cTypeBytes12Keyword_0_78 = (Keyword)cTypeAlternatives_0.eContents().get(78);
+		private final Keyword cTypeBytes13Keyword_0_79 = (Keyword)cTypeAlternatives_0.eContents().get(79);
+		private final Keyword cTypeBytes14Keyword_0_80 = (Keyword)cTypeAlternatives_0.eContents().get(80);
+		private final Keyword cTypeBytes15Keyword_0_81 = (Keyword)cTypeAlternatives_0.eContents().get(81);
+		private final Keyword cTypeBytes16Keyword_0_82 = (Keyword)cTypeAlternatives_0.eContents().get(82);
+		private final Keyword cTypeBytes17Keyword_0_83 = (Keyword)cTypeAlternatives_0.eContents().get(83);
+		private final Keyword cTypeBytes18Keyword_0_84 = (Keyword)cTypeAlternatives_0.eContents().get(84);
+		private final Keyword cTypeBytes19Keyword_0_85 = (Keyword)cTypeAlternatives_0.eContents().get(85);
+		private final Keyword cTypeBytes20Keyword_0_86 = (Keyword)cTypeAlternatives_0.eContents().get(86);
+		private final Keyword cTypeBytes21Keyword_0_87 = (Keyword)cTypeAlternatives_0.eContents().get(87);
+		private final Keyword cTypeBytes22Keyword_0_88 = (Keyword)cTypeAlternatives_0.eContents().get(88);
+		private final Keyword cTypeBytes23Keyword_0_89 = (Keyword)cTypeAlternatives_0.eContents().get(89);
+		private final Keyword cTypeBytes24Keyword_0_90 = (Keyword)cTypeAlternatives_0.eContents().get(90);
+		private final Keyword cTypeBytes25Keyword_0_91 = (Keyword)cTypeAlternatives_0.eContents().get(91);
+		private final Keyword cTypeBytes26Keyword_0_92 = (Keyword)cTypeAlternatives_0.eContents().get(92);
+		private final Keyword cTypeBytes27Keyword_0_93 = (Keyword)cTypeAlternatives_0.eContents().get(93);
+		private final Keyword cTypeBytes28Keyword_0_94 = (Keyword)cTypeAlternatives_0.eContents().get(94);
+		private final Keyword cTypeBytes29Keyword_0_95 = (Keyword)cTypeAlternatives_0.eContents().get(95);
+		private final Keyword cTypeBytes30Keyword_0_96 = (Keyword)cTypeAlternatives_0.eContents().get(96);
+		private final Keyword cTypeBytes31Keyword_0_97 = (Keyword)cTypeAlternatives_0.eContents().get(97);
+		private final Keyword cTypeBytes32Keyword_0_98 = (Keyword)cTypeAlternatives_0.eContents().get(98);
+		private final Keyword cTypeStringKeyword_0_99 = (Keyword)cTypeAlternatives_0.eContents().get(99);
+		private final Keyword cTypeAddressKeyword_0_100 = (Keyword)cTypeAlternatives_0.eContents().get(100);
+		private final Keyword cTypeBoolKeyword_0_101 = (Keyword)cTypeAlternatives_0.eContents().get(101);
+		private final Keyword cTypeRealKeyword_0_102 = (Keyword)cTypeAlternatives_0.eContents().get(102);
+		private final Keyword cTypeUrealKeyword_0_103 = (Keyword)cTypeAlternatives_0.eContents().get(103);
+		
+		//ElementaryTypeNameEnum:
+		//	type=("int" |
+		//	"int16" |
+		//	"int24" |
+		//	"int32" |
+		//	"int40" |
+		//	"int48" |
+		//	"int56" |
+		//	"int64" |
+		//	"int72" |
+		//	"int80" |
+		//	"int88" |
+		//	"int96" |
+		//	"int104" |
+		//	"int112" |
+		//	"int120" |
+		//	"int128" |
+		//	"int136" |
+		//	"int144" |
+		//	"int152" |
+		//	"int160" |
+		//	"int168" |
+		//	"int178" |
+		//	"int184" |
+		//	"int192" |
+		//	"int200" |
+		//	"int208" |
+		//	"int216" |
+		//	"int224" |
+		//	"int232" |
+		//	"int240" |
+		//	"int248" |
+		//	"int256" |
+		//	// UINT
+		//	"uint" |
+		//	"uint8" |
+		//	"uint16" |
+		//	"uint24" |
+		//	"uint32" |
+		//	"uint40" |
+		//	"uint48" |
+		//	"uint56" |
+		//	"uint64" |
+		//	"uint72" |
+		//	"uint80" |
+		//	"uint88" |
+		//	"uint96" |
+		//	"uint104" |
+		//	"uint112" |
+		//	"uint120" |
+		//	"uint128" |
+		//	"uint136" |
+		//	"uint144" |
+		//	"uint152" |
+		//	"uint160" |
+		//	"uint168" |
+		//	"uint178" |
+		//	"uint184" |
+		//	"uint192" |
+		//	"uint200" |
+		//	"uint208" |
+		//	"uint216" |
+		//	"uint224" |
+		//	"uint232" |
+		//	"uint240" |
+		//	"uint248" |
+		//	"uint256" |
+		//	// BYTE
+		//	"byte" |
+		//	"bytes" |
+		//	"bytes1" |
+		//	"bytes2" |
+		//	"bytes3" |
+		//	"bytes4" |
+		//	"bytes5" |
+		//	"bytes6" |
+		//	"bytes7" |
+		//	"bytes8" |
+		//	"bytes9" |
+		//	"bytes10" |
+		//	"bytes11" |
+		//	"bytes12" |
+		//	"bytes13" |
+		//	"bytes14" |
+		//	"bytes15" |
+		//	"bytes16" |
+		//	"bytes17" |
+		//	"bytes18" |
+		//	"bytes19" |
+		//	"bytes20" |
+		//	"bytes21" |
+		//	"bytes22" |
+		//	"bytes23" |
+		//	"bytes24" |
+		//	"bytes25" |
+		//	"bytes26" |
+		//	"bytes27" |
+		//	"bytes28" |
+		//	"bytes29" |
+		//	"bytes30" |
+		//	"bytes31" |
+		//	"bytes32" |
+		//	// Other
+		//	"string" |
+		//	"address" |
+		//	"bool" |
+		//	"real" |
+		//	"ureal");
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=("int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" |
+		//"int96" | "int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" | "int178"
+		//| "int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" | "int256" | // UINT
+		//"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
+		//"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
+		//"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
+		//| "uint248" | "uint256" | // BYTE
+		//"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
+		//"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
+		//| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
+		//"bytes29" | "bytes30" | "bytes31" | "bytes32" | // Other
+		//"string" | "address" | "bool" | "real" | "ureal")
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
+		
+		//("int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" | "int96" |
+		//"int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" | "int178" | "int184"
+		//| "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" | "int256" | // UINT
+		//"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
+		//"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
+		//"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
+		//| "uint248" | "uint256" | // BYTE
+		//"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
+		//"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
+		//| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
+		//"bytes29" | "bytes30" | "bytes31" | "bytes32" | // Other
+		//"string" | "address" | "bool" | "real" | "ureal")
+		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
+		
+		//"int"
+		public Keyword getTypeIntKeyword_0_0() { return cTypeIntKeyword_0_0; }
+		
+		//"int16"
+		public Keyword getTypeInt16Keyword_0_1() { return cTypeInt16Keyword_0_1; }
+		
+		//"int24"
+		public Keyword getTypeInt24Keyword_0_2() { return cTypeInt24Keyword_0_2; }
+		
+		//"int32"
+		public Keyword getTypeInt32Keyword_0_3() { return cTypeInt32Keyword_0_3; }
+		
+		//"int40"
+		public Keyword getTypeInt40Keyword_0_4() { return cTypeInt40Keyword_0_4; }
+		
+		//"int48"
+		public Keyword getTypeInt48Keyword_0_5() { return cTypeInt48Keyword_0_5; }
+		
+		//"int56"
+		public Keyword getTypeInt56Keyword_0_6() { return cTypeInt56Keyword_0_6; }
+		
+		//"int64"
+		public Keyword getTypeInt64Keyword_0_7() { return cTypeInt64Keyword_0_7; }
+		
+		//"int72"
+		public Keyword getTypeInt72Keyword_0_8() { return cTypeInt72Keyword_0_8; }
+		
+		//"int80"
+		public Keyword getTypeInt80Keyword_0_9() { return cTypeInt80Keyword_0_9; }
+		
+		//"int88"
+		public Keyword getTypeInt88Keyword_0_10() { return cTypeInt88Keyword_0_10; }
+		
+		//"int96"
+		public Keyword getTypeInt96Keyword_0_11() { return cTypeInt96Keyword_0_11; }
+		
+		//"int104"
+		public Keyword getTypeInt104Keyword_0_12() { return cTypeInt104Keyword_0_12; }
+		
+		//"int112"
+		public Keyword getTypeInt112Keyword_0_13() { return cTypeInt112Keyword_0_13; }
+		
+		//"int120"
+		public Keyword getTypeInt120Keyword_0_14() { return cTypeInt120Keyword_0_14; }
+		
+		//"int128"
+		public Keyword getTypeInt128Keyword_0_15() { return cTypeInt128Keyword_0_15; }
+		
+		//"int136"
+		public Keyword getTypeInt136Keyword_0_16() { return cTypeInt136Keyword_0_16; }
+		
+		//"int144"
+		public Keyword getTypeInt144Keyword_0_17() { return cTypeInt144Keyword_0_17; }
+		
+		//"int152"
+		public Keyword getTypeInt152Keyword_0_18() { return cTypeInt152Keyword_0_18; }
+		
+		//"int160"
+		public Keyword getTypeInt160Keyword_0_19() { return cTypeInt160Keyword_0_19; }
+		
+		//"int168"
+		public Keyword getTypeInt168Keyword_0_20() { return cTypeInt168Keyword_0_20; }
+		
+		//"int178"
+		public Keyword getTypeInt178Keyword_0_21() { return cTypeInt178Keyword_0_21; }
+		
+		//"int184"
+		public Keyword getTypeInt184Keyword_0_22() { return cTypeInt184Keyword_0_22; }
+		
+		//"int192"
+		public Keyword getTypeInt192Keyword_0_23() { return cTypeInt192Keyword_0_23; }
+		
+		//"int200"
+		public Keyword getTypeInt200Keyword_0_24() { return cTypeInt200Keyword_0_24; }
+		
+		//"int208"
+		public Keyword getTypeInt208Keyword_0_25() { return cTypeInt208Keyword_0_25; }
+		
+		//"int216"
+		public Keyword getTypeInt216Keyword_0_26() { return cTypeInt216Keyword_0_26; }
+		
+		//"int224"
+		public Keyword getTypeInt224Keyword_0_27() { return cTypeInt224Keyword_0_27; }
+		
+		//"int232"
+		public Keyword getTypeInt232Keyword_0_28() { return cTypeInt232Keyword_0_28; }
+		
+		//"int240"
+		public Keyword getTypeInt240Keyword_0_29() { return cTypeInt240Keyword_0_29; }
+		
+		//"int248"
+		public Keyword getTypeInt248Keyword_0_30() { return cTypeInt248Keyword_0_30; }
+		
+		//"int256"
+		public Keyword getTypeInt256Keyword_0_31() { return cTypeInt256Keyword_0_31; }
+		
+		//// UINT
+		//"uint"
+		public Keyword getTypeUintKeyword_0_32() { return cTypeUintKeyword_0_32; }
+		
+		//"uint8"
+		public Keyword getTypeUint8Keyword_0_33() { return cTypeUint8Keyword_0_33; }
+		
+		//"uint16"
+		public Keyword getTypeUint16Keyword_0_34() { return cTypeUint16Keyword_0_34; }
+		
+		//"uint24"
+		public Keyword getTypeUint24Keyword_0_35() { return cTypeUint24Keyword_0_35; }
+		
+		//"uint32"
+		public Keyword getTypeUint32Keyword_0_36() { return cTypeUint32Keyword_0_36; }
+		
+		//"uint40"
+		public Keyword getTypeUint40Keyword_0_37() { return cTypeUint40Keyword_0_37; }
+		
+		//"uint48"
+		public Keyword getTypeUint48Keyword_0_38() { return cTypeUint48Keyword_0_38; }
+		
+		//"uint56"
+		public Keyword getTypeUint56Keyword_0_39() { return cTypeUint56Keyword_0_39; }
+		
+		//"uint64"
+		public Keyword getTypeUint64Keyword_0_40() { return cTypeUint64Keyword_0_40; }
+		
+		//"uint72"
+		public Keyword getTypeUint72Keyword_0_41() { return cTypeUint72Keyword_0_41; }
+		
+		//"uint80"
+		public Keyword getTypeUint80Keyword_0_42() { return cTypeUint80Keyword_0_42; }
+		
+		//"uint88"
+		public Keyword getTypeUint88Keyword_0_43() { return cTypeUint88Keyword_0_43; }
+		
+		//"uint96"
+		public Keyword getTypeUint96Keyword_0_44() { return cTypeUint96Keyword_0_44; }
+		
+		//"uint104"
+		public Keyword getTypeUint104Keyword_0_45() { return cTypeUint104Keyword_0_45; }
+		
+		//"uint112"
+		public Keyword getTypeUint112Keyword_0_46() { return cTypeUint112Keyword_0_46; }
+		
+		//"uint120"
+		public Keyword getTypeUint120Keyword_0_47() { return cTypeUint120Keyword_0_47; }
+		
+		//"uint128"
+		public Keyword getTypeUint128Keyword_0_48() { return cTypeUint128Keyword_0_48; }
+		
+		//"uint136"
+		public Keyword getTypeUint136Keyword_0_49() { return cTypeUint136Keyword_0_49; }
+		
+		//"uint144"
+		public Keyword getTypeUint144Keyword_0_50() { return cTypeUint144Keyword_0_50; }
+		
+		//"uint152"
+		public Keyword getTypeUint152Keyword_0_51() { return cTypeUint152Keyword_0_51; }
+		
+		//"uint160"
+		public Keyword getTypeUint160Keyword_0_52() { return cTypeUint160Keyword_0_52; }
+		
+		//"uint168"
+		public Keyword getTypeUint168Keyword_0_53() { return cTypeUint168Keyword_0_53; }
+		
+		//"uint178"
+		public Keyword getTypeUint178Keyword_0_54() { return cTypeUint178Keyword_0_54; }
+		
+		//"uint184"
+		public Keyword getTypeUint184Keyword_0_55() { return cTypeUint184Keyword_0_55; }
+		
+		//"uint192"
+		public Keyword getTypeUint192Keyword_0_56() { return cTypeUint192Keyword_0_56; }
+		
+		//"uint200"
+		public Keyword getTypeUint200Keyword_0_57() { return cTypeUint200Keyword_0_57; }
+		
+		//"uint208"
+		public Keyword getTypeUint208Keyword_0_58() { return cTypeUint208Keyword_0_58; }
+		
+		//"uint216"
+		public Keyword getTypeUint216Keyword_0_59() { return cTypeUint216Keyword_0_59; }
+		
+		//"uint224"
+		public Keyword getTypeUint224Keyword_0_60() { return cTypeUint224Keyword_0_60; }
+		
+		//"uint232"
+		public Keyword getTypeUint232Keyword_0_61() { return cTypeUint232Keyword_0_61; }
+		
+		//"uint240"
+		public Keyword getTypeUint240Keyword_0_62() { return cTypeUint240Keyword_0_62; }
+		
+		//"uint248"
+		public Keyword getTypeUint248Keyword_0_63() { return cTypeUint248Keyword_0_63; }
+		
+		//"uint256"
+		public Keyword getTypeUint256Keyword_0_64() { return cTypeUint256Keyword_0_64; }
+		
+		//// BYTE
+		//"byte"
+		public Keyword getTypeByteKeyword_0_65() { return cTypeByteKeyword_0_65; }
+		
+		//"bytes"
+		public Keyword getTypeBytesKeyword_0_66() { return cTypeBytesKeyword_0_66; }
+		
+		//"bytes1"
+		public Keyword getTypeBytes1Keyword_0_67() { return cTypeBytes1Keyword_0_67; }
+		
+		//"bytes2"
+		public Keyword getTypeBytes2Keyword_0_68() { return cTypeBytes2Keyword_0_68; }
+		
+		//"bytes3"
+		public Keyword getTypeBytes3Keyword_0_69() { return cTypeBytes3Keyword_0_69; }
+		
+		//"bytes4"
+		public Keyword getTypeBytes4Keyword_0_70() { return cTypeBytes4Keyword_0_70; }
+		
+		//"bytes5"
+		public Keyword getTypeBytes5Keyword_0_71() { return cTypeBytes5Keyword_0_71; }
+		
+		//"bytes6"
+		public Keyword getTypeBytes6Keyword_0_72() { return cTypeBytes6Keyword_0_72; }
+		
+		//"bytes7"
+		public Keyword getTypeBytes7Keyword_0_73() { return cTypeBytes7Keyword_0_73; }
+		
+		//"bytes8"
+		public Keyword getTypeBytes8Keyword_0_74() { return cTypeBytes8Keyword_0_74; }
+		
+		//"bytes9"
+		public Keyword getTypeBytes9Keyword_0_75() { return cTypeBytes9Keyword_0_75; }
+		
+		//"bytes10"
+		public Keyword getTypeBytes10Keyword_0_76() { return cTypeBytes10Keyword_0_76; }
+		
+		//"bytes11"
+		public Keyword getTypeBytes11Keyword_0_77() { return cTypeBytes11Keyword_0_77; }
+		
+		//"bytes12"
+		public Keyword getTypeBytes12Keyword_0_78() { return cTypeBytes12Keyword_0_78; }
+		
+		//"bytes13"
+		public Keyword getTypeBytes13Keyword_0_79() { return cTypeBytes13Keyword_0_79; }
+		
+		//"bytes14"
+		public Keyword getTypeBytes14Keyword_0_80() { return cTypeBytes14Keyword_0_80; }
+		
+		//"bytes15"
+		public Keyword getTypeBytes15Keyword_0_81() { return cTypeBytes15Keyword_0_81; }
+		
+		//"bytes16"
+		public Keyword getTypeBytes16Keyword_0_82() { return cTypeBytes16Keyword_0_82; }
+		
+		//"bytes17"
+		public Keyword getTypeBytes17Keyword_0_83() { return cTypeBytes17Keyword_0_83; }
+		
+		//"bytes18"
+		public Keyword getTypeBytes18Keyword_0_84() { return cTypeBytes18Keyword_0_84; }
+		
+		//"bytes19"
+		public Keyword getTypeBytes19Keyword_0_85() { return cTypeBytes19Keyword_0_85; }
+		
+		//"bytes20"
+		public Keyword getTypeBytes20Keyword_0_86() { return cTypeBytes20Keyword_0_86; }
+		
+		//"bytes21"
+		public Keyword getTypeBytes21Keyword_0_87() { return cTypeBytes21Keyword_0_87; }
+		
+		//"bytes22"
+		public Keyword getTypeBytes22Keyword_0_88() { return cTypeBytes22Keyword_0_88; }
+		
+		//"bytes23"
+		public Keyword getTypeBytes23Keyword_0_89() { return cTypeBytes23Keyword_0_89; }
+		
+		//"bytes24"
+		public Keyword getTypeBytes24Keyword_0_90() { return cTypeBytes24Keyword_0_90; }
+		
+		//"bytes25"
+		public Keyword getTypeBytes25Keyword_0_91() { return cTypeBytes25Keyword_0_91; }
+		
+		//"bytes26"
+		public Keyword getTypeBytes26Keyword_0_92() { return cTypeBytes26Keyword_0_92; }
+		
+		//"bytes27"
+		public Keyword getTypeBytes27Keyword_0_93() { return cTypeBytes27Keyword_0_93; }
+		
+		//"bytes28"
+		public Keyword getTypeBytes28Keyword_0_94() { return cTypeBytes28Keyword_0_94; }
+		
+		//"bytes29"
+		public Keyword getTypeBytes29Keyword_0_95() { return cTypeBytes29Keyword_0_95; }
+		
+		//"bytes30"
+		public Keyword getTypeBytes30Keyword_0_96() { return cTypeBytes30Keyword_0_96; }
+		
+		//"bytes31"
+		public Keyword getTypeBytes31Keyword_0_97() { return cTypeBytes31Keyword_0_97; }
+		
+		//"bytes32"
+		public Keyword getTypeBytes32Keyword_0_98() { return cTypeBytes32Keyword_0_98; }
+		
+		//// Other
+		//"string"
+		public Keyword getTypeStringKeyword_0_99() { return cTypeStringKeyword_0_99; }
+		
+		//"address"
+		public Keyword getTypeAddressKeyword_0_100() { return cTypeAddressKeyword_0_100; }
+		
+		//"bool"
+		public Keyword getTypeBoolKeyword_0_101() { return cTypeBoolKeyword_0_101; }
+		
+		//"real"
+		public Keyword getTypeRealKeyword_0_102() { return cTypeRealKeyword_0_102; }
+		
+		//"ureal"
+		public Keyword getTypeUrealKeyword_0_103() { return cTypeUrealKeyword_0_103; }
 	}
 	public class MapLocationLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.MapLocationLiteral");
@@ -4237,888 +4824,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameTXTerminalRuleCall_0_2() { return cNameTXTerminalRuleCall_0_2; }
 	}
 	
-	public class ElementaryTypeNameEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ElementaryTypeNameEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cINTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cINTIntKeyword_0_0 = (Keyword)cINTEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cINT16EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cINT16Int16Keyword_1_0 = (Keyword)cINT16EnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cINT24EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cINT24Int24Keyword_2_0 = (Keyword)cINT24EnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cINT32EnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cINT32Int32Keyword_3_0 = (Keyword)cINT32EnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cINT40EnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cINT40Int40Keyword_4_0 = (Keyword)cINT40EnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cINT48EnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cINT48Int48Keyword_5_0 = (Keyword)cINT48EnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cINT56EnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cINT56Int56Keyword_6_0 = (Keyword)cINT56EnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cINT64EnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cINT64Int64Keyword_7_0 = (Keyword)cINT64EnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cINT72EnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cINT72Int72Keyword_8_0 = (Keyword)cINT72EnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cINT80EnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cINT80Int80Keyword_9_0 = (Keyword)cINT80EnumLiteralDeclaration_9.eContents().get(0);
-		private final EnumLiteralDeclaration cINT88EnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
-		private final Keyword cINT88Int88Keyword_10_0 = (Keyword)cINT88EnumLiteralDeclaration_10.eContents().get(0);
-		private final EnumLiteralDeclaration cINT96EnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
-		private final Keyword cINT96Int96Keyword_11_0 = (Keyword)cINT96EnumLiteralDeclaration_11.eContents().get(0);
-		private final EnumLiteralDeclaration cINT104EnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
-		private final Keyword cINT104Int104Keyword_12_0 = (Keyword)cINT104EnumLiteralDeclaration_12.eContents().get(0);
-		private final EnumLiteralDeclaration cINT112EnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
-		private final Keyword cINT112Int112Keyword_13_0 = (Keyword)cINT112EnumLiteralDeclaration_13.eContents().get(0);
-		private final EnumLiteralDeclaration cINT120EnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
-		private final Keyword cINT120Int120Keyword_14_0 = (Keyword)cINT120EnumLiteralDeclaration_14.eContents().get(0);
-		private final EnumLiteralDeclaration cINT128EnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
-		private final Keyword cINT128Int128Keyword_15_0 = (Keyword)cINT128EnumLiteralDeclaration_15.eContents().get(0);
-		private final EnumLiteralDeclaration cINT136EnumLiteralDeclaration_16 = (EnumLiteralDeclaration)cAlternatives.eContents().get(16);
-		private final Keyword cINT136Int136Keyword_16_0 = (Keyword)cINT136EnumLiteralDeclaration_16.eContents().get(0);
-		private final EnumLiteralDeclaration cINT144EnumLiteralDeclaration_17 = (EnumLiteralDeclaration)cAlternatives.eContents().get(17);
-		private final Keyword cINT144Int144Keyword_17_0 = (Keyword)cINT144EnumLiteralDeclaration_17.eContents().get(0);
-		private final EnumLiteralDeclaration cINT152EnumLiteralDeclaration_18 = (EnumLiteralDeclaration)cAlternatives.eContents().get(18);
-		private final Keyword cINT152Int152Keyword_18_0 = (Keyword)cINT152EnumLiteralDeclaration_18.eContents().get(0);
-		private final EnumLiteralDeclaration cINT160EnumLiteralDeclaration_19 = (EnumLiteralDeclaration)cAlternatives.eContents().get(19);
-		private final Keyword cINT160Int160Keyword_19_0 = (Keyword)cINT160EnumLiteralDeclaration_19.eContents().get(0);
-		private final EnumLiteralDeclaration cINT168EnumLiteralDeclaration_20 = (EnumLiteralDeclaration)cAlternatives.eContents().get(20);
-		private final Keyword cINT168Int168Keyword_20_0 = (Keyword)cINT168EnumLiteralDeclaration_20.eContents().get(0);
-		private final EnumLiteralDeclaration cINT178EnumLiteralDeclaration_21 = (EnumLiteralDeclaration)cAlternatives.eContents().get(21);
-		private final Keyword cINT178Int178Keyword_21_0 = (Keyword)cINT178EnumLiteralDeclaration_21.eContents().get(0);
-		private final EnumLiteralDeclaration cINT184EnumLiteralDeclaration_22 = (EnumLiteralDeclaration)cAlternatives.eContents().get(22);
-		private final Keyword cINT184Int184Keyword_22_0 = (Keyword)cINT184EnumLiteralDeclaration_22.eContents().get(0);
-		private final EnumLiteralDeclaration cINT192EnumLiteralDeclaration_23 = (EnumLiteralDeclaration)cAlternatives.eContents().get(23);
-		private final Keyword cINT192Int192Keyword_23_0 = (Keyword)cINT192EnumLiteralDeclaration_23.eContents().get(0);
-		private final EnumLiteralDeclaration cINT200EnumLiteralDeclaration_24 = (EnumLiteralDeclaration)cAlternatives.eContents().get(24);
-		private final Keyword cINT200Int200Keyword_24_0 = (Keyword)cINT200EnumLiteralDeclaration_24.eContents().get(0);
-		private final EnumLiteralDeclaration cINT208EnumLiteralDeclaration_25 = (EnumLiteralDeclaration)cAlternatives.eContents().get(25);
-		private final Keyword cINT208Int208Keyword_25_0 = (Keyword)cINT208EnumLiteralDeclaration_25.eContents().get(0);
-		private final EnumLiteralDeclaration cINT216EnumLiteralDeclaration_26 = (EnumLiteralDeclaration)cAlternatives.eContents().get(26);
-		private final Keyword cINT216Int216Keyword_26_0 = (Keyword)cINT216EnumLiteralDeclaration_26.eContents().get(0);
-		private final EnumLiteralDeclaration cINT224EnumLiteralDeclaration_27 = (EnumLiteralDeclaration)cAlternatives.eContents().get(27);
-		private final Keyword cINT224Int224Keyword_27_0 = (Keyword)cINT224EnumLiteralDeclaration_27.eContents().get(0);
-		private final EnumLiteralDeclaration cINT232EnumLiteralDeclaration_28 = (EnumLiteralDeclaration)cAlternatives.eContents().get(28);
-		private final Keyword cINT232Int232Keyword_28_0 = (Keyword)cINT232EnumLiteralDeclaration_28.eContents().get(0);
-		private final EnumLiteralDeclaration cINT240EnumLiteralDeclaration_29 = (EnumLiteralDeclaration)cAlternatives.eContents().get(29);
-		private final Keyword cINT240Int240Keyword_29_0 = (Keyword)cINT240EnumLiteralDeclaration_29.eContents().get(0);
-		private final EnumLiteralDeclaration cINT248EnumLiteralDeclaration_30 = (EnumLiteralDeclaration)cAlternatives.eContents().get(30);
-		private final Keyword cINT248Int248Keyword_30_0 = (Keyword)cINT248EnumLiteralDeclaration_30.eContents().get(0);
-		private final EnumLiteralDeclaration cINT256EnumLiteralDeclaration_31 = (EnumLiteralDeclaration)cAlternatives.eContents().get(31);
-		private final Keyword cINT256Int256Keyword_31_0 = (Keyword)cINT256EnumLiteralDeclaration_31.eContents().get(0);
-		private final EnumLiteralDeclaration cUINTEnumLiteralDeclaration_32 = (EnumLiteralDeclaration)cAlternatives.eContents().get(32);
-		private final Keyword cUINTUintKeyword_32_0 = (Keyword)cUINTEnumLiteralDeclaration_32.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT8EnumLiteralDeclaration_33 = (EnumLiteralDeclaration)cAlternatives.eContents().get(33);
-		private final Keyword cUINT8Uint8Keyword_33_0 = (Keyword)cUINT8EnumLiteralDeclaration_33.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT16EnumLiteralDeclaration_34 = (EnumLiteralDeclaration)cAlternatives.eContents().get(34);
-		private final Keyword cUINT16Uint16Keyword_34_0 = (Keyword)cUINT16EnumLiteralDeclaration_34.eContents().get(0);
-		private final EnumLiteralDeclaration cUNIT24EnumLiteralDeclaration_35 = (EnumLiteralDeclaration)cAlternatives.eContents().get(35);
-		private final Keyword cUNIT24Uint24Keyword_35_0 = (Keyword)cUNIT24EnumLiteralDeclaration_35.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT32EnumLiteralDeclaration_36 = (EnumLiteralDeclaration)cAlternatives.eContents().get(36);
-		private final Keyword cUINT32Uint32Keyword_36_0 = (Keyword)cUINT32EnumLiteralDeclaration_36.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT40EnumLiteralDeclaration_37 = (EnumLiteralDeclaration)cAlternatives.eContents().get(37);
-		private final Keyword cUINT40Uint40Keyword_37_0 = (Keyword)cUINT40EnumLiteralDeclaration_37.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT48EnumLiteralDeclaration_38 = (EnumLiteralDeclaration)cAlternatives.eContents().get(38);
-		private final Keyword cUINT48Uint48Keyword_38_0 = (Keyword)cUINT48EnumLiteralDeclaration_38.eContents().get(0);
-		private final EnumLiteralDeclaration cUNIT56EnumLiteralDeclaration_39 = (EnumLiteralDeclaration)cAlternatives.eContents().get(39);
-		private final Keyword cUNIT56Uint56Keyword_39_0 = (Keyword)cUNIT56EnumLiteralDeclaration_39.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT64EnumLiteralDeclaration_40 = (EnumLiteralDeclaration)cAlternatives.eContents().get(40);
-		private final Keyword cUINT64Uint64Keyword_40_0 = (Keyword)cUINT64EnumLiteralDeclaration_40.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT72EnumLiteralDeclaration_41 = (EnumLiteralDeclaration)cAlternatives.eContents().get(41);
-		private final Keyword cUINT72Uint72Keyword_41_0 = (Keyword)cUINT72EnumLiteralDeclaration_41.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT80EnumLiteralDeclaration_42 = (EnumLiteralDeclaration)cAlternatives.eContents().get(42);
-		private final Keyword cUINT80Uint80Keyword_42_0 = (Keyword)cUINT80EnumLiteralDeclaration_42.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT88EnumLiteralDeclaration_43 = (EnumLiteralDeclaration)cAlternatives.eContents().get(43);
-		private final Keyword cUINT88Uint88Keyword_43_0 = (Keyword)cUINT88EnumLiteralDeclaration_43.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT96EnumLiteralDeclaration_44 = (EnumLiteralDeclaration)cAlternatives.eContents().get(44);
-		private final Keyword cUINT96Uint96Keyword_44_0 = (Keyword)cUINT96EnumLiteralDeclaration_44.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT104EnumLiteralDeclaration_45 = (EnumLiteralDeclaration)cAlternatives.eContents().get(45);
-		private final Keyword cUINT104Uint104Keyword_45_0 = (Keyword)cUINT104EnumLiteralDeclaration_45.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT112EnumLiteralDeclaration_46 = (EnumLiteralDeclaration)cAlternatives.eContents().get(46);
-		private final Keyword cUINT112Uint112Keyword_46_0 = (Keyword)cUINT112EnumLiteralDeclaration_46.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT120EnumLiteralDeclaration_47 = (EnumLiteralDeclaration)cAlternatives.eContents().get(47);
-		private final Keyword cUINT120Uint120Keyword_47_0 = (Keyword)cUINT120EnumLiteralDeclaration_47.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT128EnumLiteralDeclaration_48 = (EnumLiteralDeclaration)cAlternatives.eContents().get(48);
-		private final Keyword cUINT128Uint128Keyword_48_0 = (Keyword)cUINT128EnumLiteralDeclaration_48.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT136EnumLiteralDeclaration_49 = (EnumLiteralDeclaration)cAlternatives.eContents().get(49);
-		private final Keyword cUINT136Uint136Keyword_49_0 = (Keyword)cUINT136EnumLiteralDeclaration_49.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT144EnumLiteralDeclaration_50 = (EnumLiteralDeclaration)cAlternatives.eContents().get(50);
-		private final Keyword cUINT144Uint144Keyword_50_0 = (Keyword)cUINT144EnumLiteralDeclaration_50.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT152EnumLiteralDeclaration_51 = (EnumLiteralDeclaration)cAlternatives.eContents().get(51);
-		private final Keyword cUINT152Uint152Keyword_51_0 = (Keyword)cUINT152EnumLiteralDeclaration_51.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT160EnumLiteralDeclaration_52 = (EnumLiteralDeclaration)cAlternatives.eContents().get(52);
-		private final Keyword cUINT160Uint160Keyword_52_0 = (Keyword)cUINT160EnumLiteralDeclaration_52.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT168EnumLiteralDeclaration_53 = (EnumLiteralDeclaration)cAlternatives.eContents().get(53);
-		private final Keyword cUINT168Uint168Keyword_53_0 = (Keyword)cUINT168EnumLiteralDeclaration_53.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT178EnumLiteralDeclaration_54 = (EnumLiteralDeclaration)cAlternatives.eContents().get(54);
-		private final Keyword cUINT178Uint178Keyword_54_0 = (Keyword)cUINT178EnumLiteralDeclaration_54.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT184EnumLiteralDeclaration_55 = (EnumLiteralDeclaration)cAlternatives.eContents().get(55);
-		private final Keyword cUINT184Uint184Keyword_55_0 = (Keyword)cUINT184EnumLiteralDeclaration_55.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT192EnumLiteralDeclaration_56 = (EnumLiteralDeclaration)cAlternatives.eContents().get(56);
-		private final Keyword cUINT192Uint192Keyword_56_0 = (Keyword)cUINT192EnumLiteralDeclaration_56.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT200EnumLiteralDeclaration_57 = (EnumLiteralDeclaration)cAlternatives.eContents().get(57);
-		private final Keyword cUINT200Uint200Keyword_57_0 = (Keyword)cUINT200EnumLiteralDeclaration_57.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT208EnumLiteralDeclaration_58 = (EnumLiteralDeclaration)cAlternatives.eContents().get(58);
-		private final Keyword cUINT208Uint208Keyword_58_0 = (Keyword)cUINT208EnumLiteralDeclaration_58.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT216EnumLiteralDeclaration_59 = (EnumLiteralDeclaration)cAlternatives.eContents().get(59);
-		private final Keyword cUINT216Uint216Keyword_59_0 = (Keyword)cUINT216EnumLiteralDeclaration_59.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT244EnumLiteralDeclaration_60 = (EnumLiteralDeclaration)cAlternatives.eContents().get(60);
-		private final Keyword cUINT244Uint224Keyword_60_0 = (Keyword)cUINT244EnumLiteralDeclaration_60.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT232EnumLiteralDeclaration_61 = (EnumLiteralDeclaration)cAlternatives.eContents().get(61);
-		private final Keyword cUINT232Uint232Keyword_61_0 = (Keyword)cUINT232EnumLiteralDeclaration_61.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT240EnumLiteralDeclaration_62 = (EnumLiteralDeclaration)cAlternatives.eContents().get(62);
-		private final Keyword cUINT240Uint240Keyword_62_0 = (Keyword)cUINT240EnumLiteralDeclaration_62.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT248EnumLiteralDeclaration_63 = (EnumLiteralDeclaration)cAlternatives.eContents().get(63);
-		private final Keyword cUINT248Uint248Keyword_63_0 = (Keyword)cUINT248EnumLiteralDeclaration_63.eContents().get(0);
-		private final EnumLiteralDeclaration cUINT256EnumLiteralDeclaration_64 = (EnumLiteralDeclaration)cAlternatives.eContents().get(64);
-		private final Keyword cUINT256Uint256Keyword_64_0 = (Keyword)cUINT256EnumLiteralDeclaration_64.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTEEnumLiteralDeclaration_65 = (EnumLiteralDeclaration)cAlternatives.eContents().get(65);
-		private final Keyword cBYTEByteKeyword_65_0 = (Keyword)cBYTEEnumLiteralDeclaration_65.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTESEnumLiteralDeclaration_66 = (EnumLiteralDeclaration)cAlternatives.eContents().get(66);
-		private final Keyword cBYTESBytesKeyword_66_0 = (Keyword)cBYTESEnumLiteralDeclaration_66.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES1EnumLiteralDeclaration_67 = (EnumLiteralDeclaration)cAlternatives.eContents().get(67);
-		private final Keyword cBYTES1Bytes1Keyword_67_0 = (Keyword)cBYTES1EnumLiteralDeclaration_67.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES2EnumLiteralDeclaration_68 = (EnumLiteralDeclaration)cAlternatives.eContents().get(68);
-		private final Keyword cBYTES2Bytes2Keyword_68_0 = (Keyword)cBYTES2EnumLiteralDeclaration_68.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES3EnumLiteralDeclaration_69 = (EnumLiteralDeclaration)cAlternatives.eContents().get(69);
-		private final Keyword cBYTES3Bytes3Keyword_69_0 = (Keyword)cBYTES3EnumLiteralDeclaration_69.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES4EnumLiteralDeclaration_70 = (EnumLiteralDeclaration)cAlternatives.eContents().get(70);
-		private final Keyword cBYTES4Bytes4Keyword_70_0 = (Keyword)cBYTES4EnumLiteralDeclaration_70.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES5EnumLiteralDeclaration_71 = (EnumLiteralDeclaration)cAlternatives.eContents().get(71);
-		private final Keyword cBYTES5Bytes5Keyword_71_0 = (Keyword)cBYTES5EnumLiteralDeclaration_71.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES6EnumLiteralDeclaration_72 = (EnumLiteralDeclaration)cAlternatives.eContents().get(72);
-		private final Keyword cBYTES6Bytes6Keyword_72_0 = (Keyword)cBYTES6EnumLiteralDeclaration_72.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES7EnumLiteralDeclaration_73 = (EnumLiteralDeclaration)cAlternatives.eContents().get(73);
-		private final Keyword cBYTES7Bytes7Keyword_73_0 = (Keyword)cBYTES7EnumLiteralDeclaration_73.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES8EnumLiteralDeclaration_74 = (EnumLiteralDeclaration)cAlternatives.eContents().get(74);
-		private final Keyword cBYTES8Bytes8Keyword_74_0 = (Keyword)cBYTES8EnumLiteralDeclaration_74.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES9EnumLiteralDeclaration_75 = (EnumLiteralDeclaration)cAlternatives.eContents().get(75);
-		private final Keyword cBYTES9Bytes9Keyword_75_0 = (Keyword)cBYTES9EnumLiteralDeclaration_75.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES10EnumLiteralDeclaration_76 = (EnumLiteralDeclaration)cAlternatives.eContents().get(76);
-		private final Keyword cBYTES10Bytes10Keyword_76_0 = (Keyword)cBYTES10EnumLiteralDeclaration_76.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES11EnumLiteralDeclaration_77 = (EnumLiteralDeclaration)cAlternatives.eContents().get(77);
-		private final Keyword cBYTES11Bytes11Keyword_77_0 = (Keyword)cBYTES11EnumLiteralDeclaration_77.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES12EnumLiteralDeclaration_78 = (EnumLiteralDeclaration)cAlternatives.eContents().get(78);
-		private final Keyword cBYTES12Bytes12Keyword_78_0 = (Keyword)cBYTES12EnumLiteralDeclaration_78.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES13EnumLiteralDeclaration_79 = (EnumLiteralDeclaration)cAlternatives.eContents().get(79);
-		private final Keyword cBYTES13Bytes13Keyword_79_0 = (Keyword)cBYTES13EnumLiteralDeclaration_79.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES14EnumLiteralDeclaration_80 = (EnumLiteralDeclaration)cAlternatives.eContents().get(80);
-		private final Keyword cBYTES14Bytes14Keyword_80_0 = (Keyword)cBYTES14EnumLiteralDeclaration_80.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES15EnumLiteralDeclaration_81 = (EnumLiteralDeclaration)cAlternatives.eContents().get(81);
-		private final Keyword cBYTES15Bytes15Keyword_81_0 = (Keyword)cBYTES15EnumLiteralDeclaration_81.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES16EnumLiteralDeclaration_82 = (EnumLiteralDeclaration)cAlternatives.eContents().get(82);
-		private final Keyword cBYTES16Bytes16Keyword_82_0 = (Keyword)cBYTES16EnumLiteralDeclaration_82.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES17EnumLiteralDeclaration_83 = (EnumLiteralDeclaration)cAlternatives.eContents().get(83);
-		private final Keyword cBYTES17Bytes17Keyword_83_0 = (Keyword)cBYTES17EnumLiteralDeclaration_83.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES18EnumLiteralDeclaration_84 = (EnumLiteralDeclaration)cAlternatives.eContents().get(84);
-		private final Keyword cBYTES18Bytes18Keyword_84_0 = (Keyword)cBYTES18EnumLiteralDeclaration_84.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES19EnumLiteralDeclaration_85 = (EnumLiteralDeclaration)cAlternatives.eContents().get(85);
-		private final Keyword cBYTES19Bytes19Keyword_85_0 = (Keyword)cBYTES19EnumLiteralDeclaration_85.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES20EnumLiteralDeclaration_86 = (EnumLiteralDeclaration)cAlternatives.eContents().get(86);
-		private final Keyword cBYTES20Bytes20Keyword_86_0 = (Keyword)cBYTES20EnumLiteralDeclaration_86.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES21EnumLiteralDeclaration_87 = (EnumLiteralDeclaration)cAlternatives.eContents().get(87);
-		private final Keyword cBYTES21Bytes21Keyword_87_0 = (Keyword)cBYTES21EnumLiteralDeclaration_87.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES22EnumLiteralDeclaration_88 = (EnumLiteralDeclaration)cAlternatives.eContents().get(88);
-		private final Keyword cBYTES22Bytes22Keyword_88_0 = (Keyword)cBYTES22EnumLiteralDeclaration_88.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES23EnumLiteralDeclaration_89 = (EnumLiteralDeclaration)cAlternatives.eContents().get(89);
-		private final Keyword cBYTES23Bytes23Keyword_89_0 = (Keyword)cBYTES23EnumLiteralDeclaration_89.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES24EnumLiteralDeclaration_90 = (EnumLiteralDeclaration)cAlternatives.eContents().get(90);
-		private final Keyword cBYTES24Bytes24Keyword_90_0 = (Keyword)cBYTES24EnumLiteralDeclaration_90.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES25EnumLiteralDeclaration_91 = (EnumLiteralDeclaration)cAlternatives.eContents().get(91);
-		private final Keyword cBYTES25Bytes25Keyword_91_0 = (Keyword)cBYTES25EnumLiteralDeclaration_91.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES26EnumLiteralDeclaration_92 = (EnumLiteralDeclaration)cAlternatives.eContents().get(92);
-		private final Keyword cBYTES26Bytes26Keyword_92_0 = (Keyword)cBYTES26EnumLiteralDeclaration_92.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES27EnumLiteralDeclaration_93 = (EnumLiteralDeclaration)cAlternatives.eContents().get(93);
-		private final Keyword cBYTES27Bytes27Keyword_93_0 = (Keyword)cBYTES27EnumLiteralDeclaration_93.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES28EnumLiteralDeclaration_94 = (EnumLiteralDeclaration)cAlternatives.eContents().get(94);
-		private final Keyword cBYTES28Bytes28Keyword_94_0 = (Keyword)cBYTES28EnumLiteralDeclaration_94.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES29EnumLiteralDeclaration_95 = (EnumLiteralDeclaration)cAlternatives.eContents().get(95);
-		private final Keyword cBYTES29Bytes29Keyword_95_0 = (Keyword)cBYTES29EnumLiteralDeclaration_95.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES30EnumLiteralDeclaration_96 = (EnumLiteralDeclaration)cAlternatives.eContents().get(96);
-		private final Keyword cBYTES30Bytes30Keyword_96_0 = (Keyword)cBYTES30EnumLiteralDeclaration_96.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES31EnumLiteralDeclaration_97 = (EnumLiteralDeclaration)cAlternatives.eContents().get(97);
-		private final Keyword cBYTES31Bytes31Keyword_97_0 = (Keyword)cBYTES31EnumLiteralDeclaration_97.eContents().get(0);
-		private final EnumLiteralDeclaration cBYTES32EnumLiteralDeclaration_98 = (EnumLiteralDeclaration)cAlternatives.eContents().get(98);
-		private final Keyword cBYTES32Bytes32Keyword_98_0 = (Keyword)cBYTES32EnumLiteralDeclaration_98.eContents().get(0);
-		private final EnumLiteralDeclaration cSTRINGEnumLiteralDeclaration_99 = (EnumLiteralDeclaration)cAlternatives.eContents().get(99);
-		private final Keyword cSTRINGStringKeyword_99_0 = (Keyword)cSTRINGEnumLiteralDeclaration_99.eContents().get(0);
-		private final EnumLiteralDeclaration cADDRESSEnumLiteralDeclaration_100 = (EnumLiteralDeclaration)cAlternatives.eContents().get(100);
-		private final Keyword cADDRESSAddressKeyword_100_0 = (Keyword)cADDRESSEnumLiteralDeclaration_100.eContents().get(0);
-		private final EnumLiteralDeclaration cBOOLEnumLiteralDeclaration_101 = (EnumLiteralDeclaration)cAlternatives.eContents().get(101);
-		private final Keyword cBOOLBoolKeyword_101_0 = (Keyword)cBOOLEnumLiteralDeclaration_101.eContents().get(0);
-		private final EnumLiteralDeclaration cREALEnumLiteralDeclaration_102 = (EnumLiteralDeclaration)cAlternatives.eContents().get(102);
-		private final Keyword cREALRealKeyword_102_0 = (Keyword)cREALEnumLiteralDeclaration_102.eContents().get(0);
-		private final EnumLiteralDeclaration cUREALEnumLiteralDeclaration_103 = (EnumLiteralDeclaration)cAlternatives.eContents().get(103);
-		private final Keyword cUREALUrealKeyword_103_0 = (Keyword)cUREALEnumLiteralDeclaration_103.eContents().get(0);
-		
-		//enum ElementaryTypeNameEnum: // INT
-		//	INT="int" | INT16="int16" | INT24="int24" | INT32="int32" | INT40="int40" | INT48="int48" | INT56="int56" |
-		//	INT64="int64" | INT72="int72" | INT80="int80" | INT88="int88" | INT96="int96" | INT104="int104" | INT112="int112" |
-		//	INT120="int120" | INT128="int128" | INT136="int136" | INT144="int144" | INT152="int152" | INT160="int160" |
-		//	INT168="int168" | INT178="int178" | INT184="int184" | INT192="int192" | INT200="int200" | INT208="int208" |
-		//	INT216="int216" | INT224="int224" | INT232="int232" | INT240="int240" | INT248="int248" | INT256="int256" | // UINT
-		//	UINT="uint" | UINT8="uint8" | UINT16="uint16" | UNIT24="uint24" | UINT32="uint32" | UINT40="uint40" | UINT48="uint48" |
-		//	UNIT56="uint56" | UINT64="uint64" | UINT72="uint72" | UINT80="uint80" | UINT88="uint88" | UINT96="uint96" |
-		//	UINT104="uint104" | UINT112="uint112" | UINT120="uint120" | UINT128="uint128" | UINT136="uint136" | UINT144="uint144"
-		//	| UINT152="uint152" | UINT160="uint160" | UINT168="uint168" | UINT178="uint178" | UINT184="uint184" |
-		//	UINT192="uint192" | UINT200="uint200" | UINT208="uint208" | UINT216="uint216" | UINT244="uint224" | UINT232="uint232"
-		//	| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYTE
-		//	BYTE="byte" | BYTES="bytes" | BYTES1="bytes1" | BYTES2="bytes2" | BYTES3="bytes3" | BYTES4="bytes4" | BYTES5="bytes5" |
-		//	BYTES6="bytes6" | BYTES7="bytes7" | BYTES8="bytes8" | BYTES9="bytes9" | BYTES10="bytes10" | BYTES11="bytes11" |
-		//	BYTES12="bytes12" | BYTES13="bytes13" | BYTES14="bytes14" | BYTES15="bytes15" | BYTES16="bytes16" | BYTES17="bytes17"
-		//	| BYTES18="bytes18" | BYTES19="bytes19" | BYTES20="bytes20" | BYTES21="bytes21" | BYTES22="bytes22" |
-		//	BYTES23="bytes23" | BYTES24="bytes24" | BYTES25="bytes25" | BYTES26="bytes26" | BYTES27="bytes27" | BYTES28="bytes28"
-		//	| BYTES29="bytes29" | BYTES30="bytes30" | BYTES31="bytes31" | BYTES32="bytes32" | // Other
-		//	STRING="string" | ADDRESS="address" | BOOL="bool" | REAL="real" | UREAL="ureal";
-		public EnumRule getRule() { return rule; }
-		
-		//// INT
-		//INT="int" | INT16="int16" | INT24="int24" | INT32="int32" | INT40="int40" | INT48="int48" | INT56="int56" |
-		//INT64="int64" | INT72="int72" | INT80="int80" | INT88="int88" | INT96="int96" | INT104="int104" | INT112="int112" |
-		//INT120="int120" | INT128="int128" | INT136="int136" | INT144="int144" | INT152="int152" | INT160="int160" |
-		//INT168="int168" | INT178="int178" | INT184="int184" | INT192="int192" | INT200="int200" | INT208="int208" |
-		//INT216="int216" | INT224="int224" | INT232="int232" | INT240="int240" | INT248="int248" | INT256="int256" | // UINT
-		//UINT="uint" | UINT8="uint8" | UINT16="uint16" | UNIT24="uint24" | UINT32="uint32" | UINT40="uint40" | UINT48="uint48" |
-		//UNIT56="uint56" | UINT64="uint64" | UINT72="uint72" | UINT80="uint80" | UINT88="uint88" | UINT96="uint96" |
-		//UINT104="uint104" | UINT112="uint112" | UINT120="uint120" | UINT128="uint128" | UINT136="uint136" | UINT144="uint144"
-		//| UINT152="uint152" | UINT160="uint160" | UINT168="uint168" | UINT178="uint178" | UINT184="uint184" |
-		//UINT192="uint192" | UINT200="uint200" | UINT208="uint208" | UINT216="uint216" | UINT244="uint224" | UINT232="uint232"
-		//| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYTE
-		//BYTE="byte" | BYTES="bytes" | BYTES1="bytes1" | BYTES2="bytes2" | BYTES3="bytes3" | BYTES4="bytes4" | BYTES5="bytes5" |
-		//BYTES6="bytes6" | BYTES7="bytes7" | BYTES8="bytes8" | BYTES9="bytes9" | BYTES10="bytes10" | BYTES11="bytes11" |
-		//BYTES12="bytes12" | BYTES13="bytes13" | BYTES14="bytes14" | BYTES15="bytes15" | BYTES16="bytes16" | BYTES17="bytes17"
-		//| BYTES18="bytes18" | BYTES19="bytes19" | BYTES20="bytes20" | BYTES21="bytes21" | BYTES22="bytes22" |
-		//BYTES23="bytes23" | BYTES24="bytes24" | BYTES25="bytes25" | BYTES26="bytes26" | BYTES27="bytes27" | BYTES28="bytes28"
-		//| BYTES29="bytes29" | BYTES30="bytes30" | BYTES31="bytes31" | BYTES32="bytes32" | // Other
-		//STRING="string" | ADDRESS="address" | BOOL="bool" | REAL="real" | UREAL="ureal"
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//// INT
-		//INT="int"
-		public EnumLiteralDeclaration getINTEnumLiteralDeclaration_0() { return cINTEnumLiteralDeclaration_0; }
-		
-		//"int"
-		public Keyword getINTIntKeyword_0_0() { return cINTIntKeyword_0_0; }
-		
-		//INT16="int16"
-		public EnumLiteralDeclaration getINT16EnumLiteralDeclaration_1() { return cINT16EnumLiteralDeclaration_1; }
-		
-		//"int16"
-		public Keyword getINT16Int16Keyword_1_0() { return cINT16Int16Keyword_1_0; }
-		
-		//INT24="int24"
-		public EnumLiteralDeclaration getINT24EnumLiteralDeclaration_2() { return cINT24EnumLiteralDeclaration_2; }
-		
-		//"int24"
-		public Keyword getINT24Int24Keyword_2_0() { return cINT24Int24Keyword_2_0; }
-		
-		//INT32="int32"
-		public EnumLiteralDeclaration getINT32EnumLiteralDeclaration_3() { return cINT32EnumLiteralDeclaration_3; }
-		
-		//"int32"
-		public Keyword getINT32Int32Keyword_3_0() { return cINT32Int32Keyword_3_0; }
-		
-		//INT40="int40"
-		public EnumLiteralDeclaration getINT40EnumLiteralDeclaration_4() { return cINT40EnumLiteralDeclaration_4; }
-		
-		//"int40"
-		public Keyword getINT40Int40Keyword_4_0() { return cINT40Int40Keyword_4_0; }
-		
-		//INT48="int48"
-		public EnumLiteralDeclaration getINT48EnumLiteralDeclaration_5() { return cINT48EnumLiteralDeclaration_5; }
-		
-		//"int48"
-		public Keyword getINT48Int48Keyword_5_0() { return cINT48Int48Keyword_5_0; }
-		
-		//INT56="int56"
-		public EnumLiteralDeclaration getINT56EnumLiteralDeclaration_6() { return cINT56EnumLiteralDeclaration_6; }
-		
-		//"int56"
-		public Keyword getINT56Int56Keyword_6_0() { return cINT56Int56Keyword_6_0; }
-		
-		//INT64="int64"
-		public EnumLiteralDeclaration getINT64EnumLiteralDeclaration_7() { return cINT64EnumLiteralDeclaration_7; }
-		
-		//"int64"
-		public Keyword getINT64Int64Keyword_7_0() { return cINT64Int64Keyword_7_0; }
-		
-		//INT72="int72"
-		public EnumLiteralDeclaration getINT72EnumLiteralDeclaration_8() { return cINT72EnumLiteralDeclaration_8; }
-		
-		//"int72"
-		public Keyword getINT72Int72Keyword_8_0() { return cINT72Int72Keyword_8_0; }
-		
-		//INT80="int80"
-		public EnumLiteralDeclaration getINT80EnumLiteralDeclaration_9() { return cINT80EnumLiteralDeclaration_9; }
-		
-		//"int80"
-		public Keyword getINT80Int80Keyword_9_0() { return cINT80Int80Keyword_9_0; }
-		
-		//INT88="int88"
-		public EnumLiteralDeclaration getINT88EnumLiteralDeclaration_10() { return cINT88EnumLiteralDeclaration_10; }
-		
-		//"int88"
-		public Keyword getINT88Int88Keyword_10_0() { return cINT88Int88Keyword_10_0; }
-		
-		//INT96="int96"
-		public EnumLiteralDeclaration getINT96EnumLiteralDeclaration_11() { return cINT96EnumLiteralDeclaration_11; }
-		
-		//"int96"
-		public Keyword getINT96Int96Keyword_11_0() { return cINT96Int96Keyword_11_0; }
-		
-		//INT104="int104"
-		public EnumLiteralDeclaration getINT104EnumLiteralDeclaration_12() { return cINT104EnumLiteralDeclaration_12; }
-		
-		//"int104"
-		public Keyword getINT104Int104Keyword_12_0() { return cINT104Int104Keyword_12_0; }
-		
-		//INT112="int112"
-		public EnumLiteralDeclaration getINT112EnumLiteralDeclaration_13() { return cINT112EnumLiteralDeclaration_13; }
-		
-		//"int112"
-		public Keyword getINT112Int112Keyword_13_0() { return cINT112Int112Keyword_13_0; }
-		
-		//INT120="int120"
-		public EnumLiteralDeclaration getINT120EnumLiteralDeclaration_14() { return cINT120EnumLiteralDeclaration_14; }
-		
-		//"int120"
-		public Keyword getINT120Int120Keyword_14_0() { return cINT120Int120Keyword_14_0; }
-		
-		//INT128="int128"
-		public EnumLiteralDeclaration getINT128EnumLiteralDeclaration_15() { return cINT128EnumLiteralDeclaration_15; }
-		
-		//"int128"
-		public Keyword getINT128Int128Keyword_15_0() { return cINT128Int128Keyword_15_0; }
-		
-		//INT136="int136"
-		public EnumLiteralDeclaration getINT136EnumLiteralDeclaration_16() { return cINT136EnumLiteralDeclaration_16; }
-		
-		//"int136"
-		public Keyword getINT136Int136Keyword_16_0() { return cINT136Int136Keyword_16_0; }
-		
-		//INT144="int144"
-		public EnumLiteralDeclaration getINT144EnumLiteralDeclaration_17() { return cINT144EnumLiteralDeclaration_17; }
-		
-		//"int144"
-		public Keyword getINT144Int144Keyword_17_0() { return cINT144Int144Keyword_17_0; }
-		
-		//INT152="int152"
-		public EnumLiteralDeclaration getINT152EnumLiteralDeclaration_18() { return cINT152EnumLiteralDeclaration_18; }
-		
-		//"int152"
-		public Keyword getINT152Int152Keyword_18_0() { return cINT152Int152Keyword_18_0; }
-		
-		//INT160="int160"
-		public EnumLiteralDeclaration getINT160EnumLiteralDeclaration_19() { return cINT160EnumLiteralDeclaration_19; }
-		
-		//"int160"
-		public Keyword getINT160Int160Keyword_19_0() { return cINT160Int160Keyword_19_0; }
-		
-		//INT168="int168"
-		public EnumLiteralDeclaration getINT168EnumLiteralDeclaration_20() { return cINT168EnumLiteralDeclaration_20; }
-		
-		//"int168"
-		public Keyword getINT168Int168Keyword_20_0() { return cINT168Int168Keyword_20_0; }
-		
-		//INT178="int178"
-		public EnumLiteralDeclaration getINT178EnumLiteralDeclaration_21() { return cINT178EnumLiteralDeclaration_21; }
-		
-		//"int178"
-		public Keyword getINT178Int178Keyword_21_0() { return cINT178Int178Keyword_21_0; }
-		
-		//INT184="int184"
-		public EnumLiteralDeclaration getINT184EnumLiteralDeclaration_22() { return cINT184EnumLiteralDeclaration_22; }
-		
-		//"int184"
-		public Keyword getINT184Int184Keyword_22_0() { return cINT184Int184Keyword_22_0; }
-		
-		//INT192="int192"
-		public EnumLiteralDeclaration getINT192EnumLiteralDeclaration_23() { return cINT192EnumLiteralDeclaration_23; }
-		
-		//"int192"
-		public Keyword getINT192Int192Keyword_23_0() { return cINT192Int192Keyword_23_0; }
-		
-		//INT200="int200"
-		public EnumLiteralDeclaration getINT200EnumLiteralDeclaration_24() { return cINT200EnumLiteralDeclaration_24; }
-		
-		//"int200"
-		public Keyword getINT200Int200Keyword_24_0() { return cINT200Int200Keyword_24_0; }
-		
-		//INT208="int208"
-		public EnumLiteralDeclaration getINT208EnumLiteralDeclaration_25() { return cINT208EnumLiteralDeclaration_25; }
-		
-		//"int208"
-		public Keyword getINT208Int208Keyword_25_0() { return cINT208Int208Keyword_25_0; }
-		
-		//INT216="int216"
-		public EnumLiteralDeclaration getINT216EnumLiteralDeclaration_26() { return cINT216EnumLiteralDeclaration_26; }
-		
-		//"int216"
-		public Keyword getINT216Int216Keyword_26_0() { return cINT216Int216Keyword_26_0; }
-		
-		//INT224="int224"
-		public EnumLiteralDeclaration getINT224EnumLiteralDeclaration_27() { return cINT224EnumLiteralDeclaration_27; }
-		
-		//"int224"
-		public Keyword getINT224Int224Keyword_27_0() { return cINT224Int224Keyword_27_0; }
-		
-		//INT232="int232"
-		public EnumLiteralDeclaration getINT232EnumLiteralDeclaration_28() { return cINT232EnumLiteralDeclaration_28; }
-		
-		//"int232"
-		public Keyword getINT232Int232Keyword_28_0() { return cINT232Int232Keyword_28_0; }
-		
-		//INT240="int240"
-		public EnumLiteralDeclaration getINT240EnumLiteralDeclaration_29() { return cINT240EnumLiteralDeclaration_29; }
-		
-		//"int240"
-		public Keyword getINT240Int240Keyword_29_0() { return cINT240Int240Keyword_29_0; }
-		
-		//INT248="int248"
-		public EnumLiteralDeclaration getINT248EnumLiteralDeclaration_30() { return cINT248EnumLiteralDeclaration_30; }
-		
-		//"int248"
-		public Keyword getINT248Int248Keyword_30_0() { return cINT248Int248Keyword_30_0; }
-		
-		//INT256="int256"
-		public EnumLiteralDeclaration getINT256EnumLiteralDeclaration_31() { return cINT256EnumLiteralDeclaration_31; }
-		
-		//"int256"
-		public Keyword getINT256Int256Keyword_31_0() { return cINT256Int256Keyword_31_0; }
-		
-		//// UINT
-		//UINT="uint"
-		public EnumLiteralDeclaration getUINTEnumLiteralDeclaration_32() { return cUINTEnumLiteralDeclaration_32; }
-		
-		//"uint"
-		public Keyword getUINTUintKeyword_32_0() { return cUINTUintKeyword_32_0; }
-		
-		//UINT8="uint8"
-		public EnumLiteralDeclaration getUINT8EnumLiteralDeclaration_33() { return cUINT8EnumLiteralDeclaration_33; }
-		
-		//"uint8"
-		public Keyword getUINT8Uint8Keyword_33_0() { return cUINT8Uint8Keyword_33_0; }
-		
-		//UINT16="uint16"
-		public EnumLiteralDeclaration getUINT16EnumLiteralDeclaration_34() { return cUINT16EnumLiteralDeclaration_34; }
-		
-		//"uint16"
-		public Keyword getUINT16Uint16Keyword_34_0() { return cUINT16Uint16Keyword_34_0; }
-		
-		//UNIT24="uint24"
-		public EnumLiteralDeclaration getUNIT24EnumLiteralDeclaration_35() { return cUNIT24EnumLiteralDeclaration_35; }
-		
-		//"uint24"
-		public Keyword getUNIT24Uint24Keyword_35_0() { return cUNIT24Uint24Keyword_35_0; }
-		
-		//UINT32="uint32"
-		public EnumLiteralDeclaration getUINT32EnumLiteralDeclaration_36() { return cUINT32EnumLiteralDeclaration_36; }
-		
-		//"uint32"
-		public Keyword getUINT32Uint32Keyword_36_0() { return cUINT32Uint32Keyword_36_0; }
-		
-		//UINT40="uint40"
-		public EnumLiteralDeclaration getUINT40EnumLiteralDeclaration_37() { return cUINT40EnumLiteralDeclaration_37; }
-		
-		//"uint40"
-		public Keyword getUINT40Uint40Keyword_37_0() { return cUINT40Uint40Keyword_37_0; }
-		
-		//UINT48="uint48"
-		public EnumLiteralDeclaration getUINT48EnumLiteralDeclaration_38() { return cUINT48EnumLiteralDeclaration_38; }
-		
-		//"uint48"
-		public Keyword getUINT48Uint48Keyword_38_0() { return cUINT48Uint48Keyword_38_0; }
-		
-		//UNIT56="uint56"
-		public EnumLiteralDeclaration getUNIT56EnumLiteralDeclaration_39() { return cUNIT56EnumLiteralDeclaration_39; }
-		
-		//"uint56"
-		public Keyword getUNIT56Uint56Keyword_39_0() { return cUNIT56Uint56Keyword_39_0; }
-		
-		//UINT64="uint64"
-		public EnumLiteralDeclaration getUINT64EnumLiteralDeclaration_40() { return cUINT64EnumLiteralDeclaration_40; }
-		
-		//"uint64"
-		public Keyword getUINT64Uint64Keyword_40_0() { return cUINT64Uint64Keyword_40_0; }
-		
-		//UINT72="uint72"
-		public EnumLiteralDeclaration getUINT72EnumLiteralDeclaration_41() { return cUINT72EnumLiteralDeclaration_41; }
-		
-		//"uint72"
-		public Keyword getUINT72Uint72Keyword_41_0() { return cUINT72Uint72Keyword_41_0; }
-		
-		//UINT80="uint80"
-		public EnumLiteralDeclaration getUINT80EnumLiteralDeclaration_42() { return cUINT80EnumLiteralDeclaration_42; }
-		
-		//"uint80"
-		public Keyword getUINT80Uint80Keyword_42_0() { return cUINT80Uint80Keyword_42_0; }
-		
-		//UINT88="uint88"
-		public EnumLiteralDeclaration getUINT88EnumLiteralDeclaration_43() { return cUINT88EnumLiteralDeclaration_43; }
-		
-		//"uint88"
-		public Keyword getUINT88Uint88Keyword_43_0() { return cUINT88Uint88Keyword_43_0; }
-		
-		//UINT96="uint96"
-		public EnumLiteralDeclaration getUINT96EnumLiteralDeclaration_44() { return cUINT96EnumLiteralDeclaration_44; }
-		
-		//"uint96"
-		public Keyword getUINT96Uint96Keyword_44_0() { return cUINT96Uint96Keyword_44_0; }
-		
-		//UINT104="uint104"
-		public EnumLiteralDeclaration getUINT104EnumLiteralDeclaration_45() { return cUINT104EnumLiteralDeclaration_45; }
-		
-		//"uint104"
-		public Keyword getUINT104Uint104Keyword_45_0() { return cUINT104Uint104Keyword_45_0; }
-		
-		//UINT112="uint112"
-		public EnumLiteralDeclaration getUINT112EnumLiteralDeclaration_46() { return cUINT112EnumLiteralDeclaration_46; }
-		
-		//"uint112"
-		public Keyword getUINT112Uint112Keyword_46_0() { return cUINT112Uint112Keyword_46_0; }
-		
-		//UINT120="uint120"
-		public EnumLiteralDeclaration getUINT120EnumLiteralDeclaration_47() { return cUINT120EnumLiteralDeclaration_47; }
-		
-		//"uint120"
-		public Keyword getUINT120Uint120Keyword_47_0() { return cUINT120Uint120Keyword_47_0; }
-		
-		//UINT128="uint128"
-		public EnumLiteralDeclaration getUINT128EnumLiteralDeclaration_48() { return cUINT128EnumLiteralDeclaration_48; }
-		
-		//"uint128"
-		public Keyword getUINT128Uint128Keyword_48_0() { return cUINT128Uint128Keyword_48_0; }
-		
-		//UINT136="uint136"
-		public EnumLiteralDeclaration getUINT136EnumLiteralDeclaration_49() { return cUINT136EnumLiteralDeclaration_49; }
-		
-		//"uint136"
-		public Keyword getUINT136Uint136Keyword_49_0() { return cUINT136Uint136Keyword_49_0; }
-		
-		//UINT144="uint144"
-		public EnumLiteralDeclaration getUINT144EnumLiteralDeclaration_50() { return cUINT144EnumLiteralDeclaration_50; }
-		
-		//"uint144"
-		public Keyword getUINT144Uint144Keyword_50_0() { return cUINT144Uint144Keyword_50_0; }
-		
-		//UINT152="uint152"
-		public EnumLiteralDeclaration getUINT152EnumLiteralDeclaration_51() { return cUINT152EnumLiteralDeclaration_51; }
-		
-		//"uint152"
-		public Keyword getUINT152Uint152Keyword_51_0() { return cUINT152Uint152Keyword_51_0; }
-		
-		//UINT160="uint160"
-		public EnumLiteralDeclaration getUINT160EnumLiteralDeclaration_52() { return cUINT160EnumLiteralDeclaration_52; }
-		
-		//"uint160"
-		public Keyword getUINT160Uint160Keyword_52_0() { return cUINT160Uint160Keyword_52_0; }
-		
-		//UINT168="uint168"
-		public EnumLiteralDeclaration getUINT168EnumLiteralDeclaration_53() { return cUINT168EnumLiteralDeclaration_53; }
-		
-		//"uint168"
-		public Keyword getUINT168Uint168Keyword_53_0() { return cUINT168Uint168Keyword_53_0; }
-		
-		//UINT178="uint178"
-		public EnumLiteralDeclaration getUINT178EnumLiteralDeclaration_54() { return cUINT178EnumLiteralDeclaration_54; }
-		
-		//"uint178"
-		public Keyword getUINT178Uint178Keyword_54_0() { return cUINT178Uint178Keyword_54_0; }
-		
-		//UINT184="uint184"
-		public EnumLiteralDeclaration getUINT184EnumLiteralDeclaration_55() { return cUINT184EnumLiteralDeclaration_55; }
-		
-		//"uint184"
-		public Keyword getUINT184Uint184Keyword_55_0() { return cUINT184Uint184Keyword_55_0; }
-		
-		//UINT192="uint192"
-		public EnumLiteralDeclaration getUINT192EnumLiteralDeclaration_56() { return cUINT192EnumLiteralDeclaration_56; }
-		
-		//"uint192"
-		public Keyword getUINT192Uint192Keyword_56_0() { return cUINT192Uint192Keyword_56_0; }
-		
-		//UINT200="uint200"
-		public EnumLiteralDeclaration getUINT200EnumLiteralDeclaration_57() { return cUINT200EnumLiteralDeclaration_57; }
-		
-		//"uint200"
-		public Keyword getUINT200Uint200Keyword_57_0() { return cUINT200Uint200Keyword_57_0; }
-		
-		//UINT208="uint208"
-		public EnumLiteralDeclaration getUINT208EnumLiteralDeclaration_58() { return cUINT208EnumLiteralDeclaration_58; }
-		
-		//"uint208"
-		public Keyword getUINT208Uint208Keyword_58_0() { return cUINT208Uint208Keyword_58_0; }
-		
-		//UINT216="uint216"
-		public EnumLiteralDeclaration getUINT216EnumLiteralDeclaration_59() { return cUINT216EnumLiteralDeclaration_59; }
-		
-		//"uint216"
-		public Keyword getUINT216Uint216Keyword_59_0() { return cUINT216Uint216Keyword_59_0; }
-		
-		//UINT244="uint224"
-		public EnumLiteralDeclaration getUINT244EnumLiteralDeclaration_60() { return cUINT244EnumLiteralDeclaration_60; }
-		
-		//"uint224"
-		public Keyword getUINT244Uint224Keyword_60_0() { return cUINT244Uint224Keyword_60_0; }
-		
-		//UINT232="uint232"
-		public EnumLiteralDeclaration getUINT232EnumLiteralDeclaration_61() { return cUINT232EnumLiteralDeclaration_61; }
-		
-		//"uint232"
-		public Keyword getUINT232Uint232Keyword_61_0() { return cUINT232Uint232Keyword_61_0; }
-		
-		//UINT240="uint240"
-		public EnumLiteralDeclaration getUINT240EnumLiteralDeclaration_62() { return cUINT240EnumLiteralDeclaration_62; }
-		
-		//"uint240"
-		public Keyword getUINT240Uint240Keyword_62_0() { return cUINT240Uint240Keyword_62_0; }
-		
-		//UINT248="uint248"
-		public EnumLiteralDeclaration getUINT248EnumLiteralDeclaration_63() { return cUINT248EnumLiteralDeclaration_63; }
-		
-		//"uint248"
-		public Keyword getUINT248Uint248Keyword_63_0() { return cUINT248Uint248Keyword_63_0; }
-		
-		//UINT256="uint256"
-		public EnumLiteralDeclaration getUINT256EnumLiteralDeclaration_64() { return cUINT256EnumLiteralDeclaration_64; }
-		
-		//"uint256"
-		public Keyword getUINT256Uint256Keyword_64_0() { return cUINT256Uint256Keyword_64_0; }
-		
-		//// BYTE
-		//BYTE="byte"
-		public EnumLiteralDeclaration getBYTEEnumLiteralDeclaration_65() { return cBYTEEnumLiteralDeclaration_65; }
-		
-		//"byte"
-		public Keyword getBYTEByteKeyword_65_0() { return cBYTEByteKeyword_65_0; }
-		
-		//BYTES="bytes"
-		public EnumLiteralDeclaration getBYTESEnumLiteralDeclaration_66() { return cBYTESEnumLiteralDeclaration_66; }
-		
-		//"bytes"
-		public Keyword getBYTESBytesKeyword_66_0() { return cBYTESBytesKeyword_66_0; }
-		
-		//BYTES1="bytes1"
-		public EnumLiteralDeclaration getBYTES1EnumLiteralDeclaration_67() { return cBYTES1EnumLiteralDeclaration_67; }
-		
-		//"bytes1"
-		public Keyword getBYTES1Bytes1Keyword_67_0() { return cBYTES1Bytes1Keyword_67_0; }
-		
-		//BYTES2="bytes2"
-		public EnumLiteralDeclaration getBYTES2EnumLiteralDeclaration_68() { return cBYTES2EnumLiteralDeclaration_68; }
-		
-		//"bytes2"
-		public Keyword getBYTES2Bytes2Keyword_68_0() { return cBYTES2Bytes2Keyword_68_0; }
-		
-		//BYTES3="bytes3"
-		public EnumLiteralDeclaration getBYTES3EnumLiteralDeclaration_69() { return cBYTES3EnumLiteralDeclaration_69; }
-		
-		//"bytes3"
-		public Keyword getBYTES3Bytes3Keyword_69_0() { return cBYTES3Bytes3Keyword_69_0; }
-		
-		//BYTES4="bytes4"
-		public EnumLiteralDeclaration getBYTES4EnumLiteralDeclaration_70() { return cBYTES4EnumLiteralDeclaration_70; }
-		
-		//"bytes4"
-		public Keyword getBYTES4Bytes4Keyword_70_0() { return cBYTES4Bytes4Keyword_70_0; }
-		
-		//BYTES5="bytes5"
-		public EnumLiteralDeclaration getBYTES5EnumLiteralDeclaration_71() { return cBYTES5EnumLiteralDeclaration_71; }
-		
-		//"bytes5"
-		public Keyword getBYTES5Bytes5Keyword_71_0() { return cBYTES5Bytes5Keyword_71_0; }
-		
-		//BYTES6="bytes6"
-		public EnumLiteralDeclaration getBYTES6EnumLiteralDeclaration_72() { return cBYTES6EnumLiteralDeclaration_72; }
-		
-		//"bytes6"
-		public Keyword getBYTES6Bytes6Keyword_72_0() { return cBYTES6Bytes6Keyword_72_0; }
-		
-		//BYTES7="bytes7"
-		public EnumLiteralDeclaration getBYTES7EnumLiteralDeclaration_73() { return cBYTES7EnumLiteralDeclaration_73; }
-		
-		//"bytes7"
-		public Keyword getBYTES7Bytes7Keyword_73_0() { return cBYTES7Bytes7Keyword_73_0; }
-		
-		//BYTES8="bytes8"
-		public EnumLiteralDeclaration getBYTES8EnumLiteralDeclaration_74() { return cBYTES8EnumLiteralDeclaration_74; }
-		
-		//"bytes8"
-		public Keyword getBYTES8Bytes8Keyword_74_0() { return cBYTES8Bytes8Keyword_74_0; }
-		
-		//BYTES9="bytes9"
-		public EnumLiteralDeclaration getBYTES9EnumLiteralDeclaration_75() { return cBYTES9EnumLiteralDeclaration_75; }
-		
-		//"bytes9"
-		public Keyword getBYTES9Bytes9Keyword_75_0() { return cBYTES9Bytes9Keyword_75_0; }
-		
-		//BYTES10="bytes10"
-		public EnumLiteralDeclaration getBYTES10EnumLiteralDeclaration_76() { return cBYTES10EnumLiteralDeclaration_76; }
-		
-		//"bytes10"
-		public Keyword getBYTES10Bytes10Keyword_76_0() { return cBYTES10Bytes10Keyword_76_0; }
-		
-		//BYTES11="bytes11"
-		public EnumLiteralDeclaration getBYTES11EnumLiteralDeclaration_77() { return cBYTES11EnumLiteralDeclaration_77; }
-		
-		//"bytes11"
-		public Keyword getBYTES11Bytes11Keyword_77_0() { return cBYTES11Bytes11Keyword_77_0; }
-		
-		//BYTES12="bytes12"
-		public EnumLiteralDeclaration getBYTES12EnumLiteralDeclaration_78() { return cBYTES12EnumLiteralDeclaration_78; }
-		
-		//"bytes12"
-		public Keyword getBYTES12Bytes12Keyword_78_0() { return cBYTES12Bytes12Keyword_78_0; }
-		
-		//BYTES13="bytes13"
-		public EnumLiteralDeclaration getBYTES13EnumLiteralDeclaration_79() { return cBYTES13EnumLiteralDeclaration_79; }
-		
-		//"bytes13"
-		public Keyword getBYTES13Bytes13Keyword_79_0() { return cBYTES13Bytes13Keyword_79_0; }
-		
-		//BYTES14="bytes14"
-		public EnumLiteralDeclaration getBYTES14EnumLiteralDeclaration_80() { return cBYTES14EnumLiteralDeclaration_80; }
-		
-		//"bytes14"
-		public Keyword getBYTES14Bytes14Keyword_80_0() { return cBYTES14Bytes14Keyword_80_0; }
-		
-		//BYTES15="bytes15"
-		public EnumLiteralDeclaration getBYTES15EnumLiteralDeclaration_81() { return cBYTES15EnumLiteralDeclaration_81; }
-		
-		//"bytes15"
-		public Keyword getBYTES15Bytes15Keyword_81_0() { return cBYTES15Bytes15Keyword_81_0; }
-		
-		//BYTES16="bytes16"
-		public EnumLiteralDeclaration getBYTES16EnumLiteralDeclaration_82() { return cBYTES16EnumLiteralDeclaration_82; }
-		
-		//"bytes16"
-		public Keyword getBYTES16Bytes16Keyword_82_0() { return cBYTES16Bytes16Keyword_82_0; }
-		
-		//BYTES17="bytes17"
-		public EnumLiteralDeclaration getBYTES17EnumLiteralDeclaration_83() { return cBYTES17EnumLiteralDeclaration_83; }
-		
-		//"bytes17"
-		public Keyword getBYTES17Bytes17Keyword_83_0() { return cBYTES17Bytes17Keyword_83_0; }
-		
-		//BYTES18="bytes18"
-		public EnumLiteralDeclaration getBYTES18EnumLiteralDeclaration_84() { return cBYTES18EnumLiteralDeclaration_84; }
-		
-		//"bytes18"
-		public Keyword getBYTES18Bytes18Keyword_84_0() { return cBYTES18Bytes18Keyword_84_0; }
-		
-		//BYTES19="bytes19"
-		public EnumLiteralDeclaration getBYTES19EnumLiteralDeclaration_85() { return cBYTES19EnumLiteralDeclaration_85; }
-		
-		//"bytes19"
-		public Keyword getBYTES19Bytes19Keyword_85_0() { return cBYTES19Bytes19Keyword_85_0; }
-		
-		//BYTES20="bytes20"
-		public EnumLiteralDeclaration getBYTES20EnumLiteralDeclaration_86() { return cBYTES20EnumLiteralDeclaration_86; }
-		
-		//"bytes20"
-		public Keyword getBYTES20Bytes20Keyword_86_0() { return cBYTES20Bytes20Keyword_86_0; }
-		
-		//BYTES21="bytes21"
-		public EnumLiteralDeclaration getBYTES21EnumLiteralDeclaration_87() { return cBYTES21EnumLiteralDeclaration_87; }
-		
-		//"bytes21"
-		public Keyword getBYTES21Bytes21Keyword_87_0() { return cBYTES21Bytes21Keyword_87_0; }
-		
-		//BYTES22="bytes22"
-		public EnumLiteralDeclaration getBYTES22EnumLiteralDeclaration_88() { return cBYTES22EnumLiteralDeclaration_88; }
-		
-		//"bytes22"
-		public Keyword getBYTES22Bytes22Keyword_88_0() { return cBYTES22Bytes22Keyword_88_0; }
-		
-		//BYTES23="bytes23"
-		public EnumLiteralDeclaration getBYTES23EnumLiteralDeclaration_89() { return cBYTES23EnumLiteralDeclaration_89; }
-		
-		//"bytes23"
-		public Keyword getBYTES23Bytes23Keyword_89_0() { return cBYTES23Bytes23Keyword_89_0; }
-		
-		//BYTES24="bytes24"
-		public EnumLiteralDeclaration getBYTES24EnumLiteralDeclaration_90() { return cBYTES24EnumLiteralDeclaration_90; }
-		
-		//"bytes24"
-		public Keyword getBYTES24Bytes24Keyword_90_0() { return cBYTES24Bytes24Keyword_90_0; }
-		
-		//BYTES25="bytes25"
-		public EnumLiteralDeclaration getBYTES25EnumLiteralDeclaration_91() { return cBYTES25EnumLiteralDeclaration_91; }
-		
-		//"bytes25"
-		public Keyword getBYTES25Bytes25Keyword_91_0() { return cBYTES25Bytes25Keyword_91_0; }
-		
-		//BYTES26="bytes26"
-		public EnumLiteralDeclaration getBYTES26EnumLiteralDeclaration_92() { return cBYTES26EnumLiteralDeclaration_92; }
-		
-		//"bytes26"
-		public Keyword getBYTES26Bytes26Keyword_92_0() { return cBYTES26Bytes26Keyword_92_0; }
-		
-		//BYTES27="bytes27"
-		public EnumLiteralDeclaration getBYTES27EnumLiteralDeclaration_93() { return cBYTES27EnumLiteralDeclaration_93; }
-		
-		//"bytes27"
-		public Keyword getBYTES27Bytes27Keyword_93_0() { return cBYTES27Bytes27Keyword_93_0; }
-		
-		//BYTES28="bytes28"
-		public EnumLiteralDeclaration getBYTES28EnumLiteralDeclaration_94() { return cBYTES28EnumLiteralDeclaration_94; }
-		
-		//"bytes28"
-		public Keyword getBYTES28Bytes28Keyword_94_0() { return cBYTES28Bytes28Keyword_94_0; }
-		
-		//BYTES29="bytes29"
-		public EnumLiteralDeclaration getBYTES29EnumLiteralDeclaration_95() { return cBYTES29EnumLiteralDeclaration_95; }
-		
-		//"bytes29"
-		public Keyword getBYTES29Bytes29Keyword_95_0() { return cBYTES29Bytes29Keyword_95_0; }
-		
-		//BYTES30="bytes30"
-		public EnumLiteralDeclaration getBYTES30EnumLiteralDeclaration_96() { return cBYTES30EnumLiteralDeclaration_96; }
-		
-		//"bytes30"
-		public Keyword getBYTES30Bytes30Keyword_96_0() { return cBYTES30Bytes30Keyword_96_0; }
-		
-		//BYTES31="bytes31"
-		public EnumLiteralDeclaration getBYTES31EnumLiteralDeclaration_97() { return cBYTES31EnumLiteralDeclaration_97; }
-		
-		//"bytes31"
-		public Keyword getBYTES31Bytes31Keyword_97_0() { return cBYTES31Bytes31Keyword_97_0; }
-		
-		//BYTES32="bytes32"
-		public EnumLiteralDeclaration getBYTES32EnumLiteralDeclaration_98() { return cBYTES32EnumLiteralDeclaration_98; }
-		
-		//"bytes32"
-		public Keyword getBYTES32Bytes32Keyword_98_0() { return cBYTES32Bytes32Keyword_98_0; }
-		
-		//// Other
-		//STRING="string"
-		public EnumLiteralDeclaration getSTRINGEnumLiteralDeclaration_99() { return cSTRINGEnumLiteralDeclaration_99; }
-		
-		//"string"
-		public Keyword getSTRINGStringKeyword_99_0() { return cSTRINGStringKeyword_99_0; }
-		
-		//ADDRESS="address"
-		public EnumLiteralDeclaration getADDRESSEnumLiteralDeclaration_100() { return cADDRESSEnumLiteralDeclaration_100; }
-		
-		//"address"
-		public Keyword getADDRESSAddressKeyword_100_0() { return cADDRESSAddressKeyword_100_0; }
-		
-		//BOOL="bool"
-		public EnumLiteralDeclaration getBOOLEnumLiteralDeclaration_101() { return cBOOLEnumLiteralDeclaration_101; }
-		
-		//"bool"
-		public Keyword getBOOLBoolKeyword_101_0() { return cBOOLBoolKeyword_101_0; }
-		
-		//REAL="real"
-		public EnumLiteralDeclaration getREALEnumLiteralDeclaration_102() { return cREALEnumLiteralDeclaration_102; }
-		
-		//"real"
-		public Keyword getREALRealKeyword_102_0() { return cREALRealKeyword_102_0; }
-		
-		//UREAL="ureal"
-		public EnumLiteralDeclaration getUREALEnumLiteralDeclaration_103() { return cUREALEnumLiteralDeclaration_103; }
-		
-		//"ureal"
-		public Keyword getUREALUrealKeyword_103_0() { return cUREALUrealKeyword_103_0; }
-	}
 	public class AssignmentOpEnumElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.AssignmentOpEnum");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -5863,7 +5568,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final SpecialVariablesElements pSpecialVariables;
 	private final TerminalRule tHEX;
 	private final TerminalRule tDECIMAL;
-	private final ElementaryTypeNameEnumElements eElementaryTypeNameEnum;
+	private final SimpleTypeDeclarationElements pSimpleTypeDeclaration;
+	private final ElementaryTypeNameEnumElements pElementaryTypeNameEnum;
 	private final MapLocationLiteralElements pMapLocationLiteral;
 	private final LocationSpecifierEnumElements pLocationSpecifierEnum;
 	private final VisibilityEnumElements pVisibilityEnum;
@@ -6000,7 +5706,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSpecialVariables = new SpecialVariablesElements();
 		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.HEX");
 		this.tDECIMAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.DECIMAL");
-		this.eElementaryTypeNameEnum = new ElementaryTypeNameEnumElements();
+		this.pSimpleTypeDeclaration = new SimpleTypeDeclarationElements();
+		this.pElementaryTypeNameEnum = new ElementaryTypeNameEnumElements();
 		this.pMapLocationLiteral = new MapLocationLiteralElements();
 		this.pLocationSpecifierEnum = new LocationSpecifierEnumElements();
 		this.pVisibilityEnum = new VisibilityEnumElements();
@@ -6053,6 +5760,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	///*
 	// * Controllare gli array
 	// * Controllare le strutture
+	// * Controllare le functionCall
 	// */ // ---------- TO DO ----------
 	//// ---------- Old grammar ----------
 	///*
@@ -6258,8 +5966,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//StructDefinition:
-	//	visibility=VisibilityEnum? "struct" name=ID "{" (members+=VariableDeclaration ";")*
-	//	"}";
+	//	visibility=VisibilityEnum? "struct" name=ID "{" (members+=VariableDeclaration ";")* "}";
 	public StructDefinitionElements getStructDefinitionAccess() {
 		return pStructDefinition;
 	}
@@ -6472,12 +6179,13 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getTupleSeparatorAccess().getRule();
 	}
 	
-	//// SimpleStatement
-	//// ---------------------
-	//// SimpleStatement:
-	//// SimpleStatement2 ";"
-	//// ;
-	//SimpleStatement:
+	///*
+	// * SimpleStatement
+	// * --------------------
+	// * SimpleStatement:
+	// * SimpleStatement2 ";"
+	// * ;
+	// */ SimpleStatement:
 	//	(StandardTypeWithoutQualifiedIdentifier ({StandardVariableDeclaration.type=current}
 	//	ptionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) | VarType
 	//	({VarVariableTypeDeclaration} variable=Variable ("=" expression=Expression) | {VarVariableTupleVariableDeclaration}
@@ -6732,7 +6440,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// Only allowed in a Modifier DAF
 	//PlaceHolderStatement:
-	//	"_" {PlaceHolderStatement};
+	//	"_" {PlaceHolderStatement} ";"?;
 	public PlaceHolderStatementElements getPlaceHolderStatementAccess() {
 		return pPlaceHolderStatement;
 	}
@@ -6838,7 +6546,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getBitOrAccess().getRule();
 	}
 	
-	//// Precedence: 9, Left associativ
+	//// Precedence: 9, Left associative
 	//BitXor Expression:
 	//	BitAnd ({BitXor.left=current} "^" right=BitAnd)*;
 	public BitXorElements getBitXorAccess() {
@@ -6998,11 +6706,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//PrimaryExpression Expression:
 	//	SpecialExpression | QualifiedIdentifier | Literal | TypeCast |
-	//	"("
-	//	Expression ({Tuple.members+=current} (members+=TupleSeparator members+=Expression?)+)?
-	//	")" |
-	//	"("
-	//	TupleSeparator ({Tuple.members+=current} members+=Expression? (members+=TupleSeparator members+=Expression?)*)
+	//	"(" Expression ({Tuple.members+=current} (members+=TupleSeparator members+=Expression?)+)? ")" |
+	//	"(" TupleSeparator ({Tuple.members+=current} members+=Expression? (members+=TupleSeparator members+=Expression?)*)
 	//	")" |
 	//	"(" ")" {Tuple};
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
@@ -7268,30 +6973,129 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return tDECIMAL;
 	}
 	
-	//enum ElementaryTypeNameEnum: // INT
-	//	INT="int" | INT16="int16" | INT24="int24" | INT32="int32" | INT40="int40" | INT48="int48" | INT56="int56" |
-	//	INT64="int64" | INT72="int72" | INT80="int80" | INT88="int88" | INT96="int96" | INT104="int104" | INT112="int112" |
-	//	INT120="int120" | INT128="int128" | INT136="int136" | INT144="int144" | INT152="int152" | INT160="int160" |
-	//	INT168="int168" | INT178="int178" | INT184="int184" | INT192="int192" | INT200="int200" | INT208="int208" |
-	//	INT216="int216" | INT224="int224" | INT232="int232" | INT240="int240" | INT248="int248" | INT256="int256" | // UINT
-	//	UINT="uint" | UINT8="uint8" | UINT16="uint16" | UNIT24="uint24" | UINT32="uint32" | UINT40="uint40" | UINT48="uint48" |
-	//	UNIT56="uint56" | UINT64="uint64" | UINT72="uint72" | UINT80="uint80" | UINT88="uint88" | UINT96="uint96" |
-	//	UINT104="uint104" | UINT112="uint112" | UINT120="uint120" | UINT128="uint128" | UINT136="uint136" | UINT144="uint144"
-	//	| UINT152="uint152" | UINT160="uint160" | UINT168="uint168" | UINT178="uint178" | UINT184="uint184" |
-	//	UINT192="uint192" | UINT200="uint200" | UINT208="uint208" | UINT216="uint216" | UINT244="uint224" | UINT232="uint232"
-	//	| UINT240="uint240" | UINT248="uint248" | UINT256="uint256" | // BYTE
-	//	BYTE="byte" | BYTES="bytes" | BYTES1="bytes1" | BYTES2="bytes2" | BYTES3="bytes3" | BYTES4="bytes4" | BYTES5="bytes5" |
-	//	BYTES6="bytes6" | BYTES7="bytes7" | BYTES8="bytes8" | BYTES9="bytes9" | BYTES10="bytes10" | BYTES11="bytes11" |
-	//	BYTES12="bytes12" | BYTES13="bytes13" | BYTES14="bytes14" | BYTES15="bytes15" | BYTES16="bytes16" | BYTES17="bytes17"
-	//	| BYTES18="bytes18" | BYTES19="bytes19" | BYTES20="bytes20" | BYTES21="bytes21" | BYTES22="bytes22" |
-	//	BYTES23="bytes23" | BYTES24="bytes24" | BYTES25="bytes25" | BYTES26="bytes26" | BYTES27="bytes27" | BYTES28="bytes28"
-	//	| BYTES29="bytes29" | BYTES30="bytes30" | BYTES31="bytes31" | BYTES32="bytes32" | // Other
-	//	STRING="string" | ADDRESS="address" | BOOL="bool" | REAL="real" | UREAL="ureal";
-	public ElementaryTypeNameEnumElements getElementaryTypeNameEnumAccess() {
-		return eElementaryTypeNameEnum;
+	//SimpleTypeDeclaration:
+	//	type=('string' | 'bool');
+	public SimpleTypeDeclarationElements getSimpleTypeDeclarationAccess() {
+		return pSimpleTypeDeclaration;
 	}
 	
-	public EnumRule getElementaryTypeNameEnumRule() {
+	public ParserRule getSimpleTypeDeclarationRule() {
+		return getSimpleTypeDeclarationAccess().getRule();
+	}
+	
+	//ElementaryTypeNameEnum:
+	//	type=("int" |
+	//	"int16" |
+	//	"int24" |
+	//	"int32" |
+	//	"int40" |
+	//	"int48" |
+	//	"int56" |
+	//	"int64" |
+	//	"int72" |
+	//	"int80" |
+	//	"int88" |
+	//	"int96" |
+	//	"int104" |
+	//	"int112" |
+	//	"int120" |
+	//	"int128" |
+	//	"int136" |
+	//	"int144" |
+	//	"int152" |
+	//	"int160" |
+	//	"int168" |
+	//	"int178" |
+	//	"int184" |
+	//	"int192" |
+	//	"int200" |
+	//	"int208" |
+	//	"int216" |
+	//	"int224" |
+	//	"int232" |
+	//	"int240" |
+	//	"int248" |
+	//	"int256" |
+	//	// UINT
+	//	"uint" |
+	//	"uint8" |
+	//	"uint16" |
+	//	"uint24" |
+	//	"uint32" |
+	//	"uint40" |
+	//	"uint48" |
+	//	"uint56" |
+	//	"uint64" |
+	//	"uint72" |
+	//	"uint80" |
+	//	"uint88" |
+	//	"uint96" |
+	//	"uint104" |
+	//	"uint112" |
+	//	"uint120" |
+	//	"uint128" |
+	//	"uint136" |
+	//	"uint144" |
+	//	"uint152" |
+	//	"uint160" |
+	//	"uint168" |
+	//	"uint178" |
+	//	"uint184" |
+	//	"uint192" |
+	//	"uint200" |
+	//	"uint208" |
+	//	"uint216" |
+	//	"uint224" |
+	//	"uint232" |
+	//	"uint240" |
+	//	"uint248" |
+	//	"uint256" |
+	//	// BYTE
+	//	"byte" |
+	//	"bytes" |
+	//	"bytes1" |
+	//	"bytes2" |
+	//	"bytes3" |
+	//	"bytes4" |
+	//	"bytes5" |
+	//	"bytes6" |
+	//	"bytes7" |
+	//	"bytes8" |
+	//	"bytes9" |
+	//	"bytes10" |
+	//	"bytes11" |
+	//	"bytes12" |
+	//	"bytes13" |
+	//	"bytes14" |
+	//	"bytes15" |
+	//	"bytes16" |
+	//	"bytes17" |
+	//	"bytes18" |
+	//	"bytes19" |
+	//	"bytes20" |
+	//	"bytes21" |
+	//	"bytes22" |
+	//	"bytes23" |
+	//	"bytes24" |
+	//	"bytes25" |
+	//	"bytes26" |
+	//	"bytes27" |
+	//	"bytes28" |
+	//	"bytes29" |
+	//	"bytes30" |
+	//	"bytes31" |
+	//	"bytes32" |
+	//	// Other
+	//	"string" |
+	//	"address" |
+	//	"bool" |
+	//	"real" |
+	//	"ureal");
+	public ElementaryTypeNameEnumElements getElementaryTypeNameEnumAccess() {
+		return pElementaryTypeNameEnum;
+	}
+	
+	public ParserRule getElementaryTypeNameEnumRule() {
 		return getElementaryTypeNameEnumAccess().getRule();
 	}
 	

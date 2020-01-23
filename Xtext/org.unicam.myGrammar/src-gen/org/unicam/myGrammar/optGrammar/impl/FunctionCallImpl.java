@@ -78,7 +78,7 @@ public class FunctionCallImpl extends MinimalEObjectImpl.Container implements Fu
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getFunctionCall();
+    return OptGrammarPackage.Literals.FUNCTION_CALL;
   }
 
   /**

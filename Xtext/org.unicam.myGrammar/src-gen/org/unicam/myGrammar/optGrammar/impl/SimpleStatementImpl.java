@@ -35,7 +35,7 @@ public class SimpleStatementImpl extends StatementImpl implements SimpleStatemen
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getSimpleStatement();
+    return OptGrammarPackage.Literals.SIMPLE_STATEMENT;
   }
 
 } //SimpleStatementImpl

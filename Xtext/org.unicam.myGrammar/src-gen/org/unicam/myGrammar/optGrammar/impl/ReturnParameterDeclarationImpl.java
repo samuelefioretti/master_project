@@ -71,7 +71,7 @@ public class ReturnParameterDeclarationImpl extends MinimalEObjectImpl.Container
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getReturnParameterDeclaration();
+    return OptGrammarPackage.Literals.RETURN_PARAMETER_DECLARATION;
   }
 
   /**

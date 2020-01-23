@@ -46,25 +46,22 @@ public interface ElementaryType extends StandardType, StandardTypeWithoutQualifi
   void setDimension(ArrayDimensions value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum}.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum
+   * @return the value of the '<em>Name</em>' containment reference.
    * @see #setName(ElementaryTypeNameEnum)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getElementaryType_Name()
-   * @model
+   * @model containment="true"
    * @generated
    */
   ElementaryTypeNameEnum getName();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.ElementaryType#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.ElementaryType#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum
+   * @param value the new value of the '<em>Name</em>' containment reference.
    * @see #getName()
    * @generated
    */

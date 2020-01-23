@@ -798,6 +798,24 @@ public interface OptGrammarFactory extends EFactory
   SpecialVariables createSpecialVariables();
 
   /**
+   * Returns a new object of class '<em>Simple Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Type Declaration</em>'.
+   * @generated
+   */
+  SimpleTypeDeclaration createSimpleTypeDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Elementary Type Name Enum</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Elementary Type Name Enum</em>'.
+   * @generated
+   */
+  ElementaryTypeNameEnum createElementaryTypeNameEnum();
+
+  /**
    * Returns a new object of class '<em>Location Specifier Enum</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

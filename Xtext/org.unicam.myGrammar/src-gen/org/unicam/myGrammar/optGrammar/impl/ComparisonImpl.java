@@ -91,7 +91,7 @@ public class ComparisonImpl extends ExpressionImpl implements Comparison
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getComparison();
+    return OptGrammarPackage.Literals.COMPARISON;
   }
 
   /**

@@ -80,7 +80,7 @@ public class PostIncDecExpressionImpl extends ExpressionImpl implements PostIncD
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getPostIncDecExpression();
+    return OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION;
   }
 
   /**

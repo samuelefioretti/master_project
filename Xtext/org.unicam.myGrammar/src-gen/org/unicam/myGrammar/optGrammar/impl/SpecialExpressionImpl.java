@@ -99,7 +99,7 @@ public class SpecialExpressionImpl extends ExpressionImpl implements SpecialExpr
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getSpecialExpression();
+    return OptGrammarPackage.Literals.SPECIAL_EXPRESSION;
   }
 
   /**

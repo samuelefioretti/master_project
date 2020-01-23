@@ -33,24 +33,14 @@ import org.unicam.myGrammar.optGrammar.TypeCast;
 public class TypeCastImpl extends ExpressionImpl implements TypeCast
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final ElementaryTypeNameEnum VALUE_EDEFAULT = ElementaryTypeNameEnum.INT;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected ElementaryTypeNameEnum value = VALUE_EDEFAULT;
+  protected ElementaryTypeNameEnum value;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -80,7 +70,7 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getTypeCast();
+    return OptGrammarPackage.Literals.TYPE_CAST;
   }
 
   /**
@@ -99,13 +89,38 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
    * <!-- end-user-doc -->
    * @generated
    */
+  public NotificationChain basicSetValue(ElementaryTypeNameEnum newValue, NotificationChain msgs)
+  {
+    ElementaryTypeNameEnum oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.TYPE_CAST__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public void setValue(ElementaryTypeNameEnum newValue)
   {
-    ElementaryTypeNameEnum oldValue = value;
-    value = newValue == null ? VALUE_EDEFAULT : newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.TYPE_CAST__VALUE, oldValue, value));
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.TYPE_CAST__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.TYPE_CAST__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.TYPE_CAST__VALUE, newValue, newValue));
   }
 
   /**
@@ -168,6 +183,8 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
   {
     switch (featureID)
     {
+      case OptGrammarPackage.TYPE_CAST__VALUE:
+        return basicSetValue(null, msgs);
       case OptGrammarPackage.TYPE_CAST__EXPRESSION:
         return basicSetExpression(null, msgs);
     }
@@ -223,7 +240,7 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
     switch (featureID)
     {
       case OptGrammarPackage.TYPE_CAST__VALUE:
-        setValue(VALUE_EDEFAULT);
+        setValue((ElementaryTypeNameEnum)null);
         return;
       case OptGrammarPackage.TYPE_CAST__EXPRESSION:
         setExpression((Expression)null);
@@ -243,28 +260,11 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
     switch (featureID)
     {
       case OptGrammarPackage.TYPE_CAST__VALUE:
-        return value != VALUE_EDEFAULT;
+        return value != null;
       case OptGrammarPackage.TYPE_CAST__EXPRESSION:
         return expression != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
-    result.append(value);
-    result.append(')');
-    return result.toString();
   }
 
 } //TypeCastImpl

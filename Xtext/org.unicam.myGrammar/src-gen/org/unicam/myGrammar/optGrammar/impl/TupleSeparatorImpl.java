@@ -35,7 +35,7 @@ public class TupleSeparatorImpl extends ExpressionImpl implements TupleSeparator
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getTupleSeparator();
+    return OptGrammarPackage.Literals.TUPLE_SEPARATOR;
   }
 
 } //TupleSeparatorImpl

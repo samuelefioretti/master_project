@@ -30,6 +30,9 @@ import org.unicam.myGrammar.optGrammar.EcrecoverFunction
 import org.unicam.myGrammar.optGrammar.IntParameter
 import org.unicam.myGrammar.optGrammar.NumericLiteral
 import org.unicam.myGrammar.optGrammar.UnitTypes
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration
+import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum
+import org.unicam.myGrammar.optGrammar.PrimaryArithmetic
 
 /**
  * Generates code from your model files on save.
@@ -196,7 +199,7 @@ class OptGrammarGenerator extends AbstractGenerator {
 
 	def compileTypes(EObject type) {
 		return switch type {
-			SizedDeclaration: type.unsigned ? 'u' + type.type : type.type
+			ElementaryTypeNameEnum: type.type
 			,
 			SimpleTypeDeclaration: type.type
 		}
@@ -248,19 +251,19 @@ class OptGrammarGenerator extends AbstractGenerator {
 		return {
 			(mp.visibility !== null)
 				? ''' «mp.visibility.type»''' : ""
-		} + '''«mp.unnamedMappingDeclaration.compileUnnamedMappingDeclaration»
+		} + '''«mp.Mapping.compileMapping»
 		«IF mp.location !== null»
 			storage 
 		«ENDIF»«mp.name»'''
 	}
 
-	def String compileUnnamedMappingDeclaration(Mapping dec) {
+	def String compileMapping(Mapping dec) {
 		return '''mapping («dec.type.compileTypes» =>''' + {
 			(dec.secondRef !== null)
 				? '''«dec.secondRef.compileDeclarationReference»''' : ""
 		} + {
 			(dec.second !== null)
-				? '''«IF dec.second instanceof UnnamedMappingDeclaration» «UnnamedMappingDeclaration.cast(dec.second).compileUnnamedMappingDeclaration» «»«ELSE» «dec.second.compileTypes»«ENDIF»''' : ""
+				? '''«IF dec.second instanceof Mapping» «Mapping.cast(dec.second).compileMapping» «»«ELSE» «dec.second.compileTypes»«ENDIF»''' : ""
 		} + '''«IF (dec.array)»[]«ENDIF»)'''
 	}
 
@@ -320,8 +323,9 @@ class OptGrammarGenerator extends AbstractGenerator {
 	def String compileExpression(Expression logic) {
 		return {
 			(logic.negate)
-				? '''!«logic.first.compileCondition» «FOR operation : logic.operations»«operation.compileConditionOperation»«ENDFOR»''': (logic.
-				ternary)
+				? '''!«logic.first.compileCondition» «FOR operation : logic.operations»«operation.compileConditionOperation»«ENDFOR»''': (
+					logic.ternary
+					)
 				? '''«logic.first.compileCondition» ? «logic.^true.compileCondition» : «logic.^false.compileCondition»''' : '''«logic.first.compileCondition»«FOR operation : logic.operations» «operation.compileConditionOperation»«ENDFOR»'''
 		}
 	}
@@ -437,7 +441,7 @@ class OptGrammarGenerator extends AbstractGenerator {
 			'''«ArrayDeclaration.cast(array.ref).name»''' +
 				'''«IF array.blocks !== null» = «array.blocks.compileFilledArray»«ENDIF»''' +
 				'''«IF array.arrayRef !== null» = «array.arrayRef.compileArrDefinition»«ENDIF»''' +
-				'''«FOR index : array.indexes»[«index.value.compileExpression»]«ENDFOR»''' +
+				'''«FOR index : array.indexes» [«index.value.compileExpression»] «ENDFOR»''' +
 				'''«IF array.operator!== null»«array.operator.value»«ENDIF»''' +
 				'''«IF array.value!== null»«array.value.compileLogicalOrFilled»«ENDIF»'''
 		}
@@ -450,7 +454,7 @@ class OptGrammarGenerator extends AbstractGenerator {
 	def compileSingleDefinition(SingleDefinition definition) {
 		return {
 			(definition.first !== null)
-				? '''«definition.first»«definition.name.name»''': (definition.second !== null)
+				? '''«definition.first»«definition.name.name»''' : (definition.second !== null)
 				? '''«definition.name.name»«definition.second»''' : ""
 		}
 	}
@@ -476,6 +480,10 @@ class OptGrammarGenerator extends AbstractGenerator {
 	}
 
 	def compileFunctionCall(FunctionCall call) {
-		return '''«call.name.name» («IF call.parameters !== null»«FOR param: call.parameters SEPARATOR ', '»«param.compileExpression»«ENDFOR»«ENDIF»)'''
+		return '''«call.name.name»(«IF call.parameters !== null»
+			«FOR param: call.parameters SEPARATOR ', '»
+				«param.compileExpression»
+			«ENDFOR»
+		«ENDIF»)'''
 	}
 }

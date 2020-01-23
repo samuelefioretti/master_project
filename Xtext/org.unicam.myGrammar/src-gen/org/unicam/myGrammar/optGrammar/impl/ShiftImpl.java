@@ -91,7 +91,7 @@ public class ShiftImpl extends ExpressionImpl implements Shift
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getShift();
+    return OptGrammarPackage.Literals.SHIFT;
   }
 
   /**

@@ -35,7 +35,7 @@ public class PlaceHolderStatementImpl extends StatementImpl implements PlaceHold
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getPlaceHolderStatement();
+    return OptGrammarPackage.Literals.PLACE_HOLDER_STATEMENT;
   }
 
 } //PlaceHolderStatementImpl

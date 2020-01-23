@@ -124,7 +124,7 @@ public class DefinitionBodyImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getDefinitionBody();
+    return OptGrammarPackage.Literals.DEFINITION_BODY;
   }
 
   /**

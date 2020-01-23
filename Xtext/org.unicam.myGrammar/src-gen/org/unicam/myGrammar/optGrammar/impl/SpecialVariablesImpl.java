@@ -98,7 +98,7 @@ public class SpecialVariablesImpl extends LiteralImpl implements SpecialVariable
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getSpecialVariables();
+    return OptGrammarPackage.Literals.SPECIAL_VARIABLES;
   }
 
   /**

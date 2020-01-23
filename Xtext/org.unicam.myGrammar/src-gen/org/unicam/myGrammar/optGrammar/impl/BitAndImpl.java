@@ -69,7 +69,7 @@ public class BitAndImpl extends ExpressionImpl implements BitAnd
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getBitAnd();
+    return OptGrammarPackage.Literals.BIT_AND;
   }
 
   /**

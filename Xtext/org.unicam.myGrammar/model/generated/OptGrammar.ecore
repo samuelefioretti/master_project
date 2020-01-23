@@ -130,10 +130,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="ElementaryType" eSuperTypes="#//StandardType #//StandardTypeWithoutQualifiedIdentifier">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" eType="#//ArrayDimensions"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//ElementaryTypeNameEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ElementaryTypeNameEnum"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mapping" eSuperTypes="#//StandardType #//StandardTypeWithoutQualifiedIdentifier">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyType" eType="#//ElementaryTypeNameEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keyType" eType="#//ElementaryTypeNameEnum"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueType" eType="#//Type"
         containment="true"/>
   </eClassifiers>
@@ -360,7 +362,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeCast" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//ElementaryTypeNameEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ElementaryTypeNameEnum"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
@@ -371,111 +374,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiers" upperBound="-1"
         eType="#//Qualifier" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ElementaryTypeNameEnum">
-    <eLiterals name="INT" literal="int"/>
-    <eLiterals name="INT16" value="1" literal="int16"/>
-    <eLiterals name="INT24" value="2" literal="int24"/>
-    <eLiterals name="INT32" value="3" literal="int32"/>
-    <eLiterals name="INT40" value="4" literal="int40"/>
-    <eLiterals name="INT48" value="5" literal="int48"/>
-    <eLiterals name="INT56" value="6" literal="int56"/>
-    <eLiterals name="INT64" value="7" literal="int64"/>
-    <eLiterals name="INT72" value="8" literal="int72"/>
-    <eLiterals name="INT80" value="9" literal="int80"/>
-    <eLiterals name="INT88" value="10" literal="int88"/>
-    <eLiterals name="INT96" value="11" literal="int96"/>
-    <eLiterals name="INT104" value="12" literal="int104"/>
-    <eLiterals name="INT112" value="13" literal="int112"/>
-    <eLiterals name="INT120" value="14" literal="int120"/>
-    <eLiterals name="INT128" value="15" literal="int128"/>
-    <eLiterals name="INT136" value="16" literal="int136"/>
-    <eLiterals name="INT144" value="17" literal="int144"/>
-    <eLiterals name="INT152" value="18" literal="int152"/>
-    <eLiterals name="INT160" value="19" literal="int160"/>
-    <eLiterals name="INT168" value="20" literal="int168"/>
-    <eLiterals name="INT178" value="21" literal="int178"/>
-    <eLiterals name="INT184" value="22" literal="int184"/>
-    <eLiterals name="INT192" value="23" literal="int192"/>
-    <eLiterals name="INT200" value="24" literal="int200"/>
-    <eLiterals name="INT208" value="25" literal="int208"/>
-    <eLiterals name="INT216" value="26" literal="int216"/>
-    <eLiterals name="INT224" value="27" literal="int224"/>
-    <eLiterals name="INT232" value="28" literal="int232"/>
-    <eLiterals name="INT240" value="29" literal="int240"/>
-    <eLiterals name="INT248" value="30" literal="int248"/>
-    <eLiterals name="INT256" value="31" literal="int256"/>
-    <eLiterals name="UINT" value="32" literal="uint"/>
-    <eLiterals name="UINT8" value="33" literal="uint8"/>
-    <eLiterals name="UINT16" value="34" literal="uint16"/>
-    <eLiterals name="UNIT24" value="35" literal="uint24"/>
-    <eLiterals name="UINT32" value="36" literal="uint32"/>
-    <eLiterals name="UINT40" value="37" literal="uint40"/>
-    <eLiterals name="UINT48" value="38" literal="uint48"/>
-    <eLiterals name="UNIT56" value="39" literal="uint56"/>
-    <eLiterals name="UINT64" value="40" literal="uint64"/>
-    <eLiterals name="UINT72" value="41" literal="uint72"/>
-    <eLiterals name="UINT80" value="42" literal="uint80"/>
-    <eLiterals name="UINT88" value="43" literal="uint88"/>
-    <eLiterals name="UINT96" value="44" literal="uint96"/>
-    <eLiterals name="UINT104" value="45" literal="uint104"/>
-    <eLiterals name="UINT112" value="46" literal="uint112"/>
-    <eLiterals name="UINT120" value="47" literal="uint120"/>
-    <eLiterals name="UINT128" value="48" literal="uint128"/>
-    <eLiterals name="UINT136" value="49" literal="uint136"/>
-    <eLiterals name="UINT144" value="50" literal="uint144"/>
-    <eLiterals name="UINT152" value="51" literal="uint152"/>
-    <eLiterals name="UINT160" value="52" literal="uint160"/>
-    <eLiterals name="UINT168" value="53" literal="uint168"/>
-    <eLiterals name="UINT178" value="54" literal="uint178"/>
-    <eLiterals name="UINT184" value="55" literal="uint184"/>
-    <eLiterals name="UINT192" value="56" literal="uint192"/>
-    <eLiterals name="UINT200" value="57" literal="uint200"/>
-    <eLiterals name="UINT208" value="58" literal="uint208"/>
-    <eLiterals name="UINT216" value="59" literal="uint216"/>
-    <eLiterals name="UINT244" value="60" literal="uint224"/>
-    <eLiterals name="UINT232" value="61" literal="uint232"/>
-    <eLiterals name="UINT240" value="62" literal="uint240"/>
-    <eLiterals name="UINT248" value="63" literal="uint248"/>
-    <eLiterals name="UINT256" value="64" literal="uint256"/>
-    <eLiterals name="BYTE" value="65" literal="byte"/>
-    <eLiterals name="BYTES" value="66" literal="bytes"/>
-    <eLiterals name="BYTES1" value="67" literal="bytes1"/>
-    <eLiterals name="BYTES2" value="68" literal="bytes2"/>
-    <eLiterals name="BYTES3" value="69" literal="bytes3"/>
-    <eLiterals name="BYTES4" value="70" literal="bytes4"/>
-    <eLiterals name="BYTES5" value="71" literal="bytes5"/>
-    <eLiterals name="BYTES6" value="72" literal="bytes6"/>
-    <eLiterals name="BYTES7" value="73" literal="bytes7"/>
-    <eLiterals name="BYTES8" value="74" literal="bytes8"/>
-    <eLiterals name="BYTES9" value="75" literal="bytes9"/>
-    <eLiterals name="BYTES10" value="76" literal="bytes10"/>
-    <eLiterals name="BYTES11" value="77" literal="bytes11"/>
-    <eLiterals name="BYTES12" value="78" literal="bytes12"/>
-    <eLiterals name="BYTES13" value="79" literal="bytes13"/>
-    <eLiterals name="BYTES14" value="80" literal="bytes14"/>
-    <eLiterals name="BYTES15" value="81" literal="bytes15"/>
-    <eLiterals name="BYTES16" value="82" literal="bytes16"/>
-    <eLiterals name="BYTES17" value="83" literal="bytes17"/>
-    <eLiterals name="BYTES18" value="84" literal="bytes18"/>
-    <eLiterals name="BYTES19" value="85" literal="bytes19"/>
-    <eLiterals name="BYTES20" value="86" literal="bytes20"/>
-    <eLiterals name="BYTES21" value="87" literal="bytes21"/>
-    <eLiterals name="BYTES22" value="88" literal="bytes22"/>
-    <eLiterals name="BYTES23" value="89" literal="bytes23"/>
-    <eLiterals name="BYTES24" value="90" literal="bytes24"/>
-    <eLiterals name="BYTES25" value="91" literal="bytes25"/>
-    <eLiterals name="BYTES26" value="92" literal="bytes26"/>
-    <eLiterals name="BYTES27" value="93" literal="bytes27"/>
-    <eLiterals name="BYTES28" value="94" literal="bytes28"/>
-    <eLiterals name="BYTES29" value="95" literal="bytes29"/>
-    <eLiterals name="BYTES30" value="96" literal="bytes30"/>
-    <eLiterals name="BYTES31" value="97" literal="bytes31"/>
-    <eLiterals name="BYTES32" value="98" literal="bytes32"/>
-    <eLiterals name="STRING" value="99" literal="string"/>
-    <eLiterals name="ADDRESS" value="100" literal="address"/>
-    <eLiterals name="BOOL" value="101" literal="bool"/>
-    <eLiterals name="REAL" value="102" literal="real"/>
-    <eLiterals name="UREAL" value="103" literal="ureal"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleTypeDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementaryTypeNameEnum">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocationSpecifierEnum">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

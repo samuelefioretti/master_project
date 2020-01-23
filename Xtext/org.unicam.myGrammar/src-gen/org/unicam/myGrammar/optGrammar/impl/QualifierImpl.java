@@ -37,7 +37,7 @@ public class QualifierImpl extends MinimalEObjectImpl.Container implements Quali
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getQualifier();
+    return OptGrammarPackage.Literals.QUALIFIER;
   }
 
 } //QualifierImpl

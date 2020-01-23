@@ -66,7 +66,7 @@ public class VisibilityEnumImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getVisibilityEnum();
+    return OptGrammarPackage.Literals.VISIBILITY_ENUM;
   }
 
   /**

@@ -33,24 +33,14 @@ import org.unicam.myGrammar.optGrammar.Type;
 public class MappingImpl extends StandardTypeImpl implements Mapping
 {
   /**
-   * The default value of the '{@link #getKeyType() <em>Key Type</em>}' attribute.
+   * The cached value of the '{@link #getKeyType() <em>Key Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getKeyType()
    * @generated
    * @ordered
    */
-  protected static final ElementaryTypeNameEnum KEY_TYPE_EDEFAULT = ElementaryTypeNameEnum.INT;
-
-  /**
-   * The cached value of the '{@link #getKeyType() <em>Key Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKeyType()
-   * @generated
-   * @ordered
-   */
-  protected ElementaryTypeNameEnum keyType = KEY_TYPE_EDEFAULT;
+  protected ElementaryTypeNameEnum keyType;
 
   /**
    * The cached value of the '{@link #getValueType() <em>Value Type</em>}' containment reference.
@@ -80,7 +70,7 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getMapping();
+    return OptGrammarPackage.Literals.MAPPING;
   }
 
   /**
@@ -99,13 +89,38 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
    * <!-- end-user-doc -->
    * @generated
    */
+  public NotificationChain basicSetKeyType(ElementaryTypeNameEnum newKeyType, NotificationChain msgs)
+  {
+    ElementaryTypeNameEnum oldKeyType = keyType;
+    keyType = newKeyType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.MAPPING__KEY_TYPE, oldKeyType, newKeyType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public void setKeyType(ElementaryTypeNameEnum newKeyType)
   {
-    ElementaryTypeNameEnum oldKeyType = keyType;
-    keyType = newKeyType == null ? KEY_TYPE_EDEFAULT : newKeyType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.MAPPING__KEY_TYPE, oldKeyType, keyType));
+    if (newKeyType != keyType)
+    {
+      NotificationChain msgs = null;
+      if (keyType != null)
+        msgs = ((InternalEObject)keyType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.MAPPING__KEY_TYPE, null, msgs);
+      if (newKeyType != null)
+        msgs = ((InternalEObject)newKeyType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.MAPPING__KEY_TYPE, null, msgs);
+      msgs = basicSetKeyType(newKeyType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.MAPPING__KEY_TYPE, newKeyType, newKeyType));
   }
 
   /**
@@ -168,6 +183,8 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
   {
     switch (featureID)
     {
+      case OptGrammarPackage.MAPPING__KEY_TYPE:
+        return basicSetKeyType(null, msgs);
       case OptGrammarPackage.MAPPING__VALUE_TYPE:
         return basicSetValueType(null, msgs);
     }
@@ -223,7 +240,7 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
     switch (featureID)
     {
       case OptGrammarPackage.MAPPING__KEY_TYPE:
-        setKeyType(KEY_TYPE_EDEFAULT);
+        setKeyType((ElementaryTypeNameEnum)null);
         return;
       case OptGrammarPackage.MAPPING__VALUE_TYPE:
         setValueType((Type)null);
@@ -243,28 +260,11 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
     switch (featureID)
     {
       case OptGrammarPackage.MAPPING__KEY_TYPE:
-        return keyType != KEY_TYPE_EDEFAULT;
+        return keyType != null;
       case OptGrammarPackage.MAPPING__VALUE_TYPE:
         return valueType != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (keyType: ");
-    result.append(keyType);
-    result.append(')');
-    return result.toString();
   }
 
 } //MappingImpl

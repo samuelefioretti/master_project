@@ -91,7 +91,7 @@ public class AssignmentImpl extends ExpressionImpl implements Assignment
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getAssignment();
+    return OptGrammarPackage.Literals.ASSIGNMENT;
   }
 
   /**

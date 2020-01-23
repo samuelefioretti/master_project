@@ -58,7 +58,7 @@ public class ReturnStatementImpl extends StatementImpl implements ReturnStatemen
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getReturnStatement();
+    return OptGrammarPackage.Literals.RETURN_STATEMENT;
   }
 
   /**

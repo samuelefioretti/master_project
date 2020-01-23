@@ -66,7 +66,7 @@ public class DecimalLiteralImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getDecimalLiteral();
+    return OptGrammarPackage.Literals.DECIMAL_LITERAL;
   }
 
   /**

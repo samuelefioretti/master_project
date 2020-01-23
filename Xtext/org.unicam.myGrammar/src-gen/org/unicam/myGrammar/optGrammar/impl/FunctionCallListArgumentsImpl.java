@@ -62,7 +62,7 @@ public class FunctionCallListArgumentsImpl extends FunctionCallArgumentsImpl imp
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getFunctionCallListArguments();
+    return OptGrammarPackage.Literals.FUNCTION_CALL_LIST_ARGUMENTS;
   }
 
   /**

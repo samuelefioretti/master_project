@@ -5,113 +5,7 @@
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.19">
   <genPackages prefix="OptGrammar" basePackage="org.unicam.myGrammar" disposableProviderFactory="true"
-      loadInitialization="true" literalsInterface="false" fileExtensions="osol" ecorePackage="OptGrammar.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//ElementaryTypeNameEnum">
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT16"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT24"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT32"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT40"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT48"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT56"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT64"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT72"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT80"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT88"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT96"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT104"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT112"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT120"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT128"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT136"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT144"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT152"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT160"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT168"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT178"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT184"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT192"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT200"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT208"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT216"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT224"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT232"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT240"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT248"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/INT256"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT8"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT16"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UNIT24"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT32"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT40"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT48"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UNIT56"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT64"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT72"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT80"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT88"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT96"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT104"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT112"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT120"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT128"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT136"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT144"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT152"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT160"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT168"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT178"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT184"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT192"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT200"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT208"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT216"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT244"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT232"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT240"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT248"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UINT256"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTE"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES1"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES2"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES3"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES4"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES5"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES6"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES7"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES8"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES9"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES10"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES11"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES12"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES13"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES14"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES15"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES16"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES17"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES18"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES19"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES20"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES21"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES22"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES23"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES24"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES25"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES26"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES27"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES28"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES29"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES30"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES31"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BYTES32"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/STRING"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/ADDRESS"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/BOOL"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/REAL"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ElementaryTypeNameEnum/UREAL"/>
-    </genEnums>
+      fileExtensions="osol" ecorePackage="OptGrammar.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//AssignmentOpEnum">
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//AssignmentOpEnum/ASSIGN"/>
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//AssignmentOpEnum/ASSIGN_OR"/>
@@ -285,10 +179,10 @@
     <genClasses ecoreClass="OptGrammar.ecore#//StandardTypeWithoutQualifiedIdentifier"/>
     <genClasses ecoreClass="OptGrammar.ecore#//ElementaryType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ElementaryType/dimension"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ElementaryType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ElementaryType/name"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Mapping">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Mapping/keyType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Mapping/keyType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Mapping/valueType"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//ArrayDimensions">
@@ -465,13 +359,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//DecimalLiteral/value"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//TypeCast">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//TypeCast/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//TypeCast/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//TypeCast/expression"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//SpecialVariables">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//SpecialVariables/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialVariables/field"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//SpecialVariables/qualifiers"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//SimpleTypeDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SimpleTypeDeclaration/type"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//ElementaryTypeNameEnum">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ElementaryTypeNameEnum/type"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//LocationSpecifierEnum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//LocationSpecifierEnum/type"/>

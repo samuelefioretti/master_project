@@ -86,7 +86,7 @@ public class QualifiedIdentifierImpl extends StandardTypeImpl implements Qualifi
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getQualifiedIdentifier();
+    return OptGrammarPackage.Literals.QUALIFIED_IDENTIFIER;
   }
 
   /**

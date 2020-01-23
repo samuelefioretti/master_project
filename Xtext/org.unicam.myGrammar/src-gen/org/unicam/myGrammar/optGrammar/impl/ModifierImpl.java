@@ -92,7 +92,7 @@ public class ModifierImpl extends MinimalEObjectImpl.Container implements Modifi
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getModifier();
+    return OptGrammarPackage.Literals.MODIFIER;
   }
 
   /**

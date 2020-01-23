@@ -65,7 +65,7 @@ public class FieldImpl extends QualifierImpl implements Field
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getField();
+    return OptGrammarPackage.Literals.FIELD;
   }
 
   /**

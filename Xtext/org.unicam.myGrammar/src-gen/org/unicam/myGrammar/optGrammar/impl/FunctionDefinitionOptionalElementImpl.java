@@ -37,7 +37,7 @@ public class FunctionDefinitionOptionalElementImpl extends MinimalEObjectImpl.Co
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getFunctionDefinitionOptionalElement();
+    return OptGrammarPackage.Literals.FUNCTION_DEFINITION_OPTIONAL_ELEMENT;
   }
 
 } //FunctionDefinitionOptionalElementImpl

@@ -35,7 +35,7 @@ public class BodyImpl extends StatementImpl implements Body
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getBody();
+    return OptGrammarPackage.Literals.BODY;
   }
 
 } //BodyImpl

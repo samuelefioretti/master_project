@@ -91,7 +91,7 @@ public class AddSubImpl extends ExpressionImpl implements AddSub
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getAddSub();
+    return OptGrammarPackage.Literals.ADD_SUB;
   }
 
   /**

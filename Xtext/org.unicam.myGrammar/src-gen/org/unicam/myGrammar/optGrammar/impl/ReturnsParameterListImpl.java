@@ -64,7 +64,7 @@ public class ReturnsParameterListImpl extends MinimalEObjectImpl.Container imple
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getReturnsParameterList();
+    return OptGrammarPackage.Literals.RETURNS_PARAMETER_LIST;
   }
 
   /**

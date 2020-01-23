@@ -66,7 +66,7 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getNumberDimensionless();
+    return OptGrammarPackage.Literals.NUMBER_DIMENSIONLESS;
   }
 
   /**

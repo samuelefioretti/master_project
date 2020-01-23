@@ -35,7 +35,7 @@ public class LiteralImpl extends ExpressionImpl implements Literal
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getLiteral();
+    return OptGrammarPackage.Literals.LITERAL;
   }
 
 } //LiteralImpl

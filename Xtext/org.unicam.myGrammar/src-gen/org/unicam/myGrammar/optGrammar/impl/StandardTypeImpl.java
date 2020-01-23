@@ -35,7 +35,7 @@ public class StandardTypeImpl extends TypeImpl implements StandardType
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getStandardType();
+    return OptGrammarPackage.Literals.STANDARD_TYPE;
   }
 
 } //StandardTypeImpl

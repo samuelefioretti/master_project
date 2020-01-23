@@ -38,6 +38,7 @@ import org.unicam.myGrammar.optGrammar.DefinitionBody;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
 import org.unicam.myGrammar.optGrammar.ElementaryType;
+import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Equality;
@@ -87,6 +88,7 @@ import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
 import org.unicam.myGrammar.optGrammar.SecondOperators;
 import org.unicam.myGrammar.optGrammar.Shift;
 import org.unicam.myGrammar.optGrammar.SignExpression;
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialVariables;
 import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
@@ -210,6 +212,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
+				sequence_ElementaryTypeNameEnum(context, (ElementaryTypeNameEnum) semanticObject); 
+				return; 
 			case OptGrammarPackage.ENUM_DEFINITION:
 				sequence_EnumDefinition(context, (EnumDefinition) semanticObject); 
 				return; 
@@ -447,6 +452,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.SIGN_EXPRESSION:
 				sequence_SignExpression(context, (SignExpression) semanticObject); 
 				return; 
+			case OptGrammarPackage.SIMPLE_TYPE_DECLARATION:
+				sequence_SimpleTypeDeclaration(context, (SimpleTypeDeclaration) semanticObject); 
+				return; 
 			case OptGrammarPackage.SPECIAL_EXPRESSION:
 				sequence_SpecialExpression(context, (SpecialExpression) semanticObject); 
 				return; 
@@ -635,12 +643,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_AddSub(ISerializationContext context, AddSub semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getAddSub_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getAddSub_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getAddSub_AdditionOp()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getAddSub_AdditionOp()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getAddSub_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getAddSub_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ADD_SUB__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ADD_SUB__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ADD_SUB__ADDITION_OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ADD_SUB__ADDITION_OP));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ADD_SUB__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ADD_SUB__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0(), semanticObject.getLeft());
@@ -694,10 +702,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_And(ISerializationContext context, And semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getAnd_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getAnd_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getAnd_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getAnd_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.AND__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.AND__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.AND__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.AND__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
@@ -716,8 +724,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Arguments(ISerializationContext context, Arguments semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getArguments_Arguments()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getArguments_Arguments()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ARGUMENTS__ARGUMENTS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ARGUMENTS__ARGUMENTS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getArgumentsAccess().getArgumentsFunctionCallArgumentsParserRuleCall_0(), semanticObject.getArguments());
@@ -793,12 +801,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Assignment(ISerializationContext context, Assignment semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getAssignment_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getAssignment_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getAssignment_AssignmentOp()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getAssignment_AssignmentOp()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getAssignment_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getAssignment_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__ASSIGNMENT_OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__ASSIGNMENT_OP));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0(), semanticObject.getLeft());
@@ -900,8 +908,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_BinaryNotExpression(ISerializationContext context, BinaryNotExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBinaryNotExpression_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBinaryNotExpression_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BINARY_NOT_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BINARY_NOT_EXPRESSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBinaryNotExpressionAccess().getExpressionUnaryExpressionParserRuleCall_1_0(), semanticObject.getExpression());
@@ -953,10 +961,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_BitAnd(ISerializationContext context, BitAnd semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBitAnd_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBitAnd_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBitAnd_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBitAnd_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_AND__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_AND__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_AND__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_AND__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0(), semanticObject.getLeft());
@@ -1009,10 +1017,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_BitOr(ISerializationContext context, BitOr semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBitOr_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBitOr_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBitOr_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBitOr_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_OR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_OR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_OR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_OR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0(), semanticObject.getLeft());
@@ -1065,10 +1073,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_BitXor(ISerializationContext context, BitXor semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBitXor_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBitXor_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBitXor_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBitXor_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_XOR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_XOR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_XOR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_XOR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0(), semanticObject.getLeft());
@@ -1123,8 +1131,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_BlockhashFunction(ISerializationContext context, BlockhashFunction semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBlockhashFunction_Parameter()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBlockhashFunction_Parameter()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BLOCKHASH_FUNCTION__PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BLOCKHASH_FUNCTION__PARAMETER));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBlockhashFunctionAccess().getParameterIntParameterParserRuleCall_2_0(), semanticObject.getParameter());
@@ -1191,8 +1199,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_BooleanConst(ISerializationContext context, BooleanConst semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getBooleanConst_Value()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getBooleanConst_Value()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BOOLEAN_CONST__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BOOLEAN_CONST__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBooleanConstAccess().getValueBooleanLiteralEnumEnumRuleCall_0(), semanticObject.getValue());
@@ -1257,12 +1265,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getComparison_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getComparison_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getComparison_ComparisonOp()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getComparison_ComparisonOp()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getComparison_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getComparison_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.COMPARISON__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.COMPARISON__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.COMPARISON__COMPARISON_OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.COMPARISON__COMPARISON_OP));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.COMPARISON__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.COMPARISON__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0(), semanticObject.getLeft());
@@ -1332,8 +1340,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_DecimalLiteral(ISerializationContext context, DecimalLiteral semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getDecimalLiteral_Value()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getDecimalLiteral_Value()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.DECIMAL_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.DECIMAL_LITERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDecimalLiteralAccess().getValueDECIMALTerminalRuleCall_0(), semanticObject.getValue());
@@ -1370,8 +1378,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_DeleteStatement(ISerializationContext context, DeleteStatement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getDeleteStatement_Variable()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getDeleteStatement_Variable()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.DELETE_STATEMENT__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.DELETE_STATEMENT__VARIABLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getDeleteStatementAccess().getVariableQualifiedIdentifierParserRuleCall_1_0(), semanticObject.getVariable());
@@ -1430,6 +1438,123 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     ElementaryTypeNameEnum returns ElementaryTypeNameEnum
+	 *
+	 * Constraint:
+	 *     (
+	 *         type='int' | 
+	 *         type='int16' | 
+	 *         type='int24' | 
+	 *         type='int32' | 
+	 *         type='int40' | 
+	 *         type='int48' | 
+	 *         type='int56' | 
+	 *         type='int64' | 
+	 *         type='int72' | 
+	 *         type='int80' | 
+	 *         type='int88' | 
+	 *         type='int96' | 
+	 *         type='int104' | 
+	 *         type='int112' | 
+	 *         type='int120' | 
+	 *         type='int128' | 
+	 *         type='int136' | 
+	 *         type='int144' | 
+	 *         type='int152' | 
+	 *         type='int160' | 
+	 *         type='int168' | 
+	 *         type='int178' | 
+	 *         type='int184' | 
+	 *         type='int192' | 
+	 *         type='int200' | 
+	 *         type='int208' | 
+	 *         type='int216' | 
+	 *         type='int224' | 
+	 *         type='int232' | 
+	 *         type='int240' | 
+	 *         type='int248' | 
+	 *         type='int256' | 
+	 *         type='uint' | 
+	 *         type='uint8' | 
+	 *         type='uint16' | 
+	 *         type='uint24' | 
+	 *         type='uint32' | 
+	 *         type='uint40' | 
+	 *         type='uint48' | 
+	 *         type='uint56' | 
+	 *         type='uint64' | 
+	 *         type='uint72' | 
+	 *         type='uint80' | 
+	 *         type='uint88' | 
+	 *         type='uint96' | 
+	 *         type='uint104' | 
+	 *         type='uint112' | 
+	 *         type='uint120' | 
+	 *         type='uint128' | 
+	 *         type='uint136' | 
+	 *         type='uint144' | 
+	 *         type='uint152' | 
+	 *         type='uint160' | 
+	 *         type='uint168' | 
+	 *         type='uint178' | 
+	 *         type='uint184' | 
+	 *         type='uint192' | 
+	 *         type='uint200' | 
+	 *         type='uint208' | 
+	 *         type='uint216' | 
+	 *         type='uint224' | 
+	 *         type='uint232' | 
+	 *         type='uint240' | 
+	 *         type='uint248' | 
+	 *         type='uint256' | 
+	 *         type='byte' | 
+	 *         type='bytes' | 
+	 *         type='bytes1' | 
+	 *         type='bytes2' | 
+	 *         type='bytes3' | 
+	 *         type='bytes4' | 
+	 *         type='bytes5' | 
+	 *         type='bytes6' | 
+	 *         type='bytes7' | 
+	 *         type='bytes8' | 
+	 *         type='bytes9' | 
+	 *         type='bytes10' | 
+	 *         type='bytes11' | 
+	 *         type='bytes12' | 
+	 *         type='bytes13' | 
+	 *         type='bytes14' | 
+	 *         type='bytes15' | 
+	 *         type='bytes16' | 
+	 *         type='bytes17' | 
+	 *         type='bytes18' | 
+	 *         type='bytes19' | 
+	 *         type='bytes20' | 
+	 *         type='bytes21' | 
+	 *         type='bytes22' | 
+	 *         type='bytes23' | 
+	 *         type='bytes24' | 
+	 *         type='bytes25' | 
+	 *         type='bytes26' | 
+	 *         type='bytes27' | 
+	 *         type='bytes28' | 
+	 *         type='bytes29' | 
+	 *         type='bytes30' | 
+	 *         type='bytes31' | 
+	 *         type='bytes32' | 
+	 *         type='string' | 
+	 *         type='address' | 
+	 *         type='bool' | 
+	 *         type='real' | 
+	 *         type='ureal'
+	 *     )
+	 */
+	protected void sequence_ElementaryTypeNameEnum(ISerializationContext context, ElementaryTypeNameEnum semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ElementaryType returns ElementaryType
 	 *
 	 * Constraint:
@@ -1437,11 +1562,11 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_ElementaryType(ISerializationContext context, ElementaryType semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getElementaryType_Name()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getElementaryType_Name()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ELEMENTARY_TYPE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ELEMENTARY_TYPE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumEnumRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumParserRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -1494,8 +1619,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_EnumValue(ISerializationContext context, EnumValue semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getEnumValue_Name()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getEnumValue_Name()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ENUM_VALUE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ENUM_VALUE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEnumValueAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
@@ -1547,12 +1672,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Equality(ISerializationContext context, Equality semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getEquality_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getEquality_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getEquality_EqualityOp()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getEquality_EqualityOp()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getEquality_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getEquality_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EQUALITY__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EQUALITY__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EQUALITY__EQUALITY_OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EQUALITY__EQUALITY_OP));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EQUALITY__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EQUALITY__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0(), semanticObject.getLeft());
@@ -1571,10 +1696,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Ether(ISerializationContext context, Ether semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getEther_Value()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getEther_Value()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getEther_Ether()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getEther_Ether()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ETHER__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ETHER__VALUE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ETHER__ETHER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ETHER__ETHER));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEtherAccess().getValueINTTerminalRuleCall_0_0(), semanticObject.getValue());
@@ -1639,10 +1764,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Exponent(ISerializationContext context, Exponent semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getExponent_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getExponent_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getExponent_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getExponent_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EXPONENT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EXPONENT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EXPONENT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EXPONENT__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExponentAccess().getExponentLeftAction_1_0(), semanticObject.getLeft());
@@ -1661,8 +1786,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_ExpressionStatement(ISerializationContext context, ExpressionStatement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getExpressionStatement_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getExpressionStatement_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EXPRESSION_STATEMENT__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EXPRESSION_STATEMENT__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExpressionStatementAccess().getExpressionExpressionParserRuleCall_0(), semanticObject.getExpression());
@@ -1680,10 +1805,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_ExpressionStatement_SimpleStatement(ISerializationContext context, ExpressionStatement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getExpressionStatement_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getExpressionStatement_Expression()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getExpressionStatement_Semicolon()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getExpressionStatement_Semicolon()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EXPRESSION_STATEMENT__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EXPRESSION_STATEMENT__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EXPRESSION_STATEMENT__SEMICOLON) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EXPRESSION_STATEMENT__SEMICOLON));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExpressionStatementAccess().getExpressionExpressionParserRuleCall_0(), semanticObject.getExpression());
@@ -1702,8 +1827,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Field(ISerializationContext context, Field semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getField_Field()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getField_Field()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.FIELD__FIELD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.FIELD__FIELD));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFieldAccess().getFieldIDTerminalRuleCall_1_0(), semanticObject.getField());
@@ -1733,10 +1858,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_FunctionCallArg(ISerializationContext context, FunctionCallArg semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getFunctionCallArg_Name()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getFunctionCallArg_Name()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getFunctionCallArg_Expr()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getFunctionCallArg_Expr()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.FUNCTION_CALL_ARG__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.FUNCTION_CALL_ARG__NAME));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.FUNCTION_CALL_ARG__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.FUNCTION_CALL_ARG__EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFunctionCallArgAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
@@ -1847,8 +1972,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_GasleftFunction(ISerializationContext context, GasleftFunction semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getGasleftFunction_Name()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getGasleftFunction_Name()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.GASLEFT_FUNCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.GASLEFT_FUNCTION__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getGasleftFunctionAccess().getNameGasleftKeyword_0_0(), semanticObject.getName());
@@ -1914,8 +2039,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_HexLiteral(ISerializationContext context, HexLiteral semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getHexLiteral_Value()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getHexLiteral_Value()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.HEX_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.HEX_LITERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getHexLiteralAccess().getValueHEXTerminalRuleCall_0(), semanticObject.getValue());
@@ -2008,8 +2133,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_LocationSpecifier(ISerializationContext context, LocationSpecifier semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getLocationSpecifier_Location()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getLocationSpecifier_Location()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.LOCATION_SPECIFIER__LOCATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.LOCATION_SPECIFIER__LOCATION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumParserRuleCall_0(), semanticObject.getLocation());
@@ -2031,13 +2156,13 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Mapping(ISerializationContext context, Mapping semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getMapping_KeyType()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getMapping_KeyType()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getMapping_ValueType()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getMapping_ValueType()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MAPPING__KEY_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MAPPING__KEY_TYPE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MAPPING__VALUE_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MAPPING__VALUE_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumEnumRuleCall_2_0(), semanticObject.getKeyType());
+		feeder.accept(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0(), semanticObject.getKeyType());
 		feeder.accept(grammarAccess.getMappingAccess().getValueTypeTypeParserRuleCall_4_0(), semanticObject.getValueType());
 		feeder.finish();
 	}
@@ -2173,12 +2298,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_MulDivMod(ISerializationContext context, MulDivMod semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getMulDivMod_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getMulDivMod_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getMulDivMod_MultipliciativeOp()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getMulDivMod_MultipliciativeOp()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getMulDivMod_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getMulDivMod_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__MULTIPLICIATIVE_OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__MULTIPLICIATIVE_OP));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0(), semanticObject.getLeft());
@@ -2233,10 +2358,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_NewExpression(ISerializationContext context, NewExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getNewExpression_Contract()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getNewExpression_Contract()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getNewExpression_Args()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getNewExpression_Args()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.NEW_EXPRESSION__CONTRACT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.NEW_EXPRESSION__CONTRACT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.NEW_EXPRESSION__ARGS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.NEW_EXPRESSION__ARGS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNewExpressionAccess().getContractContractParserRuleCall_1_0(), semanticObject.getContract());
@@ -2290,8 +2415,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_NotExpression(ISerializationContext context, NotExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getNotExpression_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getNotExpression_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.NOT_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.NOT_EXPRESSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNotExpressionAccess().getExpressionUnaryExpressionParserRuleCall_1_0(), semanticObject.getExpression());
@@ -2320,8 +2445,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_NumberDimensionless(ISerializationContext context, NumberDimensionless semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getNumberDimensionless_Value()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getNumberDimensionless_Value()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.NUMBER_DIMENSIONLESS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.NUMBER_DIMENSIONLESS__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNumberDimensionlessAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
@@ -2422,10 +2547,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getOr_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getOr_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getOr_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getOr_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.OR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.OR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.OR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.OR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
@@ -2503,10 +2628,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_PostIncDecExpression(ISerializationContext context, PostIncDecExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getPostIncDecExpression_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getPostIncDecExpression_Expression()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getPostIncDecExpression_PostOp()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getPostIncDecExpression_PostOp()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION__POST_OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION__POST_OP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0(), semanticObject.getExpression());
@@ -2524,8 +2649,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_PreDecExpression(ISerializationContext context, PreDecExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getPreDecExpression_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getPreDecExpression_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.PRE_DEC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.PRE_DEC_EXPRESSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPreDecExpressionAccess().getExpressionPostIncDecExpressionParserRuleCall_0(), semanticObject.getExpression());
@@ -2577,8 +2702,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_PreExpression(ISerializationContext context, PreDecExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getPreDecExpression_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getPreDecExpression_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.PRE_DEC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.PRE_DEC_EXPRESSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2(), semanticObject.getExpression());
@@ -2630,8 +2755,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_PreExpression(ISerializationContext context, PreIncExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getPreIncExpression_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getPreIncExpression_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.PRE_INC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.PRE_INC_EXPRESSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2(), semanticObject.getExpression());
@@ -2648,8 +2773,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_PreIncExpression(ISerializationContext context, PreIncExpression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getPreIncExpression_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getPreIncExpression_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.PRE_INC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.PRE_INC_EXPRESSION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPreIncExpressionAccess().getExpressionPostIncDecExpressionParserRuleCall_0(), semanticObject.getExpression());
@@ -2850,12 +2975,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Shift(ISerializationContext context, Shift semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getShift_Left()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getShift_Left()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getShift_ShiftOp()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getShift_ShiftOp()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getShift_Right()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getShift_Right()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.SHIFT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.SHIFT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.SHIFT__SHIFT_OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.SHIFT__SHIFT_OP));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.SHIFT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.SHIFT__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getShiftAccess().getShiftLeftAction_1_0(), semanticObject.getLeft());
@@ -2939,10 +3064,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_SimpleStatement2(ISerializationContext context, VarVariableTupleVariableDeclaration semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Tuple()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Tuple()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSimpleStatement2Access().getTupleTupleParserRuleCall_1_1_1_1_0(), semanticObject.getTuple());
@@ -2960,10 +3085,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_SimpleStatement2(ISerializationContext context, VarVariableTypeDeclaration semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Variable()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Variable()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__VARIABLE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSimpleStatement2Access().getVariableVariableParserRuleCall_1_1_0_1_0(), semanticObject.getVariable());
@@ -3001,12 +3126,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_SimpleStatement(ISerializationContext context, VarVariableTupleVariableDeclaration semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Tuple()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Tuple()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Expression()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Semicolon()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTupleVariableDeclaration_Semicolon()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSimpleStatementAccess().getTupleTupleParserRuleCall_0_1_1_1_1_0(), semanticObject.getTuple());
@@ -3026,18 +3151,30 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_SimpleStatement(ISerializationContext context, VarVariableTypeDeclaration semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Variable()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Variable()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Expression()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Semicolon()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration_Semicolon()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__VARIABLE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__SEMICOLON) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION__SEMICOLON));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSimpleStatementAccess().getVariableVariableParserRuleCall_0_1_1_0_1_0(), semanticObject.getVariable());
 		feeder.accept(grammarAccess.getSimpleStatementAccess().getExpressionExpressionParserRuleCall_0_1_1_0_2_1_0(), semanticObject.getExpression());
 		feeder.accept(grammarAccess.getSimpleStatementAccess().getSemicolonSemicolonKeyword_1_0(), semanticObject.isSemicolon());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SimpleTypeDeclaration returns SimpleTypeDeclaration
+	 *
+	 * Constraint:
+	 *     (type='string' | type='bool')
+	 */
+	protected void sequence_SimpleTypeDeclaration(ISerializationContext context, SimpleTypeDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -3209,8 +3346,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_StringLiteral(ISerializationContext context, StringLiteral semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getStringLiteral_Value()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getStringLiteral_Value()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.STRING_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.STRING_LITERAL__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
@@ -3252,10 +3389,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Time(ISerializationContext context, Time semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getTime_Value()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getTime_Value()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getTime_Time()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getTime_Time()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.TIME__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.TIME__VALUE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.TIME__TIME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.TIME__TIME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTimeAccess().getValueINTTerminalRuleCall_0_0(), semanticObject.getValue());
@@ -3334,13 +3471,13 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_TypeCast(ISerializationContext context, TypeCast semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getTypeCast_Value()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getTypeCast_Value()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getTypeCast_Expression()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getTypeCast_Expression()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.TYPE_CAST__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.TYPE_CAST__VALUE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.TYPE_CAST__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.TYPE_CAST__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumEnumRuleCall_0_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumParserRuleCall_0_0(), semanticObject.getValue());
 		feeder.accept(grammarAccess.getTypeCastAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
@@ -3355,8 +3492,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getType_IsVarType()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getType_IsVarType()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.TYPE__IS_VAR_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.TYPE__IS_VAR_TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTypeAccess().getIsVarTypeVarTypeParserRuleCall_1_0(), semanticObject.isIsVarType());
@@ -3411,8 +3548,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVariable_Name()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVariable_Name()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VARIABLE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
@@ -3443,8 +3580,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_VisibilitySpecifier(ISerializationContext context, VisibilitySpecifier semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getVisibilitySpecifier_Visibility()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getVisibilitySpecifier_Visibility()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.VISIBILITY_SPECIFIER__VISIBILITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VISIBILITY_SPECIFIER__VISIBILITY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumParserRuleCall_0(), semanticObject.getVisibility());
@@ -3462,10 +3599,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_WhileStatement(ISerializationContext context, WhileStatement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getWhileStatement_Condition()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getWhileStatement_Condition()));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.eINSTANCE.getWhileStatement_Body()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.eINSTANCE.getWhileStatement_Body()));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.WHILE_STATEMENT__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.WHILE_STATEMENT__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.WHILE_STATEMENT__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.WHILE_STATEMENT__BODY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getWhileStatementAccess().getConditionExpressionParserRuleCall_2_0(), semanticObject.getCondition());

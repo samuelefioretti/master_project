@@ -35,7 +35,7 @@ public class BreakStatementImpl extends StatementImpl implements BreakStatement
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getBreakStatement();
+    return OptGrammarPackage.Literals.BREAK_STATEMENT;
   }
 
 } //BreakStatementImpl

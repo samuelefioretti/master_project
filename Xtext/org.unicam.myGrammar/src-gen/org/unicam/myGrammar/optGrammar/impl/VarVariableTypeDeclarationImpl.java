@@ -91,7 +91,7 @@ public class VarVariableTypeDeclarationImpl extends SimpleStatementImpl implemen
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getVarVariableTypeDeclaration();
+    return OptGrammarPackage.Literals.VAR_VARIABLE_TYPE_DECLARATION;
   }
 
   /**

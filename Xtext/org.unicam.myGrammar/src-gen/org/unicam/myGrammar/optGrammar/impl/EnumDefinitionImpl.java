@@ -99,7 +99,7 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getEnumDefinition();
+    return OptGrammarPackage.Literals.ENUM_DEFINITION;
   }
 
   /**

@@ -65,7 +65,7 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getGasleftFunction();
+    return OptGrammarPackage.Literals.GASLEFT_FUNCTION;
   }
 
   /**

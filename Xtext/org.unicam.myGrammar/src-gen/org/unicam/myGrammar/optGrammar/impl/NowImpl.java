@@ -37,7 +37,7 @@ public class NowImpl extends MinimalEObjectImpl.Container implements Now
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getNow();
+    return OptGrammarPackage.Literals.NOW;
   }
 
 } //NowImpl

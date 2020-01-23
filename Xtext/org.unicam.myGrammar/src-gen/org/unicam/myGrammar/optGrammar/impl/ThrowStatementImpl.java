@@ -35,7 +35,7 @@ public class ThrowStatementImpl extends StatementImpl implements ThrowStatement
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getThrowStatement();
+    return OptGrammarPackage.Literals.THROW_STATEMENT;
   }
 
 } //ThrowStatementImpl

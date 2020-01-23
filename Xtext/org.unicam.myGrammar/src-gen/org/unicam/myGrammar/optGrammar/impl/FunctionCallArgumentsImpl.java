@@ -64,7 +64,7 @@ public class FunctionCallArgumentsImpl extends MinimalEObjectImpl.Container impl
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getFunctionCallArguments();
+    return OptGrammarPackage.Literals.FUNCTION_CALL_ARGUMENTS;
   }
 
   /**

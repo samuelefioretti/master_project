@@ -133,7 +133,7 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getStandardVariableDeclaration();
+    return OptGrammarPackage.Literals.STANDARD_VARIABLE_DECLARATION;
   }
 
   /**

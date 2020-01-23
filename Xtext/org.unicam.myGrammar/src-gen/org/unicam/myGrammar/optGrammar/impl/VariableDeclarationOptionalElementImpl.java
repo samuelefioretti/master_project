@@ -37,7 +37,7 @@ public class VariableDeclarationOptionalElementImpl extends MinimalEObjectImpl.C
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getVariableDeclarationOptionalElement();
+    return OptGrammarPackage.Literals.VARIABLE_DECLARATION_OPTIONAL_ELEMENT;
   }
 
 } //VariableDeclarationOptionalElementImpl

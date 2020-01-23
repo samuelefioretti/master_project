@@ -66,7 +66,7 @@ public class BooleanConstImpl extends LiteralImpl implements BooleanConst
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getBooleanConst();
+    return OptGrammarPackage.Literals.BOOLEAN_CONST;
   }
 
   /**

@@ -62,7 +62,7 @@ public class TupleImpl extends ExpressionImpl implements Tuple
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getTuple();
+    return OptGrammarPackage.Literals.TUPLE;
   }
 
   /**

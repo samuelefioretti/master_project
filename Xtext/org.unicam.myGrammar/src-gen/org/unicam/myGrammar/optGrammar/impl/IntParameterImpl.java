@@ -71,7 +71,7 @@ public class IntParameterImpl extends MinimalEObjectImpl.Container implements In
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getIntParameter();
+    return OptGrammarPackage.Literals.INT_PARAMETER;
   }
 
   /**

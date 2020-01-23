@@ -66,7 +66,7 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getVariable();
+    return OptGrammarPackage.Literals.VARIABLE;
   }
 
   /**

@@ -69,7 +69,7 @@ public class BitOrImpl extends ExpressionImpl implements BitOr
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getBitOr();
+    return OptGrammarPackage.Literals.BIT_OR;
   }
 
   /**

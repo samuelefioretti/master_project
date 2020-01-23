@@ -24,25 +24,22 @@ package org.unicam.myGrammar.optGrammar;
 public interface Mapping extends StandardType, StandardTypeWithoutQualifiedIdentifier
 {
   /**
-   * Returns the value of the '<em><b>Key Type</b></em>' attribute.
-   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum}.
+   * Returns the value of the '<em><b>Key Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Key Type</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum
+   * @return the value of the '<em>Key Type</em>' containment reference.
    * @see #setKeyType(ElementaryTypeNameEnum)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getMapping_KeyType()
-   * @model
+   * @model containment="true"
    * @generated
    */
   ElementaryTypeNameEnum getKeyType();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Mapping#getKeyType <em>Key Type</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Mapping#getKeyType <em>Key Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Key Type</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum
+   * @param value the new value of the '<em>Key Type</em>' containment reference.
    * @see #getKeyType()
    * @generated
    */

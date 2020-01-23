@@ -64,7 +64,7 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getParameterList();
+    return OptGrammarPackage.Literals.PARAMETER_LIST;
   }
 
   /**

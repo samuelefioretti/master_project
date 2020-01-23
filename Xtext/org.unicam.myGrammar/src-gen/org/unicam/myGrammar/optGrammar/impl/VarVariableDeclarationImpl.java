@@ -91,7 +91,7 @@ public class VarVariableDeclarationImpl extends StatementImpl implements VarVari
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getVarVariableDeclaration();
+    return OptGrammarPackage.Literals.VAR_VARIABLE_DECLARATION;
   }
 
   /**

@@ -65,7 +65,7 @@ public class StringLiteralImpl extends LiteralImpl implements StringLiteral
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getStringLiteral();
+    return OptGrammarPackage.Literals.STRING_LITERAL;
   }
 
   /**

@@ -61,10 +61,11 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSecondOperatorsAccess().getOperatorAlternatives_0_0(), "rule__SecondOperators__OperatorAlternatives_0_0");
 			builder.put(grammarAccess.getNumericLiteralAccess().getAlternatives_0(), "rule__NumericLiteral__Alternatives_0");
 			builder.put(grammarAccess.getUnitTypesAccess().getAlternatives(), "rule__UnitTypes__Alternatives");
+			builder.put(grammarAccess.getSimpleTypeDeclarationAccess().getTypeAlternatives_0(), "rule__SimpleTypeDeclaration__TypeAlternatives_0");
+			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_0(), "rule__ElementaryTypeNameEnum__TypeAlternatives_0");
 			builder.put(grammarAccess.getLocationSpecifierEnumAccess().getTypeAlternatives_0(), "rule__LocationSpecifierEnum__TypeAlternatives_0");
 			builder.put(grammarAccess.getVisibilityEnumAccess().getTypeAlternatives_0(), "rule__VisibilityEnum__TypeAlternatives_0");
 			builder.put(grammarAccess.getSpecialVariablesTypeEnumAccess().getNameAlternatives_0(), "rule__SpecialVariablesTypeEnum__NameAlternatives_0");
-			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getAlternatives(), "rule__ElementaryTypeNameEnum__Alternatives");
 			builder.put(grammarAccess.getAssignmentOpEnumAccess().getAlternatives(), "rule__AssignmentOpEnum__Alternatives");
 			builder.put(grammarAccess.getEqualityOpEnumAccess().getAlternatives(), "rule__EqualityOpEnum__Alternatives");
 			builder.put(grammarAccess.getComparisonOpEnumAccess().getAlternatives(), "rule__ComparisonOpEnum__Alternatives");
@@ -400,6 +401,8 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSpecialVariablesAccess().getTypeAssignment_0(), "rule__SpecialVariables__TypeAssignment_0");
 			builder.put(grammarAccess.getSpecialVariablesAccess().getFieldAssignment_2(), "rule__SpecialVariables__FieldAssignment_2");
 			builder.put(grammarAccess.getSpecialVariablesAccess().getQualifiersAssignment_3(), "rule__SpecialVariables__QualifiersAssignment_3");
+			builder.put(grammarAccess.getSimpleTypeDeclarationAccess().getTypeAssignment(), "rule__SimpleTypeDeclaration__TypeAssignment");
+			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment(), "rule__ElementaryTypeNameEnum__TypeAssignment");
 			builder.put(grammarAccess.getLocationSpecifierEnumAccess().getTypeAssignment(), "rule__LocationSpecifierEnum__TypeAssignment");
 			builder.put(grammarAccess.getVisibilityEnumAccess().getTypeAssignment(), "rule__VisibilityEnum__TypeAssignment");
 			builder.put(grammarAccess.getSpecialVariablesTypeEnumAccess().getNameAssignment(), "rule__SpecialVariablesTypeEnum__NameAssignment");

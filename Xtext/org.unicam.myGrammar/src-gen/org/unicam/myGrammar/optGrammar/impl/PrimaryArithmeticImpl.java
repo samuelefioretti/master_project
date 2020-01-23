@@ -37,7 +37,7 @@ public class PrimaryArithmeticImpl extends MinimalEObjectImpl.Container implemen
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getPrimaryArithmetic();
+    return OptGrammarPackage.Literals.PRIMARY_ARITHMETIC;
   }
 
 } //PrimaryArithmeticImpl

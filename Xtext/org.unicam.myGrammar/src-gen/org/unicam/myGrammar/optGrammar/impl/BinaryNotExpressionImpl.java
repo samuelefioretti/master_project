@@ -58,7 +58,7 @@ public class BinaryNotExpressionImpl extends ExpressionImpl implements BinaryNot
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getBinaryNotExpression();
+    return OptGrammarPackage.Literals.BINARY_NOT_EXPRESSION;
   }
 
   /**

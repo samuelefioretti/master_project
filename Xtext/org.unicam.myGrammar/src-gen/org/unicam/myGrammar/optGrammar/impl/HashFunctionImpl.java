@@ -79,7 +79,7 @@ public class HashFunctionImpl extends LiteralImpl implements HashFunction
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getHashFunction();
+    return OptGrammarPackage.Literals.HASH_FUNCTION;
   }
 
   /**

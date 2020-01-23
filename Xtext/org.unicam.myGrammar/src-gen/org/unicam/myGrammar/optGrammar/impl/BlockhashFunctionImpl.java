@@ -58,7 +58,7 @@ public class BlockhashFunctionImpl extends LiteralImpl implements BlockhashFunct
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getBlockhashFunction();
+    return OptGrammarPackage.Literals.BLOCKHASH_FUNCTION;
   }
 
   /**

@@ -37,7 +37,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getStatement();
+    return OptGrammarPackage.Literals.STATEMENT;
   }
 
 } //StatementImpl

@@ -81,7 +81,7 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getIfStatement();
+    return OptGrammarPackage.Literals.IF_STATEMENT;
   }
 
   /**

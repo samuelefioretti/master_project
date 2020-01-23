@@ -71,7 +71,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getUnitTypes();
+    return OptGrammarPackage.Literals.UNIT_TYPES;
   }
 
   /**

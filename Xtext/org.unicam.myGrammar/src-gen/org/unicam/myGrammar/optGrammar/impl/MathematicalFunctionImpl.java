@@ -86,7 +86,7 @@ public class MathematicalFunctionImpl extends LiteralImpl implements Mathematica
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getMathematicalFunction();
+    return OptGrammarPackage.Literals.MATHEMATICAL_FUNCTION;
   }
 
   /**

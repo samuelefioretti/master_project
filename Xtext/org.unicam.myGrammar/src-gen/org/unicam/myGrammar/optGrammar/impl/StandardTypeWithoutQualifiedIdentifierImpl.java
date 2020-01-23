@@ -35,7 +35,7 @@ public class StandardTypeWithoutQualifiedIdentifierImpl extends SimpleStatementI
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getStandardTypeWithoutQualifiedIdentifier();
+    return OptGrammarPackage.Literals.STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER;
   }
 
 } //StandardTypeWithoutQualifiedIdentifierImpl

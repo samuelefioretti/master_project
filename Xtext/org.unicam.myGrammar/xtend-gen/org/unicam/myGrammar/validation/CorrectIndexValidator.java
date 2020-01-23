@@ -27,12 +27,11 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
   @Check
   public void checkValidIndex(final /* ArrayIndex */Object arrI) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field ARRAY_INDEX__VALUE is undefined for the type Class<Literals>"
       + "\nvalue cannot be resolved"
       + "\ngetErrorString cannot be resolved"
       + "\nnullOrEmpty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nARRAY_INDEX__VALUE cannot be resolved");
+      + "\n! cannot be resolved");
   }
   
   public String checkValidIndex(final Literal toCheck) {

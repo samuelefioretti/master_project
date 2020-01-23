@@ -106,7 +106,7 @@ public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getNumericLiteral();
+    return OptGrammarPackage.Literals.NUMERIC_LITERAL;
   }
 
   /**

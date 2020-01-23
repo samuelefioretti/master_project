@@ -64,7 +64,7 @@ public class ArrayDimensionsImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getArrayDimensions();
+    return OptGrammarPackage.Literals.ARRAY_DIMENSIONS;
   }
 
   /**

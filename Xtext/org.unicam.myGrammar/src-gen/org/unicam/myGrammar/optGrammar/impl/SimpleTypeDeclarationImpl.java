@@ -10,50 +10,50 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Enum Value</b></em>'.
+ * An implementation of the model object '<em><b>Simple Type Declaration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.EnumValueImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.SimpleTypeDeclarationImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumValue
+public class SimpleTypeDeclarationImpl extends MinimalEObjectImpl.Container implements SimpleTypeDeclaration
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String TYPE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String type = TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EnumValueImpl()
+  protected SimpleTypeDeclarationImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.ENUM_VALUE;
+    return OptGrammarPackage.Literals.SIMPLE_TYPE_DECLARATION;
   }
 
   /**
@@ -75,9 +75,9 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
    * @generated
    */
   @Override
-  public String getName()
+  public String getType()
   {
-    return name;
+    return type;
   }
 
   /**
@@ -86,12 +86,12 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setType(String newType)
   {
-    String oldName = name;
-    name = newName;
+    String oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ENUM_VALUE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE, oldType, type));
   }
 
   /**
@@ -104,8 +104,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
   {
     switch (featureID)
     {
-      case OptGrammarPackage.ENUM_VALUE__NAME:
-        return getName();
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE:
+        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +120,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
   {
     switch (featureID)
     {
-      case OptGrammarPackage.ENUM_VALUE__NAME:
-        setName((String)newValue);
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE:
+        setType((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
   {
     switch (featureID)
     {
-      case OptGrammarPackage.ENUM_VALUE__NAME:
-        setName(NAME_EDEFAULT);
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +154,8 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
   {
     switch (featureID)
     {
-      case OptGrammarPackage.ENUM_VALUE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
     return super.eIsSet(featureID);
   }
@@ -171,10 +171,10 @@ public class EnumValueImpl extends MinimalEObjectImpl.Container implements EnumV
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (type: ");
+    result.append(type);
     result.append(')');
     return result.toString();
   }
 
-} //EnumValueImpl
+} //SimpleTypeDeclarationImpl

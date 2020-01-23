@@ -26,60 +26,55 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   @Check
   public void noWrongLocation(final LocationSpecifierEnum locationLiteral) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
-      + "\nLOCATION_LITERAL__TYPE cannot be resolved");
+      + "\nThe method or field LOCATION_LITERAL__TYPE is undefined for the type Class<Literals>");
   }
   
   @Check
   public void noWrongLocation(final /* NonArrayableDeclaration */Object nonArrDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field NON_ARRAYABLE_DECLARATION__TYPE is undefined for the type Class<Literals>"
       + "\ntype cannot be resolved"
       + "\ntype cannot be resolved"
       + "\nequals cannot be resolved"
       + "\n! cannot be resolved"
       + "\n&& cannot be resolved"
       + "\nlocation cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\nNON_ARRAYABLE_DECLARATION__TYPE cannot be resolved");
+      + "\n!== cannot be resolved");
   }
   
   @Check
   public void noWrongVisibility(final VisibilityEnum visibilityLiteral) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
-      + "\nVISIBILITY_LITERAL__TYPE cannot be resolved");
+      + "\nThe method or field VISIBILITY_LITERAL__TYPE is undefined for the type Class<Literals>");
   }
   
   @Check
   public void checkDataLocation(final /* ArrayDefinitionDeclaration */Object inDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field ARRAY_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\ngetRoot cannot be resolved"
       + "\nasDeclaration cannot be resolved"
       + "\nlocation cannot be resolved"
       + "\n=== cannot be resolved"
-      + "\nasDeclaration cannot be resolved"
-      + "\nARRAY_DECLARATION__NAME cannot be resolved");
+      + "\nasDeclaration cannot be resolved");
   }
   
   @Check
   public void checkDataLocation(final /* ConcreteStructDeclaration */Object inDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field CONCRETE_STRUCT_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\ngetRoot cannot be resolved"
       + "\nlocation cannot be resolved"
       + "\n=== cannot be resolved"
-      + "\nasDeclaration cannot be resolved"
-      + "\nCONCRETE_STRUCT_DECLARATION__NAME cannot be resolved");
+      + "\nasDeclaration cannot be resolved");
   }
   
   @Check
   public void checkDataLocation(final /* NonArrayableDeclaration */Object inDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field NON_ARRAYABLE_DECLARATION__TYPE is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\ngetRoot cannot be resolved"
       + "\nlocation cannot be resolved"
@@ -87,20 +82,17 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
       + "\ntype cannot be resolved"
       + "\ntype cannot be resolved"
       + "\nequals cannot be resolved"
-      + "\nasDeclaration cannot be resolved"
-      + "\nNON_ARRAYABLE_DECLARATION__TYPE cannot be resolved");
+      + "\nasDeclaration cannot be resolved");
   }
   
   @Check
   public void storageLocation(final Mapping map) {
     throw new Error("Unresolved compilation problems:"
       + "\nThe method or field location is undefined for the type Mapping"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field MAPPING_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\nThe method or field location is undefined for the type Mapping"
-      + "\nThe method or field Literals is undefined for the type Class<OptGrammarPackage>"
+      + "\nThe method or field MAPPING_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\n=== cannot be resolved"
-      + "\nMAPPING_DECLARATION__NAME cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\nMAPPING_DECLARATION__NAME cannot be resolved");
+      + "\n!== cannot be resolved");
   }
 }

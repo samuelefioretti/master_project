@@ -58,7 +58,7 @@ public class ArgumentsImpl extends QualifierImpl implements Arguments
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getArguments();
+    return OptGrammarPackage.Literals.ARGUMENTS;
   }
 
   /**

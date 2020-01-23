@@ -70,7 +70,7 @@ public class WhileStatementImpl extends StatementImpl implements WhileStatement
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getWhileStatement();
+    return OptGrammarPackage.Literals.WHILE_STATEMENT;
   }
 
   /**

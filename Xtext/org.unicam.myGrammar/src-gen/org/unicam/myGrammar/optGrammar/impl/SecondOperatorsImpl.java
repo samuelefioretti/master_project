@@ -80,7 +80,7 @@ public class SecondOperatorsImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getSecondOperators();
+    return OptGrammarPackage.Literals.SECOND_OPERATORS;
   }
 
   /**

@@ -58,7 +58,7 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getVisibilitySpecifier();
+    return OptGrammarPackage.Literals.VISIBILITY_SPECIFIER;
   }
 
   /**

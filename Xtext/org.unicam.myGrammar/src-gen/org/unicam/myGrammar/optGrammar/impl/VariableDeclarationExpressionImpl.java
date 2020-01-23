@@ -81,7 +81,7 @@ public class VariableDeclarationExpressionImpl extends ExpressionImpl implements
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getVariableDeclarationExpression();
+    return OptGrammarPackage.Literals.VARIABLE_DECLARATION_EXPRESSION;
   }
 
   /**

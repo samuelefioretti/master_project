@@ -58,7 +58,7 @@ public class PreDecExpressionImpl extends ExpressionImpl implements PreDecExpres
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getPreDecExpression();
+    return OptGrammarPackage.Literals.PRE_DEC_EXPRESSION;
   }
 
   /**

@@ -70,7 +70,7 @@ public class NewExpressionImpl extends ExpressionImpl implements NewExpression
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getNewExpression();
+    return OptGrammarPackage.Literals.NEW_EXPRESSION;
   }
 
   /**

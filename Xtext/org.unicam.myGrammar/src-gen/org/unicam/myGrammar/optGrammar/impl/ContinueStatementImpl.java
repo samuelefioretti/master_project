@@ -35,7 +35,7 @@ public class ContinueStatementImpl extends StatementImpl implements ContinueStat
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.eINSTANCE.getContinueStatement();
+    return OptGrammarPackage.Literals.CONTINUE_STATEMENT;
   }
 
 } //ContinueStatementImpl
