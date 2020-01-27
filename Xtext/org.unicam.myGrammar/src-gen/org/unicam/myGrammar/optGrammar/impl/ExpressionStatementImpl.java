@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.ExpressionStatement;
-import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
@@ -59,7 +59,7 @@ public class ExpressionStatementImpl extends SimpleStatementImpl implements Expr
    * @generated
    * @ordered
    */
-  protected LogicalOperations expression;
+  protected Expression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,7 +113,7 @@ public class ExpressionStatementImpl extends SimpleStatementImpl implements Expr
    * @generated
    */
   @Override
-  public LogicalOperations getExpression()
+  public Expression getExpression()
   {
     return expression;
   }
@@ -123,9 +123,9 @@ public class ExpressionStatementImpl extends SimpleStatementImpl implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(LogicalOperations newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    LogicalOperations oldExpression = expression;
+    Expression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -141,7 +141,7 @@ public class ExpressionStatementImpl extends SimpleStatementImpl implements Expr
    * @generated
    */
   @Override
-  public void setExpression(LogicalOperations newExpression)
+  public void setExpression(Expression newExpression)
   {
     if (newExpression != expression)
     {
@@ -205,7 +205,7 @@ public class ExpressionStatementImpl extends SimpleStatementImpl implements Expr
         setSemicolon((Boolean)newValue);
         return;
       case OptGrammarPackage.EXPRESSION_STATEMENT__EXPRESSION:
-        setExpression((LogicalOperations)newValue);
+        setExpression((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,7 +225,7 @@ public class ExpressionStatementImpl extends SimpleStatementImpl implements Expr
         setSemicolon(SEMICOLON_EDEFAULT);
         return;
       case OptGrammarPackage.EXPRESSION_STATEMENT__EXPRESSION:
-        setExpression((LogicalOperations)null);
+        setExpression((Expression)null);
         return;
     }
     super.eUnset(featureID);

@@ -4,10 +4,8 @@
 package org.unicam.myGrammar.optGrammar.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -31,14 +29,24 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImpl implements LocationSpecifier
 {
   /**
-   * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
+   * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLocation()
    * @generated
    * @ordered
    */
-  protected LocationSpecifierEnum location;
+  protected static final LocationSpecifierEnum LOCATION_EDEFAULT = LocationSpecifierEnum.MEMORY;
+
+  /**
+   * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLocation()
+   * @generated
+   * @ordered
+   */
+  protected LocationSpecifierEnum location = LOCATION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,54 +85,13 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLocation(LocationSpecifierEnum newLocation, NotificationChain msgs)
-  {
-    LocationSpecifierEnum oldLocation = location;
-    location = newLocation;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOCATION_SPECIFIER__LOCATION, oldLocation, newLocation);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public void setLocation(LocationSpecifierEnum newLocation)
   {
-    if (newLocation != location)
-    {
-      NotificationChain msgs = null;
-      if (location != null)
-        msgs = ((InternalEObject)location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOCATION_SPECIFIER__LOCATION, null, msgs);
-      if (newLocation != null)
-        msgs = ((InternalEObject)newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOCATION_SPECIFIER__LOCATION, null, msgs);
-      msgs = basicSetLocation(newLocation, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOCATION_SPECIFIER__LOCATION, newLocation, newLocation));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case OptGrammarPackage.LOCATION_SPECIFIER__LOCATION:
-        return basicSetLocation(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    LocationSpecifierEnum oldLocation = location;
+    location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOCATION_SPECIFIER__LOCATION, oldLocation, location));
   }
 
   /**
@@ -171,7 +138,7 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
     switch (featureID)
     {
       case OptGrammarPackage.LOCATION_SPECIFIER__LOCATION:
-        setLocation((LocationSpecifierEnum)null);
+        setLocation(LOCATION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -188,9 +155,26 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
     switch (featureID)
     {
       case OptGrammarPackage.LOCATION_SPECIFIER__LOCATION:
-        return location != null;
+        return location != LOCATION_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (location: ");
+    result.append(location);
+    result.append(')');
+    return result.toString();
   }
 
 } //LocationSpecifierImpl

@@ -16,6 +16,17 @@
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//LogicalOperationLiteral/GT"/>
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//LogicalOperationLiteral/LT"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//LocationSpecifierEnum">
+      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//LocationSpecifierEnum/MEMORY"/>
+      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//LocationSpecifierEnum/STORAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//LocationSpecifierEnum/CALLDATA"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//VisibilityEnum">
+      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//VisibilityEnum/PUBLIC"/>
+      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//VisibilityEnum/INTERNAL"/>
+      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//VisibilityEnum/PRIVATE"/>
+      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//VisibilityEnum/EXTERNAL"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//AssignmentOpEnum">
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//AssignmentOpEnum/ASSIGN"/>
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//AssignmentOpEnum/ASSIGN_OR"/>
@@ -97,149 +108,44 @@
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/USING"/>
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/ILLEGAL"/>
     </genEnums>
-    <genClasses ecoreClass="OptGrammar.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Model/operations"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//Solidity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Solidity/importDirective"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Solidity/contract"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//ImportDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ImportDirective/importURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ImportDirective/unitAlias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ImportDirective/symbolAliases"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//SymbolAlias">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SymbolAlias/symbol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SymbolAlias/alias"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Contract">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Contract/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Contract/blocks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Contract/inheritanceSpecifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Contract/body"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//Declaration"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//FunctionDeclaration"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//StructDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StructDeclaration/visibility"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StructDeclaration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StructDeclaration/members"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//InheritanceSpecifier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//InheritanceSpecifier/SuperType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//InheritanceSpecifier/args"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//EnumDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//EnumDefinition/visibility"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//EnumDefinition/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//EnumDefinition/members"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//EnumValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//EnumValue/name"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//FunctionParameterDeclaration"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//ArrayDefinitionDeclaration"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//FilledArray">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FilledArray/arrays"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ValueSets">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ValueSets/values"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ArrayDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDeclaration/blocks"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDeclaration/var"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDeclaration/access"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDeclaration/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ArrayDeclaration/constant"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDeclaration/visibility"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDeclaration/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDeclaration/strucType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ArrayDeclaration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDeclaration/sizes"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//NamedType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//NamedType/type"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//SimpleTypeDeclaration"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//MappingAccess">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//MappingAccess/map"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//MappingAccess/index"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//MappingAccess/sec"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ArrayAccess">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayAccess/variable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayAccess/indexes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ArrayAccess/field"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ArrayIndex">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayIndex/value"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//FieldAccess">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FieldAccess/ref"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//FieldAccess/field"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FieldAccess/value"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//MappingDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//MappingDeclaration/location"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//MappingDeclaration/visibility"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//MappingDeclaration/unnamedMappingDeclaration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//MappingDeclaration/name"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//UnnamedMappingDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//UnnamedMappingDeclaration/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//UnnamedMappingDeclaration/secondRef"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//UnnamedMappingDeclaration/second"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//UnnamedMappingDeclaration/array"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//PrimaryTypeDefinitionDeclaration">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//PrimaryTypeDefinitionDeclaration/ref"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//PrimaryTypeDefinitionDeclaration/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//PrimaryTypeDefinitionDeclaration/value"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//PrimaryTypeDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//PrimaryTypeDeclaration/constant"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//PrimaryTypeDeclaration/visibility"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//PrimaryTypeDeclaration/name"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//OperationAssegnationLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//OperationAssegnationLiteral/value"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//SingleDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SingleDefinition/first"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//SingleDefinition/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SingleDefinition/second"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//NonArrayableDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NonArrayableDeclaration/location"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NonArrayableDeclaration/type"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ArrayableDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayableDeclaration/type"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ConcreteStructureDefinitionDeclaration">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ConcreteStructureDefinitionDeclaration/ref"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ConcreteStructureDefinitionDeclaration/couples"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ConcreteStructureDefinitionDeclaration/existenceRef"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ConcreteStructureDefinitionDeclaration/arrayAccessRef"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ConcreteStructDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ConcreteStructDeclaration/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ConcreteStructDeclaration/constant"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ConcreteStructDeclaration/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ConcreteStructDeclaration/name"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//StructureFieldValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StructureFieldValue/field"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StructureFieldValue/values"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//DefinitionBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/functions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/structs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/enums"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DefinitionBody/events"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//FunctionDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//FunctionDefinition/payable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//FunctionDefinition/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FunctionDefinition/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FunctionDefinition/optionalElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FunctionDefinition/returnType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FunctionDefinition/blocks"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FunctionDefinition/returnVal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FunctionDefinition/returnParameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FunctionDefinition/block"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//InternalBlock">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//InternalBlock/def"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//InternalBlock/dec"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//InternalBlock/loop"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//InternalBlock/call"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ArrayDefinition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDefinition/ref"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDefinition/blocks"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDefinition/arrayRef"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDefinition/indexes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ArrayDefinition/field"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDefinition/operator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDefinition/value"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//FieldDefinition"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//MappingDefinition"/>
     <genClasses ecoreClass="OptGrammar.ecore#//FunctionCallListArguments">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//FunctionCallListArguments/arguments"/>
     </genClasses>
@@ -253,16 +159,49 @@
     <genClasses ecoreClass="OptGrammar.ecore#//FunctionDefinitionOptionalElement"/>
     <genClasses ecoreClass="OptGrammar.ecore#//Const"/>
     <genClasses ecoreClass="OptGrammar.ecore#//VisibilitySpecifier">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VisibilitySpecifier/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VisibilitySpecifier/visibility"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//StructDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StructDefinition/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StructDefinition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StructDefinition/members"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//EnumDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//EnumDefinition/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//EnumDefinition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//EnumDefinition/members"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//EnumValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//EnumValue/name"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Variable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//Statement"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//StandardVariableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/optionalElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/ptionalElements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StandardVariableDeclaration/semicolon"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//VarVariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VarVariableDeclaration/varType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableDeclaration/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableDeclaration/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//VarVariableTupleVariableDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VarVariableTupleVariableDeclaration/varType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableTupleVariableDeclaration/tuple"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableTupleVariableDeclaration/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VarVariableTupleVariableDeclaration/semicolon"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//VariableDeclarationOptionalElement"/>
     <genClasses ecoreClass="OptGrammar.ecore#//IndexedSpecifer"/>
     <genClasses ecoreClass="OptGrammar.ecore#//ConstantSpecifier"/>
     <genClasses ecoreClass="OptGrammar.ecore#//LocationSpecifier">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//LocationSpecifier/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//LocationSpecifier/location"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Type/isVarType"/>
@@ -272,6 +211,10 @@
     <genClasses ecoreClass="OptGrammar.ecore#//ElementaryType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ElementaryType/dimension"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ElementaryType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//Mapping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Mapping/keyType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Mapping/valueType"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//ArrayDimensions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ArrayDimensions/value"/>
@@ -300,6 +243,22 @@
     <genClasses ecoreClass="OptGrammar.ecore#//Arguments">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Arguments/arguments"/>
     </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//Modifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Modifier/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Modifier/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Modifier/block"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Event/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Event/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//ModifierInvocation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ModifierInvocation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ModifierInvocation/args"/>
+    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//ParameterList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ParameterList/parameters"/>
+    </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//ReturnsParameterList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ReturnsParameterList/parameters"/>
     </genClasses>
@@ -307,8 +266,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ReturnParameterDeclaration/typeRef"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ReturnParameterDeclaration/variable"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//LoopStructures"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//Statement"/>
     <genClasses ecoreClass="OptGrammar.ecore#//DeleteStatement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//DeleteStatement/variable"/>
     </genClasses>
@@ -327,9 +284,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ForStatement/loopExpression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//ForStatement/body"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//Body">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Body/statements"/>
-    </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//Body"/>
     <genClasses ecoreClass="OptGrammar.ecore#//ContinueStatement"/>
     <genClasses ecoreClass="OptGrammar.ecore#//BreakStatement"/>
     <genClasses ecoreClass="OptGrammar.ecore#//ReturnStatement">
@@ -337,13 +292,13 @@
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//ThrowStatement"/>
     <genClasses ecoreClass="OptGrammar.ecore#//PlaceHolderStatement"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//LogicalOperations">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//LogicalOperations/first"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//LogicalOperations/operations"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//LogicalOperations/negate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//LogicalOperations/ternary"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//LogicalOperations/true"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//LogicalOperations/false"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Expression/first"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Expression/operations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Expression/negate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//Expression/ternary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Expression/true"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Expression/false"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//ConditionOperation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ConditionOperation/operation"/>
@@ -415,9 +370,6 @@
     <genClasses ecoreClass="OptGrammar.ecore#//StringLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StringLiteral/value"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//IntLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//IntLiteral/value"/>
-    </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//HexLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//HexLiteral/value"/>
     </genClasses>
@@ -433,33 +385,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialVariables/field"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//SpecialVariables/qualifiers"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//ElementaryTypeNameEnum"/>
-    <genClasses ecoreClass="OptGrammar.ecore#//LocationSpecifierEnum">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//LocationSpecifierEnum/type"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//VisibilityEnum">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VisibilityEnum/type"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//ElementaryTypeNameEnum">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ElementaryTypeNameEnum/type"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//SpecialVariablesTypeEnum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialVariablesTypeEnum/name"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//StandardVariableDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/ptionalElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/variable"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//StandardVariableDeclaration/semicolon"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//StandardVariableDeclaration/optionalElements"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//VarVariableTypeDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableTypeDeclaration/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableTypeDeclaration/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VarVariableTypeDeclaration/semicolon"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//VarVariableTupleVariableDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableTupleVariableDeclaration/tuple"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableTupleVariableDeclaration/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VarVariableTupleVariableDeclaration/semicolon"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Block/statements"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Continue"/>
   </genPackages>

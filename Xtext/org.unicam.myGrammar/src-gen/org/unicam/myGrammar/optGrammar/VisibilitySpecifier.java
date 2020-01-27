@@ -23,22 +23,25 @@ package org.unicam.myGrammar.optGrammar;
 public interface VisibilitySpecifier extends FunctionDefinitionOptionalElement, VariableDeclarationOptionalElement
 {
   /**
-   * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
+   * Returns the value of the '<em><b>Visibility</b></em>' attribute.
+   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.VisibilityEnum}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Visibility</em>' containment reference.
+   * @return the value of the '<em>Visibility</em>' attribute.
+   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
    * @see #setVisibility(VisibilityEnum)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getVisibilitySpecifier_Visibility()
-   * @model containment="true"
+   * @model
    * @generated
    */
   VisibilityEnum getVisibility();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.VisibilitySpecifier#getVisibility <em>Visibility</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.VisibilitySpecifier#getVisibility <em>Visibility</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Visibility</em>' containment reference.
+   * @param value the new value of the '<em>Visibility</em>' attribute.
+   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
    * @see #getVisibility()
    * @generated
    */

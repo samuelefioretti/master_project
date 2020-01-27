@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.FunctionCall;
 import org.unicam.myGrammar.optGrammar.FunctionDefinition;
-import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
@@ -58,7 +58,7 @@ public class FunctionCallImpl extends MinimalEObjectImpl.Container implements Fu
    * @generated
    * @ordered
    */
-  protected EList<LogicalOperations> parameters;
+  protected EList<Expression> parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -132,11 +132,11 @@ public class FunctionCallImpl extends MinimalEObjectImpl.Container implements Fu
    * @generated
    */
   @Override
-  public EList<LogicalOperations> getParameters()
+  public EList<Expression> getParameters()
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<LogicalOperations>(LogicalOperations.class, this, OptGrammarPackage.FUNCTION_CALL__PARAMETERS);
+      parameters = new EObjectContainmentEList<Expression>(Expression.class, this, OptGrammarPackage.FUNCTION_CALL__PARAMETERS);
     }
     return parameters;
   }
@@ -192,7 +192,7 @@ public class FunctionCallImpl extends MinimalEObjectImpl.Container implements Fu
         return;
       case OptGrammarPackage.FUNCTION_CALL__PARAMETERS:
         getParameters().clear();
-        getParameters().addAll((Collection<? extends LogicalOperations>)newValue);
+        getParameters().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

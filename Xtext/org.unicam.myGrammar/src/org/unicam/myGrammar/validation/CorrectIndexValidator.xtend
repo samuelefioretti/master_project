@@ -5,12 +5,8 @@ import com.google.inject.Inject
 import org.eclipse.xtext.validation.Check
 import org.eclipse.xtext.validation.EValidatorRegistrar
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage
-import org.unicam.myGrammar.optGrammar.Expression
 import org.unicam.myGrammar.optGrammar.PrimaryArithmetic
-import org.unicam.myGrammar.optGrammar.Literal
 import org.unicam.myGrammar.optGrammar.StringLiteral
-import org.unicam.myGrammar.optGrammar.BooleanConst
-import org.unicam.myGrammar.optGrammar.SpecialVariables
 import org.unicam.myGrammar.optGrammar.BlockhashFunction
 import org.unicam.myGrammar.optGrammar.GasleftFunction
 import org.unicam.myGrammar.optGrammar.HashFunction
@@ -19,6 +15,10 @@ import org.unicam.myGrammar.optGrammar.ArithmeticOperations
 import org.unicam.myGrammar.optGrammar.SecondOperators
 import org.unicam.myGrammar.optGrammar.NumericLiteral
 import org.unicam.myGrammar.optGrammar.FunctionCall
+import org.unicam.myGrammar.optGrammar.Literal
+import org.unicam.myGrammar.optGrammar.SpecialVariables
+import org.unicam.myGrammar.optGrammar.BooleanConst
+import org.unicam.myGrammar.optGrammar.Expression
 
 /**
  * This class contains custom validation rules. 
@@ -31,12 +31,11 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 	override register(EValidatorRegistrar registrar) {}
 
 	@Check
-	def checkValidIndex(ArrayIndex arrI) {
-		val result = arrI.value.getErrorString
-		if (!result.nullOrEmpty)
-			error(result, OptGrammarPackage.Literals.ARRAY_INDEX__VALUE);
-	}
-
+	/*def checkValidIndex(ArrayIndex arrI) {
+	 * 	val result = arrI.value.getErrorString
+	 * 	if (!result.nullOrEmpty)
+	 * 		error(result, OptGrammarPackage.Literals.ARRAY_INDEX__VALUE);
+	 }*/
 	def checkValidIndex(Literal toCheck) {
 		var String toReturn = null;
 		switch (toCheck) {
@@ -67,13 +66,13 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 					}
 			}
 			/*FieldAccess:
-				for (Declaration field : (toCheck.ref as ConcreteStructDeclaration).type.fields)
-					if (field.getName.equals(toCheck.field) && !field.validIntoArrayIndex)
-						toReturn = "The variable type is not usable as an array index"
-			ArrayAccess:
-				if (toCheck.variable.asDeclaration.type instanceof NamedType)
-					if (!toCheck.variable.asDeclaration.type.validIntoArrayIndex)
-						toReturn = "The array pointed is not suitable for array indexing"*/
+			 * 	for (Declaration field : (toCheck.ref as ConcreteStructDeclaration).type.fields)
+			 * 		if (field.getName.equals(toCheck.field) && !field.validIntoArrayIndex)
+			 * 			toReturn = "The variable type is not usable as an array index"
+			 * ArrayAccess:
+			 * 	if (toCheck.variable.asDeclaration.type instanceof NamedType)
+			 * 		if (!toCheck.variable.asDeclaration.type.validIntoArrayIndex)
+			 toReturn = "The array pointed is not suitable for array indexing"*/
 			default:
 				if (toCheck.ref !== null && !toCheck.ref.validIntoArrayIndex)
 					toReturn = "The variable type is not usable as an array index"
@@ -103,22 +102,21 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 		}
 	}
 
-	def boolean validIntoArrayIndex(Declaration dec) {
-		if (dec instanceof PrimaryTypeDefinitionDeclaration) {
-			if (dec.ref === null)
-				return dec instanceof ArrayableDeclaration && (dec as ArrayableDeclaration).type.unsigned
-			return dec.ref instanceof ArrayableDeclaration && (dec.ref as ArrayableDeclaration).type.unsigned
-		}
-		return false;
-	}
-
+	/*def boolean validIntoArrayIndex(Declaration dec) {
+	 * 	if (dec instanceof PrimaryTypeDefinitionDeclaration) {
+	 * 		if (dec.ref === null)
+	 * 			return dec instanceof ArrayableDeclaration && (dec as ArrayableDeclaration).type.unsigned
+	 * 		return dec.ref instanceof ArrayableDeclaration && (dec.ref as ArrayableDeclaration).type.unsigned
+	 * 	}
+	 * 	return false;
+	 }*/
 	def boolean validIntoArrayIndex(NumericLiteral numLit) {
 		if (numLit.etherUnit !== null || numLit.decimalValue !== null)
 			return false;
 		return numLit.intValue.value >= 0
 	}
 
-	def boolean validIntoArrayIndex(NamedType namedType) {
-		return namedType instanceof SizedDeclaration && (namedType as SizedDeclaration).unsigned
-	}
+/*def boolean validIntoArrayIndex(NamedType namedType) {
+ * 	return namedType instanceof SizedDeclaration && (namedType as SizedDeclaration).unsigned
+ }*/
 }

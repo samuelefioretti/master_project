@@ -19,8 +19,7 @@ public class OptGrammarValidator extends AbstractOptGrammarValidator {
   @Check
   public void structAssegnationAreStructs(final /* ArrayDefinition */Object arrayDefinition) {
     throw new Error("Unresolved compilation problems:"
-      + "\nExpression cannot be resolved to a type."
-      + "\nStructDefinition cannot be resolved to a type."
+      + "\nThe method or field ARRAY_DEFINITION__VALUE is undefined for the type Class<Literals>"
       + "\nref cannot be resolved"
       + "\nasDeclaration cannot be resolved"
       + "\ntype cannot be resolved"

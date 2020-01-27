@@ -5,6 +5,8 @@ package org.unicam.myGrammar.optGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Enum Definition</b></em>'.
@@ -23,25 +25,28 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface EnumDefinition extends FunctionDeclaration
+public interface EnumDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
+   * Returns the value of the '<em><b>Visibility</b></em>' attribute.
+   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.VisibilityEnum}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Visibility</em>' containment reference.
+   * @return the value of the '<em>Visibility</em>' attribute.
+   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
    * @see #setVisibility(VisibilityEnum)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getEnumDefinition_Visibility()
-   * @model containment="true"
+   * @model
    * @generated
    */
   VisibilityEnum getVisibility();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility <em>Visibility</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility <em>Visibility</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Visibility</em>' containment reference.
+   * @param value the new value of the '<em>Visibility</em>' attribute.
+   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
    * @see #getVisibility()
    * @generated
    */

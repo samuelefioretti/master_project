@@ -2,13 +2,10 @@ contract HotelBooking {
     uint counter;
     mapping (string=>uint) position;
     
-    Element[] elements;
-    StateMemory currentMemory;
     
     struct Element {
         string ID;
-        State status;
-    }
+      }
     
     struct StateMemory {
         uint quotation;
@@ -21,8 +18,14 @@ contract HotelBooking {
         bool cancel;
         string ID;
     }
+   
     
-    function init() internal {
+    modifier checkOpt(string storage role) {
+        require(msg.sender==optionalRoles[role]);
+        _;
+    }
+    
+    private function init() internal {
         bool result=true;
         
         for(uint i=0; i<roleList.length; i++) {

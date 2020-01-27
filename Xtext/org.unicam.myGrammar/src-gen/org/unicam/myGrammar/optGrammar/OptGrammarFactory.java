@@ -24,13 +24,31 @@ public interface OptGrammarFactory extends EFactory
   OptGrammarFactory eINSTANCE = org.unicam.myGrammar.optGrammar.impl.OptGrammarFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Solidity</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Solidity</em>'.
    * @generated
    */
-  Model createModel();
+  Solidity createSolidity();
+
+  /**
+   * Returns a new object of class '<em>Import Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import Directive</em>'.
+   * @generated
+   */
+  ImportDirective createImportDirective();
+
+  /**
+   * Returns a new object of class '<em>Symbol Alias</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol Alias</em>'.
+   * @generated
+   */
+  SymbolAlias createSymbolAlias();
 
   /**
    * Returns a new object of class '<em>Contract</em>'.
@@ -42,247 +60,22 @@ public interface OptGrammarFactory extends EFactory
   Contract createContract();
 
   /**
-   * Returns a new object of class '<em>Declaration</em>'.
+   * Returns a new object of class '<em>Inheritance Specifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Declaration</em>'.
+   * @return a new object of class '<em>Inheritance Specifier</em>'.
    * @generated
    */
-  Declaration createDeclaration();
+  InheritanceSpecifier createInheritanceSpecifier();
 
   /**
-   * Returns a new object of class '<em>Function Declaration</em>'.
+   * Returns a new object of class '<em>Definition Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Declaration</em>'.
+   * @return a new object of class '<em>Definition Body</em>'.
    * @generated
    */
-  FunctionDeclaration createFunctionDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Struct Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Struct Declaration</em>'.
-   * @generated
-   */
-  StructDeclaration createStructDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Enum Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enum Definition</em>'.
-   * @generated
-   */
-  EnumDefinition createEnumDefinition();
-
-  /**
-   * Returns a new object of class '<em>Enum Value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enum Value</em>'.
-   * @generated
-   */
-  EnumValue createEnumValue();
-
-  /**
-   * Returns a new object of class '<em>Function Parameter Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Parameter Declaration</em>'.
-   * @generated
-   */
-  FunctionParameterDeclaration createFunctionParameterDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Array Definition Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array Definition Declaration</em>'.
-   * @generated
-   */
-  ArrayDefinitionDeclaration createArrayDefinitionDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Filled Array</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Filled Array</em>'.
-   * @generated
-   */
-  FilledArray createFilledArray();
-
-  /**
-   * Returns a new object of class '<em>Value Sets</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Value Sets</em>'.
-   * @generated
-   */
-  ValueSets createValueSets();
-
-  /**
-   * Returns a new object of class '<em>Array Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array Declaration</em>'.
-   * @generated
-   */
-  ArrayDeclaration createArrayDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Named Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Named Type</em>'.
-   * @generated
-   */
-  NamedType createNamedType();
-
-  /**
-   * Returns a new object of class '<em>Simple Type Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Type Declaration</em>'.
-   * @generated
-   */
-  SimpleTypeDeclaration createSimpleTypeDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Mapping Access</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mapping Access</em>'.
-   * @generated
-   */
-  MappingAccess createMappingAccess();
-
-  /**
-   * Returns a new object of class '<em>Array Access</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array Access</em>'.
-   * @generated
-   */
-  ArrayAccess createArrayAccess();
-
-  /**
-   * Returns a new object of class '<em>Array Index</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array Index</em>'.
-   * @generated
-   */
-  ArrayIndex createArrayIndex();
-
-  /**
-   * Returns a new object of class '<em>Field Access</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field Access</em>'.
-   * @generated
-   */
-  FieldAccess createFieldAccess();
-
-  /**
-   * Returns a new object of class '<em>Mapping Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mapping Declaration</em>'.
-   * @generated
-   */
-  MappingDeclaration createMappingDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Unnamed Mapping Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unnamed Mapping Declaration</em>'.
-   * @generated
-   */
-  UnnamedMappingDeclaration createUnnamedMappingDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Primary Type Definition Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primary Type Definition Declaration</em>'.
-   * @generated
-   */
-  PrimaryTypeDefinitionDeclaration createPrimaryTypeDefinitionDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Primary Type Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primary Type Declaration</em>'.
-   * @generated
-   */
-  PrimaryTypeDeclaration createPrimaryTypeDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Operation Assegnation Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Operation Assegnation Literal</em>'.
-   * @generated
-   */
-  OperationAssegnationLiteral createOperationAssegnationLiteral();
-
-  /**
-   * Returns a new object of class '<em>Single Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Single Definition</em>'.
-   * @generated
-   */
-  SingleDefinition createSingleDefinition();
-
-  /**
-   * Returns a new object of class '<em>Non Arrayable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Non Arrayable Declaration</em>'.
-   * @generated
-   */
-  NonArrayableDeclaration createNonArrayableDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Arrayable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arrayable Declaration</em>'.
-   * @generated
-   */
-  ArrayableDeclaration createArrayableDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Concrete Structure Definition Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Concrete Structure Definition Declaration</em>'.
-   * @generated
-   */
-  ConcreteStructureDefinitionDeclaration createConcreteStructureDefinitionDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Concrete Struct Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Concrete Struct Declaration</em>'.
-   * @generated
-   */
-  ConcreteStructDeclaration createConcreteStructDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Structure Field Value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Structure Field Value</em>'.
-   * @generated
-   */
-  StructureFieldValue createStructureFieldValue();
+  DefinitionBody createDefinitionBody();
 
   /**
    * Returns a new object of class '<em>Function Definition</em>'.
@@ -292,42 +85,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   FunctionDefinition createFunctionDefinition();
-
-  /**
-   * Returns a new object of class '<em>Internal Block</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Internal Block</em>'.
-   * @generated
-   */
-  InternalBlock createInternalBlock();
-
-  /**
-   * Returns a new object of class '<em>Array Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array Definition</em>'.
-   * @generated
-   */
-  ArrayDefinition createArrayDefinition();
-
-  /**
-   * Returns a new object of class '<em>Field Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field Definition</em>'.
-   * @generated
-   */
-  FieldDefinition createFieldDefinition();
-
-  /**
-   * Returns a new object of class '<em>Mapping Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mapping Definition</em>'.
-   * @generated
-   */
-  MappingDefinition createMappingDefinition();
 
   /**
    * Returns a new object of class '<em>Function Call List Arguments</em>'.
@@ -384,6 +141,33 @@ public interface OptGrammarFactory extends EFactory
   VisibilitySpecifier createVisibilitySpecifier();
 
   /**
+   * Returns a new object of class '<em>Struct Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Struct Definition</em>'.
+   * @generated
+   */
+  StructDefinition createStructDefinition();
+
+  /**
+   * Returns a new object of class '<em>Enum Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Definition</em>'.
+   * @generated
+   */
+  EnumDefinition createEnumDefinition();
+
+  /**
+   * Returns a new object of class '<em>Enum Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Value</em>'.
+   * @generated
+   */
+  EnumValue createEnumValue();
+
+  /**
    * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -391,6 +175,42 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   Variable createVariable();
+
+  /**
+   * Returns a new object of class '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement</em>'.
+   * @generated
+   */
+  Statement createStatement();
+
+  /**
+   * Returns a new object of class '<em>Standard Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Standard Variable Declaration</em>'.
+   * @generated
+   */
+  StandardVariableDeclaration createStandardVariableDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Var Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Variable Declaration</em>'.
+   * @generated
+   */
+  VarVariableDeclaration createVarVariableDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Var Variable Tuple Variable Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Variable Tuple Variable Declaration</em>'.
+   * @generated
+   */
+  VarVariableTupleVariableDeclaration createVarVariableTupleVariableDeclaration();
 
   /**
    * Returns a new object of class '<em>Variable Declaration Optional Element</em>'.
@@ -463,6 +283,15 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   ElementaryType createElementaryType();
+
+  /**
+   * Returns a new object of class '<em>Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mapping</em>'.
+   * @generated
+   */
+  Mapping createMapping();
 
   /**
    * Returns a new object of class '<em>Array Dimensions</em>'.
@@ -564,6 +393,42 @@ public interface OptGrammarFactory extends EFactory
   Arguments createArguments();
 
   /**
+   * Returns a new object of class '<em>Modifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Modifier</em>'.
+   * @generated
+   */
+  Modifier createModifier();
+
+  /**
+   * Returns a new object of class '<em>Event</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Event</em>'.
+   * @generated
+   */
+  Event createEvent();
+
+  /**
+   * Returns a new object of class '<em>Modifier Invocation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Modifier Invocation</em>'.
+   * @generated
+   */
+  ModifierInvocation createModifierInvocation();
+
+  /**
+   * Returns a new object of class '<em>Parameter List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter List</em>'.
+   * @generated
+   */
+  ParameterList createParameterList();
+
+  /**
    * Returns a new object of class '<em>Returns Parameter List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -580,24 +445,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   ReturnParameterDeclaration createReturnParameterDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Loop Structures</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Loop Structures</em>'.
-   * @generated
-   */
-  LoopStructures createLoopStructures();
-
-  /**
-   * Returns a new object of class '<em>Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statement</em>'.
-   * @generated
-   */
-  Statement createStatement();
 
   /**
    * Returns a new object of class '<em>Delete Statement</em>'.
@@ -690,13 +537,13 @@ public interface OptGrammarFactory extends EFactory
   PlaceHolderStatement createPlaceHolderStatement();
 
   /**
-   * Returns a new object of class '<em>Logical Operations</em>'.
+   * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Logical Operations</em>'.
+   * @return a new object of class '<em>Expression</em>'.
    * @generated
    */
-  LogicalOperations createLogicalOperations();
+  Expression createExpression();
 
   /**
    * Returns a new object of class '<em>Condition Operation</em>'.
@@ -879,15 +726,6 @@ public interface OptGrammarFactory extends EFactory
   StringLiteral createStringLiteral();
 
   /**
-   * Returns a new object of class '<em>Int Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Int Literal</em>'.
-   * @generated
-   */
-  IntLiteral createIntLiteral();
-
-  /**
    * Returns a new object of class '<em>Hex Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -933,24 +771,6 @@ public interface OptGrammarFactory extends EFactory
   ElementaryTypeNameEnum createElementaryTypeNameEnum();
 
   /**
-   * Returns a new object of class '<em>Location Specifier Enum</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Location Specifier Enum</em>'.
-   * @generated
-   */
-  LocationSpecifierEnum createLocationSpecifierEnum();
-
-  /**
-   * Returns a new object of class '<em>Visibility Enum</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Visibility Enum</em>'.
-   * @generated
-   */
-  VisibilityEnum createVisibilityEnum();
-
-  /**
    * Returns a new object of class '<em>Special Variables Type Enum</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -958,15 +778,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   SpecialVariablesTypeEnum createSpecialVariablesTypeEnum();
-
-  /**
-   * Returns a new object of class '<em>Standard Variable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Standard Variable Declaration</em>'.
-   * @generated
-   */
-  StandardVariableDeclaration createStandardVariableDeclaration();
 
   /**
    * Returns a new object of class '<em>Var Variable Type Declaration</em>'.
@@ -978,13 +789,13 @@ public interface OptGrammarFactory extends EFactory
   VarVariableTypeDeclaration createVarVariableTypeDeclaration();
 
   /**
-   * Returns a new object of class '<em>Var Variable Tuple Variable Declaration</em>'.
+   * Returns a new object of class '<em>Block</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Var Variable Tuple Variable Declaration</em>'.
+   * @return a new object of class '<em>Block</em>'.
    * @generated
    */
-  VarVariableTupleVariableDeclaration createVarVariableTupleVariableDeclaration();
+  Block createBlock();
 
   /**
    * Returns a new object of class '<em>Continue</em>'.

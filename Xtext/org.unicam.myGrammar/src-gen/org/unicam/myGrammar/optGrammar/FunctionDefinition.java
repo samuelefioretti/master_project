@@ -20,9 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getOptionalElements <em>Optional Elements</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnType <em>Return Type</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlocks <em>Blocks</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnVal <em>Return Val</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnParameters <em>Return Parameters</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition()
@@ -76,16 +75,26 @@ public interface FunctionDefinition extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.FunctionParameterDeclaration}.
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @return the value of the '<em>Parameters</em>' containment reference.
+   * @see #setParameters(ParameterList)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Parameters()
    * @model containment="true"
    * @generated
    */
-  EList<FunctionParameterDeclaration> getParameters();
+  ParameterList getParameters();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters <em>Parameters</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameters</em>' containment reference.
+   * @see #getParameters()
+   * @generated
+   */
+  void setParameters(ParameterList value);
 
   /**
    * Returns the value of the '<em><b>Optional Elements</b></em>' containment reference list.
@@ -100,59 +109,47 @@ public interface FunctionDefinition extends EObject
   EList<FunctionDefinitionOptionalElement> getOptionalElements();
 
   /**
-   * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Return Parameters</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Return Type</em>' containment reference.
-   * @see #setReturnType(NamedType)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_ReturnType()
+   * @return the value of the '<em>Return Parameters</em>' containment reference.
+   * @see #setReturnParameters(ReturnsParameterList)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_ReturnParameters()
    * @model containment="true"
    * @generated
    */
-  NamedType getReturnType();
+  ReturnsParameterList getReturnParameters();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnType <em>Return Type</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnParameters <em>Return Parameters</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Return Type</em>' containment reference.
-   * @see #getReturnType()
+   * @param value the new value of the '<em>Return Parameters</em>' containment reference.
+   * @see #getReturnParameters()
    * @generated
    */
-  void setReturnType(NamedType value);
+  void setReturnParameters(ReturnsParameterList value);
 
   /**
-   * Returns the value of the '<em><b>Blocks</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.InternalBlock}.
+   * Returns the value of the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Blocks</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Blocks()
+   * @return the value of the '<em>Block</em>' containment reference.
+   * @see #setBlock(Body)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Block()
    * @model containment="true"
    * @generated
    */
-  EList<InternalBlock> getBlocks();
+  Body getBlock();
 
   /**
-   * Returns the value of the '<em><b>Return Val</b></em>' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlock <em>Block</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Return Val</em>' containment reference.
-   * @see #setReturnVal(ReturnStatement)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_ReturnVal()
-   * @model containment="true"
+   * @param value the new value of the '<em>Block</em>' containment reference.
+   * @see #getBlock()
    * @generated
    */
-  ReturnStatement getReturnVal();
-
-  /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnVal <em>Return Val</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Return Val</em>' containment reference.
-   * @see #getReturnVal()
-   * @generated
-   */
-  void setReturnVal(ReturnStatement value);
+  void setBlock(Body value);
 
 } // FunctionDefinition

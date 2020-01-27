@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -18,9 +19,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.unicam.myGrammar.optGrammar.LogicalOperations;
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.StandardTypeWithoutQualifiedIdentifier;
 import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.Variable;
 import org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement;
@@ -34,16 +34,16 @@ import org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement;
  * </p>
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getPtionalElements <em>Ptional Elements</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getOptionalElements <em>Optional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getPtionalElements <em>Ptional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#isSemicolon <em>Semicolon</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getOptionalElements <em>Optional Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StandardVariableDeclarationImpl extends SimpleStatementImpl implements StandardVariableDeclaration
+public class StandardVariableDeclarationImpl extends StatementImpl implements StandardVariableDeclaration
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -53,17 +53,17 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @generated
    * @ordered
    */
-  protected StandardTypeWithoutQualifiedIdentifier type;
+  protected EObject type;
 
   /**
-   * The cached value of the '{@link #getPtionalElements() <em>Ptional Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getOptionalElements() <em>Optional Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPtionalElements()
+   * @see #getOptionalElements()
    * @generated
    * @ordered
    */
-  protected EList<VariableDeclarationOptionalElement> ptionalElements;
+  protected EList<VariableDeclarationOptionalElement> optionalElements;
 
   /**
    * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
@@ -83,7 +83,17 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @generated
    * @ordered
    */
-  protected LogicalOperations expression;
+  protected Expression expression;
+
+  /**
+   * The cached value of the '{@link #getPtionalElements() <em>Ptional Elements</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPtionalElements()
+   * @generated
+   * @ordered
+   */
+  protected EList<VariableDeclarationOptionalElement> ptionalElements;
 
   /**
    * The default value of the '{@link #isSemicolon() <em>Semicolon</em>}' attribute.
@@ -104,16 +114,6 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @ordered
    */
   protected boolean semicolon = SEMICOLON_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getOptionalElements() <em>Optional Elements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOptionalElements()
-   * @generated
-   * @ordered
-   */
-  protected EList<VariableDeclarationOptionalElement> optionalElements;
 
   /**
    * <!-- begin-user-doc -->
@@ -142,7 +142,7 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @generated
    */
   @Override
-  public StandardTypeWithoutQualifiedIdentifier getType()
+  public EObject getType()
   {
     return type;
   }
@@ -152,9 +152,9 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(StandardTypeWithoutQualifiedIdentifier newType, NotificationChain msgs)
+  public NotificationChain basicSetType(EObject newType, NotificationChain msgs)
   {
-    StandardTypeWithoutQualifiedIdentifier oldType = type;
+    EObject oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -170,7 +170,7 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @generated
    */
   @Override
-  public void setType(StandardTypeWithoutQualifiedIdentifier newType)
+  public void setType(EObject newType)
   {
     if (newType != type)
     {
@@ -192,13 +192,13 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @generated
    */
   @Override
-  public EList<VariableDeclarationOptionalElement> getPtionalElements()
+  public EList<VariableDeclarationOptionalElement> getOptionalElements()
   {
-    if (ptionalElements == null)
+    if (optionalElements == null)
     {
-      ptionalElements = new EObjectContainmentEList<VariableDeclarationOptionalElement>(VariableDeclarationOptionalElement.class, this, OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS);
+      optionalElements = new EObjectContainmentEList<VariableDeclarationOptionalElement>(VariableDeclarationOptionalElement.class, this, OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS);
     }
-    return ptionalElements;
+    return optionalElements;
   }
 
   /**
@@ -257,7 +257,7 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @generated
    */
   @Override
-  public LogicalOperations getExpression()
+  public Expression getExpression()
   {
     return expression;
   }
@@ -267,9 +267,9 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(LogicalOperations newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    LogicalOperations oldExpression = expression;
+    Expression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -285,7 +285,7 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @generated
    */
   @Override
-  public void setExpression(LogicalOperations newExpression)
+  public void setExpression(Expression newExpression)
   {
     if (newExpression != expression)
     {
@@ -299,6 +299,21 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION, newExpression, newExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<VariableDeclarationOptionalElement> getPtionalElements()
+  {
+    if (ptionalElements == null)
+    {
+      ptionalElements = new EObjectContainmentEList<VariableDeclarationOptionalElement>(VariableDeclarationOptionalElement.class, this, OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS);
+    }
+    return ptionalElements;
   }
 
   /**
@@ -332,35 +347,20 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
    * @generated
    */
   @Override
-  public EList<VariableDeclarationOptionalElement> getOptionalElements()
-  {
-    if (optionalElements == null)
-    {
-      optionalElements = new EObjectContainmentEList<VariableDeclarationOptionalElement>(VariableDeclarationOptionalElement.class, this, OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS);
-    }
-    return optionalElements;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__TYPE:
         return basicSetType(null, msgs);
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        return ((InternalEList<?>)getPtionalElements()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
+        return ((InternalEList<?>)getOptionalElements()).basicRemove(otherEnd, msgs);
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         return basicSetVariable(null, msgs);
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
         return basicSetExpression(null, msgs);
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
-        return ((InternalEList<?>)getOptionalElements()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
+        return ((InternalEList<?>)getPtionalElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -377,16 +377,16 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
     {
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__TYPE:
         return getType();
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        return getPtionalElements();
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
+        return getOptionalElements();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         return getVariable();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
         return getExpression();
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
+        return getPtionalElements();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         return isSemicolon();
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
-        return getOptionalElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -403,24 +403,24 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
     switch (featureID)
     {
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__TYPE:
-        setType((StandardTypeWithoutQualifiedIdentifier)newValue);
+        setType((EObject)newValue);
         return;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        getPtionalElements().clear();
-        getPtionalElements().addAll((Collection<? extends VariableDeclarationOptionalElement>)newValue);
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
+        getOptionalElements().clear();
+        getOptionalElements().addAll((Collection<? extends VariableDeclarationOptionalElement>)newValue);
         return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         setVariable((Variable)newValue);
         return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((LogicalOperations)newValue);
+        setExpression((Expression)newValue);
+        return;
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
+        getPtionalElements().clear();
+        getPtionalElements().addAll((Collection<? extends VariableDeclarationOptionalElement>)newValue);
         return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon((Boolean)newValue);
-        return;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
-        getOptionalElements().clear();
-        getOptionalElements().addAll((Collection<? extends VariableDeclarationOptionalElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -437,22 +437,22 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
     switch (featureID)
     {
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__TYPE:
-        setType((StandardTypeWithoutQualifiedIdentifier)null);
+        setType((EObject)null);
         return;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        getPtionalElements().clear();
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
+        getOptionalElements().clear();
         return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         setVariable((Variable)null);
         return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((LogicalOperations)null);
+        setExpression((Expression)null);
+        return;
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
+        getPtionalElements().clear();
         return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon(SEMICOLON_EDEFAULT);
-        return;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
-        getOptionalElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -470,16 +470,16 @@ public class StandardVariableDeclarationImpl extends SimpleStatementImpl impleme
     {
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__TYPE:
         return type != null;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        return ptionalElements != null && !ptionalElements.isEmpty();
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
+        return optionalElements != null && !optionalElements.isEmpty();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         return variable != null;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
         return expression != null;
+      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
+        return ptionalElements != null && !ptionalElements.isEmpty();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         return semicolon != SEMICOLON_EDEFAULT;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS:
-        return optionalElements != null && !optionalElements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

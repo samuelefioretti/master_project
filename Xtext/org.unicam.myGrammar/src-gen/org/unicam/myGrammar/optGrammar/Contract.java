@@ -17,7 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Contract#getName <em>Name</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Contract#getBlocks <em>Blocks</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Contract#getInheritanceSpecifiers <em>Inheritance Specifiers</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Contract#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getContract()
@@ -49,15 +50,37 @@ public interface Contract extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Blocks</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * Returns the value of the '<em><b>Inheritance Specifiers</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Blocks</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getContract_Blocks()
+   * @return the value of the '<em>Inheritance Specifiers</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getContract_InheritanceSpecifiers()
    * @model containment="true"
    * @generated
    */
-  EList<EObject> getBlocks();
+  EList<InheritanceSpecifier> getInheritanceSpecifiers();
+
+  /**
+   * Returns the value of the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Body</em>' containment reference.
+   * @see #setBody(DefinitionBody)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getContract_Body()
+   * @model containment="true"
+   * @generated
+   */
+  DefinitionBody getBody();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Contract#getBody <em>Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Body</em>' containment reference.
+   * @see #getBody()
+   * @generated
+   */
+  void setBody(DefinitionBody value);
 
 } // Contract

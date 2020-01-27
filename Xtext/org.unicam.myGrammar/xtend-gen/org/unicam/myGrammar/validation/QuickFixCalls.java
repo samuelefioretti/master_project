@@ -5,6 +5,7 @@ import java.util.Comparator;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
 import org.unicam.myGrammar.optGrammar.Contract;
+import org.unicam.myGrammar.optGrammar.StructDefinition;
 import org.unicam.myGrammar.validation.AbstractOptGrammarValidator;
 
 /**
@@ -22,20 +23,12 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
   private /* Comparator<Declaration> */Object declarationSizeComparator /* Skipped initializer because of errors */;
   
   @Check
-  public void orderedStructureFields(final /* StructDefinition */Object str) {
+  public void orderedStructureFields(final StructDefinition str) {
     throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field STRUCT_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\nThe field QuickFixCalls.declarationSizeComparator refers to the missing type Declaration"
       + "\nThe method getOptimizedOrder(ArrayList, ArrayList, Integer, Integer) from the type QuickFixCalls refers to the missing type ArrayList"
-      + "\nThe method getSize(Declaration) from the type QuickFixCalls refers to the missing type Declaration"
-      + "\nmembers cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nmembers cannot be resolved"
-      + "\nmembers cannot be resolved"
-      + "\nequals cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nmembers cannot be resolved"
-      + "\nindexOf cannot be resolved");
+      + "\nThe method getSize(Declaration) from the type QuickFixCalls refers to the missing type Declaration");
   }
   
   @Check
@@ -43,12 +36,17 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
     throw new Error("Unresolved compilation problems:"
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
       + "\nDeclaration cannot be resolved to a type."
-      + "\nThe method or field ref is undefined for the type EObject"
+      + "\nThe method or field blocks is undefined for the type Contract"
+      + "\nThe method or field blocks is undefined for the type Contract"
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\nThe field QuickFixCalls.declarationSizeComparator refers to the missing type Declaration"
       + "\nThe method getOptimizedOrder(ArrayList, ArrayList, Integer, Integer) from the type QuickFixCalls refers to the missing type ArrayList"
       + "\nThe method getSize(Declaration) from the type QuickFixCalls refers to the missing type Declaration"
-      + "\n=== cannot be resolved");
+      + "\nforEach cannot be resolved"
+      + "\nref cannot be resolved"
+      + "\n=== cannot be resolved"
+      + "\nindexOf cannot be resolved");
   }
   
   @Check
@@ -73,6 +71,10 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
       + "\nThe method or field operator is undefined for the type EObject"
       + "\nThe method or field ref is undefined for the type EObject"
       + "\nThe method getRoot((Object)=>boolean) is undefined for the type EObject"
+      + "\nThe method or field PRIMARY_TYPE_DEFINITION_DECLARATION__REF is undefined for the type Class<Literals>"
+      + "\nThe method or field ARRAY_DEFINITION__REF is undefined for the type Class<Literals>"
+      + "\nThe method or field FIELD_ACCESS__FIELD is undefined for the type Class<Literals>"
+      + "\nThe method or field SINGLE_DEFINITION__NAME is undefined for the type Class<Literals>"
       + "\nThe method or field getName is undefined for the type EObject"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."

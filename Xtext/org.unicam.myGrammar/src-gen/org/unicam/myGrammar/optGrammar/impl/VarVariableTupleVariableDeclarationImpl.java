@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.LogicalOperations;
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Tuple;
 import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
@@ -24,6 +24,7 @@ import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl#getVarType <em>Var Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl#getTuple <em>Tuple</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl#isSemicolon <em>Semicolon</em>}</li>
@@ -31,8 +32,28 @@ import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
  *
  * @generated
  */
-public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl implements VarVariableTupleVariableDeclaration
+public class VarVariableTupleVariableDeclarationImpl extends StatementImpl implements VarVariableTupleVariableDeclaration
 {
+  /**
+   * The default value of the '{@link #getVarType() <em>Var Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVarType()
+   * @generated
+   * @ordered
+   */
+  protected static final String VAR_TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVarType() <em>Var Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVarType()
+   * @generated
+   * @ordered
+   */
+  protected String varType = VAR_TYPE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getTuple() <em>Tuple</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -51,7 +72,7 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
    * @generated
    * @ordered
    */
-  protected LogicalOperations expression;
+  protected Expression expression;
 
   /**
    * The default value of the '{@link #isSemicolon() <em>Semicolon</em>}' attribute.
@@ -92,6 +113,31 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
   protected EClass eStaticClass()
   {
     return OptGrammarPackage.Literals.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getVarType()
+  {
+    return varType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVarType(String newVarType)
+  {
+    String oldVarType = varType;
+    varType = newVarType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__VAR_TYPE, oldVarType, varType));
   }
 
   /**
@@ -150,7 +196,7 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
    * @generated
    */
   @Override
-  public LogicalOperations getExpression()
+  public Expression getExpression()
   {
     return expression;
   }
@@ -160,9 +206,9 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(LogicalOperations newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    LogicalOperations oldExpression = expression;
+    Expression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -178,7 +224,7 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
    * @generated
    */
   @Override
-  public void setExpression(LogicalOperations newExpression)
+  public void setExpression(Expression newExpression)
   {
     if (newExpression != expression)
     {
@@ -247,6 +293,8 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
   {
     switch (featureID)
     {
+      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__VAR_TYPE:
+        return getVarType();
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         return getTuple();
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
@@ -267,11 +315,14 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
   {
     switch (featureID)
     {
+      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__VAR_TYPE:
+        setVarType((String)newValue);
+        return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         setTuple((Tuple)newValue);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((LogicalOperations)newValue);
+        setExpression((Expression)newValue);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon((Boolean)newValue);
@@ -290,11 +341,14 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
   {
     switch (featureID)
     {
+      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__VAR_TYPE:
+        setVarType(VAR_TYPE_EDEFAULT);
+        return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         setTuple((Tuple)null);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((LogicalOperations)null);
+        setExpression((Expression)null);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon(SEMICOLON_EDEFAULT);
@@ -313,6 +367,8 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
   {
     switch (featureID)
     {
+      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__VAR_TYPE:
+        return VAR_TYPE_EDEFAULT == null ? varType != null : !VAR_TYPE_EDEFAULT.equals(varType);
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         return tuple != null;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
@@ -334,7 +390,9 @@ public class VarVariableTupleVariableDeclarationImpl extends SimpleStatementImpl
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (semicolon: ");
+    result.append(" (varType: ");
+    result.append(varType);
+    result.append(", semicolon: ");
     result.append(semicolon);
     result.append(')');
     return result.toString();

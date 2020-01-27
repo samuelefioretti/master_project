@@ -13,6 +13,7 @@ package org.unicam.myGrammar.optGrammar;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getVarType <em>Var Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getTuple <em>Tuple</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#isSemicolon <em>Semicolon</em>}</li>
@@ -22,8 +23,30 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface VarVariableTupleVariableDeclaration extends SimpleStatement, SimpleStatement2
+public interface VarVariableTupleVariableDeclaration extends Statement, SimpleStatement, SimpleStatement2
 {
+  /**
+   * Returns the value of the '<em><b>Var Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var Type</em>' attribute.
+   * @see #setVarType(String)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getVarVariableTupleVariableDeclaration_VarType()
+   * @model
+   * @generated
+   */
+  String getVarType();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getVarType <em>Var Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var Type</em>' attribute.
+   * @see #getVarType()
+   * @generated
+   */
+  void setVarType(String value);
+
   /**
    * Returns the value of the '<em><b>Tuple</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -51,12 +74,12 @@ public interface VarVariableTupleVariableDeclaration extends SimpleStatement, Si
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(LogicalOperations)
+   * @see #setExpression(Expression)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getVarVariableTupleVariableDeclaration_Expression()
    * @model containment="true"
    * @generated
    */
-  LogicalOperations getExpression();
+  Expression getExpression();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getExpression <em>Expression</em>}' containment reference.
@@ -66,7 +89,7 @@ public interface VarVariableTupleVariableDeclaration extends SimpleStatement, Si
    * @see #getExpression()
    * @generated
    */
-  void setExpression(LogicalOperations value);
+  void setExpression(Expression value);
 
   /**
    * Returns the value of the '<em><b>Semicolon</b></em>' attribute.

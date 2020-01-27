@@ -4,10 +4,8 @@
 package org.unicam.myGrammar.optGrammar.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -31,14 +29,24 @@ import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
 public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementImpl implements VisibilitySpecifier
 {
   /**
-   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.
+   * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVisibility()
    * @generated
    * @ordered
    */
-  protected VisibilityEnum visibility;
+  protected static final VisibilityEnum VISIBILITY_EDEFAULT = VisibilityEnum.PUBLIC;
+
+  /**
+   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibility()
+   * @generated
+   * @ordered
+   */
+  protected VisibilityEnum visibility = VISIBILITY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,54 +85,13 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVisibility(VisibilityEnum newVisibility, NotificationChain msgs)
-  {
-    VisibilityEnum oldVisibility = visibility;
-    visibility = newVisibility;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY, oldVisibility, newVisibility);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public void setVisibility(VisibilityEnum newVisibility)
   {
-    if (newVisibility != visibility)
-    {
-      NotificationChain msgs = null;
-      if (visibility != null)
-        msgs = ((InternalEObject)visibility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY, null, msgs);
-      if (newVisibility != null)
-        msgs = ((InternalEObject)newVisibility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY, null, msgs);
-      msgs = basicSetVisibility(newVisibility, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY, newVisibility, newVisibility));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
-        return basicSetVisibility(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    VisibilityEnum oldVisibility = visibility;
+    visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY, oldVisibility, visibility));
   }
 
   /**
@@ -171,7 +138,7 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
     switch (featureID)
     {
       case OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
-        setVisibility((VisibilityEnum)null);
+        setVisibility(VISIBILITY_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -188,9 +155,26 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
     switch (featureID)
     {
       case OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
-        return visibility != null;
+        return visibility != VISIBILITY_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (visibility: ");
+    result.append(visibility);
+    result.append(')');
+    return result.toString();
   }
 
 } //VisibilitySpecifierImpl

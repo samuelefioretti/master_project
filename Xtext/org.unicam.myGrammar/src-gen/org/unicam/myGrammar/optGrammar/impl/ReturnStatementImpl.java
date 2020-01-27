@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.LogicalOperations;
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.ReturnStatement;
 
@@ -38,7 +38,7 @@ public class ReturnStatementImpl extends StatementImpl implements ReturnStatemen
    * @generated
    * @ordered
    */
-  protected LogicalOperations expression;
+  protected Expression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class ReturnStatementImpl extends StatementImpl implements ReturnStatemen
    * @generated
    */
   @Override
-  public LogicalOperations getExpression()
+  public Expression getExpression()
   {
     return expression;
   }
@@ -77,9 +77,9 @@ public class ReturnStatementImpl extends StatementImpl implements ReturnStatemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(LogicalOperations newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    LogicalOperations oldExpression = expression;
+    Expression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class ReturnStatementImpl extends StatementImpl implements ReturnStatemen
    * @generated
    */
   @Override
-  public void setExpression(LogicalOperations newExpression)
+  public void setExpression(Expression newExpression)
   {
     if (newExpression != expression)
     {
@@ -154,7 +154,7 @@ public class ReturnStatementImpl extends StatementImpl implements ReturnStatemen
     switch (featureID)
     {
       case OptGrammarPackage.RETURN_STATEMENT__EXPRESSION:
-        setExpression((LogicalOperations)newValue);
+        setExpression((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class ReturnStatementImpl extends StatementImpl implements ReturnStatemen
     switch (featureID)
     {
       case OptGrammarPackage.RETURN_STATEMENT__EXPRESSION:
-        setExpression((LogicalOperations)null);
+        setExpression((Expression)null);
         return;
     }
     super.eUnset(featureID);

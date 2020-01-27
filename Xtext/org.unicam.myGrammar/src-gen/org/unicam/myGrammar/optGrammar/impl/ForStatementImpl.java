@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.ExpressionStatement;
 import org.unicam.myGrammar.optGrammar.ForStatement;
-import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.SimpleStatement2;
 import org.unicam.myGrammar.optGrammar.Statement;
@@ -34,7 +34,7 @@ import org.unicam.myGrammar.optGrammar.Statement;
  *
  * @generated
  */
-public class ForStatementImpl extends LoopStructuresImpl implements ForStatement
+public class ForStatementImpl extends StatementImpl implements ForStatement
 {
   /**
    * The cached value of the '{@link #getInitExpression() <em>Init Expression</em>}' containment reference.
@@ -54,7 +54,7 @@ public class ForStatementImpl extends LoopStructuresImpl implements ForStatement
    * @generated
    * @ordered
    */
-  protected LogicalOperations conditionExpression;
+  protected Expression conditionExpression;
 
   /**
    * The cached value of the '{@link #getLoopExpression() <em>Loop Expression</em>}' containment reference.
@@ -153,7 +153,7 @@ public class ForStatementImpl extends LoopStructuresImpl implements ForStatement
    * @generated
    */
   @Override
-  public LogicalOperations getConditionExpression()
+  public Expression getConditionExpression()
   {
     return conditionExpression;
   }
@@ -163,9 +163,9 @@ public class ForStatementImpl extends LoopStructuresImpl implements ForStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetConditionExpression(LogicalOperations newConditionExpression, NotificationChain msgs)
+  public NotificationChain basicSetConditionExpression(Expression newConditionExpression, NotificationChain msgs)
   {
-    LogicalOperations oldConditionExpression = conditionExpression;
+    Expression oldConditionExpression = conditionExpression;
     conditionExpression = newConditionExpression;
     if (eNotificationRequired())
     {
@@ -181,7 +181,7 @@ public class ForStatementImpl extends LoopStructuresImpl implements ForStatement
    * @generated
    */
   @Override
-  public void setConditionExpression(LogicalOperations newConditionExpression)
+  public void setConditionExpression(Expression newConditionExpression)
   {
     if (newConditionExpression != conditionExpression)
     {
@@ -355,7 +355,7 @@ public class ForStatementImpl extends LoopStructuresImpl implements ForStatement
         setInitExpression((SimpleStatement2)newValue);
         return;
       case OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION:
-        setConditionExpression((LogicalOperations)newValue);
+        setConditionExpression((Expression)newValue);
         return;
       case OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION:
         setLoopExpression((ExpressionStatement)newValue);
@@ -381,7 +381,7 @@ public class ForStatementImpl extends LoopStructuresImpl implements ForStatement
         setInitExpression((SimpleStatement2)null);
         return;
       case OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION:
-        setConditionExpression((LogicalOperations)null);
+        setConditionExpression((Expression)null);
         return;
       case OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION:
         setLoopExpression((ExpressionStatement)null);
