@@ -55,6 +55,7 @@ import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
+import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.Modifier;
@@ -88,6 +89,7 @@ import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.Variable;
+import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
 import org.unicam.myGrammar.optGrammar.WhileStatement;
 import org.unicam.myGrammar.services.OptGrammarGrammarAccess;
@@ -252,6 +254,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.LOCATION_SPECIFIER:
 				sequence_LocationSpecifier(context, (LocationSpecifier) semanticObject); 
 				return; 
+			case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
+				sequence_LocationSpecifierEnum(context, (LocationSpecifierEnum) semanticObject); 
+				return; 
 			case OptGrammarPackage.MAPPING:
 				sequence_Mapping(context, (Mapping) semanticObject); 
 				return; 
@@ -381,6 +386,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				else break;
 			case OptGrammarPackage.VARIABLE:
 				sequence_Variable(context, (Variable) semanticObject); 
+				return; 
+			case OptGrammarPackage.VISIBILITY_ENUM:
+				sequence_VisibilityEnum(context, (VisibilityEnum) semanticObject); 
 				return; 
 			case OptGrammarPackage.VISIBILITY_SPECIFIER:
 				sequence_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
@@ -1151,6 +1159,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     LocationSpecifierEnum returns LocationSpecifierEnum
+	 *
+	 * Constraint:
+	 *     (type='memory' | type='storage' | type='calldata')
+	 */
+	protected void sequence_LocationSpecifierEnum(ISerializationContext context, LocationSpecifierEnum semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     VariableDeclarationOptionalElement returns LocationSpecifier
 	 *     LocationSpecifier returns LocationSpecifier
 	 *
@@ -1163,7 +1183,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.LOCATION_SPECIFIER__LOCATION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumEnumRuleCall_0(), semanticObject.getLocation());
+		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumParserRuleCall_0(), semanticObject.getLocation());
 		feeder.finish();
 	}
 	
@@ -1178,19 +1198,10 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     SimpleStatement2.StandardVariableDeclaration_0_1_0 returns Mapping
 	 *
 	 * Constraint:
-	 *     (keyType=ElementaryTypeNameEnum valueType=Type)
+	 *     (location='storage'? visibility=VisibilityEnum? keyType=ElementaryTypeNameEnum valueType=Type name=ID)
 	 */
 	protected void sequence_Mapping(ISerializationContext context, Mapping semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MAPPING__KEY_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MAPPING__KEY_TYPE));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MAPPING__VALUE_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MAPPING__VALUE_TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0(), semanticObject.getKeyType());
-		feeder.accept(grammarAccess.getMappingAccess().getValueTypeTypeParserRuleCall_4_0(), semanticObject.getValueType());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1749,6 +1760,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     VisibilityEnum returns VisibilityEnum
+	 *
+	 * Constraint:
+	 *     (type='public' | type='internal' | type='private' | type='external')
+	 */
+	protected void sequence_VisibilityEnum(ISerializationContext context, VisibilityEnum semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     FunctionDefinitionOptionalElement returns VisibilitySpecifier
 	 *     VisibilitySpecifier returns VisibilitySpecifier
 	 *     VariableDeclarationOptionalElement returns VisibilitySpecifier
@@ -1762,7 +1785,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VISIBILITY_SPECIFIER__VISIBILITY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumEnumRuleCall_0(), semanticObject.getVisibility());
+		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumParserRuleCall_0(), semanticObject.getVisibility());
 		feeder.finish();
 	}
 	

@@ -13,8 +13,11 @@ package org.unicam.myGrammar.optGrammar;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Mapping#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Mapping#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Mapping#getKeyType <em>Key Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Mapping#getValueType <em>Value Type</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Mapping#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getMapping()
@@ -23,6 +26,50 @@ package org.unicam.myGrammar.optGrammar;
  */
 public interface Mapping extends StandardType, StandardTypeWithoutQualifiedIdentifier
 {
+  /**
+   * Returns the value of the '<em><b>Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Location</em>' attribute.
+   * @see #setLocation(String)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getMapping_Location()
+   * @model
+   * @generated
+   */
+  String getLocation();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Mapping#getLocation <em>Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Location</em>' attribute.
+   * @see #getLocation()
+   * @generated
+   */
+  void setLocation(String value);
+
+  /**
+   * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Visibility</em>' containment reference.
+   * @see #setVisibility(VisibilityEnum)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getMapping_Visibility()
+   * @model containment="true"
+   * @generated
+   */
+  VisibilityEnum getVisibility();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Mapping#getVisibility <em>Visibility</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Visibility</em>' containment reference.
+   * @see #getVisibility()
+   * @generated
+   */
+  void setVisibility(VisibilityEnum value);
+
   /**
    * Returns the value of the '<em><b>Key Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -66,5 +113,27 @@ public interface Mapping extends StandardType, StandardTypeWithoutQualifiedIdent
    * @generated
    */
   void setValueType(Type value);
+
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getMapping_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Mapping#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
 
 } // Mapping

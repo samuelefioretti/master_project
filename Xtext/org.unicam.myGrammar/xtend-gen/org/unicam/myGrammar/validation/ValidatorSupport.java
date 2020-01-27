@@ -33,7 +33,7 @@ public class ValidatorSupport {
     if (!_matched) {
       if (dec instanceof Mapping) {
         _matched=true;
-        _switchResult = ValidatorSupport.getName(dec);
+        _switchResult = ((Mapping)dec).getName();
       }
     }
     return _switchResult;

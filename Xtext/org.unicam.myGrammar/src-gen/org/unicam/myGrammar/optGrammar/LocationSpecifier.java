@@ -23,25 +23,22 @@ package org.unicam.myGrammar.optGrammar;
 public interface LocationSpecifier extends VariableDeclarationOptionalElement
 {
   /**
-   * Returns the value of the '<em><b>Location</b></em>' attribute.
-   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum}.
+   * Returns the value of the '<em><b>Location</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Location</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum
+   * @return the value of the '<em>Location</em>' containment reference.
    * @see #setLocation(LocationSpecifierEnum)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLocationSpecifier_Location()
-   * @model
+   * @model containment="true"
    * @generated
    */
   LocationSpecifierEnum getLocation();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.LocationSpecifier#getLocation <em>Location</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.LocationSpecifier#getLocation <em>Location</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Location</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum
+   * @param value the new value of the '<em>Location</em>' containment reference.
    * @see #getLocation()
    * @generated
    */

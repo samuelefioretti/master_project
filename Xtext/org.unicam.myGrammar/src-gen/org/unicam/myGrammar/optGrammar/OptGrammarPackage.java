@@ -558,7 +558,7 @@ public interface OptGrammarPackage extends EPackage
   int VISIBILITY_SPECIFIER = 12;
 
   /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -586,7 +586,7 @@ public interface OptGrammarPackage extends EPackage
   int STRUCT_DEFINITION = 13;
 
   /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -632,7 +632,7 @@ public interface OptGrammarPackage extends EPackage
   int ENUM_DEFINITION = 14;
 
   /**
-   * The feature id for the '<em><b>Visibility</b></em>' attribute.
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -984,7 +984,7 @@ public interface OptGrammarPackage extends EPackage
   int LOCATION_SPECIFIER = 24;
 
   /**
-   * The feature id for the '<em><b>Location</b></em>' attribute.
+   * The feature id for the '<em><b>Location</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1161,13 +1161,31 @@ public interface OptGrammarPackage extends EPackage
   int MAPPING__IS_VAR_TYPE = STANDARD_TYPE__IS_VAR_TYPE;
 
   /**
+   * The feature id for the '<em><b>Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING__LOCATION = STANDARD_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING__VISIBILITY = STANDARD_TYPE_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Key Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPING__KEY_TYPE = STANDARD_TYPE_FEATURE_COUNT + 0;
+  int MAPPING__KEY_TYPE = STANDARD_TYPE_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Value Type</b></em>' containment reference.
@@ -1176,7 +1194,16 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING__VALUE_TYPE = STANDARD_TYPE_FEATURE_COUNT + 1;
+  int MAPPING__VALUE_TYPE = STANDARD_TYPE_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING__NAME = STANDARD_TYPE_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Mapping</em>' class.
@@ -1185,7 +1212,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING_FEATURE_COUNT = STANDARD_TYPE_FEATURE_COUNT + 2;
+  int MAPPING_FEATURE_COUNT = STANDARD_TYPE_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDimensionsImpl <em>Array Dimensions</em>}' class.
@@ -2887,6 +2914,62 @@ public interface OptGrammarPackage extends EPackage
   int ELEMENTARY_TYPE_NAME_ENUM_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.LocationSpecifierEnumImpl <em>Location Specifier Enum</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.LocationSpecifierEnumImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLocationSpecifierEnum()
+   * @generated
+   */
+  int LOCATION_SPECIFIER_ENUM = 83;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCATION_SPECIFIER_ENUM__TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Location Specifier Enum</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCATION_SPECIFIER_ENUM_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VisibilityEnumImpl <em>Visibility Enum</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.VisibilityEnumImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVisibilityEnum()
+   * @generated
+   */
+  int VISIBILITY_ENUM = 84;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_ENUM__TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Visibility Enum</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_ENUM_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.SpecialVariablesTypeEnumImpl <em>Special Variables Type Enum</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2894,7 +2977,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSpecialVariablesTypeEnum()
    * @generated
    */
-  int SPECIAL_VARIABLES_TYPE_ENUM = 83;
+  int SPECIAL_VARIABLES_TYPE_ENUM = 85;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2922,7 +3005,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVarVariableTypeDeclaration()
    * @generated
    */
-  int VAR_VARIABLE_TYPE_DECLARATION = 84;
+  int VAR_VARIABLE_TYPE_DECLARATION = 86;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -2968,7 +3051,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 85;
+  int BLOCK = 87;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -2996,7 +3079,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getContinue()
    * @generated
    */
-  int CONTINUE = 86;
+  int CONTINUE = 88;
 
   /**
    * The number of structural features of the '<em>Continue</em>' class.
@@ -3015,27 +3098,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLogicalOperationLiteral()
    * @generated
    */
-  int LOGICAL_OPERATION_LITERAL = 87;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLocationSpecifierEnum()
-   * @generated
-   */
-  int LOCATION_SPECIFIER_ENUM = 88;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.VisibilityEnum <em>Visibility Enum</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVisibilityEnum()
-   * @generated
-   */
-  int VISIBILITY_ENUM = 89;
+  int LOGICAL_OPERATION_LITERAL = 89;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.AssignmentOpEnum <em>Assignment Op Enum</em>}' enum.
@@ -3597,15 +3660,15 @@ public interface OptGrammarPackage extends EPackage
   EClass getVisibilitySpecifier();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.VisibilitySpecifier#getVisibility <em>Visibility</em>}'.
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.VisibilitySpecifier#getVisibility <em>Visibility</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Visibility</em>'.
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
    * @see org.unicam.myGrammar.optGrammar.VisibilitySpecifier#getVisibility()
    * @see #getVisibilitySpecifier()
    * @generated
    */
-  EAttribute getVisibilitySpecifier_Visibility();
+  EReference getVisibilitySpecifier_Visibility();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.StructDefinition <em>Struct Definition</em>}'.
@@ -3618,15 +3681,15 @@ public interface OptGrammarPackage extends EPackage
   EClass getStructDefinition();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility <em>Visibility</em>}'.
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility <em>Visibility</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Visibility</em>'.
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
    * @see org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility()
    * @see #getStructDefinition()
    * @generated
    */
-  EAttribute getStructDefinition_Visibility();
+  EReference getStructDefinition_Visibility();
 
   /**
    * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getName <em>Name</em>}'.
@@ -3661,15 +3724,15 @@ public interface OptGrammarPackage extends EPackage
   EClass getEnumDefinition();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility <em>Visibility</em>}'.
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility <em>Visibility</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Visibility</em>'.
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
    * @see org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility()
    * @see #getEnumDefinition()
    * @generated
    */
-  EAttribute getEnumDefinition_Visibility();
+  EReference getEnumDefinition_Visibility();
 
   /**
    * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getName <em>Name</em>}'.
@@ -3959,15 +4022,15 @@ public interface OptGrammarPackage extends EPackage
   EClass getLocationSpecifier();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.LocationSpecifier#getLocation <em>Location</em>}'.
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.LocationSpecifier#getLocation <em>Location</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Location</em>'.
+   * @return the meta object for the containment reference '<em>Location</em>'.
    * @see org.unicam.myGrammar.optGrammar.LocationSpecifier#getLocation()
    * @see #getLocationSpecifier()
    * @generated
    */
-  EAttribute getLocationSpecifier_Location();
+  EReference getLocationSpecifier_Location();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Type <em>Type</em>}'.
@@ -4053,6 +4116,28 @@ public interface OptGrammarPackage extends EPackage
   EClass getMapping();
 
   /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.Mapping#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Location</em>'.
+   * @see org.unicam.myGrammar.optGrammar.Mapping#getLocation()
+   * @see #getMapping()
+   * @generated
+   */
+  EAttribute getMapping_Location();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Mapping#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
+   * @see org.unicam.myGrammar.optGrammar.Mapping#getVisibility()
+   * @see #getMapping()
+   * @generated
+   */
+  EReference getMapping_Visibility();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Mapping#getKeyType <em>Key Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4073,6 +4158,17 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    */
   EReference getMapping_ValueType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.Mapping#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.Mapping#getName()
+   * @see #getMapping()
+   * @generated
+   */
+  EAttribute getMapping_Name();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ArrayDimensions <em>Array Dimensions</em>}'.
@@ -5463,6 +5559,48 @@ public interface OptGrammarPackage extends EPackage
   EAttribute getElementaryTypeNameEnum_Type();
 
   /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Location Specifier Enum</em>'.
+   * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum
+   * @generated
+   */
+  EClass getLocationSpecifierEnum();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum#getType()
+   * @see #getLocationSpecifierEnum()
+   * @generated
+   */
+  EAttribute getLocationSpecifierEnum_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.VisibilityEnum <em>Visibility Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Visibility Enum</em>'.
+   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
+   * @generated
+   */
+  EClass getVisibilityEnum();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.VisibilityEnum#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum#getType()
+   * @see #getVisibilityEnum()
+   * @generated
+   */
+  EAttribute getVisibilityEnum_Type();
+
+  /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum <em>Special Variables Type Enum</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5566,26 +5704,6 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    */
   EEnum getLogicalOperationLiteral();
-
-  /**
-   * Returns the meta object for enum '{@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Location Specifier Enum</em>'.
-   * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum
-   * @generated
-   */
-  EEnum getLocationSpecifierEnum();
-
-  /**
-   * Returns the meta object for enum '{@link org.unicam.myGrammar.optGrammar.VisibilityEnum <em>Visibility Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Visibility Enum</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
-   * @generated
-   */
-  EEnum getVisibilityEnum();
 
   /**
    * Returns the meta object for enum '{@link org.unicam.myGrammar.optGrammar.AssignmentOpEnum <em>Assignment Op Enum</em>}'.
@@ -6085,12 +6203,12 @@ public interface OptGrammarPackage extends EPackage
     EClass VISIBILITY_SPECIFIER = eINSTANCE.getVisibilitySpecifier();
 
     /**
-     * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VISIBILITY_SPECIFIER__VISIBILITY = eINSTANCE.getVisibilitySpecifier_Visibility();
+    EReference VISIBILITY_SPECIFIER__VISIBILITY = eINSTANCE.getVisibilitySpecifier_Visibility();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl <em>Struct Definition</em>}' class.
@@ -6103,12 +6221,12 @@ public interface OptGrammarPackage extends EPackage
     EClass STRUCT_DEFINITION = eINSTANCE.getStructDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRUCT_DEFINITION__VISIBILITY = eINSTANCE.getStructDefinition_Visibility();
+    EReference STRUCT_DEFINITION__VISIBILITY = eINSTANCE.getStructDefinition_Visibility();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6137,12 +6255,12 @@ public interface OptGrammarPackage extends EPackage
     EClass ENUM_DEFINITION = eINSTANCE.getEnumDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENUM_DEFINITION__VISIBILITY = eINSTANCE.getEnumDefinition_Visibility();
+    EReference ENUM_DEFINITION__VISIBILITY = eINSTANCE.getEnumDefinition_Visibility();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6381,12 +6499,12 @@ public interface OptGrammarPackage extends EPackage
     EClass LOCATION_SPECIFIER = eINSTANCE.getLocationSpecifier();
 
     /**
-     * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Location</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LOCATION_SPECIFIER__LOCATION = eINSTANCE.getLocationSpecifier_Location();
+    EReference LOCATION_SPECIFIER__LOCATION = eINSTANCE.getLocationSpecifier_Location();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.TypeImpl <em>Type</em>}' class.
@@ -6463,6 +6581,22 @@ public interface OptGrammarPackage extends EPackage
     EClass MAPPING = eINSTANCE.getMapping();
 
     /**
+     * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING__LOCATION = eINSTANCE.getMapping_Location();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING__VISIBILITY = eINSTANCE.getMapping_Visibility();
+
+    /**
      * The meta object literal for the '<em><b>Key Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6477,6 +6611,14 @@ public interface OptGrammarPackage extends EPackage
      * @generated
      */
     EReference MAPPING__VALUE_TYPE = eINSTANCE.getMapping_ValueType();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING__NAME = eINSTANCE.getMapping_Name();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDimensionsImpl <em>Array Dimensions</em>}' class.
@@ -7633,6 +7775,42 @@ public interface OptGrammarPackage extends EPackage
     EAttribute ELEMENTARY_TYPE_NAME_ENUM__TYPE = eINSTANCE.getElementaryTypeNameEnum_Type();
 
     /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.LocationSpecifierEnumImpl <em>Location Specifier Enum</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.LocationSpecifierEnumImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLocationSpecifierEnum()
+     * @generated
+     */
+    EClass LOCATION_SPECIFIER_ENUM = eINSTANCE.getLocationSpecifierEnum();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOCATION_SPECIFIER_ENUM__TYPE = eINSTANCE.getLocationSpecifierEnum_Type();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.VisibilityEnumImpl <em>Visibility Enum</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.VisibilityEnumImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVisibilityEnum()
+     * @generated
+     */
+    EClass VISIBILITY_ENUM = eINSTANCE.getVisibilityEnum();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VISIBILITY_ENUM__TYPE = eINSTANCE.getVisibilityEnum_Type();
+
+    /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.SpecialVariablesTypeEnumImpl <em>Special Variables Type Enum</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7721,26 +7899,6 @@ public interface OptGrammarPackage extends EPackage
      * @generated
      */
     EEnum LOGICAL_OPERATION_LITERAL = eINSTANCE.getLogicalOperationLiteral();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLocationSpecifierEnum()
-     * @generated
-     */
-    EEnum LOCATION_SPECIFIER_ENUM = eINSTANCE.getLocationSpecifierEnum();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.VisibilityEnum <em>Visibility Enum</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVisibilityEnum()
-     * @generated
-     */
-    EEnum VISIBILITY_ENUM = eINSTANCE.getVisibilityEnum();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.AssignmentOpEnum <em>Assignment Op Enum</em>}' enum.

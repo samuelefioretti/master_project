@@ -42,24 +42,14 @@ import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements EnumDefinition
 {
   /**
-   * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
+   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVisibility()
    * @generated
    * @ordered
    */
-  protected static final VisibilityEnum VISIBILITY_EDEFAULT = VisibilityEnum.PUBLIC;
-
-  /**
-   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVisibility()
-   * @generated
-   * @ordered
-   */
-  protected VisibilityEnum visibility = VISIBILITY_EDEFAULT;
+  protected VisibilityEnum visibility;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -128,13 +118,38 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public NotificationChain basicSetVisibility(VisibilityEnum newVisibility, NotificationChain msgs)
+  {
+    VisibilityEnum oldVisibility = visibility;
+    visibility = newVisibility;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ENUM_DEFINITION__VISIBILITY, oldVisibility, newVisibility);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public void setVisibility(VisibilityEnum newVisibility)
   {
-    VisibilityEnum oldVisibility = visibility;
-    visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ENUM_DEFINITION__VISIBILITY, oldVisibility, visibility));
+    if (newVisibility != visibility)
+    {
+      NotificationChain msgs = null;
+      if (visibility != null)
+        msgs = ((InternalEObject)visibility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.ENUM_DEFINITION__VISIBILITY, null, msgs);
+      if (newVisibility != null)
+        msgs = ((InternalEObject)newVisibility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.ENUM_DEFINITION__VISIBILITY, null, msgs);
+      msgs = basicSetVisibility(newVisibility, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ENUM_DEFINITION__VISIBILITY, newVisibility, newVisibility));
   }
 
   /**
@@ -187,6 +202,8 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
+      case OptGrammarPackage.ENUM_DEFINITION__VISIBILITY:
+        return basicSetVisibility(null, msgs);
       case OptGrammarPackage.ENUM_DEFINITION__MEMBERS:
         return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
     }
@@ -249,7 +266,7 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case OptGrammarPackage.ENUM_DEFINITION__VISIBILITY:
-        setVisibility(VISIBILITY_EDEFAULT);
+        setVisibility((VisibilityEnum)null);
         return;
       case OptGrammarPackage.ENUM_DEFINITION__NAME:
         setName(NAME_EDEFAULT);
@@ -272,7 +289,7 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case OptGrammarPackage.ENUM_DEFINITION__VISIBILITY:
-        return visibility != VISIBILITY_EDEFAULT;
+        return visibility != null;
       case OptGrammarPackage.ENUM_DEFINITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case OptGrammarPackage.ENUM_DEFINITION__MEMBERS:
@@ -292,9 +309,7 @@ public class EnumDefinitionImpl extends MinimalEObjectImpl.Container implements 
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (visibility: ");
-    result.append(visibility);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(')');
     return result.toString();

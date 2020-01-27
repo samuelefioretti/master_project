@@ -1,14 +1,26 @@
 package org.unicam.myGrammar.validation;
 
 import com.google.inject.Inject;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ComposedChecks;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.unicam.myGrammar.optGrammar.ArithmeticOperations;
+import org.unicam.myGrammar.optGrammar.BlockhashFunction;
+import org.unicam.myGrammar.optGrammar.BooleanConst;
+import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
 import org.unicam.myGrammar.optGrammar.Expression;
+import org.unicam.myGrammar.optGrammar.FunctionCall;
+import org.unicam.myGrammar.optGrammar.GasleftFunction;
+import org.unicam.myGrammar.optGrammar.HashFunction;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
+import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
+import org.unicam.myGrammar.optGrammar.SecondOperators;
+import org.unicam.myGrammar.optGrammar.SpecialVariables;
+import org.unicam.myGrammar.optGrammar.StringLiteral;
 import org.unicam.myGrammar.validation.AbstractOptGrammarValidator;
 import org.unicam.myGrammar.validation.FieldExistenceValidator;
 
@@ -27,18 +39,57 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
   
   @Check
   public String checkValidIndex(final Literal toCheck) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field returnType is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnType is undefined for the type FunctionDefinition"
-      + "\nThe method or field ref is undefined for the type Literal"
-      + "\nThe method or field ref is undefined for the type Literal"
-      + "\n=== cannot be resolved"
-      + "\nvalidIntoArrayIndex cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\n&& cannot be resolved"
-      + "\nvalidIntoArrayIndex cannot be resolved"
-      + "\n! cannot be resolved");
+    String toReturn = null;
+    boolean _matched = false;
+    if (toCheck instanceof SpecialVariables || toCheck instanceof BlockhashFunction || toCheck instanceof GasleftFunction || toCheck instanceof HashFunction || toCheck instanceof EcrecoverFunction) {
+      _matched=true;
+    }
+    if (!_matched) {
+      if (toCheck instanceof StringLiteral) {
+        _matched=true;
+        toReturn = "Strings are not usable as Array Index";
+      }
+    }
+    if (!_matched) {
+      if (toCheck instanceof BooleanConst) {
+        _matched=true;
+        toReturn = "Booleans are not usable as Array Index";
+      }
+    }
+    if (!_matched) {
+      if (toCheck instanceof FunctionCall) {
+        _matched=true;
+        ReturnsParameterList _returnParameters = ((FunctionCall)toCheck).getName().getReturnParameters();
+        boolean _tripleEquals = (_returnParameters == null);
+        if (_tripleEquals) {
+          toReturn = "Please explicit the return type of the called function";
+        }
+      }
+    }
+    if (!_matched) {
+      if (toCheck instanceof ArithmeticOperations) {
+        _matched=true;
+        String errorMessage = this.getErrorString(((ArithmeticOperations)toCheck).getFirst());
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(errorMessage);
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+          toReturn = errorMessage;
+        } else {
+          EList<SecondOperators> _seconds = ((ArithmeticOperations)toCheck).getSeconds();
+          for (final SecondOperators s : _seconds) {
+            {
+              errorMessage = this.getErrorString(s.getValue());
+              boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(errorMessage);
+              boolean _not_1 = (!_isNullOrEmpty_1);
+              if (_not_1) {
+                toReturn = errorMessage;
+              }
+            }
+          }
+        }
+      }
+    }
+    return toReturn;
   }
   
   public String getErrorString(final Expression logicalOperations) {

@@ -1169,7 +1169,7 @@ ruleVisibilitySpecifier returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumEnumRuleCall_0());
+				newCompositeNode(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumParserRuleCall_0());
 			}
 			lv_visibility_0_0=ruleVisibilityEnum
 			{
@@ -1206,7 +1206,7 @@ ruleStructDefinition returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStructDefinitionAccess().getVisibilityVisibilityEnumEnumRuleCall_0_0());
+					newCompositeNode(grammarAccess.getStructDefinitionAccess().getVisibilityVisibilityEnumParserRuleCall_0_0());
 				}
 				lv_visibility_0_0=ruleVisibilityEnum
 				{
@@ -1299,7 +1299,7 @@ ruleEnumDefinition returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEnumDefinitionAccess().getVisibilityVisibilityEnumEnumRuleCall_0_0());
+					newCompositeNode(grammarAccess.getEnumDefinitionAccess().getVisibilityVisibilityEnumParserRuleCall_0_0());
 				}
 				lv_visibility_0_0=ruleVisibilityEnum
 				{
@@ -1906,7 +1906,7 @@ ruleLocationSpecifier returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumEnumRuleCall_0());
+				newCompositeNode(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumParserRuleCall_0());
 			}
 			lv_location_0_0=ruleLocationSpecifierEnum
 			{
@@ -2146,20 +2146,53 @@ ruleMapping returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='mapping'
+		(
+			(
+				lv_location_0_0='storage'
+				{
+					newLeafNode(lv_location_0_0, grammarAccess.getMappingAccess().getLocationStorageKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMappingRule());
+					}
+					setWithLastConsumed($current, "location", lv_location_0_0, "storage");
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMappingAccess().getVisibilityVisibilityEnumParserRuleCall_1_0());
+				}
+				lv_visibility_1_0=ruleVisibilityEnum
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMappingRule());
+					}
+					set(
+						$current,
+						"visibility",
+						lv_visibility_1_0,
+						"org.unicam.myGrammar.OptGrammar.VisibilityEnum");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_2='mapping'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getMappingAccess().getMappingKeyword_0());
+			newLeafNode(otherlv_2, grammarAccess.getMappingAccess().getMappingKeyword_2());
 		}
-		otherlv_1='('
+		otherlv_3='('
 		{
-			newLeafNode(otherlv_1, grammarAccess.getMappingAccess().getLeftParenthesisKeyword_1());
+			newLeafNode(otherlv_3, grammarAccess.getMappingAccess().getLeftParenthesisKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumParserRuleCall_4_0());
 				}
-				lv_keyType_2_0=ruleElementaryTypeNameEnum
+				lv_keyType_4_0=ruleElementaryTypeNameEnum
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMappingRule());
@@ -2167,22 +2200,22 @@ ruleMapping returns [EObject current=null]
 					set(
 						$current,
 						"keyType",
-						lv_keyType_2_0,
+						lv_keyType_4_0,
 						"org.unicam.myGrammar.OptGrammar.ElementaryTypeNameEnum");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3='=>'
+		otherlv_5='=>'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getMappingAccess().getEqualsSignGreaterThanSignKeyword_3());
+			newLeafNode(otherlv_5, grammarAccess.getMappingAccess().getEqualsSignGreaterThanSignKeyword_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMappingAccess().getValueTypeTypeParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getMappingAccess().getValueTypeTypeParserRuleCall_6_0());
 				}
-				lv_valueType_4_0=ruleType
+				lv_valueType_6_0=ruleType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMappingRule());
@@ -2190,16 +2223,34 @@ ruleMapping returns [EObject current=null]
 					set(
 						$current,
 						"valueType",
-						lv_valueType_4_0,
+						lv_valueType_6_0,
 						"org.unicam.myGrammar.OptGrammar.Type");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_5=')'
+		otherlv_7=')'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getMappingAccess().getRightParenthesisKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getMappingAccess().getRightParenthesisKeyword_7());
 		}
+		(
+			(
+				lv_name_8_0=RULE_ID
+				{
+					newLeafNode(lv_name_8_0, grammarAccess.getMappingAccess().getNameIDTerminalRuleCall_8_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMappingRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_8_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
 	)
 ;
 
@@ -7175,6 +7226,127 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleLocationSpecifierEnum
+entryRuleLocationSpecifierEnum returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLocationSpecifierEnumRule()); }
+	iv_ruleLocationSpecifierEnum=ruleLocationSpecifierEnum
+	{ $current=$iv_ruleLocationSpecifierEnum.current; }
+	EOF;
+
+// Rule LocationSpecifierEnum
+ruleLocationSpecifierEnum returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_type_0_1='memory'
+				{
+					newLeafNode(lv_type_0_1, grammarAccess.getLocationSpecifierEnumAccess().getTypeMemoryKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLocationSpecifierEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_1, null);
+				}
+				    |
+				lv_type_0_2='storage'
+				{
+					newLeafNode(lv_type_0_2, grammarAccess.getLocationSpecifierEnumAccess().getTypeStorageKeyword_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLocationSpecifierEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_2, null);
+				}
+				    |
+				lv_type_0_3='calldata'
+				{
+					newLeafNode(lv_type_0_3, grammarAccess.getLocationSpecifierEnumAccess().getTypeCalldataKeyword_0_2());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLocationSpecifierEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_3, null);
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleVisibilityEnum
+entryRuleVisibilityEnum returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getVisibilityEnumRule()); }
+	iv_ruleVisibilityEnum=ruleVisibilityEnum
+	{ $current=$iv_ruleVisibilityEnum.current; }
+	EOF;
+
+// Rule VisibilityEnum
+ruleVisibilityEnum returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_type_0_1='public'
+				{
+					newLeafNode(lv_type_0_1, grammarAccess.getVisibilityEnumAccess().getTypePublicKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVisibilityEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_1, null);
+				}
+				    |
+				lv_type_0_2='internal'
+				{
+					newLeafNode(lv_type_0_2, grammarAccess.getVisibilityEnumAccess().getTypeInternalKeyword_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVisibilityEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_2, null);
+				}
+				    |
+				lv_type_0_3='private'
+				{
+					newLeafNode(lv_type_0_3, grammarAccess.getVisibilityEnumAccess().getTypePrivateKeyword_0_2());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVisibilityEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_3, null);
+				}
+				    |
+				lv_type_0_4='external'
+				{
+					newLeafNode(lv_type_0_4, grammarAccess.getVisibilityEnumAccess().getTypeExternalKeyword_0_3());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getVisibilityEnumRule());
+					}
+					setWithLastConsumed($current, "type", lv_type_0_4, null);
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleSpecialVariablesTypeEnum
 entryRuleSpecialVariablesTypeEnum returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getSpecialVariablesTypeEnumRule()); }
@@ -7312,84 +7484,6 @@ ruleLogicalOperationLiteral returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getLogicalOperationLiteralAccess().getLTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_7, grammarAccess.getLogicalOperationLiteralAccess().getLTEnumLiteralDeclaration_7());
-			}
-		)
-	)
-;
-
-// Rule LocationSpecifierEnum
-ruleLocationSpecifierEnum returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='memory'
-			{
-				$current = grammarAccess.getLocationSpecifierEnumAccess().getMEMORYEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getLocationSpecifierEnumAccess().getMEMORYEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='storage'
-			{
-				$current = grammarAccess.getLocationSpecifierEnumAccess().getSTORAGEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getLocationSpecifierEnumAccess().getSTORAGEEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='calldata'
-			{
-				$current = grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getLocationSpecifierEnumAccess().getCALLDATAEnumLiteralDeclaration_2());
-			}
-		)
-	)
-;
-
-// Rule VisibilityEnum
-ruleVisibilityEnum returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='public'
-			{
-				$current = grammarAccess.getVisibilityEnumAccess().getPUBLICEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getVisibilityEnumAccess().getPUBLICEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='internal'
-			{
-				$current = grammarAccess.getVisibilityEnumAccess().getINTERNALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getVisibilityEnumAccess().getINTERNALEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='private'
-			{
-				$current = grammarAccess.getVisibilityEnumAccess().getPRIVATEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getVisibilityEnumAccess().getPRIVATEEnumLiteralDeclaration_2());
-			}
-		)
-		    |
-		(
-			enumLiteral_3='external'
-			{
-				$current = grammarAccess.getVisibilityEnumAccess().getEXTERNALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_3, grammarAccess.getVisibilityEnumAccess().getEXTERNALEnumLiteralDeclaration_3());
 			}
 		)
 	)

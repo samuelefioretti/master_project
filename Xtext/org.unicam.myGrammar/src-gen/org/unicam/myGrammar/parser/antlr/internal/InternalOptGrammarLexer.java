@@ -639,10 +639,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:31:7: ( 'mapping' )
-            // InternalOptGrammar.g:31:9: 'mapping'
+            // InternalOptGrammar.g:31:7: ( 'storage' )
+            // InternalOptGrammar.g:31:9: 'storage'
             {
-            match("mapping"); 
+            match("storage"); 
 
 
             }
@@ -660,10 +660,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:32:7: ( '=>' )
-            // InternalOptGrammar.g:32:9: '=>'
+            // InternalOptGrammar.g:32:7: ( 'mapping' )
+            // InternalOptGrammar.g:32:9: 'mapping'
             {
-            match("=>"); 
+            match("mapping"); 
 
 
             }
@@ -681,10 +681,11 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:33:7: ( '[' )
-            // InternalOptGrammar.g:33:9: '['
+            // InternalOptGrammar.g:33:7: ( '=>' )
+            // InternalOptGrammar.g:33:9: '=>'
             {
-            match('['); 
+            match("=>"); 
+
 
             }
 
@@ -701,10 +702,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:34:7: ( ']' )
-            // InternalOptGrammar.g:34:9: ']'
+            // InternalOptGrammar.g:34:7: ( '[' )
+            // InternalOptGrammar.g:34:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -721,11 +722,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:35:7: ( 'var' )
-            // InternalOptGrammar.g:35:9: 'var'
+            // InternalOptGrammar.g:35:7: ( ']' )
+            // InternalOptGrammar.g:35:9: ']'
             {
-            match("var"); 
-
+            match(']'); 
 
             }
 
@@ -742,10 +742,11 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:36:7: ( '.' )
-            // InternalOptGrammar.g:36:9: '.'
+            // InternalOptGrammar.g:36:7: ( 'var' )
+            // InternalOptGrammar.g:36:9: 'var'
             {
-            match('.'); 
+            match("var"); 
+
 
             }
 
@@ -762,11 +763,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:37:7: ( 'modifier' )
-            // InternalOptGrammar.g:37:9: 'modifier'
+            // InternalOptGrammar.g:37:7: ( '.' )
+            // InternalOptGrammar.g:37:9: '.'
             {
-            match("modifier"); 
-
+            match('.'); 
 
             }
 
@@ -783,10 +783,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:38:7: ( 'event' )
-            // InternalOptGrammar.g:38:9: 'event'
+            // InternalOptGrammar.g:38:7: ( 'modifier' )
+            // InternalOptGrammar.g:38:9: 'modifier'
             {
-            match("event"); 
+            match("modifier"); 
 
 
             }
@@ -804,10 +804,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:39:7: ( 'delete' )
-            // InternalOptGrammar.g:39:9: 'delete'
+            // InternalOptGrammar.g:39:7: ( 'event' )
+            // InternalOptGrammar.g:39:9: 'event'
             {
-            match("delete"); 
+            match("event"); 
 
 
             }
@@ -825,10 +825,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:40:7: ( 'if' )
-            // InternalOptGrammar.g:40:9: 'if'
+            // InternalOptGrammar.g:40:7: ( 'delete' )
+            // InternalOptGrammar.g:40:9: 'delete'
             {
-            match("if"); 
+            match("delete"); 
 
 
             }
@@ -846,10 +846,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:41:7: ( 'else' )
-            // InternalOptGrammar.g:41:9: 'else'
+            // InternalOptGrammar.g:41:7: ( 'if' )
+            // InternalOptGrammar.g:41:9: 'if'
             {
-            match("else"); 
+            match("if"); 
 
 
             }
@@ -867,10 +867,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:42:7: ( 'while' )
-            // InternalOptGrammar.g:42:9: 'while'
+            // InternalOptGrammar.g:42:7: ( 'else' )
+            // InternalOptGrammar.g:42:9: 'else'
             {
-            match("while"); 
+            match("else"); 
 
 
             }
@@ -888,10 +888,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:43:7: ( 'for' )
-            // InternalOptGrammar.g:43:9: 'for'
+            // InternalOptGrammar.g:43:7: ( 'while' )
+            // InternalOptGrammar.g:43:9: 'while'
             {
-            match("for"); 
+            match("while"); 
 
 
             }
@@ -909,10 +909,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:44:7: ( 'continue' )
-            // InternalOptGrammar.g:44:9: 'continue'
+            // InternalOptGrammar.g:44:7: ( 'for' )
+            // InternalOptGrammar.g:44:9: 'for'
             {
-            match("continue"); 
+            match("for"); 
 
 
             }
@@ -930,10 +930,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:45:7: ( 'break' )
-            // InternalOptGrammar.g:45:9: 'break'
+            // InternalOptGrammar.g:45:7: ( 'continue' )
+            // InternalOptGrammar.g:45:9: 'continue'
             {
-            match("break"); 
+            match("continue"); 
 
 
             }
@@ -951,10 +951,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:46:7: ( 'return' )
-            // InternalOptGrammar.g:46:9: 'return'
+            // InternalOptGrammar.g:46:7: ( 'break' )
+            // InternalOptGrammar.g:46:9: 'break'
             {
-            match("return"); 
+            match("break"); 
 
 
             }
@@ -972,10 +972,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:47:7: ( 'throw' )
-            // InternalOptGrammar.g:47:9: 'throw'
+            // InternalOptGrammar.g:47:7: ( 'return' )
+            // InternalOptGrammar.g:47:9: 'return'
             {
-            match("throw"); 
+            match("return"); 
 
 
             }
@@ -993,10 +993,11 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:48:7: ( '_' )
-            // InternalOptGrammar.g:48:9: '_'
+            // InternalOptGrammar.g:48:7: ( 'throw' )
+            // InternalOptGrammar.g:48:9: 'throw'
             {
-            match('_'); 
+            match("throw"); 
+
 
             }
 
@@ -1013,11 +1014,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:49:7: ( 'NOT' )
-            // InternalOptGrammar.g:49:9: 'NOT'
+            // InternalOptGrammar.g:49:7: ( '_' )
+            // InternalOptGrammar.g:49:9: '_'
             {
-            match("NOT"); 
-
+            match('_'); 
 
             }
 
@@ -1034,10 +1034,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:50:7: ( 'TERNARY' )
-            // InternalOptGrammar.g:50:9: 'TERNARY'
+            // InternalOptGrammar.g:50:7: ( 'NOT' )
+            // InternalOptGrammar.g:50:9: 'NOT'
             {
-            match("TERNARY"); 
+            match("NOT"); 
 
 
             }
@@ -1055,10 +1055,11 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:51:7: ( '?' )
-            // InternalOptGrammar.g:51:9: '?'
+            // InternalOptGrammar.g:51:7: ( 'TERNARY' )
+            // InternalOptGrammar.g:51:9: 'TERNARY'
             {
-            match('?'); 
+            match("TERNARY"); 
+
 
             }
 
@@ -1075,11 +1076,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:52:7: ( 'gasleft' )
-            // InternalOptGrammar.g:52:9: 'gasleft'
+            // InternalOptGrammar.g:52:7: ( '?' )
+            // InternalOptGrammar.g:52:9: '?'
             {
-            match("gasleft"); 
-
+            match('?'); 
 
             }
 
@@ -1096,10 +1096,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:53:7: ( 'blockhash' )
-            // InternalOptGrammar.g:53:9: 'blockhash'
+            // InternalOptGrammar.g:53:7: ( 'gasleft' )
+            // InternalOptGrammar.g:53:9: 'gasleft'
             {
-            match("blockhash"); 
+            match("gasleft"); 
 
 
             }
@@ -1117,10 +1117,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:54:7: ( 'addmod' )
-            // InternalOptGrammar.g:54:9: 'addmod'
+            // InternalOptGrammar.g:54:7: ( 'blockhash' )
+            // InternalOptGrammar.g:54:9: 'blockhash'
             {
-            match("addmod"); 
+            match("blockhash"); 
 
 
             }
@@ -1138,10 +1138,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:55:7: ( 'mulmod' )
-            // InternalOptGrammar.g:55:9: 'mulmod'
+            // InternalOptGrammar.g:55:7: ( 'addmod' )
+            // InternalOptGrammar.g:55:9: 'addmod'
             {
-            match("mulmod"); 
+            match("addmod"); 
 
 
             }
@@ -1159,10 +1159,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:56:7: ( 'ecrecover' )
-            // InternalOptGrammar.g:56:9: 'ecrecover'
+            // InternalOptGrammar.g:56:7: ( 'mulmod' )
+            // InternalOptGrammar.g:56:9: 'mulmod'
             {
-            match("ecrecover"); 
+            match("mulmod"); 
 
 
             }
@@ -1180,10 +1180,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:57:7: ( 'keccak256' )
-            // InternalOptGrammar.g:57:9: 'keccak256'
+            // InternalOptGrammar.g:57:7: ( 'ecrecover' )
+            // InternalOptGrammar.g:57:9: 'ecrecover'
             {
-            match("keccak256"); 
+            match("ecrecover"); 
 
 
             }
@@ -1201,10 +1201,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:58:7: ( 'sha256' )
-            // InternalOptGrammar.g:58:9: 'sha256'
+            // InternalOptGrammar.g:58:7: ( 'keccak256' )
+            // InternalOptGrammar.g:58:9: 'keccak256'
             {
-            match("sha256"); 
+            match("keccak256"); 
 
 
             }
@@ -1222,10 +1222,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:59:7: ( 'ripemd160' )
-            // InternalOptGrammar.g:59:9: 'ripemd160'
+            // InternalOptGrammar.g:59:7: ( 'sha256' )
+            // InternalOptGrammar.g:59:9: 'sha256'
             {
-            match("ripemd160"); 
+            match("sha256"); 
 
 
             }
@@ -1243,10 +1243,11 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:60:7: ( '+' )
-            // InternalOptGrammar.g:60:9: '+'
+            // InternalOptGrammar.g:60:7: ( 'ripemd160' )
+            // InternalOptGrammar.g:60:9: 'ripemd160'
             {
-            match('+'); 
+            match("ripemd160"); 
+
 
             }
 
@@ -1263,10 +1264,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:61:7: ( '-' )
-            // InternalOptGrammar.g:61:9: '-'
+            // InternalOptGrammar.g:61:7: ( '+' )
+            // InternalOptGrammar.g:61:9: '+'
             {
-            match('-'); 
+            match('+'); 
 
             }
 
@@ -1283,10 +1284,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:62:7: ( '/' )
-            // InternalOptGrammar.g:62:9: '/'
+            // InternalOptGrammar.g:62:7: ( '-' )
+            // InternalOptGrammar.g:62:9: '-'
             {
-            match('/'); 
+            match('-'); 
 
             }
 
@@ -1303,11 +1304,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:63:7: ( 'now' )
-            // InternalOptGrammar.g:63:9: 'now'
+            // InternalOptGrammar.g:63:7: ( '/' )
+            // InternalOptGrammar.g:63:9: '/'
             {
-            match("now"); 
-
+            match('/'); 
 
             }
 
@@ -1324,10 +1324,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:64:7: ( 'int' )
-            // InternalOptGrammar.g:64:9: 'int'
+            // InternalOptGrammar.g:64:7: ( 'now' )
+            // InternalOptGrammar.g:64:9: 'now'
             {
-            match("int"); 
+            match("now"); 
 
 
             }
@@ -1345,10 +1345,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:65:7: ( 'int16' )
-            // InternalOptGrammar.g:65:9: 'int16'
+            // InternalOptGrammar.g:65:7: ( 'int' )
+            // InternalOptGrammar.g:65:9: 'int'
             {
-            match("int16"); 
+            match("int"); 
 
 
             }
@@ -1366,10 +1366,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:66:7: ( 'int24' )
-            // InternalOptGrammar.g:66:9: 'int24'
+            // InternalOptGrammar.g:66:7: ( 'int16' )
+            // InternalOptGrammar.g:66:9: 'int16'
             {
-            match("int24"); 
+            match("int16"); 
 
 
             }
@@ -1387,10 +1387,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:67:7: ( 'int32' )
-            // InternalOptGrammar.g:67:9: 'int32'
+            // InternalOptGrammar.g:67:7: ( 'int24' )
+            // InternalOptGrammar.g:67:9: 'int24'
             {
-            match("int32"); 
+            match("int24"); 
 
 
             }
@@ -1408,10 +1408,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:68:7: ( 'int40' )
-            // InternalOptGrammar.g:68:9: 'int40'
+            // InternalOptGrammar.g:68:7: ( 'int32' )
+            // InternalOptGrammar.g:68:9: 'int32'
             {
-            match("int40"); 
+            match("int32"); 
 
 
             }
@@ -1429,10 +1429,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:69:7: ( 'int48' )
-            // InternalOptGrammar.g:69:9: 'int48'
+            // InternalOptGrammar.g:69:7: ( 'int40' )
+            // InternalOptGrammar.g:69:9: 'int40'
             {
-            match("int48"); 
+            match("int40"); 
 
 
             }
@@ -1450,10 +1450,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:70:7: ( 'int56' )
-            // InternalOptGrammar.g:70:9: 'int56'
+            // InternalOptGrammar.g:70:7: ( 'int48' )
+            // InternalOptGrammar.g:70:9: 'int48'
             {
-            match("int56"); 
+            match("int48"); 
 
 
             }
@@ -1471,10 +1471,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:71:7: ( 'int64' )
-            // InternalOptGrammar.g:71:9: 'int64'
+            // InternalOptGrammar.g:71:7: ( 'int56' )
+            // InternalOptGrammar.g:71:9: 'int56'
             {
-            match("int64"); 
+            match("int56"); 
 
 
             }
@@ -1492,10 +1492,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:72:7: ( 'int72' )
-            // InternalOptGrammar.g:72:9: 'int72'
+            // InternalOptGrammar.g:72:7: ( 'int64' )
+            // InternalOptGrammar.g:72:9: 'int64'
             {
-            match("int72"); 
+            match("int64"); 
 
 
             }
@@ -1513,10 +1513,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:73:7: ( 'int80' )
-            // InternalOptGrammar.g:73:9: 'int80'
+            // InternalOptGrammar.g:73:7: ( 'int72' )
+            // InternalOptGrammar.g:73:9: 'int72'
             {
-            match("int80"); 
+            match("int72"); 
 
 
             }
@@ -1534,10 +1534,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:74:7: ( 'int88' )
-            // InternalOptGrammar.g:74:9: 'int88'
+            // InternalOptGrammar.g:74:7: ( 'int80' )
+            // InternalOptGrammar.g:74:9: 'int80'
             {
-            match("int88"); 
+            match("int80"); 
 
 
             }
@@ -1555,10 +1555,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:75:7: ( 'int96' )
-            // InternalOptGrammar.g:75:9: 'int96'
+            // InternalOptGrammar.g:75:7: ( 'int88' )
+            // InternalOptGrammar.g:75:9: 'int88'
             {
-            match("int96"); 
+            match("int88"); 
 
 
             }
@@ -1576,10 +1576,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:76:7: ( 'int104' )
-            // InternalOptGrammar.g:76:9: 'int104'
+            // InternalOptGrammar.g:76:7: ( 'int96' )
+            // InternalOptGrammar.g:76:9: 'int96'
             {
-            match("int104"); 
+            match("int96"); 
 
 
             }
@@ -1597,10 +1597,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:77:7: ( 'int112' )
-            // InternalOptGrammar.g:77:9: 'int112'
+            // InternalOptGrammar.g:77:7: ( 'int104' )
+            // InternalOptGrammar.g:77:9: 'int104'
             {
-            match("int112"); 
+            match("int104"); 
 
 
             }
@@ -1618,10 +1618,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:78:7: ( 'int120' )
-            // InternalOptGrammar.g:78:9: 'int120'
+            // InternalOptGrammar.g:78:7: ( 'int112' )
+            // InternalOptGrammar.g:78:9: 'int112'
             {
-            match("int120"); 
+            match("int112"); 
 
 
             }
@@ -1639,10 +1639,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:79:7: ( 'int128' )
-            // InternalOptGrammar.g:79:9: 'int128'
+            // InternalOptGrammar.g:79:7: ( 'int120' )
+            // InternalOptGrammar.g:79:9: 'int120'
             {
-            match("int128"); 
+            match("int120"); 
 
 
             }
@@ -1660,10 +1660,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:80:7: ( 'int136' )
-            // InternalOptGrammar.g:80:9: 'int136'
+            // InternalOptGrammar.g:80:7: ( 'int128' )
+            // InternalOptGrammar.g:80:9: 'int128'
             {
-            match("int136"); 
+            match("int128"); 
 
 
             }
@@ -1681,10 +1681,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:81:7: ( 'int144' )
-            // InternalOptGrammar.g:81:9: 'int144'
+            // InternalOptGrammar.g:81:7: ( 'int136' )
+            // InternalOptGrammar.g:81:9: 'int136'
             {
-            match("int144"); 
+            match("int136"); 
 
 
             }
@@ -1702,10 +1702,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:82:7: ( 'int152' )
-            // InternalOptGrammar.g:82:9: 'int152'
+            // InternalOptGrammar.g:82:7: ( 'int144' )
+            // InternalOptGrammar.g:82:9: 'int144'
             {
-            match("int152"); 
+            match("int144"); 
 
 
             }
@@ -1723,10 +1723,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:83:7: ( 'int160' )
-            // InternalOptGrammar.g:83:9: 'int160'
+            // InternalOptGrammar.g:83:7: ( 'int152' )
+            // InternalOptGrammar.g:83:9: 'int152'
             {
-            match("int160"); 
+            match("int152"); 
 
 
             }
@@ -1744,10 +1744,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:84:7: ( 'int168' )
-            // InternalOptGrammar.g:84:9: 'int168'
+            // InternalOptGrammar.g:84:7: ( 'int160' )
+            // InternalOptGrammar.g:84:9: 'int160'
             {
-            match("int168"); 
+            match("int160"); 
 
 
             }
@@ -1765,10 +1765,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:85:7: ( 'int178' )
-            // InternalOptGrammar.g:85:9: 'int178'
+            // InternalOptGrammar.g:85:7: ( 'int168' )
+            // InternalOptGrammar.g:85:9: 'int168'
             {
-            match("int178"); 
+            match("int168"); 
 
 
             }
@@ -1786,10 +1786,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:86:7: ( 'int184' )
-            // InternalOptGrammar.g:86:9: 'int184'
+            // InternalOptGrammar.g:86:7: ( 'int178' )
+            // InternalOptGrammar.g:86:9: 'int178'
             {
-            match("int184"); 
+            match("int178"); 
 
 
             }
@@ -1807,10 +1807,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:87:7: ( 'int192' )
-            // InternalOptGrammar.g:87:9: 'int192'
+            // InternalOptGrammar.g:87:7: ( 'int184' )
+            // InternalOptGrammar.g:87:9: 'int184'
             {
-            match("int192"); 
+            match("int184"); 
 
 
             }
@@ -1828,10 +1828,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:88:7: ( 'int200' )
-            // InternalOptGrammar.g:88:9: 'int200'
+            // InternalOptGrammar.g:88:7: ( 'int192' )
+            // InternalOptGrammar.g:88:9: 'int192'
             {
-            match("int200"); 
+            match("int192"); 
 
 
             }
@@ -1849,10 +1849,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:89:7: ( 'int208' )
-            // InternalOptGrammar.g:89:9: 'int208'
+            // InternalOptGrammar.g:89:7: ( 'int200' )
+            // InternalOptGrammar.g:89:9: 'int200'
             {
-            match("int208"); 
+            match("int200"); 
 
 
             }
@@ -1870,10 +1870,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:90:7: ( 'int216' )
-            // InternalOptGrammar.g:90:9: 'int216'
+            // InternalOptGrammar.g:90:7: ( 'int208' )
+            // InternalOptGrammar.g:90:9: 'int208'
             {
-            match("int216"); 
+            match("int208"); 
 
 
             }
@@ -1891,10 +1891,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:91:7: ( 'int224' )
-            // InternalOptGrammar.g:91:9: 'int224'
+            // InternalOptGrammar.g:91:7: ( 'int216' )
+            // InternalOptGrammar.g:91:9: 'int216'
             {
-            match("int224"); 
+            match("int216"); 
 
 
             }
@@ -1912,10 +1912,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:92:7: ( 'int232' )
-            // InternalOptGrammar.g:92:9: 'int232'
+            // InternalOptGrammar.g:92:7: ( 'int224' )
+            // InternalOptGrammar.g:92:9: 'int224'
             {
-            match("int232"); 
+            match("int224"); 
 
 
             }
@@ -1933,10 +1933,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:93:7: ( 'int240' )
-            // InternalOptGrammar.g:93:9: 'int240'
+            // InternalOptGrammar.g:93:7: ( 'int232' )
+            // InternalOptGrammar.g:93:9: 'int232'
             {
-            match("int240"); 
+            match("int232"); 
 
 
             }
@@ -1954,10 +1954,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:94:7: ( 'int248' )
-            // InternalOptGrammar.g:94:9: 'int248'
+            // InternalOptGrammar.g:94:7: ( 'int240' )
+            // InternalOptGrammar.g:94:9: 'int240'
             {
-            match("int248"); 
+            match("int240"); 
 
 
             }
@@ -1975,10 +1975,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:95:8: ( 'int256' )
-            // InternalOptGrammar.g:95:10: 'int256'
+            // InternalOptGrammar.g:95:8: ( 'int248' )
+            // InternalOptGrammar.g:95:10: 'int248'
             {
-            match("int256"); 
+            match("int248"); 
 
 
             }
@@ -1996,10 +1996,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:96:8: ( 'uint' )
-            // InternalOptGrammar.g:96:10: 'uint'
+            // InternalOptGrammar.g:96:8: ( 'int256' )
+            // InternalOptGrammar.g:96:10: 'int256'
             {
-            match("uint"); 
+            match("int256"); 
 
 
             }
@@ -2017,10 +2017,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:97:8: ( 'uint8' )
-            // InternalOptGrammar.g:97:10: 'uint8'
+            // InternalOptGrammar.g:97:8: ( 'uint' )
+            // InternalOptGrammar.g:97:10: 'uint'
             {
-            match("uint8"); 
+            match("uint"); 
 
 
             }
@@ -2038,10 +2038,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:98:8: ( 'uint16' )
-            // InternalOptGrammar.g:98:10: 'uint16'
+            // InternalOptGrammar.g:98:8: ( 'uint8' )
+            // InternalOptGrammar.g:98:10: 'uint8'
             {
-            match("uint16"); 
+            match("uint8"); 
 
 
             }
@@ -2059,10 +2059,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:99:8: ( 'uint24' )
-            // InternalOptGrammar.g:99:10: 'uint24'
+            // InternalOptGrammar.g:99:8: ( 'uint16' )
+            // InternalOptGrammar.g:99:10: 'uint16'
             {
-            match("uint24"); 
+            match("uint16"); 
 
 
             }
@@ -2080,10 +2080,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:100:8: ( 'uint32' )
-            // InternalOptGrammar.g:100:10: 'uint32'
+            // InternalOptGrammar.g:100:8: ( 'uint24' )
+            // InternalOptGrammar.g:100:10: 'uint24'
             {
-            match("uint32"); 
+            match("uint24"); 
 
 
             }
@@ -2101,10 +2101,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:101:8: ( 'uint40' )
-            // InternalOptGrammar.g:101:10: 'uint40'
+            // InternalOptGrammar.g:101:8: ( 'uint32' )
+            // InternalOptGrammar.g:101:10: 'uint32'
             {
-            match("uint40"); 
+            match("uint32"); 
 
 
             }
@@ -2122,10 +2122,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:102:8: ( 'uint48' )
-            // InternalOptGrammar.g:102:10: 'uint48'
+            // InternalOptGrammar.g:102:8: ( 'uint40' )
+            // InternalOptGrammar.g:102:10: 'uint40'
             {
-            match("uint48"); 
+            match("uint40"); 
 
 
             }
@@ -2143,10 +2143,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:103:8: ( 'uint56' )
-            // InternalOptGrammar.g:103:10: 'uint56'
+            // InternalOptGrammar.g:103:8: ( 'uint48' )
+            // InternalOptGrammar.g:103:10: 'uint48'
             {
-            match("uint56"); 
+            match("uint48"); 
 
 
             }
@@ -2164,10 +2164,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:104:8: ( 'uint64' )
-            // InternalOptGrammar.g:104:10: 'uint64'
+            // InternalOptGrammar.g:104:8: ( 'uint56' )
+            // InternalOptGrammar.g:104:10: 'uint56'
             {
-            match("uint64"); 
+            match("uint56"); 
 
 
             }
@@ -2185,10 +2185,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:105:8: ( 'uint72' )
-            // InternalOptGrammar.g:105:10: 'uint72'
+            // InternalOptGrammar.g:105:8: ( 'uint64' )
+            // InternalOptGrammar.g:105:10: 'uint64'
             {
-            match("uint72"); 
+            match("uint64"); 
 
 
             }
@@ -2206,10 +2206,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:106:8: ( 'uint80' )
-            // InternalOptGrammar.g:106:10: 'uint80'
+            // InternalOptGrammar.g:106:8: ( 'uint72' )
+            // InternalOptGrammar.g:106:10: 'uint72'
             {
-            match("uint80"); 
+            match("uint72"); 
 
 
             }
@@ -2227,10 +2227,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__112;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:107:8: ( 'uint88' )
-            // InternalOptGrammar.g:107:10: 'uint88'
+            // InternalOptGrammar.g:107:8: ( 'uint80' )
+            // InternalOptGrammar.g:107:10: 'uint80'
             {
-            match("uint88"); 
+            match("uint80"); 
 
 
             }
@@ -2248,10 +2248,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__113;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:108:8: ( 'uint96' )
-            // InternalOptGrammar.g:108:10: 'uint96'
+            // InternalOptGrammar.g:108:8: ( 'uint88' )
+            // InternalOptGrammar.g:108:10: 'uint88'
             {
-            match("uint96"); 
+            match("uint88"); 
 
 
             }
@@ -2269,10 +2269,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__114;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:109:8: ( 'uint104' )
-            // InternalOptGrammar.g:109:10: 'uint104'
+            // InternalOptGrammar.g:109:8: ( 'uint96' )
+            // InternalOptGrammar.g:109:10: 'uint96'
             {
-            match("uint104"); 
+            match("uint96"); 
 
 
             }
@@ -2290,10 +2290,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__115;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:110:8: ( 'uint112' )
-            // InternalOptGrammar.g:110:10: 'uint112'
+            // InternalOptGrammar.g:110:8: ( 'uint104' )
+            // InternalOptGrammar.g:110:10: 'uint104'
             {
-            match("uint112"); 
+            match("uint104"); 
 
 
             }
@@ -2311,10 +2311,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__116;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:111:8: ( 'uint120' )
-            // InternalOptGrammar.g:111:10: 'uint120'
+            // InternalOptGrammar.g:111:8: ( 'uint112' )
+            // InternalOptGrammar.g:111:10: 'uint112'
             {
-            match("uint120"); 
+            match("uint112"); 
 
 
             }
@@ -2332,10 +2332,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__117;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:112:8: ( 'uint128' )
-            // InternalOptGrammar.g:112:10: 'uint128'
+            // InternalOptGrammar.g:112:8: ( 'uint120' )
+            // InternalOptGrammar.g:112:10: 'uint120'
             {
-            match("uint128"); 
+            match("uint120"); 
 
 
             }
@@ -2353,10 +2353,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__118;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:113:8: ( 'uint136' )
-            // InternalOptGrammar.g:113:10: 'uint136'
+            // InternalOptGrammar.g:113:8: ( 'uint128' )
+            // InternalOptGrammar.g:113:10: 'uint128'
             {
-            match("uint136"); 
+            match("uint128"); 
 
 
             }
@@ -2374,10 +2374,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__119;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:114:8: ( 'uint144' )
-            // InternalOptGrammar.g:114:10: 'uint144'
+            // InternalOptGrammar.g:114:8: ( 'uint136' )
+            // InternalOptGrammar.g:114:10: 'uint136'
             {
-            match("uint144"); 
+            match("uint136"); 
 
 
             }
@@ -2395,10 +2395,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__120;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:115:8: ( 'uint152' )
-            // InternalOptGrammar.g:115:10: 'uint152'
+            // InternalOptGrammar.g:115:8: ( 'uint144' )
+            // InternalOptGrammar.g:115:10: 'uint144'
             {
-            match("uint152"); 
+            match("uint144"); 
 
 
             }
@@ -2416,10 +2416,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__121;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:116:8: ( 'uint160' )
-            // InternalOptGrammar.g:116:10: 'uint160'
+            // InternalOptGrammar.g:116:8: ( 'uint152' )
+            // InternalOptGrammar.g:116:10: 'uint152'
             {
-            match("uint160"); 
+            match("uint152"); 
 
 
             }
@@ -2437,10 +2437,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__122;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:117:8: ( 'uint168' )
-            // InternalOptGrammar.g:117:10: 'uint168'
+            // InternalOptGrammar.g:117:8: ( 'uint160' )
+            // InternalOptGrammar.g:117:10: 'uint160'
             {
-            match("uint168"); 
+            match("uint160"); 
 
 
             }
@@ -2458,10 +2458,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__123;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:118:8: ( 'uint178' )
-            // InternalOptGrammar.g:118:10: 'uint178'
+            // InternalOptGrammar.g:118:8: ( 'uint168' )
+            // InternalOptGrammar.g:118:10: 'uint168'
             {
-            match("uint178"); 
+            match("uint168"); 
 
 
             }
@@ -2479,10 +2479,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__124;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:119:8: ( 'uint184' )
-            // InternalOptGrammar.g:119:10: 'uint184'
+            // InternalOptGrammar.g:119:8: ( 'uint178' )
+            // InternalOptGrammar.g:119:10: 'uint178'
             {
-            match("uint184"); 
+            match("uint178"); 
 
 
             }
@@ -2500,10 +2500,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__125;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:120:8: ( 'uint192' )
-            // InternalOptGrammar.g:120:10: 'uint192'
+            // InternalOptGrammar.g:120:8: ( 'uint184' )
+            // InternalOptGrammar.g:120:10: 'uint184'
             {
-            match("uint192"); 
+            match("uint184"); 
 
 
             }
@@ -2521,10 +2521,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__126;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:121:8: ( 'uint200' )
-            // InternalOptGrammar.g:121:10: 'uint200'
+            // InternalOptGrammar.g:121:8: ( 'uint192' )
+            // InternalOptGrammar.g:121:10: 'uint192'
             {
-            match("uint200"); 
+            match("uint192"); 
 
 
             }
@@ -2542,10 +2542,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__127;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:122:8: ( 'uint208' )
-            // InternalOptGrammar.g:122:10: 'uint208'
+            // InternalOptGrammar.g:122:8: ( 'uint200' )
+            // InternalOptGrammar.g:122:10: 'uint200'
             {
-            match("uint208"); 
+            match("uint200"); 
 
 
             }
@@ -2563,10 +2563,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__128;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:123:8: ( 'uint216' )
-            // InternalOptGrammar.g:123:10: 'uint216'
+            // InternalOptGrammar.g:123:8: ( 'uint208' )
+            // InternalOptGrammar.g:123:10: 'uint208'
             {
-            match("uint216"); 
+            match("uint208"); 
 
 
             }
@@ -2584,10 +2584,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__129;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:124:8: ( 'uint224' )
-            // InternalOptGrammar.g:124:10: 'uint224'
+            // InternalOptGrammar.g:124:8: ( 'uint216' )
+            // InternalOptGrammar.g:124:10: 'uint216'
             {
-            match("uint224"); 
+            match("uint216"); 
 
 
             }
@@ -2605,10 +2605,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__130;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:125:8: ( 'uint232' )
-            // InternalOptGrammar.g:125:10: 'uint232'
+            // InternalOptGrammar.g:125:8: ( 'uint224' )
+            // InternalOptGrammar.g:125:10: 'uint224'
             {
-            match("uint232"); 
+            match("uint224"); 
 
 
             }
@@ -2626,10 +2626,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__131;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:126:8: ( 'uint240' )
-            // InternalOptGrammar.g:126:10: 'uint240'
+            // InternalOptGrammar.g:126:8: ( 'uint232' )
+            // InternalOptGrammar.g:126:10: 'uint232'
             {
-            match("uint240"); 
+            match("uint232"); 
 
 
             }
@@ -2647,10 +2647,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__132;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:127:8: ( 'uint248' )
-            // InternalOptGrammar.g:127:10: 'uint248'
+            // InternalOptGrammar.g:127:8: ( 'uint240' )
+            // InternalOptGrammar.g:127:10: 'uint240'
             {
-            match("uint248"); 
+            match("uint240"); 
 
 
             }
@@ -2668,10 +2668,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__133;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:128:8: ( 'uint256' )
-            // InternalOptGrammar.g:128:10: 'uint256'
+            // InternalOptGrammar.g:128:8: ( 'uint248' )
+            // InternalOptGrammar.g:128:10: 'uint248'
             {
-            match("uint256"); 
+            match("uint248"); 
 
 
             }
@@ -2689,10 +2689,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__134;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:129:8: ( 'byte' )
-            // InternalOptGrammar.g:129:10: 'byte'
+            // InternalOptGrammar.g:129:8: ( 'uint256' )
+            // InternalOptGrammar.g:129:10: 'uint256'
             {
-            match("byte"); 
+            match("uint256"); 
 
 
             }
@@ -2710,10 +2710,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__135;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:130:8: ( 'bytes' )
-            // InternalOptGrammar.g:130:10: 'bytes'
+            // InternalOptGrammar.g:130:8: ( 'byte' )
+            // InternalOptGrammar.g:130:10: 'byte'
             {
-            match("bytes"); 
+            match("byte"); 
 
 
             }
@@ -2731,10 +2731,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__136;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:131:8: ( 'bytes1' )
-            // InternalOptGrammar.g:131:10: 'bytes1'
+            // InternalOptGrammar.g:131:8: ( 'bytes' )
+            // InternalOptGrammar.g:131:10: 'bytes'
             {
-            match("bytes1"); 
+            match("bytes"); 
 
 
             }
@@ -2752,10 +2752,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__137;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:132:8: ( 'bytes2' )
-            // InternalOptGrammar.g:132:10: 'bytes2'
+            // InternalOptGrammar.g:132:8: ( 'bytes1' )
+            // InternalOptGrammar.g:132:10: 'bytes1'
             {
-            match("bytes2"); 
+            match("bytes1"); 
 
 
             }
@@ -2773,10 +2773,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__138;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:133:8: ( 'bytes3' )
-            // InternalOptGrammar.g:133:10: 'bytes3'
+            // InternalOptGrammar.g:133:8: ( 'bytes2' )
+            // InternalOptGrammar.g:133:10: 'bytes2'
             {
-            match("bytes3"); 
+            match("bytes2"); 
 
 
             }
@@ -2794,10 +2794,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__139;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:134:8: ( 'bytes4' )
-            // InternalOptGrammar.g:134:10: 'bytes4'
+            // InternalOptGrammar.g:134:8: ( 'bytes3' )
+            // InternalOptGrammar.g:134:10: 'bytes3'
             {
-            match("bytes4"); 
+            match("bytes3"); 
 
 
             }
@@ -2815,10 +2815,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__140;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:135:8: ( 'bytes5' )
-            // InternalOptGrammar.g:135:10: 'bytes5'
+            // InternalOptGrammar.g:135:8: ( 'bytes4' )
+            // InternalOptGrammar.g:135:10: 'bytes4'
             {
-            match("bytes5"); 
+            match("bytes4"); 
 
 
             }
@@ -2836,10 +2836,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__141;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:136:8: ( 'bytes6' )
-            // InternalOptGrammar.g:136:10: 'bytes6'
+            // InternalOptGrammar.g:136:8: ( 'bytes5' )
+            // InternalOptGrammar.g:136:10: 'bytes5'
             {
-            match("bytes6"); 
+            match("bytes5"); 
 
 
             }
@@ -2857,10 +2857,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__142;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:137:8: ( 'bytes7' )
-            // InternalOptGrammar.g:137:10: 'bytes7'
+            // InternalOptGrammar.g:137:8: ( 'bytes6' )
+            // InternalOptGrammar.g:137:10: 'bytes6'
             {
-            match("bytes7"); 
+            match("bytes6"); 
 
 
             }
@@ -2878,10 +2878,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__143;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:138:8: ( 'bytes8' )
-            // InternalOptGrammar.g:138:10: 'bytes8'
+            // InternalOptGrammar.g:138:8: ( 'bytes7' )
+            // InternalOptGrammar.g:138:10: 'bytes7'
             {
-            match("bytes8"); 
+            match("bytes7"); 
 
 
             }
@@ -2899,10 +2899,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__144;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:139:8: ( 'bytes9' )
-            // InternalOptGrammar.g:139:10: 'bytes9'
+            // InternalOptGrammar.g:139:8: ( 'bytes8' )
+            // InternalOptGrammar.g:139:10: 'bytes8'
             {
-            match("bytes9"); 
+            match("bytes8"); 
 
 
             }
@@ -2920,10 +2920,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__145;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:140:8: ( 'bytes10' )
-            // InternalOptGrammar.g:140:10: 'bytes10'
+            // InternalOptGrammar.g:140:8: ( 'bytes9' )
+            // InternalOptGrammar.g:140:10: 'bytes9'
             {
-            match("bytes10"); 
+            match("bytes9"); 
 
 
             }
@@ -2941,10 +2941,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__146;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:141:8: ( 'bytes11' )
-            // InternalOptGrammar.g:141:10: 'bytes11'
+            // InternalOptGrammar.g:141:8: ( 'bytes10' )
+            // InternalOptGrammar.g:141:10: 'bytes10'
             {
-            match("bytes11"); 
+            match("bytes10"); 
 
 
             }
@@ -2962,10 +2962,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__147;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:142:8: ( 'bytes12' )
-            // InternalOptGrammar.g:142:10: 'bytes12'
+            // InternalOptGrammar.g:142:8: ( 'bytes11' )
+            // InternalOptGrammar.g:142:10: 'bytes11'
             {
-            match("bytes12"); 
+            match("bytes11"); 
 
 
             }
@@ -2983,10 +2983,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__148;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:143:8: ( 'bytes13' )
-            // InternalOptGrammar.g:143:10: 'bytes13'
+            // InternalOptGrammar.g:143:8: ( 'bytes12' )
+            // InternalOptGrammar.g:143:10: 'bytes12'
             {
-            match("bytes13"); 
+            match("bytes12"); 
 
 
             }
@@ -3004,10 +3004,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__149;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:144:8: ( 'bytes14' )
-            // InternalOptGrammar.g:144:10: 'bytes14'
+            // InternalOptGrammar.g:144:8: ( 'bytes13' )
+            // InternalOptGrammar.g:144:10: 'bytes13'
             {
-            match("bytes14"); 
+            match("bytes13"); 
 
 
             }
@@ -3025,10 +3025,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__150;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:145:8: ( 'bytes15' )
-            // InternalOptGrammar.g:145:10: 'bytes15'
+            // InternalOptGrammar.g:145:8: ( 'bytes14' )
+            // InternalOptGrammar.g:145:10: 'bytes14'
             {
-            match("bytes15"); 
+            match("bytes14"); 
 
 
             }
@@ -3046,10 +3046,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__151;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:146:8: ( 'bytes16' )
-            // InternalOptGrammar.g:146:10: 'bytes16'
+            // InternalOptGrammar.g:146:8: ( 'bytes15' )
+            // InternalOptGrammar.g:146:10: 'bytes15'
             {
-            match("bytes16"); 
+            match("bytes15"); 
 
 
             }
@@ -3067,10 +3067,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__152;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:147:8: ( 'bytes17' )
-            // InternalOptGrammar.g:147:10: 'bytes17'
+            // InternalOptGrammar.g:147:8: ( 'bytes16' )
+            // InternalOptGrammar.g:147:10: 'bytes16'
             {
-            match("bytes17"); 
+            match("bytes16"); 
 
 
             }
@@ -3088,10 +3088,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__153;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:148:8: ( 'bytes18' )
-            // InternalOptGrammar.g:148:10: 'bytes18'
+            // InternalOptGrammar.g:148:8: ( 'bytes17' )
+            // InternalOptGrammar.g:148:10: 'bytes17'
             {
-            match("bytes18"); 
+            match("bytes17"); 
 
 
             }
@@ -3109,10 +3109,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__154;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:149:8: ( 'bytes19' )
-            // InternalOptGrammar.g:149:10: 'bytes19'
+            // InternalOptGrammar.g:149:8: ( 'bytes18' )
+            // InternalOptGrammar.g:149:10: 'bytes18'
             {
-            match("bytes19"); 
+            match("bytes18"); 
 
 
             }
@@ -3130,10 +3130,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__155;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:150:8: ( 'bytes20' )
-            // InternalOptGrammar.g:150:10: 'bytes20'
+            // InternalOptGrammar.g:150:8: ( 'bytes19' )
+            // InternalOptGrammar.g:150:10: 'bytes19'
             {
-            match("bytes20"); 
+            match("bytes19"); 
 
 
             }
@@ -3151,10 +3151,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__156;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:151:8: ( 'bytes21' )
-            // InternalOptGrammar.g:151:10: 'bytes21'
+            // InternalOptGrammar.g:151:8: ( 'bytes20' )
+            // InternalOptGrammar.g:151:10: 'bytes20'
             {
-            match("bytes21"); 
+            match("bytes20"); 
 
 
             }
@@ -3172,10 +3172,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__157;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:152:8: ( 'bytes22' )
-            // InternalOptGrammar.g:152:10: 'bytes22'
+            // InternalOptGrammar.g:152:8: ( 'bytes21' )
+            // InternalOptGrammar.g:152:10: 'bytes21'
             {
-            match("bytes22"); 
+            match("bytes21"); 
 
 
             }
@@ -3193,10 +3193,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__158;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:153:8: ( 'bytes23' )
-            // InternalOptGrammar.g:153:10: 'bytes23'
+            // InternalOptGrammar.g:153:8: ( 'bytes22' )
+            // InternalOptGrammar.g:153:10: 'bytes22'
             {
-            match("bytes23"); 
+            match("bytes22"); 
 
 
             }
@@ -3214,10 +3214,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__159;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:154:8: ( 'bytes24' )
-            // InternalOptGrammar.g:154:10: 'bytes24'
+            // InternalOptGrammar.g:154:8: ( 'bytes23' )
+            // InternalOptGrammar.g:154:10: 'bytes23'
             {
-            match("bytes24"); 
+            match("bytes23"); 
 
 
             }
@@ -3235,10 +3235,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__160;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:155:8: ( 'bytes25' )
-            // InternalOptGrammar.g:155:10: 'bytes25'
+            // InternalOptGrammar.g:155:8: ( 'bytes24' )
+            // InternalOptGrammar.g:155:10: 'bytes24'
             {
-            match("bytes25"); 
+            match("bytes24"); 
 
 
             }
@@ -3256,10 +3256,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__161;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:156:8: ( 'bytes26' )
-            // InternalOptGrammar.g:156:10: 'bytes26'
+            // InternalOptGrammar.g:156:8: ( 'bytes25' )
+            // InternalOptGrammar.g:156:10: 'bytes25'
             {
-            match("bytes26"); 
+            match("bytes25"); 
 
 
             }
@@ -3277,10 +3277,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__162;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:157:8: ( 'bytes27' )
-            // InternalOptGrammar.g:157:10: 'bytes27'
+            // InternalOptGrammar.g:157:8: ( 'bytes26' )
+            // InternalOptGrammar.g:157:10: 'bytes26'
             {
-            match("bytes27"); 
+            match("bytes26"); 
 
 
             }
@@ -3298,10 +3298,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__163;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:158:8: ( 'bytes28' )
-            // InternalOptGrammar.g:158:10: 'bytes28'
+            // InternalOptGrammar.g:158:8: ( 'bytes27' )
+            // InternalOptGrammar.g:158:10: 'bytes27'
             {
-            match("bytes28"); 
+            match("bytes27"); 
 
 
             }
@@ -3319,10 +3319,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__164;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:159:8: ( 'bytes29' )
-            // InternalOptGrammar.g:159:10: 'bytes29'
+            // InternalOptGrammar.g:159:8: ( 'bytes28' )
+            // InternalOptGrammar.g:159:10: 'bytes28'
             {
-            match("bytes29"); 
+            match("bytes28"); 
 
 
             }
@@ -3340,10 +3340,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__165;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:160:8: ( 'bytes30' )
-            // InternalOptGrammar.g:160:10: 'bytes30'
+            // InternalOptGrammar.g:160:8: ( 'bytes29' )
+            // InternalOptGrammar.g:160:10: 'bytes29'
             {
-            match("bytes30"); 
+            match("bytes29"); 
 
 
             }
@@ -3361,10 +3361,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__166;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:161:8: ( 'bytes31' )
-            // InternalOptGrammar.g:161:10: 'bytes31'
+            // InternalOptGrammar.g:161:8: ( 'bytes30' )
+            // InternalOptGrammar.g:161:10: 'bytes30'
             {
-            match("bytes31"); 
+            match("bytes30"); 
 
 
             }
@@ -3382,10 +3382,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__167;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:162:8: ( 'bytes32' )
-            // InternalOptGrammar.g:162:10: 'bytes32'
+            // InternalOptGrammar.g:162:8: ( 'bytes31' )
+            // InternalOptGrammar.g:162:10: 'bytes31'
             {
-            match("bytes32"); 
+            match("bytes31"); 
 
 
             }
@@ -3403,10 +3403,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__168;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:163:8: ( 'string' )
-            // InternalOptGrammar.g:163:10: 'string'
+            // InternalOptGrammar.g:163:8: ( 'bytes32' )
+            // InternalOptGrammar.g:163:10: 'bytes32'
             {
-            match("string"); 
+            match("bytes32"); 
 
 
             }
@@ -3424,10 +3424,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__169;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:164:8: ( 'address' )
-            // InternalOptGrammar.g:164:10: 'address'
+            // InternalOptGrammar.g:164:8: ( 'string' )
+            // InternalOptGrammar.g:164:10: 'string'
             {
-            match("address"); 
+            match("string"); 
 
 
             }
@@ -3445,10 +3445,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__170;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:165:8: ( 'bool' )
-            // InternalOptGrammar.g:165:10: 'bool'
+            // InternalOptGrammar.g:165:8: ( 'address' )
+            // InternalOptGrammar.g:165:10: 'address'
             {
-            match("bool"); 
+            match("address"); 
 
 
             }
@@ -3466,10 +3466,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__171;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:166:8: ( 'real' )
-            // InternalOptGrammar.g:166:10: 'real'
+            // InternalOptGrammar.g:166:8: ( 'bool' )
+            // InternalOptGrammar.g:166:10: 'bool'
             {
-            match("real"); 
+            match("bool"); 
 
 
             }
@@ -3487,10 +3487,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__172;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:167:8: ( 'ureal' )
-            // InternalOptGrammar.g:167:10: 'ureal'
+            // InternalOptGrammar.g:167:8: ( 'real' )
+            // InternalOptGrammar.g:167:10: 'real'
             {
-            match("ureal"); 
+            match("real"); 
 
 
             }
@@ -3508,10 +3508,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__173;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:168:8: ( '!=' )
-            // InternalOptGrammar.g:168:10: '!='
+            // InternalOptGrammar.g:168:8: ( 'ureal' )
+            // InternalOptGrammar.g:168:10: 'ureal'
             {
-            match("!="); 
+            match("ureal"); 
 
 
             }
@@ -3529,10 +3529,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__174;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:169:8: ( '==' )
-            // InternalOptGrammar.g:169:10: '=='
+            // InternalOptGrammar.g:169:8: ( 'memory' )
+            // InternalOptGrammar.g:169:10: 'memory'
             {
-            match("=="); 
+            match("memory"); 
 
 
             }
@@ -3550,10 +3550,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__175;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:170:8: ( '&&' )
-            // InternalOptGrammar.g:170:10: '&&'
+            // InternalOptGrammar.g:170:8: ( 'calldata' )
+            // InternalOptGrammar.g:170:10: 'calldata'
             {
-            match("&&"); 
+            match("calldata"); 
 
 
             }
@@ -3571,10 +3571,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__176;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:171:8: ( '||' )
-            // InternalOptGrammar.g:171:10: '||'
+            // InternalOptGrammar.g:171:8: ( 'public' )
+            // InternalOptGrammar.g:171:10: 'public'
             {
-            match("||"); 
+            match("public"); 
 
 
             }
@@ -3592,10 +3592,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__177;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:172:8: ( '>=' )
-            // InternalOptGrammar.g:172:10: '>='
+            // InternalOptGrammar.g:172:8: ( 'internal' )
+            // InternalOptGrammar.g:172:10: 'internal'
             {
-            match(">="); 
+            match("internal"); 
 
 
             }
@@ -3613,10 +3613,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__178;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:173:8: ( '<=' )
-            // InternalOptGrammar.g:173:10: '<='
+            // InternalOptGrammar.g:173:8: ( 'private' )
+            // InternalOptGrammar.g:173:10: 'private'
             {
-            match("<="); 
+            match("private"); 
 
 
             }
@@ -3634,10 +3634,11 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__179;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:174:8: ( '>' )
-            // InternalOptGrammar.g:174:10: '>'
+            // InternalOptGrammar.g:174:8: ( 'external' )
+            // InternalOptGrammar.g:174:10: 'external'
             {
-            match('>'); 
+            match("external"); 
+
 
             }
 
@@ -3654,10 +3655,11 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__180;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:175:8: ( '<' )
-            // InternalOptGrammar.g:175:10: '<'
+            // InternalOptGrammar.g:175:8: ( '!=' )
+            // InternalOptGrammar.g:175:10: '!='
             {
-            match('<'); 
+            match("!="); 
+
 
             }
 
@@ -3674,10 +3676,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__181;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:176:8: ( 'memory' )
-            // InternalOptGrammar.g:176:10: 'memory'
+            // InternalOptGrammar.g:176:8: ( '==' )
+            // InternalOptGrammar.g:176:10: '=='
             {
-            match("memory"); 
+            match("=="); 
 
 
             }
@@ -3695,10 +3697,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__182;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:177:8: ( 'storage' )
-            // InternalOptGrammar.g:177:10: 'storage'
+            // InternalOptGrammar.g:177:8: ( '&&' )
+            // InternalOptGrammar.g:177:10: '&&'
             {
-            match("storage"); 
+            match("&&"); 
 
 
             }
@@ -3716,10 +3718,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__183;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:178:8: ( 'calldata' )
-            // InternalOptGrammar.g:178:10: 'calldata'
+            // InternalOptGrammar.g:178:8: ( '||' )
+            // InternalOptGrammar.g:178:10: '||'
             {
-            match("calldata"); 
+            match("||"); 
 
 
             }
@@ -3737,10 +3739,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__184;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:179:8: ( 'public' )
-            // InternalOptGrammar.g:179:10: 'public'
+            // InternalOptGrammar.g:179:8: ( '>=' )
+            // InternalOptGrammar.g:179:10: '>='
             {
-            match("public"); 
+            match(">="); 
 
 
             }
@@ -3758,10 +3760,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__185;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:180:8: ( 'internal' )
-            // InternalOptGrammar.g:180:10: 'internal'
+            // InternalOptGrammar.g:180:8: ( '<=' )
+            // InternalOptGrammar.g:180:10: '<='
             {
-            match("internal"); 
+            match("<="); 
 
 
             }
@@ -3779,11 +3781,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__186;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:181:8: ( 'private' )
-            // InternalOptGrammar.g:181:10: 'private'
+            // InternalOptGrammar.g:181:8: ( '>' )
+            // InternalOptGrammar.g:181:10: '>'
             {
-            match("private"); 
-
+            match('>'); 
 
             }
 
@@ -3800,11 +3801,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = T__187;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:182:8: ( 'external' )
-            // InternalOptGrammar.g:182:10: 'external'
+            // InternalOptGrammar.g:182:8: ( '<' )
+            // InternalOptGrammar.g:182:10: '<'
             {
-            match("external"); 
-
+            match('<'); 
 
             }
 
@@ -4073,12 +4073,12 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7527:10: ( '0x' ( '0' .. '9' | 'A' .. 'F' | 'a' .. 'f' )+ )
-            // InternalOptGrammar.g:7527:12: '0x' ( '0' .. '9' | 'A' .. 'F' | 'a' .. 'f' )+
+            // InternalOptGrammar.g:7621:10: ( '0x' ( '0' .. '9' | 'A' .. 'F' | 'a' .. 'f' )+ )
+            // InternalOptGrammar.g:7621:12: '0x' ( '0' .. '9' | 'A' .. 'F' | 'a' .. 'f' )+
             {
             match("0x"); 
 
-            // InternalOptGrammar.g:7527:17: ( '0' .. '9' | 'A' .. 'F' | 'a' .. 'f' )+
+            // InternalOptGrammar.g:7621:17: ( '0' .. '9' | 'A' .. 'F' | 'a' .. 'f' )+
             int cnt1=0;
             loop1:
             do {
@@ -4132,8 +4132,8 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7529:14: ( RULE_INT '.' RULE_INT )
-            // InternalOptGrammar.g:7529:16: RULE_INT '.' RULE_INT
+            // InternalOptGrammar.g:7623:14: ( RULE_INT '.' RULE_INT )
+            // InternalOptGrammar.g:7623:16: RULE_INT '.' RULE_INT
             {
             mRULE_INT(); 
             match('.'); 
@@ -4154,12 +4154,12 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_BLOCK;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7531:12: ( 'block.' ( 'coinbase' | 'difficulty' | 'gaslimit' | 'number' | 'timestamp' ) )
-            // InternalOptGrammar.g:7531:14: 'block.' ( 'coinbase' | 'difficulty' | 'gaslimit' | 'number' | 'timestamp' )
+            // InternalOptGrammar.g:7625:12: ( 'block.' ( 'coinbase' | 'difficulty' | 'gaslimit' | 'number' | 'timestamp' ) )
+            // InternalOptGrammar.g:7625:14: 'block.' ( 'coinbase' | 'difficulty' | 'gaslimit' | 'number' | 'timestamp' )
             {
             match("block."); 
 
-            // InternalOptGrammar.g:7531:23: ( 'coinbase' | 'difficulty' | 'gaslimit' | 'number' | 'timestamp' )
+            // InternalOptGrammar.g:7625:23: ( 'coinbase' | 'difficulty' | 'gaslimit' | 'number' | 'timestamp' )
             int alt2=5;
             switch ( input.LA(1) ) {
             case 'c':
@@ -4196,7 +4196,7 @@ public class InternalOptGrammarLexer extends Lexer {
 
             switch (alt2) {
                 case 1 :
-                    // InternalOptGrammar.g:7531:24: 'coinbase'
+                    // InternalOptGrammar.g:7625:24: 'coinbase'
                     {
                     match("coinbase"); 
 
@@ -4204,7 +4204,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7531:35: 'difficulty'
+                    // InternalOptGrammar.g:7625:35: 'difficulty'
                     {
                     match("difficulty"); 
 
@@ -4212,7 +4212,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7531:48: 'gaslimit'
+                    // InternalOptGrammar.g:7625:48: 'gaslimit'
                     {
                     match("gaslimit"); 
 
@@ -4220,7 +4220,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:7531:59: 'number'
+                    // InternalOptGrammar.g:7625:59: 'number'
                     {
                     match("number"); 
 
@@ -4228,7 +4228,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalOptGrammar.g:7531:68: 'timestamp'
+                    // InternalOptGrammar.g:7625:68: 'timestamp'
                     {
                     match("timestamp"); 
 
@@ -4254,12 +4254,12 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_MSG;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7533:10: ( 'msg.' ( 'data' | 'gas' | 'sender' | 'sig' | 'value' ) )
-            // InternalOptGrammar.g:7533:12: 'msg.' ( 'data' | 'gas' | 'sender' | 'sig' | 'value' )
+            // InternalOptGrammar.g:7627:10: ( 'msg.' ( 'data' | 'gas' | 'sender' | 'sig' | 'value' ) )
+            // InternalOptGrammar.g:7627:12: 'msg.' ( 'data' | 'gas' | 'sender' | 'sig' | 'value' )
             {
             match("msg."); 
 
-            // InternalOptGrammar.g:7533:19: ( 'data' | 'gas' | 'sender' | 'sig' | 'value' )
+            // InternalOptGrammar.g:7627:19: ( 'data' | 'gas' | 'sender' | 'sig' | 'value' )
             int alt3=5;
             switch ( input.LA(1) ) {
             case 'd':
@@ -4304,7 +4304,7 @@ public class InternalOptGrammarLexer extends Lexer {
 
             switch (alt3) {
                 case 1 :
-                    // InternalOptGrammar.g:7533:20: 'data'
+                    // InternalOptGrammar.g:7627:20: 'data'
                     {
                     match("data"); 
 
@@ -4312,7 +4312,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7533:27: 'gas'
+                    // InternalOptGrammar.g:7627:27: 'gas'
                     {
                     match("gas"); 
 
@@ -4320,7 +4320,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7533:33: 'sender'
+                    // InternalOptGrammar.g:7627:33: 'sender'
                     {
                     match("sender"); 
 
@@ -4328,7 +4328,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:7533:42: 'sig'
+                    // InternalOptGrammar.g:7627:42: 'sig'
                     {
                     match("sig"); 
 
@@ -4336,7 +4336,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // InternalOptGrammar.g:7533:48: 'value'
+                    // InternalOptGrammar.g:7627:48: 'value'
                     {
                     match("value"); 
 
@@ -4362,12 +4362,12 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_TX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7535:9: ( 'tx.' ( 'gasprice' | 'origin' ) )
-            // InternalOptGrammar.g:7535:11: 'tx.' ( 'gasprice' | 'origin' )
+            // InternalOptGrammar.g:7629:9: ( 'tx.' ( 'gasprice' | 'origin' ) )
+            // InternalOptGrammar.g:7629:11: 'tx.' ( 'gasprice' | 'origin' )
             {
             match("tx."); 
 
-            // InternalOptGrammar.g:7535:17: ( 'gasprice' | 'origin' )
+            // InternalOptGrammar.g:7629:17: ( 'gasprice' | 'origin' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -4385,7 +4385,7 @@ public class InternalOptGrammarLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalOptGrammar.g:7535:18: 'gasprice'
+                    // InternalOptGrammar.g:7629:18: 'gasprice'
                     {
                     match("gasprice"); 
 
@@ -4393,7 +4393,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7535:29: 'origin'
+                    // InternalOptGrammar.g:7629:29: 'origin'
                     {
                     match("origin"); 
 
@@ -4419,10 +4419,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7537:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalOptGrammar.g:7537:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalOptGrammar.g:7631:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalOptGrammar.g:7631:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalOptGrammar.g:7537:11: ( '^' )?
+            // InternalOptGrammar.g:7631:11: ( '^' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -4431,7 +4431,7 @@ public class InternalOptGrammarLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalOptGrammar.g:7537:11: '^'
+                    // InternalOptGrammar.g:7631:11: '^'
                     {
                     match('^'); 
 
@@ -4449,7 +4449,7 @@ public class InternalOptGrammarLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalOptGrammar.g:7537:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalOptGrammar.g:7631:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -4498,10 +4498,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7539:10: ( ( '0' .. '9' )+ )
-            // InternalOptGrammar.g:7539:12: ( '0' .. '9' )+
+            // InternalOptGrammar.g:7633:10: ( ( '0' .. '9' )+ )
+            // InternalOptGrammar.g:7633:12: ( '0' .. '9' )+
             {
-            // InternalOptGrammar.g:7539:12: ( '0' .. '9' )+
+            // InternalOptGrammar.g:7633:12: ( '0' .. '9' )+
             int cnt7=0;
             loop7:
             do {
@@ -4515,7 +4515,7 @@ public class InternalOptGrammarLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalOptGrammar.g:7539:13: '0' .. '9'
+            	    // InternalOptGrammar.g:7633:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -4547,10 +4547,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7541:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalOptGrammar.g:7541:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalOptGrammar.g:7635:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalOptGrammar.g:7635:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalOptGrammar.g:7541:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalOptGrammar.g:7635:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -4568,10 +4568,10 @@ public class InternalOptGrammarLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalOptGrammar.g:7541:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalOptGrammar.g:7635:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalOptGrammar.g:7541:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalOptGrammar.g:7635:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -4587,7 +4587,7 @@ public class InternalOptGrammarLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // InternalOptGrammar.g:7541:21: '\\\\' .
+                    	    // InternalOptGrammar.g:7635:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -4595,7 +4595,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalOptGrammar.g:7541:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalOptGrammar.g:7635:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -4620,10 +4620,10 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7541:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalOptGrammar.g:7635:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalOptGrammar.g:7541:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalOptGrammar.g:7635:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -4639,7 +4639,7 @@ public class InternalOptGrammarLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // InternalOptGrammar.g:7541:54: '\\\\' .
+                    	    // InternalOptGrammar.g:7635:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -4647,7 +4647,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalOptGrammar.g:7541:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalOptGrammar.g:7635:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -4690,12 +4690,12 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7543:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalOptGrammar.g:7543:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalOptGrammar.g:7637:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalOptGrammar.g:7637:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalOptGrammar.g:7543:24: ( options {greedy=false; } : . )*
+            // InternalOptGrammar.g:7637:24: ( options {greedy=false; } : . )*
             loop11:
             do {
                 int alt11=2;
@@ -4720,7 +4720,7 @@ public class InternalOptGrammarLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // InternalOptGrammar.g:7543:52: .
+            	    // InternalOptGrammar.g:7637:52: .
             	    {
             	    matchAny(); 
 
@@ -4750,12 +4750,12 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7545:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalOptGrammar.g:7545:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalOptGrammar.g:7639:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalOptGrammar.g:7639:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalOptGrammar.g:7545:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalOptGrammar.g:7639:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop12:
             do {
                 int alt12=2;
@@ -4768,7 +4768,7 @@ public class InternalOptGrammarLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalOptGrammar.g:7545:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalOptGrammar.g:7639:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -4788,7 +4788,7 @@ public class InternalOptGrammarLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalOptGrammar.g:7545:40: ( ( '\\r' )? '\\n' )?
+            // InternalOptGrammar.g:7639:40: ( ( '\\r' )? '\\n' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -4797,9 +4797,9 @@ public class InternalOptGrammarLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalOptGrammar.g:7545:41: ( '\\r' )? '\\n'
+                    // InternalOptGrammar.g:7639:41: ( '\\r' )? '\\n'
                     {
-                    // InternalOptGrammar.g:7545:41: ( '\\r' )?
+                    // InternalOptGrammar.g:7639:41: ( '\\r' )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -4808,7 +4808,7 @@ public class InternalOptGrammarLexer extends Lexer {
                     }
                     switch (alt13) {
                         case 1 :
-                            // InternalOptGrammar.g:7545:41: '\\r'
+                            // InternalOptGrammar.g:7639:41: '\\r'
                             {
                             match('\r'); 
 
@@ -4840,10 +4840,10 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7547:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalOptGrammar.g:7547:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalOptGrammar.g:7641:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalOptGrammar.g:7641:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalOptGrammar.g:7547:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalOptGrammar.g:7641:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt15=0;
             loop15:
             do {
@@ -4897,8 +4897,8 @@ public class InternalOptGrammarLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalOptGrammar.g:7549:16: ( . )
-            // InternalOptGrammar.g:7549:18: .
+            // InternalOptGrammar.g:7643:16: ( . )
+            // InternalOptGrammar.g:7643:18: .
             {
             matchAny(); 
 
@@ -6305,7 +6305,7 @@ public class InternalOptGrammarLexer extends Lexer {
     static final String DFA16_maxS =
         "\1\uffff\1\156\2\uffff\1\163\1\165\3\uffff\1\157\1\165\1\151\3\uffff\1\172\1\170\1\76\1\165\2\uffff\1\141\1\uffff\1\145\1\150\1\171\1\170\1\172\1\117\1\105\1\uffff\1\141\1\145\2\uffff\1\57\1\157\1\162\1\75\1\46\1\174\2\75\1\157\1\145\1\170\1\71\1\172\1\uffff\2\uffff\2\uffff\1\160\1\164\1\172\3\uffff\1\172\1\144\1\157\1\156\1\162\1\154\1\156\3\uffff\1\156\1\154\1\171\1\142\1\151\1\164\1\160\3\uffff\1\162\2\141\1\143\1\165\1\145\1\163\1\162\1\164\1\150\3\uffff\1\160\1\144\1\154\1\155\1\156\1\147\2\uffff\1\162\1\uffff\1\154\1\171\2\151\1\145\1\157\1\164\1\157\1\162\1\165\1\56\1\uffff\1\124\1\122\1\uffff\1\163\1\143\5\uffff\1\167\1\156\1\145\7\uffff\1\165\1\141\2\uffff\1\71\3\uffff\1\157\1\145\1\172\2\uffff\1\162\1\155\1\143\1\172\1\163\1\156\1\164\1\154\1\141\1\154\1\166\1\165\1\154\1\145\1\165\1\162\1\62\1\142\1\157\1\155\1\156\4\145\1\160\1\151\1\155\1\157\1\165\1\56\1\172\1\145\1\163\1\154\1\172\1\153\1\141\1\143\1\145\1\154\1\157\1\145\1\uffff\1\172\1\116\1\154\1\143\1\172\1\164\1\141\3\162\1\170\1\71\1\65\1\62\1\70\1\66\1\64\1\62\1\70\1\66\1\162\1\uffff\1\157\1\145\1\172\1\164\1\uffff\2\145\1\162\1\164\1\144\1\142\1\151\1\141\1\162\1\172\1\155\1\143\1\156\1\141\1\65\1\157\1\156\1\172\1\164\1\172\1\143\2\162\1\151\1\146\1\157\1\162\1\164\2\uffff\1\164\1\172\1\145\1\uffff\1\163\2\153\2\172\1\167\1\172\1\uffff\1\101\1\145\1\141\1\uffff\1\172\1\154\2\163\1\164\1\145\1\172\1\64\1\62\1\70\1\66\1\64\1\62\1\70\1\64\1\62\1\172\1\70\1\66\1\64\1\62\1\66\11\172\1\156\1\144\1\163\1\uffff\1\151\1\172\1\171\1\141\1\156\2\141\1\154\1\143\1\164\1\156\1\uffff\1\144\1\164\2\147\1\66\1\172\1\144\1\uffff\1\172\1\uffff\1\157\1\156\1\172\1\156\1\151\1\144\1\171\2\145\1\uffff\3\172\1\150\1\172\2\uffff\1\172\1\uffff\1\122\1\146\1\153\1\172\1\71\1\65\1\62\1\70\1\66\1\64\1\62\1\66\1\uffff\4\172\1\144\2\172\1\uffff\14\172\1\uffff\6\172\11\uffff\1\141\1\172\1\163\1\157\1\uffff\1\172\1\143\1\165\1\156\1\164\1\145\1\172\1\145\1\172\1\61\2\172\1\145\1\172\1\uffff\1\163\1\uffff\1\166\1\141\1\uffff\1\147\1\145\2\172\1\163\1\172\3\uffff\1\141\1\uffff\11\172\2\uffff\1\131\1\164\1\62\2\172\1\uffff\1\172\1\64\1\62\1\70\1\66\1\64\1\62\1\70\1\64\1\62\1\172\1\70\1\66\1\64\1\62\1\66\7\172\4\uffff\1\172\24\uffff\1\154\1\uffff\1\172\1\156\1\uffff\1\164\1\145\1\164\1\141\1\172\1\uffff\2\172\1\uffff\1\66\2\uffff\1\172\1\uffff\1\172\1\145\1\154\1\172\1\162\2\uffff\1\172\1\uffff\1\163\12\172\1\uffff\12\172\1\uffff\3\172\7\uffff\2\172\1\65\2\uffff\2\172\1\uffff\14\172\1\uffff\6\172\10\uffff\1\172\1\uffff\5\172\3\uffff\1\60\2\uffff\1\162\1\172\1\uffff\1\172\1\uffff\1\150\31\uffff\1\66\32\uffff\2\172\2\uffff\2\172\4\uffff";
     static final String DFA16_acceptS =
-        "\2\uffff\1\2\1\3\2\uffff\1\6\1\7\1\10\3\uffff\1\15\1\16\1\17\4\uffff\1\27\1\30\1\uffff\1\32\7\uffff\1\51\2\uffff\1\62\1\63\15\uffff\1\u00be\2\uffff\1\u00c3\1\u00c4\3\uffff\1\u00be\1\2\1\3\7\uffff\1\6\1\7\1\10\7\uffff\1\15\1\16\1\17\12\uffff\1\26\1\u009f\1\23\6\uffff\1\27\1\30\1\uffff\1\32\13\uffff\1\46\2\uffff\1\51\2\uffff\1\62\1\63\1\u00c1\1\u00c2\1\64\3\uffff\1\u009e\1\u00a0\1\u00a1\1\u00a2\1\u00a4\1\u00a3\1\u00a5\2\uffff\1\u00b9\1\u00bf\1\uffff\1\u00ba\1\u00c0\1\u00c3\3\uffff\1\36\1\4\53\uffff\1\u00bd\25\uffff\1\66\4\uffff\1\41\34\uffff\1\u00bc\1\31\3\uffff\1\u00af\7\uffff\1\47\3\uffff\1\65\42\uffff\1\5\13\uffff\1\u009c\7\uffff\1\22\1\uffff\1\37\11\uffff\1\u00b6\5\uffff\1\167\1\u009b\1\uffff\1\u00ad\14\uffff\1\126\7\uffff\1\67\14\uffff\1\70\6\uffff\1\71\1\72\1\73\1\74\1\75\1\76\1\77\1\100\1\101\4\uffff\1\u00ae\16\uffff\1\u00b0\1\uffff\1\34\2\uffff\1\u00b2\6\uffff\1\40\1\u00b7\1\43\1\uffff\1\u00bb\11\uffff\1\170\1\45\5\uffff\1\127\27\uffff\1\u009d\1\u00b5\1\u00b8\1\1\1\uffff\1\111\1\112\1\102\1\103\1\104\1\105\1\106\1\107\1\110\1\113\1\114\1\115\1\123\1\124\1\116\1\117\1\120\1\121\1\122\1\125\1\uffff\1\54\2\uffff\1\u00b1\5\uffff\1\u00a9\2\uffff\1\44\1\uffff\1\21\1\u0099\1\uffff\1\60\5\uffff\1\55\1\u00a6\1\uffff\1\35\13\uffff\1\171\12\uffff\1\172\3\uffff\1\173\1\174\1\175\1\176\1\177\1\u0080\1\u0081\3\uffff\1\140\1\141\2\uffff\1\130\14\uffff\1\131\6\uffff\1\132\1\133\1\134\1\135\1\136\1\137\1\142\1\24\1\uffff\1\u009a\5\uffff\1\12\1\u00ab\1\14\1\uffff\1\u00a7\1\u00b3\2\uffff\1\25\1\uffff\1\u00b4\1\uffff\1\u0082\1\u0083\1\u0084\1\u0085\1\u0086\1\u0087\1\u0088\1\u0089\1\u008a\1\u008b\1\u008c\1\u008d\1\u008e\1\u008f\1\u0090\1\u0091\1\u0092\1\u0093\1\u0094\1\u0095\1\u0096\1\u0097\1\u0098\1\50\1\52\1\uffff\1\152\1\153\1\143\1\144\1\145\1\146\1\147\1\150\1\151\1\154\1\155\1\156\1\164\1\165\1\157\1\160\1\161\1\162\1\163\1\166\1\u00aa\1\13\1\11\1\42\1\20\1\u00a8\2\uffff\1\u00ac\1\33\2\uffff\1\61\1\56\1\53\1\57";
+        "\2\uffff\1\2\1\3\2\uffff\1\6\1\7\1\10\3\uffff\1\15\1\16\1\17\4\uffff\1\30\1\31\1\uffff\1\33\7\uffff\1\52\2\uffff\1\63\1\64\15\uffff\1\u00be\2\uffff\1\u00c3\1\u00c4\3\uffff\1\u00be\1\2\1\3\7\uffff\1\6\1\7\1\10\7\uffff\1\15\1\16\1\17\12\uffff\1\27\1\u00a6\1\23\6\uffff\1\30\1\31\1\uffff\1\33\13\uffff\1\47\2\uffff\1\52\2\uffff\1\63\1\64\1\u00c1\1\u00c2\1\65\3\uffff\1\u00a5\1\u00a7\1\u00a8\1\u00a9\1\u00ab\1\u00aa\1\u00ac\2\uffff\1\u00b9\1\u00bf\1\uffff\1\u00ba\1\u00c0\1\u00c3\3\uffff\1\37\1\4\53\uffff\1\u00bd\25\uffff\1\67\4\uffff\1\42\34\uffff\1\u00bc\1\32\3\uffff\1\u00af\7\uffff\1\50\3\uffff\1\66\42\uffff\1\5\13\uffff\1\u009d\7\uffff\1\22\1\uffff\1\40\11\uffff\1\u00b6\5\uffff\1\170\1\u009c\1\uffff\1\u00ad\14\uffff\1\127\7\uffff\1\70\14\uffff\1\71\6\uffff\1\72\1\73\1\74\1\75\1\76\1\77\1\100\1\101\1\102\4\uffff\1\u00ae\16\uffff\1\u00b0\1\uffff\1\35\2\uffff\1\u00b2\6\uffff\1\41\1\u00b7\1\44\1\uffff\1\u00bb\11\uffff\1\171\1\46\5\uffff\1\130\27\uffff\1\u009e\1\u00b5\1\u00b8\1\1\1\uffff\1\112\1\113\1\103\1\104\1\105\1\106\1\107\1\110\1\111\1\114\1\115\1\116\1\124\1\125\1\117\1\120\1\121\1\122\1\123\1\126\1\uffff\1\55\2\uffff\1\u00b1\5\uffff\1\u00a1\2\uffff\1\45\1\uffff\1\21\1\u009a\1\uffff\1\61\5\uffff\1\56\1\u009f\1\uffff\1\36\13\uffff\1\172\12\uffff\1\173\3\uffff\1\174\1\175\1\176\1\177\1\u0080\1\u0081\1\u0082\3\uffff\1\141\1\142\2\uffff\1\131\14\uffff\1\132\6\uffff\1\133\1\134\1\135\1\136\1\137\1\140\1\143\1\24\1\uffff\1\u009b\5\uffff\1\12\1\u00a3\1\14\1\uffff\1\25\1\u00b3\2\uffff\1\26\1\uffff\1\u00b4\1\uffff\1\u0083\1\u0084\1\u0085\1\u0086\1\u0087\1\u0088\1\u0089\1\u008a\1\u008b\1\u008c\1\u008d\1\u008e\1\u008f\1\u0090\1\u0091\1\u0092\1\u0093\1\u0094\1\u0095\1\u0096\1\u0097\1\u0098\1\u0099\1\51\1\53\1\uffff\1\153\1\154\1\144\1\145\1\146\1\147\1\150\1\151\1\152\1\155\1\156\1\157\1\165\1\166\1\160\1\161\1\162\1\163\1\164\1\167\1\u00a2\1\13\1\11\1\43\1\20\1\u00a0\2\uffff\1\u00a4\1\34\2\uffff\1\62\1\57\1\54\1\60";
     static final String DFA16_specialS =
         "\1\1\60\uffff\1\2\1\0\u0268\uffff}>";
     static final String[] DFA16_transitionS = {

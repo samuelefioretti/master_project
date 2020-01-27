@@ -50,10 +50,10 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 			BooleanConst:
 				toReturn = "Booleans are not usable as Array Index"
 			FunctionCall:
-				if (toCheck.name.returnType === null)
+				if (toCheck.name.returnParameters === null)
 					toReturn = "Please explicit the return type of the called function"
-				else if (!toCheck.name.returnType.validIntoArrayIndex)
-					toReturn = "The return type of the called function is not usable into the array index"
+				//else if (!toCheck.name.returnParameters.validIntoArrayIndex)
+				//	toReturn = "The return type of the called function is not usable into the array index"
 			ArithmeticOperations: {
 				var errorMessage = toCheck.first.getErrorString;
 				if (!errorMessage.nullOrEmpty)
@@ -73,9 +73,9 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 			 * 	if (toCheck.variable.asDeclaration.type instanceof NamedType)
 			 * 		if (!toCheck.variable.asDeclaration.type.validIntoArrayIndex)
 			 toReturn = "The array pointed is not suitable for array indexing"*/
-			default:
-				if (toCheck.ref !== null && !toCheck.ref.validIntoArrayIndex)
-					toReturn = "The variable type is not usable as an array index"
+			//default:
+			//	if (toCheck.ref !== null && !toCheck.ref.validIntoArrayIndex)
+			//		toReturn = "The variable type is not usable as an array index"
 		}
 		return toReturn
 	}

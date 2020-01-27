@@ -138,9 +138,9 @@ ElementaryType:
 	name=ElementaryTypeNameEnum;
 
 Mapping:
-	"mapping" "("
+	location="storage"? visibility=VisibilityEnum? "mapping" "("
 	keyType=ElementaryTypeNameEnum "=>" valueType=Type
-	")";
+	")" name=ID;
 
 ArrayDimensions:
 	"[" {ArrayDimensions} value+=Expression? "]" ("[" value+=Expression? "]")*;
@@ -271,23 +271,20 @@ PlaceHolderStatement:
 Expression:
 	first=Literal operations+=ConditionOperation*
 	| negate?='NOT' first=Literal operations+=ConditionOperation*
-	| ternary?='TERNARY' first=Literal '?' true=Literal ':' false=Literal
-;
+	| ternary?='TERNARY' first=Literal '?' true=Literal ':' false=Literal;
 
 ConditionOperation:
-	operation=LogicalOperationLiteral negateSecond='NOT'? seconds=Literal
-;
+	operation=LogicalOperationLiteral negateSecond='NOT'? seconds=Literal;
 
 enum LogicalOperationLiteral:
-	NOTEQUAL=	'!='
-	| EQUAL=	'=='
-	| AND=		'&&'
-	| OR=		'||'
-	| GTE=		'>='
-	| LTE=		'<='
-	| GT=		'>'
-	| LT=		'<'
-;
+	NOTEQUAL='!='
+	| EQUAL='=='
+	| AND='&&'
+	| OR='||'
+	| GTE='>='
+	| LTE='<='
+	| GT='>'
+	| LT='<';
 
 Literal:
 	SpecialVariables |
@@ -490,18 +487,19 @@ ElementaryTypeNameEnum:
 	"address" |
 	"bool" |
 	"real" |
-	"ureal"
-	)
-;
-enum LocationSpecifierEnum:
-	MEMORY="memory" |
-	STORAGE="storage" |
-	CALLDATA="calldata";
-enum VisibilityEnum:
-	PUBLIC="public" |
-	INTERNAL="internal" |
-	PRIVATE="private" |
-	EXTERNAL="external";
+	"ureal");
+
+LocationSpecifierEnum:
+	type=("memory" |
+	"storage" |
+	"calldata");
+
+VisibilityEnum:
+	type=("public" |
+	"internal" |
+	"private" |
+	"external");
+
 enum AssignmentOpEnum:
 	ASSIGN="=" |
 	ASSIGN_OR="|=" |
@@ -515,37 +513,46 @@ enum AssignmentOpEnum:
 	ASSIGN_MULT="*=" |
 	ASSIGN_DIV="/=" |
 	ASSIGN_MOD="%=";
+
 enum EqualityOpEnum:
 	EQ="==" |
 	NOTEQ="!=";
+
 enum ComparisonOpEnum:
 	LT="<" |
 	GT=">" |
 	LTE="<=" |
 	GTE=">=" |
 	IN="in";
+
 enum ShiftOpEnum:
 	LEFT_SHIFT="<<" |
 	RIGHT_SHIFT=">>" |
 	ARITHMETIC_RIGHT_SHIFT=">>>";
+
 enum AdditionOpEnum:
 	ADD="+" |
 	SUB="-";
+
 enum MulDivModOpEnum:
 	MULT="*" |
 	DIV="/" |
 	MOD="%";
+
 enum IncDecOpEnum:
 	INC="++" |
 	DEC="--";
+
 enum BooleanLiteralEnum:
 	TRUE="true" |
 	FALSE="false";
+
 enum EtherSubDenominationEnum:
 	WEI="wei" |
 	SZABO="szabo" |
 	FINNEY="finney" |
 	ETHER="ether";
+
 enum TimeSubdenominationEnum:
 	SECONDS="seconds" |
 	MINUTES="minutes" |
@@ -559,24 +566,29 @@ SpecialVariablesTypeEnum:
 	name=(BLOCK |
 	MSG |
 	TX);
+
 terminal BLOCK:
 	'block.' ('coinbase' |
 	'difficulty' |
 	'gaslimit' |
 	'number' |
 	'timestamp');
+
 terminal MSG:
 	'msg.' ('data' |
 	'gas' |
 	'sender' |
 	'sig' |
 	'value');
+
 terminal TX:
 	'tx.' ('gasprice' |
 	'origin');
+
 enum SpecialExpressionTypeEnum:
 	SUPER="super" |
 	THIS="this";
+
 enum ReservedWordsEnum:
 	AS="as" |
 	CASE="case" |

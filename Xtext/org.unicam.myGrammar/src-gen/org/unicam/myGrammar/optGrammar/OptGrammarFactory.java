@@ -771,6 +771,24 @@ public interface OptGrammarFactory extends EFactory
   ElementaryTypeNameEnum createElementaryTypeNameEnum();
 
   /**
+   * Returns a new object of class '<em>Location Specifier Enum</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Location Specifier Enum</em>'.
+   * @generated
+   */
+  LocationSpecifierEnum createLocationSpecifierEnum();
+
+  /**
+   * Returns a new object of class '<em>Visibility Enum</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Visibility Enum</em>'.
+   * @generated
+   */
+  VisibilityEnum createVisibilityEnum();
+
+  /**
    * Returns a new object of class '<em>Special Variables Type Enum</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

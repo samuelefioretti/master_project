@@ -710,6 +710,20 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass locationSpecifierEnumEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass visibilityEnumEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass specialVariablesTypeEnumEClass = null;
 
   /**
@@ -739,20 +753,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   private EEnum logicalOperationLiteralEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum locationSpecifierEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum visibilityEnumEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1358,9 +1358,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getVisibilitySpecifier_Visibility()
+  public EReference getVisibilitySpecifier_Visibility()
   {
-    return (EAttribute)visibilitySpecifierEClass.getEStructuralFeatures().get(0);
+    return (EReference)visibilitySpecifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1380,9 +1380,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getStructDefinition_Visibility()
+  public EReference getStructDefinition_Visibility()
   {
-    return (EAttribute)structDefinitionEClass.getEStructuralFeatures().get(0);
+    return (EReference)structDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1424,9 +1424,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getEnumDefinition_Visibility()
+  public EReference getEnumDefinition_Visibility()
   {
-    return (EAttribute)enumDefinitionEClass.getEStructuralFeatures().get(0);
+    return (EReference)enumDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1732,9 +1732,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getLocationSpecifier_Location()
+  public EReference getLocationSpecifier_Location()
   {
-    return (EAttribute)locationSpecifierEClass.getEStructuralFeatures().get(0);
+    return (EReference)locationSpecifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1831,9 +1831,31 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EAttribute getMapping_Location()
+  {
+    return (EAttribute)mappingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMapping_Visibility()
+  {
+    return (EReference)mappingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getMapping_KeyType()
   {
-    return (EReference)mappingEClass.getEStructuralFeatures().get(0);
+    return (EReference)mappingEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1844,7 +1866,18 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   @Override
   public EReference getMapping_ValueType()
   {
-    return (EReference)mappingEClass.getEStructuralFeatures().get(1);
+    return (EReference)mappingEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMapping_Name()
+  {
+    return (EAttribute)mappingEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3294,6 +3327,50 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EClass getLocationSpecifierEnum()
+  {
+    return locationSpecifierEnumEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLocationSpecifierEnum_Type()
+  {
+    return (EAttribute)locationSpecifierEnumEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getVisibilityEnum()
+  {
+    return visibilityEnumEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVisibilityEnum_Type()
+  {
+    return (EAttribute)visibilityEnumEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSpecialVariablesTypeEnum()
   {
     return specialVariablesTypeEnumEClass;
@@ -3396,28 +3473,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
   public EEnum getLogicalOperationLiteral()
   {
     return logicalOperationLiteralEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EEnum getLocationSpecifierEnum()
-  {
-    return locationSpecifierEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EEnum getVisibilityEnum()
-  {
-    return visibilityEnumEEnum;
   }
 
   /**
@@ -3636,15 +3691,15 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     constEClass = createEClass(CONST);
 
     visibilitySpecifierEClass = createEClass(VISIBILITY_SPECIFIER);
-    createEAttribute(visibilitySpecifierEClass, VISIBILITY_SPECIFIER__VISIBILITY);
+    createEReference(visibilitySpecifierEClass, VISIBILITY_SPECIFIER__VISIBILITY);
 
     structDefinitionEClass = createEClass(STRUCT_DEFINITION);
-    createEAttribute(structDefinitionEClass, STRUCT_DEFINITION__VISIBILITY);
+    createEReference(structDefinitionEClass, STRUCT_DEFINITION__VISIBILITY);
     createEAttribute(structDefinitionEClass, STRUCT_DEFINITION__NAME);
     createEReference(structDefinitionEClass, STRUCT_DEFINITION__MEMBERS);
 
     enumDefinitionEClass = createEClass(ENUM_DEFINITION);
-    createEAttribute(enumDefinitionEClass, ENUM_DEFINITION__VISIBILITY);
+    createEReference(enumDefinitionEClass, ENUM_DEFINITION__VISIBILITY);
     createEAttribute(enumDefinitionEClass, ENUM_DEFINITION__NAME);
     createEReference(enumDefinitionEClass, ENUM_DEFINITION__MEMBERS);
 
@@ -3682,7 +3737,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     constantSpecifierEClass = createEClass(CONSTANT_SPECIFIER);
 
     locationSpecifierEClass = createEClass(LOCATION_SPECIFIER);
-    createEAttribute(locationSpecifierEClass, LOCATION_SPECIFIER__LOCATION);
+    createEReference(locationSpecifierEClass, LOCATION_SPECIFIER__LOCATION);
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__IS_VAR_TYPE);
@@ -3696,8 +3751,11 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     createEReference(elementaryTypeEClass, ELEMENTARY_TYPE__NAME);
 
     mappingEClass = createEClass(MAPPING);
+    createEAttribute(mappingEClass, MAPPING__LOCATION);
+    createEReference(mappingEClass, MAPPING__VISIBILITY);
     createEReference(mappingEClass, MAPPING__KEY_TYPE);
     createEReference(mappingEClass, MAPPING__VALUE_TYPE);
+    createEAttribute(mappingEClass, MAPPING__NAME);
 
     arrayDimensionsEClass = createEClass(ARRAY_DIMENSIONS);
     createEReference(arrayDimensionsEClass, ARRAY_DIMENSIONS__VALUE);
@@ -3883,6 +3941,12 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     elementaryTypeNameEnumEClass = createEClass(ELEMENTARY_TYPE_NAME_ENUM);
     createEAttribute(elementaryTypeNameEnumEClass, ELEMENTARY_TYPE_NAME_ENUM__TYPE);
 
+    locationSpecifierEnumEClass = createEClass(LOCATION_SPECIFIER_ENUM);
+    createEAttribute(locationSpecifierEnumEClass, LOCATION_SPECIFIER_ENUM__TYPE);
+
+    visibilityEnumEClass = createEClass(VISIBILITY_ENUM);
+    createEAttribute(visibilityEnumEClass, VISIBILITY_ENUM__TYPE);
+
     specialVariablesTypeEnumEClass = createEClass(SPECIAL_VARIABLES_TYPE_ENUM);
     createEAttribute(specialVariablesTypeEnumEClass, SPECIAL_VARIABLES_TYPE_ENUM__NAME);
 
@@ -3898,8 +3962,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     // Create enums
     logicalOperationLiteralEEnum = createEEnum(LOGICAL_OPERATION_LITERAL);
-    locationSpecifierEnumEEnum = createEEnum(LOCATION_SPECIFIER_ENUM);
-    visibilityEnumEEnum = createEEnum(VISIBILITY_ENUM);
     assignmentOpEnumEEnum = createEEnum(ASSIGNMENT_OP_ENUM);
     equalityOpEnumEEnum = createEEnum(EQUALITY_OP_ENUM);
     comparisonOpEnumEEnum = createEEnum(COMPARISON_OP_ENUM);
@@ -4052,15 +4114,15 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEClass(constEClass, Const.class, "Const", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(visibilitySpecifierEClass, VisibilitySpecifier.class, "VisibilitySpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVisibilitySpecifier_Visibility(), this.getVisibilityEnum(), "visibility", null, 0, 1, VisibilitySpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVisibilitySpecifier_Visibility(), this.getVisibilityEnum(), null, "visibility", null, 0, 1, VisibilitySpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(structDefinitionEClass, StructDefinition.class, "StructDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStructDefinition_Visibility(), this.getVisibilityEnum(), "visibility", null, 0, 1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStructDefinition_Visibility(), this.getVisibilityEnum(), null, "visibility", null, 0, 1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStructDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStructDefinition_Members(), this.getStatement(), null, "members", null, 0, -1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumDefinitionEClass, EnumDefinition.class, "EnumDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEnumDefinition_Visibility(), this.getVisibilityEnum(), "visibility", null, 0, 1, EnumDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnumDefinition_Visibility(), this.getVisibilityEnum(), null, "visibility", null, 0, 1, EnumDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEnumDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEnumDefinition_Members(), this.getEnumValue(), null, "members", null, 0, -1, EnumDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4098,7 +4160,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEClass(constantSpecifierEClass, ConstantSpecifier.class, "ConstantSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(locationSpecifierEClass, LocationSpecifier.class, "LocationSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLocationSpecifier_Location(), this.getLocationSpecifierEnum(), "location", null, 0, 1, LocationSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLocationSpecifier_Location(), this.getLocationSpecifierEnum(), null, "location", null, 0, 1, LocationSpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_IsVarType(), ecorePackage.getEBoolean(), "isVarType", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4112,8 +4174,11 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEReference(getElementaryType_Name(), this.getElementaryTypeNameEnum(), null, "name", null, 0, 1, ElementaryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMapping_Location(), ecorePackage.getEString(), "location", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMapping_Visibility(), this.getVisibilityEnum(), null, "visibility", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapping_KeyType(), this.getElementaryTypeNameEnum(), null, "keyType", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMapping_ValueType(), this.getType(), null, "valueType", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMapping_Name(), ecorePackage.getEString(), "name", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arrayDimensionsEClass, ArrayDimensions.class, "ArrayDimensions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArrayDimensions_Value(), this.getExpression(), null, "value", null, 0, -1, ArrayDimensions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4299,6 +4364,12 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEClass(elementaryTypeNameEnumEClass, ElementaryTypeNameEnum.class, "ElementaryTypeNameEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElementaryTypeNameEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, ElementaryTypeNameEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(locationSpecifierEnumEClass, LocationSpecifierEnum.class, "LocationSpecifierEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLocationSpecifierEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, LocationSpecifierEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(visibilityEnumEClass, VisibilityEnum.class, "VisibilityEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVisibilityEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, VisibilityEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(specialVariablesTypeEnumEClass, SpecialVariablesTypeEnum.class, "SpecialVariablesTypeEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpecialVariablesTypeEnum_Name(), ecorePackage.getEString(), "name", null, 0, 1, SpecialVariablesTypeEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4322,17 +4393,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     addEEnumLiteral(logicalOperationLiteralEEnum, LogicalOperationLiteral.LTE);
     addEEnumLiteral(logicalOperationLiteralEEnum, LogicalOperationLiteral.GT);
     addEEnumLiteral(logicalOperationLiteralEEnum, LogicalOperationLiteral.LT);
-
-    initEEnum(locationSpecifierEnumEEnum, LocationSpecifierEnum.class, "LocationSpecifierEnum");
-    addEEnumLiteral(locationSpecifierEnumEEnum, LocationSpecifierEnum.MEMORY);
-    addEEnumLiteral(locationSpecifierEnumEEnum, LocationSpecifierEnum.STORAGE);
-    addEEnumLiteral(locationSpecifierEnumEEnum, LocationSpecifierEnum.CALLDATA);
-
-    initEEnum(visibilityEnumEEnum, VisibilityEnum.class, "VisibilityEnum");
-    addEEnumLiteral(visibilityEnumEEnum, VisibilityEnum.PUBLIC);
-    addEEnumLiteral(visibilityEnumEEnum, VisibilityEnum.INTERNAL);
-    addEEnumLiteral(visibilityEnumEEnum, VisibilityEnum.PRIVATE);
-    addEEnumLiteral(visibilityEnumEEnum, VisibilityEnum.EXTERNAL);
 
     initEEnum(assignmentOpEnumEEnum, AssignmentOpEnum.class, "AssignmentOpEnum");
     addEEnumLiteral(assignmentOpEnumEEnum, AssignmentOpEnum.ASSIGN);

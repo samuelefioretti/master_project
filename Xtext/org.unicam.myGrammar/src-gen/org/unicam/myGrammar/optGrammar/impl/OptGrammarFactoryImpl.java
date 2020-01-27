@@ -149,6 +149,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.TYPE_CAST: return createTypeCast();
       case OptGrammarPackage.SPECIAL_VARIABLES: return createSpecialVariables();
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM: return createElementaryTypeNameEnum();
+      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM: return createLocationSpecifierEnum();
+      case OptGrammarPackage.VISIBILITY_ENUM: return createVisibilityEnum();
       case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM: return createSpecialVariablesTypeEnum();
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION: return createVarVariableTypeDeclaration();
       case OptGrammarPackage.BLOCK: return createBlock();
@@ -170,10 +172,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
     {
       case OptGrammarPackage.LOGICAL_OPERATION_LITERAL:
         return createLogicalOperationLiteralFromString(eDataType, initialValue);
-      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
-        return createLocationSpecifierEnumFromString(eDataType, initialValue);
-      case OptGrammarPackage.VISIBILITY_ENUM:
-        return createVisibilityEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.ASSIGNMENT_OP_ENUM:
         return createAssignmentOpEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.EQUALITY_OP_ENUM:
@@ -215,10 +213,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
     {
       case OptGrammarPackage.LOGICAL_OPERATION_LITERAL:
         return convertLogicalOperationLiteralToString(eDataType, instanceValue);
-      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
-        return convertLocationSpecifierEnumToString(eDataType, instanceValue);
-      case OptGrammarPackage.VISIBILITY_ENUM:
-        return convertVisibilityEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.ASSIGNMENT_OP_ENUM:
         return convertAssignmentOpEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.EQUALITY_OP_ENUM:
@@ -1250,6 +1244,30 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
+  public LocationSpecifierEnum createLocationSpecifierEnum()
+  {
+    LocationSpecifierEnumImpl locationSpecifierEnum = new LocationSpecifierEnumImpl();
+    return locationSpecifierEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VisibilityEnum createVisibilityEnum()
+  {
+    VisibilityEnumImpl visibilityEnum = new VisibilityEnumImpl();
+    return visibilityEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SpecialVariablesTypeEnum createSpecialVariablesTypeEnum()
   {
     SpecialVariablesTypeEnumImpl specialVariablesTypeEnum = new SpecialVariablesTypeEnumImpl();
@@ -1310,50 +1328,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   public String convertLogicalOperationLiteralToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LocationSpecifierEnum createLocationSpecifierEnumFromString(EDataType eDataType, String initialValue)
-  {
-    LocationSpecifierEnum result = LocationSpecifierEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertLocationSpecifierEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VisibilityEnum createVisibilityEnumFromString(EDataType eDataType, String initialValue)
-  {
-    VisibilityEnum result = VisibilityEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertVisibilityEnumToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

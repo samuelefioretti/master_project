@@ -15,6 +15,7 @@ import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Type;
+import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,14 +25,47 @@ import org.unicam.myGrammar.optGrammar.Type;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.MappingImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.MappingImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.MappingImpl#getKeyType <em>Key Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.MappingImpl#getValueType <em>Value Type</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.MappingImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MappingImpl extends StandardTypeImpl implements Mapping
 {
+  /**
+   * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLocation()
+   * @generated
+   * @ordered
+   */
+  protected static final String LOCATION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLocation()
+   * @generated
+   * @ordered
+   */
+  protected String location = LOCATION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibility()
+   * @generated
+   * @ordered
+   */
+  protected VisibilityEnum visibility;
+
   /**
    * The cached value of the '{@link #getKeyType() <em>Key Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -53,6 +87,26 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
   protected Type valueType;
 
   /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -71,6 +125,81 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
   protected EClass eStaticClass()
   {
     return OptGrammarPackage.Literals.MAPPING;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getLocation()
+  {
+    return location;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setLocation(String newLocation)
+  {
+    String oldLocation = location;
+    location = newLocation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.MAPPING__LOCATION, oldLocation, location));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VisibilityEnum getVisibility()
+  {
+    return visibility;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetVisibility(VisibilityEnum newVisibility, NotificationChain msgs)
+  {
+    VisibilityEnum oldVisibility = visibility;
+    visibility = newVisibility;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.MAPPING__VISIBILITY, oldVisibility, newVisibility);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVisibility(VisibilityEnum newVisibility)
+  {
+    if (newVisibility != visibility)
+    {
+      NotificationChain msgs = null;
+      if (visibility != null)
+        msgs = ((InternalEObject)visibility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.MAPPING__VISIBILITY, null, msgs);
+      if (newVisibility != null)
+        msgs = ((InternalEObject)newVisibility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.MAPPING__VISIBILITY, null, msgs);
+      msgs = basicSetVisibility(newVisibility, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.MAPPING__VISIBILITY, newVisibility, newVisibility));
   }
 
   /**
@@ -179,10 +308,37 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
    * @generated
    */
   @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.MAPPING__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case OptGrammarPackage.MAPPING__VISIBILITY:
+        return basicSetVisibility(null, msgs);
       case OptGrammarPackage.MAPPING__KEY_TYPE:
         return basicSetKeyType(null, msgs);
       case OptGrammarPackage.MAPPING__VALUE_TYPE:
@@ -201,10 +357,16 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
   {
     switch (featureID)
     {
+      case OptGrammarPackage.MAPPING__LOCATION:
+        return getLocation();
+      case OptGrammarPackage.MAPPING__VISIBILITY:
+        return getVisibility();
       case OptGrammarPackage.MAPPING__KEY_TYPE:
         return getKeyType();
       case OptGrammarPackage.MAPPING__VALUE_TYPE:
         return getValueType();
+      case OptGrammarPackage.MAPPING__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -219,11 +381,20 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
   {
     switch (featureID)
     {
+      case OptGrammarPackage.MAPPING__LOCATION:
+        setLocation((String)newValue);
+        return;
+      case OptGrammarPackage.MAPPING__VISIBILITY:
+        setVisibility((VisibilityEnum)newValue);
+        return;
       case OptGrammarPackage.MAPPING__KEY_TYPE:
         setKeyType((ElementaryTypeNameEnum)newValue);
         return;
       case OptGrammarPackage.MAPPING__VALUE_TYPE:
         setValueType((Type)newValue);
+        return;
+      case OptGrammarPackage.MAPPING__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -239,11 +410,20 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
   {
     switch (featureID)
     {
+      case OptGrammarPackage.MAPPING__LOCATION:
+        setLocation(LOCATION_EDEFAULT);
+        return;
+      case OptGrammarPackage.MAPPING__VISIBILITY:
+        setVisibility((VisibilityEnum)null);
+        return;
       case OptGrammarPackage.MAPPING__KEY_TYPE:
         setKeyType((ElementaryTypeNameEnum)null);
         return;
       case OptGrammarPackage.MAPPING__VALUE_TYPE:
         setValueType((Type)null);
+        return;
+      case OptGrammarPackage.MAPPING__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -259,12 +439,37 @@ public class MappingImpl extends StandardTypeImpl implements Mapping
   {
     switch (featureID)
     {
+      case OptGrammarPackage.MAPPING__LOCATION:
+        return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+      case OptGrammarPackage.MAPPING__VISIBILITY:
+        return visibility != null;
       case OptGrammarPackage.MAPPING__KEY_TYPE:
         return keyType != null;
       case OptGrammarPackage.MAPPING__VALUE_TYPE:
         return valueType != null;
+      case OptGrammarPackage.MAPPING__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (location: ");
+    result.append(location);
+    result.append(", name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //MappingImpl

@@ -676,7 +676,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class VisibilitySpecifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.VisibilitySpecifier");
 		private final Assignment cVisibilityAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cVisibilityVisibilityEnumEnumRuleCall_0 = (RuleCall)cVisibilityAssignment.eContents().get(0);
+		private final RuleCall cVisibilityVisibilityEnumParserRuleCall_0 = (RuleCall)cVisibilityAssignment.eContents().get(0);
 		
 		//VisibilitySpecifier:
 		//	visibility=VisibilityEnum;
@@ -686,13 +686,13 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getVisibilityAssignment() { return cVisibilityAssignment; }
 		
 		//VisibilityEnum
-		public RuleCall getVisibilityVisibilityEnumEnumRuleCall_0() { return cVisibilityVisibilityEnumEnumRuleCall_0; }
+		public RuleCall getVisibilityVisibilityEnumParserRuleCall_0() { return cVisibilityVisibilityEnumParserRuleCall_0; }
 	}
 	public class StructDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.StructDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVisibilityAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cVisibilityVisibilityEnumEnumRuleCall_0_0 = (RuleCall)cVisibilityAssignment_0.eContents().get(0);
+		private final RuleCall cVisibilityVisibilityEnumParserRuleCall_0_0 = (RuleCall)cVisibilityAssignment_0.eContents().get(0);
 		private final Keyword cStructKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
@@ -715,7 +715,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getVisibilityAssignment_0() { return cVisibilityAssignment_0; }
 		
 		//VisibilityEnum
-		public RuleCall getVisibilityVisibilityEnumEnumRuleCall_0_0() { return cVisibilityVisibilityEnumEnumRuleCall_0_0; }
+		public RuleCall getVisibilityVisibilityEnumParserRuleCall_0_0() { return cVisibilityVisibilityEnumParserRuleCall_0_0; }
 		
 		//"struct"
 		public Keyword getStructKeyword_1() { return cStructKeyword_1; }
@@ -748,7 +748,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.EnumDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVisibilityAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cVisibilityVisibilityEnumEnumRuleCall_0_0 = (RuleCall)cVisibilityAssignment_0.eContents().get(0);
+		private final RuleCall cVisibilityVisibilityEnumParserRuleCall_0_0 = (RuleCall)cVisibilityAssignment_0.eContents().get(0);
 		private final Keyword cEnumKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
@@ -774,7 +774,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getVisibilityAssignment_0() { return cVisibilityAssignment_0; }
 		
 		//VisibilityEnum
-		public RuleCall getVisibilityVisibilityEnumEnumRuleCall_0_0() { return cVisibilityVisibilityEnumEnumRuleCall_0_0; }
+		public RuleCall getVisibilityVisibilityEnumParserRuleCall_0_0() { return cVisibilityVisibilityEnumParserRuleCall_0_0; }
 		
 		//"enum"
 		public Keyword getEnumKeyword_1() { return cEnumKeyword_1; }
@@ -1072,7 +1072,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class LocationSpecifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.LocationSpecifier");
 		private final Assignment cLocationAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cLocationLocationSpecifierEnumEnumRuleCall_0 = (RuleCall)cLocationAssignment.eContents().get(0);
+		private final RuleCall cLocationLocationSpecifierEnumParserRuleCall_0 = (RuleCall)cLocationAssignment.eContents().get(0);
 		
 		//LocationSpecifier:
 		//	location=LocationSpecifierEnum;
@@ -1082,7 +1082,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getLocationAssignment() { return cLocationAssignment; }
 		
 		//LocationSpecifierEnum
-		public RuleCall getLocationLocationSpecifierEnumEnumRuleCall_0() { return cLocationLocationSpecifierEnumEnumRuleCall_0; }
+		public RuleCall getLocationLocationSpecifierEnumParserRuleCall_0() { return cLocationLocationSpecifierEnumParserRuleCall_0; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Type");
@@ -1192,47 +1192,72 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class MappingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Mapping");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMappingKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cKeyTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cKeyTypeElementaryTypeNameEnumParserRuleCall_2_0 = (RuleCall)cKeyTypeAssignment_2.eContents().get(0);
-		private final Keyword cEqualsSignGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cValueTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cValueTypeTypeParserRuleCall_4_0 = (RuleCall)cValueTypeAssignment_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cLocationAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cLocationStorageKeyword_0_0 = (Keyword)cLocationAssignment_0.eContents().get(0);
+		private final Assignment cVisibilityAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cVisibilityVisibilityEnumParserRuleCall_1_0 = (RuleCall)cVisibilityAssignment_1.eContents().get(0);
+		private final Keyword cMappingKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cKeyTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cKeyTypeElementaryTypeNameEnumParserRuleCall_4_0 = (RuleCall)cKeyTypeAssignment_4.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cValueTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cValueTypeTypeParserRuleCall_6_0 = (RuleCall)cValueTypeAssignment_6.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cNameAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cNameIDTerminalRuleCall_8_0 = (RuleCall)cNameAssignment_8.eContents().get(0);
 		
 		//Mapping:
-		//	"mapping" "("
+		//	location="storage"? visibility=VisibilityEnum? "mapping" "("
 		//	keyType=ElementaryTypeNameEnum "=>" valueType=Type
-		//	")";
+		//	")" name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"mapping" "(" keyType=ElementaryTypeNameEnum "=>" valueType=Type ")"
+		//location="storage"? visibility=VisibilityEnum? "mapping" "(" keyType=ElementaryTypeNameEnum "=>" valueType=Type ")"
+		//name=ID
 		public Group getGroup() { return cGroup; }
 		
+		//location="storage"?
+		public Assignment getLocationAssignment_0() { return cLocationAssignment_0; }
+		
+		//"storage"
+		public Keyword getLocationStorageKeyword_0_0() { return cLocationStorageKeyword_0_0; }
+		
+		//visibility=VisibilityEnum?
+		public Assignment getVisibilityAssignment_1() { return cVisibilityAssignment_1; }
+		
+		//VisibilityEnum
+		public RuleCall getVisibilityVisibilityEnumParserRuleCall_1_0() { return cVisibilityVisibilityEnumParserRuleCall_1_0; }
+		
 		//"mapping"
-		public Keyword getMappingKeyword_0() { return cMappingKeyword_0; }
+		public Keyword getMappingKeyword_2() { return cMappingKeyword_2; }
 		
 		//"("
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
 		
 		//keyType=ElementaryTypeNameEnum
-		public Assignment getKeyTypeAssignment_2() { return cKeyTypeAssignment_2; }
+		public Assignment getKeyTypeAssignment_4() { return cKeyTypeAssignment_4; }
 		
 		//ElementaryTypeNameEnum
-		public RuleCall getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0() { return cKeyTypeElementaryTypeNameEnumParserRuleCall_2_0; }
+		public RuleCall getKeyTypeElementaryTypeNameEnumParserRuleCall_4_0() { return cKeyTypeElementaryTypeNameEnumParserRuleCall_4_0; }
 		
 		//"=>"
-		public Keyword getEqualsSignGreaterThanSignKeyword_3() { return cEqualsSignGreaterThanSignKeyword_3; }
+		public Keyword getEqualsSignGreaterThanSignKeyword_5() { return cEqualsSignGreaterThanSignKeyword_5; }
 		
 		//valueType=Type
-		public Assignment getValueTypeAssignment_4() { return cValueTypeAssignment_4; }
+		public Assignment getValueTypeAssignment_6() { return cValueTypeAssignment_6; }
 		
 		//Type
-		public RuleCall getValueTypeTypeParserRuleCall_4_0() { return cValueTypeTypeParserRuleCall_4_0; }
+		public RuleCall getValueTypeTypeParserRuleCall_6_0() { return cValueTypeTypeParserRuleCall_6_0; }
 		
 		//")"
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+		
+		//name=ID
+		public Assignment getNameAssignment_8() { return cNameAssignment_8; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_8_0() { return cNameIDTerminalRuleCall_8_0; }
 	}
 	public class ArrayDimensionsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ArrayDimensions");
@@ -4008,6 +4033,69 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"ureal"
 		public Keyword getTypeUrealKeyword_3_0_4() { return cTypeUrealKeyword_3_0_4; }
 	}
+	public class LocationSpecifierEnumElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.LocationSpecifierEnum");
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cTypeAlternatives_0 = (Alternatives)cTypeAssignment.eContents().get(0);
+		private final Keyword cTypeMemoryKeyword_0_0 = (Keyword)cTypeAlternatives_0.eContents().get(0);
+		private final Keyword cTypeStorageKeyword_0_1 = (Keyword)cTypeAlternatives_0.eContents().get(1);
+		private final Keyword cTypeCalldataKeyword_0_2 = (Keyword)cTypeAlternatives_0.eContents().get(2);
+		
+		//LocationSpecifierEnum:
+		//	type=("memory" |
+		//	"storage" |
+		//	"calldata");
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=("memory" | "storage" | "calldata")
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
+		
+		//("memory" | "storage" | "calldata")
+		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
+		
+		//"memory"
+		public Keyword getTypeMemoryKeyword_0_0() { return cTypeMemoryKeyword_0_0; }
+		
+		//"storage"
+		public Keyword getTypeStorageKeyword_0_1() { return cTypeStorageKeyword_0_1; }
+		
+		//"calldata"
+		public Keyword getTypeCalldataKeyword_0_2() { return cTypeCalldataKeyword_0_2; }
+	}
+	public class VisibilityEnumElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.VisibilityEnum");
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cTypeAlternatives_0 = (Alternatives)cTypeAssignment.eContents().get(0);
+		private final Keyword cTypePublicKeyword_0_0 = (Keyword)cTypeAlternatives_0.eContents().get(0);
+		private final Keyword cTypeInternalKeyword_0_1 = (Keyword)cTypeAlternatives_0.eContents().get(1);
+		private final Keyword cTypePrivateKeyword_0_2 = (Keyword)cTypeAlternatives_0.eContents().get(2);
+		private final Keyword cTypeExternalKeyword_0_3 = (Keyword)cTypeAlternatives_0.eContents().get(3);
+		
+		//VisibilityEnum:
+		//	type=("public" |
+		//	"internal" |
+		//	"private" |
+		//	"external");
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=("public" | "internal" | "private" | "external")
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
+		
+		//("public" | "internal" | "private" | "external")
+		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
+		
+		//"public"
+		public Keyword getTypePublicKeyword_0_0() { return cTypePublicKeyword_0_0; }
+		
+		//"internal"
+		public Keyword getTypeInternalKeyword_0_1() { return cTypeInternalKeyword_0_1; }
+		
+		//"private"
+		public Keyword getTypePrivateKeyword_0_2() { return cTypePrivateKeyword_0_2; }
+		
+		//"external"
+		public Keyword getTypeExternalKeyword_0_3() { return cTypeExternalKeyword_0_3; }
+	}
 	public class SpecialVariablesTypeEnumElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SpecialVariablesTypeEnum");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
@@ -4118,89 +4206,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'<'
 		public Keyword getLTLessThanSignKeyword_7_0() { return cLTLessThanSignKeyword_7_0; }
-	}
-	public class LocationSpecifierEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.LocationSpecifierEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cMEMORYEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cMEMORYMemoryKeyword_0_0 = (Keyword)cMEMORYEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cSTORAGEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cSTORAGEStorageKeyword_1_0 = (Keyword)cSTORAGEEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cCALLDATAEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cCALLDATACalldataKeyword_2_0 = (Keyword)cCALLDATAEnumLiteralDeclaration_2.eContents().get(0);
-		
-		//enum LocationSpecifierEnum:
-		//	MEMORY="memory" |
-		//	STORAGE="storage" |
-		//	CALLDATA="calldata";
-		public EnumRule getRule() { return rule; }
-		
-		//MEMORY="memory" | STORAGE="storage" | CALLDATA="calldata"
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//MEMORY="memory"
-		public EnumLiteralDeclaration getMEMORYEnumLiteralDeclaration_0() { return cMEMORYEnumLiteralDeclaration_0; }
-		
-		//"memory"
-		public Keyword getMEMORYMemoryKeyword_0_0() { return cMEMORYMemoryKeyword_0_0; }
-		
-		//STORAGE="storage"
-		public EnumLiteralDeclaration getSTORAGEEnumLiteralDeclaration_1() { return cSTORAGEEnumLiteralDeclaration_1; }
-		
-		//"storage"
-		public Keyword getSTORAGEStorageKeyword_1_0() { return cSTORAGEStorageKeyword_1_0; }
-		
-		//CALLDATA="calldata"
-		public EnumLiteralDeclaration getCALLDATAEnumLiteralDeclaration_2() { return cCALLDATAEnumLiteralDeclaration_2; }
-		
-		//"calldata"
-		public Keyword getCALLDATACalldataKeyword_2_0() { return cCALLDATACalldataKeyword_2_0; }
-	}
-	public class VisibilityEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.VisibilityEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cPUBLICEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cPUBLICPublicKeyword_0_0 = (Keyword)cPUBLICEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cINTERNALEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cINTERNALInternalKeyword_1_0 = (Keyword)cINTERNALEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cPRIVATEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cPRIVATEPrivateKeyword_2_0 = (Keyword)cPRIVATEEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cEXTERNALEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cEXTERNALExternalKeyword_3_0 = (Keyword)cEXTERNALEnumLiteralDeclaration_3.eContents().get(0);
-		
-		//enum VisibilityEnum:
-		//	PUBLIC="public" |
-		//	INTERNAL="internal" |
-		//	PRIVATE="private" |
-		//	EXTERNAL="external";
-		public EnumRule getRule() { return rule; }
-		
-		//PUBLIC="public" | INTERNAL="internal" | PRIVATE="private" | EXTERNAL="external"
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//PUBLIC="public"
-		public EnumLiteralDeclaration getPUBLICEnumLiteralDeclaration_0() { return cPUBLICEnumLiteralDeclaration_0; }
-		
-		//"public"
-		public Keyword getPUBLICPublicKeyword_0_0() { return cPUBLICPublicKeyword_0_0; }
-		
-		//INTERNAL="internal"
-		public EnumLiteralDeclaration getINTERNALEnumLiteralDeclaration_1() { return cINTERNALEnumLiteralDeclaration_1; }
-		
-		//"internal"
-		public Keyword getINTERNALInternalKeyword_1_0() { return cINTERNALInternalKeyword_1_0; }
-		
-		//PRIVATE="private"
-		public EnumLiteralDeclaration getPRIVATEEnumLiteralDeclaration_2() { return cPRIVATEEnumLiteralDeclaration_2; }
-		
-		//"private"
-		public Keyword getPRIVATEPrivateKeyword_2_0() { return cPRIVATEPrivateKeyword_2_0; }
-		
-		//EXTERNAL="external"
-		public EnumLiteralDeclaration getEXTERNALEnumLiteralDeclaration_3() { return cEXTERNALEnumLiteralDeclaration_3; }
-		
-		//"external"
-		public Keyword getEXTERNALExternalKeyword_3_0() { return cEXTERNALExternalKeyword_3_0; }
 	}
 	public class AssignmentOpEnumElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.AssignmentOpEnum");
@@ -4927,8 +4932,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tHEX;
 	private final TerminalRule tDECIMAL;
 	private final ElementaryTypeNameEnumElements pElementaryTypeNameEnum;
-	private final LocationSpecifierEnumElements eLocationSpecifierEnum;
-	private final VisibilityEnumElements eVisibilityEnum;
+	private final LocationSpecifierEnumElements pLocationSpecifierEnum;
+	private final VisibilityEnumElements pVisibilityEnum;
 	private final AssignmentOpEnumElements eAssignmentOpEnum;
 	private final EqualityOpEnumElements eEqualityOpEnum;
 	private final ComparisonOpEnumElements eComparisonOpEnum;
@@ -5043,8 +5048,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.HEX");
 		this.tDECIMAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.DECIMAL");
 		this.pElementaryTypeNameEnum = new ElementaryTypeNameEnumElements();
-		this.eLocationSpecifierEnum = new LocationSpecifierEnumElements();
-		this.eVisibilityEnum = new VisibilityEnumElements();
+		this.pLocationSpecifierEnum = new LocationSpecifierEnumElements();
+		this.pVisibilityEnum = new VisibilityEnumElements();
 		this.eAssignmentOpEnum = new AssignmentOpEnumElements();
 		this.eEqualityOpEnum = new EqualityOpEnumElements();
 		this.eComparisonOpEnum = new ComparisonOpEnumElements();
@@ -5402,9 +5407,9 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Mapping:
-	//	"mapping" "("
+	//	location="storage"? visibility=VisibilityEnum? "mapping" "("
 	//	keyType=ElementaryTypeNameEnum "=>" valueType=Type
-	//	")";
+	//	")" name=ID;
 	public MappingElements getMappingAccess() {
 		return pMapping;
 	}
@@ -6129,28 +6134,28 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getElementaryTypeNameEnumAccess().getRule();
 	}
 	
-	//enum LocationSpecifierEnum:
-	//	MEMORY="memory" |
-	//	STORAGE="storage" |
-	//	CALLDATA="calldata";
+	//LocationSpecifierEnum:
+	//	type=("memory" |
+	//	"storage" |
+	//	"calldata");
 	public LocationSpecifierEnumElements getLocationSpecifierEnumAccess() {
-		return eLocationSpecifierEnum;
+		return pLocationSpecifierEnum;
 	}
 	
-	public EnumRule getLocationSpecifierEnumRule() {
+	public ParserRule getLocationSpecifierEnumRule() {
 		return getLocationSpecifierEnumAccess().getRule();
 	}
 	
-	//enum VisibilityEnum:
-	//	PUBLIC="public" |
-	//	INTERNAL="internal" |
-	//	PRIVATE="private" |
-	//	EXTERNAL="external";
+	//VisibilityEnum:
+	//	type=("public" |
+	//	"internal" |
+	//	"private" |
+	//	"external");
 	public VisibilityEnumElements getVisibilityEnumAccess() {
-		return eVisibilityEnum;
+		return pVisibilityEnum;
 	}
 	
-	public EnumRule getVisibilityEnumRule() {
+	public ParserRule getVisibilityEnumRule() {
 		return getVisibilityEnumAccess().getRule();
 	}
 	

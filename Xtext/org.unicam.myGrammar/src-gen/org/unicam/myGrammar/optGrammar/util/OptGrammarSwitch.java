@@ -715,6 +715,20 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
+      {
+        LocationSpecifierEnum locationSpecifierEnum = (LocationSpecifierEnum)theEObject;
+        T result = caseLocationSpecifierEnum(locationSpecifierEnum);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.VISIBILITY_ENUM:
+      {
+        VisibilityEnum visibilityEnum = (VisibilityEnum)theEObject;
+        T result = caseVisibilityEnum(visibilityEnum);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM:
       {
         SpecialVariablesTypeEnum specialVariablesTypeEnum = (SpecialVariablesTypeEnum)theEObject;
@@ -2078,6 +2092,38 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseElementaryTypeNameEnum(ElementaryTypeNameEnum object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Location Specifier Enum</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Location Specifier Enum</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLocationSpecifierEnum(LocationSpecifierEnum object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Visibility Enum</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Visibility Enum</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVisibilityEnum(VisibilityEnum object)
   {
     return null;
   }

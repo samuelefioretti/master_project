@@ -28,25 +28,22 @@ import org.eclipse.emf.ecore.EObject;
 public interface StructDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Visibility</b></em>' attribute.
-   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.VisibilityEnum}.
+   * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Visibility</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
+   * @return the value of the '<em>Visibility</em>' containment reference.
    * @see #setVisibility(VisibilityEnum)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDefinition_Visibility()
-   * @model
+   * @model containment="true"
    * @generated
    */
   VisibilityEnum getVisibility();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility <em>Visibility</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility <em>Visibility</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Visibility</em>' attribute.
-   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
+   * @param value the new value of the '<em>Visibility</em>' containment reference.
    * @see #getVisibility()
    * @generated
    */

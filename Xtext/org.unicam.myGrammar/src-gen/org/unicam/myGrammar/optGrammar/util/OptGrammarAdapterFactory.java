@@ -491,6 +491,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createElementaryTypeNameEnumAdapter();
       }
       @Override
+      public Adapter caseLocationSpecifierEnum(LocationSpecifierEnum object)
+      {
+        return createLocationSpecifierEnumAdapter();
+      }
+      @Override
+      public Adapter caseVisibilityEnum(VisibilityEnum object)
+      {
+        return createVisibilityEnumAdapter();
+      }
+      @Override
       public Adapter caseSpecialVariablesTypeEnum(SpecialVariablesTypeEnum object)
       {
         return createSpecialVariablesTypeEnumAdapter();
@@ -1773,6 +1783,36 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementaryTypeNameEnumAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.LocationSpecifierEnum
+   * @generated
+   */
+  public Adapter createLocationSpecifierEnumAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.VisibilityEnum <em>Visibility Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.VisibilityEnum
+   * @generated
+   */
+  public Adapter createVisibilityEnumAdapter()
   {
     return null;
   }
