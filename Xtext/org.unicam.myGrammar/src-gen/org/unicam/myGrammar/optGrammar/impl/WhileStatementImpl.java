@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.Expression;
+import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Statement;
 import org.unicam.myGrammar.optGrammar.WhileStatement;
@@ -40,7 +40,7 @@ public class WhileStatementImpl extends LoopStructuresImpl implements WhileState
    * @generated
    * @ordered
    */
-  protected Expression condition;
+  protected LogicalOperations condition;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -79,7 +79,7 @@ public class WhileStatementImpl extends LoopStructuresImpl implements WhileState
    * @generated
    */
   @Override
-  public Expression getCondition()
+  public LogicalOperations getCondition()
   {
     return condition;
   }
@@ -89,9 +89,9 @@ public class WhileStatementImpl extends LoopStructuresImpl implements WhileState
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCondition(Expression newCondition, NotificationChain msgs)
+  public NotificationChain basicSetCondition(LogicalOperations newCondition, NotificationChain msgs)
   {
-    Expression oldCondition = condition;
+    LogicalOperations oldCondition = condition;
     condition = newCondition;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class WhileStatementImpl extends LoopStructuresImpl implements WhileState
    * @generated
    */
   @Override
-  public void setCondition(Expression newCondition)
+  public void setCondition(LogicalOperations newCondition)
   {
     if (newCondition != condition)
     {
@@ -220,7 +220,7 @@ public class WhileStatementImpl extends LoopStructuresImpl implements WhileState
     switch (featureID)
     {
       case OptGrammarPackage.WHILE_STATEMENT__CONDITION:
-        setCondition((Expression)newValue);
+        setCondition((LogicalOperations)newValue);
         return;
       case OptGrammarPackage.WHILE_STATEMENT__BODY:
         setBody((Statement)newValue);
@@ -240,7 +240,7 @@ public class WhileStatementImpl extends LoopStructuresImpl implements WhileState
     switch (featureID)
     {
       case OptGrammarPackage.WHILE_STATEMENT__CONDITION:
-        setCondition((Expression)null);
+        setCondition((LogicalOperations)null);
         return;
       case OptGrammarPackage.WHILE_STATEMENT__BODY:
         setBody((Statement)null);

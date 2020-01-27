@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.IfStatement;
+import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Statement;
 
@@ -41,7 +41,7 @@ public class IfStatementImpl extends LoopStructuresImpl implements IfStatement
    * @generated
    * @ordered
    */
-  protected Expression condition;
+  protected LogicalOperations condition;
 
   /**
    * The cached value of the '{@link #getTrueBody() <em>True Body</em>}' containment reference.
@@ -90,7 +90,7 @@ public class IfStatementImpl extends LoopStructuresImpl implements IfStatement
    * @generated
    */
   @Override
-  public Expression getCondition()
+  public LogicalOperations getCondition()
   {
     return condition;
   }
@@ -100,9 +100,9 @@ public class IfStatementImpl extends LoopStructuresImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetCondition(Expression newCondition, NotificationChain msgs)
+  public NotificationChain basicSetCondition(LogicalOperations newCondition, NotificationChain msgs)
   {
-    Expression oldCondition = condition;
+    LogicalOperations oldCondition = condition;
     condition = newCondition;
     if (eNotificationRequired())
     {
@@ -118,7 +118,7 @@ public class IfStatementImpl extends LoopStructuresImpl implements IfStatement
    * @generated
    */
   @Override
-  public void setCondition(Expression newCondition)
+  public void setCondition(LogicalOperations newCondition)
   {
     if (newCondition != condition)
     {
@@ -285,7 +285,7 @@ public class IfStatementImpl extends LoopStructuresImpl implements IfStatement
     switch (featureID)
     {
       case OptGrammarPackage.IF_STATEMENT__CONDITION:
-        setCondition((Expression)newValue);
+        setCondition((LogicalOperations)newValue);
         return;
       case OptGrammarPackage.IF_STATEMENT__TRUE_BODY:
         setTrueBody((Statement)newValue);
@@ -308,7 +308,7 @@ public class IfStatementImpl extends LoopStructuresImpl implements IfStatement
     switch (featureID)
     {
       case OptGrammarPackage.IF_STATEMENT__CONDITION:
-        setCondition((Expression)null);
+        setCondition((LogicalOperations)null);
         return;
       case OptGrammarPackage.IF_STATEMENT__TRUE_BODY:
         setTrueBody((Statement)null);

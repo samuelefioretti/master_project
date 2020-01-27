@@ -4,8 +4,6 @@ import com.google.inject.Inject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ComposedChecks;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
-import org.eclipse.xtext.xbase.lib.StringExtensions;
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
@@ -28,7 +26,6 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
   @Check
   public void checkValidIndex(final /* ArrayIndex */Object arrI) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field ARRAY_INDEX__VALUE is undefined for the type Class<Literals>"
       + "\nvalue cannot be resolved"
       + "\ngetErrorString cannot be resolved"
       + "\nnullOrEmpty cannot be resolved"
@@ -37,12 +34,14 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
   
   public String checkValidIndex(final Literal toCheck) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field returnType is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnType is undefined for the type FunctionDefinition"
+      + "\nThe method or field nullOrEmpty is undefined for the type Object"
+      + "\nThe method or field nullOrEmpty is undefined for the type Object"
       + "\nThe method or field ref is undefined for the type Literal"
       + "\nThe method or field ref is undefined for the type Literal"
-      + "\n=== cannot be resolved"
-      + "\nvalidIntoArrayIndex cannot be resolved"
+      + "\nType mismatch: cannot convert from Object to String"
+      + "\nType mismatch: cannot convert from Object to String"
+      + "\nThe method validIntoArrayIndex(Declaration) from the type CorrectIndexValidator refers to the missing type Declaration"
+      + "\n! cannot be resolved"
       + "\n! cannot be resolved"
       + "\n!== cannot be resolved"
       + "\n&& cannot be resolved"
@@ -50,48 +49,29 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
       + "\n! cannot be resolved");
   }
   
-  public String getErrorString(final Expression logicalOperations) {
-    if (((logicalOperations.getOperations() != null) && (!logicalOperations.getOperations().isEmpty()))) {
-      return "Boolean expression are not usable as Array Index";
-    }
-    boolean _isTernary = logicalOperations.isTernary();
-    if (_isTernary) {
-      final String trueMessage = this.checkValidIndex(logicalOperations.getTrue());
-      final String falseMessage = this.checkValidIndex(logicalOperations.getFalse());
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(trueMessage);
-      if (_isNullOrEmpty) {
-        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(falseMessage);
-        if (_isNullOrEmpty_1) {
-          return null;
-        } else {
-          return ("Error in false statement: " + falseMessage);
-        }
-      }
-      return ("Error in true statement: " + trueMessage);
-    }
-    return this.checkValidIndex(logicalOperations.getFirst());
+  public String getErrorString(final /* Expression */Object logicalOperations) {
+    throw new Error("Unresolved compilation problems:"
+      + "\noperations cannot be resolved"
+      + "\n!== cannot be resolved"
+      + "\n&& cannot be resolved"
+      + "\noperations cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\nternary cannot be resolved"
+      + "\n^true cannot be resolved"
+      + "\ncheckValidIndex cannot be resolved"
+      + "\n^false cannot be resolved"
+      + "\ncheckValidIndex cannot be resolved"
+      + "\nisNullOrEmpty cannot be resolved"
+      + "\nisNullOrEmpty cannot be resolved"
+      + "\nfirst cannot be resolved"
+      + "\ncheckValidIndex cannot be resolved");
   }
   
-  public String getErrorString(final PrimaryArithmetic primaryArithmetic) {
-    boolean _matched = false;
-    if (primaryArithmetic instanceof NumericLiteral) {
-      _matched=true;
-      String _xifexpression = null;
-      boolean _validIntoArrayIndex = this.validIntoArrayIndex(((NumericLiteral)primaryArithmetic));
-      if (_validIntoArrayIndex) {
-        _xifexpression = null;
-      } else {
-        _xifexpression = "The inserted number is not correct";
-      }
-      return _xifexpression;
-    }
-    if (!_matched) {
-      if (primaryArithmetic instanceof Expression) {
-        _matched=true;
-        return this.getErrorString(((Expression)primaryArithmetic));
-      }
-    }
-    return null;
+  public Object getErrorString(final PrimaryArithmetic primaryArithmetic) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nExpression cannot be resolved to a type."
+      + "\nUnreachable code: The case can never match. It is already handled by a previous condition.");
   }
   
   public boolean validIntoArrayIndex(final /* Declaration */Object dec) {

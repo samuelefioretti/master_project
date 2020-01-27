@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.Expression;
+import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.Variable;
@@ -51,7 +51,7 @@ public class VarVariableTypeDeclarationImpl extends SimpleStatementImpl implemen
    * @generated
    * @ordered
    */
-  protected Expression expression;
+  protected LogicalOperations expression;
 
   /**
    * The default value of the '{@link #isSemicolon() <em>Semicolon</em>}' attribute.
@@ -150,7 +150,7 @@ public class VarVariableTypeDeclarationImpl extends SimpleStatementImpl implemen
    * @generated
    */
   @Override
-  public Expression getExpression()
+  public LogicalOperations getExpression()
   {
     return expression;
   }
@@ -160,9 +160,9 @@ public class VarVariableTypeDeclarationImpl extends SimpleStatementImpl implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(LogicalOperations newExpression, NotificationChain msgs)
   {
-    Expression oldExpression = expression;
+    LogicalOperations oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -178,7 +178,7 @@ public class VarVariableTypeDeclarationImpl extends SimpleStatementImpl implemen
    * @generated
    */
   @Override
-  public void setExpression(Expression newExpression)
+  public void setExpression(LogicalOperations newExpression)
   {
     if (newExpression != expression)
     {
@@ -271,7 +271,7 @@ public class VarVariableTypeDeclarationImpl extends SimpleStatementImpl implemen
         setVariable((Variable)newValue);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION__EXPRESSION:
-        setExpression((Expression)newValue);
+        setExpression((LogicalOperations)newValue);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION__SEMICOLON:
         setSemicolon((Boolean)newValue);
@@ -294,7 +294,7 @@ public class VarVariableTypeDeclarationImpl extends SimpleStatementImpl implemen
         setVariable((Variable)null);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION__EXPRESSION:
-        setExpression((Expression)null);
+        setExpression((LogicalOperations)null);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION__SEMICOLON:
         setSemicolon(SEMICOLON_EDEFAULT);

@@ -3,43 +3,55 @@
  */
 package org.unicam.myGrammar.optGrammar.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.Statement;
-import org.unicam.myGrammar.optGrammar.StructDefinition;
+import org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Struct Definition</b></em>'.
+ * An implementation of the model object '<em><b>Primary Type Declaration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl#getVisibility <em>Visibility</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDeclarationImpl#isConstant <em>Constant</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDeclarationImpl#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDeclarationImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StructDefinitionImpl extends DeclarationImpl implements StructDefinition
+public class PrimaryTypeDeclarationImpl extends PrimaryTypeDefinitionDeclarationImpl implements PrimaryTypeDeclaration
 {
+  /**
+   * The default value of the '{@link #isConstant() <em>Constant</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isConstant()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean CONSTANT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isConstant() <em>Constant</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isConstant()
+   * @generated
+   * @ordered
+   */
+  protected boolean constant = CONSTANT_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,21 +83,11 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMembers()
-   * @generated
-   * @ordered
-   */
-  protected EList<Statement> members;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StructDefinitionImpl()
+  protected PrimaryTypeDeclarationImpl()
   {
     super();
   }
@@ -98,7 +100,32 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.STRUCT_DEFINITION;
+    return OptGrammarPackage.Literals.PRIMARY_TYPE_DECLARATION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean isConstant()
+  {
+    return constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConstant(boolean newConstant)
+  {
+    boolean oldConstant = constant;
+    constant = newConstant;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.PRIMARY_TYPE_DECLARATION__CONSTANT, oldConstant, constant));
   }
 
   /**
@@ -123,7 +150,7 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
     visibility = newVisibility;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY, oldVisibility, newVisibility);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, oldVisibility, newVisibility);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -141,14 +168,14 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
     {
       NotificationChain msgs = null;
       if (visibility != null)
-        msgs = ((InternalEObject)visibility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY, null, msgs);
+        msgs = ((InternalEObject)visibility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, null, msgs);
       if (newVisibility != null)
-        msgs = ((InternalEObject)newVisibility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY, null, msgs);
+        msgs = ((InternalEObject)newVisibility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, null, msgs);
       msgs = basicSetVisibility(newVisibility, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY, newVisibility, newVisibility));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY, newVisibility, newVisibility));
   }
 
   /**
@@ -173,22 +200,7 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STRUCT_DEFINITION__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Statement> getMembers()
-  {
-    if (members == null)
-    {
-      members = new EObjectContainmentEList<Statement>(Statement.class, this, OptGrammarPackage.STRUCT_DEFINITION__MEMBERS);
-    }
-    return members;
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.PRIMARY_TYPE_DECLARATION__NAME, oldName, name));
   }
 
   /**
@@ -201,10 +213,8 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
         return basicSetVisibility(null, msgs);
-      case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:
-        return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -219,12 +229,12 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__CONSTANT:
+        return isConstant();
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
         return getVisibility();
-      case OptGrammarPackage.STRUCT_DEFINITION__NAME:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__NAME:
         return getName();
-      case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:
-        return getMembers();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -234,21 +244,19 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__CONSTANT:
+        setConstant((Boolean)newValue);
+        return;
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
         setVisibility((VisibilityEnum)newValue);
         return;
-      case OptGrammarPackage.STRUCT_DEFINITION__NAME:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__NAME:
         setName((String)newValue);
-        return;
-      case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:
-        getMembers().clear();
-        getMembers().addAll((Collection<? extends Statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -264,14 +272,14 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__CONSTANT:
+        setConstant(CONSTANT_EDEFAULT);
+        return;
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
         setVisibility((VisibilityEnum)null);
         return;
-      case OptGrammarPackage.STRUCT_DEFINITION__NAME:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__NAME:
         setName(NAME_EDEFAULT);
-        return;
-      case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:
-        getMembers().clear();
         return;
     }
     super.eUnset(featureID);
@@ -287,12 +295,12 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__CONSTANT:
+        return constant != CONSTANT_EDEFAULT;
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__VISIBILITY:
         return visibility != null;
-      case OptGrammarPackage.STRUCT_DEFINITION__NAME:
+      case OptGrammarPackage.PRIMARY_TYPE_DECLARATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:
-        return members != null && !members.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -308,10 +316,12 @@ public class StructDefinitionImpl extends DeclarationImpl implements StructDefin
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
+    result.append(" (constant: ");
+    result.append(constant);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //StructDefinitionImpl
+} //PrimaryTypeDeclarationImpl

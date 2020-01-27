@@ -7,67 +7,67 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.Event;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.ParameterList;
+import org.unicam.myGrammar.optGrammar.StructureFieldValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Event</b></em>'.
+ * An implementation of the model object '<em><b>Structure Field Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.EventImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.EventImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StructureFieldValueImpl#getField <em>Field</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StructureFieldValueImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EventImpl extends MinimalEObjectImpl.Container implements Event
+public class StructureFieldValueImpl extends MinimalEObjectImpl.Container implements StructureFieldValue
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getField() <em>Field</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getField()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String FIELD_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getField() <em>Field</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getField()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String field = FIELD_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
+   * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameters()
+   * @see #getValues()
    * @generated
    * @ordered
    */
-  protected ParameterList parameters;
+  protected EObject values;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EventImpl()
+  protected StructureFieldValueImpl()
   {
     super();
   }
@@ -80,7 +80,7 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.EVENT;
+    return OptGrammarPackage.Literals.STRUCTURE_FIELD_VALUE;
   }
 
   /**
@@ -89,9 +89,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @generated
    */
   @Override
-  public String getName()
+  public String getField()
   {
-    return name;
+    return field;
   }
 
   /**
@@ -100,12 +100,12 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setField(String newField)
   {
-    String oldName = name;
-    name = newName;
+    String oldField = field;
+    field = newField;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EVENT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STRUCTURE_FIELD_VALUE__FIELD, oldField, field));
   }
 
   /**
@@ -114,9 +114,9 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @generated
    */
   @Override
-  public ParameterList getParameters()
+  public EObject getValues()
   {
-    return parameters;
+    return values;
   }
 
   /**
@@ -124,13 +124,13 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParameters(ParameterList newParameters, NotificationChain msgs)
+  public NotificationChain basicSetValues(EObject newValues, NotificationChain msgs)
   {
-    ParameterList oldParameters = parameters;
-    parameters = newParameters;
+    EObject oldValues = values;
+    values = newValues;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EVENT__PARAMETERS, oldParameters, newParameters);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES, oldValues, newValues);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -142,20 +142,20 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
    * @generated
    */
   @Override
-  public void setParameters(ParameterList newParameters)
+  public void setValues(EObject newValues)
   {
-    if (newParameters != parameters)
+    if (newValues != values)
     {
       NotificationChain msgs = null;
-      if (parameters != null)
-        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EVENT__PARAMETERS, null, msgs);
-      if (newParameters != null)
-        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EVENT__PARAMETERS, null, msgs);
-      msgs = basicSetParameters(newParameters, msgs);
+      if (values != null)
+        msgs = ((InternalEObject)values).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES, null, msgs);
+      if (newValues != null)
+        msgs = ((InternalEObject)newValues).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES, null, msgs);
+      msgs = basicSetValues(newValues, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EVENT__PARAMETERS, newParameters, newParameters));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES, newValues, newValues));
   }
 
   /**
@@ -168,8 +168,8 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EVENT__PARAMETERS:
-        return basicSetParameters(null, msgs);
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES:
+        return basicSetValues(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -184,10 +184,10 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EVENT__NAME:
-        return getName();
-      case OptGrammarPackage.EVENT__PARAMETERS:
-        return getParameters();
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__FIELD:
+        return getField();
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES:
+        return getValues();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -202,11 +202,11 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EVENT__NAME:
-        setName((String)newValue);
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__FIELD:
+        setField((String)newValue);
         return;
-      case OptGrammarPackage.EVENT__PARAMETERS:
-        setParameters((ParameterList)newValue);
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES:
+        setValues((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -222,11 +222,11 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EVENT__NAME:
-        setName(NAME_EDEFAULT);
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__FIELD:
+        setField(FIELD_EDEFAULT);
         return;
-      case OptGrammarPackage.EVENT__PARAMETERS:
-        setParameters((ParameterList)null);
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES:
+        setValues((EObject)null);
         return;
     }
     super.eUnset(featureID);
@@ -242,10 +242,10 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EVENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case OptGrammarPackage.EVENT__PARAMETERS:
-        return parameters != null;
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__FIELD:
+        return FIELD_EDEFAULT == null ? field != null : !FIELD_EDEFAULT.equals(field);
+      case OptGrammarPackage.STRUCTURE_FIELD_VALUE__VALUES:
+        return values != null;
     }
     return super.eIsSet(featureID);
   }
@@ -261,10 +261,10 @@ public class EventImpl extends MinimalEObjectImpl.Container implements Event
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (field: ");
+    result.append(field);
     result.append(')');
     return result.toString();
   }
 
-} //EventImpl
+} //StructureFieldValueImpl

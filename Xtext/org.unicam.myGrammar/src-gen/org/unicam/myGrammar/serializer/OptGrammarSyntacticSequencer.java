@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -21,18 +22,28 @@ import org.unicam.myGrammar.services.OptGrammarGrammarAccess;
 public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected OptGrammarGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__a;
+	protected AbstractElementAlias match_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__p;
+	protected AbstractElementAlias match_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__a;
+	protected AbstractElementAlias match_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__p;
 	protected AbstractElementAlias match_ArrayDimensions___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a;
 	protected AbstractElementAlias match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a;
 	protected AbstractElementAlias match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p;
 	protected AbstractElementAlias match_PlaceHolderStatement_SemicolonKeyword_2_q;
+	protected AbstractElementAlias match_ValueSets_LeftSquareBracketRightSquareBracketKeyword_1_0_or___LeftSquareBracketKeyword_1_1_0_RightSquareBracketKeyword_1_1_2__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (OptGrammarGrammarAccess) access;
+		match_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getArrayDeclarationAccess().getLeftSquareBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getArrayDeclarationAccess().getRightSquareBracketKeyword_5_2()));
+		match_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getArrayDeclarationAccess().getLeftSquareBracketKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getArrayDeclarationAccess().getRightSquareBracketKeyword_5_2()));
+		match_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getArrayDeclarationAccess().getRightSquareBracketKeyword_5_2()), new TokenAlias(false, false, grammarAccess.getArrayDeclarationAccess().getLeftSquareBracketKeyword_5_0()));
+		match_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getArrayDeclarationAccess().getRightSquareBracketKeyword_5_2()), new TokenAlias(false, false, grammarAccess.getArrayDeclarationAccess().getLeftSquareBracketKeyword_5_0()));
 		match_ArrayDimensions___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getLeftSquareBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getRightSquareBracketKeyword_4_2()));
 		match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getRightSquareBracketKeyword_4_2()), new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getLeftSquareBracketKeyword_4_0()));
 		match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getRightSquareBracketKeyword_4_2()), new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getLeftSquareBracketKeyword_4_0()));
 		match_PlaceHolderStatement_SemicolonKeyword_2_q = new TokenAlias(false, true, grammarAccess.getPlaceHolderStatementAccess().getSemicolonKeyword_2());
+		match_ValueSets_LeftSquareBracketRightSquareBracketKeyword_1_0_or___LeftSquareBracketKeyword_1_1_0_RightSquareBracketKeyword_1_1_2__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getValueSetsAccess().getLeftSquareBracketKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getValueSetsAccess().getRightSquareBracketKeyword_1_1_2())), new TokenAlias(false, false, grammarAccess.getValueSetsAccess().getLeftSquareBracketRightSquareBracketKeyword_1_0()));
 	}
 	
 	@Override
@@ -59,7 +70,15 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_ArrayDimensions___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a.equals(syntax))
+			if (match_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__a.equals(syntax))
+				emit_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__p.equals(syntax))
+				emit_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__a.equals(syntax))
+				emit_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__p.equals(syntax))
+				emit_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ArrayDimensions___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a.equals(syntax))
 				emit_ArrayDimensions___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a.equals(syntax))
 				emit_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -67,6 +86,8 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PlaceHolderStatement_SemicolonKeyword_2_q.equals(syntax))
 				emit_PlaceHolderStatement_SemicolonKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ValueSets_LeftSquareBracketRightSquareBracketKeyword_1_0_or___LeftSquareBracketKeyword_1_1_0_RightSquareBracketKeyword_1_1_2__.equals(syntax))
+				emit_ValueSets_LeftSquareBracketRightSquareBracketKeyword_1_0_or___LeftSquareBracketKeyword_1_1_0_RightSquareBracketKeyword_1_1_2__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -76,8 +97,62 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('[' ']')*
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     sizes+=IntLiteral ']' (ambiguity) '=' access=ArrayAccess
+	 *     sizes+=IntLiteral ']' (ambiguity) '=' access=FieldAccess
+	 *     sizes+=IntLiteral ']' (ambiguity) '=' access=MappingAccess
+	 *     sizes+=IntLiteral ']' (ambiguity) '=' blocks=FilledArray
+	 *     sizes+=IntLiteral ']' (ambiguity) '=' var=[Declaration|ID]
+	 *     sizes+=IntLiteral ']' (ambiguity) (rule end)
+	 */
+	protected void emit_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('[' ']')+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID (ambiguity) '=' access=ArrayAccess
+	 *     name=ID (ambiguity) '=' access=FieldAccess
+	 *     name=ID (ambiguity) '=' access=MappingAccess
+	 *     name=ID (ambiguity) '=' blocks=FilledArray
+	 *     name=ID (ambiguity) '=' var=[Declaration|ID]
+	 *     name=ID (ambiguity) (rule end)
+	 */
+	protected void emit_ArrayDeclaration___LeftSquareBracketKeyword_5_0_RightSquareBracketKeyword_5_2__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (']' '[')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID '[' (ambiguity) sizes+=IntLiteral
+	 */
+	protected void emit_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (']' '[')+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     sizes+=IntLiteral (ambiguity) sizes+=IntLiteral
+	 */
+	protected void emit_ArrayDeclaration___RightSquareBracketKeyword_5_2_LeftSquareBracketKeyword_5_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('[' ']')*
+	 *
+	 * This ambiguous syntax occurs at:
 	 *     (rule start) '[' ']' (ambiguity) (rule start)
-	 *     value+=Expression ']' (ambiguity) (rule end)
+	 *     value+=LogicalOperations ']' (ambiguity) (rule end)
 	 */
 	protected void emit_ArrayDimensions___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -88,8 +163,8 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (']' '[')*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '[' ']' '[' (ambiguity) value+=Expression
-	 *     value+=Expression ']' '[' (ambiguity) value+=Expression
+	 *     (rule start) '[' ']' '[' (ambiguity) value+=LogicalOperations
+	 *     value+=LogicalOperations ']' '[' (ambiguity) value+=LogicalOperations
 	 */
 	protected void emit_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -100,7 +175,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (']' '[')+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     value+=Expression (ambiguity) value+=Expression
+	 *     value+=LogicalOperations (ambiguity) value+=LogicalOperations
 	 */
 	protected void emit_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -114,6 +189,17 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '_' (ambiguity) (rule start)
 	 */
 	protected void emit_PlaceHolderStatement_SemicolonKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '[]' | ('[' ']')
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_ValueSets_LeftSquareBracketRightSquareBracketKeyword_1_0_or___LeftSquareBracketKeyword_1_1_0_RightSquareBracketKeyword_1_1_2__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

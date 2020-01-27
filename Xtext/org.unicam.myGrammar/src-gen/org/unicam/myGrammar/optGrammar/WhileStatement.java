@@ -28,12 +28,12 @@ public interface WhileStatement extends LoopStructures
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Condition</em>' containment reference.
-   * @see #setCondition(Expression)
+   * @see #setCondition(LogicalOperations)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getWhileStatement_Condition()
    * @model containment="true"
    * @generated
    */
-  Expression getCondition();
+  LogicalOperations getCondition();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.WhileStatement#getCondition <em>Condition</em>}' containment reference.
@@ -43,7 +43,7 @@ public interface WhileStatement extends LoopStructures
    * @see #getCondition()
    * @generated
    */
-  void setCondition(Expression value);
+  void setCondition(LogicalOperations value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

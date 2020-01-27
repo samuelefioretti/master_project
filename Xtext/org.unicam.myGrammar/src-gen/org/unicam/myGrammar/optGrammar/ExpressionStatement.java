@@ -50,12 +50,12 @@ public interface ExpressionStatement extends SimpleStatement, SimpleStatement2
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
+   * @see #setExpression(LogicalOperations)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpressionStatement_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  LogicalOperations getExpression();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.ExpressionStatement#getExpression <em>Expression</em>}' containment reference.
@@ -65,6 +65,6 @@ public interface ExpressionStatement extends SimpleStatement, SimpleStatement2
    * @see #getExpression()
    * @generated
    */
-  void setExpression(Expression value);
+  void setExpression(LogicalOperations value);
 
 } // ExpressionStatement

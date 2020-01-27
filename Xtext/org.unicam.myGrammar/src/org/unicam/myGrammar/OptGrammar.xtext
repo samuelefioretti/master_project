@@ -16,48 +16,6 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
  */
 // ---------- TO DO ----------
 
-// ---------- Old grammar ----------
-/*
- * Solidity:
- * (
- * importDirective+=ImportDirective |
- * contract+=Contract
- * )*
- * ;
- * 
- * ImportDirective:
- * "import" importURI=STRING ";" |
- * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
- * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";"
- * ;
- * 
- * SymbolAlias:
- * symbol=ID "as" alias=ID
- * ;
- * 
- * Contract:
- * "contract" name=ID (
- * inheritanceSpecifiers+=InheritanceSpecifier ("," inheritanceSpecifiers+=InheritanceSpecifier)*
- * )? body=DefinitionBody
- * ;
- * 
- * InheritanceSpecifier:
- * SuperType=Contract (args=FunctionCallListArguments)?
- * ;
- * 
- * DefinitionBody:
- * {DefinitionBody} "{" (
- * functions+=FunctionDefinition |
- * structs+=StructDefinition |
- * enums+=EnumDefinition |
- * variables+=VariableDeclaration ";" |
- * modifiers+=Modifier |
- * events+=Event
- * )* "}"
- * ;
- */
-// ---------- End Old grammar ----------
-
 // ---------- New grammar ----------
 Model:
 	operations+=Contract*
@@ -72,35 +30,207 @@ Contract:
 
 Declaration:
 	FunctionDeclaration |
-	StructDefinition
+	StructDeclaration
 ;
 
 FunctionDeclaration:
-	EnumDefinition //|
-	//FunctionParameterDeclaration
+	EnumDefinition |
+	FunctionParameterDeclaration
 ;
 
-/*FunctionParameterDeclaration:
+StructDeclaration:
+	visibility=VisibilityEnum? "struct" name=ID "{" (
+		members+=Declaration ";"
+	)* "}"
+;
+
+EnumDefinition:
+	visibility=VisibilityEnum? "enum" name=ID "{" members+=EnumValue ("," members+=EnumValue)* "}"
+;
+
+EnumValue:
+	name=ID
+;
+
+FunctionParameterDeclaration:
 	ArrayDefinitionDeclaration |
 	MappingDeclaration |
 	PrimaryTypeDefinitionDeclaration |
 	ConcreteStructureDefinitionDeclaration
-;*/
+;
+
+ArrayDefinitionDeclaration:
+	ArrayDeclaration ('=' (
+		blocks=FilledArray |
+		var = [Declaration] |
+		access = (
+			MappingAccess |
+			ArrayAccess |
+			FieldAccess
+		)
+	))?
+;
+
+FilledArray:
+	arrays+=ValueSets+
+;
+
+ValueSets:
+	{ValueSets} ("[]" | "[" (
+		values+=LogicalOperations ("," values+=LogicalOperations)*
+	)? "]" )
+;
+
+ArrayDeclaration:
+	location=LocationSpecifierEnum? constant?="constant"? visibility=VisibilityEnum? (
+		type=NamedType |
+		strucType=[StructDeclaration]
+	) name=ID ("[" sizes+=IntLiteral? "]")+
+;
+
+NamedType:
+	SimpleTypeDeclaration |
+	ElementaryTypeNameEnum
+;
+
+SimpleTypeDeclaration:
+	type=('string' | 'bool')
+;
+
+MappingAccess:
+	map=[MappingDeclaration] '<(' index=LogicalOperations ')>'
+;
+
+ArrayAccess:
+	variable=[ArrayDefinitionDeclaration] indexes+=ArrayIndex+ ('.' field=ID)?
+;
+
+ArrayIndex:
+	 '[' value=LogicalOperations ']'
+;
+
+FieldAccess:
+	ref=[ConcreteStructDeclaration] '.' field=ID
+;
+
+MappingDeclaration:
+	location=MapLocationLiteral? visibility=VisibilityEnum? unnamedMappingDeclaration=UnnamedMappingDeclaration name=ID
+;
+
+UnnamedMappingDeclaration:
+	"mapping" "(" type=NamedType "=>" (
+		secondRef=[Declaration] |
+		second=(
+			NamedType |
+			UnnamedMappingDeclaration
+		)
+	) array?="[]"? ")"
+;
+
+PrimaryTypeDefinitionDeclaration:
+	(
+		PrimaryTypeDeclaration |
+		ref=[PrimaryTypeDeclaration]
+	)(
+		operator=OperationAssegnationLiteral value=(
+			LogicalOperations |
+			SingleDefinition
+		)
+	)?
+;
+
+PrimaryTypeDeclaration:
+	ArrayableDeclaration |
+	NonArrayableDeclaration
+;
+
+OperationAssegnationLiteral:
+	value = ("=" | "*=" | "+=" | "-=" | "/=") 
+;
+
+SingleDefinition:
+	first=("++" | "--") name=[PrimaryTypeDeclaration] |
+	name=[PrimaryTypeDeclaration] second=("++" | "--")
+;
+
+NonArrayableDeclaration:
+	location=LocationSpecifierEnum? constant?='constant'? visibility=VisibilityEnum? type=SimpleTypeDeclaration name=ID
+;
+
+ArrayableDeclaration:
+	constant?='constant'? visibility=VisibilityEnum? type=ElementaryTypeNameEnum name=ID
+;
+
+ConcreteStructureDefinitionDeclaration:
+	"struct" (
+		ConcreteStructDeclaration | ref=[ConcreteStructDeclaration]
+	) ("=" (
+		"{" (couples+=StructureFieldValue) ("," couples+=StructureFieldValue)* "}"
+ 		| existenceRef=[ConcreteStructDeclaration]
+ 		| arrayAccessRef=ArrayAccess
+ 	))?
+;
+
+ConcreteStructDeclaration:
+	location=LocationSpecifierEnum? constant?="constant"? type=[StructDeclaration] name=ID
+;
+
+StructureFieldValue:
+	field=ID ":" values=(
+		LogicalOperations |
+		FilledArray
+	)
+;
+
+InternalBlock:
+	def=(
+		ArrayDefinition |
+		MappingDefinition |
+		SingleDefinition |
+		FieldDefinition
+	) ";"
+	| dec=FunctionDeclaration ";"
+	| loop=LoopStructures
+	| call=FunctionCall ";"
+;
+
+ArrayDefinition:
+	ref=[ArrayDefinitionDeclaration] (
+		'=' (
+				blocks=FilledArray
+				| arrayRef=[ArrayDefinitionDeclaration]
+			)
+	 	| indexes+=ArrayIndex+ ('.' field=ID)? operator=OperationAssegnationLiteral value=(LogicalOperations | FilledArray )
+	)
+;
+
+FieldDefinition:
+	FieldAccess '=' value=(LogicalOperations | SingleDefinition) 
+;
+
+MappingDefinition:
+	MappingAccess '=' sec=(LogicalOperations | FilledArray)
+;
 // ---------- End New grammar ----------
 
 // Anonymous function allowed when "name" is not specified.
 FunctionDefinition:
-	payable?="payable"? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* (
-		"returns" returnParameters=ReturnsParameterList
-	)? (
-		block=Body |
-		";"
-	)
+	payable?="payable"? "function" name=ID "(" (
+		parameters+=(FunctionParameterDeclaration)
+		("," parameters+=(FunctionParameterDeclaration))*
+	)? ")"
+	optionalElements+=FunctionDefinitionOptionalElement*
+	("returns" "(" returnType=NamedType ")")?
+	"{"
+	blocks += InternalBlock*
+	returnVal=ReturnStatement?
+	"}"
 ;
 
+/*
 FunctionCallListArguments:
 	"(" {FunctionCallListArguments} (
-			arguments+=Expression ("," arguments+=Expression)*
+			arguments+=LogicalOperations ("," arguments+=LogicalOperations)*
 		)?
 	")"
 ;
@@ -117,12 +247,12 @@ FunctionCallArguments:
 ;
 
 FunctionCallArg:
-	name=ID ":" expr=Expression
-;
+	name=ID ":" expr=LogicalOperations
+;*/
 
 FunctionDefinitionOptionalElement:
 	Const |
-	ModifierInvocation |
+	//ModifierInvocation |
 	VisibilitySpecifier
 ;
 
@@ -134,24 +264,10 @@ VisibilitySpecifier:
 	visibility=VisibilityEnum
 ;
 
-StructDefinition:
-	visibility=VisibilityEnum? "struct" name=ID "{" (
-		members+=VariableDeclaration ";"
-	)* "}"
-;
-
-EnumDefinition:
-	visibility=VisibilityEnum? "enum" name=ID "{" members+=EnumValue ("," members+=EnumValue)* "}"
-;
-
-EnumValue:
-	name=ID
-;
-
 Variable:
 	name=ID
 ;
-
+/*
 // Variable Declarations
 VariableDeclaration returns Statement:
 	StandardVariableDeclaration |
@@ -161,21 +277,22 @@ VariableDeclaration returns Statement:
 
 StandardVariableDeclaration:
 	type=StandardType optionalElements+=VariableDeclarationOptionalElement* variable=Variable (
-		"=" expression=Expression
+		"=" expression=LogicalOperations
 	)?
 ;
 
 VarVariableDeclaration:
 	varType=VarType variable=Variable (
-		"=" expression=Expression
+		"=" expression=LogicalOperations
 	)?
 ;
 
 VarVariableTupleVariableDeclaration:
 	varType=VarType tuple=Tuple (
-		"=" expression=Expression
+		"=" expression=LogicalOperations
 	)?
 ;
+*/
 
 VariableDeclarationOptionalElement:
 	VisibilitySpecifier |
@@ -204,25 +321,21 @@ Type:
 
 StandardType:
 	ElementaryType dimension=ArrayDimensions? |
-	Mapping |
+	MappingDeclaration |
 	QualifiedIdentifier
 ;
 
 StandardTypeWithoutQualifiedIdentifier:
 	ElementaryType dimension=ArrayDimensions? |
-	Mapping
+	MappingDeclaration
 ;
 
 ElementaryType:
 	name=ElementaryTypeNameEnum
 ;
 
-Mapping:
-	"mapping" "(" keyType=ElementaryTypeNameEnum "=>" valueType=Type ")"
-;
-
 ArrayDimensions:
-	"[" {ArrayDimensions} value+=Expression? "]" ("[" value+=Expression? "]")*
+	"[" {ArrayDimensions} value+=LogicalOperations? "]" ("[" value+=LogicalOperations? "]")*
 ;
 
 VarType:
@@ -232,8 +345,8 @@ VarType:
 // Tuples
 Tuple:
 	"(" {Tuple} (
-		members+=Expression? (
-			members+=TupleSeparator members+=Expression?
+		members+=LogicalOperations? (
+			members+=TupleSeparator members+=LogicalOperations?
 		)+
 	)? ")"
 ;
@@ -252,14 +365,14 @@ TupleSeparator:
 SimpleStatement:
 	(
 		StandardTypeWithoutQualifiedIdentifier (
-			{StandardVariableDeclaration.type=current} ptionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?
+			{StandardVariableDeclaration.type=current} ptionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=LogicalOperations)?
 		) |
 		VarType (
 			(
-				{VarVariableTypeDeclaration} variable=Variable ("=" expression=Expression)
+				{VarVariableTypeDeclaration} variable=Variable ("=" expression=LogicalOperations)
 			) |
 			(
-				{VarVariableTupleVariableDeclaration} tuple=Tuple ("=" expression=Expression)
+				{VarVariableTupleVariableDeclaration} tuple=Tuple ("=" expression=LogicalOperations)
 			)
 		) |
 		ExpressionStatement
@@ -269,14 +382,14 @@ SimpleStatement:
 SimpleStatement2:
 	(
 		StandardTypeWithoutQualifiedIdentifier (
-			{StandardVariableDeclaration.type=current} optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?
+			{StandardVariableDeclaration.type=current} optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=LogicalOperations)?
 		) |
 		VarType (
 			(
-				{VarVariableTypeDeclaration} variable=Variable ("=" expression=Expression)
+				{VarVariableTypeDeclaration} variable=Variable ("=" expression=LogicalOperations)
 			) |
 			(
-				{VarVariableTupleVariableDeclaration} tuple=Tuple ("=" expression=Expression)
+				{VarVariableTupleVariableDeclaration} tuple=Tuple ("=" expression=LogicalOperations)
 			)
 		) |
 		ExpressionStatement
@@ -284,7 +397,7 @@ SimpleStatement2:
 ;
 
 ExpressionStatement:
-	expression=Expression
+	expression=LogicalOperations
 ;
 
 QualifiedIdentifier:
@@ -302,25 +415,26 @@ Field:
 ;
 
 Index:
-	"[" {Index} value=Expression? "]"
+	"[" {Index} value=LogicalOperations? "]"
 ;
 
 Arguments:
 	arguments=FunctionCallArguments
 ;
-
-Modifier:
-	"modifier" name=ID parameters=ParameterList? block=Body
+/*
+ * Modifier:
+ "modifier" name=ID parameters=ParameterList? block=Body
 ;
 
 Event:
 	"event" name=ID parameters=ParameterList? ";"
 ;
+*
 
 ModifierInvocation:
 	name=[Modifier] args=FunctionCallListArguments?
-;
-
+;*/
+/*
 ParameterList:
 	"("
 		{ParameterList} (parameters+=VariableDeclaration (
@@ -328,7 +442,7 @@ ParameterList:
 		)?
 	")"
 ;
-
+*/
 ReturnsParameterList:
 	"("
 		{ReturnsParameterList} (parameters+=ReturnParameterDeclaration (
@@ -368,19 +482,19 @@ DeleteStatement:
 ;
 
 IfStatement:
-	"if" "(" condition=Expression ")"
+	"if" "(" condition=LogicalOperations ")"
 	trueBody=Statement (
 		=> "else" falseBody=Statement
 	)?
 ;
 
 WhileStatement:
-	"while" "(" condition=Expression ")"
+	"while" "(" condition=LogicalOperations ")"
 	body=Statement
 ;
 
 ForStatement:
-	"for" "(" initExpression=SimpleStatement2? => ";" conditionExpression=Expression? ";" loopExpression=ExpressionStatement? ")"
+	"for" "(" initExpression=SimpleStatement2? => ";" conditionExpression=LogicalOperations? ";" loopExpression=ExpressionStatement? ")"
 	body=Statement
 ;
 
@@ -399,7 +513,7 @@ BreakStatement:
 ;
 
 ReturnStatement:
-	"return" {ReturnStatement} expression=Expression? ";"
+	"return" {ReturnStatement} expression=LogicalOperations? ";"
 ;
 
 ThrowStatement:
@@ -411,7 +525,7 @@ PlaceHolderStatement:
 	"_" {PlaceHolderStatement} ";"?
 ;
 
-Expression:
+LogicalOperations:
 	first=Literal operations+=ConditionOperation* |
 	negate?="NOT" first=Literal operations+=ConditionOperation* |
 	ternary?="TERNARY" first=Literal "?" true=Literal ":" false=Literal
@@ -420,189 +534,6 @@ Expression:
 ConditionOperation:
 	operation=LogicalOperationLiteral negateSecond="NOT"? seconds=Literal
 ;
-
-enum LogicalOperationLiteral:
-	NOTEQUAL=	"!="
-	| EQUAL=	"=="
-	| AND=		"&&"
-	| OR=		"||"
-	| GTE=		">="
-	| LTE=		"<="
-	| GT=		">"
-	| LT=		"<"
-;
-
-/*
-Expression:
-	Assignment
-;
-
-SpecialExpression:
-	type=SpecialExpressionTypeEnum fieldOrMethod=Field? qualifiers+=(
-		Index |
-		Arguments
-	)*
-;
-
-// Right associative
-Assignment returns Expression:
-	BinaryExpression (
-		(
-			{Assignment.left=current} assignmentOp=AssignmentOpEnum expression=Expression
-		) |
-		(
-			{VariableDeclarationExpression.type=current} variable=Variable ("=" expression=Expression)?
-		)
-	)?
-;
-
-BinaryExpression returns Expression:
-	Or
-;
-
-// Precedence: 4, Left associative
-Or returns Expression:
-	And (
-		{Or.left=current} "||" right=And
-	)*
-;
-
-// Precedence: 5, Left associative
-And returns Expression:
-	Equality (
-		{And.left=current} "&&" right=Equality
-	)*
-;
-
-// Precedence: 6, Left associative
-Equality returns Expression:
-	Comparison (
-		{Equality.left=current} equalityOp=EqualityOpEnum right=Comparison
-	)*
-;
-
-// Precedence: 7, Left associative
-Comparison returns Expression:
-	BitOr (
-		{Comparison.left=current} comparisonOp=ComparisonOpEnum right=BitOr
-	)*
-;
-
-// Precedence: 8, Left associative
-BitOr returns Expression:
-	BitXor (
-		{BitOr.left=current} "|" right=BitXor
-	)*
-;
-
-// Precedence: 9, Left associative
-BitXor returns Expression:
-	BitAnd (
-		{BitXor.left=current} "^" right=BitAnd
-	)*
-;
-
-// Precedence: 10, Left associative
-BitAnd returns Expression:
-	Shift (
-		{BitAnd.left=current} "&" right=Shift
-	)*
-;
-
-// Precedence: 11, Left associative
-Shift returns Expression:
-	AddSub (
-		{Shift.left=current} shiftOp=ShiftOpEnum right=AddSub
-	)*
-;
-
-// Precedence: 12, Left associative
-AddSub returns Expression:
-	MulDivMod => (
-		{AddSub.left=current} additionOp=AdditionOpEnum right=MulDivMod
-	)*
-;
-
-// Precedence: 13, Left associative
-MulDivMod returns Expression:
-	Exponent (
-		{MulDivMod.left=current} multipliciativeOp=MulDivModOpEnum right=Exponent
-	)*
-;
-
-// Precedence: 14, Left associative
-Exponent returns Expression:
-	UnaryExpression (
-		{Exponent.left=current} "**" right=UnaryExpression
-	)*
-;
-
-UnaryExpression returns Expression:
-	NotExpression |
-	BinaryNotExpression |
-	SignExpression |
-	NewExpression |
-	PreExpression
-;
-
-NotExpression:
-	"!" expression=UnaryExpression
-;
-
-PreIncExpression:
-	expression=PostIncDecExpression
-;
-
-PreDecExpression:
-	expression=PostIncDecExpression
-;
-
-BinaryNotExpression:
-	"~" expression=UnaryExpression
-;
-
-SignExpression:
-	signOp=(
-		"+" |
-		"-"
-	) expression=UnaryExpression
-;
-
-NewExpression:
-	"new" contract=Contract args=FunctionCallListArguments
-;
-
-PreExpression returns Expression:
-	PostIncDecExpression |
-	("++") PostIncDecExpression (
-		{PreIncExpression.expression=current}
-	) |
-	("--") PostIncDecExpression (
-		{PreDecExpression.expression=current}
-	)
-;
-
-PostIncDecExpression returns Expression:
-	PrimaryExpression (
-		{PostIncDecExpression.expression=current} postOp=IncDecOpEnum
-	)*
-;
-
-PrimaryExpression returns Expression:
-	SpecialExpression |
-	QualifiedIdentifier |
-	Literal |
-	TypeCast |
-	"(" Expression (
-		{Tuple.members+=current} (members+=TupleSeparator members+=Expression?)+
-	)? ")" |
-	"(" TupleSeparator (
-		{Tuple.members+=current} members+=Expression? (members+=TupleSeparator members+=Expression?)*
-	) ")" |
-	"(" ")" {Tuple}
-;
-* 
-*/
 
 Literal:
 	SpecialVariables |
@@ -652,7 +583,7 @@ IntParameter:
 
 FunctionCall:
 	name=[FunctionDefinition] "(" (
-		parameters+=Expression ("," parameters+=Expression)*
+		parameters+=LogicalOperations ("," parameters+=LogicalOperations)*
 	)? ")"
 ;
 
@@ -661,7 +592,7 @@ ArithmeticOperations:
 
 PrimaryArithmetic:
 	NumericLiteral |
-	"(" Expression ")"
+	"(" LogicalOperations ")"
 ;
 
 SecondOperators:
@@ -706,6 +637,10 @@ StringLiteral:
 	value=STRING
 ;
 
+IntLiteral:
+	value=INT
+;
+
 HexLiteral:
 	value=HEX
 ;
@@ -716,7 +651,7 @@ DecimalLiteral:
 
 TypeCast:
 	value=ElementaryTypeNameEnum "("
-		expression=Expression
+		expression=LogicalOperations
 	")"
 ;
 
@@ -857,6 +792,17 @@ VisibilityEnum:
 ;
 
 // Enums
+enum LogicalOperationLiteral:
+	NOTEQUAL="!=" |
+	EQUAL="==" |
+	AND="&&" |
+	OR="||" |
+	GTE=">=" |
+	LTE="<=" |
+	GT=">" |
+	LT="<"
+;
+
 enum AssignmentOpEnum:
 	ASSIGN="=" |
 	ASSIGN_OR="|=" |

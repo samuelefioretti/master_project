@@ -96,9 +96,154 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createFunctionDeclarationAdapter();
       }
       @Override
+      public Adapter caseStructDeclaration(StructDeclaration object)
+      {
+        return createStructDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseEnumDefinition(EnumDefinition object)
+      {
+        return createEnumDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseEnumValue(EnumValue object)
+      {
+        return createEnumValueAdapter();
+      }
+      @Override
+      public Adapter caseFunctionParameterDeclaration(FunctionParameterDeclaration object)
+      {
+        return createFunctionParameterDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseArrayDefinitionDeclaration(ArrayDefinitionDeclaration object)
+      {
+        return createArrayDefinitionDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseFilledArray(FilledArray object)
+      {
+        return createFilledArrayAdapter();
+      }
+      @Override
+      public Adapter caseValueSets(ValueSets object)
+      {
+        return createValueSetsAdapter();
+      }
+      @Override
+      public Adapter caseArrayDeclaration(ArrayDeclaration object)
+      {
+        return createArrayDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseNamedType(NamedType object)
+      {
+        return createNamedTypeAdapter();
+      }
+      @Override
+      public Adapter caseSimpleTypeDeclaration(SimpleTypeDeclaration object)
+      {
+        return createSimpleTypeDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseMappingAccess(MappingAccess object)
+      {
+        return createMappingAccessAdapter();
+      }
+      @Override
+      public Adapter caseArrayAccess(ArrayAccess object)
+      {
+        return createArrayAccessAdapter();
+      }
+      @Override
+      public Adapter caseArrayIndex(ArrayIndex object)
+      {
+        return createArrayIndexAdapter();
+      }
+      @Override
+      public Adapter caseFieldAccess(FieldAccess object)
+      {
+        return createFieldAccessAdapter();
+      }
+      @Override
+      public Adapter caseMappingDeclaration(MappingDeclaration object)
+      {
+        return createMappingDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseUnnamedMappingDeclaration(UnnamedMappingDeclaration object)
+      {
+        return createUnnamedMappingDeclarationAdapter();
+      }
+      @Override
+      public Adapter casePrimaryTypeDefinitionDeclaration(PrimaryTypeDefinitionDeclaration object)
+      {
+        return createPrimaryTypeDefinitionDeclarationAdapter();
+      }
+      @Override
+      public Adapter casePrimaryTypeDeclaration(PrimaryTypeDeclaration object)
+      {
+        return createPrimaryTypeDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseOperationAssegnationLiteral(OperationAssegnationLiteral object)
+      {
+        return createOperationAssegnationLiteralAdapter();
+      }
+      @Override
+      public Adapter caseSingleDefinition(SingleDefinition object)
+      {
+        return createSingleDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseNonArrayableDeclaration(NonArrayableDeclaration object)
+      {
+        return createNonArrayableDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseArrayableDeclaration(ArrayableDeclaration object)
+      {
+        return createArrayableDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseConcreteStructureDefinitionDeclaration(ConcreteStructureDefinitionDeclaration object)
+      {
+        return createConcreteStructureDefinitionDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseConcreteStructDeclaration(ConcreteStructDeclaration object)
+      {
+        return createConcreteStructDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseStructureFieldValue(StructureFieldValue object)
+      {
+        return createStructureFieldValueAdapter();
+      }
+      @Override
       public Adapter caseFunctionDefinition(FunctionDefinition object)
       {
         return createFunctionDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseInternalBlock(InternalBlock object)
+      {
+        return createInternalBlockAdapter();
+      }
+      @Override
+      public Adapter caseArrayDefinition(ArrayDefinition object)
+      {
+        return createArrayDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseFieldDefinition(FieldDefinition object)
+      {
+        return createFieldDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseMappingDefinition(MappingDefinition object)
+      {
+        return createMappingDefinitionAdapter();
       }
       @Override
       public Adapter caseFunctionCallListArguments(FunctionCallListArguments object)
@@ -131,44 +276,9 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createVisibilitySpecifierAdapter();
       }
       @Override
-      public Adapter caseStructDefinition(StructDefinition object)
-      {
-        return createStructDefinitionAdapter();
-      }
-      @Override
-      public Adapter caseEnumDefinition(EnumDefinition object)
-      {
-        return createEnumDefinitionAdapter();
-      }
-      @Override
-      public Adapter caseEnumValue(EnumValue object)
-      {
-        return createEnumValueAdapter();
-      }
-      @Override
       public Adapter caseVariable(Variable object)
       {
         return createVariableAdapter();
-      }
-      @Override
-      public Adapter caseStatement(Statement object)
-      {
-        return createStatementAdapter();
-      }
-      @Override
-      public Adapter caseStandardVariableDeclaration(StandardVariableDeclaration object)
-      {
-        return createStandardVariableDeclarationAdapter();
-      }
-      @Override
-      public Adapter caseVarVariableDeclaration(VarVariableDeclaration object)
-      {
-        return createVarVariableDeclarationAdapter();
-      }
-      @Override
-      public Adapter caseVarVariableTupleVariableDeclaration(VarVariableTupleVariableDeclaration object)
-      {
-        return createVarVariableTupleVariableDeclarationAdapter();
       }
       @Override
       public Adapter caseVariableDeclarationOptionalElement(VariableDeclarationOptionalElement object)
@@ -209,11 +319,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseElementaryType(ElementaryType object)
       {
         return createElementaryTypeAdapter();
-      }
-      @Override
-      public Adapter caseMapping(Mapping object)
-      {
-        return createMappingAdapter();
       }
       @Override
       public Adapter caseArrayDimensions(ArrayDimensions object)
@@ -271,26 +376,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createArgumentsAdapter();
       }
       @Override
-      public Adapter caseModifier(Modifier object)
-      {
-        return createModifierAdapter();
-      }
-      @Override
-      public Adapter caseEvent(Event object)
-      {
-        return createEventAdapter();
-      }
-      @Override
-      public Adapter caseModifierInvocation(ModifierInvocation object)
-      {
-        return createModifierInvocationAdapter();
-      }
-      @Override
-      public Adapter caseParameterList(ParameterList object)
-      {
-        return createParameterListAdapter();
-      }
-      @Override
       public Adapter caseReturnsParameterList(ReturnsParameterList object)
       {
         return createReturnsParameterListAdapter();
@@ -304,6 +389,11 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLoopStructures(LoopStructures object)
       {
         return createLoopStructuresAdapter();
+      }
+      @Override
+      public Adapter caseStatement(Statement object)
+      {
+        return createStatementAdapter();
       }
       @Override
       public Adapter caseDeleteStatement(DeleteStatement object)
@@ -356,9 +446,9 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createPlaceHolderStatementAdapter();
       }
       @Override
-      public Adapter caseExpression(Expression object)
+      public Adapter caseLogicalOperations(LogicalOperations object)
       {
-        return createExpressionAdapter();
+        return createLogicalOperationsAdapter();
       }
       @Override
       public Adapter caseConditionOperation(ConditionOperation object)
@@ -461,6 +551,11 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createStringLiteralAdapter();
       }
       @Override
+      public Adapter caseIntLiteral(IntLiteral object)
+      {
+        return createIntLiteralAdapter();
+      }
+      @Override
       public Adapter caseHexLiteral(HexLiteral object)
       {
         return createHexLiteralAdapter();
@@ -501,9 +596,19 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createSpecialVariablesTypeEnumAdapter();
       }
       @Override
+      public Adapter caseStandardVariableDeclaration(StandardVariableDeclaration object)
+      {
+        return createStandardVariableDeclarationAdapter();
+      }
+      @Override
       public Adapter caseVarVariableTypeDeclaration(VarVariableTypeDeclaration object)
       {
         return createVarVariableTypeDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseVarVariableTupleVariableDeclaration(VarVariableTupleVariableDeclaration object)
+      {
+        return createVarVariableTupleVariableDeclarationAdapter();
       }
       @Override
       public Adapter caseContinue(Continue object)
@@ -593,6 +698,381 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.StructDeclaration <em>Struct Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.StructDeclaration
+   * @generated
+   */
+  public Adapter createStructDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.EnumDefinition <em>Enum Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.EnumDefinition
+   * @generated
+   */
+  public Adapter createEnumDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.EnumValue <em>Enum Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.EnumValue
+   * @generated
+   */
+  public Adapter createEnumValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.FunctionParameterDeclaration <em>Function Parameter Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.FunctionParameterDeclaration
+   * @generated
+   */
+  public Adapter createFunctionParameterDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ArrayDefinitionDeclaration <em>Array Definition Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinitionDeclaration
+   * @generated
+   */
+  public Adapter createArrayDefinitionDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.FilledArray <em>Filled Array</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.FilledArray
+   * @generated
+   */
+  public Adapter createFilledArrayAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ValueSets <em>Value Sets</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ValueSets
+   * @generated
+   */
+  public Adapter createValueSetsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration <em>Array Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration
+   * @generated
+   */
+  public Adapter createArrayDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.NamedType <em>Named Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.NamedType
+   * @generated
+   */
+  public Adapter createNamedTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration <em>Simple Type Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration
+   * @generated
+   */
+  public Adapter createSimpleTypeDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.MappingAccess <em>Mapping Access</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.MappingAccess
+   * @generated
+   */
+  public Adapter createMappingAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ArrayAccess <em>Array Access</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ArrayAccess
+   * @generated
+   */
+  public Adapter createArrayAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ArrayIndex <em>Array Index</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ArrayIndex
+   * @generated
+   */
+  public Adapter createArrayIndexAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.FieldAccess <em>Field Access</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.FieldAccess
+   * @generated
+   */
+  public Adapter createFieldAccessAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.MappingDeclaration <em>Mapping Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.MappingDeclaration
+   * @generated
+   */
+  public Adapter createMappingDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration <em>Unnamed Mapping Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration
+   * @generated
+   */
+  public Adapter createUnnamedMappingDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration <em>Primary Type Definition Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration
+   * @generated
+   */
+  public Adapter createPrimaryTypeDefinitionDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration <em>Primary Type Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration
+   * @generated
+   */
+  public Adapter createPrimaryTypeDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.OperationAssegnationLiteral <em>Operation Assegnation Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.OperationAssegnationLiteral
+   * @generated
+   */
+  public Adapter createOperationAssegnationLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SingleDefinition <em>Single Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.SingleDefinition
+   * @generated
+   */
+  public Adapter createSingleDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.NonArrayableDeclaration <em>Non Arrayable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.NonArrayableDeclaration
+   * @generated
+   */
+  public Adapter createNonArrayableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ArrayableDeclaration <em>Arrayable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ArrayableDeclaration
+   * @generated
+   */
+  public Adapter createArrayableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration <em>Concrete Structure Definition Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration
+   * @generated
+   */
+  public Adapter createConcreteStructureDefinitionDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration <em>Concrete Struct Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration
+   * @generated
+   */
+  public Adapter createConcreteStructDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.StructureFieldValue <em>Structure Field Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.StructureFieldValue
+   * @generated
+   */
+  public Adapter createStructureFieldValueAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition <em>Function Definition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -603,6 +1083,66 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFunctionDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.InternalBlock <em>Internal Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.InternalBlock
+   * @generated
+   */
+  public Adapter createInternalBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition <em>Array Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition
+   * @generated
+   */
+  public Adapter createArrayDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.FieldDefinition <em>Field Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.FieldDefinition
+   * @generated
+   */
+  public Adapter createFieldDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.MappingDefinition <em>Mapping Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.MappingDefinition
+   * @generated
+   */
+  public Adapter createMappingDefinitionAdapter()
   {
     return null;
   }
@@ -698,51 +1238,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.StructDefinition <em>Struct Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.StructDefinition
-   * @generated
-   */
-  public Adapter createStructDefinitionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.EnumDefinition <em>Enum Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.EnumDefinition
-   * @generated
-   */
-  public Adapter createEnumDefinitionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.EnumValue <em>Enum Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.EnumValue
-   * @generated
-   */
-  public Adapter createEnumValueAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -753,66 +1248,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVariableAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Statement <em>Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Statement
-   * @generated
-   */
-  public Adapter createStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration <em>Standard Variable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration
-   * @generated
-   */
-  public Adapter createStandardVariableDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration <em>Var Variable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableDeclaration
-   * @generated
-   */
-  public Adapter createVarVariableDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration <em>Var Variable Tuple Variable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration
-   * @generated
-   */
-  public Adapter createVarVariableTupleVariableDeclarationAdapter()
   {
     return null;
   }
@@ -933,21 +1368,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementaryTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Mapping <em>Mapping</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Mapping
-   * @generated
-   */
-  public Adapter createMappingAdapter()
   {
     return null;
   }
@@ -1118,66 +1538,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Modifier <em>Modifier</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Modifier
-   * @generated
-   */
-  public Adapter createModifierAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Event <em>Event</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Event
-   * @generated
-   */
-  public Adapter createEventAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ModifierInvocation <em>Modifier Invocation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.ModifierInvocation
-   * @generated
-   */
-  public Adapter createModifierInvocationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ParameterList <em>Parameter List</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.ParameterList
-   * @generated
-   */
-  public Adapter createParameterListAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ReturnsParameterList <em>Returns Parameter List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1218,6 +1578,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLoopStructuresAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.Statement
+   * @generated
+   */
+  public Adapter createStatementAdapter()
   {
     return null;
   }
@@ -1373,16 +1748,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Expression <em>Expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.LogicalOperations <em>Logical Operations</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Expression
+   * @see org.unicam.myGrammar.optGrammar.LogicalOperations
    * @generated
    */
-  public Adapter createExpressionAdapter()
+  public Adapter createLogicalOperationsAdapter()
   {
     return null;
   }
@@ -1688,6 +2063,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.IntLiteral <em>Int Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.IntLiteral
+   * @generated
+   */
+  public Adapter createIntLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.HexLiteral <em>Hex Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1808,6 +2198,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration <em>Standard Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration
+   * @generated
+   */
+  public Adapter createStandardVariableDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration <em>Var Variable Type Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1818,6 +2223,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVarVariableTypeDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration <em>Var Variable Tuple Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration
+   * @generated
+   */
+  public Adapter createVarVariableTupleVariableDeclarationAdapter()
   {
     return null;
   }

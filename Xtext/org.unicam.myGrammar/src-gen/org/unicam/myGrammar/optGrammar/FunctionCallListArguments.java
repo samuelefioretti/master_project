@@ -25,7 +25,7 @@ public interface FunctionCallListArguments extends FunctionCallArguments
 {
   /**
    * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Expression}.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.LogicalOperations}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Arguments</em>' containment reference list.
@@ -33,6 +33,6 @@ public interface FunctionCallListArguments extends FunctionCallArguments
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getArguments();
+  EList<LogicalOperations> getArguments();
 
 } // FunctionCallListArguments

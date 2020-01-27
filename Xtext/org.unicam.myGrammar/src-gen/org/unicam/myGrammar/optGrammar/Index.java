@@ -27,12 +27,12 @@ public interface Index extends Qualifier
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
-   * @see #setValue(Expression)
+   * @see #setValue(LogicalOperations)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getIndex_Value()
    * @model containment="true"
    * @generated
    */
-  Expression getValue();
+  LogicalOperations getValue();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Index#getValue <em>Value</em>}' containment reference.
@@ -42,6 +42,6 @@ public interface Index extends Qualifier
    * @see #getValue()
    * @generated
    */
-  void setValue(Expression value);
+  void setValue(LogicalOperations value);
 
 } // Index

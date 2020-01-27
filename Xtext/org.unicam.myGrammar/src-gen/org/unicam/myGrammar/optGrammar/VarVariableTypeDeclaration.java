@@ -51,12 +51,12 @@ public interface VarVariableTypeDeclaration extends SimpleStatement, SimpleState
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
+   * @see #setExpression(LogicalOperations)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getVarVariableTypeDeclaration_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  LogicalOperations getExpression();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration#getExpression <em>Expression</em>}' containment reference.
@@ -66,7 +66,7 @@ public interface VarVariableTypeDeclaration extends SimpleStatement, SimpleState
    * @see #getExpression()
    * @generated
    */
-  void setExpression(Expression value);
+  void setExpression(LogicalOperations value);
 
   /**
    * Returns the value of the '<em><b>Semicolon</b></em>' attribute.

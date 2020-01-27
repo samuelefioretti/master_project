@@ -17,41 +17,41 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.unicam.myGrammar.optGrammar.FilledArray;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.ParameterList;
-import org.unicam.myGrammar.optGrammar.Statement;
+import org.unicam.myGrammar.optGrammar.ValueSets;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter List</b></em>'.
+ * An implementation of the model object '<em><b>Filled Array</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ParameterListImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FilledArrayImpl#getArrays <em>Arrays</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParameterListImpl extends MinimalEObjectImpl.Container implements ParameterList
+public class FilledArrayImpl extends MinimalEObjectImpl.Container implements FilledArray
 {
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * The cached value of the '{@link #getArrays() <em>Arrays</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameters()
+   * @see #getArrays()
    * @generated
    * @ordered
    */
-  protected EList<Statement> parameters;
+  protected EList<ValueSets> arrays;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ParameterListImpl()
+  protected FilledArrayImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.PARAMETER_LIST;
+    return OptGrammarPackage.Literals.FILLED_ARRAY;
   }
 
   /**
@@ -73,13 +73,13 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    */
   @Override
-  public EList<Statement> getParameters()
+  public EList<ValueSets> getArrays()
   {
-    if (parameters == null)
+    if (arrays == null)
     {
-      parameters = new EObjectContainmentEList<Statement>(Statement.class, this, OptGrammarPackage.PARAMETER_LIST__PARAMETERS);
+      arrays = new EObjectContainmentEList<ValueSets>(ValueSets.class, this, OptGrammarPackage.FILLED_ARRAY__ARRAYS);
     }
-    return parameters;
+    return arrays;
   }
 
   /**
@@ -92,8 +92,8 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case OptGrammarPackage.PARAMETER_LIST__PARAMETERS:
-        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.FILLED_ARRAY__ARRAYS:
+        return ((InternalEList<?>)getArrays()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +108,8 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case OptGrammarPackage.PARAMETER_LIST__PARAMETERS:
-        return getParameters();
+      case OptGrammarPackage.FILLED_ARRAY__ARRAYS:
+        return getArrays();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +125,9 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case OptGrammarPackage.PARAMETER_LIST__PARAMETERS:
-        getParameters().clear();
-        getParameters().addAll((Collection<? extends Statement>)newValue);
+      case OptGrammarPackage.FILLED_ARRAY__ARRAYS:
+        getArrays().clear();
+        getArrays().addAll((Collection<? extends ValueSets>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case OptGrammarPackage.PARAMETER_LIST__PARAMETERS:
-        getParameters().clear();
+      case OptGrammarPackage.FILLED_ARRAY__ARRAYS:
+        getArrays().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,10 +160,10 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case OptGrammarPackage.PARAMETER_LIST__PARAMETERS:
-        return parameters != null && !parameters.isEmpty();
+      case OptGrammarPackage.FILLED_ARRAY__ARRAYS:
+        return arrays != null && !arrays.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ParameterListImpl
+} //FilledArrayImpl

@@ -19,29 +19,29 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.unicam.myGrammar.optGrammar.ConditionOperation;
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.Literal;
+import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Expression</b></em>'.
+ * An implementation of the model object '<em><b>Logical Operations</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#getFirst <em>First</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#getOperations <em>Operations</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#isNegate <em>Negate</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#isTernary <em>Ternary</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#getTrue <em>True</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#getFalse <em>False</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl#getFirst <em>First</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl#getOperations <em>Operations</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl#isNegate <em>Negate</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl#isTernary <em>Ternary</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl#getTrue <em>True</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl#getFalse <em>False</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
+public class LogicalOperationsImpl extends PrimaryArithmeticImpl implements LogicalOperations
 {
   /**
    * The cached value of the '{@link #getFirst() <em>First</em>}' containment reference.
@@ -128,7 +128,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExpressionImpl()
+  protected LogicalOperationsImpl()
   {
     super();
   }
@@ -141,7 +141,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.EXPRESSION;
+    return OptGrammarPackage.Literals.LOGICAL_OPERATIONS;
   }
 
   /**
@@ -166,7 +166,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     first = newFirst;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__FIRST, oldFirst, newFirst);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOGICAL_OPERATIONS__FIRST, oldFirst, newFirst);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -184,14 +184,14 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     {
       NotificationChain msgs = null;
       if (first != null)
-        msgs = ((InternalEObject)first).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__FIRST, null, msgs);
+        msgs = ((InternalEObject)first).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOGICAL_OPERATIONS__FIRST, null, msgs);
       if (newFirst != null)
-        msgs = ((InternalEObject)newFirst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__FIRST, null, msgs);
+        msgs = ((InternalEObject)newFirst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOGICAL_OPERATIONS__FIRST, null, msgs);
       msgs = basicSetFirst(newFirst, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__FIRST, newFirst, newFirst));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOGICAL_OPERATIONS__FIRST, newFirst, newFirst));
   }
 
   /**
@@ -204,7 +204,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   {
     if (operations == null)
     {
-      operations = new EObjectContainmentEList<ConditionOperation>(ConditionOperation.class, this, OptGrammarPackage.EXPRESSION__OPERATIONS);
+      operations = new EObjectContainmentEList<ConditionOperation>(ConditionOperation.class, this, OptGrammarPackage.LOGICAL_OPERATIONS__OPERATIONS);
     }
     return operations;
   }
@@ -231,7 +231,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     boolean oldNegate = negate;
     negate = newNegate;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__NEGATE, oldNegate, negate));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOGICAL_OPERATIONS__NEGATE, oldNegate, negate));
   }
 
   /**
@@ -256,7 +256,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     boolean oldTernary = ternary;
     ternary = newTernary;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__TERNARY, oldTernary, ternary));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOGICAL_OPERATIONS__TERNARY, oldTernary, ternary));
   }
 
   /**
@@ -281,7 +281,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     true_ = newTrue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__TRUE, oldTrue, newTrue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOGICAL_OPERATIONS__TRUE, oldTrue, newTrue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -299,14 +299,14 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     {
       NotificationChain msgs = null;
       if (true_ != null)
-        msgs = ((InternalEObject)true_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__TRUE, null, msgs);
+        msgs = ((InternalEObject)true_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOGICAL_OPERATIONS__TRUE, null, msgs);
       if (newTrue != null)
-        msgs = ((InternalEObject)newTrue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__TRUE, null, msgs);
+        msgs = ((InternalEObject)newTrue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOGICAL_OPERATIONS__TRUE, null, msgs);
       msgs = basicSetTrue(newTrue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__TRUE, newTrue, newTrue));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOGICAL_OPERATIONS__TRUE, newTrue, newTrue));
   }
 
   /**
@@ -331,7 +331,7 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     false_ = newFalse;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__FALSE, oldFalse, newFalse);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOGICAL_OPERATIONS__FALSE, oldFalse, newFalse);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -349,14 +349,14 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     {
       NotificationChain msgs = null;
       if (false_ != null)
-        msgs = ((InternalEObject)false_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__FALSE, null, msgs);
+        msgs = ((InternalEObject)false_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOGICAL_OPERATIONS__FALSE, null, msgs);
       if (newFalse != null)
-        msgs = ((InternalEObject)newFalse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__FALSE, null, msgs);
+        msgs = ((InternalEObject)newFalse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOGICAL_OPERATIONS__FALSE, null, msgs);
       msgs = basicSetFalse(newFalse, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__FALSE, newFalse, newFalse));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOGICAL_OPERATIONS__FALSE, newFalse, newFalse));
   }
 
   /**
@@ -369,13 +369,13 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EXPRESSION__FIRST:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FIRST:
         return basicSetFirst(null, msgs);
-      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__OPERATIONS:
         return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
-      case OptGrammarPackage.EXPRESSION__TRUE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TRUE:
         return basicSetTrue(null, msgs);
-      case OptGrammarPackage.EXPRESSION__FALSE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FALSE:
         return basicSetFalse(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -391,17 +391,17 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EXPRESSION__FIRST:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FIRST:
         return getFirst();
-      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__OPERATIONS:
         return getOperations();
-      case OptGrammarPackage.EXPRESSION__NEGATE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__NEGATE:
         return isNegate();
-      case OptGrammarPackage.EXPRESSION__TERNARY:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TERNARY:
         return isTernary();
-      case OptGrammarPackage.EXPRESSION__TRUE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TRUE:
         return getTrue();
-      case OptGrammarPackage.EXPRESSION__FALSE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FALSE:
         return getFalse();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -418,23 +418,23 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EXPRESSION__FIRST:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FIRST:
         setFirst((Literal)newValue);
         return;
-      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__OPERATIONS:
         getOperations().clear();
         getOperations().addAll((Collection<? extends ConditionOperation>)newValue);
         return;
-      case OptGrammarPackage.EXPRESSION__NEGATE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__NEGATE:
         setNegate((Boolean)newValue);
         return;
-      case OptGrammarPackage.EXPRESSION__TERNARY:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TERNARY:
         setTernary((Boolean)newValue);
         return;
-      case OptGrammarPackage.EXPRESSION__TRUE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TRUE:
         setTrue((Literal)newValue);
         return;
-      case OptGrammarPackage.EXPRESSION__FALSE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FALSE:
         setFalse((Literal)newValue);
         return;
     }
@@ -451,22 +451,22 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EXPRESSION__FIRST:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FIRST:
         setFirst((Literal)null);
         return;
-      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__OPERATIONS:
         getOperations().clear();
         return;
-      case OptGrammarPackage.EXPRESSION__NEGATE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__NEGATE:
         setNegate(NEGATE_EDEFAULT);
         return;
-      case OptGrammarPackage.EXPRESSION__TERNARY:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TERNARY:
         setTernary(TERNARY_EDEFAULT);
         return;
-      case OptGrammarPackage.EXPRESSION__TRUE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TRUE:
         setTrue((Literal)null);
         return;
-      case OptGrammarPackage.EXPRESSION__FALSE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FALSE:
         setFalse((Literal)null);
         return;
     }
@@ -483,17 +483,17 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   {
     switch (featureID)
     {
-      case OptGrammarPackage.EXPRESSION__FIRST:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FIRST:
         return first != null;
-      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__OPERATIONS:
         return operations != null && !operations.isEmpty();
-      case OptGrammarPackage.EXPRESSION__NEGATE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__NEGATE:
         return negate != NEGATE_EDEFAULT;
-      case OptGrammarPackage.EXPRESSION__TERNARY:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TERNARY:
         return ternary != TERNARY_EDEFAULT;
-      case OptGrammarPackage.EXPRESSION__TRUE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__TRUE:
         return true_ != null;
-      case OptGrammarPackage.EXPRESSION__FALSE:
+      case OptGrammarPackage.LOGICAL_OPERATIONS__FALSE:
         return false_ != null;
     }
     return super.eIsSet(featureID);
@@ -518,4 +518,4 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
     return result.toString();
   }
 
-} //ExpressionImpl
+} //LogicalOperationsImpl

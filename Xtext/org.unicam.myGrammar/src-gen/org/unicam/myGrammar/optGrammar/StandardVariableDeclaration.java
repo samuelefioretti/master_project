@@ -5,8 +5,6 @@ package org.unicam.myGrammar.optGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Standard Variable Declaration</b></em>'.
@@ -17,30 +15,30 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getType <em>Type</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getOptionalElements <em>Optional Elements</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getPtionalElements <em>Ptional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression <em>Expression</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getPtionalElements <em>Ptional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#isSemicolon <em>Semicolon</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getOptionalElements <em>Optional Elements</em>}</li>
  * </ul>
  *
  * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration()
  * @model
  * @generated
  */
-public interface StandardVariableDeclaration extends Statement, SimpleStatement, SimpleStatement2
+public interface StandardVariableDeclaration extends SimpleStatement, SimpleStatement2
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(EObject)
+   * @see #setType(StandardTypeWithoutQualifiedIdentifier)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration_Type()
    * @model containment="true"
    * @generated
    */
-  EObject getType();
+  StandardTypeWithoutQualifiedIdentifier getType();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getType <em>Type</em>}' containment reference.
@@ -50,19 +48,19 @@ public interface StandardVariableDeclaration extends Statement, SimpleStatement,
    * @see #getType()
    * @generated
    */
-  void setType(EObject value);
+  void setType(StandardTypeWithoutQualifiedIdentifier value);
 
   /**
-   * Returns the value of the '<em><b>Optional Elements</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Ptional Elements</b></em>' containment reference list.
    * The list contents are of type {@link org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Optional Elements</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration_OptionalElements()
+   * @return the value of the '<em>Ptional Elements</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration_PtionalElements()
    * @model containment="true"
    * @generated
    */
-  EList<VariableDeclarationOptionalElement> getOptionalElements();
+  EList<VariableDeclarationOptionalElement> getPtionalElements();
 
   /**
    * Returns the value of the '<em><b>Variable</b></em>' containment reference.
@@ -91,12 +89,12 @@ public interface StandardVariableDeclaration extends Statement, SimpleStatement,
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
+   * @see #setExpression(LogicalOperations)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  LogicalOperations getExpression();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression <em>Expression</em>}' containment reference.
@@ -106,19 +104,7 @@ public interface StandardVariableDeclaration extends Statement, SimpleStatement,
    * @see #getExpression()
    * @generated
    */
-  void setExpression(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Ptional Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ptional Elements</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration_PtionalElements()
-   * @model containment="true"
-   * @generated
-   */
-  EList<VariableDeclarationOptionalElement> getPtionalElements();
+  void setExpression(LogicalOperations value);
 
   /**
    * Returns the value of the '<em><b>Semicolon</b></em>' attribute.
@@ -141,5 +127,17 @@ public interface StandardVariableDeclaration extends Statement, SimpleStatement,
    * @generated
    */
   void setSemicolon(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Optional Elements</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Optional Elements</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration_OptionalElements()
+   * @model containment="true"
+   * @generated
+   */
+  EList<VariableDeclarationOptionalElement> getOptionalElements();
 
 } // StandardVariableDeclaration

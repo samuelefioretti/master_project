@@ -51,12 +51,12 @@ public interface FunctionCallArg extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
+   * @see #setExpr(LogicalOperations)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionCallArg_Expr()
    * @model containment="true"
    * @generated
    */
-  Expression getExpr();
+  LogicalOperations getExpr();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionCallArg#getExpr <em>Expr</em>}' containment reference.
@@ -66,6 +66,6 @@ public interface FunctionCallArg extends EObject
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Expression value);
+  void setExpr(LogicalOperations value);
 
 } // FunctionCallArg

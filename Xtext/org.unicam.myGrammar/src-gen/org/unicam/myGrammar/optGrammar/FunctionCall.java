@@ -50,7 +50,7 @@ public interface FunctionCall extends EObject
 
   /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Expression}.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.LogicalOperations}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference list.
@@ -58,6 +58,6 @@ public interface FunctionCall extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getParameters();
+  EList<LogicalOperations> getParameters();
 
 } // FunctionCall

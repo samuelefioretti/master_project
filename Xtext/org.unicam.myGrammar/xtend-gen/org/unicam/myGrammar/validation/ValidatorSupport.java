@@ -19,6 +19,8 @@ public class ValidatorSupport {
   public static String getName(final EObject dec) {
     throw new Error("Unresolved compilation problems:"
       + "\nArrayDeclaration cannot be resolved to a type."
+      + "\nStructDefinition cannot be resolved to a type."
+      + "\nMapping cannot be resolved to a type."
       + "\nConcreteStructureDefinitionDeclaration cannot be resolved to a type."
       + "\nConcreteStructDeclaration cannot be resolved to a type."
       + "\nPrimaryTypeDefinitionDeclaration cannot be resolved to a type."
@@ -40,6 +42,8 @@ public class ValidatorSupport {
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
+      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
+      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\n!== cannot be resolved"
       + "\nname cannot be resolved"
       + "\nname cannot be resolved"
@@ -53,6 +57,7 @@ public class ValidatorSupport {
   public static EObject getDefinitionType(final EObject obj) {
     throw new Error("Unresolved compilation problems:"
       + "\nArrayDefinition cannot be resolved to a type."
+      + "\nMapping cannot be resolved to a type."
       + "\nSingleDefinition cannot be resolved to a type."
       + "\nFieldDefinition cannot be resolved to a type."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."

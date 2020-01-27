@@ -7,26 +7,26 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Expression</b></em>'.
+ * A representation of the model object '<em><b>Logical Operations</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#getFirst <em>First</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#getOperations <em>Operations</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#isNegate <em>Negate</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#isTernary <em>Ternary</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#getTrue <em>True</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#getFalse <em>False</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getFirst <em>First</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getOperations <em>Operations</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.LogicalOperations#isNegate <em>Negate</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.LogicalOperations#isTernary <em>Ternary</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getTrue <em>True</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getFalse <em>False</em>}</li>
  * </ul>
  *
- * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression()
+ * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLogicalOperations()
  * @model
  * @generated
  */
-public interface Expression extends PrimaryArithmetic
+public interface LogicalOperations extends PrimaryArithmetic
 {
   /**
    * Returns the value of the '<em><b>First</b></em>' containment reference.
@@ -34,14 +34,14 @@ public interface Expression extends PrimaryArithmetic
    * <!-- end-user-doc -->
    * @return the value of the '<em>First</em>' containment reference.
    * @see #setFirst(Literal)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_First()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLogicalOperations_First()
    * @model containment="true"
    * @generated
    */
   Literal getFirst();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#getFirst <em>First</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getFirst <em>First</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>First</em>' containment reference.
@@ -56,7 +56,7 @@ public interface Expression extends PrimaryArithmetic
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Operations</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_Operations()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLogicalOperations_Operations()
    * @model containment="true"
    * @generated
    */
@@ -68,14 +68,14 @@ public interface Expression extends PrimaryArithmetic
    * <!-- end-user-doc -->
    * @return the value of the '<em>Negate</em>' attribute.
    * @see #setNegate(boolean)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_Negate()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLogicalOperations_Negate()
    * @model
    * @generated
    */
   boolean isNegate();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#isNegate <em>Negate</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#isNegate <em>Negate</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Negate</em>' attribute.
@@ -90,14 +90,14 @@ public interface Expression extends PrimaryArithmetic
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ternary</em>' attribute.
    * @see #setTernary(boolean)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_Ternary()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLogicalOperations_Ternary()
    * @model
    * @generated
    */
   boolean isTernary();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#isTernary <em>Ternary</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#isTernary <em>Ternary</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Ternary</em>' attribute.
@@ -112,14 +112,14 @@ public interface Expression extends PrimaryArithmetic
    * <!-- end-user-doc -->
    * @return the value of the '<em>True</em>' containment reference.
    * @see #setTrue(Literal)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_True()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLogicalOperations_True()
    * @model containment="true"
    * @generated
    */
   Literal getTrue();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#getTrue <em>True</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getTrue <em>True</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>True</em>' containment reference.
@@ -134,14 +134,14 @@ public interface Expression extends PrimaryArithmetic
    * <!-- end-user-doc -->
    * @return the value of the '<em>False</em>' containment reference.
    * @see #setFalse(Literal)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_False()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLogicalOperations_False()
    * @model containment="true"
    * @generated
    */
   Literal getFalse();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#getFalse <em>False</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getFalse <em>False</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>False</em>' containment reference.
@@ -150,4 +150,4 @@ public interface Expression extends PrimaryArithmetic
    */
   void setFalse(Literal value);
 
-} // Expression
+} // LogicalOperations

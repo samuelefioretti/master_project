@@ -162,227 +162,14 @@ public interface OptGrammarPackage extends EPackage
   int FUNCTION_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl <em>Function Definition</em>}' class.
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.StructDeclarationImpl <em>Struct Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionDefinition()
+   * @see org.unicam.myGrammar.optGrammar.impl.StructDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStructDeclaration()
    * @generated
    */
-  int FUNCTION_DEFINITION = 4;
-
-  /**
-   * The feature id for the '<em><b>Payable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__PAYABLE = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__PARAMETERS = 2;
-
-  /**
-   * The feature id for the '<em><b>Optional Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__OPTIONAL_ELEMENTS = 3;
-
-  /**
-   * The feature id for the '<em><b>Return Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__RETURN_PARAMETERS = 4;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION__BLOCK = 5;
-
-  /**
-   * The number of structural features of the '<em>Function Definition</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION_FEATURE_COUNT = 6;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionCallArgumentsImpl <em>Function Call Arguments</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.FunctionCallArgumentsImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionCallArguments()
-   * @generated
-   */
-  int FUNCTION_CALL_ARGUMENTS = 6;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_CALL_ARGUMENTS__ARGS = 0;
-
-  /**
-   * The number of structural features of the '<em>Function Call Arguments</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_CALL_ARGUMENTS_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionCallListArgumentsImpl <em>Function Call List Arguments</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.FunctionCallListArgumentsImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionCallListArguments()
-   * @generated
-   */
-  int FUNCTION_CALL_LIST_ARGUMENTS = 5;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_CALL_LIST_ARGUMENTS__ARGS = FUNCTION_CALL_ARGUMENTS__ARGS;
-
-  /**
-   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_CALL_LIST_ARGUMENTS__ARGUMENTS = FUNCTION_CALL_ARGUMENTS_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Function Call List Arguments</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_CALL_LIST_ARGUMENTS_FEATURE_COUNT = FUNCTION_CALL_ARGUMENTS_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionCallArgImpl <em>Function Call Arg</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.FunctionCallArgImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionCallArg()
-   * @generated
-   */
-  int FUNCTION_CALL_ARG = 7;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_CALL_ARG__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_CALL_ARG__EXPR = 1;
-
-  /**
-   * The number of structural features of the '<em>Function Call Arg</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_CALL_ARG_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionOptionalElementImpl <em>Function Definition Optional Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionOptionalElementImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionDefinitionOptionalElement()
-   * @generated
-   */
-  int FUNCTION_DEFINITION_OPTIONAL_ELEMENT = 8;
-
-  /**
-   * The number of structural features of the '<em>Function Definition Optional Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ConstImpl <em>Const</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.ConstImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getConst()
-   * @generated
-   */
-  int CONST = 9;
-
-  /**
-   * The number of structural features of the '<em>Const</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONST_FEATURE_COUNT = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VisibilitySpecifierImpl <em>Visibility Specifier</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.VisibilitySpecifierImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVisibilitySpecifier()
-   * @generated
-   */
-  int VISIBILITY_SPECIFIER = 10;
+  int STRUCT_DECLARATION = 4;
 
   /**
    * The feature id for the '<em><b>Visibility</b></em>' containment reference.
@@ -391,35 +178,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VISIBILITY_SPECIFIER__VISIBILITY = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Visibility Specifier</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VISIBILITY_SPECIFIER_FEATURE_COUNT = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl <em>Struct Definition</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStructDefinition()
-   * @generated
-   */
-  int STRUCT_DEFINITION = 11;
-
-  /**
-   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRUCT_DEFINITION__VISIBILITY = DECLARATION_FEATURE_COUNT + 0;
+  int STRUCT_DECLARATION__VISIBILITY = DECLARATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -428,7 +187,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_DEFINITION__NAME = DECLARATION_FEATURE_COUNT + 1;
+  int STRUCT_DECLARATION__NAME = DECLARATION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -437,16 +196,16 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRUCT_DEFINITION__MEMBERS = DECLARATION_FEATURE_COUNT + 2;
+  int STRUCT_DECLARATION__MEMBERS = DECLARATION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Struct Definition</em>' class.
+   * The number of structural features of the '<em>Struct Declaration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRUCT_DEFINITION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
+  int STRUCT_DECLARATION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.EnumDefinitionImpl <em>Enum Definition</em>}' class.
@@ -456,7 +215,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEnumDefinition()
    * @generated
    */
-  int ENUM_DEFINITION = 12;
+  int ENUM_DEFINITION = 5;
 
   /**
    * The feature id for the '<em><b>Visibility</b></em>' containment reference.
@@ -502,7 +261,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEnumValue()
    * @generated
    */
-  int ENUM_VALUE = 13;
+  int ENUM_VALUE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -523,6 +282,1524 @@ public interface OptGrammarPackage extends EPackage
   int ENUM_VALUE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionParameterDeclarationImpl <em>Function Parameter Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FunctionParameterDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionParameterDeclaration()
+   * @generated
+   */
+  int FUNCTION_PARAMETER_DECLARATION = 7;
+
+  /**
+   * The number of structural features of the '<em>Function Parameter Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT = FUNCTION_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDefinitionDeclarationImpl <em>Array Definition Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ArrayDefinitionDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayDefinitionDeclaration()
+   * @generated
+   */
+  int ARRAY_DEFINITION_DECLARATION = 8;
+
+  /**
+   * The number of structural features of the '<em>Array Definition Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FilledArrayImpl <em>Filled Array</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FilledArrayImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFilledArray()
+   * @generated
+   */
+  int FILLED_ARRAY = 9;
+
+  /**
+   * The feature id for the '<em><b>Arrays</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILLED_ARRAY__ARRAYS = 0;
+
+  /**
+   * The number of structural features of the '<em>Filled Array</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILLED_ARRAY_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ValueSetsImpl <em>Value Sets</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ValueSetsImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getValueSets()
+   * @generated
+   */
+  int VALUE_SETS = 10;
+
+  /**
+   * The feature id for the '<em><b>Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_SETS__VALUES = 0;
+
+  /**
+   * The number of structural features of the '<em>Value Sets</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_SETS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDeclarationImpl <em>Array Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ArrayDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayDeclaration()
+   * @generated
+   */
+  int ARRAY_DECLARATION = 11;
+
+  /**
+   * The feature id for the '<em><b>Blocks</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__BLOCKS = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Var</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__VAR = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Access</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__ACCESS = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Location</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__LOCATION = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Constant</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__CONSTANT = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__VISIBILITY = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__TYPE = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Struc Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__STRUC_TYPE = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__NAME = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Sizes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION__SIZES = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 9;
+
+  /**
+   * The number of structural features of the '<em>Array Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DECLARATION_FEATURE_COUNT = ARRAY_DEFINITION_DECLARATION_FEATURE_COUNT + 10;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.NamedTypeImpl <em>Named Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.NamedTypeImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getNamedType()
+   * @generated
+   */
+  int NAMED_TYPE = 12;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_TYPE__TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Named Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_TYPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.SimpleTypeDeclarationImpl <em>Simple Type Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.SimpleTypeDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSimpleTypeDeclaration()
+   * @generated
+   */
+  int SIMPLE_TYPE_DECLARATION = 13;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TYPE_DECLARATION__TYPE = NAMED_TYPE__TYPE;
+
+  /**
+   * The number of structural features of the '<em>Simple Type Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TYPE_DECLARATION_FEATURE_COUNT = NAMED_TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.MappingDefinitionImpl <em>Mapping Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.MappingDefinitionImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMappingDefinition()
+   * @generated
+   */
+  int MAPPING_DEFINITION = 33;
+
+  /**
+   * The number of structural features of the '<em>Mapping Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_DEFINITION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.MappingAccessImpl <em>Mapping Access</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.MappingAccessImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMappingAccess()
+   * @generated
+   */
+  int MAPPING_ACCESS = 14;
+
+  /**
+   * The feature id for the '<em><b>Map</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_ACCESS__MAP = MAPPING_DEFINITION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Index</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_ACCESS__INDEX = MAPPING_DEFINITION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Sec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_ACCESS__SEC = MAPPING_DEFINITION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Mapping Access</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_ACCESS_FEATURE_COUNT = MAPPING_DEFINITION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayAccessImpl <em>Array Access</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ArrayAccessImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayAccess()
+   * @generated
+   */
+  int ARRAY_ACCESS = 15;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ACCESS__VARIABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Indexes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ACCESS__INDEXES = 1;
+
+  /**
+   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ACCESS__FIELD = 2;
+
+  /**
+   * The number of structural features of the '<em>Array Access</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_ACCESS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayIndexImpl <em>Array Index</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ArrayIndexImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayIndex()
+   * @generated
+   */
+  int ARRAY_INDEX = 16;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INDEX__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Array Index</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INDEX_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FieldDefinitionImpl <em>Field Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FieldDefinitionImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFieldDefinition()
+   * @generated
+   */
+  int FIELD_DEFINITION = 32;
+
+  /**
+   * The number of structural features of the '<em>Field Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_DEFINITION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FieldAccessImpl <em>Field Access</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FieldAccessImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFieldAccess()
+   * @generated
+   */
+  int FIELD_ACCESS = 17;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_ACCESS__REF = FIELD_DEFINITION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_ACCESS__FIELD = FIELD_DEFINITION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_ACCESS__VALUE = FIELD_DEFINITION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Field Access</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_ACCESS_FEATURE_COUNT = FIELD_DEFINITION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.MappingDeclarationImpl <em>Mapping Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.MappingDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMappingDeclaration()
+   * @generated
+   */
+  int MAPPING_DECLARATION = 18;
+
+  /**
+   * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_DECLARATION__IS_VAR_TYPE = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_DECLARATION__LOCATION = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_DECLARATION__VISIBILITY = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Unnamed Mapping Declaration</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_DECLARATION__UNNAMED_MAPPING_DECLARATION = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_DECLARATION__NAME = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Mapping Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_DECLARATION_FEATURE_COUNT = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 5;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.UnnamedMappingDeclarationImpl <em>Unnamed Mapping Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.UnnamedMappingDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getUnnamedMappingDeclaration()
+   * @generated
+   */
+  int UNNAMED_MAPPING_DECLARATION = 19;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_MAPPING_DECLARATION__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Second Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_MAPPING_DECLARATION__SECOND_REF = 1;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_MAPPING_DECLARATION__SECOND = 2;
+
+  /**
+   * The feature id for the '<em><b>Array</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_MAPPING_DECLARATION__ARRAY = 3;
+
+  /**
+   * The number of structural features of the '<em>Unnamed Mapping Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNNAMED_MAPPING_DECLARATION_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDefinitionDeclarationImpl <em>Primary Type Definition Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDefinitionDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getPrimaryTypeDefinitionDeclaration()
+   * @generated
+   */
+  int PRIMARY_TYPE_DEFINITION_DECLARATION = 20;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DEFINITION_DECLARATION__REF = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DEFINITION_DECLARATION__OPERATOR = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DEFINITION_DECLARATION__VALUE = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Primary Type Definition Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DEFINITION_DECLARATION_FEATURE_COUNT = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDeclarationImpl <em>Primary Type Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getPrimaryTypeDeclaration()
+   * @generated
+   */
+  int PRIMARY_TYPE_DECLARATION = 21;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DECLARATION__REF = PRIMARY_TYPE_DEFINITION_DECLARATION__REF;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DECLARATION__OPERATOR = PRIMARY_TYPE_DEFINITION_DECLARATION__OPERATOR;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DECLARATION__VALUE = PRIMARY_TYPE_DEFINITION_DECLARATION__VALUE;
+
+  /**
+   * The feature id for the '<em><b>Constant</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DECLARATION__CONSTANT = PRIMARY_TYPE_DEFINITION_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DECLARATION__VISIBILITY = PRIMARY_TYPE_DEFINITION_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DECLARATION__NAME = PRIMARY_TYPE_DEFINITION_DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Primary Type Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TYPE_DECLARATION_FEATURE_COUNT = PRIMARY_TYPE_DEFINITION_DECLARATION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.OperationAssegnationLiteralImpl <em>Operation Assegnation Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.OperationAssegnationLiteralImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getOperationAssegnationLiteral()
+   * @generated
+   */
+  int OPERATION_ASSEGNATION_LITERAL = 22;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_ASSEGNATION_LITERAL__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Operation Assegnation Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_ASSEGNATION_LITERAL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.SingleDefinitionImpl <em>Single Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.SingleDefinitionImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSingleDefinition()
+   * @generated
+   */
+  int SINGLE_DEFINITION = 23;
+
+  /**
+   * The feature id for the '<em><b>First</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_DEFINITION__FIRST = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_DEFINITION__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Second</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_DEFINITION__SECOND = 2;
+
+  /**
+   * The number of structural features of the '<em>Single Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SINGLE_DEFINITION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.NonArrayableDeclarationImpl <em>Non Arrayable Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.NonArrayableDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getNonArrayableDeclaration()
+   * @generated
+   */
+  int NON_ARRAYABLE_DECLARATION = 24;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION__REF = PRIMARY_TYPE_DECLARATION__REF;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION__OPERATOR = PRIMARY_TYPE_DECLARATION__OPERATOR;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION__VALUE = PRIMARY_TYPE_DECLARATION__VALUE;
+
+  /**
+   * The feature id for the '<em><b>Constant</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION__CONSTANT = PRIMARY_TYPE_DECLARATION__CONSTANT;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION__VISIBILITY = PRIMARY_TYPE_DECLARATION__VISIBILITY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION__NAME = PRIMARY_TYPE_DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Location</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION__LOCATION = PRIMARY_TYPE_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION__TYPE = PRIMARY_TYPE_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Non Arrayable Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_ARRAYABLE_DECLARATION_FEATURE_COUNT = PRIMARY_TYPE_DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayableDeclarationImpl <em>Arrayable Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ArrayableDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayableDeclaration()
+   * @generated
+   */
+  int ARRAYABLE_DECLARATION = 25;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAYABLE_DECLARATION__REF = PRIMARY_TYPE_DECLARATION__REF;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAYABLE_DECLARATION__OPERATOR = PRIMARY_TYPE_DECLARATION__OPERATOR;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAYABLE_DECLARATION__VALUE = PRIMARY_TYPE_DECLARATION__VALUE;
+
+  /**
+   * The feature id for the '<em><b>Constant</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAYABLE_DECLARATION__CONSTANT = PRIMARY_TYPE_DECLARATION__CONSTANT;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAYABLE_DECLARATION__VISIBILITY = PRIMARY_TYPE_DECLARATION__VISIBILITY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAYABLE_DECLARATION__NAME = PRIMARY_TYPE_DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAYABLE_DECLARATION__TYPE = PRIMARY_TYPE_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Arrayable Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAYABLE_DECLARATION_FEATURE_COUNT = PRIMARY_TYPE_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ConcreteStructureDefinitionDeclarationImpl <em>Concrete Structure Definition Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ConcreteStructureDefinitionDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getConcreteStructureDefinitionDeclaration()
+   * @generated
+   */
+  int CONCRETE_STRUCTURE_DEFINITION_DECLARATION = 26;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCTURE_DEFINITION_DECLARATION__REF = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Couples</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCTURE_DEFINITION_DECLARATION__COUPLES = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Existence Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCTURE_DEFINITION_DECLARATION__EXISTENCE_REF = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Array Access Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCTURE_DEFINITION_DECLARATION__ARRAY_ACCESS_REF = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Concrete Structure Definition Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCTURE_DEFINITION_DECLARATION_FEATURE_COUNT = FUNCTION_PARAMETER_DECLARATION_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ConcreteStructDeclarationImpl <em>Concrete Struct Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ConcreteStructDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getConcreteStructDeclaration()
+   * @generated
+   */
+  int CONCRETE_STRUCT_DECLARATION = 27;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION__REF = CONCRETE_STRUCTURE_DEFINITION_DECLARATION__REF;
+
+  /**
+   * The feature id for the '<em><b>Couples</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION__COUPLES = CONCRETE_STRUCTURE_DEFINITION_DECLARATION__COUPLES;
+
+  /**
+   * The feature id for the '<em><b>Existence Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION__EXISTENCE_REF = CONCRETE_STRUCTURE_DEFINITION_DECLARATION__EXISTENCE_REF;
+
+  /**
+   * The feature id for the '<em><b>Array Access Ref</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION__ARRAY_ACCESS_REF = CONCRETE_STRUCTURE_DEFINITION_DECLARATION__ARRAY_ACCESS_REF;
+
+  /**
+   * The feature id for the '<em><b>Location</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION__LOCATION = CONCRETE_STRUCTURE_DEFINITION_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Constant</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION__CONSTANT = CONCRETE_STRUCTURE_DEFINITION_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION__TYPE = CONCRETE_STRUCTURE_DEFINITION_DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION__NAME = CONCRETE_STRUCTURE_DEFINITION_DECLARATION_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Concrete Struct Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_STRUCT_DECLARATION_FEATURE_COUNT = CONCRETE_STRUCTURE_DEFINITION_DECLARATION_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.StructureFieldValueImpl <em>Structure Field Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.StructureFieldValueImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStructureFieldValue()
+   * @generated
+   */
+  int STRUCTURE_FIELD_VALUE = 28;
+
+  /**
+   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCTURE_FIELD_VALUE__FIELD = 0;
+
+  /**
+   * The feature id for the '<em><b>Values</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCTURE_FIELD_VALUE__VALUES = 1;
+
+  /**
+   * The number of structural features of the '<em>Structure Field Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRUCTURE_FIELD_VALUE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl <em>Function Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionDefinition()
+   * @generated
+   */
+  int FUNCTION_DEFINITION = 29;
+
+  /**
+   * The feature id for the '<em><b>Payable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION__PAYABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION__PARAMETERS = 2;
+
+  /**
+   * The feature id for the '<em><b>Optional Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION__OPTIONAL_ELEMENTS = 3;
+
+  /**
+   * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION__RETURN_TYPE = 4;
+
+  /**
+   * The feature id for the '<em><b>Blocks</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION__BLOCKS = 5;
+
+  /**
+   * The feature id for the '<em><b>Return Val</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION__RETURN_VAL = 6;
+
+  /**
+   * The number of structural features of the '<em>Function Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION_FEATURE_COUNT = 7;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.InternalBlockImpl <em>Internal Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.InternalBlockImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getInternalBlock()
+   * @generated
+   */
+  int INTERNAL_BLOCK = 30;
+
+  /**
+   * The feature id for the '<em><b>Def</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERNAL_BLOCK__DEF = 0;
+
+  /**
+   * The feature id for the '<em><b>Dec</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERNAL_BLOCK__DEC = 1;
+
+  /**
+   * The feature id for the '<em><b>Loop</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERNAL_BLOCK__LOOP = 2;
+
+  /**
+   * The feature id for the '<em><b>Call</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERNAL_BLOCK__CALL = 3;
+
+  /**
+   * The number of structural features of the '<em>Internal Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERNAL_BLOCK_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDefinitionImpl <em>Array Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ArrayDefinitionImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayDefinition()
+   * @generated
+   */
+  int ARRAY_DEFINITION = 31;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION__REF = 0;
+
+  /**
+   * The feature id for the '<em><b>Blocks</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION__BLOCKS = 1;
+
+  /**
+   * The feature id for the '<em><b>Array Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION__ARRAY_REF = 2;
+
+  /**
+   * The feature id for the '<em><b>Indexes</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION__INDEXES = 3;
+
+  /**
+   * The feature id for the '<em><b>Field</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION__FIELD = 4;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION__OPERATOR = 5;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION__VALUE = 6;
+
+  /**
+   * The number of structural features of the '<em>Array Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_DEFINITION_FEATURE_COUNT = 7;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionCallArgumentsImpl <em>Function Call Arguments</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FunctionCallArgumentsImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionCallArguments()
+   * @generated
+   */
+  int FUNCTION_CALL_ARGUMENTS = 35;
+
+  /**
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_ARGUMENTS__ARGS = 0;
+
+  /**
+   * The number of structural features of the '<em>Function Call Arguments</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_ARGUMENTS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionCallListArgumentsImpl <em>Function Call List Arguments</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FunctionCallListArgumentsImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionCallListArguments()
+   * @generated
+   */
+  int FUNCTION_CALL_LIST_ARGUMENTS = 34;
+
+  /**
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_LIST_ARGUMENTS__ARGS = FUNCTION_CALL_ARGUMENTS__ARGS;
+
+  /**
+   * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_LIST_ARGUMENTS__ARGUMENTS = FUNCTION_CALL_ARGUMENTS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Function Call List Arguments</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_LIST_ARGUMENTS_FEATURE_COUNT = FUNCTION_CALL_ARGUMENTS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionCallArgImpl <em>Function Call Arg</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FunctionCallArgImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionCallArg()
+   * @generated
+   */
+  int FUNCTION_CALL_ARG = 36;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_ARG__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_ARG__EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Function Call Arg</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_ARG_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionOptionalElementImpl <em>Function Definition Optional Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionOptionalElementImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionDefinitionOptionalElement()
+   * @generated
+   */
+  int FUNCTION_DEFINITION_OPTIONAL_ELEMENT = 37;
+
+  /**
+   * The number of structural features of the '<em>Function Definition Optional Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ConstImpl <em>Const</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.ConstImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getConst()
+   * @generated
+   */
+  int CONST = 38;
+
+  /**
+   * The number of structural features of the '<em>Const</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONST_FEATURE_COUNT = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VisibilitySpecifierImpl <em>Visibility Specifier</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.VisibilitySpecifierImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVisibilitySpecifier()
+   * @generated
+   */
+  int VISIBILITY_SPECIFIER = 39;
+
+  /**
+   * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER__VISIBILITY = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Visibility Specifier</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VISIBILITY_SPECIFIER_FEATURE_COUNT = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VariableImpl <em>Variable</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -530,7 +1807,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 14;
+  int VARIABLE = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -551,199 +1828,6 @@ public interface OptGrammarPackage extends EPackage
   int VARIABLE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.StatementImpl <em>Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.StatementImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStatement()
-   * @generated
-   */
-  int STATEMENT = 15;
-
-  /**
-   * The number of structural features of the '<em>Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl <em>Standard Variable Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStandardVariableDeclaration()
-   * @generated
-   */
-  int STANDARD_VARIABLE_DECLARATION = 16;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STANDARD_VARIABLE_DECLARATION__TYPE = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Optional Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STANDARD_VARIABLE_DECLARATION__VARIABLE = STATEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STANDARD_VARIABLE_DECLARATION__EXPRESSION = STATEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Ptional Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS = STATEMENT_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Semicolon</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STANDARD_VARIABLE_DECLARATION__SEMICOLON = STATEMENT_FEATURE_COUNT + 5;
-
-  /**
-   * The number of structural features of the '<em>Standard Variable Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STANDARD_VARIABLE_DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 6;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VarVariableDeclarationImpl <em>Var Variable Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.VarVariableDeclarationImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVarVariableDeclaration()
-   * @generated
-   */
-  int VAR_VARIABLE_DECLARATION = 17;
-
-  /**
-   * The feature id for the '<em><b>Var Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_DECLARATION__VAR_TYPE = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_DECLARATION__VARIABLE = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_DECLARATION__EXPRESSION = STATEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Var Variable Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl <em>Var Variable Tuple Variable Declaration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVarVariableTupleVariableDeclaration()
-   * @generated
-   */
-  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION = 18;
-
-  /**
-   * The feature id for the '<em><b>Var Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__VAR_TYPE = STATEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Tuple</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE = STATEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION = STATEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Semicolon</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON = STATEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>Var Variable Tuple Variable Declaration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 4;
-
-  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VariableDeclarationOptionalElementImpl <em>Variable Declaration Optional Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -751,7 +1835,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVariableDeclarationOptionalElement()
    * @generated
    */
-  int VARIABLE_DECLARATION_OPTIONAL_ELEMENT = 19;
+  int VARIABLE_DECLARATION_OPTIONAL_ELEMENT = 41;
 
   /**
    * The number of structural features of the '<em>Variable Declaration Optional Element</em>' class.
@@ -770,7 +1854,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getIndexedSpecifer()
    * @generated
    */
-  int INDEXED_SPECIFER = 20;
+  int INDEXED_SPECIFER = 42;
 
   /**
    * The number of structural features of the '<em>Indexed Specifer</em>' class.
@@ -789,7 +1873,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getConstantSpecifier()
    * @generated
    */
-  int CONSTANT_SPECIFIER = 21;
+  int CONSTANT_SPECIFIER = 43;
 
   /**
    * The number of structural features of the '<em>Constant Specifier</em>' class.
@@ -808,7 +1892,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLocationSpecifier()
    * @generated
    */
-  int LOCATION_SPECIFIER = 22;
+  int LOCATION_SPECIFIER = 44;
 
   /**
    * The feature id for the '<em><b>Location</b></em>' containment reference.
@@ -836,7 +1920,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getType()
    * @generated
    */
-  int TYPE = 23;
+  int TYPE = 45;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -864,7 +1948,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStandardType()
    * @generated
    */
-  int STANDARD_TYPE = 24;
+  int STANDARD_TYPE = 46;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -885,6 +1969,25 @@ public interface OptGrammarPackage extends EPackage
   int STANDARD_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.StatementImpl <em>Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.StatementImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStatement()
+   * @generated
+   */
+  int STATEMENT = 63;
+
+  /**
+   * The number of structural features of the '<em>Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.SimpleStatementImpl <em>Simple Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -892,7 +1995,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSimpleStatement()
    * @generated
    */
-  int SIMPLE_STATEMENT = 31;
+  int SIMPLE_STATEMENT = 52;
 
   /**
    * The number of structural features of the '<em>Simple Statement</em>' class.
@@ -911,7 +2014,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStandardTypeWithoutQualifiedIdentifier()
    * @generated
    */
-  int STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER = 25;
+  int STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER = 47;
 
   /**
    * The number of structural features of the '<em>Standard Type Without Qualified Identifier</em>' class.
@@ -930,7 +2033,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getElementaryType()
    * @generated
    */
-  int ELEMENTARY_TYPE = 26;
+  int ELEMENTARY_TYPE = 48;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -969,52 +2072,6 @@ public interface OptGrammarPackage extends EPackage
   int ELEMENTARY_TYPE_FEATURE_COUNT = STANDARD_TYPE_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.MappingImpl <em>Mapping</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.MappingImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMapping()
-   * @generated
-   */
-  int MAPPING = 27;
-
-  /**
-   * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING__IS_VAR_TYPE = STANDARD_TYPE__IS_VAR_TYPE;
-
-  /**
-   * The feature id for the '<em><b>Key Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING__KEY_TYPE = STANDARD_TYPE_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Value Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING__VALUE_TYPE = STANDARD_TYPE_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Mapping</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MAPPING_FEATURE_COUNT = STANDARD_TYPE_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDimensionsImpl <em>Array Dimensions</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1022,7 +2079,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayDimensions()
    * @generated
    */
-  int ARRAY_DIMENSIONS = 28;
+  int ARRAY_DIMENSIONS = 49;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference list.
@@ -1050,7 +2107,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getTuple()
    * @generated
    */
-  int TUPLE = 29;
+  int TUPLE = 50;
 
   /**
    * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -1078,7 +2135,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getTupleSeparator()
    * @generated
    */
-  int TUPLE_SEPARATOR = 30;
+  int TUPLE_SEPARATOR = 51;
 
   /**
    * The number of structural features of the '<em>Tuple Separator</em>' class.
@@ -1097,7 +2154,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSimpleStatement2()
    * @generated
    */
-  int SIMPLE_STATEMENT2 = 32;
+  int SIMPLE_STATEMENT2 = 53;
 
   /**
    * The number of structural features of the '<em>Simple Statement2</em>' class.
@@ -1116,7 +2173,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getExpressionStatement()
    * @generated
    */
-  int EXPRESSION_STATEMENT = 33;
+  int EXPRESSION_STATEMENT = 54;
 
   /**
    * The feature id for the '<em><b>Semicolon</b></em>' attribute.
@@ -1153,7 +2210,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getQualifiedIdentifier()
    * @generated
    */
-  int QUALIFIED_IDENTIFIER = 34;
+  int QUALIFIED_IDENTIFIER = 55;
 
   /**
    * The feature id for the '<em><b>Is Var Type</b></em>' attribute.
@@ -1199,7 +2256,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getQualifier()
    * @generated
    */
-  int QUALIFIER = 35;
+  int QUALIFIER = 56;
 
   /**
    * The number of structural features of the '<em>Qualifier</em>' class.
@@ -1218,7 +2275,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getField()
    * @generated
    */
-  int FIELD = 36;
+  int FIELD = 57;
 
   /**
    * The feature id for the '<em><b>Field</b></em>' attribute.
@@ -1246,7 +2303,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getIndex()
    * @generated
    */
-  int INDEX = 37;
+  int INDEX = 58;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1274,7 +2331,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArguments()
    * @generated
    */
-  int ARGUMENTS = 38;
+  int ARGUMENTS = 59;
 
   /**
    * The feature id for the '<em><b>Arguments</b></em>' containment reference.
@@ -1295,154 +2352,6 @@ public interface OptGrammarPackage extends EPackage
   int ARGUMENTS_FEATURE_COUNT = QUALIFIER_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ModifierImpl <em>Modifier</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.ModifierImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getModifier()
-   * @generated
-   */
-  int MODIFIER = 39;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER__PARAMETERS = 1;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER__BLOCK = 2;
-
-  /**
-   * The number of structural features of the '<em>Modifier</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.EventImpl <em>Event</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.EventImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEvent()
-   * @generated
-   */
-  int EVENT = 40;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT__PARAMETERS = 1;
-
-  /**
-   * The number of structural features of the '<em>Event</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ModifierInvocationImpl <em>Modifier Invocation</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.ModifierInvocationImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getModifierInvocation()
-   * @generated
-   */
-  int MODIFIER_INVOCATION = 41;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER_INVOCATION__NAME = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Args</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER_INVOCATION__ARGS = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Modifier Invocation</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER_INVOCATION_FEATURE_COUNT = FUNCTION_DEFINITION_OPTIONAL_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ParameterListImpl <em>Parameter List</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.ParameterListImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getParameterList()
-   * @generated
-   */
-  int PARAMETER_LIST = 42;
-
-  /**
-   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_LIST__PARAMETERS = 0;
-
-  /**
-   * The number of structural features of the '<em>Parameter List</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER_LIST_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ReturnsParameterListImpl <em>Returns Parameter List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1450,7 +2359,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getReturnsParameterList()
    * @generated
    */
-  int RETURNS_PARAMETER_LIST = 43;
+  int RETURNS_PARAMETER_LIST = 60;
 
   /**
    * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1478,7 +2387,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getReturnParameterDeclaration()
    * @generated
    */
-  int RETURN_PARAMETER_DECLARATION = 44;
+  int RETURN_PARAMETER_DECLARATION = 61;
 
   /**
    * The feature id for the '<em><b>Type Ref</b></em>' containment reference.
@@ -1515,7 +2424,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLoopStructures()
    * @generated
    */
-  int LOOP_STRUCTURES = 45;
+  int LOOP_STRUCTURES = 62;
 
   /**
    * The number of structural features of the '<em>Loop Structures</em>' class.
@@ -1534,7 +2443,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getDeleteStatement()
    * @generated
    */
-  int DELETE_STATEMENT = 46;
+  int DELETE_STATEMENT = 64;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -1562,7 +2471,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getIfStatement()
    * @generated
    */
-  int IF_STATEMENT = 47;
+  int IF_STATEMENT = 65;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -1608,7 +2517,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getWhileStatement()
    * @generated
    */
-  int WHILE_STATEMENT = 48;
+  int WHILE_STATEMENT = 66;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -1645,7 +2554,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getForStatement()
    * @generated
    */
-  int FOR_STATEMENT = 49;
+  int FOR_STATEMENT = 67;
 
   /**
    * The feature id for the '<em><b>Init Expression</b></em>' containment reference.
@@ -1700,7 +2609,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getBody()
    * @generated
    */
-  int BODY = 50;
+  int BODY = 68;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -1728,7 +2637,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getContinueStatement()
    * @generated
    */
-  int CONTINUE_STATEMENT = 51;
+  int CONTINUE_STATEMENT = 69;
 
   /**
    * The number of structural features of the '<em>Continue Statement</em>' class.
@@ -1747,7 +2656,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getBreakStatement()
    * @generated
    */
-  int BREAK_STATEMENT = 52;
+  int BREAK_STATEMENT = 70;
 
   /**
    * The number of structural features of the '<em>Break Statement</em>' class.
@@ -1766,7 +2675,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getReturnStatement()
    * @generated
    */
-  int RETURN_STATEMENT = 53;
+  int RETURN_STATEMENT = 71;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1794,7 +2703,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getThrowStatement()
    * @generated
    */
-  int THROW_STATEMENT = 54;
+  int THROW_STATEMENT = 72;
 
   /**
    * The number of structural features of the '<em>Throw Statement</em>' class.
@@ -1813,7 +2722,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getPlaceHolderStatement()
    * @generated
    */
-  int PLACE_HOLDER_STATEMENT = 55;
+  int PLACE_HOLDER_STATEMENT = 73;
 
   /**
    * The number of structural features of the '<em>Place Holder Statement</em>' class.
@@ -1832,7 +2741,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getPrimaryArithmetic()
    * @generated
    */
-  int PRIMARY_ARITHMETIC = 67;
+  int PRIMARY_ARITHMETIC = 85;
 
   /**
    * The number of structural features of the '<em>Primary Arithmetic</em>' class.
@@ -1844,14 +2753,14 @@ public interface OptGrammarPackage extends EPackage
   int PRIMARY_ARITHMETIC_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl <em>Expression</em>}' class.
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl <em>Logical Operations</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.unicam.myGrammar.optGrammar.impl.ExpressionImpl
-   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getExpression()
+   * @see org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLogicalOperations()
    * @generated
    */
-  int EXPRESSION = 56;
+  int LOGICAL_OPERATIONS = 74;
 
   /**
    * The feature id for the '<em><b>First</b></em>' containment reference.
@@ -1860,7 +2769,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__FIRST = PRIMARY_ARITHMETIC_FEATURE_COUNT + 0;
+  int LOGICAL_OPERATIONS__FIRST = PRIMARY_ARITHMETIC_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -1869,7 +2778,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__OPERATIONS = PRIMARY_ARITHMETIC_FEATURE_COUNT + 1;
+  int LOGICAL_OPERATIONS__OPERATIONS = PRIMARY_ARITHMETIC_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Negate</b></em>' attribute.
@@ -1878,7 +2787,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__NEGATE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 2;
+  int LOGICAL_OPERATIONS__NEGATE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Ternary</b></em>' attribute.
@@ -1887,7 +2796,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__TERNARY = PRIMARY_ARITHMETIC_FEATURE_COUNT + 3;
+  int LOGICAL_OPERATIONS__TERNARY = PRIMARY_ARITHMETIC_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>True</b></em>' containment reference.
@@ -1896,7 +2805,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__TRUE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 4;
+  int LOGICAL_OPERATIONS__TRUE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>False</b></em>' containment reference.
@@ -1905,16 +2814,16 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION__FALSE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 5;
+  int LOGICAL_OPERATIONS__FALSE = PRIMARY_ARITHMETIC_FEATURE_COUNT + 5;
 
   /**
-   * The number of structural features of the '<em>Expression</em>' class.
+   * The number of structural features of the '<em>Logical Operations</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = PRIMARY_ARITHMETIC_FEATURE_COUNT + 6;
+  int LOGICAL_OPERATIONS_FEATURE_COUNT = PRIMARY_ARITHMETIC_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ConditionOperationImpl <em>Condition Operation</em>}' class.
@@ -1924,7 +2833,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getConditionOperation()
    * @generated
    */
-  int CONDITION_OPERATION = 57;
+  int CONDITION_OPERATION = 75;
 
   /**
    * The feature id for the '<em><b>Operation</b></em>' attribute.
@@ -1970,7 +2879,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLiteral()
    * @generated
    */
-  int LITERAL = 58;
+  int LITERAL = 76;
 
   /**
    * The number of structural features of the '<em>Literal</em>' class.
@@ -1989,7 +2898,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getGasleftFunction()
    * @generated
    */
-  int GASLEFT_FUNCTION = 59;
+  int GASLEFT_FUNCTION = 77;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2017,7 +2926,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getBlockhashFunction()
    * @generated
    */
-  int BLOCKHASH_FUNCTION = 60;
+  int BLOCKHASH_FUNCTION = 78;
 
   /**
    * The feature id for the '<em><b>Parameter</b></em>' containment reference.
@@ -2045,7 +2954,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMathematicalFunction()
    * @generated
    */
-  int MATHEMATICAL_FUNCTION = 61;
+  int MATHEMATICAL_FUNCTION = 79;
 
   /**
    * The feature id for the '<em><b>Function</b></em>' attribute.
@@ -2082,7 +2991,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEcrecoverFunction()
    * @generated
    */
-  int ECRECOVER_FUNCTION = 62;
+  int ECRECOVER_FUNCTION = 80;
 
   /**
    * The feature id for the '<em><b>Function</b></em>' attribute.
@@ -2119,7 +3028,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getHashFunction()
    * @generated
    */
-  int HASH_FUNCTION = 63;
+  int HASH_FUNCTION = 81;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2156,7 +3065,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getIntParameter()
    * @generated
    */
-  int INT_PARAMETER = 64;
+  int INT_PARAMETER = 82;
 
   /**
    * The feature id for the '<em><b>Param</b></em>' containment reference.
@@ -2193,7 +3102,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionCall()
    * @generated
    */
-  int FUNCTION_CALL = 65;
+  int FUNCTION_CALL = 83;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -2230,7 +3139,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArithmeticOperations()
    * @generated
    */
-  int ARITHMETIC_OPERATIONS = 66;
+  int ARITHMETIC_OPERATIONS = 84;
 
   /**
    * The feature id for the '<em><b>First</b></em>' containment reference.
@@ -2267,7 +3176,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSecondOperators()
    * @generated
    */
-  int SECOND_OPERATORS = 68;
+  int SECOND_OPERATORS = 86;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -2304,7 +3213,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getBooleanConst()
    * @generated
    */
-  int BOOLEAN_CONST = 69;
+  int BOOLEAN_CONST = 87;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2332,7 +3241,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getNumericLiteral()
    * @generated
    */
-  int NUMERIC_LITERAL = 70;
+  int NUMERIC_LITERAL = 88;
 
   /**
    * The feature id for the '<em><b>Int Value</b></em>' containment reference.
@@ -2396,7 +3305,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getNow()
    * @generated
    */
-  int NOW = 71;
+  int NOW = 89;
 
   /**
    * The number of structural features of the '<em>Now</em>' class.
@@ -2415,7 +3324,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getUnitTypes()
    * @generated
    */
-  int UNIT_TYPES = 72;
+  int UNIT_TYPES = 90;
 
   /**
    * The feature id for the '<em><b>Time</b></em>' containment reference.
@@ -2452,7 +3361,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getNumberDimensionless()
    * @generated
    */
-  int NUMBER_DIMENSIONLESS = 73;
+  int NUMBER_DIMENSIONLESS = 91;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2480,7 +3389,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEther()
    * @generated
    */
-  int ETHER = 74;
+  int ETHER = 92;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2517,7 +3426,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getTime()
    * @generated
    */
-  int TIME = 75;
+  int TIME = 93;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2554,7 +3463,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 76;
+  int STRING_LITERAL = 94;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2575,6 +3484,34 @@ public interface OptGrammarPackage extends EPackage
   int STRING_LITERAL_FEATURE_COUNT = LITERAL_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.IntLiteralImpl <em>Int Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.IntLiteralImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getIntLiteral()
+   * @generated
+   */
+  int INT_LITERAL = 95;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_LITERAL__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Int Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_LITERAL_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.HexLiteralImpl <em>Hex Literal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2582,7 +3519,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getHexLiteral()
    * @generated
    */
-  int HEX_LITERAL = 77;
+  int HEX_LITERAL = 96;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2610,7 +3547,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getDecimalLiteral()
    * @generated
    */
-  int DECIMAL_LITERAL = 78;
+  int DECIMAL_LITERAL = 97;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2638,7 +3575,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getTypeCast()
    * @generated
    */
-  int TYPE_CAST = 79;
+  int TYPE_CAST = 98;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -2675,7 +3612,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSpecialVariables()
    * @generated
    */
-  int SPECIAL_VARIABLES = 80;
+  int SPECIAL_VARIABLES = 99;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -2721,7 +3658,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getElementaryTypeNameEnum()
    * @generated
    */
-  int ELEMENTARY_TYPE_NAME_ENUM = 81;
+  int ELEMENTARY_TYPE_NAME_ENUM = 100;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2730,7 +3667,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENTARY_TYPE_NAME_ENUM__TYPE = 0;
+  int ELEMENTARY_TYPE_NAME_ENUM__TYPE = NAMED_TYPE__TYPE;
 
   /**
    * The number of structural features of the '<em>Elementary Type Name Enum</em>' class.
@@ -2739,7 +3676,7 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENTARY_TYPE_NAME_ENUM_FEATURE_COUNT = 1;
+  int ELEMENTARY_TYPE_NAME_ENUM_FEATURE_COUNT = NAMED_TYPE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.LocationSpecifierEnumImpl <em>Location Specifier Enum</em>}' class.
@@ -2749,7 +3686,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLocationSpecifierEnum()
    * @generated
    */
-  int LOCATION_SPECIFIER_ENUM = 82;
+  int LOCATION_SPECIFIER_ENUM = 101;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2777,7 +3714,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVisibilityEnum()
    * @generated
    */
-  int VISIBILITY_ENUM = 83;
+  int VISIBILITY_ENUM = 102;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2805,7 +3742,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSpecialVariablesTypeEnum()
    * @generated
    */
-  int SPECIAL_VARIABLES_TYPE_ENUM = 84;
+  int SPECIAL_VARIABLES_TYPE_ENUM = 103;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2826,6 +3763,79 @@ public interface OptGrammarPackage extends EPackage
   int SPECIAL_VARIABLES_TYPE_ENUM_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl <em>Standard Variable Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStandardVariableDeclaration()
+   * @generated
+   */
+  int STANDARD_VARIABLE_DECLARATION = 104;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STANDARD_VARIABLE_DECLARATION__TYPE = SIMPLE_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Ptional Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS = SIMPLE_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STANDARD_VARIABLE_DECLARATION__VARIABLE = SIMPLE_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STANDARD_VARIABLE_DECLARATION__EXPRESSION = SIMPLE_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Semicolon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STANDARD_VARIABLE_DECLARATION__SEMICOLON = SIMPLE_STATEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Optional Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS = SIMPLE_STATEMENT_FEATURE_COUNT + 5;
+
+  /**
+   * The number of structural features of the '<em>Standard Variable Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STANDARD_VARIABLE_DECLARATION_FEATURE_COUNT = SIMPLE_STATEMENT_FEATURE_COUNT + 6;
+
+  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTypeDeclarationImpl <em>Var Variable Type Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2833,7 +3843,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVarVariableTypeDeclaration()
    * @generated
    */
-  int VAR_VARIABLE_TYPE_DECLARATION = 85;
+  int VAR_VARIABLE_TYPE_DECLARATION = 105;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' containment reference.
@@ -2872,6 +3882,52 @@ public interface OptGrammarPackage extends EPackage
   int VAR_VARIABLE_TYPE_DECLARATION_FEATURE_COUNT = SIMPLE_STATEMENT_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl <em>Var Variable Tuple Variable Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl
+   * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVarVariableTupleVariableDeclaration()
+   * @generated
+   */
+  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION = 106;
+
+  /**
+   * The feature id for the '<em><b>Tuple</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE = SIMPLE_STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION = SIMPLE_STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Semicolon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON = SIMPLE_STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Var Variable Tuple Variable Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION_FEATURE_COUNT = SIMPLE_STATEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.impl.ContinueImpl <em>Continue</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2879,7 +3935,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getContinue()
    * @generated
    */
-  int CONTINUE = 86;
+  int CONTINUE = 107;
 
   /**
    * The number of structural features of the '<em>Continue</em>' class.
@@ -2898,7 +3954,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLogicalOperationLiteral()
    * @generated
    */
-  int LOGICAL_OPERATION_LITERAL = 87;
+  int LOGICAL_OPERATION_LITERAL = 108;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.AssignmentOpEnum <em>Assignment Op Enum</em>}' enum.
@@ -2908,7 +3964,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getAssignmentOpEnum()
    * @generated
    */
-  int ASSIGNMENT_OP_ENUM = 88;
+  int ASSIGNMENT_OP_ENUM = 109;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.EqualityOpEnum <em>Equality Op Enum</em>}' enum.
@@ -2918,7 +3974,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEqualityOpEnum()
    * @generated
    */
-  int EQUALITY_OP_ENUM = 89;
+  int EQUALITY_OP_ENUM = 110;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.ComparisonOpEnum <em>Comparison Op Enum</em>}' enum.
@@ -2928,7 +3984,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getComparisonOpEnum()
    * @generated
    */
-  int COMPARISON_OP_ENUM = 90;
+  int COMPARISON_OP_ENUM = 111;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.ShiftOpEnum <em>Shift Op Enum</em>}' enum.
@@ -2938,7 +3994,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getShiftOpEnum()
    * @generated
    */
-  int SHIFT_OP_ENUM = 91;
+  int SHIFT_OP_ENUM = 112;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.AdditionOpEnum <em>Addition Op Enum</em>}' enum.
@@ -2948,7 +4004,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getAdditionOpEnum()
    * @generated
    */
-  int ADDITION_OP_ENUM = 92;
+  int ADDITION_OP_ENUM = 113;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.MulDivModOpEnum <em>Mul Div Mod Op Enum</em>}' enum.
@@ -2958,7 +4014,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMulDivModOpEnum()
    * @generated
    */
-  int MUL_DIV_MOD_OP_ENUM = 93;
+  int MUL_DIV_MOD_OP_ENUM = 114;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.IncDecOpEnum <em>Inc Dec Op Enum</em>}' enum.
@@ -2968,7 +4024,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getIncDecOpEnum()
    * @generated
    */
-  int INC_DEC_OP_ENUM = 94;
+  int INC_DEC_OP_ENUM = 115;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.BooleanLiteralEnum <em>Boolean Literal Enum</em>}' enum.
@@ -2978,7 +4034,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getBooleanLiteralEnum()
    * @generated
    */
-  int BOOLEAN_LITERAL_ENUM = 95;
+  int BOOLEAN_LITERAL_ENUM = 116;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum <em>Ether Sub Denomination Enum</em>}' enum.
@@ -2988,7 +4044,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEtherSubDenominationEnum()
    * @generated
    */
-  int ETHER_SUB_DENOMINATION_ENUM = 96;
+  int ETHER_SUB_DENOMINATION_ENUM = 117;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum <em>Time Subdenomination Enum</em>}' enum.
@@ -2998,7 +4054,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getTimeSubdenominationEnum()
    * @generated
    */
-  int TIME_SUBDENOMINATION_ENUM = 97;
+  int TIME_SUBDENOMINATION_ENUM = 118;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.SpecialExpressionTypeEnum <em>Special Expression Type Enum</em>}' enum.
@@ -3008,7 +4064,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSpecialExpressionTypeEnum()
    * @generated
    */
-  int SPECIAL_EXPRESSION_TYPE_ENUM = 98;
+  int SPECIAL_EXPRESSION_TYPE_ENUM = 119;
 
   /**
    * The meta object id for the '{@link org.unicam.myGrammar.optGrammar.ReservedWordsEnum <em>Reserved Words Enum</em>}' enum.
@@ -3018,7 +4074,7 @@ public interface OptGrammarPackage extends EPackage
    * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getReservedWordsEnum()
    * @generated
    */
-  int RESERVED_WORDS_ENUM = 99;
+  int RESERVED_WORDS_ENUM = 120;
 
 
   /**
@@ -3095,6 +4151,927 @@ public interface OptGrammarPackage extends EPackage
   EClass getFunctionDeclaration();
 
   /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.StructDeclaration <em>Struct Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Struct Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StructDeclaration
+   * @generated
+   */
+  EClass getStructDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StructDeclaration#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StructDeclaration#getVisibility()
+   * @see #getStructDeclaration()
+   * @generated
+   */
+  EReference getStructDeclaration_Visibility();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.StructDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StructDeclaration#getName()
+   * @see #getStructDeclaration()
+   * @generated
+   */
+  EAttribute getStructDeclaration_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.StructDeclaration#getMembers <em>Members</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Members</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StructDeclaration#getMembers()
+   * @see #getStructDeclaration()
+   * @generated
+   */
+  EReference getStructDeclaration_Members();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.EnumDefinition <em>Enum Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enum Definition</em>'.
+   * @see org.unicam.myGrammar.optGrammar.EnumDefinition
+   * @generated
+   */
+  EClass getEnumDefinition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
+   * @see org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility()
+   * @see #getEnumDefinition()
+   * @generated
+   */
+  EReference getEnumDefinition_Visibility();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.EnumDefinition#getName()
+   * @see #getEnumDefinition()
+   * @generated
+   */
+  EAttribute getEnumDefinition_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getMembers <em>Members</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Members</em>'.
+   * @see org.unicam.myGrammar.optGrammar.EnumDefinition#getMembers()
+   * @see #getEnumDefinition()
+   * @generated
+   */
+  EReference getEnumDefinition_Members();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.EnumValue <em>Enum Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enum Value</em>'.
+   * @see org.unicam.myGrammar.optGrammar.EnumValue
+   * @generated
+   */
+  EClass getEnumValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.EnumValue#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.EnumValue#getName()
+   * @see #getEnumValue()
+   * @generated
+   */
+  EAttribute getEnumValue_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.FunctionParameterDeclaration <em>Function Parameter Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function Parameter Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FunctionParameterDeclaration
+   * @generated
+   */
+  EClass getFunctionParameterDeclaration();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ArrayDefinitionDeclaration <em>Array Definition Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Definition Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinitionDeclaration
+   * @generated
+   */
+  EClass getArrayDefinitionDeclaration();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.FilledArray <em>Filled Array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Filled Array</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FilledArray
+   * @generated
+   */
+  EClass getFilledArray();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.FilledArray#getArrays <em>Arrays</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Arrays</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FilledArray#getArrays()
+   * @see #getFilledArray()
+   * @generated
+   */
+  EReference getFilledArray_Arrays();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ValueSets <em>Value Sets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Value Sets</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ValueSets
+   * @generated
+   */
+  EClass getValueSets();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.ValueSets#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Values</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ValueSets#getValues()
+   * @see #getValueSets()
+   * @generated
+   */
+  EReference getValueSets_Values();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration <em>Array Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration
+   * @generated
+   */
+  EClass getArrayDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getBlocks <em>Blocks</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Blocks</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getBlocks()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EReference getArrayDeclaration_Blocks();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Var</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getVar()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EReference getArrayDeclaration_Var();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getAccess <em>Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Access</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getAccess()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EReference getArrayDeclaration_Access();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Location</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getLocation()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EReference getArrayDeclaration_Location();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#isConstant <em>Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Constant</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#isConstant()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EAttribute getArrayDeclaration_Constant();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getVisibility()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EReference getArrayDeclaration_Visibility();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getType()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EReference getArrayDeclaration_Type();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getStrucType <em>Struc Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Struc Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getStrucType()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EReference getArrayDeclaration_StrucType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getName()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EAttribute getArrayDeclaration_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.ArrayDeclaration#getSizes <em>Sizes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Sizes</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDeclaration#getSizes()
+   * @see #getArrayDeclaration()
+   * @generated
+   */
+  EReference getArrayDeclaration_Sizes();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.NamedType <em>Named Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Named Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.NamedType
+   * @generated
+   */
+  EClass getNamedType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.NamedType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.NamedType#getType()
+   * @see #getNamedType()
+   * @generated
+   */
+  EAttribute getNamedType_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration <em>Simple Type Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Type Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration
+   * @generated
+   */
+  EClass getSimpleTypeDeclaration();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.MappingAccess <em>Mapping Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mapping Access</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingAccess
+   * @generated
+   */
+  EClass getMappingAccess();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.MappingAccess#getMap <em>Map</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Map</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingAccess#getMap()
+   * @see #getMappingAccess()
+   * @generated
+   */
+  EReference getMappingAccess_Map();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.MappingAccess#getIndex <em>Index</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Index</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingAccess#getIndex()
+   * @see #getMappingAccess()
+   * @generated
+   */
+  EReference getMappingAccess_Index();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.MappingAccess#getSec <em>Sec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sec</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingAccess#getSec()
+   * @see #getMappingAccess()
+   * @generated
+   */
+  EReference getMappingAccess_Sec();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ArrayAccess <em>Array Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Access</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayAccess
+   * @generated
+   */
+  EClass getArrayAccess();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ArrayAccess#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayAccess#getVariable()
+   * @see #getArrayAccess()
+   * @generated
+   */
+  EReference getArrayAccess_Variable();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.ArrayAccess#getIndexes <em>Indexes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Indexes</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayAccess#getIndexes()
+   * @see #getArrayAccess()
+   * @generated
+   */
+  EReference getArrayAccess_Indexes();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.ArrayAccess#getField <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayAccess#getField()
+   * @see #getArrayAccess()
+   * @generated
+   */
+  EAttribute getArrayAccess_Field();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ArrayIndex <em>Array Index</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Index</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayIndex
+   * @generated
+   */
+  EClass getArrayIndex();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayIndex#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayIndex#getValue()
+   * @see #getArrayIndex()
+   * @generated
+   */
+  EReference getArrayIndex_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.FieldAccess <em>Field Access</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Field Access</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FieldAccess
+   * @generated
+   */
+  EClass getFieldAccess();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.FieldAccess#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FieldAccess#getRef()
+   * @see #getFieldAccess()
+   * @generated
+   */
+  EReference getFieldAccess_Ref();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.FieldAccess#getField <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FieldAccess#getField()
+   * @see #getFieldAccess()
+   * @generated
+   */
+  EAttribute getFieldAccess_Field();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.FieldAccess#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FieldAccess#getValue()
+   * @see #getFieldAccess()
+   * @generated
+   */
+  EReference getFieldAccess_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.MappingDeclaration <em>Mapping Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mapping Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingDeclaration
+   * @generated
+   */
+  EClass getMappingDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.MappingDeclaration#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Location</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingDeclaration#getLocation()
+   * @see #getMappingDeclaration()
+   * @generated
+   */
+  EAttribute getMappingDeclaration_Location();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.MappingDeclaration#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingDeclaration#getVisibility()
+   * @see #getMappingDeclaration()
+   * @generated
+   */
+  EReference getMappingDeclaration_Visibility();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.MappingDeclaration#getUnnamedMappingDeclaration <em>Unnamed Mapping Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Unnamed Mapping Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingDeclaration#getUnnamedMappingDeclaration()
+   * @see #getMappingDeclaration()
+   * @generated
+   */
+  EReference getMappingDeclaration_UnnamedMappingDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.MappingDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingDeclaration#getName()
+   * @see #getMappingDeclaration()
+   * @generated
+   */
+  EAttribute getMappingDeclaration_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration <em>Unnamed Mapping Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unnamed Mapping Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration
+   * @generated
+   */
+  EClass getUnnamedMappingDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration#getType()
+   * @see #getUnnamedMappingDeclaration()
+   * @generated
+   */
+  EReference getUnnamedMappingDeclaration_Type();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration#getSecondRef <em>Second Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Second Ref</em>'.
+   * @see org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration#getSecondRef()
+   * @see #getUnnamedMappingDeclaration()
+   * @generated
+   */
+  EReference getUnnamedMappingDeclaration_SecondRef();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration#getSecond <em>Second</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Second</em>'.
+   * @see org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration#getSecond()
+   * @see #getUnnamedMappingDeclaration()
+   * @generated
+   */
+  EReference getUnnamedMappingDeclaration_Second();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration#isArray <em>Array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Array</em>'.
+   * @see org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration#isArray()
+   * @see #getUnnamedMappingDeclaration()
+   * @generated
+   */
+  EAttribute getUnnamedMappingDeclaration_Array();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration <em>Primary Type Definition Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Primary Type Definition Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration
+   * @generated
+   */
+  EClass getPrimaryTypeDefinitionDeclaration();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration#getRef()
+   * @see #getPrimaryTypeDefinitionDeclaration()
+   * @generated
+   */
+  EReference getPrimaryTypeDefinitionDeclaration_Ref();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operator</em>'.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration#getOperator()
+   * @see #getPrimaryTypeDefinitionDeclaration()
+   * @generated
+   */
+  EReference getPrimaryTypeDefinitionDeclaration_Operator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration#getValue()
+   * @see #getPrimaryTypeDefinitionDeclaration()
+   * @generated
+   */
+  EReference getPrimaryTypeDefinitionDeclaration_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration <em>Primary Type Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Primary Type Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration
+   * @generated
+   */
+  EClass getPrimaryTypeDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration#isConstant <em>Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Constant</em>'.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration#isConstant()
+   * @see #getPrimaryTypeDeclaration()
+   * @generated
+   */
+  EAttribute getPrimaryTypeDeclaration_Constant();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration#getVisibility <em>Visibility</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Visibility</em>'.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration#getVisibility()
+   * @see #getPrimaryTypeDeclaration()
+   * @generated
+   */
+  EReference getPrimaryTypeDeclaration_Visibility();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration#getName()
+   * @see #getPrimaryTypeDeclaration()
+   * @generated
+   */
+  EAttribute getPrimaryTypeDeclaration_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.OperationAssegnationLiteral <em>Operation Assegnation Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operation Assegnation Literal</em>'.
+   * @see org.unicam.myGrammar.optGrammar.OperationAssegnationLiteral
+   * @generated
+   */
+  EClass getOperationAssegnationLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.OperationAssegnationLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.unicam.myGrammar.optGrammar.OperationAssegnationLiteral#getValue()
+   * @see #getOperationAssegnationLiteral()
+   * @generated
+   */
+  EAttribute getOperationAssegnationLiteral_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.SingleDefinition <em>Single Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Single Definition</em>'.
+   * @see org.unicam.myGrammar.optGrammar.SingleDefinition
+   * @generated
+   */
+  EClass getSingleDefinition();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.SingleDefinition#getFirst <em>First</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>First</em>'.
+   * @see org.unicam.myGrammar.optGrammar.SingleDefinition#getFirst()
+   * @see #getSingleDefinition()
+   * @generated
+   */
+  EAttribute getSingleDefinition_First();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.SingleDefinition#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.SingleDefinition#getName()
+   * @see #getSingleDefinition()
+   * @generated
+   */
+  EReference getSingleDefinition_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.SingleDefinition#getSecond <em>Second</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Second</em>'.
+   * @see org.unicam.myGrammar.optGrammar.SingleDefinition#getSecond()
+   * @see #getSingleDefinition()
+   * @generated
+   */
+  EAttribute getSingleDefinition_Second();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.NonArrayableDeclaration <em>Non Arrayable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Non Arrayable Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.NonArrayableDeclaration
+   * @generated
+   */
+  EClass getNonArrayableDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.NonArrayableDeclaration#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Location</em>'.
+   * @see org.unicam.myGrammar.optGrammar.NonArrayableDeclaration#getLocation()
+   * @see #getNonArrayableDeclaration()
+   * @generated
+   */
+  EReference getNonArrayableDeclaration_Location();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.NonArrayableDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.NonArrayableDeclaration#getType()
+   * @see #getNonArrayableDeclaration()
+   * @generated
+   */
+  EReference getNonArrayableDeclaration_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ArrayableDeclaration <em>Arrayable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Arrayable Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayableDeclaration
+   * @generated
+   */
+  EClass getArrayableDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayableDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayableDeclaration#getType()
+   * @see #getArrayableDeclaration()
+   * @generated
+   */
+  EReference getArrayableDeclaration_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration <em>Concrete Structure Definition Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Concrete Structure Definition Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration
+   * @generated
+   */
+  EClass getConcreteStructureDefinitionDeclaration();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration#getRef()
+   * @see #getConcreteStructureDefinitionDeclaration()
+   * @generated
+   */
+  EReference getConcreteStructureDefinitionDeclaration_Ref();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration#getCouples <em>Couples</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Couples</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration#getCouples()
+   * @see #getConcreteStructureDefinitionDeclaration()
+   * @generated
+   */
+  EReference getConcreteStructureDefinitionDeclaration_Couples();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration#getExistenceRef <em>Existence Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Existence Ref</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration#getExistenceRef()
+   * @see #getConcreteStructureDefinitionDeclaration()
+   * @generated
+   */
+  EReference getConcreteStructureDefinitionDeclaration_ExistenceRef();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration#getArrayAccessRef <em>Array Access Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Array Access Ref</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructureDefinitionDeclaration#getArrayAccessRef()
+   * @see #getConcreteStructureDefinitionDeclaration()
+   * @generated
+   */
+  EReference getConcreteStructureDefinitionDeclaration_ArrayAccessRef();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration <em>Concrete Struct Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Concrete Struct Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration
+   * @generated
+   */
+  EClass getConcreteStructDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Location</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration#getLocation()
+   * @see #getConcreteStructDeclaration()
+   * @generated
+   */
+  EReference getConcreteStructDeclaration_Location();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration#isConstant <em>Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Constant</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration#isConstant()
+   * @see #getConcreteStructDeclaration()
+   * @generated
+   */
+  EAttribute getConcreteStructDeclaration_Constant();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration#getType()
+   * @see #getConcreteStructDeclaration()
+   * @generated
+   */
+  EReference getConcreteStructDeclaration_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ConcreteStructDeclaration#getName()
+   * @see #getConcreteStructDeclaration()
+   * @generated
+   */
+  EAttribute getConcreteStructDeclaration_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.StructureFieldValue <em>Structure Field Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Structure Field Value</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StructureFieldValue
+   * @generated
+   */
+  EClass getStructureFieldValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.StructureFieldValue#getField <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StructureFieldValue#getField()
+   * @see #getStructureFieldValue()
+   * @generated
+   */
+  EAttribute getStructureFieldValue_Field();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StructureFieldValue#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Values</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StructureFieldValue#getValues()
+   * @see #getStructureFieldValue()
+   * @generated
+   */
+  EReference getStructureFieldValue_Values();
+
+  /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition <em>Function Definition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3127,10 +5104,10 @@ public interface OptGrammarPackage extends EPackage
   EAttribute getFunctionDefinition_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters <em>Parameters</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
    * @see org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters()
    * @see #getFunctionDefinition()
    * @generated
@@ -3149,26 +5126,198 @@ public interface OptGrammarPackage extends EPackage
   EReference getFunctionDefinition_OptionalElements();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnParameters <em>Return Parameters</em>}'.
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnType <em>Return Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Return Parameters</em>'.
-   * @see org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnParameters()
+   * @return the meta object for the containment reference '<em>Return Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnType()
    * @see #getFunctionDefinition()
    * @generated
    */
-  EReference getFunctionDefinition_ReturnParameters();
+  EReference getFunctionDefinition_ReturnType();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlock <em>Block</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlocks <em>Blocks</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Block</em>'.
-   * @see org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlock()
+   * @return the meta object for the containment reference list '<em>Blocks</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlocks()
    * @see #getFunctionDefinition()
    * @generated
    */
-  EReference getFunctionDefinition_Block();
+  EReference getFunctionDefinition_Blocks();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnVal <em>Return Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Val</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnVal()
+   * @see #getFunctionDefinition()
+   * @generated
+   */
+  EReference getFunctionDefinition_ReturnVal();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.InternalBlock <em>Internal Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Internal Block</em>'.
+   * @see org.unicam.myGrammar.optGrammar.InternalBlock
+   * @generated
+   */
+  EClass getInternalBlock();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.InternalBlock#getDef <em>Def</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Def</em>'.
+   * @see org.unicam.myGrammar.optGrammar.InternalBlock#getDef()
+   * @see #getInternalBlock()
+   * @generated
+   */
+  EReference getInternalBlock_Def();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.InternalBlock#getDec <em>Dec</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Dec</em>'.
+   * @see org.unicam.myGrammar.optGrammar.InternalBlock#getDec()
+   * @see #getInternalBlock()
+   * @generated
+   */
+  EReference getInternalBlock_Dec();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.InternalBlock#getLoop <em>Loop</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Loop</em>'.
+   * @see org.unicam.myGrammar.optGrammar.InternalBlock#getLoop()
+   * @see #getInternalBlock()
+   * @generated
+   */
+  EReference getInternalBlock_Loop();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.InternalBlock#getCall <em>Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Call</em>'.
+   * @see org.unicam.myGrammar.optGrammar.InternalBlock#getCall()
+   * @see #getInternalBlock()
+   * @generated
+   */
+  EReference getInternalBlock_Call();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition <em>Array Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Definition</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition
+   * @generated
+   */
+  EClass getArrayDefinition();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition#getRef()
+   * @see #getArrayDefinition()
+   * @generated
+   */
+  EReference getArrayDefinition_Ref();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition#getBlocks <em>Blocks</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Blocks</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition#getBlocks()
+   * @see #getArrayDefinition()
+   * @generated
+   */
+  EReference getArrayDefinition_Blocks();
+
+  /**
+   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition#getArrayRef <em>Array Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Array Ref</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition#getArrayRef()
+   * @see #getArrayDefinition()
+   * @generated
+   */
+  EReference getArrayDefinition_ArrayRef();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition#getIndexes <em>Indexes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Indexes</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition#getIndexes()
+   * @see #getArrayDefinition()
+   * @generated
+   */
+  EReference getArrayDefinition_Indexes();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition#getField <em>Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition#getField()
+   * @see #getArrayDefinition()
+   * @generated
+   */
+  EAttribute getArrayDefinition_Field();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operator</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition#getOperator()
+   * @see #getArrayDefinition()
+   * @generated
+   */
+  EReference getArrayDefinition_Operator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ArrayDefinition#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.unicam.myGrammar.optGrammar.ArrayDefinition#getValue()
+   * @see #getArrayDefinition()
+   * @generated
+   */
+  EReference getArrayDefinition_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.FieldDefinition <em>Field Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Field Definition</em>'.
+   * @see org.unicam.myGrammar.optGrammar.FieldDefinition
+   * @generated
+   */
+  EClass getFieldDefinition();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.MappingDefinition <em>Mapping Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mapping Definition</em>'.
+   * @see org.unicam.myGrammar.optGrammar.MappingDefinition
+   * @generated
+   */
+  EClass getMappingDefinition();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.FunctionCallListArguments <em>Function Call List Arguments</em>}'.
@@ -3286,113 +5435,6 @@ public interface OptGrammarPackage extends EPackage
   EReference getVisibilitySpecifier_Visibility();
 
   /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.StructDefinition <em>Struct Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Struct Definition</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StructDefinition
-   * @generated
-   */
-  EClass getStructDefinition();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility <em>Visibility</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Visibility</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility()
-   * @see #getStructDefinition()
-   * @generated
-   */
-  EReference getStructDefinition_Visibility();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StructDefinition#getName()
-   * @see #getStructDefinition()
-   * @generated
-   */
-  EAttribute getStructDefinition_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getMembers <em>Members</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Members</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StructDefinition#getMembers()
-   * @see #getStructDefinition()
-   * @generated
-   */
-  EReference getStructDefinition_Members();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.EnumDefinition <em>Enum Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Enum Definition</em>'.
-   * @see org.unicam.myGrammar.optGrammar.EnumDefinition
-   * @generated
-   */
-  EClass getEnumDefinition();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility <em>Visibility</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Visibility</em>'.
-   * @see org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility()
-   * @see #getEnumDefinition()
-   * @generated
-   */
-  EReference getEnumDefinition_Visibility();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.unicam.myGrammar.optGrammar.EnumDefinition#getName()
-   * @see #getEnumDefinition()
-   * @generated
-   */
-  EAttribute getEnumDefinition_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getMembers <em>Members</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Members</em>'.
-   * @see org.unicam.myGrammar.optGrammar.EnumDefinition#getMembers()
-   * @see #getEnumDefinition()
-   * @generated
-   */
-  EReference getEnumDefinition_Members();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.EnumValue <em>Enum Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Enum Value</em>'.
-   * @see org.unicam.myGrammar.optGrammar.EnumValue
-   * @generated
-   */
-  EClass getEnumValue();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.EnumValue#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.unicam.myGrammar.optGrammar.EnumValue#getName()
-   * @see #getEnumValue()
-   * @generated
-   */
-  EAttribute getEnumValue_Name();
-
-  /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3412,189 +5454,6 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    */
   EAttribute getVariable_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Statement <em>Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Statement</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Statement
-   * @generated
-   */
-  EClass getStatement();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration <em>Standard Variable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Standard Variable Declaration</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration
-   * @generated
-   */
-  EClass getStandardVariableDeclaration();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getType()
-   * @see #getStandardVariableDeclaration()
-   * @generated
-   */
-  EReference getStandardVariableDeclaration_Type();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getOptionalElements <em>Optional Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Optional Elements</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getOptionalElements()
-   * @see #getStandardVariableDeclaration()
-   * @generated
-   */
-  EReference getStandardVariableDeclaration_OptionalElements();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variable</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getVariable()
-   * @see #getStandardVariableDeclaration()
-   * @generated
-   */
-  EReference getStandardVariableDeclaration_Variable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression()
-   * @see #getStandardVariableDeclaration()
-   * @generated
-   */
-  EReference getStandardVariableDeclaration_Expression();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getPtionalElements <em>Ptional Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Ptional Elements</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getPtionalElements()
-   * @see #getStandardVariableDeclaration()
-   * @generated
-   */
-  EReference getStandardVariableDeclaration_PtionalElements();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#isSemicolon <em>Semicolon</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Semicolon</em>'.
-   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#isSemicolon()
-   * @see #getStandardVariableDeclaration()
-   * @generated
-   */
-  EAttribute getStandardVariableDeclaration_Semicolon();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration <em>Var Variable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Var Variable Declaration</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableDeclaration
-   * @generated
-   */
-  EClass getVarVariableDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getVarType <em>Var Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var Type</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getVarType()
-   * @see #getVarVariableDeclaration()
-   * @generated
-   */
-  EAttribute getVarVariableDeclaration_VarType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getVariable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Variable</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getVariable()
-   * @see #getVarVariableDeclaration()
-   * @generated
-   */
-  EReference getVarVariableDeclaration_Variable();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getExpression()
-   * @see #getVarVariableDeclaration()
-   * @generated
-   */
-  EReference getVarVariableDeclaration_Expression();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration <em>Var Variable Tuple Variable Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Var Variable Tuple Variable Declaration</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration
-   * @generated
-   */
-  EClass getVarVariableTupleVariableDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getVarType <em>Var Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Var Type</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getVarType()
-   * @see #getVarVariableTupleVariableDeclaration()
-   * @generated
-   */
-  EAttribute getVarVariableTupleVariableDeclaration_VarType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getTuple <em>Tuple</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Tuple</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getTuple()
-   * @see #getVarVariableTupleVariableDeclaration()
-   * @generated
-   */
-  EReference getVarVariableTupleVariableDeclaration_Tuple();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getExpression()
-   * @see #getVarVariableTupleVariableDeclaration()
-   * @generated
-   */
-  EReference getVarVariableTupleVariableDeclaration_Expression();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#isSemicolon <em>Semicolon</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Semicolon</em>'.
-   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#isSemicolon()
-   * @see #getVarVariableTupleVariableDeclaration()
-   * @generated
-   */
-  EAttribute getVarVariableTupleVariableDeclaration_Semicolon();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement <em>Variable Declaration Optional Element</em>}'.
@@ -3719,38 +5578,6 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    */
   EReference getElementaryType_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Mapping <em>Mapping</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Mapping</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Mapping
-   * @generated
-   */
-  EClass getMapping();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Mapping#getKeyType <em>Key Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Key Type</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Mapping#getKeyType()
-   * @see #getMapping()
-   * @generated
-   */
-  EReference getMapping_KeyType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Mapping#getValueType <em>Value Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value Type</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Mapping#getValueType()
-   * @see #getMapping()
-   * @generated
-   */
-  EReference getMapping_ValueType();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ArrayDimensions <em>Array Dimensions</em>}'.
@@ -3962,134 +5789,6 @@ public interface OptGrammarPackage extends EPackage
   EReference getArguments_Arguments();
 
   /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Modifier <em>Modifier</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Modifier</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Modifier
-   * @generated
-   */
-  EClass getModifier();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.Modifier#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Modifier#getName()
-   * @see #getModifier()
-   * @generated
-   */
-  EAttribute getModifier_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Modifier#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Modifier#getParameters()
-   * @see #getModifier()
-   * @generated
-   */
-  EReference getModifier_Parameters();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Modifier#getBlock <em>Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Block</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Modifier#getBlock()
-   * @see #getModifier()
-   * @generated
-   */
-  EReference getModifier_Block();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Event <em>Event</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Event</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Event
-   * @generated
-   */
-  EClass getEvent();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.Event#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Event#getName()
-   * @see #getEvent()
-   * @generated
-   */
-  EAttribute getEvent_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Event#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Parameters</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Event#getParameters()
-   * @see #getEvent()
-   * @generated
-   */
-  EReference getEvent_Parameters();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ModifierInvocation <em>Modifier Invocation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Modifier Invocation</em>'.
-   * @see org.unicam.myGrammar.optGrammar.ModifierInvocation
-   * @generated
-   */
-  EClass getModifierInvocation();
-
-  /**
-   * Returns the meta object for the reference '{@link org.unicam.myGrammar.optGrammar.ModifierInvocation#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
-   * @see org.unicam.myGrammar.optGrammar.ModifierInvocation#getName()
-   * @see #getModifierInvocation()
-   * @generated
-   */
-  EReference getModifierInvocation_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.ModifierInvocation#getArgs <em>Args</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Args</em>'.
-   * @see org.unicam.myGrammar.optGrammar.ModifierInvocation#getArgs()
-   * @see #getModifierInvocation()
-   * @generated
-   */
-  EReference getModifierInvocation_Args();
-
-  /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ParameterList <em>Parameter List</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Parameter List</em>'.
-   * @see org.unicam.myGrammar.optGrammar.ParameterList
-   * @generated
-   */
-  EClass getParameterList();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.ParameterList#getParameters <em>Parameters</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Parameters</em>'.
-   * @see org.unicam.myGrammar.optGrammar.ParameterList#getParameters()
-   * @see #getParameterList()
-   * @generated
-   */
-  EReference getParameterList_Parameters();
-
-  /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ReturnsParameterList <em>Returns Parameter List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4151,6 +5850,16 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    */
   EClass getLoopStructures();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Statement</em>'.
+   * @see org.unicam.myGrammar.optGrammar.Statement
+   * @generated
+   */
+  EClass getStatement();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.DeleteStatement <em>Delete Statement</em>}'.
@@ -4385,80 +6094,80 @@ public interface OptGrammarPackage extends EPackage
   EClass getPlaceHolderStatement();
 
   /**
-   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Expression <em>Expression</em>}'.
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.LogicalOperations <em>Logical Operations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expression</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Expression
+   * @return the meta object for class '<em>Logical Operations</em>'.
+   * @see org.unicam.myGrammar.optGrammar.LogicalOperations
    * @generated
    */
-  EClass getExpression();
+  EClass getLogicalOperations();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Expression#getFirst <em>First</em>}'.
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getFirst <em>First</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>First</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Expression#getFirst()
-   * @see #getExpression()
+   * @see org.unicam.myGrammar.optGrammar.LogicalOperations#getFirst()
+   * @see #getLogicalOperations()
    * @generated
    */
-  EReference getExpression_First();
+  EReference getLogicalOperations_First();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.Expression#getOperations <em>Operations</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getOperations <em>Operations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Operations</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Expression#getOperations()
-   * @see #getExpression()
+   * @see org.unicam.myGrammar.optGrammar.LogicalOperations#getOperations()
+   * @see #getLogicalOperations()
    * @generated
    */
-  EReference getExpression_Operations();
+  EReference getLogicalOperations_Operations();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.Expression#isNegate <em>Negate</em>}'.
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#isNegate <em>Negate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Negate</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Expression#isNegate()
-   * @see #getExpression()
+   * @see org.unicam.myGrammar.optGrammar.LogicalOperations#isNegate()
+   * @see #getLogicalOperations()
    * @generated
    */
-  EAttribute getExpression_Negate();
+  EAttribute getLogicalOperations_Negate();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.Expression#isTernary <em>Ternary</em>}'.
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#isTernary <em>Ternary</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Ternary</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Expression#isTernary()
-   * @see #getExpression()
+   * @see org.unicam.myGrammar.optGrammar.LogicalOperations#isTernary()
+   * @see #getLogicalOperations()
    * @generated
    */
-  EAttribute getExpression_Ternary();
+  EAttribute getLogicalOperations_Ternary();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Expression#getTrue <em>True</em>}'.
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getTrue <em>True</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>True</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Expression#getTrue()
-   * @see #getExpression()
+   * @see org.unicam.myGrammar.optGrammar.LogicalOperations#getTrue()
+   * @see #getLogicalOperations()
    * @generated
    */
-  EReference getExpression_True();
+  EReference getLogicalOperations_True();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.Expression#getFalse <em>False</em>}'.
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.LogicalOperations#getFalse <em>False</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>False</em>'.
-   * @see org.unicam.myGrammar.optGrammar.Expression#getFalse()
-   * @see #getExpression()
+   * @see org.unicam.myGrammar.optGrammar.LogicalOperations#getFalse()
+   * @see #getLogicalOperations()
    * @generated
    */
-  EReference getExpression_False();
+  EReference getLogicalOperations_False();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.ConditionOperation <em>Condition Operation</em>}'.
@@ -5024,6 +6733,27 @@ public interface OptGrammarPackage extends EPackage
   EAttribute getStringLiteral_Value();
 
   /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.IntLiteral <em>Int Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Int Literal</em>'.
+   * @see org.unicam.myGrammar.optGrammar.IntLiteral
+   * @generated
+   */
+  EClass getIntLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.IntLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.unicam.myGrammar.optGrammar.IntLiteral#getValue()
+   * @see #getIntLiteral()
+   * @generated
+   */
+  EAttribute getIntLiteral_Value();
+
+  /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.HexLiteral <em>Hex Literal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5151,17 +6881,6 @@ public interface OptGrammarPackage extends EPackage
   EClass getElementaryTypeNameEnum();
 
   /**
-   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum#getType()
-   * @see #getElementaryTypeNameEnum()
-   * @generated
-   */
-  EAttribute getElementaryTypeNameEnum_Type();
-
-  /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.LocationSpecifierEnum <em>Location Specifier Enum</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5225,6 +6944,82 @@ public interface OptGrammarPackage extends EPackage
   EAttribute getSpecialVariablesTypeEnum_Name();
 
   /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration <em>Standard Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Standard Variable Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration
+   * @generated
+   */
+  EClass getStandardVariableDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getType()
+   * @see #getStandardVariableDeclaration()
+   * @generated
+   */
+  EReference getStandardVariableDeclaration_Type();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getPtionalElements <em>Ptional Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Ptional Elements</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getPtionalElements()
+   * @see #getStandardVariableDeclaration()
+   * @generated
+   */
+  EReference getStandardVariableDeclaration_PtionalElements();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Variable</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getVariable()
+   * @see #getStandardVariableDeclaration()
+   * @generated
+   */
+  EReference getStandardVariableDeclaration_Variable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression()
+   * @see #getStandardVariableDeclaration()
+   * @generated
+   */
+  EReference getStandardVariableDeclaration_Expression();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#isSemicolon <em>Semicolon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Semicolon</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#isSemicolon()
+   * @see #getStandardVariableDeclaration()
+   * @generated
+   */
+  EAttribute getStandardVariableDeclaration_Semicolon();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getOptionalElements <em>Optional Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Optional Elements</em>'.
+   * @see org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getOptionalElements()
+   * @see #getStandardVariableDeclaration()
+   * @generated
+   */
+  EReference getStandardVariableDeclaration_OptionalElements();
+
+  /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration <em>Var Variable Type Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5266,6 +7061,49 @@ public interface OptGrammarPackage extends EPackage
    * @generated
    */
   EAttribute getVarVariableTypeDeclaration_Semicolon();
+
+  /**
+   * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration <em>Var Variable Tuple Variable Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Var Variable Tuple Variable Declaration</em>'.
+   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration
+   * @generated
+   */
+  EClass getVarVariableTupleVariableDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getTuple <em>Tuple</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tuple</em>'.
+   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getTuple()
+   * @see #getVarVariableTupleVariableDeclaration()
+   * @generated
+   */
+  EReference getVarVariableTupleVariableDeclaration_Tuple();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getExpression()
+   * @see #getVarVariableTupleVariableDeclaration()
+   * @generated
+   */
+  EReference getVarVariableTupleVariableDeclaration_Expression();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#isSemicolon <em>Semicolon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Semicolon</em>'.
+   * @see org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#isSemicolon()
+   * @see #getVarVariableTupleVariableDeclaration()
+   * @generated
+   */
+  EAttribute getVarVariableTupleVariableDeclaration_Semicolon();
 
   /**
    * Returns the meta object for class '{@link org.unicam.myGrammar.optGrammar.Continue <em>Continue</em>}'.
@@ -5495,6 +7333,744 @@ public interface OptGrammarPackage extends EPackage
     EClass FUNCTION_DECLARATION = eINSTANCE.getFunctionDeclaration();
 
     /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.StructDeclarationImpl <em>Struct Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.StructDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStructDeclaration()
+     * @generated
+     */
+    EClass STRUCT_DECLARATION = eINSTANCE.getStructDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_DECLARATION__VISIBILITY = eINSTANCE.getStructDeclaration_Visibility();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRUCT_DECLARATION__NAME = eINSTANCE.getStructDeclaration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCT_DECLARATION__MEMBERS = eINSTANCE.getStructDeclaration_Members();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.EnumDefinitionImpl <em>Enum Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.EnumDefinitionImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEnumDefinition()
+     * @generated
+     */
+    EClass ENUM_DEFINITION = eINSTANCE.getEnumDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_DEFINITION__VISIBILITY = eINSTANCE.getEnumDefinition_Visibility();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUM_DEFINITION__NAME = eINSTANCE.getEnumDefinition_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUM_DEFINITION__MEMBERS = eINSTANCE.getEnumDefinition_Members();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.EnumValueImpl <em>Enum Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.EnumValueImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEnumValue()
+     * @generated
+     */
+    EClass ENUM_VALUE = eINSTANCE.getEnumValue();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUM_VALUE__NAME = eINSTANCE.getEnumValue_Name();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionParameterDeclarationImpl <em>Function Parameter Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.FunctionParameterDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFunctionParameterDeclaration()
+     * @generated
+     */
+    EClass FUNCTION_PARAMETER_DECLARATION = eINSTANCE.getFunctionParameterDeclaration();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDefinitionDeclarationImpl <em>Array Definition Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ArrayDefinitionDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayDefinitionDeclaration()
+     * @generated
+     */
+    EClass ARRAY_DEFINITION_DECLARATION = eINSTANCE.getArrayDefinitionDeclaration();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.FilledArrayImpl <em>Filled Array</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.FilledArrayImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFilledArray()
+     * @generated
+     */
+    EClass FILLED_ARRAY = eINSTANCE.getFilledArray();
+
+    /**
+     * The meta object literal for the '<em><b>Arrays</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILLED_ARRAY__ARRAYS = eINSTANCE.getFilledArray_Arrays();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ValueSetsImpl <em>Value Sets</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ValueSetsImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getValueSets()
+     * @generated
+     */
+    EClass VALUE_SETS = eINSTANCE.getValueSets();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VALUE_SETS__VALUES = eINSTANCE.getValueSets_Values();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDeclarationImpl <em>Array Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ArrayDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayDeclaration()
+     * @generated
+     */
+    EClass ARRAY_DECLARATION = eINSTANCE.getArrayDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Blocks</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DECLARATION__BLOCKS = eINSTANCE.getArrayDeclaration_Blocks();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DECLARATION__VAR = eINSTANCE.getArrayDeclaration_Var();
+
+    /**
+     * The meta object literal for the '<em><b>Access</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DECLARATION__ACCESS = eINSTANCE.getArrayDeclaration_Access();
+
+    /**
+     * The meta object literal for the '<em><b>Location</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DECLARATION__LOCATION = eINSTANCE.getArrayDeclaration_Location();
+
+    /**
+     * The meta object literal for the '<em><b>Constant</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARRAY_DECLARATION__CONSTANT = eINSTANCE.getArrayDeclaration_Constant();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DECLARATION__VISIBILITY = eINSTANCE.getArrayDeclaration_Visibility();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DECLARATION__TYPE = eINSTANCE.getArrayDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Struc Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DECLARATION__STRUC_TYPE = eINSTANCE.getArrayDeclaration_StrucType();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARRAY_DECLARATION__NAME = eINSTANCE.getArrayDeclaration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Sizes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DECLARATION__SIZES = eINSTANCE.getArrayDeclaration_Sizes();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.NamedTypeImpl <em>Named Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.NamedTypeImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getNamedType()
+     * @generated
+     */
+    EClass NAMED_TYPE = eINSTANCE.getNamedType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAMED_TYPE__TYPE = eINSTANCE.getNamedType_Type();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.SimpleTypeDeclarationImpl <em>Simple Type Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.SimpleTypeDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSimpleTypeDeclaration()
+     * @generated
+     */
+    EClass SIMPLE_TYPE_DECLARATION = eINSTANCE.getSimpleTypeDeclaration();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.MappingAccessImpl <em>Mapping Access</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.MappingAccessImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMappingAccess()
+     * @generated
+     */
+    EClass MAPPING_ACCESS = eINSTANCE.getMappingAccess();
+
+    /**
+     * The meta object literal for the '<em><b>Map</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_ACCESS__MAP = eINSTANCE.getMappingAccess_Map();
+
+    /**
+     * The meta object literal for the '<em><b>Index</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_ACCESS__INDEX = eINSTANCE.getMappingAccess_Index();
+
+    /**
+     * The meta object literal for the '<em><b>Sec</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_ACCESS__SEC = eINSTANCE.getMappingAccess_Sec();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayAccessImpl <em>Array Access</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ArrayAccessImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayAccess()
+     * @generated
+     */
+    EClass ARRAY_ACCESS = eINSTANCE.getArrayAccess();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_ACCESS__VARIABLE = eINSTANCE.getArrayAccess_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Indexes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_ACCESS__INDEXES = eINSTANCE.getArrayAccess_Indexes();
+
+    /**
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARRAY_ACCESS__FIELD = eINSTANCE.getArrayAccess_Field();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayIndexImpl <em>Array Index</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ArrayIndexImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayIndex()
+     * @generated
+     */
+    EClass ARRAY_INDEX = eINSTANCE.getArrayIndex();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INDEX__VALUE = eINSTANCE.getArrayIndex_Value();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.FieldAccessImpl <em>Field Access</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.FieldAccessImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFieldAccess()
+     * @generated
+     */
+    EClass FIELD_ACCESS = eINSTANCE.getFieldAccess();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_ACCESS__REF = eINSTANCE.getFieldAccess_Ref();
+
+    /**
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_ACCESS__FIELD = eINSTANCE.getFieldAccess_Field();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIELD_ACCESS__VALUE = eINSTANCE.getFieldAccess_Value();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.MappingDeclarationImpl <em>Mapping Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.MappingDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMappingDeclaration()
+     * @generated
+     */
+    EClass MAPPING_DECLARATION = eINSTANCE.getMappingDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_DECLARATION__LOCATION = eINSTANCE.getMappingDeclaration_Location();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_DECLARATION__VISIBILITY = eINSTANCE.getMappingDeclaration_Visibility();
+
+    /**
+     * The meta object literal for the '<em><b>Unnamed Mapping Declaration</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAPPING_DECLARATION__UNNAMED_MAPPING_DECLARATION = eINSTANCE.getMappingDeclaration_UnnamedMappingDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_DECLARATION__NAME = eINSTANCE.getMappingDeclaration_Name();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.UnnamedMappingDeclarationImpl <em>Unnamed Mapping Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.UnnamedMappingDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getUnnamedMappingDeclaration()
+     * @generated
+     */
+    EClass UNNAMED_MAPPING_DECLARATION = eINSTANCE.getUnnamedMappingDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_MAPPING_DECLARATION__TYPE = eINSTANCE.getUnnamedMappingDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Second Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_MAPPING_DECLARATION__SECOND_REF = eINSTANCE.getUnnamedMappingDeclaration_SecondRef();
+
+    /**
+     * The meta object literal for the '<em><b>Second</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UNNAMED_MAPPING_DECLARATION__SECOND = eINSTANCE.getUnnamedMappingDeclaration_Second();
+
+    /**
+     * The meta object literal for the '<em><b>Array</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UNNAMED_MAPPING_DECLARATION__ARRAY = eINSTANCE.getUnnamedMappingDeclaration_Array();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDefinitionDeclarationImpl <em>Primary Type Definition Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDefinitionDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getPrimaryTypeDefinitionDeclaration()
+     * @generated
+     */
+    EClass PRIMARY_TYPE_DEFINITION_DECLARATION = eINSTANCE.getPrimaryTypeDefinitionDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_TYPE_DEFINITION_DECLARATION__REF = eINSTANCE.getPrimaryTypeDefinitionDeclaration_Ref();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_TYPE_DEFINITION_DECLARATION__OPERATOR = eINSTANCE.getPrimaryTypeDefinitionDeclaration_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_TYPE_DEFINITION_DECLARATION__VALUE = eINSTANCE.getPrimaryTypeDefinitionDeclaration_Value();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDeclarationImpl <em>Primary Type Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.PrimaryTypeDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getPrimaryTypeDeclaration()
+     * @generated
+     */
+    EClass PRIMARY_TYPE_DECLARATION = eINSTANCE.getPrimaryTypeDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Constant</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMARY_TYPE_DECLARATION__CONSTANT = eINSTANCE.getPrimaryTypeDeclaration_Constant();
+
+    /**
+     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_TYPE_DECLARATION__VISIBILITY = eINSTANCE.getPrimaryTypeDeclaration_Visibility();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMARY_TYPE_DECLARATION__NAME = eINSTANCE.getPrimaryTypeDeclaration_Name();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.OperationAssegnationLiteralImpl <em>Operation Assegnation Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.OperationAssegnationLiteralImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getOperationAssegnationLiteral()
+     * @generated
+     */
+    EClass OPERATION_ASSEGNATION_LITERAL = eINSTANCE.getOperationAssegnationLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION_ASSEGNATION_LITERAL__VALUE = eINSTANCE.getOperationAssegnationLiteral_Value();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.SingleDefinitionImpl <em>Single Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.SingleDefinitionImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getSingleDefinition()
+     * @generated
+     */
+    EClass SINGLE_DEFINITION = eINSTANCE.getSingleDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>First</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINGLE_DEFINITION__FIRST = eINSTANCE.getSingleDefinition_First();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SINGLE_DEFINITION__NAME = eINSTANCE.getSingleDefinition_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Second</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SINGLE_DEFINITION__SECOND = eINSTANCE.getSingleDefinition_Second();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.NonArrayableDeclarationImpl <em>Non Arrayable Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.NonArrayableDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getNonArrayableDeclaration()
+     * @generated
+     */
+    EClass NON_ARRAYABLE_DECLARATION = eINSTANCE.getNonArrayableDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Location</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NON_ARRAYABLE_DECLARATION__LOCATION = eINSTANCE.getNonArrayableDeclaration_Location();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NON_ARRAYABLE_DECLARATION__TYPE = eINSTANCE.getNonArrayableDeclaration_Type();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayableDeclarationImpl <em>Arrayable Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ArrayableDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayableDeclaration()
+     * @generated
+     */
+    EClass ARRAYABLE_DECLARATION = eINSTANCE.getArrayableDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAYABLE_DECLARATION__TYPE = eINSTANCE.getArrayableDeclaration_Type();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ConcreteStructureDefinitionDeclarationImpl <em>Concrete Structure Definition Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ConcreteStructureDefinitionDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getConcreteStructureDefinitionDeclaration()
+     * @generated
+     */
+    EClass CONCRETE_STRUCTURE_DEFINITION_DECLARATION = eINSTANCE.getConcreteStructureDefinitionDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCRETE_STRUCTURE_DEFINITION_DECLARATION__REF = eINSTANCE.getConcreteStructureDefinitionDeclaration_Ref();
+
+    /**
+     * The meta object literal for the '<em><b>Couples</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCRETE_STRUCTURE_DEFINITION_DECLARATION__COUPLES = eINSTANCE.getConcreteStructureDefinitionDeclaration_Couples();
+
+    /**
+     * The meta object literal for the '<em><b>Existence Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCRETE_STRUCTURE_DEFINITION_DECLARATION__EXISTENCE_REF = eINSTANCE.getConcreteStructureDefinitionDeclaration_ExistenceRef();
+
+    /**
+     * The meta object literal for the '<em><b>Array Access Ref</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCRETE_STRUCTURE_DEFINITION_DECLARATION__ARRAY_ACCESS_REF = eINSTANCE.getConcreteStructureDefinitionDeclaration_ArrayAccessRef();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ConcreteStructDeclarationImpl <em>Concrete Struct Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ConcreteStructDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getConcreteStructDeclaration()
+     * @generated
+     */
+    EClass CONCRETE_STRUCT_DECLARATION = eINSTANCE.getConcreteStructDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Location</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCRETE_STRUCT_DECLARATION__LOCATION = eINSTANCE.getConcreteStructDeclaration_Location();
+
+    /**
+     * The meta object literal for the '<em><b>Constant</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONCRETE_STRUCT_DECLARATION__CONSTANT = eINSTANCE.getConcreteStructDeclaration_Constant();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONCRETE_STRUCT_DECLARATION__TYPE = eINSTANCE.getConcreteStructDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONCRETE_STRUCT_DECLARATION__NAME = eINSTANCE.getConcreteStructDeclaration_Name();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.StructureFieldValueImpl <em>Structure Field Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.StructureFieldValueImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStructureFieldValue()
+     * @generated
+     */
+    EClass STRUCTURE_FIELD_VALUE = eINSTANCE.getStructureFieldValue();
+
+    /**
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRUCTURE_FIELD_VALUE__FIELD = eINSTANCE.getStructureFieldValue_Field();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STRUCTURE_FIELD_VALUE__VALUES = eINSTANCE.getStructureFieldValue_Values();
+
+    /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl <em>Function Definition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5521,7 +8097,7 @@ public interface OptGrammarPackage extends EPackage
     EAttribute FUNCTION_DEFINITION__NAME = eINSTANCE.getFunctionDefinition_Name();
 
     /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -5537,20 +8113,156 @@ public interface OptGrammarPackage extends EPackage
     EReference FUNCTION_DEFINITION__OPTIONAL_ELEMENTS = eINSTANCE.getFunctionDefinition_OptionalElements();
 
     /**
-     * The meta object literal for the '<em><b>Return Parameters</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUNCTION_DEFINITION__RETURN_PARAMETERS = eINSTANCE.getFunctionDefinition_ReturnParameters();
+    EReference FUNCTION_DEFINITION__RETURN_TYPE = eINSTANCE.getFunctionDefinition_ReturnType();
 
     /**
-     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Blocks</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FUNCTION_DEFINITION__BLOCK = eINSTANCE.getFunctionDefinition_Block();
+    EReference FUNCTION_DEFINITION__BLOCKS = eINSTANCE.getFunctionDefinition_Blocks();
+
+    /**
+     * The meta object literal for the '<em><b>Return Val</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_DEFINITION__RETURN_VAL = eINSTANCE.getFunctionDefinition_ReturnVal();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.InternalBlockImpl <em>Internal Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.InternalBlockImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getInternalBlock()
+     * @generated
+     */
+    EClass INTERNAL_BLOCK = eINSTANCE.getInternalBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Def</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERNAL_BLOCK__DEF = eINSTANCE.getInternalBlock_Def();
+
+    /**
+     * The meta object literal for the '<em><b>Dec</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERNAL_BLOCK__DEC = eINSTANCE.getInternalBlock_Dec();
+
+    /**
+     * The meta object literal for the '<em><b>Loop</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERNAL_BLOCK__LOOP = eINSTANCE.getInternalBlock_Loop();
+
+    /**
+     * The meta object literal for the '<em><b>Call</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERNAL_BLOCK__CALL = eINSTANCE.getInternalBlock_Call();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDefinitionImpl <em>Array Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.ArrayDefinitionImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getArrayDefinition()
+     * @generated
+     */
+    EClass ARRAY_DEFINITION = eINSTANCE.getArrayDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DEFINITION__REF = eINSTANCE.getArrayDefinition_Ref();
+
+    /**
+     * The meta object literal for the '<em><b>Blocks</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DEFINITION__BLOCKS = eINSTANCE.getArrayDefinition_Blocks();
+
+    /**
+     * The meta object literal for the '<em><b>Array Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DEFINITION__ARRAY_REF = eINSTANCE.getArrayDefinition_ArrayRef();
+
+    /**
+     * The meta object literal for the '<em><b>Indexes</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DEFINITION__INDEXES = eINSTANCE.getArrayDefinition_Indexes();
+
+    /**
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARRAY_DEFINITION__FIELD = eINSTANCE.getArrayDefinition_Field();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DEFINITION__OPERATOR = eINSTANCE.getArrayDefinition_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_DEFINITION__VALUE = eINSTANCE.getArrayDefinition_Value();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.FieldDefinitionImpl <em>Field Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.FieldDefinitionImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getFieldDefinition()
+     * @generated
+     */
+    EClass FIELD_DEFINITION = eINSTANCE.getFieldDefinition();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.MappingDefinitionImpl <em>Mapping Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.MappingDefinitionImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMappingDefinition()
+     * @generated
+     */
+    EClass MAPPING_DEFINITION = eINSTANCE.getMappingDefinition();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.FunctionCallListArgumentsImpl <em>Function Call List Arguments</em>}' class.
@@ -5653,92 +8365,6 @@ public interface OptGrammarPackage extends EPackage
     EReference VISIBILITY_SPECIFIER__VISIBILITY = eINSTANCE.getVisibilitySpecifier_Visibility();
 
     /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl <em>Struct Definition</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStructDefinition()
-     * @generated
-     */
-    EClass STRUCT_DEFINITION = eINSTANCE.getStructDefinition();
-
-    /**
-     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STRUCT_DEFINITION__VISIBILITY = eINSTANCE.getStructDefinition_Visibility();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STRUCT_DEFINITION__NAME = eINSTANCE.getStructDefinition_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STRUCT_DEFINITION__MEMBERS = eINSTANCE.getStructDefinition_Members();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.EnumDefinitionImpl <em>Enum Definition</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.EnumDefinitionImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEnumDefinition()
-     * @generated
-     */
-    EClass ENUM_DEFINITION = eINSTANCE.getEnumDefinition();
-
-    /**
-     * The meta object literal for the '<em><b>Visibility</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENUM_DEFINITION__VISIBILITY = eINSTANCE.getEnumDefinition_Visibility();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUM_DEFINITION__NAME = eINSTANCE.getEnumDefinition_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ENUM_DEFINITION__MEMBERS = eINSTANCE.getEnumDefinition_Members();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.EnumValueImpl <em>Enum Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.EnumValueImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEnumValue()
-     * @generated
-     */
-    EClass ENUM_VALUE = eINSTANCE.getEnumValue();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUM_VALUE__NAME = eINSTANCE.getEnumValue_Name();
-
-    /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.VariableImpl <em>Variable</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5755,150 +8381,6 @@ public interface OptGrammarPackage extends EPackage
      * @generated
      */
     EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.StatementImpl <em>Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.StatementImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStatement()
-     * @generated
-     */
-    EClass STATEMENT = eINSTANCE.getStatement();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl <em>Standard Variable Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStandardVariableDeclaration()
-     * @generated
-     */
-    EClass STANDARD_VARIABLE_DECLARATION = eINSTANCE.getStandardVariableDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STANDARD_VARIABLE_DECLARATION__TYPE = eINSTANCE.getStandardVariableDeclaration_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Optional Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS = eINSTANCE.getStandardVariableDeclaration_OptionalElements();
-
-    /**
-     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STANDARD_VARIABLE_DECLARATION__VARIABLE = eINSTANCE.getStandardVariableDeclaration_Variable();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STANDARD_VARIABLE_DECLARATION__EXPRESSION = eINSTANCE.getStandardVariableDeclaration_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>Ptional Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS = eINSTANCE.getStandardVariableDeclaration_PtionalElements();
-
-    /**
-     * The meta object literal for the '<em><b>Semicolon</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STANDARD_VARIABLE_DECLARATION__SEMICOLON = eINSTANCE.getStandardVariableDeclaration_Semicolon();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.VarVariableDeclarationImpl <em>Var Variable Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.VarVariableDeclarationImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVarVariableDeclaration()
-     * @generated
-     */
-    EClass VAR_VARIABLE_DECLARATION = eINSTANCE.getVarVariableDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Var Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VAR_VARIABLE_DECLARATION__VAR_TYPE = eINSTANCE.getVarVariableDeclaration_VarType();
-
-    /**
-     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VAR_VARIABLE_DECLARATION__VARIABLE = eINSTANCE.getVarVariableDeclaration_Variable();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VAR_VARIABLE_DECLARATION__EXPRESSION = eINSTANCE.getVarVariableDeclaration_Expression();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl <em>Var Variable Tuple Variable Declaration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVarVariableTupleVariableDeclaration()
-     * @generated
-     */
-    EClass VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION = eINSTANCE.getVarVariableTupleVariableDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Var Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__VAR_TYPE = eINSTANCE.getVarVariableTupleVariableDeclaration_VarType();
-
-    /**
-     * The meta object literal for the '<em><b>Tuple</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE = eINSTANCE.getVarVariableTupleVariableDeclaration_Tuple();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION = eINSTANCE.getVarVariableTupleVariableDeclaration_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>Semicolon</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON = eINSTANCE.getVarVariableTupleVariableDeclaration_Semicolon();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.VariableDeclarationOptionalElementImpl <em>Variable Declaration Optional Element</em>}' class.
@@ -6011,32 +8493,6 @@ public interface OptGrammarPackage extends EPackage
      * @generated
      */
     EReference ELEMENTARY_TYPE__NAME = eINSTANCE.getElementaryType_Name();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.MappingImpl <em>Mapping</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.MappingImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getMapping()
-     * @generated
-     */
-    EClass MAPPING = eINSTANCE.getMapping();
-
-    /**
-     * The meta object literal for the '<em><b>Key Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MAPPING__KEY_TYPE = eINSTANCE.getMapping_KeyType();
-
-    /**
-     * The meta object literal for the '<em><b>Value Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MAPPING__VALUE_TYPE = eINSTANCE.getMapping_ValueType();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ArrayDimensionsImpl <em>Array Dimensions</em>}' class.
@@ -6221,110 +8677,6 @@ public interface OptGrammarPackage extends EPackage
     EReference ARGUMENTS__ARGUMENTS = eINSTANCE.getArguments_Arguments();
 
     /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ModifierImpl <em>Modifier</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.ModifierImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getModifier()
-     * @generated
-     */
-    EClass MODIFIER = eINSTANCE.getModifier();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODIFIER__NAME = eINSTANCE.getModifier_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODIFIER__PARAMETERS = eINSTANCE.getModifier_Parameters();
-
-    /**
-     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODIFIER__BLOCK = eINSTANCE.getModifier_Block();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.EventImpl <em>Event</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.EventImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getEvent()
-     * @generated
-     */
-    EClass EVENT = eINSTANCE.getEvent();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EVENT__NAME = eINSTANCE.getEvent_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EVENT__PARAMETERS = eINSTANCE.getEvent_Parameters();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ModifierInvocationImpl <em>Modifier Invocation</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.ModifierInvocationImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getModifierInvocation()
-     * @generated
-     */
-    EClass MODIFIER_INVOCATION = eINSTANCE.getModifierInvocation();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODIFIER_INVOCATION__NAME = eINSTANCE.getModifierInvocation_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Args</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODIFIER_INVOCATION__ARGS = eINSTANCE.getModifierInvocation_Args();
-
-    /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ParameterListImpl <em>Parameter List</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.ParameterListImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getParameterList()
-     * @generated
-     */
-    EClass PARAMETER_LIST = eINSTANCE.getParameterList();
-
-    /**
-     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARAMETER_LIST__PARAMETERS = eINSTANCE.getParameterList_Parameters();
-
-    /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ReturnsParameterListImpl <em>Returns Parameter List</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6377,6 +8729,16 @@ public interface OptGrammarPackage extends EPackage
      * @generated
      */
     EClass LOOP_STRUCTURES = eINSTANCE.getLoopStructures();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.StatementImpl <em>Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.StatementImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStatement()
+     * @generated
+     */
+    EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.DeleteStatementImpl <em>Delete Statement</em>}' class.
@@ -6575,14 +8937,14 @@ public interface OptGrammarPackage extends EPackage
     EClass PLACE_HOLDER_STATEMENT = eINSTANCE.getPlaceHolderStatement();
 
     /**
-     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl <em>Expression</em>}' class.
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl <em>Logical Operations</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.unicam.myGrammar.optGrammar.impl.ExpressionImpl
-     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getExpression()
+     * @see org.unicam.myGrammar.optGrammar.impl.LogicalOperationsImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getLogicalOperations()
      * @generated
      */
-    EClass EXPRESSION = eINSTANCE.getExpression();
+    EClass LOGICAL_OPERATIONS = eINSTANCE.getLogicalOperations();
 
     /**
      * The meta object literal for the '<em><b>First</b></em>' containment reference feature.
@@ -6590,7 +8952,7 @@ public interface OptGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__FIRST = eINSTANCE.getExpression_First();
+    EReference LOGICAL_OPERATIONS__FIRST = eINSTANCE.getLogicalOperations_First();
 
     /**
      * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
@@ -6598,7 +8960,7 @@ public interface OptGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__OPERATIONS = eINSTANCE.getExpression_Operations();
+    EReference LOGICAL_OPERATIONS__OPERATIONS = eINSTANCE.getLogicalOperations_Operations();
 
     /**
      * The meta object literal for the '<em><b>Negate</b></em>' attribute feature.
@@ -6606,7 +8968,7 @@ public interface OptGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPRESSION__NEGATE = eINSTANCE.getExpression_Negate();
+    EAttribute LOGICAL_OPERATIONS__NEGATE = eINSTANCE.getLogicalOperations_Negate();
 
     /**
      * The meta object literal for the '<em><b>Ternary</b></em>' attribute feature.
@@ -6614,7 +8976,7 @@ public interface OptGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPRESSION__TERNARY = eINSTANCE.getExpression_Ternary();
+    EAttribute LOGICAL_OPERATIONS__TERNARY = eINSTANCE.getLogicalOperations_Ternary();
 
     /**
      * The meta object literal for the '<em><b>True</b></em>' containment reference feature.
@@ -6622,7 +8984,7 @@ public interface OptGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__TRUE = eINSTANCE.getExpression_True();
+    EReference LOGICAL_OPERATIONS__TRUE = eINSTANCE.getLogicalOperations_True();
 
     /**
      * The meta object literal for the '<em><b>False</b></em>' containment reference feature.
@@ -6630,7 +8992,7 @@ public interface OptGrammarPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__FALSE = eINSTANCE.getExpression_False();
+    EReference LOGICAL_OPERATIONS__FALSE = eINSTANCE.getLogicalOperations_False();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ConditionOperationImpl <em>Condition Operation</em>}' class.
@@ -7097,6 +9459,24 @@ public interface OptGrammarPackage extends EPackage
     EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
 
     /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.IntLiteralImpl <em>Int Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.IntLiteralImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getIntLiteral()
+     * @generated
+     */
+    EClass INT_LITERAL = eINSTANCE.getIntLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INT_LITERAL__VALUE = eINSTANCE.getIntLiteral_Value();
+
+    /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.HexLiteralImpl <em>Hex Literal</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7203,14 +9583,6 @@ public interface OptGrammarPackage extends EPackage
     EClass ELEMENTARY_TYPE_NAME_ENUM = eINSTANCE.getElementaryTypeNameEnum();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ELEMENTARY_TYPE_NAME_ENUM__TYPE = eINSTANCE.getElementaryTypeNameEnum_Type();
-
-    /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.LocationSpecifierEnumImpl <em>Location Specifier Enum</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7265,6 +9637,64 @@ public interface OptGrammarPackage extends EPackage
     EAttribute SPECIAL_VARIABLES_TYPE_ENUM__NAME = eINSTANCE.getSpecialVariablesTypeEnum_Name();
 
     /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl <em>Standard Variable Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getStandardVariableDeclaration()
+     * @generated
+     */
+    EClass STANDARD_VARIABLE_DECLARATION = eINSTANCE.getStandardVariableDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STANDARD_VARIABLE_DECLARATION__TYPE = eINSTANCE.getStandardVariableDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Ptional Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS = eINSTANCE.getStandardVariableDeclaration_PtionalElements();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STANDARD_VARIABLE_DECLARATION__VARIABLE = eINSTANCE.getStandardVariableDeclaration_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STANDARD_VARIABLE_DECLARATION__EXPRESSION = eINSTANCE.getStandardVariableDeclaration_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Semicolon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STANDARD_VARIABLE_DECLARATION__SEMICOLON = eINSTANCE.getStandardVariableDeclaration_Semicolon();
+
+    /**
+     * The meta object literal for the '<em><b>Optional Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STANDARD_VARIABLE_DECLARATION__OPTIONAL_ELEMENTS = eINSTANCE.getStandardVariableDeclaration_OptionalElements();
+
+    /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTypeDeclarationImpl <em>Var Variable Type Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7297,6 +9727,40 @@ public interface OptGrammarPackage extends EPackage
      * @generated
      */
     EAttribute VAR_VARIABLE_TYPE_DECLARATION__SEMICOLON = eINSTANCE.getVarVariableTypeDeclaration_Semicolon();
+
+    /**
+     * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl <em>Var Variable Tuple Variable Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl
+     * @see org.unicam.myGrammar.optGrammar.impl.OptGrammarPackageImpl#getVarVariableTupleVariableDeclaration()
+     * @generated
+     */
+    EClass VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION = eINSTANCE.getVarVariableTupleVariableDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Tuple</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE = eINSTANCE.getVarVariableTupleVariableDeclaration_Tuple();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION = eINSTANCE.getVarVariableTupleVariableDeclaration_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>Semicolon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON = eINSTANCE.getVarVariableTupleVariableDeclaration_Semicolon();
 
     /**
      * The meta object literal for the '{@link org.unicam.myGrammar.optGrammar.impl.ContinueImpl <em>Continue</em>}' class.

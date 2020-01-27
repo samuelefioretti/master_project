@@ -5,7 +5,6 @@ import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ComposedChecks;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
 import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
-import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 import org.unicam.myGrammar.validation.AbstractOptGrammarValidator;
 import org.unicam.myGrammar.validation.CorrectIndexValidator;
@@ -26,13 +25,13 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   @Check
   public void noWrongLocation(final LocationSpecifierEnum locationLiteral) {
     throw new Error("Unresolved compilation problems:"
+      + "\nStructDefinition cannot be resolved to a type."
       + "\nThe method or field LOCATION_LITERAL__TYPE is undefined for the type Class<Literals>");
   }
   
   @Check
   public void noWrongLocation(final /* NonArrayableDeclaration */Object nonArrDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field NON_ARRAYABLE_DECLARATION__TYPE is undefined for the type Class<Literals>"
       + "\ntype cannot be resolved"
       + "\ntype cannot be resolved"
       + "\nequals cannot be resolved"
@@ -45,13 +44,13 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   @Check
   public void noWrongVisibility(final VisibilityEnum visibilityLiteral) {
     throw new Error("Unresolved compilation problems:"
+      + "\nStructDefinition cannot be resolved to a type."
       + "\nThe method or field VISIBILITY_LITERAL__TYPE is undefined for the type Class<Literals>");
   }
   
   @Check
   public void checkDataLocation(final /* ArrayDefinitionDeclaration */Object inDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field ARRAY_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\ngetRoot cannot be resolved"
       + "\nasDeclaration cannot be resolved"
@@ -63,7 +62,6 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   @Check
   public void checkDataLocation(final /* ConcreteStructDeclaration */Object inDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field CONCRETE_STRUCT_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\ngetRoot cannot be resolved"
       + "\nlocation cannot be resolved"
@@ -74,7 +72,6 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   @Check
   public void checkDataLocation(final /* NonArrayableDeclaration */Object inDec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field NON_ARRAYABLE_DECLARATION__TYPE is undefined for the type Class<Literals>"
       + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
       + "\ngetRoot cannot be resolved"
       + "\nlocation cannot be resolved"
@@ -86,13 +83,13 @@ public class LocationAndVisibilityValidator extends AbstractOptGrammarValidator 
   }
   
   @Check
-  public void storageLocation(final Mapping map) {
+  public void storageLocation(final /* Mapping */Object map) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field location is undefined for the type Mapping"
-      + "\nThe method or field MAPPING_DECLARATION__NAME is undefined for the type Class<Literals>"
-      + "\nThe method or field location is undefined for the type Mapping"
-      + "\nThe method or field MAPPING_DECLARATION__NAME is undefined for the type Class<Literals>"
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\ngetRoot cannot be resolved"
+      + "\nlocation cannot be resolved"
       + "\n=== cannot be resolved"
+      + "\nlocation cannot be resolved"
       + "\n!== cannot be resolved");
   }
 }

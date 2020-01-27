@@ -25,7 +25,6 @@ public class CorrectOperationValidator extends AbstractOptGrammarValidator {
   public void checkValidOperation(final /* ArrayDefinition */Object dec) {
     throw new Error("Unresolved compilation problems:"
       + "\nArrayDeclaration cannot be resolved to a type."
-      + "\nThe method or field ARRAY_DEFINITION__OPERATOR is undefined for the type Class<Literals>"
       + "\nindexes cannot be resolved"
       + "\nempty cannot be resolved"
       + "\n|| cannot be resolved"
@@ -86,8 +85,6 @@ public class CorrectOperationValidator extends AbstractOptGrammarValidator {
   @Check
   public void checkValidOperation(final /* PrimaryTypeDefinitionDeclaration */Object dec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field PRIMARY_TYPE_DEFINITION_DECLARATION__OPERATOR is undefined for the type Class<Literals>"
-      + "\nThe method or field PRIMARY_TYPE_DEFINITION_DECLARATION__OPERATOR is undefined for the type Class<Literals>"
       + "\noperator cannot be resolved"
       + "\n=== cannot be resolved"
       + "\nref cannot be resolved"
@@ -106,8 +103,6 @@ public class CorrectOperationValidator extends AbstractOptGrammarValidator {
   @Check
   public void checkValidOperation(final /* SingleDefinition */Object dec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field SINGLE_DEFINITION__FIRST is undefined for the type Class<Literals>"
-      + "\nThe method or field SINGLE_DEFINITION__SECOND is undefined for the type Class<Literals>"
       + "\nvalidDeclaration cannot be resolved"
       + "\n! cannot be resolved"
       + "\nname cannot be resolved"

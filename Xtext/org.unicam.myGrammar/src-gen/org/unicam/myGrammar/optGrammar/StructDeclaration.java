@@ -7,23 +7,23 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Struct Definition</b></em>'.
+ * A representation of the model object '<em><b>Struct Declaration</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility <em>Visibility</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.StructDefinition#getName <em>Name</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.StructDefinition#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.StructDeclaration#getVisibility <em>Visibility</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.StructDeclaration#getName <em>Name</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.StructDeclaration#getMembers <em>Members</em>}</li>
  * </ul>
  *
- * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDefinition()
+ * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDeclaration()
  * @model
  * @generated
  */
-public interface StructDefinition extends Declaration
+public interface StructDeclaration extends Declaration
 {
   /**
    * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
@@ -31,14 +31,14 @@ public interface StructDefinition extends Declaration
    * <!-- end-user-doc -->
    * @return the value of the '<em>Visibility</em>' containment reference.
    * @see #setVisibility(VisibilityEnum)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDefinition_Visibility()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDeclaration_Visibility()
    * @model containment="true"
    * @generated
    */
   VisibilityEnum getVisibility();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getVisibility <em>Visibility</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StructDeclaration#getVisibility <em>Visibility</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Visibility</em>' containment reference.
@@ -53,14 +53,14 @@ public interface StructDefinition extends Declaration
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDefinition_Name()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDeclaration_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StructDefinition#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StructDeclaration#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -71,14 +71,14 @@ public interface StructDefinition extends Declaration
 
   /**
    * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Statement}.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Declaration}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Members</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDefinition_Members()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStructDeclaration_Members()
    * @model containment="true"
    * @generated
    */
-  EList<Statement> getMembers();
+  EList<Declaration> getMembers();
 
-} // StructDefinition
+} // StructDeclaration

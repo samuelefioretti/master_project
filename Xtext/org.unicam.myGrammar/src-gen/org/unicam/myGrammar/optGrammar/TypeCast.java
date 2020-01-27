@@ -51,12 +51,12 @@ public interface TypeCast extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
+   * @see #setExpression(LogicalOperations)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getTypeCast_Expression()
    * @model containment="true"
    * @generated
    */
-  Expression getExpression();
+  LogicalOperations getExpression();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.TypeCast#getExpression <em>Expression</em>}' containment reference.
@@ -66,6 +66,6 @@ public interface TypeCast extends EObject
    * @see #getExpression()
    * @generated
    */
-  void setExpression(Expression value);
+  void setExpression(LogicalOperations value);
 
 } // TypeCast

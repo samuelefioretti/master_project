@@ -52,12 +52,12 @@ public interface ForStatement extends LoopStructures
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Condition Expression</em>' containment reference.
-   * @see #setConditionExpression(Expression)
+   * @see #setConditionExpression(LogicalOperations)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getForStatement_ConditionExpression()
    * @model containment="true"
    * @generated
    */
-  Expression getConditionExpression();
+  LogicalOperations getConditionExpression();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.ForStatement#getConditionExpression <em>Condition Expression</em>}' containment reference.
@@ -67,7 +67,7 @@ public interface ForStatement extends LoopStructures
    * @see #getConditionExpression()
    * @generated
    */
-  void setConditionExpression(Expression value);
+  void setConditionExpression(LogicalOperations value);
 
   /**
    * Returns the value of the '<em><b>Loop Expression</b></em>' containment reference.

@@ -19,12 +19,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.unicam.myGrammar.optGrammar.Body;
 import org.unicam.myGrammar.optGrammar.FunctionDefinition;
 import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.myGrammar.optGrammar.FunctionParameterDeclaration;
+import org.unicam.myGrammar.optGrammar.InternalBlock;
+import org.unicam.myGrammar.optGrammar.NamedType;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.ParameterList;
-import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
+import org.unicam.myGrammar.optGrammar.ReturnStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,8 +39,9 @@ import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getOptionalElements <em>Optional Elements</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getReturnParameters <em>Return Parameters</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getBlocks <em>Blocks</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getReturnVal <em>Return Val</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,14 +89,14 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getParameters()
    * @generated
    * @ordered
    */
-  protected ParameterList parameters;
+  protected EList<FunctionParameterDeclaration> parameters;
 
   /**
    * The cached value of the '{@link #getOptionalElements() <em>Optional Elements</em>}' containment reference list.
@@ -107,24 +109,34 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   protected EList<FunctionDefinitionOptionalElement> optionalElements;
 
   /**
-   * The cached value of the '{@link #getReturnParameters() <em>Return Parameters</em>}' containment reference.
+   * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReturnParameters()
+   * @see #getReturnType()
    * @generated
    * @ordered
    */
-  protected ReturnsParameterList returnParameters;
+  protected NamedType returnType;
 
   /**
-   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
+   * The cached value of the '{@link #getBlocks() <em>Blocks</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBlock()
+   * @see #getBlocks()
    * @generated
    * @ordered
    */
-  protected Body block;
+  protected EList<InternalBlock> blocks;
+
+  /**
+   * The cached value of the '{@link #getReturnVal() <em>Return Val</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReturnVal()
+   * @generated
+   * @ordered
+   */
+  protected ReturnStatement returnVal;
 
   /**
    * <!-- begin-user-doc -->
@@ -203,48 +215,13 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    */
   @Override
-  public ParameterList getParameters()
+  public EList<FunctionParameterDeclaration> getParameters()
   {
+    if (parameters == null)
+    {
+      parameters = new EObjectContainmentEList<FunctionParameterDeclaration>(FunctionParameterDeclaration.class, this, OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS);
+    }
     return parameters;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetParameters(ParameterList newParameters, NotificationChain msgs)
-  {
-    ParameterList oldParameters = parameters;
-    parameters = newParameters;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS, oldParameters, newParameters);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setParameters(ParameterList newParameters)
-  {
-    if (newParameters != parameters)
-    {
-      NotificationChain msgs = null;
-      if (parameters != null)
-        msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS, null, msgs);
-      if (newParameters != null)
-        msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS, null, msgs);
-      msgs = basicSetParameters(newParameters, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS, newParameters, newParameters));
   }
 
   /**
@@ -268,9 +245,9 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    */
   @Override
-  public ReturnsParameterList getReturnParameters()
+  public NamedType getReturnType()
   {
-    return returnParameters;
+    return returnType;
   }
 
   /**
@@ -278,13 +255,13 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReturnParameters(ReturnsParameterList newReturnParameters, NotificationChain msgs)
+  public NotificationChain basicSetReturnType(NamedType newReturnType, NotificationChain msgs)
   {
-    ReturnsParameterList oldReturnParameters = returnParameters;
-    returnParameters = newReturnParameters;
+    NamedType oldReturnType = returnType;
+    returnType = newReturnType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS, oldReturnParameters, newReturnParameters);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE, oldReturnType, newReturnType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -296,20 +273,20 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    */
   @Override
-  public void setReturnParameters(ReturnsParameterList newReturnParameters)
+  public void setReturnType(NamedType newReturnType)
   {
-    if (newReturnParameters != returnParameters)
+    if (newReturnType != returnType)
     {
       NotificationChain msgs = null;
-      if (returnParameters != null)
-        msgs = ((InternalEObject)returnParameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS, null, msgs);
-      if (newReturnParameters != null)
-        msgs = ((InternalEObject)newReturnParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS, null, msgs);
-      msgs = basicSetReturnParameters(newReturnParameters, msgs);
+      if (returnType != null)
+        msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE, null, msgs);
+      if (newReturnType != null)
+        msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE, null, msgs);
+      msgs = basicSetReturnType(newReturnType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS, newReturnParameters, newReturnParameters));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE, newReturnType, newReturnType));
   }
 
   /**
@@ -318,9 +295,13 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    */
   @Override
-  public Body getBlock()
+  public EList<InternalBlock> getBlocks()
   {
-    return block;
+    if (blocks == null)
+    {
+      blocks = new EObjectContainmentEList<InternalBlock>(InternalBlock.class, this, OptGrammarPackage.FUNCTION_DEFINITION__BLOCKS);
+    }
+    return blocks;
   }
 
   /**
@@ -328,13 +309,24 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(Body newBlock, NotificationChain msgs)
+  @Override
+  public ReturnStatement getReturnVal()
   {
-    Body oldBlock = block;
-    block = newBlock;
+    return returnVal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetReturnVal(ReturnStatement newReturnVal, NotificationChain msgs)
+  {
+    ReturnStatement oldReturnVal = returnVal;
+    returnVal = newReturnVal;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__BLOCK, oldBlock, newBlock);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL, oldReturnVal, newReturnVal);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -346,20 +338,20 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    */
   @Override
-  public void setBlock(Body newBlock)
+  public void setReturnVal(ReturnStatement newReturnVal)
   {
-    if (newBlock != block)
+    if (newReturnVal != returnVal)
     {
       NotificationChain msgs = null;
-      if (block != null)
-        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__BLOCK, null, msgs);
-      if (newBlock != null)
-        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__BLOCK, null, msgs);
-      msgs = basicSetBlock(newBlock, msgs);
+      if (returnVal != null)
+        msgs = ((InternalEObject)returnVal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL, null, msgs);
+      if (newReturnVal != null)
+        msgs = ((InternalEObject)newReturnVal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL, null, msgs);
+      msgs = basicSetReturnVal(newReturnVal, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__BLOCK, newBlock, newBlock));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL, newReturnVal, newReturnVal));
   }
 
   /**
@@ -373,13 +365,15 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
     switch (featureID)
     {
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
-        return basicSetParameters(null, msgs);
+        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
       case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
         return ((InternalEList<?>)getOptionalElements()).basicRemove(otherEnd, msgs);
-      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
-        return basicSetReturnParameters(null, msgs);
-      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCK:
-        return basicSetBlock(null, msgs);
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE:
+        return basicSetReturnType(null, msgs);
+      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCKS:
+        return ((InternalEList<?>)getBlocks()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL:
+        return basicSetReturnVal(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -402,10 +396,12 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
         return getParameters();
       case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
         return getOptionalElements();
-      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
-        return getReturnParameters();
-      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCK:
-        return getBlock();
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE:
+        return getReturnType();
+      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCKS:
+        return getBlocks();
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL:
+        return getReturnVal();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -428,17 +424,22 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
         setName((String)newValue);
         return;
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
-        setParameters((ParameterList)newValue);
+        getParameters().clear();
+        getParameters().addAll((Collection<? extends FunctionParameterDeclaration>)newValue);
         return;
       case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
         getOptionalElements().clear();
         getOptionalElements().addAll((Collection<? extends FunctionDefinitionOptionalElement>)newValue);
         return;
-      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
-        setReturnParameters((ReturnsParameterList)newValue);
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE:
+        setReturnType((NamedType)newValue);
         return;
-      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCK:
-        setBlock((Body)newValue);
+      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCKS:
+        getBlocks().clear();
+        getBlocks().addAll((Collection<? extends InternalBlock>)newValue);
+        return;
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL:
+        setReturnVal((ReturnStatement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -461,16 +462,19 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
         setName(NAME_EDEFAULT);
         return;
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
-        setParameters((ParameterList)null);
+        getParameters().clear();
         return;
       case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
         getOptionalElements().clear();
         return;
-      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
-        setReturnParameters((ReturnsParameterList)null);
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE:
+        setReturnType((NamedType)null);
         return;
-      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCK:
-        setBlock((Body)null);
+      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCKS:
+        getBlocks().clear();
+        return;
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL:
+        setReturnVal((ReturnStatement)null);
         return;
     }
     super.eUnset(featureID);
@@ -491,13 +495,15 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
       case OptGrammarPackage.FUNCTION_DEFINITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
-        return parameters != null;
+        return parameters != null && !parameters.isEmpty();
       case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
         return optionalElements != null && !optionalElements.isEmpty();
-      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
-        return returnParameters != null;
-      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCK:
-        return block != null;
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_TYPE:
+        return returnType != null;
+      case OptGrammarPackage.FUNCTION_DEFINITION__BLOCKS:
+        return blocks != null && !blocks.isEmpty();
+      case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_VAL:
+        return returnVal != null;
     }
     return super.eIsSet(featureID);
   }

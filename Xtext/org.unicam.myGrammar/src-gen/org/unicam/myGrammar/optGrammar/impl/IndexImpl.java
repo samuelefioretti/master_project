@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.Index;
+import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
@@ -38,7 +38,7 @@ public class IndexImpl extends QualifierImpl implements Index
    * @generated
    * @ordered
    */
-  protected Expression value;
+  protected LogicalOperations value;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class IndexImpl extends QualifierImpl implements Index
    * @generated
    */
   @Override
-  public Expression getValue()
+  public LogicalOperations getValue()
   {
     return value;
   }
@@ -77,9 +77,9 @@ public class IndexImpl extends QualifierImpl implements Index
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(Expression newValue, NotificationChain msgs)
+  public NotificationChain basicSetValue(LogicalOperations newValue, NotificationChain msgs)
   {
-    Expression oldValue = value;
+    LogicalOperations oldValue = value;
     value = newValue;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class IndexImpl extends QualifierImpl implements Index
    * @generated
    */
   @Override
-  public void setValue(Expression newValue)
+  public void setValue(LogicalOperations newValue)
   {
     if (newValue != value)
     {
@@ -154,7 +154,7 @@ public class IndexImpl extends QualifierImpl implements Index
     switch (featureID)
     {
       case OptGrammarPackage.INDEX__VALUE:
-        setValue((Expression)newValue);
+        setValue((LogicalOperations)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class IndexImpl extends QualifierImpl implements Index
     switch (featureID)
     {
       case OptGrammarPackage.INDEX__VALUE:
-        setValue((Expression)null);
+        setValue((LogicalOperations)null);
         return;
     }
     super.eUnset(featureID);

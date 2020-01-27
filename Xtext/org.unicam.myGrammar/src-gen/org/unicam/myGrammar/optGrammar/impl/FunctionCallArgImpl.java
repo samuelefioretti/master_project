@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.FunctionCallArg;
+import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
@@ -60,7 +60,7 @@ public class FunctionCallArgImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected Expression expr;
+  protected LogicalOperations expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,7 +114,7 @@ public class FunctionCallArgImpl extends MinimalEObjectImpl.Container implements
    * @generated
    */
   @Override
-  public Expression getExpr()
+  public LogicalOperations getExpr()
   {
     return expr;
   }
@@ -124,9 +124,9 @@ public class FunctionCallArgImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(LogicalOperations newExpr, NotificationChain msgs)
   {
-    Expression oldExpr = expr;
+    LogicalOperations oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -142,7 +142,7 @@ public class FunctionCallArgImpl extends MinimalEObjectImpl.Container implements
    * @generated
    */
   @Override
-  public void setExpr(Expression newExpr)
+  public void setExpr(LogicalOperations newExpr)
   {
     if (newExpr != expr)
     {
@@ -206,7 +206,7 @@ public class FunctionCallArgImpl extends MinimalEObjectImpl.Container implements
         setName((String)newValue);
         return;
       case OptGrammarPackage.FUNCTION_CALL_ARG__EXPR:
-        setExpr((Expression)newValue);
+        setExpr((LogicalOperations)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -226,7 +226,7 @@ public class FunctionCallArgImpl extends MinimalEObjectImpl.Container implements
         setName(NAME_EDEFAULT);
         return;
       case OptGrammarPackage.FUNCTION_CALL_ARG__EXPR:
-        setExpr((Expression)null);
+        setExpr((LogicalOperations)null);
         return;
     }
     super.eUnset(featureID);

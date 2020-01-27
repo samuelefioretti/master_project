@@ -23,10 +23,10 @@ import org.unicam.myGrammar.optGrammar.BlockhashFunction;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
+import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Ether;
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.ForStatement;
 import org.unicam.myGrammar.optGrammar.FunctionCall;
 import org.unicam.myGrammar.optGrammar.FunctionDefinition;
@@ -35,12 +35,11 @@ import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LoopStructures;
-import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.PrimaryArithmetic;
 import org.unicam.myGrammar.optGrammar.SecondOperators;
-import org.unicam.myGrammar.optGrammar.StructDefinition;
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.Time;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
 import org.unicam.myGrammar.optGrammar.VisibilityEnum;
@@ -146,41 +145,25 @@ public class OptGrammarGenerator extends AbstractGenerator {
     throw new Error("Unresolved compilation problems:"
       + "\nThe method or field visibility is undefined for the type FunctionDefinition"
       + "\nThe method or field visibility is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnType is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnType is undefined for the type FunctionDefinition"
-      + "\nThe method or field blocks is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nThe method or field returnVal is undefined for the type FunctionDefinition"
-      + "\nType mismatch: cannot convert from ParameterList to Iterable<?>"
+      + "\nThe method or field def is undefined for the type ReturnStatement"
+      + "\nThe method or field def is undefined for the type ReturnStatement"
+      + "\nThe method or field defDec is undefined for the type ReturnStatement"
+      + "\nThe method or field defDec is undefined for the type ReturnStatement"
+      + "\nThe method or field val is undefined for the type ReturnStatement"
+      + "\nThe method or field val is undefined for the type ReturnStatement"
+      + "\nThe method or field call is undefined for the type ReturnStatement"
+      + "\nThe method or field call is undefined for the type ReturnStatement"
       + "\nThe method compileDeclaration(Declaration) from the type OptGrammarGenerator refers to the missing type Declaration"
+      + "\nThe method compileInternalBlock(InternalBlock) from the type OptGrammarGenerator refers to the missing type InternalBlock"
       + "\n!== cannot be resolved"
       + "\ntype cannot be resolved"
       + "\n!== cannot be resolved"
-      + "\ncompileTypes cannot be resolved"
-      + "\ncompileInternalBlock cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\n^def cannot be resolved"
-      + "\n!== cannot be resolved"
-      + "\n^def cannot be resolved"
       + "\ncompileDefinitions cannot be resolved"
-      + "\ndefDec cannot be resolved"
       + "\n!== cannot be resolved"
-      + "\ndefDec cannot be resolved"
       + "\ncompileDeclaration cannot be resolved"
-      + "\n^val cannot be resolved"
       + "\n!== cannot be resolved"
-      + "\n^val cannot be resolved"
       + "\ncompileCondition cannot be resolved"
-      + "\ncall cannot be resolved"
       + "\n!== cannot be resolved"
-      + "\ncall cannot be resolved"
       + "\ncompileCondition cannot be resolved");
   }
   
@@ -324,15 +307,37 @@ public class OptGrammarGenerator extends AbstractGenerator {
   }
   
   public String compileTypes(final EObject type) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nSimpleTypeDeclaration cannot be resolved to a type."
-      + "\nThe method or field type is undefined for the type EObject"
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition.");
+    String _switchResult = null;
+    boolean _matched = false;
+    if (type instanceof ElementaryTypeNameEnum) {
+      _matched=true;
+      _switchResult = ((ElementaryTypeNameEnum)type).getType();
+    }
+    if (!_matched) {
+      _matched=true;
+      if (!_matched) {
+        if (type instanceof SimpleTypeDeclaration) {
+          _matched=true;
+        }
+      }
+      if (_matched) {
+        _switchResult = ((SimpleTypeDeclaration)type).getType();
+      }
+    }
+    return _switchResult;
   }
   
-  public String compileStruct(final StructDefinition st) {
+  public String compileStruct(final /* StructDefinition */Object st) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method compileDeclaration(Declaration) from the type OptGrammarGenerator refers to the missing type Declaration");
+      + "\nvisibility cannot be resolved"
+      + "\n!== cannot be resolved"
+      + "\nvisibility cannot be resolved"
+      + "\ntype cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\n!== cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nmembers cannot be resolved"
+      + "\ncompileDeclaration cannot be resolved");
   }
   
   public String compileConcreteStructure(final /* ConcreteStructureDefinitionDeclaration */Object cs) {
@@ -387,31 +392,37 @@ public class OptGrammarGenerator extends AbstractGenerator {
       + "\nname cannot be resolved");
   }
   
-  public String compileMapping(final Mapping dec) {
+  public String compileMapping(final /* Mapping */Object dec) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field type is undefined for the type Mapping"
-      + "\nThe method or field secondRef is undefined for the type Mapping"
-      + "\nThe method or field secondRef is undefined for the type Mapping"
-      + "\nThe method or field second is undefined for the type Mapping"
-      + "\nThe method or field second is undefined for the type Mapping"
-      + "\nThe method or field second is undefined for the type Mapping"
-      + "\nThe method or field second is undefined for the type Mapping"
-      + "\nThe method or field array is undefined for the type Mapping"
+      + "\nMapping cannot be resolved to a type."
+      + "\nThe method or field Mapping is undefined"
+      + "\ntype cannot be resolved"
       + "\ncompileTypes cannot be resolved"
+      + "\nsecondRef cannot be resolved"
       + "\n!== cannot be resolved"
+      + "\nsecondRef cannot be resolved"
       + "\ncompileDeclarationReference cannot be resolved"
+      + "\nsecond cannot be resolved"
       + "\n!== cannot be resolved"
-      + "\ncompileTypes cannot be resolved");
+      + "\nsecond cannot be resolved"
+      + "\ncast cannot be resolved"
+      + "\nsecond cannot be resolved"
+      + "\ncompileMapping cannot be resolved"
+      + "\nsecond cannot be resolved"
+      + "\ncompileTypes cannot be resolved"
+      + "\narray cannot be resolved");
   }
   
   public String compilePrimaryTypeDefinitionDeclaration(final /* PrimaryTypeDefinitionDeclaration */Object pr) {
     throw new Error("Unresolved compilation problems:"
       + "\nArrayableDeclaration cannot be resolved to a type."
       + "\nNonArrayableDeclaration cannot be resolved to a type."
+      + "\nThe method or field Expression is undefined"
       + "\nThe method or field PrimaryTypeDeclaration is undefined"
       + "\nThe method or field PrimaryTypeDeclaration is undefined"
       + "\nThe method or field PrimaryTypeDeclaration is undefined"
       + "\nThe method or field PrimaryTypeDeclaration is undefined"
+      + "\nThe method or field Expression is undefined"
       + "\nref cannot be resolved"
       + "\n!== cannot be resolved"
       + "\nref cannot be resolved"
@@ -420,7 +431,9 @@ public class OptGrammarGenerator extends AbstractGenerator {
       + "\n!== cannot be resolved"
       + "\noperator cannot be resolved"
       + "\nvalue cannot be resolved"
+      + "\ncast cannot be resolved"
       + "\nvalue cannot be resolved"
+      + "\ncompileExpression cannot be resolved"
       + "\ntype cannot be resolved"
       + "\ncompileTypes cannot be resolved"
       + "\ntype cannot be resolved"
@@ -444,7 +457,9 @@ public class OptGrammarGenerator extends AbstractGenerator {
       + "\n!== cannot be resolved"
       + "\noperator cannot be resolved"
       + "\nvalue cannot be resolved"
-      + "\nvalue cannot be resolved");
+      + "\ncast cannot be resolved"
+      + "\nvalue cannot be resolved"
+      + "\ncompileExpression cannot be resolved");
   }
   
   public String compileLoopStructure(final LoopStructures loop) {
@@ -479,10 +494,24 @@ public class OptGrammarGenerator extends AbstractGenerator {
       + "\ncompileSingleDefinition cannot be resolved");
   }
   
-  public String compileExpression(final Expression logic) {
+  public String compileExpression(final /* Expression */Object logic) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method compileConditionOperation(ConditionOperation) from the type OptGrammarGenerator refers to the missing type ConditionOperation"
-      + "\nThe method compileConditionOperation(ConditionOperation) from the type OptGrammarGenerator refers to the missing type ConditionOperation");
+      + "\nnegate cannot be resolved"
+      + "\nfirst cannot be resolved"
+      + "\ncompileCondition cannot be resolved"
+      + "\noperations cannot be resolved"
+      + "\ncompileConditionOperation cannot be resolved"
+      + "\nternary cannot be resolved"
+      + "\nfirst cannot be resolved"
+      + "\ncompileCondition cannot be resolved"
+      + "\n^true cannot be resolved"
+      + "\ncompileCondition cannot be resolved"
+      + "\n^false cannot be resolved"
+      + "\ncompileCondition cannot be resolved"
+      + "\nfirst cannot be resolved"
+      + "\ncompileCondition cannot be resolved"
+      + "\noperations cannot be resolved"
+      + "\ncompileConditionOperation cannot be resolved");
   }
   
   public Object compileCondition(final Literal cond) {
@@ -600,19 +629,10 @@ public class OptGrammarGenerator extends AbstractGenerator {
   }
   
   public String compilePrimaryArithmetic(final PrimaryArithmetic primary) {
-    String _switchResult = null;
-    boolean _matched = false;
-    if (primary instanceof NumericLiteral) {
-      _matched=true;
-      _switchResult = this.compileNumericLiteral(((NumericLiteral)primary));
-    }
-    if (!_matched) {
-      if (primary instanceof Expression) {
-        _matched=true;
-        _switchResult = this.compileExpression(((Expression)primary));
-      }
-    }
-    return _switchResult;
+    throw new Error("Unresolved compilation problems:"
+      + "\nExpression cannot be resolved to a type."
+      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
+      + "\nThe method compileExpression(Expression) from the type OptGrammarGenerator refers to the missing type Expression");
   }
   
   public String compileNumericLiteral(final NumericLiteral num) {
@@ -747,8 +767,10 @@ public class OptGrammarGenerator extends AbstractGenerator {
   
   public String compileLogicalOrFilled(final EObject obj) {
     throw new Error("Unresolved compilation problems:"
+      + "\nExpression cannot be resolved to a type."
       + "\nFilledArray cannot be resolved to a type."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
+      + "\nThe method compileExpression(Expression) from the type OptGrammarGenerator refers to the missing type Expression"
       + "\nThe method compileFilledArray(FilledArray) from the type OptGrammarGenerator refers to the missing type FilledArray");
   }
   
@@ -775,33 +797,7 @@ public class OptGrammarGenerator extends AbstractGenerator {
   }
   
   public String compileFunctionCall(final FunctionCall call) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = call.getName().getName();
-    _builder.append(_name);
-    _builder.append("(");
-    {
-      EList<Expression> _parameters = call.getParameters();
-      boolean _tripleNotEquals = (_parameters != null);
-      if (_tripleNotEquals) {
-        _builder.newLineIfNotEmpty();
-        {
-          EList<Expression> _parameters_1 = call.getParameters();
-          boolean _hasElements = false;
-          for(final Expression param : _parameters_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(", ", "");
-            }
-            String _compileExpression = this.compileExpression(param);
-            _builder.append(_compileExpression);
-            _builder.newLineIfNotEmpty();
-          }
-        }
-        _builder.append("\t\t");
-      }
-    }
-    _builder.append(")");
-    return _builder.toString();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method compileExpression(Expression) from the type OptGrammarGenerator refers to the missing type Expression");
   }
 }

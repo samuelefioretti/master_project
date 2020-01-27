@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
+import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
@@ -42,7 +42,7 @@ public class FunctionCallListArgumentsImpl extends FunctionCallArgumentsImpl imp
    * @generated
    * @ordered
    */
-  protected EList<Expression> arguments;
+  protected EList<LogicalOperations> arguments;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,11 +71,11 @@ public class FunctionCallListArgumentsImpl extends FunctionCallArgumentsImpl imp
    * @generated
    */
   @Override
-  public EList<Expression> getArguments()
+  public EList<LogicalOperations> getArguments()
   {
     if (arguments == null)
     {
-      arguments = new EObjectContainmentEList<Expression>(Expression.class, this, OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS__ARGUMENTS);
+      arguments = new EObjectContainmentEList<LogicalOperations>(LogicalOperations.class, this, OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS__ARGUMENTS);
     }
     return arguments;
   }
@@ -125,7 +125,7 @@ public class FunctionCallListArgumentsImpl extends FunctionCallArgumentsImpl imp
     {
       case OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS__ARGUMENTS:
         getArguments().clear();
-        getArguments().addAll((Collection<? extends Expression>)newValue);
+        getArguments().addAll((Collection<? extends LogicalOperations>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.unicam.myGrammar.optGrammar.ArrayDimensions;
-import org.unicam.myGrammar.optGrammar.Expression;
+import org.unicam.myGrammar.optGrammar.LogicalOperations;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
@@ -44,7 +44,7 @@ public class ArrayDimensionsImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EList<Expression> value;
+  protected EList<LogicalOperations> value;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,11 +73,11 @@ public class ArrayDimensionsImpl extends MinimalEObjectImpl.Container implements
    * @generated
    */
   @Override
-  public EList<Expression> getValue()
+  public EList<LogicalOperations> getValue()
   {
     if (value == null)
     {
-      value = new EObjectContainmentEList<Expression>(Expression.class, this, OptGrammarPackage.ARRAY_DIMENSIONS__VALUE);
+      value = new EObjectContainmentEList<LogicalOperations>(LogicalOperations.class, this, OptGrammarPackage.ARRAY_DIMENSIONS__VALUE);
     }
     return value;
   }
@@ -127,7 +127,7 @@ public class ArrayDimensionsImpl extends MinimalEObjectImpl.Container implements
     {
       case OptGrammarPackage.ARRAY_DIMENSIONS__VALUE:
         getValue().clear();
-        getValue().addAll((Collection<? extends Expression>)newValue);
+        getValue().addAll((Collection<? extends LogicalOperations>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
