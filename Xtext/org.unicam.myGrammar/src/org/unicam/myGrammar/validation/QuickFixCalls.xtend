@@ -9,6 +9,7 @@ import org.unicam.myGrammar.optGrammar.Contract
 import org.unicam.myGrammar.optGrammar.StructDefinition
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.EObject
+import org.unicam.myGrammar.optGrammar.Declaration
 
 /**
  * This class contains custom validation rules. 
@@ -42,7 +43,7 @@ class QuickFixCalls extends AbstractOptGrammarValidator {
 				orderedIndexes.addAll(newOrderedFields.map[x|str.members.indexOf(x)]);
 				warning(
 					"This structure can be optimized",
-					OptGrammarPackage.Literals.STRUCT_DECLARATION__NAME,
+					OptGrammarPackage.Literals.STRUCT_DEFINITION__NAME,
 					ValidatorSupport.OPTIMIZED_STRUCT_FIELDS,
 					orderedIndexes.map[e|e.toString]
 				)
@@ -149,11 +150,8 @@ class QuickFixCalls extends AbstractOptGrammarValidator {
 			ArrayableDeclaration: // int, bytes or address(20 byte)
 				return dec.type.type.startsWith('int')
 					? (dec.type.type.substring(3).empty ? 32 : (Integer.parseInt(dec.type.type.substring(3)) / 8))
-					: dec.type.type.startsWith('bytes')
-					? (dec.type.type.substring(5).empty
-					? 32
-					: Integer.parseInt(dec.type.type.substring(5)))
-					: 20
+					: dec.type.type.startsWith('bytes') ? (dec.type.type.substring(5).empty ? 32 : Integer.parseInt(
+					dec.type.type.substring(5))) : 20
 			default:
 				return 33
 		}

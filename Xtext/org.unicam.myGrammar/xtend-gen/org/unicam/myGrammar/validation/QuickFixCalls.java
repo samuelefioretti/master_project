@@ -25,7 +25,6 @@ public class QuickFixCalls extends AbstractOptGrammarValidator {
   @Check
   public void orderedStructureFields(final StructDefinition str) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field STRUCT_DECLARATION__NAME is undefined for the type Class<Literals>"
       + "\nThe field QuickFixCalls.declarationSizeComparator refers to the missing type Declaration"
       + "\nThe method getOptimizedOrder(ArrayList, ArrayList, Integer, Integer) from the type QuickFixCalls refers to the missing type ArrayList"
       + "\nThe method getSize(Declaration) from the type QuickFixCalls refers to the missing type Declaration");

@@ -18,14 +18,8 @@ contract HotelBooking {
         bool cancel;
         string ID;
     }
-   
     
-    modifier checkOpt(string storage role) {
-        require(msg.sender==optionalRoles[role]);
-        _;
-    }
-    
-    private function init() internal {
+    function init() internal {
         bool result=true;
         
         for(uint i=0; i<roleList.length; i++) {
