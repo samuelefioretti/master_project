@@ -314,8 +314,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         Tuple tuple = (Tuple)theEObject;
         T result = caseTuple(tuple);
-        if (result == null) result = caseExpression(tuple);
-        if (result == null) result = casePrimaryArithmetic(tuple);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -323,8 +321,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         TupleSeparator tupleSeparator = (TupleSeparator)theEObject;
         T result = caseTupleSeparator(tupleSeparator);
-        if (result == null) result = caseExpression(tupleSeparator);
-        if (result == null) result = casePrimaryArithmetic(tupleSeparator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -358,9 +354,7 @@ public class OptGrammarSwitch<T> extends Switch<T>
         QualifiedIdentifier qualifiedIdentifier = (QualifiedIdentifier)theEObject;
         T result = caseQualifiedIdentifier(qualifiedIdentifier);
         if (result == null) result = caseStandardType(qualifiedIdentifier);
-        if (result == null) result = caseExpression(qualifiedIdentifier);
         if (result == null) result = caseType(qualifiedIdentifier);
-        if (result == null) result = casePrimaryArithmetic(qualifiedIdentifier);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -438,6 +432,14 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.LOOP_STRUCTURES:
+      {
+        LoopStructures loopStructures = (LoopStructures)theEObject;
+        T result = caseLoopStructures(loopStructures);
+        if (result == null) result = caseStatement(loopStructures);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.DELETE_STATEMENT:
       {
         DeleteStatement deleteStatement = (DeleteStatement)theEObject;
@@ -450,6 +452,7 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         IfStatement ifStatement = (IfStatement)theEObject;
         T result = caseIfStatement(ifStatement);
+        if (result == null) result = caseLoopStructures(ifStatement);
         if (result == null) result = caseStatement(ifStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -458,6 +461,7 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         WhileStatement whileStatement = (WhileStatement)theEObject;
         T result = caseWhileStatement(whileStatement);
+        if (result == null) result = caseLoopStructures(whileStatement);
         if (result == null) result = caseStatement(whileStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -466,6 +470,7 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         ForStatement forStatement = (ForStatement)theEObject;
         T result = caseForStatement(forStatement);
+        if (result == null) result = caseLoopStructures(forStatement);
         if (result == null) result = caseStatement(forStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -526,66 +531,10 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.SPECIAL_EXPRESSION:
+      case OptGrammarPackage.CONDITION_OPERATION:
       {
-        SpecialExpression specialExpression = (SpecialExpression)theEObject;
-        T result = caseSpecialExpression(specialExpression);
-        if (result == null) result = caseExpression(specialExpression);
-        if (result == null) result = casePrimaryArithmetic(specialExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.NOT_EXPRESSION:
-      {
-        NotExpression notExpression = (NotExpression)theEObject;
-        T result = caseNotExpression(notExpression);
-        if (result == null) result = caseExpression(notExpression);
-        if (result == null) result = casePrimaryArithmetic(notExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.PRE_INC_EXPRESSION:
-      {
-        PreIncExpression preIncExpression = (PreIncExpression)theEObject;
-        T result = casePreIncExpression(preIncExpression);
-        if (result == null) result = caseExpression(preIncExpression);
-        if (result == null) result = casePrimaryArithmetic(preIncExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.PRE_DEC_EXPRESSION:
-      {
-        PreDecExpression preDecExpression = (PreDecExpression)theEObject;
-        T result = casePreDecExpression(preDecExpression);
-        if (result == null) result = caseExpression(preDecExpression);
-        if (result == null) result = casePrimaryArithmetic(preDecExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.BINARY_NOT_EXPRESSION:
-      {
-        BinaryNotExpression binaryNotExpression = (BinaryNotExpression)theEObject;
-        T result = caseBinaryNotExpression(binaryNotExpression);
-        if (result == null) result = caseExpression(binaryNotExpression);
-        if (result == null) result = casePrimaryArithmetic(binaryNotExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.SIGN_EXPRESSION:
-      {
-        SignExpression signExpression = (SignExpression)theEObject;
-        T result = caseSignExpression(signExpression);
-        if (result == null) result = caseExpression(signExpression);
-        if (result == null) result = casePrimaryArithmetic(signExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.NEW_EXPRESSION:
-      {
-        NewExpression newExpression = (NewExpression)theEObject;
-        T result = caseNewExpression(newExpression);
-        if (result == null) result = caseExpression(newExpression);
-        if (result == null) result = casePrimaryArithmetic(newExpression);
+        ConditionOperation conditionOperation = (ConditionOperation)theEObject;
+        T result = caseConditionOperation(conditionOperation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -593,8 +542,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         Literal literal = (Literal)theEObject;
         T result = caseLiteral(literal);
-        if (result == null) result = caseExpression(literal);
-        if (result == null) result = casePrimaryArithmetic(literal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -603,8 +550,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         GasleftFunction gasleftFunction = (GasleftFunction)theEObject;
         T result = caseGasleftFunction(gasleftFunction);
         if (result == null) result = caseLiteral(gasleftFunction);
-        if (result == null) result = caseExpression(gasleftFunction);
-        if (result == null) result = casePrimaryArithmetic(gasleftFunction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -613,8 +558,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         BlockhashFunction blockhashFunction = (BlockhashFunction)theEObject;
         T result = caseBlockhashFunction(blockhashFunction);
         if (result == null) result = caseLiteral(blockhashFunction);
-        if (result == null) result = caseExpression(blockhashFunction);
-        if (result == null) result = casePrimaryArithmetic(blockhashFunction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -623,8 +566,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         MathematicalFunction mathematicalFunction = (MathematicalFunction)theEObject;
         T result = caseMathematicalFunction(mathematicalFunction);
         if (result == null) result = caseLiteral(mathematicalFunction);
-        if (result == null) result = caseExpression(mathematicalFunction);
-        if (result == null) result = casePrimaryArithmetic(mathematicalFunction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -633,8 +574,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         EcrecoverFunction ecrecoverFunction = (EcrecoverFunction)theEObject;
         T result = caseEcrecoverFunction(ecrecoverFunction);
         if (result == null) result = caseLiteral(ecrecoverFunction);
-        if (result == null) result = caseExpression(ecrecoverFunction);
-        if (result == null) result = casePrimaryArithmetic(ecrecoverFunction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -643,8 +582,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         HashFunction hashFunction = (HashFunction)theEObject;
         T result = caseHashFunction(hashFunction);
         if (result == null) result = caseLiteral(hashFunction);
-        if (result == null) result = caseExpression(hashFunction);
-        if (result == null) result = casePrimaryArithmetic(hashFunction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -688,8 +625,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         BooleanConst booleanConst = (BooleanConst)theEObject;
         T result = caseBooleanConst(booleanConst);
         if (result == null) result = caseLiteral(booleanConst);
-        if (result == null) result = caseExpression(booleanConst);
-        if (result == null) result = casePrimaryArithmetic(booleanConst);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -698,7 +633,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         NumericLiteral numericLiteral = (NumericLiteral)theEObject;
         T result = caseNumericLiteral(numericLiteral);
         if (result == null) result = caseLiteral(numericLiteral);
-        if (result == null) result = caseExpression(numericLiteral);
         if (result == null) result = casePrimaryArithmetic(numericLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -743,8 +677,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         StringLiteral stringLiteral = (StringLiteral)theEObject;
         T result = caseStringLiteral(stringLiteral);
         if (result == null) result = caseLiteral(stringLiteral);
-        if (result == null) result = caseExpression(stringLiteral);
-        if (result == null) result = casePrimaryArithmetic(stringLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -766,8 +698,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         TypeCast typeCast = (TypeCast)theEObject;
         T result = caseTypeCast(typeCast);
-        if (result == null) result = caseExpression(typeCast);
-        if (result == null) result = casePrimaryArithmetic(typeCast);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -776,8 +706,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         SpecialVariables specialVariables = (SpecialVariables)theEObject;
         T result = caseSpecialVariables(specialVariables);
         if (result == null) result = caseLiteral(specialVariables);
-        if (result == null) result = caseExpression(specialVariables);
-        if (result == null) result = casePrimaryArithmetic(specialVariables);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -819,147 +747,12 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.BLOCK:
-      {
-        Block block = (Block)theEObject;
-        T result = caseBlock(block);
-        if (result == null) result = caseBody(block);
-        if (result == null) result = caseStatement(block);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OptGrammarPackage.CONTINUE:
       {
         Continue continue_ = (Continue)theEObject;
         T result = caseContinue(continue_);
         if (result == null) result = caseContinueStatement(continue_);
         if (result == null) result = caseStatement(continue_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.ASSIGNMENT:
-      {
-        Assignment assignment = (Assignment)theEObject;
-        T result = caseAssignment(assignment);
-        if (result == null) result = caseExpression(assignment);
-        if (result == null) result = casePrimaryArithmetic(assignment);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.VARIABLE_DECLARATION_EXPRESSION:
-      {
-        VariableDeclarationExpression variableDeclarationExpression = (VariableDeclarationExpression)theEObject;
-        T result = caseVariableDeclarationExpression(variableDeclarationExpression);
-        if (result == null) result = caseExpression(variableDeclarationExpression);
-        if (result == null) result = casePrimaryArithmetic(variableDeclarationExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.OR:
-      {
-        Or or = (Or)theEObject;
-        T result = caseOr(or);
-        if (result == null) result = caseExpression(or);
-        if (result == null) result = casePrimaryArithmetic(or);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.AND:
-      {
-        And and = (And)theEObject;
-        T result = caseAnd(and);
-        if (result == null) result = caseExpression(and);
-        if (result == null) result = casePrimaryArithmetic(and);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.EQUALITY:
-      {
-        Equality equality = (Equality)theEObject;
-        T result = caseEquality(equality);
-        if (result == null) result = caseExpression(equality);
-        if (result == null) result = casePrimaryArithmetic(equality);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.COMPARISON:
-      {
-        Comparison comparison = (Comparison)theEObject;
-        T result = caseComparison(comparison);
-        if (result == null) result = caseExpression(comparison);
-        if (result == null) result = casePrimaryArithmetic(comparison);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.BIT_OR:
-      {
-        BitOr bitOr = (BitOr)theEObject;
-        T result = caseBitOr(bitOr);
-        if (result == null) result = caseExpression(bitOr);
-        if (result == null) result = casePrimaryArithmetic(bitOr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.BIT_XOR:
-      {
-        BitXor bitXor = (BitXor)theEObject;
-        T result = caseBitXor(bitXor);
-        if (result == null) result = caseExpression(bitXor);
-        if (result == null) result = casePrimaryArithmetic(bitXor);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.BIT_AND:
-      {
-        BitAnd bitAnd = (BitAnd)theEObject;
-        T result = caseBitAnd(bitAnd);
-        if (result == null) result = caseExpression(bitAnd);
-        if (result == null) result = casePrimaryArithmetic(bitAnd);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.SHIFT:
-      {
-        Shift shift = (Shift)theEObject;
-        T result = caseShift(shift);
-        if (result == null) result = caseExpression(shift);
-        if (result == null) result = casePrimaryArithmetic(shift);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.ADD_SUB:
-      {
-        AddSub addSub = (AddSub)theEObject;
-        T result = caseAddSub(addSub);
-        if (result == null) result = caseExpression(addSub);
-        if (result == null) result = casePrimaryArithmetic(addSub);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.MUL_DIV_MOD:
-      {
-        MulDivMod mulDivMod = (MulDivMod)theEObject;
-        T result = caseMulDivMod(mulDivMod);
-        if (result == null) result = caseExpression(mulDivMod);
-        if (result == null) result = casePrimaryArithmetic(mulDivMod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.EXPONENT:
-      {
-        Exponent exponent = (Exponent)theEObject;
-        T result = caseExponent(exponent);
-        if (result == null) result = caseExpression(exponent);
-        if (result == null) result = casePrimaryArithmetic(exponent);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.POST_INC_DEC_EXPRESSION:
-      {
-        PostIncDecExpression postIncDecExpression = (PostIncDecExpression)theEObject;
-        T result = casePostIncDecExpression(postIncDecExpression);
-        if (result == null) result = caseExpression(postIncDecExpression);
-        if (result == null) result = casePrimaryArithmetic(postIncDecExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1688,6 +1481,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Loop Structures</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Loop Structures</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLoopStructures(LoopStructures object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Delete Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1864,113 +1673,17 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Special Expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Condition Operation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Special Expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Condition Operation</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSpecialExpression(SpecialExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Not Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Not Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNotExpression(NotExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Pre Inc Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Pre Inc Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePreIncExpression(PreIncExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Pre Dec Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Pre Dec Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePreDecExpression(PreDecExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Binary Not Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Binary Not Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBinaryNotExpression(BinaryNotExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Sign Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sign Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSignExpression(SignExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>New Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>New Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNewExpression(NewExpression object)
+  public T caseConditionOperation(ConditionOperation object)
   {
     return null;
   }
@@ -2424,22 +2137,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Block</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBlock(Block object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Continue</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2451,230 +2148,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseContinue(Continue object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAssignment(Assignment object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Declaration Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Declaration Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariableDeclarationExpression(VariableDeclarationExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Or</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Or</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOr(Or object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>And</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>And</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAnd(And object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Equality</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Equality</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEquality(Equality object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Comparison</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Comparison</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseComparison(Comparison object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Bit Or</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bit Or</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBitOr(BitOr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Bit Xor</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bit Xor</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBitXor(BitXor object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Bit And</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bit And</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBitAnd(BitAnd object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Shift</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Shift</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseShift(Shift object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Add Sub</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Add Sub</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAddSub(AddSub object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Mul Div Mod</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mul Div Mod</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMulDivMod(MulDivMod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Exponent</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exponent</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExponent(Exponent object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Post Inc Dec Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Post Inc Dec Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePostIncDecExpression(PostIncDecExpression object)
   {
     return null;
   }

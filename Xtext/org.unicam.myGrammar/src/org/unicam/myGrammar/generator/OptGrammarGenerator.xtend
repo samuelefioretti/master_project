@@ -33,6 +33,8 @@ import org.unicam.myGrammar.optGrammar.UnitTypes
 import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration
 import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum
 import org.unicam.myGrammar.optGrammar.PrimaryArithmetic
+import org.unicam.myGrammar.optGrammar.LoopStructures
+import org.unicam.myGrammar.optGrammar.ForStatement
 
 /**
  * Generates code from your model files on save.
@@ -298,7 +300,7 @@ class OptGrammarGenerator extends AbstractGenerator {
 		return switch loop {
 			IfWhileStructure: loop.compileIfWhileStructure
 			,
-			ForStructure: loop.compileForStructure
+			ForStatement: loop.compileForStatement
 		}
 	}
 
@@ -313,7 +315,7 @@ class OptGrammarGenerator extends AbstractGenerator {
 	 	'''
 	}
 
-	def compileForStructure(ForStructure str) {
+	def compileForStatement(ForStatement str) {
 		return '''«str.type»(«str.initial.compileIntial» «str.condition.compileExpression»; «str.step.compileSingleDefinition»)''' + ''' {
 	 		«str.compileInternalLoop»
 	 	}

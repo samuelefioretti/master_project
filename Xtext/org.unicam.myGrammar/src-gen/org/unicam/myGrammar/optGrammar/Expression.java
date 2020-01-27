@@ -3,12 +3,24 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Expression</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#getFirst <em>First</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#getOperations <em>Operations</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#isNegate <em>Negate</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#isTernary <em>Ternary</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#getTrue <em>True</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Expression#getFalse <em>False</em>}</li>
+ * </ul>
  *
  * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression()
  * @model
@@ -16,4 +28,126 @@ package org.unicam.myGrammar.optGrammar;
  */
 public interface Expression extends PrimaryArithmetic
 {
+  /**
+   * Returns the value of the '<em><b>First</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>First</em>' containment reference.
+   * @see #setFirst(Literal)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_First()
+   * @model containment="true"
+   * @generated
+   */
+  Literal getFirst();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#getFirst <em>First</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>First</em>' containment reference.
+   * @see #getFirst()
+   * @generated
+   */
+  void setFirst(Literal value);
+
+  /**
+   * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.ConditionOperation}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operations</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_Operations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ConditionOperation> getOperations();
+
+  /**
+   * Returns the value of the '<em><b>Negate</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Negate</em>' attribute.
+   * @see #setNegate(boolean)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_Negate()
+   * @model
+   * @generated
+   */
+  boolean isNegate();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#isNegate <em>Negate</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Negate</em>' attribute.
+   * @see #isNegate()
+   * @generated
+   */
+  void setNegate(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Ternary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ternary</em>' attribute.
+   * @see #setTernary(boolean)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_Ternary()
+   * @model
+   * @generated
+   */
+  boolean isTernary();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#isTernary <em>Ternary</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ternary</em>' attribute.
+   * @see #isTernary()
+   * @generated
+   */
+  void setTernary(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>True</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>True</em>' containment reference.
+   * @see #setTrue(Literal)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_True()
+   * @model containment="true"
+   * @generated
+   */
+  Literal getTrue();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#getTrue <em>True</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>True</em>' containment reference.
+   * @see #getTrue()
+   * @generated
+   */
+  void setTrue(Literal value);
+
+  /**
+   * Returns the value of the '<em><b>False</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>False</em>' containment reference.
+   * @see #setFalse(Literal)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getExpression_False()
+   * @model containment="true"
+   * @generated
+   */
+  Literal getFalse();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.Expression#getFalse <em>False</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>False</em>' containment reference.
+   * @see #getFalse()
+   * @generated
+   */
+  void setFalse(Literal value);
+
 } // Expression

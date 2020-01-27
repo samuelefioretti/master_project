@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.ComposedChecks;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
@@ -36,39 +37,11 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
   
   public String checkValidIndex(final Literal toCheck) {
     throw new Error("Unresolved compilation problems:"
-      + "\nFunctionCall cannot be resolved to a type."
-      + "\nFieldAccess cannot be resolved to a type."
-      + "\nDeclaration cannot be resolved to a type."
-      + "\nConcreteStructDeclaration cannot be resolved to a type."
-      + "\nArrayAccess cannot be resolved to a type."
-      + "\nNamedType cannot be resolved to a type."
-      + "\nThe method or field name is undefined for the type Literal"
-      + "\nThe method or field name is undefined for the type Literal"
-      + "\nThe method or field ref is undefined for the type Literal"
-      + "\nThe method or field field is undefined for the type Literal"
-      + "\nThe method or field variable is undefined for the type Literal"
-      + "\nThe method or field variable is undefined for the type Literal"
+      + "\nThe method or field returnType is undefined for the type FunctionDefinition"
+      + "\nThe method or field returnType is undefined for the type FunctionDefinition"
       + "\nThe method or field ref is undefined for the type Literal"
       + "\nThe method or field ref is undefined for the type Literal"
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
-      + "\nreturnType cannot be resolved"
       + "\n=== cannot be resolved"
-      + "\nreturnType cannot be resolved"
-      + "\nvalidIntoArrayIndex cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\nfields cannot be resolved"
-      + "\ngetName cannot be resolved"
-      + "\nequals cannot be resolved"
-      + "\n&& cannot be resolved"
-      + "\nvalidIntoArrayIndex cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nasDeclaration cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\nasDeclaration cannot be resolved"
-      + "\ntype cannot be resolved"
       + "\nvalidIntoArrayIndex cannot be resolved"
       + "\n! cannot be resolved"
       + "\n!== cannot be resolved"
@@ -78,22 +51,25 @@ public class CorrectIndexValidator extends AbstractOptGrammarValidator {
   }
   
   public String getErrorString(final Expression logicalOperations) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field operations is undefined for the type Expression"
-      + "\nThe method or field operations is undefined for the type Expression"
-      + "\nThe method or field ternary is undefined for the type Expression"
-      + "\nThe method or field true is undefined for the type Expression"
-      + "\nThe method or field false is undefined for the type Expression"
-      + "\nThe method or field first is undefined for the type Expression"
-      + "\n!== cannot be resolved"
-      + "\n&& cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncheckValidIndex cannot be resolved"
-      + "\ncheckValidIndex cannot be resolved"
-      + "\nisNullOrEmpty cannot be resolved"
-      + "\nisNullOrEmpty cannot be resolved"
-      + "\ncheckValidIndex cannot be resolved");
+    if (((logicalOperations.getOperations() != null) && (!logicalOperations.getOperations().isEmpty()))) {
+      return "Boolean expression are not usable as Array Index";
+    }
+    boolean _isTernary = logicalOperations.isTernary();
+    if (_isTernary) {
+      final String trueMessage = this.checkValidIndex(logicalOperations.getTrue());
+      final String falseMessage = this.checkValidIndex(logicalOperations.getFalse());
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(trueMessage);
+      if (_isNullOrEmpty) {
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(falseMessage);
+        if (_isNullOrEmpty_1) {
+          return null;
+        } else {
+          return ("Error in false statement: " + falseMessage);
+        }
+      }
+      return ("Error in true statement: " + trueMessage);
+    }
+    return this.checkValidIndex(logicalOperations.getFirst());
   }
   
   public String getErrorString(final PrimaryArithmetic primaryArithmetic) {

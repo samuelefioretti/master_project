@@ -18,6 +18,7 @@ import org.unicam.myGrammar.optGrammar.EcrecoverFunction
 import org.unicam.myGrammar.optGrammar.ArithmeticOperations
 import org.unicam.myGrammar.optGrammar.SecondOperators
 import org.unicam.myGrammar.optGrammar.NumericLiteral
+import org.unicam.myGrammar.optGrammar.FunctionCall
 
 /**
  * This class contains custom validation rules. 
@@ -65,14 +66,14 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 							toReturn = errorMessage
 					}
 			}
-			FieldAccess:
+			/*FieldAccess:
 				for (Declaration field : (toCheck.ref as ConcreteStructDeclaration).type.fields)
 					if (field.getName.equals(toCheck.field) && !field.validIntoArrayIndex)
 						toReturn = "The variable type is not usable as an array index"
 			ArrayAccess:
 				if (toCheck.variable.asDeclaration.type instanceof NamedType)
 					if (!toCheck.variable.asDeclaration.type.validIntoArrayIndex)
-						toReturn = "The array pointed is not suitable for array indexing"
+						toReturn = "The array pointed is not suitable for array indexing"*/
 			default:
 				if (toCheck.ref !== null && !toCheck.ref.validIntoArrayIndex)
 					toReturn = "The variable type is not usable as an array index"

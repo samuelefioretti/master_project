@@ -31,7 +31,7 @@ import org.unicam.myGrammar.optGrammar.Statement;
  *
  * @generated
  */
-public class IfStatementImpl extends StatementImpl implements IfStatement
+public class IfStatementImpl extends LoopStructuresImpl implements IfStatement
 {
   /**
    * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.

@@ -5,26 +5,24 @@ package org.unicam.myGrammar.optGrammar.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.unicam.myGrammar.optGrammar.LoopStructures;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.TupleSeparator;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Tuple Separator</b></em>'.
+ * An implementation of the model object '<em><b>Loop Structures</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class TupleSeparatorImpl extends MinimalEObjectImpl.Container implements TupleSeparator
+public class LoopStructuresImpl extends StatementImpl implements LoopStructures
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TupleSeparatorImpl()
+  protected LoopStructuresImpl()
   {
     super();
   }
@@ -37,7 +35,7 @@ public class TupleSeparatorImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.TUPLE_SEPARATOR;
+    return OptGrammarPackage.Literals.LOOP_STRUCTURES;
   }
 
-} //TupleSeparatorImpl
+} //LoopStructuresImpl

@@ -23,7 +23,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface ForStatement extends Statement
+public interface ForStatement extends LoopStructures
 {
   /**
    * Returns the value of the '<em><b>Init Expression</b></em>' containment reference.

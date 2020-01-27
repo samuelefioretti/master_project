@@ -14,21 +14,14 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.unicam.myGrammar.optGrammar.AddSub;
-import org.unicam.myGrammar.optGrammar.And;
 import org.unicam.myGrammar.optGrammar.Arguments;
 import org.unicam.myGrammar.optGrammar.ArithmeticOperations;
 import org.unicam.myGrammar.optGrammar.ArrayDimensions;
-import org.unicam.myGrammar.optGrammar.Assignment;
-import org.unicam.myGrammar.optGrammar.BinaryNotExpression;
-import org.unicam.myGrammar.optGrammar.BitAnd;
-import org.unicam.myGrammar.optGrammar.BitOr;
-import org.unicam.myGrammar.optGrammar.BitXor;
-import org.unicam.myGrammar.optGrammar.Block;
 import org.unicam.myGrammar.optGrammar.BlockhashFunction;
+import org.unicam.myGrammar.optGrammar.Body;
 import org.unicam.myGrammar.optGrammar.BooleanConst;
 import org.unicam.myGrammar.optGrammar.BreakStatement;
-import org.unicam.myGrammar.optGrammar.Comparison;
+import org.unicam.myGrammar.optGrammar.ConditionOperation;
 import org.unicam.myGrammar.optGrammar.Const;
 import org.unicam.myGrammar.optGrammar.ConstantSpecifier;
 import org.unicam.myGrammar.optGrammar.Continue;
@@ -40,10 +33,9 @@ import org.unicam.myGrammar.optGrammar.ElementaryType;
 import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
-import org.unicam.myGrammar.optGrammar.Equality;
 import org.unicam.myGrammar.optGrammar.Ether;
 import org.unicam.myGrammar.optGrammar.Event;
-import org.unicam.myGrammar.optGrammar.Exponent;
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.ExpressionStatement;
 import org.unicam.myGrammar.optGrammar.Field;
 import org.unicam.myGrammar.optGrammar.ForStatement;
@@ -66,27 +58,17 @@ import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.Model;
 import org.unicam.myGrammar.optGrammar.Modifier;
 import org.unicam.myGrammar.optGrammar.ModifierInvocation;
-import org.unicam.myGrammar.optGrammar.MulDivMod;
-import org.unicam.myGrammar.optGrammar.NewExpression;
-import org.unicam.myGrammar.optGrammar.NotExpression;
 import org.unicam.myGrammar.optGrammar.Now;
 import org.unicam.myGrammar.optGrammar.NumberDimensionless;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.Or;
 import org.unicam.myGrammar.optGrammar.ParameterList;
 import org.unicam.myGrammar.optGrammar.PlaceHolderStatement;
-import org.unicam.myGrammar.optGrammar.PostIncDecExpression;
-import org.unicam.myGrammar.optGrammar.PreDecExpression;
-import org.unicam.myGrammar.optGrammar.PreIncExpression;
 import org.unicam.myGrammar.optGrammar.QualifiedIdentifier;
 import org.unicam.myGrammar.optGrammar.ReturnParameterDeclaration;
 import org.unicam.myGrammar.optGrammar.ReturnStatement;
 import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
 import org.unicam.myGrammar.optGrammar.SecondOperators;
-import org.unicam.myGrammar.optGrammar.Shift;
-import org.unicam.myGrammar.optGrammar.SignExpression;
-import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialVariables;
 import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
 import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
@@ -103,7 +85,6 @@ import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.Variable;
-import org.unicam.myGrammar.optGrammar.VariableDeclarationExpression;
 import org.unicam.myGrammar.optGrammar.VisibilityEnum;
 import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
 import org.unicam.myGrammar.optGrammar.WhileStatement;
@@ -123,12 +104,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == OptGrammarPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case OptGrammarPackage.ADD_SUB:
-				sequence_AddSub(context, (AddSub) semanticObject); 
-				return; 
-			case OptGrammarPackage.AND:
-				sequence_And(context, (And) semanticObject); 
-				return; 
 			case OptGrammarPackage.ARGUMENTS:
 				sequence_Arguments(context, (Arguments) semanticObject); 
 				return; 
@@ -138,26 +113,11 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.ARRAY_DIMENSIONS:
 				sequence_ArrayDimensions(context, (ArrayDimensions) semanticObject); 
 				return; 
-			case OptGrammarPackage.ASSIGNMENT:
-				sequence_Assignment(context, (Assignment) semanticObject); 
-				return; 
-			case OptGrammarPackage.BINARY_NOT_EXPRESSION:
-				sequence_BinaryNotExpression(context, (BinaryNotExpression) semanticObject); 
-				return; 
-			case OptGrammarPackage.BIT_AND:
-				sequence_BitAnd(context, (BitAnd) semanticObject); 
-				return; 
-			case OptGrammarPackage.BIT_OR:
-				sequence_BitOr(context, (BitOr) semanticObject); 
-				return; 
-			case OptGrammarPackage.BIT_XOR:
-				sequence_BitXor(context, (BitXor) semanticObject); 
-				return; 
-			case OptGrammarPackage.BLOCK:
-				sequence_Body(context, (Block) semanticObject); 
-				return; 
 			case OptGrammarPackage.BLOCKHASH_FUNCTION:
 				sequence_BlockhashFunction(context, (BlockhashFunction) semanticObject); 
+				return; 
+			case OptGrammarPackage.BODY:
+				sequence_Body(context, (Body) semanticObject); 
 				return; 
 			case OptGrammarPackage.BOOLEAN_CONST:
 				sequence_BooleanConst(context, (BooleanConst) semanticObject); 
@@ -165,8 +125,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.BREAK_STATEMENT:
 				sequence_BreakStatement(context, (BreakStatement) semanticObject); 
 				return; 
-			case OptGrammarPackage.COMPARISON:
-				sequence_Comparison(context, (Comparison) semanticObject); 
+			case OptGrammarPackage.CONDITION_OPERATION:
+				sequence_ConditionOperation(context, (ConditionOperation) semanticObject); 
 				return; 
 			case OptGrammarPackage.CONST:
 				sequence_Const(context, (Const) semanticObject); 
@@ -215,17 +175,14 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.ENUM_VALUE:
 				sequence_EnumValue(context, (EnumValue) semanticObject); 
 				return; 
-			case OptGrammarPackage.EQUALITY:
-				sequence_Equality(context, (Equality) semanticObject); 
-				return; 
 			case OptGrammarPackage.ETHER:
 				sequence_Ether(context, (Ether) semanticObject); 
 				return; 
 			case OptGrammarPackage.EVENT:
 				sequence_Event(context, (Event) semanticObject); 
 				return; 
-			case OptGrammarPackage.EXPONENT:
-				sequence_Exponent(context, (Exponent) semanticObject); 
+			case OptGrammarPackage.EXPRESSION:
+				sequence_Expression(context, (Expression) semanticObject); 
 				return; 
 			case OptGrammarPackage.EXPRESSION_STATEMENT:
 				if (rule == grammarAccess.getSimpleStatement2Rule()
@@ -302,15 +259,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.MODIFIER_INVOCATION:
 				sequence_ModifierInvocation(context, (ModifierInvocation) semanticObject); 
 				return; 
-			case OptGrammarPackage.MUL_DIV_MOD:
-				sequence_MulDivMod(context, (MulDivMod) semanticObject); 
-				return; 
-			case OptGrammarPackage.NEW_EXPRESSION:
-				sequence_NewExpression(context, (NewExpression) semanticObject); 
-				return; 
-			case OptGrammarPackage.NOT_EXPRESSION:
-				sequence_NotExpression(context, (NotExpression) semanticObject); 
-				return; 
 			case OptGrammarPackage.NOW:
 				sequence_Now(context, (Now) semanticObject); 
 				return; 
@@ -320,108 +268,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.NUMERIC_LITERAL:
 				sequence_NumericLiteral(context, (NumericLiteral) semanticObject); 
 				return; 
-			case OptGrammarPackage.OR:
-				sequence_Or(context, (Or) semanticObject); 
-				return; 
 			case OptGrammarPackage.PARAMETER_LIST:
 				sequence_ParameterList(context, (ParameterList) semanticObject); 
 				return; 
 			case OptGrammarPackage.PLACE_HOLDER_STATEMENT:
 				sequence_PlaceHolderStatement(context, (PlaceHolderStatement) semanticObject); 
 				return; 
-			case OptGrammarPackage.POST_INC_DEC_EXPRESSION:
-				sequence_PostIncDecExpression(context, (PostIncDecExpression) semanticObject); 
-				return; 
-			case OptGrammarPackage.PRE_DEC_EXPRESSION:
-				if (rule == grammarAccess.getPreDecExpressionRule()) {
-					sequence_PreDecExpression(context, (PreDecExpression) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getExpressionRule()
-						|| rule == grammarAccess.getAssignmentRule()
-						|| action == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0()
-						|| action == grammarAccess.getAssignmentAccess().getVariableDeclarationExpressionTypeAction_1_1_0()
-						|| rule == grammarAccess.getBinaryExpressionRule()
-						|| rule == grammarAccess.getOrRule()
-						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
-						|| rule == grammarAccess.getAndRule()
-						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
-						|| rule == grammarAccess.getEqualityRule()
-						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
-						|| rule == grammarAccess.getComparisonRule()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
-						|| rule == grammarAccess.getBitOrRule()
-						|| action == grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0()
-						|| rule == grammarAccess.getBitXorRule()
-						|| action == grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0()
-						|| rule == grammarAccess.getBitAndRule()
-						|| action == grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0()
-						|| rule == grammarAccess.getShiftRule()
-						|| action == grammarAccess.getShiftAccess().getShiftLeftAction_1_0()
-						|| rule == grammarAccess.getAddSubRule()
-						|| action == grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0()
-						|| rule == grammarAccess.getMulDivModRule()
-						|| action == grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0()
-						|| rule == grammarAccess.getExponentRule()
-						|| action == grammarAccess.getExponentAccess().getExponentLeftAction_1_0()
-						|| rule == grammarAccess.getUnaryExpressionRule()
-						|| rule == grammarAccess.getPreExpressionRule()
-						|| action == grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2()
-						|| action == grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2()
-						|| rule == grammarAccess.getPostIncDecExpressionRule()
-						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
-						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
-						|| rule == grammarAccess.getPrimaryArithmeticRule()) {
-					sequence_PreExpression(context, (PreDecExpression) semanticObject); 
-					return; 
-				}
-				else break;
-			case OptGrammarPackage.PRE_INC_EXPRESSION:
-				if (rule == grammarAccess.getExpressionRule()
-						|| rule == grammarAccess.getAssignmentRule()
-						|| action == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0()
-						|| action == grammarAccess.getAssignmentAccess().getVariableDeclarationExpressionTypeAction_1_1_0()
-						|| rule == grammarAccess.getBinaryExpressionRule()
-						|| rule == grammarAccess.getOrRule()
-						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
-						|| rule == grammarAccess.getAndRule()
-						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
-						|| rule == grammarAccess.getEqualityRule()
-						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
-						|| rule == grammarAccess.getComparisonRule()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
-						|| rule == grammarAccess.getBitOrRule()
-						|| action == grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0()
-						|| rule == grammarAccess.getBitXorRule()
-						|| action == grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0()
-						|| rule == grammarAccess.getBitAndRule()
-						|| action == grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0()
-						|| rule == grammarAccess.getShiftRule()
-						|| action == grammarAccess.getShiftAccess().getShiftLeftAction_1_0()
-						|| rule == grammarAccess.getAddSubRule()
-						|| action == grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0()
-						|| rule == grammarAccess.getMulDivModRule()
-						|| action == grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0()
-						|| rule == grammarAccess.getExponentRule()
-						|| action == grammarAccess.getExponentAccess().getExponentLeftAction_1_0()
-						|| rule == grammarAccess.getUnaryExpressionRule()
-						|| rule == grammarAccess.getPreExpressionRule()
-						|| action == grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2()
-						|| action == grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2()
-						|| rule == grammarAccess.getPostIncDecExpressionRule()
-						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
-						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
-						|| rule == grammarAccess.getPrimaryArithmeticRule()) {
-					sequence_PreExpression(context, (PreIncExpression) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getPreIncExpressionRule()) {
-					sequence_PreIncExpression(context, (PreIncExpression) semanticObject); 
-					return; 
-				}
-				else break;
 			case OptGrammarPackage.QUALIFIED_IDENTIFIER:
 				sequence_QualifiedIdentifier(context, (QualifiedIdentifier) semanticObject); 
 				return; 
@@ -436,15 +288,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.SECOND_OPERATORS:
 				sequence_SecondOperators(context, (SecondOperators) semanticObject); 
-				return; 
-			case OptGrammarPackage.SHIFT:
-				sequence_Shift(context, (Shift) semanticObject); 
-				return; 
-			case OptGrammarPackage.SIGN_EXPRESSION:
-				sequence_SignExpression(context, (SignExpression) semanticObject); 
-				return; 
-			case OptGrammarPackage.SPECIAL_EXPRESSION:
-				sequence_SpecialExpression(context, (SpecialExpression) semanticObject); 
 				return; 
 			case OptGrammarPackage.SPECIAL_VARIABLES:
 				sequence_SpecialVariables(context, (SpecialVariables) semanticObject); 
@@ -481,50 +324,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_Time(context, (Time) semanticObject); 
 				return; 
 			case OptGrammarPackage.TUPLE:
-				if (rule == grammarAccess.getExpressionRule()
-						|| rule == grammarAccess.getAssignmentRule()
-						|| action == grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0()
-						|| action == grammarAccess.getAssignmentAccess().getVariableDeclarationExpressionTypeAction_1_1_0()
-						|| rule == grammarAccess.getBinaryExpressionRule()
-						|| rule == grammarAccess.getOrRule()
-						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
-						|| rule == grammarAccess.getAndRule()
-						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
-						|| rule == grammarAccess.getEqualityRule()
-						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
-						|| rule == grammarAccess.getComparisonRule()
-						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
-						|| rule == grammarAccess.getBitOrRule()
-						|| action == grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0()
-						|| rule == grammarAccess.getBitXorRule()
-						|| action == grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0()
-						|| rule == grammarAccess.getBitAndRule()
-						|| action == grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0()
-						|| rule == grammarAccess.getShiftRule()
-						|| action == grammarAccess.getShiftAccess().getShiftLeftAction_1_0()
-						|| rule == grammarAccess.getAddSubRule()
-						|| action == grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0()
-						|| rule == grammarAccess.getMulDivModRule()
-						|| action == grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0()
-						|| rule == grammarAccess.getExponentRule()
-						|| action == grammarAccess.getExponentAccess().getExponentLeftAction_1_0()
-						|| rule == grammarAccess.getUnaryExpressionRule()
-						|| rule == grammarAccess.getPreExpressionRule()
-						|| action == grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2()
-						|| action == grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2()
-						|| rule == grammarAccess.getPostIncDecExpressionRule()
-						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
-						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
-						|| rule == grammarAccess.getPrimaryArithmeticRule()) {
-					sequence_PrimaryExpression(context, (Tuple) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getTupleRule()) {
-					sequence_Tuple(context, (Tuple) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Tuple(context, (Tuple) semanticObject); 
+				return; 
 			case OptGrammarPackage.TUPLE_SEPARATOR:
 				sequence_TupleSeparator(context, (TupleSeparator) semanticObject); 
 				return; 
@@ -570,9 +371,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.VARIABLE:
 				sequence_Variable(context, (Variable) semanticObject); 
 				return; 
-			case OptGrammarPackage.VARIABLE_DECLARATION_EXPRESSION:
-				sequence_Assignment(context, (VariableDeclarationExpression) semanticObject); 
-				return; 
 			case OptGrammarPackage.VISIBILITY_ENUM:
 				sequence_VisibilityEnum(context, (VisibilityEnum) semanticObject); 
 				return; 
@@ -586,121 +384,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     Expression returns AddSub
-	 *     Assignment returns AddSub
-	 *     Assignment.Assignment_1_0_0 returns AddSub
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns AddSub
-	 *     BinaryExpression returns AddSub
-	 *     Or returns AddSub
-	 *     Or.Or_1_0 returns AddSub
-	 *     And returns AddSub
-	 *     And.And_1_0 returns AddSub
-	 *     Equality returns AddSub
-	 *     Equality.Equality_1_0 returns AddSub
-	 *     Comparison returns AddSub
-	 *     Comparison.Comparison_1_0 returns AddSub
-	 *     BitOr returns AddSub
-	 *     BitOr.BitOr_1_0 returns AddSub
-	 *     BitXor returns AddSub
-	 *     BitXor.BitXor_1_0 returns AddSub
-	 *     BitAnd returns AddSub
-	 *     BitAnd.BitAnd_1_0 returns AddSub
-	 *     Shift returns AddSub
-	 *     Shift.Shift_1_0 returns AddSub
-	 *     AddSub returns AddSub
-	 *     AddSub.AddSub_1_0_0 returns AddSub
-	 *     MulDivMod returns AddSub
-	 *     MulDivMod.MulDivMod_1_0 returns AddSub
-	 *     Exponent returns AddSub
-	 *     Exponent.Exponent_1_0 returns AddSub
-	 *     UnaryExpression returns AddSub
-	 *     PreExpression returns AddSub
-	 *     PreExpression.PreIncExpression_1_2 returns AddSub
-	 *     PreExpression.PreDecExpression_2_2 returns AddSub
-	 *     PostIncDecExpression returns AddSub
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns AddSub
-	 *     PrimaryExpression returns AddSub
-	 *     PrimaryExpression.Tuple_4_2_0 returns AddSub
-	 *     PrimaryArithmetic returns AddSub
-	 *
-	 * Constraint:
-	 *     (left=AddSub_AddSub_1_0_0 additionOp=AdditionOpEnum right=MulDivMod)
-	 */
-	protected void sequence_AddSub(ISerializationContext context, AddSub semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ADD_SUB__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ADD_SUB__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ADD_SUB__ADDITION_OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ADD_SUB__ADDITION_OP));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ADD_SUB__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ADD_SUB__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAddSubAccess().getAddSubLeftAction_1_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAddSubAccess().getAdditionOpAdditionOpEnumEnumRuleCall_1_0_1_0(), semanticObject.getAdditionOp());
-		feeder.accept(grammarAccess.getAddSubAccess().getRightMulDivModParserRuleCall_1_0_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns And
-	 *     Assignment returns And
-	 *     Assignment.Assignment_1_0_0 returns And
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns And
-	 *     BinaryExpression returns And
-	 *     Or returns And
-	 *     Or.Or_1_0 returns And
-	 *     And returns And
-	 *     And.And_1_0 returns And
-	 *     Equality returns And
-	 *     Equality.Equality_1_0 returns And
-	 *     Comparison returns And
-	 *     Comparison.Comparison_1_0 returns And
-	 *     BitOr returns And
-	 *     BitOr.BitOr_1_0 returns And
-	 *     BitXor returns And
-	 *     BitXor.BitXor_1_0 returns And
-	 *     BitAnd returns And
-	 *     BitAnd.BitAnd_1_0 returns And
-	 *     Shift returns And
-	 *     Shift.Shift_1_0 returns And
-	 *     AddSub returns And
-	 *     AddSub.AddSub_1_0_0 returns And
-	 *     MulDivMod returns And
-	 *     MulDivMod.MulDivMod_1_0 returns And
-	 *     Exponent returns And
-	 *     Exponent.Exponent_1_0 returns And
-	 *     UnaryExpression returns And
-	 *     PreExpression returns And
-	 *     PreExpression.PreIncExpression_1_2 returns And
-	 *     PreExpression.PreDecExpression_2_2 returns And
-	 *     PostIncDecExpression returns And
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns And
-	 *     PrimaryExpression returns And
-	 *     PrimaryExpression.Tuple_4_2_0 returns And
-	 *     PrimaryArithmetic returns And
-	 *
-	 * Constraint:
-	 *     (left=And_And_1_0 right=Equality)
-	 */
-	protected void sequence_And(ISerializationContext context, And semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.AND__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.AND__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.AND__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.AND__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAndAccess().getAndLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAndAccess().getRightEqualityParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -747,372 +430,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Assignment
-	 *     Assignment returns Assignment
-	 *     Assignment.Assignment_1_0_0 returns Assignment
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns Assignment
-	 *     BinaryExpression returns Assignment
-	 *     Or returns Assignment
-	 *     Or.Or_1_0 returns Assignment
-	 *     And returns Assignment
-	 *     And.And_1_0 returns Assignment
-	 *     Equality returns Assignment
-	 *     Equality.Equality_1_0 returns Assignment
-	 *     Comparison returns Assignment
-	 *     Comparison.Comparison_1_0 returns Assignment
-	 *     BitOr returns Assignment
-	 *     BitOr.BitOr_1_0 returns Assignment
-	 *     BitXor returns Assignment
-	 *     BitXor.BitXor_1_0 returns Assignment
-	 *     BitAnd returns Assignment
-	 *     BitAnd.BitAnd_1_0 returns Assignment
-	 *     Shift returns Assignment
-	 *     Shift.Shift_1_0 returns Assignment
-	 *     AddSub returns Assignment
-	 *     AddSub.AddSub_1_0_0 returns Assignment
-	 *     MulDivMod returns Assignment
-	 *     MulDivMod.MulDivMod_1_0 returns Assignment
-	 *     Exponent returns Assignment
-	 *     Exponent.Exponent_1_0 returns Assignment
-	 *     UnaryExpression returns Assignment
-	 *     PreExpression returns Assignment
-	 *     PreExpression.PreIncExpression_1_2 returns Assignment
-	 *     PreExpression.PreDecExpression_2_2 returns Assignment
-	 *     PostIncDecExpression returns Assignment
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Assignment
-	 *     PrimaryExpression returns Assignment
-	 *     PrimaryExpression.Tuple_4_2_0 returns Assignment
-	 *     PrimaryArithmetic returns Assignment
-	 *
-	 * Constraint:
-	 *     (left=Assignment_Assignment_1_0_0 assignmentOp=AssignmentOpEnum expression=Expression)
-	 */
-	protected void sequence_Assignment(ISerializationContext context, Assignment semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__ASSIGNMENT_OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__ASSIGNMENT_OP));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ASSIGNMENT__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAssignmentAccess().getAssignmentLeftAction_1_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAssignmentAccess().getAssignmentOpAssignmentOpEnumEnumRuleCall_1_0_1_0(), semanticObject.getAssignmentOp());
-		feeder.accept(grammarAccess.getAssignmentAccess().getExpressionExpressionParserRuleCall_1_0_2_0(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns VariableDeclarationExpression
-	 *     Assignment returns VariableDeclarationExpression
-	 *     Assignment.Assignment_1_0_0 returns VariableDeclarationExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns VariableDeclarationExpression
-	 *     BinaryExpression returns VariableDeclarationExpression
-	 *     Or returns VariableDeclarationExpression
-	 *     Or.Or_1_0 returns VariableDeclarationExpression
-	 *     And returns VariableDeclarationExpression
-	 *     And.And_1_0 returns VariableDeclarationExpression
-	 *     Equality returns VariableDeclarationExpression
-	 *     Equality.Equality_1_0 returns VariableDeclarationExpression
-	 *     Comparison returns VariableDeclarationExpression
-	 *     Comparison.Comparison_1_0 returns VariableDeclarationExpression
-	 *     BitOr returns VariableDeclarationExpression
-	 *     BitOr.BitOr_1_0 returns VariableDeclarationExpression
-	 *     BitXor returns VariableDeclarationExpression
-	 *     BitXor.BitXor_1_0 returns VariableDeclarationExpression
-	 *     BitAnd returns VariableDeclarationExpression
-	 *     BitAnd.BitAnd_1_0 returns VariableDeclarationExpression
-	 *     Shift returns VariableDeclarationExpression
-	 *     Shift.Shift_1_0 returns VariableDeclarationExpression
-	 *     AddSub returns VariableDeclarationExpression
-	 *     AddSub.AddSub_1_0_0 returns VariableDeclarationExpression
-	 *     MulDivMod returns VariableDeclarationExpression
-	 *     MulDivMod.MulDivMod_1_0 returns VariableDeclarationExpression
-	 *     Exponent returns VariableDeclarationExpression
-	 *     Exponent.Exponent_1_0 returns VariableDeclarationExpression
-	 *     UnaryExpression returns VariableDeclarationExpression
-	 *     PreExpression returns VariableDeclarationExpression
-	 *     PreExpression.PreIncExpression_1_2 returns VariableDeclarationExpression
-	 *     PreExpression.PreDecExpression_2_2 returns VariableDeclarationExpression
-	 *     PostIncDecExpression returns VariableDeclarationExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns VariableDeclarationExpression
-	 *     PrimaryExpression returns VariableDeclarationExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns VariableDeclarationExpression
-	 *     PrimaryArithmetic returns VariableDeclarationExpression
-	 *
-	 * Constraint:
-	 *     (type=Assignment_VariableDeclarationExpression_1_1_0 variable=Variable expression=Expression?)
-	 */
-	protected void sequence_Assignment(ISerializationContext context, VariableDeclarationExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns BinaryNotExpression
-	 *     Assignment returns BinaryNotExpression
-	 *     Assignment.Assignment_1_0_0 returns BinaryNotExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BinaryNotExpression
-	 *     BinaryExpression returns BinaryNotExpression
-	 *     Or returns BinaryNotExpression
-	 *     Or.Or_1_0 returns BinaryNotExpression
-	 *     And returns BinaryNotExpression
-	 *     And.And_1_0 returns BinaryNotExpression
-	 *     Equality returns BinaryNotExpression
-	 *     Equality.Equality_1_0 returns BinaryNotExpression
-	 *     Comparison returns BinaryNotExpression
-	 *     Comparison.Comparison_1_0 returns BinaryNotExpression
-	 *     BitOr returns BinaryNotExpression
-	 *     BitOr.BitOr_1_0 returns BinaryNotExpression
-	 *     BitXor returns BinaryNotExpression
-	 *     BitXor.BitXor_1_0 returns BinaryNotExpression
-	 *     BitAnd returns BinaryNotExpression
-	 *     BitAnd.BitAnd_1_0 returns BinaryNotExpression
-	 *     Shift returns BinaryNotExpression
-	 *     Shift.Shift_1_0 returns BinaryNotExpression
-	 *     AddSub returns BinaryNotExpression
-	 *     AddSub.AddSub_1_0_0 returns BinaryNotExpression
-	 *     MulDivMod returns BinaryNotExpression
-	 *     MulDivMod.MulDivMod_1_0 returns BinaryNotExpression
-	 *     Exponent returns BinaryNotExpression
-	 *     Exponent.Exponent_1_0 returns BinaryNotExpression
-	 *     UnaryExpression returns BinaryNotExpression
-	 *     BinaryNotExpression returns BinaryNotExpression
-	 *     PreExpression returns BinaryNotExpression
-	 *     PreExpression.PreIncExpression_1_2 returns BinaryNotExpression
-	 *     PreExpression.PreDecExpression_2_2 returns BinaryNotExpression
-	 *     PostIncDecExpression returns BinaryNotExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BinaryNotExpression
-	 *     PrimaryExpression returns BinaryNotExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns BinaryNotExpression
-	 *     PrimaryArithmetic returns BinaryNotExpression
-	 *
-	 * Constraint:
-	 *     expression=UnaryExpression
-	 */
-	protected void sequence_BinaryNotExpression(ISerializationContext context, BinaryNotExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BINARY_NOT_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BINARY_NOT_EXPRESSION__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBinaryNotExpressionAccess().getExpressionUnaryExpressionParserRuleCall_1_0(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns BitAnd
-	 *     Assignment returns BitAnd
-	 *     Assignment.Assignment_1_0_0 returns BitAnd
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BitAnd
-	 *     BinaryExpression returns BitAnd
-	 *     Or returns BitAnd
-	 *     Or.Or_1_0 returns BitAnd
-	 *     And returns BitAnd
-	 *     And.And_1_0 returns BitAnd
-	 *     Equality returns BitAnd
-	 *     Equality.Equality_1_0 returns BitAnd
-	 *     Comparison returns BitAnd
-	 *     Comparison.Comparison_1_0 returns BitAnd
-	 *     BitOr returns BitAnd
-	 *     BitOr.BitOr_1_0 returns BitAnd
-	 *     BitXor returns BitAnd
-	 *     BitXor.BitXor_1_0 returns BitAnd
-	 *     BitAnd returns BitAnd
-	 *     BitAnd.BitAnd_1_0 returns BitAnd
-	 *     Shift returns BitAnd
-	 *     Shift.Shift_1_0 returns BitAnd
-	 *     AddSub returns BitAnd
-	 *     AddSub.AddSub_1_0_0 returns BitAnd
-	 *     MulDivMod returns BitAnd
-	 *     MulDivMod.MulDivMod_1_0 returns BitAnd
-	 *     Exponent returns BitAnd
-	 *     Exponent.Exponent_1_0 returns BitAnd
-	 *     UnaryExpression returns BitAnd
-	 *     PreExpression returns BitAnd
-	 *     PreExpression.PreIncExpression_1_2 returns BitAnd
-	 *     PreExpression.PreDecExpression_2_2 returns BitAnd
-	 *     PostIncDecExpression returns BitAnd
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BitAnd
-	 *     PrimaryExpression returns BitAnd
-	 *     PrimaryExpression.Tuple_4_2_0 returns BitAnd
-	 *     PrimaryArithmetic returns BitAnd
-	 *
-	 * Constraint:
-	 *     (left=BitAnd_BitAnd_1_0 right=Shift)
-	 */
-	protected void sequence_BitAnd(ISerializationContext context, BitAnd semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_AND__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_AND__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_AND__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_AND__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBitAndAccess().getBitAndLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getBitAndAccess().getRightShiftParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns BitOr
-	 *     Assignment returns BitOr
-	 *     Assignment.Assignment_1_0_0 returns BitOr
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BitOr
-	 *     BinaryExpression returns BitOr
-	 *     Or returns BitOr
-	 *     Or.Or_1_0 returns BitOr
-	 *     And returns BitOr
-	 *     And.And_1_0 returns BitOr
-	 *     Equality returns BitOr
-	 *     Equality.Equality_1_0 returns BitOr
-	 *     Comparison returns BitOr
-	 *     Comparison.Comparison_1_0 returns BitOr
-	 *     BitOr returns BitOr
-	 *     BitOr.BitOr_1_0 returns BitOr
-	 *     BitXor returns BitOr
-	 *     BitXor.BitXor_1_0 returns BitOr
-	 *     BitAnd returns BitOr
-	 *     BitAnd.BitAnd_1_0 returns BitOr
-	 *     Shift returns BitOr
-	 *     Shift.Shift_1_0 returns BitOr
-	 *     AddSub returns BitOr
-	 *     AddSub.AddSub_1_0_0 returns BitOr
-	 *     MulDivMod returns BitOr
-	 *     MulDivMod.MulDivMod_1_0 returns BitOr
-	 *     Exponent returns BitOr
-	 *     Exponent.Exponent_1_0 returns BitOr
-	 *     UnaryExpression returns BitOr
-	 *     PreExpression returns BitOr
-	 *     PreExpression.PreIncExpression_1_2 returns BitOr
-	 *     PreExpression.PreDecExpression_2_2 returns BitOr
-	 *     PostIncDecExpression returns BitOr
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BitOr
-	 *     PrimaryExpression returns BitOr
-	 *     PrimaryExpression.Tuple_4_2_0 returns BitOr
-	 *     PrimaryArithmetic returns BitOr
-	 *
-	 * Constraint:
-	 *     (left=BitOr_BitOr_1_0 right=BitXor)
-	 */
-	protected void sequence_BitOr(ISerializationContext context, BitOr semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_OR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_OR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_OR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_OR__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBitOrAccess().getBitOrLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getBitOrAccess().getRightBitXorParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns BitXor
-	 *     Assignment returns BitXor
-	 *     Assignment.Assignment_1_0_0 returns BitXor
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BitXor
-	 *     BinaryExpression returns BitXor
-	 *     Or returns BitXor
-	 *     Or.Or_1_0 returns BitXor
-	 *     And returns BitXor
-	 *     And.And_1_0 returns BitXor
-	 *     Equality returns BitXor
-	 *     Equality.Equality_1_0 returns BitXor
-	 *     Comparison returns BitXor
-	 *     Comparison.Comparison_1_0 returns BitXor
-	 *     BitOr returns BitXor
-	 *     BitOr.BitOr_1_0 returns BitXor
-	 *     BitXor returns BitXor
-	 *     BitXor.BitXor_1_0 returns BitXor
-	 *     BitAnd returns BitXor
-	 *     BitAnd.BitAnd_1_0 returns BitXor
-	 *     Shift returns BitXor
-	 *     Shift.Shift_1_0 returns BitXor
-	 *     AddSub returns BitXor
-	 *     AddSub.AddSub_1_0_0 returns BitXor
-	 *     MulDivMod returns BitXor
-	 *     MulDivMod.MulDivMod_1_0 returns BitXor
-	 *     Exponent returns BitXor
-	 *     Exponent.Exponent_1_0 returns BitXor
-	 *     UnaryExpression returns BitXor
-	 *     PreExpression returns BitXor
-	 *     PreExpression.PreIncExpression_1_2 returns BitXor
-	 *     PreExpression.PreDecExpression_2_2 returns BitXor
-	 *     PostIncDecExpression returns BitXor
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BitXor
-	 *     PrimaryExpression returns BitXor
-	 *     PrimaryExpression.Tuple_4_2_0 returns BitXor
-	 *     PrimaryArithmetic returns BitXor
-	 *
-	 * Constraint:
-	 *     (left=BitXor_BitXor_1_0 right=BitAnd)
-	 */
-	protected void sequence_BitXor(ISerializationContext context, BitXor semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_XOR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_XOR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BIT_XOR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BIT_XOR__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBitXorAccess().getBitXorLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getBitXorAccess().getRightBitAndParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns BlockhashFunction
-	 *     Assignment returns BlockhashFunction
-	 *     Assignment.Assignment_1_0_0 returns BlockhashFunction
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BlockhashFunction
-	 *     BinaryExpression returns BlockhashFunction
-	 *     Or returns BlockhashFunction
-	 *     Or.Or_1_0 returns BlockhashFunction
-	 *     And returns BlockhashFunction
-	 *     And.And_1_0 returns BlockhashFunction
-	 *     Equality returns BlockhashFunction
-	 *     Equality.Equality_1_0 returns BlockhashFunction
-	 *     Comparison returns BlockhashFunction
-	 *     Comparison.Comparison_1_0 returns BlockhashFunction
-	 *     BitOr returns BlockhashFunction
-	 *     BitOr.BitOr_1_0 returns BlockhashFunction
-	 *     BitXor returns BlockhashFunction
-	 *     BitXor.BitXor_1_0 returns BlockhashFunction
-	 *     BitAnd returns BlockhashFunction
-	 *     BitAnd.BitAnd_1_0 returns BlockhashFunction
-	 *     Shift returns BlockhashFunction
-	 *     Shift.Shift_1_0 returns BlockhashFunction
-	 *     AddSub returns BlockhashFunction
-	 *     AddSub.AddSub_1_0_0 returns BlockhashFunction
-	 *     MulDivMod returns BlockhashFunction
-	 *     MulDivMod.MulDivMod_1_0 returns BlockhashFunction
-	 *     Exponent returns BlockhashFunction
-	 *     Exponent.Exponent_1_0 returns BlockhashFunction
-	 *     UnaryExpression returns BlockhashFunction
-	 *     PreExpression returns BlockhashFunction
-	 *     PreExpression.PreIncExpression_1_2 returns BlockhashFunction
-	 *     PreExpression.PreDecExpression_2_2 returns BlockhashFunction
-	 *     PostIncDecExpression returns BlockhashFunction
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BlockhashFunction
-	 *     PrimaryExpression returns BlockhashFunction
-	 *     PrimaryExpression.Tuple_4_2_0 returns BlockhashFunction
 	 *     Literal returns BlockhashFunction
 	 *     BlockhashFunction returns BlockhashFunction
-	 *     PrimaryArithmetic returns BlockhashFunction
 	 *
 	 * Constraint:
 	 *     parameter=IntParameter
@@ -1130,56 +449,20 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Block
-	 *     Body returns Block
+	 *     Statement returns Body
+	 *     Body returns Body
 	 *
 	 * Constraint:
 	 *     (statements+=Statement statements+=Statement*)?
 	 */
-	protected void sequence_Body(ISerializationContext context, Block semanticObject) {
+	protected void sequence_Body(ISerializationContext context, Body semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns BooleanConst
-	 *     Assignment returns BooleanConst
-	 *     Assignment.Assignment_1_0_0 returns BooleanConst
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BooleanConst
-	 *     BinaryExpression returns BooleanConst
-	 *     Or returns BooleanConst
-	 *     Or.Or_1_0 returns BooleanConst
-	 *     And returns BooleanConst
-	 *     And.And_1_0 returns BooleanConst
-	 *     Equality returns BooleanConst
-	 *     Equality.Equality_1_0 returns BooleanConst
-	 *     Comparison returns BooleanConst
-	 *     Comparison.Comparison_1_0 returns BooleanConst
-	 *     BitOr returns BooleanConst
-	 *     BitOr.BitOr_1_0 returns BooleanConst
-	 *     BitXor returns BooleanConst
-	 *     BitXor.BitXor_1_0 returns BooleanConst
-	 *     BitAnd returns BooleanConst
-	 *     BitAnd.BitAnd_1_0 returns BooleanConst
-	 *     Shift returns BooleanConst
-	 *     Shift.Shift_1_0 returns BooleanConst
-	 *     AddSub returns BooleanConst
-	 *     AddSub.AddSub_1_0_0 returns BooleanConst
-	 *     MulDivMod returns BooleanConst
-	 *     MulDivMod.MulDivMod_1_0 returns BooleanConst
-	 *     Exponent returns BooleanConst
-	 *     Exponent.Exponent_1_0 returns BooleanConst
-	 *     UnaryExpression returns BooleanConst
-	 *     PreExpression returns BooleanConst
-	 *     PreExpression.PreIncExpression_1_2 returns BooleanConst
-	 *     PreExpression.PreDecExpression_2_2 returns BooleanConst
-	 *     PostIncDecExpression returns BooleanConst
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BooleanConst
-	 *     PrimaryExpression returns BooleanConst
-	 *     PrimaryExpression.Tuple_4_2_0 returns BooleanConst
 	 *     Literal returns BooleanConst
-	 *     PrimaryArithmetic returns BooleanConst
 	 *     BooleanConst returns BooleanConst
 	 *
 	 * Constraint:
@@ -1211,60 +494,13 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Comparison
-	 *     Assignment returns Comparison
-	 *     Assignment.Assignment_1_0_0 returns Comparison
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns Comparison
-	 *     BinaryExpression returns Comparison
-	 *     Or returns Comparison
-	 *     Or.Or_1_0 returns Comparison
-	 *     And returns Comparison
-	 *     And.And_1_0 returns Comparison
-	 *     Equality returns Comparison
-	 *     Equality.Equality_1_0 returns Comparison
-	 *     Comparison returns Comparison
-	 *     Comparison.Comparison_1_0 returns Comparison
-	 *     BitOr returns Comparison
-	 *     BitOr.BitOr_1_0 returns Comparison
-	 *     BitXor returns Comparison
-	 *     BitXor.BitXor_1_0 returns Comparison
-	 *     BitAnd returns Comparison
-	 *     BitAnd.BitAnd_1_0 returns Comparison
-	 *     Shift returns Comparison
-	 *     Shift.Shift_1_0 returns Comparison
-	 *     AddSub returns Comparison
-	 *     AddSub.AddSub_1_0_0 returns Comparison
-	 *     MulDivMod returns Comparison
-	 *     MulDivMod.MulDivMod_1_0 returns Comparison
-	 *     Exponent returns Comparison
-	 *     Exponent.Exponent_1_0 returns Comparison
-	 *     UnaryExpression returns Comparison
-	 *     PreExpression returns Comparison
-	 *     PreExpression.PreIncExpression_1_2 returns Comparison
-	 *     PreExpression.PreDecExpression_2_2 returns Comparison
-	 *     PostIncDecExpression returns Comparison
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Comparison
-	 *     PrimaryExpression returns Comparison
-	 *     PrimaryExpression.Tuple_4_2_0 returns Comparison
-	 *     PrimaryArithmetic returns Comparison
+	 *     ConditionOperation returns ConditionOperation
 	 *
 	 * Constraint:
-	 *     (left=Comparison_Comparison_1_0 comparisonOp=ComparisonOpEnum right=BitOr)
+	 *     (operation=LogicalOperationLiteral negateSecond='NOT'? seconds=Literal)
 	 */
-	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.COMPARISON__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.COMPARISON__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.COMPARISON__COMPARISON_OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.COMPARISON__COMPARISON_OP));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.COMPARISON__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.COMPARISON__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getComparisonAccess().getComparisonOpComparisonOpEnumEnumRuleCall_1_1_0(), semanticObject.getComparisonOp());
-		feeder.accept(grammarAccess.getComparisonAccess().getRightBitOrParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
+	protected void sequence_ConditionOperation(ISerializationContext context, ConditionOperation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1358,44 +594,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns EcrecoverFunction
-	 *     Assignment returns EcrecoverFunction
-	 *     Assignment.Assignment_1_0_0 returns EcrecoverFunction
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns EcrecoverFunction
-	 *     BinaryExpression returns EcrecoverFunction
-	 *     Or returns EcrecoverFunction
-	 *     Or.Or_1_0 returns EcrecoverFunction
-	 *     And returns EcrecoverFunction
-	 *     And.And_1_0 returns EcrecoverFunction
-	 *     Equality returns EcrecoverFunction
-	 *     Equality.Equality_1_0 returns EcrecoverFunction
-	 *     Comparison returns EcrecoverFunction
-	 *     Comparison.Comparison_1_0 returns EcrecoverFunction
-	 *     BitOr returns EcrecoverFunction
-	 *     BitOr.BitOr_1_0 returns EcrecoverFunction
-	 *     BitXor returns EcrecoverFunction
-	 *     BitXor.BitXor_1_0 returns EcrecoverFunction
-	 *     BitAnd returns EcrecoverFunction
-	 *     BitAnd.BitAnd_1_0 returns EcrecoverFunction
-	 *     Shift returns EcrecoverFunction
-	 *     Shift.Shift_1_0 returns EcrecoverFunction
-	 *     AddSub returns EcrecoverFunction
-	 *     AddSub.AddSub_1_0_0 returns EcrecoverFunction
-	 *     MulDivMod returns EcrecoverFunction
-	 *     MulDivMod.MulDivMod_1_0 returns EcrecoverFunction
-	 *     Exponent returns EcrecoverFunction
-	 *     Exponent.Exponent_1_0 returns EcrecoverFunction
-	 *     UnaryExpression returns EcrecoverFunction
-	 *     PreExpression returns EcrecoverFunction
-	 *     PreExpression.PreIncExpression_1_2 returns EcrecoverFunction
-	 *     PreExpression.PreDecExpression_2_2 returns EcrecoverFunction
-	 *     PostIncDecExpression returns EcrecoverFunction
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns EcrecoverFunction
-	 *     PrimaryExpression returns EcrecoverFunction
-	 *     PrimaryExpression.Tuple_4_2_0 returns EcrecoverFunction
 	 *     Literal returns EcrecoverFunction
 	 *     EcrecoverFunction returns EcrecoverFunction
-	 *     PrimaryArithmetic returns EcrecoverFunction
 	 *
 	 * Constraint:
 	 *     (function='ecrecover' parameters+=IntParameter parameters+=IntParameter parameters+=IntParameter parameters+=IntParameter)
@@ -1601,65 +801,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Equality
-	 *     Assignment returns Equality
-	 *     Assignment.Assignment_1_0_0 returns Equality
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns Equality
-	 *     BinaryExpression returns Equality
-	 *     Or returns Equality
-	 *     Or.Or_1_0 returns Equality
-	 *     And returns Equality
-	 *     And.And_1_0 returns Equality
-	 *     Equality returns Equality
-	 *     Equality.Equality_1_0 returns Equality
-	 *     Comparison returns Equality
-	 *     Comparison.Comparison_1_0 returns Equality
-	 *     BitOr returns Equality
-	 *     BitOr.BitOr_1_0 returns Equality
-	 *     BitXor returns Equality
-	 *     BitXor.BitXor_1_0 returns Equality
-	 *     BitAnd returns Equality
-	 *     BitAnd.BitAnd_1_0 returns Equality
-	 *     Shift returns Equality
-	 *     Shift.Shift_1_0 returns Equality
-	 *     AddSub returns Equality
-	 *     AddSub.AddSub_1_0_0 returns Equality
-	 *     MulDivMod returns Equality
-	 *     MulDivMod.MulDivMod_1_0 returns Equality
-	 *     Exponent returns Equality
-	 *     Exponent.Exponent_1_0 returns Equality
-	 *     UnaryExpression returns Equality
-	 *     PreExpression returns Equality
-	 *     PreExpression.PreIncExpression_1_2 returns Equality
-	 *     PreExpression.PreDecExpression_2_2 returns Equality
-	 *     PostIncDecExpression returns Equality
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Equality
-	 *     PrimaryExpression returns Equality
-	 *     PrimaryExpression.Tuple_4_2_0 returns Equality
-	 *     PrimaryArithmetic returns Equality
-	 *
-	 * Constraint:
-	 *     (left=Equality_Equality_1_0 equalityOp=EqualityOpEnum right=Comparison)
-	 */
-	protected void sequence_Equality(ISerializationContext context, Equality semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EQUALITY__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EQUALITY__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EQUALITY__EQUALITY_OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EQUALITY__EQUALITY_OP));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EQUALITY__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EQUALITY__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getEqualityAccess().getEqualityOpEqualityOpEnumEnumRuleCall_1_1_0(), semanticObject.getEqualityOp());
-		feeder.accept(grammarAccess.getEqualityAccess().getRightComparisonParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Ether returns Ether
 	 *
 	 * Constraint:
@@ -1688,62 +829,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Event(ISerializationContext context, Event semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Exponent
-	 *     Assignment returns Exponent
-	 *     Assignment.Assignment_1_0_0 returns Exponent
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns Exponent
-	 *     BinaryExpression returns Exponent
-	 *     Or returns Exponent
-	 *     Or.Or_1_0 returns Exponent
-	 *     And returns Exponent
-	 *     And.And_1_0 returns Exponent
-	 *     Equality returns Exponent
-	 *     Equality.Equality_1_0 returns Exponent
-	 *     Comparison returns Exponent
-	 *     Comparison.Comparison_1_0 returns Exponent
-	 *     BitOr returns Exponent
-	 *     BitOr.BitOr_1_0 returns Exponent
-	 *     BitXor returns Exponent
-	 *     BitXor.BitXor_1_0 returns Exponent
-	 *     BitAnd returns Exponent
-	 *     BitAnd.BitAnd_1_0 returns Exponent
-	 *     Shift returns Exponent
-	 *     Shift.Shift_1_0 returns Exponent
-	 *     AddSub returns Exponent
-	 *     AddSub.AddSub_1_0_0 returns Exponent
-	 *     MulDivMod returns Exponent
-	 *     MulDivMod.MulDivMod_1_0 returns Exponent
-	 *     Exponent returns Exponent
-	 *     Exponent.Exponent_1_0 returns Exponent
-	 *     UnaryExpression returns Exponent
-	 *     PreExpression returns Exponent
-	 *     PreExpression.PreIncExpression_1_2 returns Exponent
-	 *     PreExpression.PreDecExpression_2_2 returns Exponent
-	 *     PostIncDecExpression returns Exponent
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Exponent
-	 *     PrimaryExpression returns Exponent
-	 *     PrimaryExpression.Tuple_4_2_0 returns Exponent
-	 *     PrimaryArithmetic returns Exponent
-	 *
-	 * Constraint:
-	 *     (left=Exponent_Exponent_1_0 right=UnaryExpression)
-	 */
-	protected void sequence_Exponent(ISerializationContext context, Exponent semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EXPONENT__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EXPONENT__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.EXPONENT__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.EXPONENT__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExponentAccess().getExponentLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getExponentAccess().getRightUnaryExpressionParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
 	}
 	
 	
@@ -1790,6 +875,23 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Expression returns Expression
+	 *     PrimaryArithmetic returns Expression
+	 *
+	 * Constraint:
+	 *     (
+	 *         (first=Literal operations+=ConditionOperation*) | 
+	 *         (negate?='NOT' first=Literal operations+=ConditionOperation*) | 
+	 *         (ternary?='TERNARY' first=Literal true=Literal false=Literal)
+	 *     )
+	 */
+	protected void sequence_Expression(ISerializationContext context, Expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Qualifier returns Field
 	 *     Field returns Field
 	 *
@@ -1809,6 +911,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     LoopStructures returns ForStatement
 	 *     Statement returns ForStatement
 	 *     ForStatement returns ForStatement
 	 *
@@ -1899,44 +1002,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns GasleftFunction
-	 *     Assignment returns GasleftFunction
-	 *     Assignment.Assignment_1_0_0 returns GasleftFunction
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns GasleftFunction
-	 *     BinaryExpression returns GasleftFunction
-	 *     Or returns GasleftFunction
-	 *     Or.Or_1_0 returns GasleftFunction
-	 *     And returns GasleftFunction
-	 *     And.And_1_0 returns GasleftFunction
-	 *     Equality returns GasleftFunction
-	 *     Equality.Equality_1_0 returns GasleftFunction
-	 *     Comparison returns GasleftFunction
-	 *     Comparison.Comparison_1_0 returns GasleftFunction
-	 *     BitOr returns GasleftFunction
-	 *     BitOr.BitOr_1_0 returns GasleftFunction
-	 *     BitXor returns GasleftFunction
-	 *     BitXor.BitXor_1_0 returns GasleftFunction
-	 *     BitAnd returns GasleftFunction
-	 *     BitAnd.BitAnd_1_0 returns GasleftFunction
-	 *     Shift returns GasleftFunction
-	 *     Shift.Shift_1_0 returns GasleftFunction
-	 *     AddSub returns GasleftFunction
-	 *     AddSub.AddSub_1_0_0 returns GasleftFunction
-	 *     MulDivMod returns GasleftFunction
-	 *     MulDivMod.MulDivMod_1_0 returns GasleftFunction
-	 *     Exponent returns GasleftFunction
-	 *     Exponent.Exponent_1_0 returns GasleftFunction
-	 *     UnaryExpression returns GasleftFunction
-	 *     PreExpression returns GasleftFunction
-	 *     PreExpression.PreIncExpression_1_2 returns GasleftFunction
-	 *     PreExpression.PreDecExpression_2_2 returns GasleftFunction
-	 *     PostIncDecExpression returns GasleftFunction
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns GasleftFunction
-	 *     PrimaryExpression returns GasleftFunction
-	 *     PrimaryExpression.Tuple_4_2_0 returns GasleftFunction
 	 *     Literal returns GasleftFunction
 	 *     GasleftFunction returns GasleftFunction
-	 *     PrimaryArithmetic returns GasleftFunction
 	 *
 	 * Constraint:
 	 *     name='gasleft'
@@ -1954,44 +1021,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns HashFunction
-	 *     Assignment returns HashFunction
-	 *     Assignment.Assignment_1_0_0 returns HashFunction
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns HashFunction
-	 *     BinaryExpression returns HashFunction
-	 *     Or returns HashFunction
-	 *     Or.Or_1_0 returns HashFunction
-	 *     And returns HashFunction
-	 *     And.And_1_0 returns HashFunction
-	 *     Equality returns HashFunction
-	 *     Equality.Equality_1_0 returns HashFunction
-	 *     Comparison returns HashFunction
-	 *     Comparison.Comparison_1_0 returns HashFunction
-	 *     BitOr returns HashFunction
-	 *     BitOr.BitOr_1_0 returns HashFunction
-	 *     BitXor returns HashFunction
-	 *     BitXor.BitXor_1_0 returns HashFunction
-	 *     BitAnd returns HashFunction
-	 *     BitAnd.BitAnd_1_0 returns HashFunction
-	 *     Shift returns HashFunction
-	 *     Shift.Shift_1_0 returns HashFunction
-	 *     AddSub returns HashFunction
-	 *     AddSub.AddSub_1_0_0 returns HashFunction
-	 *     MulDivMod returns HashFunction
-	 *     MulDivMod.MulDivMod_1_0 returns HashFunction
-	 *     Exponent returns HashFunction
-	 *     Exponent.Exponent_1_0 returns HashFunction
-	 *     UnaryExpression returns HashFunction
-	 *     PreExpression returns HashFunction
-	 *     PreExpression.PreIncExpression_1_2 returns HashFunction
-	 *     PreExpression.PreDecExpression_2_2 returns HashFunction
-	 *     PostIncDecExpression returns HashFunction
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns HashFunction
-	 *     PrimaryExpression returns HashFunction
-	 *     PrimaryExpression.Tuple_4_2_0 returns HashFunction
 	 *     Literal returns HashFunction
 	 *     HashFunction returns HashFunction
-	 *     PrimaryArithmetic returns HashFunction
 	 *
 	 * Constraint:
 	 *     ((name='keccak256' | name='sha256' | name='ripemd160') parameters=IntParameter)
@@ -2021,6 +1052,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     LoopStructures returns IfStatement
 	 *     Statement returns IfStatement
 	 *     IfStatement returns IfStatement
 	 *
@@ -2129,44 +1161,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns MathematicalFunction
-	 *     Assignment returns MathematicalFunction
-	 *     Assignment.Assignment_1_0_0 returns MathematicalFunction
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns MathematicalFunction
-	 *     BinaryExpression returns MathematicalFunction
-	 *     Or returns MathematicalFunction
-	 *     Or.Or_1_0 returns MathematicalFunction
-	 *     And returns MathematicalFunction
-	 *     And.And_1_0 returns MathematicalFunction
-	 *     Equality returns MathematicalFunction
-	 *     Equality.Equality_1_0 returns MathematicalFunction
-	 *     Comparison returns MathematicalFunction
-	 *     Comparison.Comparison_1_0 returns MathematicalFunction
-	 *     BitOr returns MathematicalFunction
-	 *     BitOr.BitOr_1_0 returns MathematicalFunction
-	 *     BitXor returns MathematicalFunction
-	 *     BitXor.BitXor_1_0 returns MathematicalFunction
-	 *     BitAnd returns MathematicalFunction
-	 *     BitAnd.BitAnd_1_0 returns MathematicalFunction
-	 *     Shift returns MathematicalFunction
-	 *     Shift.Shift_1_0 returns MathematicalFunction
-	 *     AddSub returns MathematicalFunction
-	 *     AddSub.AddSub_1_0_0 returns MathematicalFunction
-	 *     MulDivMod returns MathematicalFunction
-	 *     MulDivMod.MulDivMod_1_0 returns MathematicalFunction
-	 *     Exponent returns MathematicalFunction
-	 *     Exponent.Exponent_1_0 returns MathematicalFunction
-	 *     UnaryExpression returns MathematicalFunction
-	 *     PreExpression returns MathematicalFunction
-	 *     PreExpression.PreIncExpression_1_2 returns MathematicalFunction
-	 *     PreExpression.PreDecExpression_2_2 returns MathematicalFunction
-	 *     PostIncDecExpression returns MathematicalFunction
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns MathematicalFunction
-	 *     PrimaryExpression returns MathematicalFunction
-	 *     PrimaryExpression.Tuple_4_2_0 returns MathematicalFunction
 	 *     Literal returns MathematicalFunction
 	 *     MathematicalFunction returns MathematicalFunction
-	 *     PrimaryArithmetic returns MathematicalFunction
 	 *
 	 * Constraint:
 	 *     ((function='addmod' | function='mulmod') parameters+=IntParameter parameters+=IntParameter parameters+=IntParameter)
@@ -2215,176 +1211,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns MulDivMod
-	 *     Assignment returns MulDivMod
-	 *     Assignment.Assignment_1_0_0 returns MulDivMod
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns MulDivMod
-	 *     BinaryExpression returns MulDivMod
-	 *     Or returns MulDivMod
-	 *     Or.Or_1_0 returns MulDivMod
-	 *     And returns MulDivMod
-	 *     And.And_1_0 returns MulDivMod
-	 *     Equality returns MulDivMod
-	 *     Equality.Equality_1_0 returns MulDivMod
-	 *     Comparison returns MulDivMod
-	 *     Comparison.Comparison_1_0 returns MulDivMod
-	 *     BitOr returns MulDivMod
-	 *     BitOr.BitOr_1_0 returns MulDivMod
-	 *     BitXor returns MulDivMod
-	 *     BitXor.BitXor_1_0 returns MulDivMod
-	 *     BitAnd returns MulDivMod
-	 *     BitAnd.BitAnd_1_0 returns MulDivMod
-	 *     Shift returns MulDivMod
-	 *     Shift.Shift_1_0 returns MulDivMod
-	 *     AddSub returns MulDivMod
-	 *     AddSub.AddSub_1_0_0 returns MulDivMod
-	 *     MulDivMod returns MulDivMod
-	 *     MulDivMod.MulDivMod_1_0 returns MulDivMod
-	 *     Exponent returns MulDivMod
-	 *     Exponent.Exponent_1_0 returns MulDivMod
-	 *     UnaryExpression returns MulDivMod
-	 *     PreExpression returns MulDivMod
-	 *     PreExpression.PreIncExpression_1_2 returns MulDivMod
-	 *     PreExpression.PreDecExpression_2_2 returns MulDivMod
-	 *     PostIncDecExpression returns MulDivMod
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns MulDivMod
-	 *     PrimaryExpression returns MulDivMod
-	 *     PrimaryExpression.Tuple_4_2_0 returns MulDivMod
-	 *     PrimaryArithmetic returns MulDivMod
-	 *
-	 * Constraint:
-	 *     (left=MulDivMod_MulDivMod_1_0 multipliciativeOp=MulDivModOpEnum right=Exponent)
-	 */
-	protected void sequence_MulDivMod(ISerializationContext context, MulDivMod semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__MULTIPLICIATIVE_OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__MULTIPLICIATIVE_OP));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MUL_DIV_MOD__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMulDivModAccess().getMulDivModLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getMulDivModAccess().getMultipliciativeOpMulDivModOpEnumEnumRuleCall_1_1_0(), semanticObject.getMultipliciativeOp());
-		feeder.accept(grammarAccess.getMulDivModAccess().getRightExponentParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns NewExpression
-	 *     Assignment returns NewExpression
-	 *     Assignment.Assignment_1_0_0 returns NewExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns NewExpression
-	 *     BinaryExpression returns NewExpression
-	 *     Or returns NewExpression
-	 *     Or.Or_1_0 returns NewExpression
-	 *     And returns NewExpression
-	 *     And.And_1_0 returns NewExpression
-	 *     Equality returns NewExpression
-	 *     Equality.Equality_1_0 returns NewExpression
-	 *     Comparison returns NewExpression
-	 *     Comparison.Comparison_1_0 returns NewExpression
-	 *     BitOr returns NewExpression
-	 *     BitOr.BitOr_1_0 returns NewExpression
-	 *     BitXor returns NewExpression
-	 *     BitXor.BitXor_1_0 returns NewExpression
-	 *     BitAnd returns NewExpression
-	 *     BitAnd.BitAnd_1_0 returns NewExpression
-	 *     Shift returns NewExpression
-	 *     Shift.Shift_1_0 returns NewExpression
-	 *     AddSub returns NewExpression
-	 *     AddSub.AddSub_1_0_0 returns NewExpression
-	 *     MulDivMod returns NewExpression
-	 *     MulDivMod.MulDivMod_1_0 returns NewExpression
-	 *     Exponent returns NewExpression
-	 *     Exponent.Exponent_1_0 returns NewExpression
-	 *     UnaryExpression returns NewExpression
-	 *     NewExpression returns NewExpression
-	 *     PreExpression returns NewExpression
-	 *     PreExpression.PreIncExpression_1_2 returns NewExpression
-	 *     PreExpression.PreDecExpression_2_2 returns NewExpression
-	 *     PostIncDecExpression returns NewExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NewExpression
-	 *     PrimaryExpression returns NewExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns NewExpression
-	 *     PrimaryArithmetic returns NewExpression
-	 *
-	 * Constraint:
-	 *     (contract=Contract args=FunctionCallListArguments)
-	 */
-	protected void sequence_NewExpression(ISerializationContext context, NewExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.NEW_EXPRESSION__CONTRACT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.NEW_EXPRESSION__CONTRACT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.NEW_EXPRESSION__ARGS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.NEW_EXPRESSION__ARGS));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNewExpressionAccess().getContractContractParserRuleCall_1_0(), semanticObject.getContract());
-		feeder.accept(grammarAccess.getNewExpressionAccess().getArgsFunctionCallListArgumentsParserRuleCall_2_0(), semanticObject.getArgs());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns NotExpression
-	 *     Assignment returns NotExpression
-	 *     Assignment.Assignment_1_0_0 returns NotExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns NotExpression
-	 *     BinaryExpression returns NotExpression
-	 *     Or returns NotExpression
-	 *     Or.Or_1_0 returns NotExpression
-	 *     And returns NotExpression
-	 *     And.And_1_0 returns NotExpression
-	 *     Equality returns NotExpression
-	 *     Equality.Equality_1_0 returns NotExpression
-	 *     Comparison returns NotExpression
-	 *     Comparison.Comparison_1_0 returns NotExpression
-	 *     BitOr returns NotExpression
-	 *     BitOr.BitOr_1_0 returns NotExpression
-	 *     BitXor returns NotExpression
-	 *     BitXor.BitXor_1_0 returns NotExpression
-	 *     BitAnd returns NotExpression
-	 *     BitAnd.BitAnd_1_0 returns NotExpression
-	 *     Shift returns NotExpression
-	 *     Shift.Shift_1_0 returns NotExpression
-	 *     AddSub returns NotExpression
-	 *     AddSub.AddSub_1_0_0 returns NotExpression
-	 *     MulDivMod returns NotExpression
-	 *     MulDivMod.MulDivMod_1_0 returns NotExpression
-	 *     Exponent returns NotExpression
-	 *     Exponent.Exponent_1_0 returns NotExpression
-	 *     UnaryExpression returns NotExpression
-	 *     NotExpression returns NotExpression
-	 *     PreExpression returns NotExpression
-	 *     PreExpression.PreIncExpression_1_2 returns NotExpression
-	 *     PreExpression.PreDecExpression_2_2 returns NotExpression
-	 *     PostIncDecExpression returns NotExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NotExpression
-	 *     PrimaryExpression returns NotExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns NotExpression
-	 *     PrimaryArithmetic returns NotExpression
-	 *
-	 * Constraint:
-	 *     expression=UnaryExpression
-	 */
-	protected void sequence_NotExpression(ISerializationContext context, NotExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.NOT_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.NOT_EXPRESSION__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNotExpressionAccess().getExpressionUnaryExpressionParserRuleCall_1_0(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Now returns Now
 	 *
 	 * Constraint:
@@ -2415,41 +1241,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns NumericLiteral
-	 *     Assignment returns NumericLiteral
-	 *     Assignment.Assignment_1_0_0 returns NumericLiteral
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns NumericLiteral
-	 *     BinaryExpression returns NumericLiteral
-	 *     Or returns NumericLiteral
-	 *     Or.Or_1_0 returns NumericLiteral
-	 *     And returns NumericLiteral
-	 *     And.And_1_0 returns NumericLiteral
-	 *     Equality returns NumericLiteral
-	 *     Equality.Equality_1_0 returns NumericLiteral
-	 *     Comparison returns NumericLiteral
-	 *     Comparison.Comparison_1_0 returns NumericLiteral
-	 *     BitOr returns NumericLiteral
-	 *     BitOr.BitOr_1_0 returns NumericLiteral
-	 *     BitXor returns NumericLiteral
-	 *     BitXor.BitXor_1_0 returns NumericLiteral
-	 *     BitAnd returns NumericLiteral
-	 *     BitAnd.BitAnd_1_0 returns NumericLiteral
-	 *     Shift returns NumericLiteral
-	 *     Shift.Shift_1_0 returns NumericLiteral
-	 *     AddSub returns NumericLiteral
-	 *     AddSub.AddSub_1_0_0 returns NumericLiteral
-	 *     MulDivMod returns NumericLiteral
-	 *     MulDivMod.MulDivMod_1_0 returns NumericLiteral
-	 *     Exponent returns NumericLiteral
-	 *     Exponent.Exponent_1_0 returns NumericLiteral
-	 *     UnaryExpression returns NumericLiteral
-	 *     PreExpression returns NumericLiteral
-	 *     PreExpression.PreIncExpression_1_2 returns NumericLiteral
-	 *     PreExpression.PreDecExpression_2_2 returns NumericLiteral
-	 *     PostIncDecExpression returns NumericLiteral
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NumericLiteral
-	 *     PrimaryExpression returns NumericLiteral
-	 *     PrimaryExpression.Tuple_4_2_0 returns NumericLiteral
 	 *     Literal returns NumericLiteral
 	 *     PrimaryArithmetic returns NumericLiteral
 	 *     NumericLiteral returns NumericLiteral
@@ -2459,62 +1250,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_NumericLiteral(ISerializationContext context, NumericLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Or
-	 *     Assignment returns Or
-	 *     Assignment.Assignment_1_0_0 returns Or
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns Or
-	 *     BinaryExpression returns Or
-	 *     Or returns Or
-	 *     Or.Or_1_0 returns Or
-	 *     And returns Or
-	 *     And.And_1_0 returns Or
-	 *     Equality returns Or
-	 *     Equality.Equality_1_0 returns Or
-	 *     Comparison returns Or
-	 *     Comparison.Comparison_1_0 returns Or
-	 *     BitOr returns Or
-	 *     BitOr.BitOr_1_0 returns Or
-	 *     BitXor returns Or
-	 *     BitXor.BitXor_1_0 returns Or
-	 *     BitAnd returns Or
-	 *     BitAnd.BitAnd_1_0 returns Or
-	 *     Shift returns Or
-	 *     Shift.Shift_1_0 returns Or
-	 *     AddSub returns Or
-	 *     AddSub.AddSub_1_0_0 returns Or
-	 *     MulDivMod returns Or
-	 *     MulDivMod.MulDivMod_1_0 returns Or
-	 *     Exponent returns Or
-	 *     Exponent.Exponent_1_0 returns Or
-	 *     UnaryExpression returns Or
-	 *     PreExpression returns Or
-	 *     PreExpression.PreIncExpression_1_2 returns Or
-	 *     PreExpression.PreDecExpression_2_2 returns Or
-	 *     PostIncDecExpression returns Or
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Or
-	 *     PrimaryExpression returns Or
-	 *     PrimaryExpression.Tuple_4_2_0 returns Or
-	 *     PrimaryArithmetic returns Or
-	 *
-	 * Constraint:
-	 *     (left=Or_Or_1_0 right=And)
-	 */
-	protected void sequence_Or(ISerializationContext context, Or semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.OR__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.OR__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.OR__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.OR__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
 	}
 	
 	
@@ -2545,293 +1280,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns PostIncDecExpression
-	 *     Assignment returns PostIncDecExpression
-	 *     Assignment.Assignment_1_0_0 returns PostIncDecExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns PostIncDecExpression
-	 *     BinaryExpression returns PostIncDecExpression
-	 *     Or returns PostIncDecExpression
-	 *     Or.Or_1_0 returns PostIncDecExpression
-	 *     And returns PostIncDecExpression
-	 *     And.And_1_0 returns PostIncDecExpression
-	 *     Equality returns PostIncDecExpression
-	 *     Equality.Equality_1_0 returns PostIncDecExpression
-	 *     Comparison returns PostIncDecExpression
-	 *     Comparison.Comparison_1_0 returns PostIncDecExpression
-	 *     BitOr returns PostIncDecExpression
-	 *     BitOr.BitOr_1_0 returns PostIncDecExpression
-	 *     BitXor returns PostIncDecExpression
-	 *     BitXor.BitXor_1_0 returns PostIncDecExpression
-	 *     BitAnd returns PostIncDecExpression
-	 *     BitAnd.BitAnd_1_0 returns PostIncDecExpression
-	 *     Shift returns PostIncDecExpression
-	 *     Shift.Shift_1_0 returns PostIncDecExpression
-	 *     AddSub returns PostIncDecExpression
-	 *     AddSub.AddSub_1_0_0 returns PostIncDecExpression
-	 *     MulDivMod returns PostIncDecExpression
-	 *     MulDivMod.MulDivMod_1_0 returns PostIncDecExpression
-	 *     Exponent returns PostIncDecExpression
-	 *     Exponent.Exponent_1_0 returns PostIncDecExpression
-	 *     UnaryExpression returns PostIncDecExpression
-	 *     PreExpression returns PostIncDecExpression
-	 *     PreExpression.PreIncExpression_1_2 returns PostIncDecExpression
-	 *     PreExpression.PreDecExpression_2_2 returns PostIncDecExpression
-	 *     PostIncDecExpression returns PostIncDecExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns PostIncDecExpression
-	 *     PrimaryExpression returns PostIncDecExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns PostIncDecExpression
-	 *     PrimaryArithmetic returns PostIncDecExpression
-	 *
-	 * Constraint:
-	 *     (expression=PostIncDecExpression_PostIncDecExpression_1_0 postOp=IncDecOpEnum)
-	 */
-	protected void sequence_PostIncDecExpression(ISerializationContext context, PostIncDecExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION__EXPRESSION));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION__POST_OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.POST_INC_DEC_EXPRESSION__POST_OP));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0(), semanticObject.getExpression());
-		feeder.accept(grammarAccess.getPostIncDecExpressionAccess().getPostOpIncDecOpEnumEnumRuleCall_1_1_0(), semanticObject.getPostOp());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PreDecExpression returns PreDecExpression
-	 *
-	 * Constraint:
-	 *     expression=PostIncDecExpression
-	 */
-	protected void sequence_PreDecExpression(ISerializationContext context, PreDecExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.PRE_DEC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.PRE_DEC_EXPRESSION__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPreDecExpressionAccess().getExpressionPostIncDecExpressionParserRuleCall_0(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns PreDecExpression
-	 *     Assignment returns PreDecExpression
-	 *     Assignment.Assignment_1_0_0 returns PreDecExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns PreDecExpression
-	 *     BinaryExpression returns PreDecExpression
-	 *     Or returns PreDecExpression
-	 *     Or.Or_1_0 returns PreDecExpression
-	 *     And returns PreDecExpression
-	 *     And.And_1_0 returns PreDecExpression
-	 *     Equality returns PreDecExpression
-	 *     Equality.Equality_1_0 returns PreDecExpression
-	 *     Comparison returns PreDecExpression
-	 *     Comparison.Comparison_1_0 returns PreDecExpression
-	 *     BitOr returns PreDecExpression
-	 *     BitOr.BitOr_1_0 returns PreDecExpression
-	 *     BitXor returns PreDecExpression
-	 *     BitXor.BitXor_1_0 returns PreDecExpression
-	 *     BitAnd returns PreDecExpression
-	 *     BitAnd.BitAnd_1_0 returns PreDecExpression
-	 *     Shift returns PreDecExpression
-	 *     Shift.Shift_1_0 returns PreDecExpression
-	 *     AddSub returns PreDecExpression
-	 *     AddSub.AddSub_1_0_0 returns PreDecExpression
-	 *     MulDivMod returns PreDecExpression
-	 *     MulDivMod.MulDivMod_1_0 returns PreDecExpression
-	 *     Exponent returns PreDecExpression
-	 *     Exponent.Exponent_1_0 returns PreDecExpression
-	 *     UnaryExpression returns PreDecExpression
-	 *     PreExpression returns PreDecExpression
-	 *     PreExpression.PreIncExpression_1_2 returns PreDecExpression
-	 *     PreExpression.PreDecExpression_2_2 returns PreDecExpression
-	 *     PostIncDecExpression returns PreDecExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns PreDecExpression
-	 *     PrimaryExpression returns PreDecExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns PreDecExpression
-	 *     PrimaryArithmetic returns PreDecExpression
-	 *
-	 * Constraint:
-	 *     expression=PreExpression_PreDecExpression_2_2
-	 */
-	protected void sequence_PreExpression(ISerializationContext context, PreDecExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.PRE_DEC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.PRE_DEC_EXPRESSION__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPreExpressionAccess().getPreDecExpressionExpressionAction_2_2(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns PreIncExpression
-	 *     Assignment returns PreIncExpression
-	 *     Assignment.Assignment_1_0_0 returns PreIncExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns PreIncExpression
-	 *     BinaryExpression returns PreIncExpression
-	 *     Or returns PreIncExpression
-	 *     Or.Or_1_0 returns PreIncExpression
-	 *     And returns PreIncExpression
-	 *     And.And_1_0 returns PreIncExpression
-	 *     Equality returns PreIncExpression
-	 *     Equality.Equality_1_0 returns PreIncExpression
-	 *     Comparison returns PreIncExpression
-	 *     Comparison.Comparison_1_0 returns PreIncExpression
-	 *     BitOr returns PreIncExpression
-	 *     BitOr.BitOr_1_0 returns PreIncExpression
-	 *     BitXor returns PreIncExpression
-	 *     BitXor.BitXor_1_0 returns PreIncExpression
-	 *     BitAnd returns PreIncExpression
-	 *     BitAnd.BitAnd_1_0 returns PreIncExpression
-	 *     Shift returns PreIncExpression
-	 *     Shift.Shift_1_0 returns PreIncExpression
-	 *     AddSub returns PreIncExpression
-	 *     AddSub.AddSub_1_0_0 returns PreIncExpression
-	 *     MulDivMod returns PreIncExpression
-	 *     MulDivMod.MulDivMod_1_0 returns PreIncExpression
-	 *     Exponent returns PreIncExpression
-	 *     Exponent.Exponent_1_0 returns PreIncExpression
-	 *     UnaryExpression returns PreIncExpression
-	 *     PreExpression returns PreIncExpression
-	 *     PreExpression.PreIncExpression_1_2 returns PreIncExpression
-	 *     PreExpression.PreDecExpression_2_2 returns PreIncExpression
-	 *     PostIncDecExpression returns PreIncExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns PreIncExpression
-	 *     PrimaryExpression returns PreIncExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns PreIncExpression
-	 *     PrimaryArithmetic returns PreIncExpression
-	 *
-	 * Constraint:
-	 *     expression=PreExpression_PreIncExpression_1_2
-	 */
-	protected void sequence_PreExpression(ISerializationContext context, PreIncExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.PRE_INC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.PRE_INC_EXPRESSION__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPreExpressionAccess().getPreIncExpressionExpressionAction_1_2(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PreIncExpression returns PreIncExpression
-	 *
-	 * Constraint:
-	 *     expression=PostIncDecExpression
-	 */
-	protected void sequence_PreIncExpression(ISerializationContext context, PreIncExpression semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.PRE_INC_EXPRESSION__EXPRESSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.PRE_INC_EXPRESSION__EXPRESSION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPreIncExpressionAccess().getExpressionPostIncDecExpressionParserRuleCall_0(), semanticObject.getExpression());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Tuple
-	 *     Assignment returns Tuple
-	 *     Assignment.Assignment_1_0_0 returns Tuple
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns Tuple
-	 *     BinaryExpression returns Tuple
-	 *     Or returns Tuple
-	 *     Or.Or_1_0 returns Tuple
-	 *     And returns Tuple
-	 *     And.And_1_0 returns Tuple
-	 *     Equality returns Tuple
-	 *     Equality.Equality_1_0 returns Tuple
-	 *     Comparison returns Tuple
-	 *     Comparison.Comparison_1_0 returns Tuple
-	 *     BitOr returns Tuple
-	 *     BitOr.BitOr_1_0 returns Tuple
-	 *     BitXor returns Tuple
-	 *     BitXor.BitXor_1_0 returns Tuple
-	 *     BitAnd returns Tuple
-	 *     BitAnd.BitAnd_1_0 returns Tuple
-	 *     Shift returns Tuple
-	 *     Shift.Shift_1_0 returns Tuple
-	 *     AddSub returns Tuple
-	 *     AddSub.AddSub_1_0_0 returns Tuple
-	 *     MulDivMod returns Tuple
-	 *     MulDivMod.MulDivMod_1_0 returns Tuple
-	 *     Exponent returns Tuple
-	 *     Exponent.Exponent_1_0 returns Tuple
-	 *     UnaryExpression returns Tuple
-	 *     PreExpression returns Tuple
-	 *     PreExpression.PreIncExpression_1_2 returns Tuple
-	 *     PreExpression.PreDecExpression_2_2 returns Tuple
-	 *     PostIncDecExpression returns Tuple
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Tuple
-	 *     PrimaryExpression returns Tuple
-	 *     PrimaryExpression.Tuple_4_2_0 returns Tuple
-	 *     PrimaryArithmetic returns Tuple
-	 *
-	 * Constraint:
-	 *     (
-	 *         (members+=PrimaryExpression_Tuple_4_2_0 (members+=TupleSeparator members+=Expression?)+) | 
-	 *         (members+=PrimaryExpression_Tuple_5_2_0 members+=Expression? (members+=TupleSeparator members+=Expression?)*)
-	 *     )?
-	 */
-	protected void sequence_PrimaryExpression(ISerializationContext context, Tuple semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Type returns QualifiedIdentifier
 	 *     StandardType returns QualifiedIdentifier
 	 *     QualifiedIdentifier returns QualifiedIdentifier
-	 *     Expression returns QualifiedIdentifier
-	 *     Assignment returns QualifiedIdentifier
-	 *     Assignment.Assignment_1_0_0 returns QualifiedIdentifier
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns QualifiedIdentifier
-	 *     BinaryExpression returns QualifiedIdentifier
-	 *     Or returns QualifiedIdentifier
-	 *     Or.Or_1_0 returns QualifiedIdentifier
-	 *     And returns QualifiedIdentifier
-	 *     And.And_1_0 returns QualifiedIdentifier
-	 *     Equality returns QualifiedIdentifier
-	 *     Equality.Equality_1_0 returns QualifiedIdentifier
-	 *     Comparison returns QualifiedIdentifier
-	 *     Comparison.Comparison_1_0 returns QualifiedIdentifier
-	 *     BitOr returns QualifiedIdentifier
-	 *     BitOr.BitOr_1_0 returns QualifiedIdentifier
-	 *     BitXor returns QualifiedIdentifier
-	 *     BitXor.BitXor_1_0 returns QualifiedIdentifier
-	 *     BitAnd returns QualifiedIdentifier
-	 *     BitAnd.BitAnd_1_0 returns QualifiedIdentifier
-	 *     Shift returns QualifiedIdentifier
-	 *     Shift.Shift_1_0 returns QualifiedIdentifier
-	 *     AddSub returns QualifiedIdentifier
-	 *     AddSub.AddSub_1_0_0 returns QualifiedIdentifier
-	 *     MulDivMod returns QualifiedIdentifier
-	 *     MulDivMod.MulDivMod_1_0 returns QualifiedIdentifier
-	 *     Exponent returns QualifiedIdentifier
-	 *     Exponent.Exponent_1_0 returns QualifiedIdentifier
-	 *     UnaryExpression returns QualifiedIdentifier
-	 *     PreExpression returns QualifiedIdentifier
-	 *     PreExpression.PreIncExpression_1_2 returns QualifiedIdentifier
-	 *     PreExpression.PreDecExpression_2_2 returns QualifiedIdentifier
-	 *     PostIncDecExpression returns QualifiedIdentifier
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns QualifiedIdentifier
-	 *     PrimaryExpression returns QualifiedIdentifier
-	 *     PrimaryExpression.Tuple_4_2_0 returns QualifiedIdentifier
-	 *     PrimaryArithmetic returns QualifiedIdentifier
 	 *
 	 * Constraint:
 	 *     (identifier=ID qualifiers+=Qualifier*)
@@ -2886,113 +1337,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ((operator='+' | operator='-' | operator='/' | operator='*') value=PrimaryArithmetic)
 	 */
 	protected void sequence_SecondOperators(ISerializationContext context, SecondOperators semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns Shift
-	 *     Assignment returns Shift
-	 *     Assignment.Assignment_1_0_0 returns Shift
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns Shift
-	 *     BinaryExpression returns Shift
-	 *     Or returns Shift
-	 *     Or.Or_1_0 returns Shift
-	 *     And returns Shift
-	 *     And.And_1_0 returns Shift
-	 *     Equality returns Shift
-	 *     Equality.Equality_1_0 returns Shift
-	 *     Comparison returns Shift
-	 *     Comparison.Comparison_1_0 returns Shift
-	 *     BitOr returns Shift
-	 *     BitOr.BitOr_1_0 returns Shift
-	 *     BitXor returns Shift
-	 *     BitXor.BitXor_1_0 returns Shift
-	 *     BitAnd returns Shift
-	 *     BitAnd.BitAnd_1_0 returns Shift
-	 *     Shift returns Shift
-	 *     Shift.Shift_1_0 returns Shift
-	 *     AddSub returns Shift
-	 *     AddSub.AddSub_1_0_0 returns Shift
-	 *     MulDivMod returns Shift
-	 *     MulDivMod.MulDivMod_1_0 returns Shift
-	 *     Exponent returns Shift
-	 *     Exponent.Exponent_1_0 returns Shift
-	 *     UnaryExpression returns Shift
-	 *     PreExpression returns Shift
-	 *     PreExpression.PreIncExpression_1_2 returns Shift
-	 *     PreExpression.PreDecExpression_2_2 returns Shift
-	 *     PostIncDecExpression returns Shift
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Shift
-	 *     PrimaryExpression returns Shift
-	 *     PrimaryExpression.Tuple_4_2_0 returns Shift
-	 *     PrimaryArithmetic returns Shift
-	 *
-	 * Constraint:
-	 *     (left=Shift_Shift_1_0 shiftOp=ShiftOpEnum right=AddSub)
-	 */
-	protected void sequence_Shift(ISerializationContext context, Shift semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.SHIFT__LEFT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.SHIFT__LEFT));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.SHIFT__SHIFT_OP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.SHIFT__SHIFT_OP));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.SHIFT__RIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.SHIFT__RIGHT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getShiftAccess().getShiftLeftAction_1_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getShiftAccess().getShiftOpShiftOpEnumEnumRuleCall_1_1_0(), semanticObject.getShiftOp());
-		feeder.accept(grammarAccess.getShiftAccess().getRightAddSubParserRuleCall_1_2_0(), semanticObject.getRight());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Expression returns SignExpression
-	 *     Assignment returns SignExpression
-	 *     Assignment.Assignment_1_0_0 returns SignExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns SignExpression
-	 *     BinaryExpression returns SignExpression
-	 *     Or returns SignExpression
-	 *     Or.Or_1_0 returns SignExpression
-	 *     And returns SignExpression
-	 *     And.And_1_0 returns SignExpression
-	 *     Equality returns SignExpression
-	 *     Equality.Equality_1_0 returns SignExpression
-	 *     Comparison returns SignExpression
-	 *     Comparison.Comparison_1_0 returns SignExpression
-	 *     BitOr returns SignExpression
-	 *     BitOr.BitOr_1_0 returns SignExpression
-	 *     BitXor returns SignExpression
-	 *     BitXor.BitXor_1_0 returns SignExpression
-	 *     BitAnd returns SignExpression
-	 *     BitAnd.BitAnd_1_0 returns SignExpression
-	 *     Shift returns SignExpression
-	 *     Shift.Shift_1_0 returns SignExpression
-	 *     AddSub returns SignExpression
-	 *     AddSub.AddSub_1_0_0 returns SignExpression
-	 *     MulDivMod returns SignExpression
-	 *     MulDivMod.MulDivMod_1_0 returns SignExpression
-	 *     Exponent returns SignExpression
-	 *     Exponent.Exponent_1_0 returns SignExpression
-	 *     UnaryExpression returns SignExpression
-	 *     SignExpression returns SignExpression
-	 *     PreExpression returns SignExpression
-	 *     PreExpression.PreIncExpression_1_2 returns SignExpression
-	 *     PreExpression.PreDecExpression_2_2 returns SignExpression
-	 *     PostIncDecExpression returns SignExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns SignExpression
-	 *     PrimaryExpression returns SignExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns SignExpression
-	 *     PrimaryArithmetic returns SignExpression
-	 *
-	 * Constraint:
-	 *     ((signOp='+' | signOp='-') expression=UnaryExpression)
-	 */
-	protected void sequence_SignExpression(ISerializationContext context, SignExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -3127,54 +1471,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns SpecialExpression
-	 *     SpecialExpression returns SpecialExpression
-	 *     Assignment returns SpecialExpression
-	 *     Assignment.Assignment_1_0_0 returns SpecialExpression
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns SpecialExpression
-	 *     BinaryExpression returns SpecialExpression
-	 *     Or returns SpecialExpression
-	 *     Or.Or_1_0 returns SpecialExpression
-	 *     And returns SpecialExpression
-	 *     And.And_1_0 returns SpecialExpression
-	 *     Equality returns SpecialExpression
-	 *     Equality.Equality_1_0 returns SpecialExpression
-	 *     Comparison returns SpecialExpression
-	 *     Comparison.Comparison_1_0 returns SpecialExpression
-	 *     BitOr returns SpecialExpression
-	 *     BitOr.BitOr_1_0 returns SpecialExpression
-	 *     BitXor returns SpecialExpression
-	 *     BitXor.BitXor_1_0 returns SpecialExpression
-	 *     BitAnd returns SpecialExpression
-	 *     BitAnd.BitAnd_1_0 returns SpecialExpression
-	 *     Shift returns SpecialExpression
-	 *     Shift.Shift_1_0 returns SpecialExpression
-	 *     AddSub returns SpecialExpression
-	 *     AddSub.AddSub_1_0_0 returns SpecialExpression
-	 *     MulDivMod returns SpecialExpression
-	 *     MulDivMod.MulDivMod_1_0 returns SpecialExpression
-	 *     Exponent returns SpecialExpression
-	 *     Exponent.Exponent_1_0 returns SpecialExpression
-	 *     UnaryExpression returns SpecialExpression
-	 *     PreExpression returns SpecialExpression
-	 *     PreExpression.PreIncExpression_1_2 returns SpecialExpression
-	 *     PreExpression.PreDecExpression_2_2 returns SpecialExpression
-	 *     PostIncDecExpression returns SpecialExpression
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns SpecialExpression
-	 *     PrimaryExpression returns SpecialExpression
-	 *     PrimaryExpression.Tuple_4_2_0 returns SpecialExpression
-	 *     PrimaryArithmetic returns SpecialExpression
-	 *
-	 * Constraint:
-	 *     (type=SpecialExpressionTypeEnum fieldOrMethod=Field? (qualifiers+=Index | qualifiers+=Arguments)*)
-	 */
-	protected void sequence_SpecialExpression(ISerializationContext context, SpecialExpression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     SpecialVariablesTypeEnum returns SpecialVariablesTypeEnum
 	 *
 	 * Constraint:
@@ -3187,43 +1483,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns SpecialVariables
-	 *     Assignment returns SpecialVariables
-	 *     Assignment.Assignment_1_0_0 returns SpecialVariables
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns SpecialVariables
-	 *     BinaryExpression returns SpecialVariables
-	 *     Or returns SpecialVariables
-	 *     Or.Or_1_0 returns SpecialVariables
-	 *     And returns SpecialVariables
-	 *     And.And_1_0 returns SpecialVariables
-	 *     Equality returns SpecialVariables
-	 *     Equality.Equality_1_0 returns SpecialVariables
-	 *     Comparison returns SpecialVariables
-	 *     Comparison.Comparison_1_0 returns SpecialVariables
-	 *     BitOr returns SpecialVariables
-	 *     BitOr.BitOr_1_0 returns SpecialVariables
-	 *     BitXor returns SpecialVariables
-	 *     BitXor.BitXor_1_0 returns SpecialVariables
-	 *     BitAnd returns SpecialVariables
-	 *     BitAnd.BitAnd_1_0 returns SpecialVariables
-	 *     Shift returns SpecialVariables
-	 *     Shift.Shift_1_0 returns SpecialVariables
-	 *     AddSub returns SpecialVariables
-	 *     AddSub.AddSub_1_0_0 returns SpecialVariables
-	 *     MulDivMod returns SpecialVariables
-	 *     MulDivMod.MulDivMod_1_0 returns SpecialVariables
-	 *     Exponent returns SpecialVariables
-	 *     Exponent.Exponent_1_0 returns SpecialVariables
-	 *     UnaryExpression returns SpecialVariables
-	 *     PreExpression returns SpecialVariables
-	 *     PreExpression.PreIncExpression_1_2 returns SpecialVariables
-	 *     PreExpression.PreDecExpression_2_2 returns SpecialVariables
-	 *     PostIncDecExpression returns SpecialVariables
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns SpecialVariables
-	 *     PrimaryExpression returns SpecialVariables
-	 *     PrimaryExpression.Tuple_4_2_0 returns SpecialVariables
 	 *     Literal returns SpecialVariables
-	 *     PrimaryArithmetic returns SpecialVariables
 	 *     SpecialVariables returns SpecialVariables
 	 *
 	 * Constraint:
@@ -3249,43 +1509,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns StringLiteral
-	 *     Assignment returns StringLiteral
-	 *     Assignment.Assignment_1_0_0 returns StringLiteral
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns StringLiteral
-	 *     BinaryExpression returns StringLiteral
-	 *     Or returns StringLiteral
-	 *     Or.Or_1_0 returns StringLiteral
-	 *     And returns StringLiteral
-	 *     And.And_1_0 returns StringLiteral
-	 *     Equality returns StringLiteral
-	 *     Equality.Equality_1_0 returns StringLiteral
-	 *     Comparison returns StringLiteral
-	 *     Comparison.Comparison_1_0 returns StringLiteral
-	 *     BitOr returns StringLiteral
-	 *     BitOr.BitOr_1_0 returns StringLiteral
-	 *     BitXor returns StringLiteral
-	 *     BitXor.BitXor_1_0 returns StringLiteral
-	 *     BitAnd returns StringLiteral
-	 *     BitAnd.BitAnd_1_0 returns StringLiteral
-	 *     Shift returns StringLiteral
-	 *     Shift.Shift_1_0 returns StringLiteral
-	 *     AddSub returns StringLiteral
-	 *     AddSub.AddSub_1_0_0 returns StringLiteral
-	 *     MulDivMod returns StringLiteral
-	 *     MulDivMod.MulDivMod_1_0 returns StringLiteral
-	 *     Exponent returns StringLiteral
-	 *     Exponent.Exponent_1_0 returns StringLiteral
-	 *     UnaryExpression returns StringLiteral
-	 *     PreExpression returns StringLiteral
-	 *     PreExpression.PreIncExpression_1_2 returns StringLiteral
-	 *     PreExpression.PreDecExpression_2_2 returns StringLiteral
-	 *     PostIncDecExpression returns StringLiteral
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns StringLiteral
-	 *     PrimaryExpression returns StringLiteral
-	 *     PrimaryExpression.Tuple_4_2_0 returns StringLiteral
 	 *     Literal returns StringLiteral
-	 *     PrimaryArithmetic returns StringLiteral
 	 *     StringLiteral returns StringLiteral
 	 *
 	 * Constraint:
@@ -3352,7 +1576,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * Contexts:
 	 *     TupleSeparator returns TupleSeparator
-	 *     PrimaryExpression.Tuple_5_2_0 returns TupleSeparator
 	 *
 	 * Constraint:
 	 *     {TupleSeparator}
@@ -3376,42 +1599,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns TypeCast
-	 *     Assignment returns TypeCast
-	 *     Assignment.Assignment_1_0_0 returns TypeCast
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns TypeCast
-	 *     BinaryExpression returns TypeCast
-	 *     Or returns TypeCast
-	 *     Or.Or_1_0 returns TypeCast
-	 *     And returns TypeCast
-	 *     And.And_1_0 returns TypeCast
-	 *     Equality returns TypeCast
-	 *     Equality.Equality_1_0 returns TypeCast
-	 *     Comparison returns TypeCast
-	 *     Comparison.Comparison_1_0 returns TypeCast
-	 *     BitOr returns TypeCast
-	 *     BitOr.BitOr_1_0 returns TypeCast
-	 *     BitXor returns TypeCast
-	 *     BitXor.BitXor_1_0 returns TypeCast
-	 *     BitAnd returns TypeCast
-	 *     BitAnd.BitAnd_1_0 returns TypeCast
-	 *     Shift returns TypeCast
-	 *     Shift.Shift_1_0 returns TypeCast
-	 *     AddSub returns TypeCast
-	 *     AddSub.AddSub_1_0_0 returns TypeCast
-	 *     MulDivMod returns TypeCast
-	 *     MulDivMod.MulDivMod_1_0 returns TypeCast
-	 *     Exponent returns TypeCast
-	 *     Exponent.Exponent_1_0 returns TypeCast
-	 *     UnaryExpression returns TypeCast
-	 *     PreExpression returns TypeCast
-	 *     PreExpression.PreIncExpression_1_2 returns TypeCast
-	 *     PreExpression.PreDecExpression_2_2 returns TypeCast
-	 *     PostIncDecExpression returns TypeCast
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns TypeCast
-	 *     PrimaryExpression returns TypeCast
-	 *     PrimaryExpression.Tuple_4_2_0 returns TypeCast
-	 *     PrimaryArithmetic returns TypeCast
 	 *     TypeCast returns TypeCast
 	 *
 	 * Constraint:
@@ -3539,6 +1726,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     LoopStructures returns WhileStatement
 	 *     Statement returns WhileStatement
 	 *     WhileStatement returns WhileStatement
 	 *

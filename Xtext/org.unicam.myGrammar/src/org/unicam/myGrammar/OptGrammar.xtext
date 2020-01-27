@@ -341,10 +341,14 @@ ReturnParameterDeclaration:
 	typeRef=Type variable=Variable?
 ;
 
-Statement:
+LoopStructures:
 	IfStatement |
 	WhileStatement |
-	ForStatement |
+	ForStatement
+;
+
+Statement:
+	LoopStructures |
 	Body |
 	PlaceHolderStatement |
 	(
@@ -381,7 +385,7 @@ ForStatement:
 ;
 
 Body:
-	"{" {Block} (
+	"{" {Body} (
 		statements+=Statement (statements+=Statement)*
 	)? "}"
 ;
@@ -407,6 +411,28 @@ PlaceHolderStatement:
 	"_" {PlaceHolderStatement} ";"?
 ;
 
+Expression:
+	first=Literal operations+=ConditionOperation* |
+	negate?="NOT" first=Literal operations+=ConditionOperation* |
+	ternary?="TERNARY" first=Literal "?" true=Literal ":" false=Literal
+;
+
+ConditionOperation:
+	operation=LogicalOperationLiteral negateSecond="NOT"? seconds=Literal
+;
+
+enum LogicalOperationLiteral:
+	NOTEQUAL=	"!="
+	| EQUAL=	"=="
+	| AND=		"&&"
+	| OR=		"||"
+	| GTE=		">="
+	| LTE=		"<="
+	| GT=		">"
+	| LT=		"<"
+;
+
+/*
 Expression:
 	Assignment
 ;
@@ -575,6 +601,8 @@ PrimaryExpression returns Expression:
 	) ")" |
 	"(" ")" {Tuple}
 ;
+* 
+*/
 
 Literal:
 	SpecialVariables |
@@ -601,7 +629,7 @@ MathematicalFunction:
 		parameters+=IntParameter ","
 		parameters+=IntParameter ","
 		parameters+=IntParameter
-	')'
+	")"
 ;
 
 EcrecoverFunction:
@@ -610,7 +638,7 @@ EcrecoverFunction:
 		parameters+=IntParameter ","
 		parameters+=IntParameter ","
 		parameters+=IntParameter
-	')'
+	")"
 ;
 
 HashFunction:

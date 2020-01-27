@@ -3,20 +3,126 @@
  */
 package org.unicam.myGrammar.optGrammar.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.unicam.myGrammar.optGrammar.ConditionOperation;
 import org.unicam.myGrammar.optGrammar.Expression;
+import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Expression</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#getFirst <em>First</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#getOperations <em>Operations</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#isNegate <em>Negate</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#isTernary <em>Ternary</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#getTrue <em>True</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ExpressionImpl#getFalse <em>False</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
 {
+  /**
+   * The cached value of the '{@link #getFirst() <em>First</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFirst()
+   * @generated
+   * @ordered
+   */
+  protected Literal first;
+
+  /**
+   * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperations()
+   * @generated
+   * @ordered
+   */
+  protected EList<ConditionOperation> operations;
+
+  /**
+   * The default value of the '{@link #isNegate() <em>Negate</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNegate()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean NEGATE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isNegate() <em>Negate</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isNegate()
+   * @generated
+   * @ordered
+   */
+  protected boolean negate = NEGATE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isTernary() <em>Ternary</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isTernary()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean TERNARY_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isTernary() <em>Ternary</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isTernary()
+   * @generated
+   * @ordered
+   */
+  protected boolean ternary = TERNARY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getTrue() <em>True</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTrue()
+   * @generated
+   * @ordered
+   */
+  protected Literal true_;
+
+  /**
+   * The cached value of the '{@link #getFalse() <em>False</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFalse()
+   * @generated
+   * @ordered
+   */
+  protected Literal false_;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +142,380 @@ public class ExpressionImpl extends PrimaryArithmeticImpl implements Expression
   protected EClass eStaticClass()
   {
     return OptGrammarPackage.Literals.EXPRESSION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Literal getFirst()
+  {
+    return first;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFirst(Literal newFirst, NotificationChain msgs)
+  {
+    Literal oldFirst = first;
+    first = newFirst;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__FIRST, oldFirst, newFirst);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFirst(Literal newFirst)
+  {
+    if (newFirst != first)
+    {
+      NotificationChain msgs = null;
+      if (first != null)
+        msgs = ((InternalEObject)first).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__FIRST, null, msgs);
+      if (newFirst != null)
+        msgs = ((InternalEObject)newFirst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__FIRST, null, msgs);
+      msgs = basicSetFirst(newFirst, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__FIRST, newFirst, newFirst));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<ConditionOperation> getOperations()
+  {
+    if (operations == null)
+    {
+      operations = new EObjectContainmentEList<ConditionOperation>(ConditionOperation.class, this, OptGrammarPackage.EXPRESSION__OPERATIONS);
+    }
+    return operations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean isNegate()
+  {
+    return negate;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNegate(boolean newNegate)
+  {
+    boolean oldNegate = negate;
+    negate = newNegate;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__NEGATE, oldNegate, negate));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean isTernary()
+  {
+    return ternary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTernary(boolean newTernary)
+  {
+    boolean oldTernary = ternary;
+    ternary = newTernary;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__TERNARY, oldTernary, ternary));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Literal getTrue()
+  {
+    return true_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTrue(Literal newTrue, NotificationChain msgs)
+  {
+    Literal oldTrue = true_;
+    true_ = newTrue;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__TRUE, oldTrue, newTrue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTrue(Literal newTrue)
+  {
+    if (newTrue != true_)
+    {
+      NotificationChain msgs = null;
+      if (true_ != null)
+        msgs = ((InternalEObject)true_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__TRUE, null, msgs);
+      if (newTrue != null)
+        msgs = ((InternalEObject)newTrue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__TRUE, null, msgs);
+      msgs = basicSetTrue(newTrue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__TRUE, newTrue, newTrue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Literal getFalse()
+  {
+    return false_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFalse(Literal newFalse, NotificationChain msgs)
+  {
+    Literal oldFalse = false_;
+    false_ = newFalse;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__FALSE, oldFalse, newFalse);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFalse(Literal newFalse)
+  {
+    if (newFalse != false_)
+    {
+      NotificationChain msgs = null;
+      if (false_ != null)
+        msgs = ((InternalEObject)false_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__FALSE, null, msgs);
+      if (newFalse != null)
+        msgs = ((InternalEObject)newFalse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.EXPRESSION__FALSE, null, msgs);
+      msgs = basicSetFalse(newFalse, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.EXPRESSION__FALSE, newFalse, newFalse));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case OptGrammarPackage.EXPRESSION__FIRST:
+        return basicSetFirst(null, msgs);
+      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+        return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.EXPRESSION__TRUE:
+        return basicSetTrue(null, msgs);
+      case OptGrammarPackage.EXPRESSION__FALSE:
+        return basicSetFalse(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case OptGrammarPackage.EXPRESSION__FIRST:
+        return getFirst();
+      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+        return getOperations();
+      case OptGrammarPackage.EXPRESSION__NEGATE:
+        return isNegate();
+      case OptGrammarPackage.EXPRESSION__TERNARY:
+        return isTernary();
+      case OptGrammarPackage.EXPRESSION__TRUE:
+        return getTrue();
+      case OptGrammarPackage.EXPRESSION__FALSE:
+        return getFalse();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case OptGrammarPackage.EXPRESSION__FIRST:
+        setFirst((Literal)newValue);
+        return;
+      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+        getOperations().clear();
+        getOperations().addAll((Collection<? extends ConditionOperation>)newValue);
+        return;
+      case OptGrammarPackage.EXPRESSION__NEGATE:
+        setNegate((Boolean)newValue);
+        return;
+      case OptGrammarPackage.EXPRESSION__TERNARY:
+        setTernary((Boolean)newValue);
+        return;
+      case OptGrammarPackage.EXPRESSION__TRUE:
+        setTrue((Literal)newValue);
+        return;
+      case OptGrammarPackage.EXPRESSION__FALSE:
+        setFalse((Literal)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case OptGrammarPackage.EXPRESSION__FIRST:
+        setFirst((Literal)null);
+        return;
+      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+        getOperations().clear();
+        return;
+      case OptGrammarPackage.EXPRESSION__NEGATE:
+        setNegate(NEGATE_EDEFAULT);
+        return;
+      case OptGrammarPackage.EXPRESSION__TERNARY:
+        setTernary(TERNARY_EDEFAULT);
+        return;
+      case OptGrammarPackage.EXPRESSION__TRUE:
+        setTrue((Literal)null);
+        return;
+      case OptGrammarPackage.EXPRESSION__FALSE:
+        setFalse((Literal)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case OptGrammarPackage.EXPRESSION__FIRST:
+        return first != null;
+      case OptGrammarPackage.EXPRESSION__OPERATIONS:
+        return operations != null && !operations.isEmpty();
+      case OptGrammarPackage.EXPRESSION__NEGATE:
+        return negate != NEGATE_EDEFAULT;
+      case OptGrammarPackage.EXPRESSION__TERNARY:
+        return ternary != TERNARY_EDEFAULT;
+      case OptGrammarPackage.EXPRESSION__TRUE:
+        return true_ != null;
+      case OptGrammarPackage.EXPRESSION__FALSE:
+        return false_ != null;
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (negate: ");
+    result.append(negate);
+    result.append(", ternary: ");
+    result.append(ternary);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExpressionImpl

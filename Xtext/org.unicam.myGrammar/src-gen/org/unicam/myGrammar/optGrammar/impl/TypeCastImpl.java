@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.Expression;
@@ -30,7 +31,7 @@ import org.unicam.myGrammar.optGrammar.TypeCast;
  *
  * @generated
  */
-public class TypeCastImpl extends ExpressionImpl implements TypeCast
+public class TypeCastImpl extends MinimalEObjectImpl.Container implements TypeCast
 {
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.

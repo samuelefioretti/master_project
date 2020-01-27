@@ -30,7 +30,7 @@ import org.unicam.myGrammar.optGrammar.WhileStatement;
  *
  * @generated
  */
-public class WhileStatementImpl extends StatementImpl implements WhileStatement
+public class WhileStatementImpl extends LoopStructuresImpl implements WhileStatement
 {
   /**
    * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.

@@ -22,7 +22,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface IfStatement extends Statement
+public interface IfStatement extends LoopStructures
 {
   /**
    * Returns the value of the '<em><b>Condition</b></em>' containment reference.

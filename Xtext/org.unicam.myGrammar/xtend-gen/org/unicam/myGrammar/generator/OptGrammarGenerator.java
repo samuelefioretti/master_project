@@ -27,12 +27,14 @@ import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Ether;
 import org.unicam.myGrammar.optGrammar.Expression;
+import org.unicam.myGrammar.optGrammar.ForStatement;
 import org.unicam.myGrammar.optGrammar.FunctionCall;
 import org.unicam.myGrammar.optGrammar.FunctionDefinition;
 import org.unicam.myGrammar.optGrammar.HashFunction;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.Literal;
+import org.unicam.myGrammar.optGrammar.LoopStructures;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
@@ -445,18 +447,16 @@ public class OptGrammarGenerator extends AbstractGenerator {
       + "\nvalue cannot be resolved");
   }
   
-  public Object compileLoopStructure(final /* LoopStructures */Object loop) {
+  public String compileLoopStructure(final LoopStructures loop) {
     throw new Error("Unresolved compilation problems:"
       + "\nIfWhileStructure cannot be resolved to a type."
-      + "\nForStructure cannot be resolved to a type."
       + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
-      + "\ncompileIfWhileStructure cannot be resolved"
-      + "\ncompileForStructure cannot be resolved");
+      + "\nThe method compileIfWhileStructure(IfWhileStructure) from the type OptGrammarGenerator refers to the missing type IfWhileStructure");
   }
   
-  public String compileInternalLoop(final /* LoopStructures */Object str) {
+  public String compileInternalLoop(final LoopStructures str) {
     throw new Error("Unresolved compilation problems:"
-      + "\nblocks cannot be resolved"
+      + "\nThe method or field blocks is undefined for the type LoopStructures"
       + "\ncompileInternalBlock cannot be resolved");
   }
   
@@ -468,36 +468,21 @@ public class OptGrammarGenerator extends AbstractGenerator {
       + "\ncompileInternalLoop cannot be resolved");
   }
   
-  public String compileForStructure(final /* ForStructure */Object str) {
+  public String compileForStatement(final ForStatement str) {
     throw new Error("Unresolved compilation problems:"
-      + "\ntype cannot be resolved"
-      + "\ninitial cannot be resolved"
+      + "\nThe method or field type is undefined for the type ForStatement"
+      + "\nThe method or field initial is undefined for the type ForStatement"
+      + "\nThe method or field condition is undefined for the type ForStatement"
+      + "\nThe method or field step is undefined for the type ForStatement"
       + "\ncompileIntial cannot be resolved"
-      + "\ncondition cannot be resolved"
       + "\ncompileExpression cannot be resolved"
-      + "\nstep cannot be resolved"
-      + "\ncompileSingleDefinition cannot be resolved"
-      + "\ncompileInternalLoop cannot be resolved");
+      + "\ncompileSingleDefinition cannot be resolved");
   }
   
   public String compileExpression(final Expression logic) {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field negate is undefined for the type Expression"
-      + "\nThe method or field first is undefined for the type Expression"
-      + "\nThe method or field operations is undefined for the type Expression"
-      + "\nThe method or field ternary is undefined for the type Expression"
-      + "\nThe method or field first is undefined for the type Expression"
-      + "\nThe method or field true is undefined for the type Expression"
-      + "\nThe method or field false is undefined for the type Expression"
-      + "\nThe method or field first is undefined for the type Expression"
-      + "\nThe method or field operations is undefined for the type Expression"
-      + "\ncompileCondition cannot be resolved"
-      + "\ncompileConditionOperation cannot be resolved"
-      + "\ncompileCondition cannot be resolved"
-      + "\ncompileCondition cannot be resolved"
-      + "\ncompileCondition cannot be resolved"
-      + "\ncompileCondition cannot be resolved"
-      + "\ncompileConditionOperation cannot be resolved");
+      + "\nThe method compileConditionOperation(ConditionOperation) from the type OptGrammarGenerator refers to the missing type ConditionOperation"
+      + "\nThe method compileConditionOperation(ConditionOperation) from the type OptGrammarGenerator refers to the missing type ConditionOperation");
   }
   
   public Object compileCondition(final Literal cond) {
