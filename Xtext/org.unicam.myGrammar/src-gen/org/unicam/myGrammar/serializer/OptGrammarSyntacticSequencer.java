@@ -24,6 +24,9 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_ArrayDimensions___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a;
 	protected AbstractElementAlias match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a;
 	protected AbstractElementAlias match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p;
+	protected AbstractElementAlias match_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q;
+	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesisKeyword_4_0_a;
+	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesisKeyword_4_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -31,6 +34,9 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_ArrayDimensions___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getLeftSquareBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getRightSquareBracketKeyword_4_2()));
 		match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getRightSquareBracketKeyword_4_2()), new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getLeftSquareBracketKeyword_4_0()));
 		match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getRightSquareBracketKeyword_4_2()), new TokenAlias(false, false, grammarAccess.getArrayDimensionsAccess().getLeftSquareBracketKeyword_4_0()));
+		match_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPrimaryArithmeticAccess().getLeftParenthesisKeyword_1_0()), new TokenAlias(true, true, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_0()));
+		match_PrimaryExpression_LeftParenthesisKeyword_4_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_0());
+		match_PrimaryExpression_LeftParenthesisKeyword_4_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_0());
 	}
 	
 	@Override
@@ -62,6 +68,12 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p.equals(syntax))
 				emit_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q.equals(syntax))
+				emit_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PrimaryExpression_LeftParenthesisKeyword_4_0_a.equals(syntax))
+				emit_PrimaryExpression_LeftParenthesisKeyword_4_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PrimaryExpression_LeftParenthesisKeyword_4_0_p.equals(syntax))
+				emit_PrimaryExpression_LeftParenthesisKeyword_4_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -98,6 +110,241 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     value+=Expression (ambiguity) value+=Expression
 	 */
 	protected void emit_ArrayDimensions___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('(' '('*)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) (ambiguity) hexValue=HexLiteral
+	 *     (rule start) (ambiguity) intValue=NumberDimensionless
+	 *     (rule start) (ambiguity) now=Now
+	 */
+	protected void emit_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '(' (ambiguity) '!' expression=UnaryExpression
+	 *     (rule start) '(' (ambiguity) '(' ')' ')' (rule start)
+	 *     (rule start) '(' (ambiguity) 'blockhash' '(' parameter=IntParameter
+	 *     (rule start) '(' (ambiguity) 'new' contract=[Contract|ID]
+	 *     (rule start) '(' (ambiguity) '~' expression=UnaryExpression
+	 *     (rule start) '(' (ambiguity) function='addmod'
+	 *     (rule start) '(' (ambiguity) function='ecrecover'
+	 *     (rule start) '(' (ambiguity) function='mulmod'
+	 *     (rule start) '(' (ambiguity) identifier=ID
+	 *     (rule start) '(' (ambiguity) name='gasleft'
+	 *     (rule start) '(' (ambiguity) name='keccak256'
+	 *     (rule start) '(' (ambiguity) name='ripemd160'
+	 *     (rule start) '(' (ambiguity) name='sha256'
+	 *     (rule start) '(' (ambiguity) signOp='+'
+	 *     (rule start) '(' (ambiguity) signOp='-'
+	 *     (rule start) '(' (ambiguity) type=SpecialExpressionTypeEnum
+	 *     (rule start) '(' (ambiguity) type=SpecialVariablesTypeEnum
+	 *     (rule start) '(' (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) '(' (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) '(' (ambiguity) value=STRING
+	 *     (rule start) '(' (ambiguity) {AddSub.left=}
+	 *     (rule start) '(' (ambiguity) {And.left=}
+	 *     (rule start) '(' (ambiguity) {Assignment.left=}
+	 *     (rule start) '(' (ambiguity) {BitAnd.left=}
+	 *     (rule start) '(' (ambiguity) {BitOr.left=}
+	 *     (rule start) '(' (ambiguity) {BitXor.left=}
+	 *     (rule start) '(' (ambiguity) {Comparison.left=}
+	 *     (rule start) '(' (ambiguity) {Equality.left=}
+	 *     (rule start) '(' (ambiguity) {Exponent.left=}
+	 *     (rule start) '(' (ambiguity) {MulDivMod.left=}
+	 *     (rule start) '(' (ambiguity) {Or.left=}
+	 *     (rule start) '(' (ambiguity) {PostIncDecExpression.expression=}
+	 *     (rule start) '(' (ambiguity) {PreDecExpression.expression=}
+	 *     (rule start) '(' (ambiguity) {PreIncExpression.expression=}
+	 *     (rule start) '(' (ambiguity) {Shift.left=}
+	 *     (rule start) '(' (ambiguity) {Tuple.members+=}
+	 *     (rule start) '(' (ambiguity) {VariableDeclarationExpression.type=}
+	 *     (rule start) '++' (ambiguity) '(' ')' (rule start)
+	 *     (rule start) '++' (ambiguity) 'blockhash' '(' parameter=IntParameter
+	 *     (rule start) '++' (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) '++' (ambiguity) function='addmod'
+	 *     (rule start) '++' (ambiguity) function='ecrecover'
+	 *     (rule start) '++' (ambiguity) function='mulmod'
+	 *     (rule start) '++' (ambiguity) hexValue=HexLiteral
+	 *     (rule start) '++' (ambiguity) identifier=ID
+	 *     (rule start) '++' (ambiguity) intValue=NumberDimensionless
+	 *     (rule start) '++' (ambiguity) name='gasleft'
+	 *     (rule start) '++' (ambiguity) name='keccak256'
+	 *     (rule start) '++' (ambiguity) name='ripemd160'
+	 *     (rule start) '++' (ambiguity) name='sha256'
+	 *     (rule start) '++' (ambiguity) now=Now
+	 *     (rule start) '++' (ambiguity) type=SpecialExpressionTypeEnum
+	 *     (rule start) '++' (ambiguity) type=SpecialVariablesTypeEnum
+	 *     (rule start) '++' (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) '++' (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) '++' (ambiguity) value=STRING
+	 *     (rule start) '++' (ambiguity) {PostIncDecExpression.expression=}
+	 *     (rule start) '++' (ambiguity) {Tuple.members+=}
+	 *     (rule start) '--' (ambiguity) '(' ')' (rule start)
+	 *     (rule start) '--' (ambiguity) 'blockhash' '(' parameter=IntParameter
+	 *     (rule start) '--' (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) '--' (ambiguity) function='addmod'
+	 *     (rule start) '--' (ambiguity) function='ecrecover'
+	 *     (rule start) '--' (ambiguity) function='mulmod'
+	 *     (rule start) '--' (ambiguity) hexValue=HexLiteral
+	 *     (rule start) '--' (ambiguity) identifier=ID
+	 *     (rule start) '--' (ambiguity) intValue=NumberDimensionless
+	 *     (rule start) '--' (ambiguity) name='gasleft'
+	 *     (rule start) '--' (ambiguity) name='keccak256'
+	 *     (rule start) '--' (ambiguity) name='ripemd160'
+	 *     (rule start) '--' (ambiguity) name='sha256'
+	 *     (rule start) '--' (ambiguity) now=Now
+	 *     (rule start) '--' (ambiguity) type=SpecialExpressionTypeEnum
+	 *     (rule start) '--' (ambiguity) type=SpecialVariablesTypeEnum
+	 *     (rule start) '--' (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) '--' (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) '--' (ambiguity) value=STRING
+	 *     (rule start) '--' (ambiguity) {PostIncDecExpression.expression=}
+	 *     (rule start) '--' (ambiguity) {Tuple.members+=}
+	 *     (rule start) (ambiguity) '!' expression=UnaryExpression
+	 *     (rule start) (ambiguity) '(' ')' (rule start)
+	 *     (rule start) (ambiguity) 'blockhash' '(' parameter=IntParameter
+	 *     (rule start) (ambiguity) 'new' contract=[Contract|ID]
+	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
+	 *     (rule start) (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) (ambiguity) function='addmod'
+	 *     (rule start) (ambiguity) function='ecrecover'
+	 *     (rule start) (ambiguity) function='mulmod'
+	 *     (rule start) (ambiguity) hexValue=HexLiteral
+	 *     (rule start) (ambiguity) identifier=ID
+	 *     (rule start) (ambiguity) intValue=NumberDimensionless
+	 *     (rule start) (ambiguity) name='gasleft'
+	 *     (rule start) (ambiguity) name='keccak256'
+	 *     (rule start) (ambiguity) name='ripemd160'
+	 *     (rule start) (ambiguity) name='sha256'
+	 *     (rule start) (ambiguity) now=Now
+	 *     (rule start) (ambiguity) signOp='+'
+	 *     (rule start) (ambiguity) signOp='-'
+	 *     (rule start) (ambiguity) type=SpecialExpressionTypeEnum
+	 *     (rule start) (ambiguity) type=SpecialVariablesTypeEnum
+	 *     (rule start) (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) (ambiguity) value=STRING
+	 *     (rule start) (ambiguity) {AddSub.left=}
+	 *     (rule start) (ambiguity) {And.left=}
+	 *     (rule start) (ambiguity) {Assignment.left=}
+	 *     (rule start) (ambiguity) {BitAnd.left=}
+	 *     (rule start) (ambiguity) {BitOr.left=}
+	 *     (rule start) (ambiguity) {BitXor.left=}
+	 *     (rule start) (ambiguity) {Comparison.left=}
+	 *     (rule start) (ambiguity) {Equality.left=}
+	 *     (rule start) (ambiguity) {Exponent.left=}
+	 *     (rule start) (ambiguity) {MulDivMod.left=}
+	 *     (rule start) (ambiguity) {Or.left=}
+	 *     (rule start) (ambiguity) {PostIncDecExpression.expression=}
+	 *     (rule start) (ambiguity) {PreDecExpression.expression=}
+	 *     (rule start) (ambiguity) {PreIncExpression.expression=}
+	 *     (rule start) (ambiguity) {Shift.left=}
+	 *     (rule start) (ambiguity) {Tuple.members+=}
+	 *     (rule start) (ambiguity) {VariableDeclarationExpression.type=}
+	 */
+	protected void emit_PrimaryExpression_LeftParenthesisKeyword_4_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '++' (ambiguity) '!' expression=UnaryExpression
+	 *     (rule start) '++' (ambiguity) 'new' contract=[Contract|ID]
+	 *     (rule start) '++' (ambiguity) '~' expression=UnaryExpression
+	 *     (rule start) '++' (ambiguity) signOp='+'
+	 *     (rule start) '++' (ambiguity) signOp='-'
+	 *     (rule start) '++' (ambiguity) {AddSub.left=}
+	 *     (rule start) '++' (ambiguity) {And.left=}
+	 *     (rule start) '++' (ambiguity) {Assignment.left=}
+	 *     (rule start) '++' (ambiguity) {BitAnd.left=}
+	 *     (rule start) '++' (ambiguity) {BitOr.left=}
+	 *     (rule start) '++' (ambiguity) {BitXor.left=}
+	 *     (rule start) '++' (ambiguity) {Comparison.left=}
+	 *     (rule start) '++' (ambiguity) {Equality.left=}
+	 *     (rule start) '++' (ambiguity) {Exponent.left=}
+	 *     (rule start) '++' (ambiguity) {MulDivMod.left=}
+	 *     (rule start) '++' (ambiguity) {Or.left=}
+	 *     (rule start) '++' (ambiguity) {PreDecExpression.expression=}
+	 *     (rule start) '++' (ambiguity) {PreIncExpression.expression=}
+	 *     (rule start) '++' (ambiguity) {Shift.left=}
+	 *     (rule start) '++' (ambiguity) {VariableDeclarationExpression.type=}
+	 *     (rule start) '--' (ambiguity) '!' expression=UnaryExpression
+	 *     (rule start) '--' (ambiguity) 'new' contract=[Contract|ID]
+	 *     (rule start) '--' (ambiguity) '~' expression=UnaryExpression
+	 *     (rule start) '--' (ambiguity) signOp='+'
+	 *     (rule start) '--' (ambiguity) signOp='-'
+	 *     (rule start) '--' (ambiguity) {AddSub.left=}
+	 *     (rule start) '--' (ambiguity) {And.left=}
+	 *     (rule start) '--' (ambiguity) {Assignment.left=}
+	 *     (rule start) '--' (ambiguity) {BitAnd.left=}
+	 *     (rule start) '--' (ambiguity) {BitOr.left=}
+	 *     (rule start) '--' (ambiguity) {BitXor.left=}
+	 *     (rule start) '--' (ambiguity) {Comparison.left=}
+	 *     (rule start) '--' (ambiguity) {Equality.left=}
+	 *     (rule start) '--' (ambiguity) {Exponent.left=}
+	 *     (rule start) '--' (ambiguity) {MulDivMod.left=}
+	 *     (rule start) '--' (ambiguity) {Or.left=}
+	 *     (rule start) '--' (ambiguity) {PreDecExpression.expression=}
+	 *     (rule start) '--' (ambiguity) {PreIncExpression.expression=}
+	 *     (rule start) '--' (ambiguity) {Shift.left=}
+	 *     (rule start) '--' (ambiguity) {VariableDeclarationExpression.type=}
+	 *     (rule start) (ambiguity) '!' expression=UnaryExpression
+	 *     (rule start) (ambiguity) '(' ')' (rule start)
+	 *     (rule start) (ambiguity) 'blockhash' '(' parameter=IntParameter
+	 *     (rule start) (ambiguity) 'new' contract=[Contract|ID]
+	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
+	 *     (rule start) (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) (ambiguity) function='addmod'
+	 *     (rule start) (ambiguity) function='ecrecover'
+	 *     (rule start) (ambiguity) function='mulmod'
+	 *     (rule start) (ambiguity) hexValue=HexLiteral
+	 *     (rule start) (ambiguity) identifier=ID
+	 *     (rule start) (ambiguity) intValue=NumberDimensionless
+	 *     (rule start) (ambiguity) name='gasleft'
+	 *     (rule start) (ambiguity) name='keccak256'
+	 *     (rule start) (ambiguity) name='ripemd160'
+	 *     (rule start) (ambiguity) name='sha256'
+	 *     (rule start) (ambiguity) now=Now
+	 *     (rule start) (ambiguity) signOp='+'
+	 *     (rule start) (ambiguity) signOp='-'
+	 *     (rule start) (ambiguity) type=SpecialExpressionTypeEnum
+	 *     (rule start) (ambiguity) type=SpecialVariablesTypeEnum
+	 *     (rule start) (ambiguity) value=BooleanLiteralEnum
+	 *     (rule start) (ambiguity) value=ElementaryTypeNameEnum
+	 *     (rule start) (ambiguity) value=STRING
+	 *     (rule start) (ambiguity) {AddSub.left=}
+	 *     (rule start) (ambiguity) {And.left=}
+	 *     (rule start) (ambiguity) {Assignment.left=}
+	 *     (rule start) (ambiguity) {BitAnd.left=}
+	 *     (rule start) (ambiguity) {BitOr.left=}
+	 *     (rule start) (ambiguity) {BitXor.left=}
+	 *     (rule start) (ambiguity) {Comparison.left=}
+	 *     (rule start) (ambiguity) {Equality.left=}
+	 *     (rule start) (ambiguity) {Exponent.left=}
+	 *     (rule start) (ambiguity) {MulDivMod.left=}
+	 *     (rule start) (ambiguity) {Or.left=}
+	 *     (rule start) (ambiguity) {PostIncDecExpression.expression=}
+	 *     (rule start) (ambiguity) {PreDecExpression.expression=}
+	 *     (rule start) (ambiguity) {PreIncExpression.expression=}
+	 *     (rule start) (ambiguity) {Shift.left=}
+	 *     (rule start) (ambiguity) {Tuple.members+=}
+	 *     (rule start) (ambiguity) {VariableDeclarationExpression.type=}
+	 */
+	protected void emit_PrimaryExpression_LeftParenthesisKeyword_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

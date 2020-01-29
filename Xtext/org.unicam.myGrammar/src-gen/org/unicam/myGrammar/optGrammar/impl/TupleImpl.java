@@ -10,14 +10,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Tuple;
 
@@ -34,7 +32,7 @@ import org.unicam.myGrammar.optGrammar.Tuple;
  *
  * @generated
  */
-public class TupleImpl extends MinimalEObjectImpl.Container implements Tuple
+public class TupleImpl extends ExpressionImpl implements Tuple
 {
   /**
    * The cached value of the '{@link #getMembers() <em>Members</em>}' containment reference list.
@@ -44,7 +42,7 @@ public class TupleImpl extends MinimalEObjectImpl.Container implements Tuple
    * @generated
    * @ordered
    */
-  protected EList<EObject> members;
+  protected EList<Expression> members;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,11 +71,11 @@ public class TupleImpl extends MinimalEObjectImpl.Container implements Tuple
    * @generated
    */
   @Override
-  public EList<EObject> getMembers()
+  public EList<Expression> getMembers()
   {
     if (members == null)
     {
-      members = new EObjectContainmentEList<EObject>(EObject.class, this, OptGrammarPackage.TUPLE__MEMBERS);
+      members = new EObjectContainmentEList<Expression>(Expression.class, this, OptGrammarPackage.TUPLE__MEMBERS);
     }
     return members;
   }
@@ -127,7 +125,7 @@ public class TupleImpl extends MinimalEObjectImpl.Container implements Tuple
     {
       case OptGrammarPackage.TUPLE__MEMBERS:
         getMembers().clear();
-        getMembers().addAll((Collection<? extends EObject>)newValue);
+        getMembers().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

@@ -5,8 +5,6 @@ package org.unicam.myGrammar.optGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Tuple</b></em>'.
@@ -23,11 +21,11 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Tuple extends EObject
+public interface Tuple extends Expression
 {
   /**
    * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Expression}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Members</em>' containment reference list.
@@ -35,6 +33,6 @@ public interface Tuple extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<EObject> getMembers();
+  EList<Expression> getMembers();
 
 } // Tuple

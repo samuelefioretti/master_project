@@ -366,9 +366,39 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
-      public Adapter caseConditionOperation(ConditionOperation object)
+      public Adapter caseSpecialExpression(SpecialExpression object)
       {
-        return createConditionOperationAdapter();
+        return createSpecialExpressionAdapter();
+      }
+      @Override
+      public Adapter caseNotExpression(NotExpression object)
+      {
+        return createNotExpressionAdapter();
+      }
+      @Override
+      public Adapter casePreIncExpression(PreIncExpression object)
+      {
+        return createPreIncExpressionAdapter();
+      }
+      @Override
+      public Adapter casePreDecExpression(PreDecExpression object)
+      {
+        return createPreDecExpressionAdapter();
+      }
+      @Override
+      public Adapter caseBinaryNotExpression(BinaryNotExpression object)
+      {
+        return createBinaryNotExpressionAdapter();
+      }
+      @Override
+      public Adapter caseSignExpression(SignExpression object)
+      {
+        return createSignExpressionAdapter();
+      }
+      @Override
+      public Adapter caseNewExpression(NewExpression object)
+      {
+        return createNewExpressionAdapter();
       }
       @Override
       public Adapter caseLiteral(Literal object)
@@ -519,6 +549,76 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseContinue(Continue object)
       {
         return createContinueAdapter();
+      }
+      @Override
+      public Adapter caseAssignment(Assignment object)
+      {
+        return createAssignmentAdapter();
+      }
+      @Override
+      public Adapter caseVariableDeclarationExpression(VariableDeclarationExpression object)
+      {
+        return createVariableDeclarationExpressionAdapter();
+      }
+      @Override
+      public Adapter caseOr(Or object)
+      {
+        return createOrAdapter();
+      }
+      @Override
+      public Adapter caseAnd(And object)
+      {
+        return createAndAdapter();
+      }
+      @Override
+      public Adapter caseEquality(Equality object)
+      {
+        return createEqualityAdapter();
+      }
+      @Override
+      public Adapter caseComparison(Comparison object)
+      {
+        return createComparisonAdapter();
+      }
+      @Override
+      public Adapter caseBitOr(BitOr object)
+      {
+        return createBitOrAdapter();
+      }
+      @Override
+      public Adapter caseBitXor(BitXor object)
+      {
+        return createBitXorAdapter();
+      }
+      @Override
+      public Adapter caseBitAnd(BitAnd object)
+      {
+        return createBitAndAdapter();
+      }
+      @Override
+      public Adapter caseShift(Shift object)
+      {
+        return createShiftAdapter();
+      }
+      @Override
+      public Adapter caseAddSub(AddSub object)
+      {
+        return createAddSubAdapter();
+      }
+      @Override
+      public Adapter caseMulDivMod(MulDivMod object)
+      {
+        return createMulDivModAdapter();
+      }
+      @Override
+      public Adapter caseExponent(Exponent object)
+      {
+        return createExponentAdapter();
+      }
+      @Override
+      public Adapter casePostIncDecExpression(PostIncDecExpression object)
+      {
+        return createPostIncDecExpressionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -1413,16 +1513,106 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ConditionOperation <em>Condition Operation</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SpecialExpression <em>Special Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.ConditionOperation
+   * @see org.unicam.myGrammar.optGrammar.SpecialExpression
    * @generated
    */
-  public Adapter createConditionOperationAdapter()
+  public Adapter createSpecialExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.NotExpression <em>Not Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.NotExpression
+   * @generated
+   */
+  public Adapter createNotExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.PreIncExpression <em>Pre Inc Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.PreIncExpression
+   * @generated
+   */
+  public Adapter createPreIncExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.PreDecExpression <em>Pre Dec Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.PreDecExpression
+   * @generated
+   */
+  public Adapter createPreDecExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.BinaryNotExpression <em>Binary Not Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.BinaryNotExpression
+   * @generated
+   */
+  public Adapter createBinaryNotExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SignExpression <em>Sign Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.SignExpression
+   * @generated
+   */
+  public Adapter createSignExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.NewExpression <em>New Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.NewExpression
+   * @generated
+   */
+  public Adapter createNewExpressionAdapter()
   {
     return null;
   }
@@ -1873,6 +2063,216 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createContinueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Assignment <em>Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.Assignment
+   * @generated
+   */
+  public Adapter createAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.VariableDeclarationExpression <em>Variable Declaration Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.VariableDeclarationExpression
+   * @generated
+   */
+  public Adapter createVariableDeclarationExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Or <em>Or</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.Or
+   * @generated
+   */
+  public Adapter createOrAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.And <em>And</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.And
+   * @generated
+   */
+  public Adapter createAndAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Equality <em>Equality</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.Equality
+   * @generated
+   */
+  public Adapter createEqualityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Comparison <em>Comparison</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.Comparison
+   * @generated
+   */
+  public Adapter createComparisonAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.BitOr <em>Bit Or</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.BitOr
+   * @generated
+   */
+  public Adapter createBitOrAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.BitXor <em>Bit Xor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.BitXor
+   * @generated
+   */
+  public Adapter createBitXorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.BitAnd <em>Bit And</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.BitAnd
+   * @generated
+   */
+  public Adapter createBitAndAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Shift <em>Shift</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.Shift
+   * @generated
+   */
+  public Adapter createShiftAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.AddSub <em>Add Sub</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.AddSub
+   * @generated
+   */
+  public Adapter createAddSubAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.MulDivMod <em>Mul Div Mod</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.MulDivMod
+   * @generated
+   */
+  public Adapter createMulDivModAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Exponent <em>Exponent</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.Exponent
+   * @generated
+   */
+  public Adapter createExponentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.PostIncDecExpression <em>Post Inc Dec Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.PostIncDecExpression
+   * @generated
+   */
+  public Adapter createPostIncDecExpressionAdapter()
   {
     return null;
   }

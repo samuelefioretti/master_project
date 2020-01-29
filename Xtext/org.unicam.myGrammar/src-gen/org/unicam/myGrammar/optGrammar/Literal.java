@@ -3,7 +3,6 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Literal extends EObject
+public interface Literal extends Expression
 {
 } // Literal

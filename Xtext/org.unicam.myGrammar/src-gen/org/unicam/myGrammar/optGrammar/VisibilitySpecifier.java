@@ -20,7 +20,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface VisibilitySpecifier extends FunctionDefinitionOptionalElement, VariableDeclarationOptionalElement
+public interface VisibilitySpecifier extends VariableDeclarationOptionalElement
 {
   /**
    * Returns the value of the '<em><b>Visibility</b></em>' containment reference.

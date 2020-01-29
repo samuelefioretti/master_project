@@ -1,11 +1,13 @@
 contract HotelBooking {
     uint counter;
-    mapping (string=>uint) position;
     
+    Element[] elements;
+    StateMemory currentMemory;
     
     struct Element {
         string ID;
-      }
+        State status;
+    }
     
     struct StateMemory {
         uint quotation;
@@ -55,12 +57,12 @@ contract HotelBooking {
         elements[position[_taskID]].status=State.DONE;
     }
     
-    function getCurrentState() public view returns(Element[] memory, StateMemory memory) {
+    function getCurrentState() public returns() {
         // Emit stateChanged(elements, currentMemory);
         return (elements, currentMemory);
     }
     
-    function compareStrings (string memory a, string memory b) internal pure returns (bool) {
+    function compareStrings (string memory a, string memory b) internal returns (bool) {
         return keccak256(abi.encode(a))==keccak256(abi.encode(b));
     }
 }

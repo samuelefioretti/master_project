@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#isPayable <em>Payable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getOptionalElements <em>Optional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnParameters <em>Return Parameters</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlock <em>Block</em>}</li>
@@ -95,6 +96,28 @@ public interface FunctionDefinition extends EObject
    * @generated
    */
   void setParameters(ParameterList value);
+
+  /**
+   * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Visibility</em>' containment reference.
+   * @see #setVisibility(VisibilityEnum)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Visibility()
+   * @model containment="true"
+   * @generated
+   */
+  VisibilityEnum getVisibility();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getVisibility <em>Visibility</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Visibility</em>' containment reference.
+   * @see #getVisibility()
+   * @generated
+   */
+  void setVisibility(VisibilityEnum value);
 
   /**
    * Returns the value of the '<em><b>Optional Elements</b></em>' containment reference list.

@@ -3,7 +3,6 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface TypeCast extends EObject
+public interface TypeCast extends Expression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

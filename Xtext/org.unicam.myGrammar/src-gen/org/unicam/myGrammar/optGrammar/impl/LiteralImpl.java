@@ -5,8 +5,6 @@ package org.unicam.myGrammar.optGrammar.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
@@ -17,7 +15,7 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  *
  * @generated
  */
-public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
+public class LiteralImpl extends ExpressionImpl implements Literal
 {
   /**
    * <!-- begin-user-doc -->

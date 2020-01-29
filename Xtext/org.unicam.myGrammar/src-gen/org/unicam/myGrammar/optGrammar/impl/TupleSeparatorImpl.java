@@ -5,8 +5,6 @@ package org.unicam.myGrammar.optGrammar.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.TupleSeparator;
 
@@ -17,7 +15,7 @@ import org.unicam.myGrammar.optGrammar.TupleSeparator;
  *
  * @generated
  */
-public class TupleSeparatorImpl extends MinimalEObjectImpl.Container implements TupleSeparator
+public class TupleSeparatorImpl extends ExpressionImpl implements TupleSeparator
 {
   /**
    * <!-- begin-user-doc -->

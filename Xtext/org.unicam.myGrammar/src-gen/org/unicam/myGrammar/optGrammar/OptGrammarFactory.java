@@ -546,13 +546,67 @@ public interface OptGrammarFactory extends EFactory
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Condition Operation</em>'.
+   * Returns a new object of class '<em>Special Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Condition Operation</em>'.
+   * @return a new object of class '<em>Special Expression</em>'.
    * @generated
    */
-  ConditionOperation createConditionOperation();
+  SpecialExpression createSpecialExpression();
+
+  /**
+   * Returns a new object of class '<em>Not Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Not Expression</em>'.
+   * @generated
+   */
+  NotExpression createNotExpression();
+
+  /**
+   * Returns a new object of class '<em>Pre Inc Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pre Inc Expression</em>'.
+   * @generated
+   */
+  PreIncExpression createPreIncExpression();
+
+  /**
+   * Returns a new object of class '<em>Pre Dec Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pre Dec Expression</em>'.
+   * @generated
+   */
+  PreDecExpression createPreDecExpression();
+
+  /**
+   * Returns a new object of class '<em>Binary Not Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binary Not Expression</em>'.
+   * @generated
+   */
+  BinaryNotExpression createBinaryNotExpression();
+
+  /**
+   * Returns a new object of class '<em>Sign Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sign Expression</em>'.
+   * @generated
+   */
+  SignExpression createSignExpression();
+
+  /**
+   * Returns a new object of class '<em>New Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>New Expression</em>'.
+   * @generated
+   */
+  NewExpression createNewExpression();
 
   /**
    * Returns a new object of class '<em>Literal</em>'.
@@ -823,6 +877,132 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   Continue createContinue();
+
+  /**
+   * Returns a new object of class '<em>Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assignment</em>'.
+   * @generated
+   */
+  Assignment createAssignment();
+
+  /**
+   * Returns a new object of class '<em>Variable Declaration Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Declaration Expression</em>'.
+   * @generated
+   */
+  VariableDeclarationExpression createVariableDeclarationExpression();
+
+  /**
+   * Returns a new object of class '<em>Or</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Or</em>'.
+   * @generated
+   */
+  Or createOr();
+
+  /**
+   * Returns a new object of class '<em>And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And</em>'.
+   * @generated
+   */
+  And createAnd();
+
+  /**
+   * Returns a new object of class '<em>Equality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equality</em>'.
+   * @generated
+   */
+  Equality createEquality();
+
+  /**
+   * Returns a new object of class '<em>Comparison</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Comparison</em>'.
+   * @generated
+   */
+  Comparison createComparison();
+
+  /**
+   * Returns a new object of class '<em>Bit Or</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bit Or</em>'.
+   * @generated
+   */
+  BitOr createBitOr();
+
+  /**
+   * Returns a new object of class '<em>Bit Xor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bit Xor</em>'.
+   * @generated
+   */
+  BitXor createBitXor();
+
+  /**
+   * Returns a new object of class '<em>Bit And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bit And</em>'.
+   * @generated
+   */
+  BitAnd createBitAnd();
+
+  /**
+   * Returns a new object of class '<em>Shift</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Shift</em>'.
+   * @generated
+   */
+  Shift createShift();
+
+  /**
+   * Returns a new object of class '<em>Add Sub</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add Sub</em>'.
+   * @generated
+   */
+  AddSub createAddSub();
+
+  /**
+   * Returns a new object of class '<em>Mul Div Mod</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mul Div Mod</em>'.
+   * @generated
+   */
+  MulDivMod createMulDivMod();
+
+  /**
+   * Returns a new object of class '<em>Exponent</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exponent</em>'.
+   * @generated
+   */
+  Exponent createExponent();
+
+  /**
+   * Returns a new object of class '<em>Post Inc Dec Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Post Inc Dec Expression</em>'.
+   * @generated
+   */
+  PostIncDecExpression createPostIncDecExpression();
 
   /**
    * Returns the package supported by this factory.

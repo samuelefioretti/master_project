@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface QualifiedIdentifier extends StandardType
+public interface QualifiedIdentifier extends StandardType, Expression
 {
   /**
    * Returns the value of the '<em><b>Identifier</b></em>' attribute.

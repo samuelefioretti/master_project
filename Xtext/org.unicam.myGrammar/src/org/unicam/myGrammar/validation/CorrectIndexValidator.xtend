@@ -52,71 +52,71 @@ class CorrectIndexValidator extends AbstractOptGrammarValidator {
 			FunctionCall:
 				if (toCheck.name.returnParameters === null)
 					toReturn = "Please explicit the return type of the called function"
-				//else if (!toCheck.name.returnParameters.validIntoArrayIndex)
-				//	toReturn = "The return type of the called function is not usable into the array index"
-			ArithmeticOperations: {
-				var errorMessage = toCheck.first.getErrorString;
-				if (!errorMessage.nullOrEmpty)
-					toReturn = errorMessage
-				else
-					for (SecondOperators s : toCheck.seconds) {
-						errorMessage = s.value.getErrorString
-						if (!errorMessage.nullOrEmpty)
-							toReturn = errorMessage
-					}
-			}
-			/*FieldAccess:
-			 * 	for (Declaration field : (toCheck.ref as ConcreteStructDeclaration).type.fields)
-			 * 		if (field.getName.equals(toCheck.field) && !field.validIntoArrayIndex)
-			 * 			toReturn = "The variable type is not usable as an array index"
-			 * ArrayAccess:
-			 * 	if (toCheck.variable.asDeclaration.type instanceof NamedType)
-			 * 		if (!toCheck.variable.asDeclaration.type.validIntoArrayIndex)
-			 toReturn = "The array pointed is not suitable for array indexing"*/
-			//default:
-			//	if (toCheck.ref !== null && !toCheck.ref.validIntoArrayIndex)
-			//		toReturn = "The variable type is not usable as an array index"
+		// else if (!toCheck.name.returnParameters.validIntoArrayIndex)
+		// toReturn = "The return type of the called function is not usable into the array index"
+		/*
+		 * ArithmeticOperations: {
+		 * 	var errorMessage = toCheck.first.getErrorString;
+		 * 	if (!errorMessage.nullOrEmpty)
+		 * 		toReturn = errorMessage
+		 * 	else
+		 * 		for (SecondOperators s : toCheck.seconds) {
+		 * 			errorMessage = s.value.getErrorString
+		 * 			if (!errorMessage.nullOrEmpty)
+		 * 				toReturn = errorMessage
+		 * 		}
+		 * 
+		 */
 		}
-		return toReturn
+	/*FieldAccess:
+	 * 	for (Declaration field : (toCheck.ref as ConcreteStructDeclaration).type.fields)
+	 * 		if (field.getName.equals(toCheck.field) && !field.validIntoArrayIndex)
+	 * 			toReturn = "The variable type is not usable as an array index"
+	 * ArrayAccess:
+	 * 	if (toCheck.variable.asDeclaration.type instanceof NamedType)
+	 * 		if (!toCheck.variable.asDeclaration.type.validIntoArrayIndex)
+	 toReturn = "The array pointed is not suitable for array indexing"*/
+// default:
+// if (toCheck.ref !== null && !toCheck.ref.validIntoArrayIndex)
+// toReturn = "The variable type is not usable as an array index"
 	}
-
-	def String getErrorString(Expression logicalOperations) {
-		if (logicalOperations.operations !== null && !logicalOperations.operations.empty)
-			return "Boolean expression are not usable as Array Index";
-		if (logicalOperations.ternary) {
-			val trueMessage = logicalOperations.^true.checkValidIndex;
-			val falseMessage = logicalOperations.^false.checkValidIndex;
-			if (trueMessage.isNullOrEmpty)
-				if(falseMessage.isNullOrEmpty) return null else return "Error in false statement: " + falseMessage;
-			return "Error in true statement: " + trueMessage;
-		}
-		return logicalOperations.first.checkValidIndex;
-	}
-
-	def getErrorString(PrimaryArithmetic primaryArithmetic) {
-		switch (primaryArithmetic) {
-			NumericLiteral:
-				return primaryArithmetic.validIntoArrayIndex ? null : "The inserted number is not correct"
-			Expression:
-				return primaryArithmetic.getErrorString
-		}
-	}
-
-	/*def boolean validIntoArrayIndex(Declaration dec) {
-	 * 	if (dec instanceof PrimaryTypeDefinitionDeclaration) {
-	 * 		if (dec.ref === null)
-	 * 			return dec instanceof ArrayableDeclaration && (dec as ArrayableDeclaration).type.unsigned
-	 * 		return dec.ref instanceof ArrayableDeclaration && (dec.ref as ArrayableDeclaration).type.unsigned
-	 * 	}
-	 * 	return false;
-	 }*/
-	def boolean validIntoArrayIndex(NumericLiteral numLit) {
-		if (numLit.etherUnit !== null || numLit.decimalValue !== null)
-			return false;
-		return numLit.intValue.value >= 0
-	}
-
+//return toReturn
+}
+/*
+ * def String getErrorString(Expression logicalOperations) {
+ * 	if (logicalOperations.operations !== null && !logicalOperations.operations.empty)
+ * 		return "Boolean expression are not usable as Array Index";
+ * 	if (logicalOperations.ternary) {
+ * 		val trueMessage = logicalOperations.^true.checkValidIndex;
+ * 		val falseMessage = logicalOperations.^false.checkValidIndex;
+ * 		if (trueMessage.isNullOrEmpty)
+ * 			if(falseMessage.isNullOrEmpty) return null else return "Error in false statement: " + falseMessage;
+ * 		return "Error in true statement: " + trueMessage;
+ * 	}
+ * 	return logicalOperations.first.checkValidIndex;
+ * }
+ */
+/*def getErrorString(PrimaryArithmetic primaryArithmetic) {
+ * 	switch (primaryArithmetic) {
+ * 		NumericLiteral:
+ * 			return primaryArithmetic.validIntoArrayIndex ? null : "The inserted number is not correct"
+ * 		Expression:
+ * 			return primaryArithmetic.getErrorString
+ * 	}
+ }*/
+/*def boolean validIntoArrayIndex(Declaration dec) {
+ * 	if (dec instanceof PrimaryTypeDefinitionDeclaration) {
+ * 		if (dec.ref === null)
+ * 			return dec instanceof ArrayableDeclaration && (dec as ArrayableDeclaration).type.unsigned
+ * 		return dec.ref instanceof ArrayableDeclaration && (dec.ref as ArrayableDeclaration).type.unsigned
+ * 	}
+ * 	return false;
+ }*/
+/*def boolean validIntoArrayIndex(NumericLiteral numLit) {
+ * 	if (numLit.etherUnit !== null || numLit.decimalValue !== null)
+ * 		return false;
+ * 	return numLit.intValue.value >= 0
+ }*/
 /*def boolean validIntoArrayIndex(NamedType namedType) {
  * 	return namedType instanceof SizedDeclaration && (namedType as SizedDeclaration).unsigned
  }*/
-}

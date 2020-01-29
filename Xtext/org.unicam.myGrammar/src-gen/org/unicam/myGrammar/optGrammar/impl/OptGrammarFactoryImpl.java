@@ -124,7 +124,13 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.THROW_STATEMENT: return createThrowStatement();
       case OptGrammarPackage.PLACE_HOLDER_STATEMENT: return createPlaceHolderStatement();
       case OptGrammarPackage.EXPRESSION: return createExpression();
-      case OptGrammarPackage.CONDITION_OPERATION: return createConditionOperation();
+      case OptGrammarPackage.SPECIAL_EXPRESSION: return createSpecialExpression();
+      case OptGrammarPackage.NOT_EXPRESSION: return createNotExpression();
+      case OptGrammarPackage.PRE_INC_EXPRESSION: return createPreIncExpression();
+      case OptGrammarPackage.PRE_DEC_EXPRESSION: return createPreDecExpression();
+      case OptGrammarPackage.BINARY_NOT_EXPRESSION: return createBinaryNotExpression();
+      case OptGrammarPackage.SIGN_EXPRESSION: return createSignExpression();
+      case OptGrammarPackage.NEW_EXPRESSION: return createNewExpression();
       case OptGrammarPackage.LITERAL: return createLiteral();
       case OptGrammarPackage.GASLEFT_FUNCTION: return createGasleftFunction();
       case OptGrammarPackage.BLOCKHASH_FUNCTION: return createBlockhashFunction();
@@ -155,6 +161,20 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION: return createVarVariableTypeDeclaration();
       case OptGrammarPackage.BLOCK: return createBlock();
       case OptGrammarPackage.CONTINUE: return createContinue();
+      case OptGrammarPackage.ASSIGNMENT: return createAssignment();
+      case OptGrammarPackage.VARIABLE_DECLARATION_EXPRESSION: return createVariableDeclarationExpression();
+      case OptGrammarPackage.OR: return createOr();
+      case OptGrammarPackage.AND: return createAnd();
+      case OptGrammarPackage.EQUALITY: return createEquality();
+      case OptGrammarPackage.COMPARISON: return createComparison();
+      case OptGrammarPackage.BIT_OR: return createBitOr();
+      case OptGrammarPackage.BIT_XOR: return createBitXor();
+      case OptGrammarPackage.BIT_AND: return createBitAnd();
+      case OptGrammarPackage.SHIFT: return createShift();
+      case OptGrammarPackage.ADD_SUB: return createAddSub();
+      case OptGrammarPackage.MUL_DIV_MOD: return createMulDivMod();
+      case OptGrammarPackage.EXPONENT: return createExponent();
+      case OptGrammarPackage.POST_INC_DEC_EXPRESSION: return createPostIncDecExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -170,8 +190,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     switch (eDataType.getClassifierID())
     {
-      case OptGrammarPackage.LOGICAL_OPERATION_LITERAL:
-        return createLogicalOperationLiteralFromString(eDataType, initialValue);
       case OptGrammarPackage.ASSIGNMENT_OP_ENUM:
         return createAssignmentOpEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.EQUALITY_OP_ENUM:
@@ -211,8 +229,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     switch (eDataType.getClassifierID())
     {
-      case OptGrammarPackage.LOGICAL_OPERATION_LITERAL:
-        return convertLogicalOperationLiteralToString(eDataType, instanceValue);
       case OptGrammarPackage.ASSIGNMENT_OP_ENUM:
         return convertAssignmentOpEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.EQUALITY_OP_ENUM:
@@ -944,10 +960,82 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public ConditionOperation createConditionOperation()
+  public SpecialExpression createSpecialExpression()
   {
-    ConditionOperationImpl conditionOperation = new ConditionOperationImpl();
-    return conditionOperation;
+    SpecialExpressionImpl specialExpression = new SpecialExpressionImpl();
+    return specialExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotExpression createNotExpression()
+  {
+    NotExpressionImpl notExpression = new NotExpressionImpl();
+    return notExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PreIncExpression createPreIncExpression()
+  {
+    PreIncExpressionImpl preIncExpression = new PreIncExpressionImpl();
+    return preIncExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PreDecExpression createPreDecExpression()
+  {
+    PreDecExpressionImpl preDecExpression = new PreDecExpressionImpl();
+    return preDecExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BinaryNotExpression createBinaryNotExpression()
+  {
+    BinaryNotExpressionImpl binaryNotExpression = new BinaryNotExpressionImpl();
+    return binaryNotExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SignExpression createSignExpression()
+  {
+    SignExpressionImpl signExpression = new SignExpressionImpl();
+    return signExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NewExpression createNewExpression()
+  {
+    NewExpressionImpl newExpression = new NewExpressionImpl();
+    return newExpression;
   }
 
   /**
@@ -1315,11 +1403,11 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public LogicalOperationLiteral createLogicalOperationLiteralFromString(EDataType eDataType, String initialValue)
+  @Override
+  public Assignment createAssignment()
   {
-    LogicalOperationLiteral result = LogicalOperationLiteral.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
+    AssignmentImpl assignment = new AssignmentImpl();
+    return assignment;
   }
 
   /**
@@ -1327,9 +1415,155 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertLogicalOperationLiteralToString(EDataType eDataType, Object instanceValue)
+  @Override
+  public VariableDeclarationExpression createVariableDeclarationExpression()
   {
-    return instanceValue == null ? null : instanceValue.toString();
+    VariableDeclarationExpressionImpl variableDeclarationExpression = new VariableDeclarationExpressionImpl();
+    return variableDeclarationExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Or createOr()
+  {
+    OrImpl or = new OrImpl();
+    return or;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public And createAnd()
+  {
+    AndImpl and = new AndImpl();
+    return and;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Equality createEquality()
+  {
+    EqualityImpl equality = new EqualityImpl();
+    return equality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Comparison createComparison()
+  {
+    ComparisonImpl comparison = new ComparisonImpl();
+    return comparison;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BitOr createBitOr()
+  {
+    BitOrImpl bitOr = new BitOrImpl();
+    return bitOr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BitXor createBitXor()
+  {
+    BitXorImpl bitXor = new BitXorImpl();
+    return bitXor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BitAnd createBitAnd()
+  {
+    BitAndImpl bitAnd = new BitAndImpl();
+    return bitAnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Shift createShift()
+  {
+    ShiftImpl shift = new ShiftImpl();
+    return shift;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AddSub createAddSub()
+  {
+    AddSubImpl addSub = new AddSubImpl();
+    return addSub;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MulDivMod createMulDivMod()
+  {
+    MulDivModImpl mulDivMod = new MulDivModImpl();
+    return mulDivMod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Exponent createExponent()
+  {
+    ExponentImpl exponent = new ExponentImpl();
+    return exponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PostIncDecExpression createPostIncDecExpression()
+  {
+    PostIncDecExpressionImpl postIncDecExpression = new PostIncDecExpressionImpl();
+    return postIncDecExpression;
   }
 
   /**
