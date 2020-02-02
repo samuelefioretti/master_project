@@ -13,10 +13,11 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
  org.eclipse.xtext.util,
  org.eclipse.emf.common,
- org.eclipse.xtend.lib;bundle-version="2.14.0",
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.unicam.myGrammar.validation,
+ org.unicam.myGrammar.parser.antlr.internal,
+ org.unicam.myGrammar.parser.antlr,
  org.unicam.myGrammar.optGrammar,
  org.unicam.myGrammar.optGrammar.util,
  org.unicam.myGrammar.services,
@@ -24,7 +25,5 @@ Export-Package: org.unicam.myGrammar.validation,
  org.unicam.myGrammar.serializer,
  org.unicam.myGrammar,
  org.unicam.myGrammar.optGrammar.impl,
- org.unicam.myGrammar.generator,
- org.unicam.myGrammar.parser.antlr.internal,
- org.unicam.myGrammar.parser.antlr
+ org.unicam.myGrammar.generator
 Import-Package: org.apache.log4j
