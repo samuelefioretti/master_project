@@ -18,23 +18,23 @@ Model:
 	operations+=Contract*;
 
 	/*
-	 * Solidity:
-	 * (importDirective+=ImportDirective |
-	 * contract+=Contract |
-	 * library+=Library)*;
-	 * 
-	 * ImportDirective:
-	 * "import" importURI=STRING ";" |
-	 * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
-	 * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
-	 * 
-	 * SymbolAlias:
-	 * symbol=ID "as" alias=ID
-	 * 
-	 * ContractOrLibrary:
-	 * Contract |
-	 * Library;
-	 */
+ * Solidity:
+ * (importDirective+=ImportDirective |
+ * contract+=Contract |
+ * library+=Library)
+ * 
+ * ImportDirective:
+ * "import" importURI=STRING ";" |
+ * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+ * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
+ * 
+ * SymbolAlias:
+ * symbol=ID "as" alias=I
+ * 
+ * ContractOrLibrary:
+ * Contract |
+ * Library;
+ */
 Contract:
 	"contract" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier
 	("," inheritanceSpecifiers+=InheritanceSpecifier)*)? body=DefinitionBody;
@@ -372,33 +372,30 @@ PrimaryExpression returns Expression:
 	"(" ")" {Tuple};
 
 Literal:
-//ArithmeticOperations |
-	SpecialVariables |
-	//NumericLiteral |
-	StringLiteral | BooleanConst | SpecialLiteral //|
-	/*
-	 * FunctionCall |
-	 * ArrayAccess |
-	 * MappingAccess |
-	 * FieldAccess |
-	 * BlockhashFunction |
-	 * GasleftFunction |
-	 * MathematicalFunction |
-	 * HashFunction |
-	 * EcrecoverFunction |
-	 * ref=[Declaration]
-	 */;
+	SpecialLiteral |
+	BooleanConst |
+	NumericLiteral |
+	StringLiteral;
+
+SpecialLiteral:
+	name=(BLOCK
+	| MSG
+	| TX
+	| NOW);
 
 BooleanConst:
 	value=BooleanLiteralEnum;
 
 NumericLiteral:
-	(intValue=NumberDimensionless | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?;
+	(intValue=IntLiteral
+	| hexValue=HexLiteral
+	| decimalValue=DecimalLiteral) etherUnit=UnitTypes?;
 
 UnitTypes:
-	time=TimeSubdenominationEnum | units=EtherSubDenominationEnum;
+	time=TimeUnitsLiteral
+	| units=UnitsLiteral;
 
-NumberDimensionless:
+IntLiteral:
 	value=INT;
 
 HexLiteral:
@@ -419,27 +416,27 @@ StringLiteral:
 TypeCast:
 	value=ElementaryTypeNameEnum "(" expression=Expression ")";
 
-SpecialVariables:
-	type=SpecialVariablesTypeEnum "." field=ID qualifiers+=Qualifier*;
-
 ElementaryTypeNameEnum:
 	type=(
 	//INT
-	"int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" | "int96" |
-	"int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" | "int178" |
-	"int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" | "int256") | type=(
+	"int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" |
+	"int96" | "int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" |
+	"int178" | "int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" |
+	"int256") |
+	type=(
 	// UINT
-	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
-	"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
-	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
-	| "uint248" | "uint256") | type=(
+	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" |
+	"uint80" | "uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" |
+	"uint160" | "uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" |
+	"uint232" | "uint240" | "uint248" | "uint256") |
+	type=(
 	// BYTES
-	"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
-	| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
-	"bytes29" | "bytes30" | "bytes31" | "bytes32") |
-	// OTHER
-	type="address";
+	"bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" | "bytes10" |
+	"bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19" |
+	"bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
+	"bytes29" | "bytes30" | "bytes31" | "bytes32" | "bytes" | "byte") |
+	// Other
+	type=("address" | "real" | "ureal");
 
 SimpleTypeDeclaration:
 	type=("string" | "bool");
@@ -453,14 +450,11 @@ LocationSpecifierEnum:
 VisibilityEnum:
 	type=("public" | "internal" | "private" | "external");
 
-EtherSubDenominationEnum:
+UnitsLiteral:
 	value=("wei" | "szabo" | "finney" | "ether");
 
-TimeSubdenominationEnum:
+TimeUnitsLiteral:
 	value=("seconds" | "minutes" | "hours" | "days" | "weeks" | "years");
-
-SpecialLiteral:
-	name=(BLOCK | MSG | TX | NOW);
 
 terminal BLOCK:
 	"block." ("coinbase" | "difficulty" | "gaslimit" | "number" | "timestamp");
@@ -502,13 +496,5 @@ enum BooleanLiteralEnum:
 	TRUE="true" | FALSE="false";
 
 	// Also "EOS" DAF
-enum SpecialVariablesTypeEnum:
-	MSG="msg" | BLOCK="block" | TX="tx";
-
 enum SpecialExpressionTypeEnum:
 	SUPER="super" | THIS="this";
-
-enum ReservedWordsEnum:
-	AS="as" | CASE="case" | CATCH="catch" | FINAL="final" | LET="let" | MATCH="match" | OF="of" |
-	RELOCATABLE="relocatable" | SWITCH="switch" | TRY="try" | TYPE="type" | TYPEOF="typeof" | USING="using" |
-	ILLEGAL="ILLEGAL";

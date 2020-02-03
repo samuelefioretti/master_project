@@ -43,7 +43,6 @@ import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Equality;
 import org.unicam.myGrammar.optGrammar.EqualityOpEnum;
-import org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum;
 import org.unicam.myGrammar.optGrammar.Event;
 import org.unicam.myGrammar.optGrammar.Exponent;
 import org.unicam.myGrammar.optGrammar.Expression;
@@ -61,6 +60,7 @@ import org.unicam.myGrammar.optGrammar.IncDecOpEnum;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
+import org.unicam.myGrammar.optGrammar.IntLiteral;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
@@ -72,7 +72,6 @@ import org.unicam.myGrammar.optGrammar.MulDivMod;
 import org.unicam.myGrammar.optGrammar.MulDivModOpEnum;
 import org.unicam.myGrammar.optGrammar.NewExpression;
 import org.unicam.myGrammar.optGrammar.NotExpression;
-import org.unicam.myGrammar.optGrammar.NumberDimensionless;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarFactory;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
@@ -84,7 +83,6 @@ import org.unicam.myGrammar.optGrammar.PreDecExpression;
 import org.unicam.myGrammar.optGrammar.PreIncExpression;
 import org.unicam.myGrammar.optGrammar.QualifiedIdentifier;
 import org.unicam.myGrammar.optGrammar.Qualifier;
-import org.unicam.myGrammar.optGrammar.ReservedWordsEnum;
 import org.unicam.myGrammar.optGrammar.ReturnParameterDeclaration;
 import org.unicam.myGrammar.optGrammar.ReturnStatement;
 import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
@@ -97,8 +95,6 @@ import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialExpressionTypeEnum;
 import org.unicam.myGrammar.optGrammar.SpecialLiteral;
-import org.unicam.myGrammar.optGrammar.SpecialVariables;
-import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
 import org.unicam.myGrammar.optGrammar.StandardType;
 import org.unicam.myGrammar.optGrammar.StandardTypeWithoutQualifiedIdentifier;
 import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
@@ -106,12 +102,13 @@ import org.unicam.myGrammar.optGrammar.Statement;
 import org.unicam.myGrammar.optGrammar.StringLiteral;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
 import org.unicam.myGrammar.optGrammar.ThrowStatement;
-import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
+import org.unicam.myGrammar.optGrammar.TimeUnitsLiteral;
 import org.unicam.myGrammar.optGrammar.Tuple;
 import org.unicam.myGrammar.optGrammar.TupleSeparator;
 import org.unicam.myGrammar.optGrammar.Type;
 import org.unicam.myGrammar.optGrammar.TypeCast;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
+import org.unicam.myGrammar.optGrammar.UnitsLiteral;
 import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
@@ -583,6 +580,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass specialLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass booleanConstEClass = null;
 
   /**
@@ -604,7 +608,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass numberDimensionlessEClass = null;
+  private EClass intLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -639,13 +643,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass specialVariablesEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass elementaryTypeNameEnumEClass = null;
 
   /**
@@ -674,21 +671,14 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass etherSubDenominationEnumEClass = null;
+  private EClass unitsLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass timeSubdenominationEnumEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass specialLiteralEClass = null;
+  private EClass timeUnitsLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -870,21 +860,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum specialVariablesTypeEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EEnum specialExpressionTypeEnumEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum reservedWordsEnumEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -2638,6 +2614,28 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EClass getSpecialLiteral()
+  {
+    return specialLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSpecialLiteral_Name()
+  {
+    return (EAttribute)specialLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getBooleanConst()
   {
     return booleanConstEClass;
@@ -2748,9 +2746,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getNumberDimensionless()
+  public EClass getIntLiteral()
   {
-    return numberDimensionlessEClass;
+    return intLiteralEClass;
   }
 
   /**
@@ -2759,9 +2757,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getNumberDimensionless_Value()
+  public EAttribute getIntLiteral_Value()
   {
-    return (EAttribute)numberDimensionlessEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)intLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2869,50 +2867,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getSpecialVariables()
-  {
-    return specialVariablesEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSpecialVariables_Type()
-  {
-    return (EAttribute)specialVariablesEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSpecialVariables_Field()
-  {
-    return (EAttribute)specialVariablesEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getSpecialVariables_Qualifiers()
-  {
-    return (EReference)specialVariablesEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getElementaryTypeNameEnum()
   {
     return elementaryTypeNameEnumEClass;
@@ -3001,9 +2955,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getEtherSubDenominationEnum()
+  public EClass getUnitsLiteral()
   {
-    return etherSubDenominationEnumEClass;
+    return unitsLiteralEClass;
   }
 
   /**
@@ -3012,9 +2966,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getEtherSubDenominationEnum_Value()
+  public EAttribute getUnitsLiteral_Value()
   {
-    return (EAttribute)etherSubDenominationEnumEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)unitsLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3023,9 +2977,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getTimeSubdenominationEnum()
+  public EClass getTimeUnitsLiteral()
   {
-    return timeSubdenominationEnumEClass;
+    return timeUnitsLiteralEClass;
   }
 
   /**
@@ -3034,31 +2988,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getTimeSubdenominationEnum_Value()
+  public EAttribute getTimeUnitsLiteral_Value()
   {
-    return (EAttribute)timeSubdenominationEnumEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSpecialLiteral()
-  {
-    return specialLiteralEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSpecialLiteral_Name()
-  {
-    return (EAttribute)specialLiteralEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)timeUnitsLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3771,31 +3703,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EEnum getSpecialVariablesTypeEnum()
-  {
-    return specialVariablesTypeEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EEnum getSpecialExpressionTypeEnum()
   {
     return specialExpressionTypeEnumEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EEnum getReservedWordsEnum()
-  {
-    return reservedWordsEnumEEnum;
   }
 
   /**
@@ -4046,6 +3956,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     literalEClass = createEClass(LITERAL);
 
+    specialLiteralEClass = createEClass(SPECIAL_LITERAL);
+    createEAttribute(specialLiteralEClass, SPECIAL_LITERAL__NAME);
+
     booleanConstEClass = createEClass(BOOLEAN_CONST);
     createEAttribute(booleanConstEClass, BOOLEAN_CONST__VALUE);
 
@@ -4059,8 +3972,8 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     createEReference(unitTypesEClass, UNIT_TYPES__TIME);
     createEReference(unitTypesEClass, UNIT_TYPES__UNITS);
 
-    numberDimensionlessEClass = createEClass(NUMBER_DIMENSIONLESS);
-    createEAttribute(numberDimensionlessEClass, NUMBER_DIMENSIONLESS__VALUE);
+    intLiteralEClass = createEClass(INT_LITERAL);
+    createEAttribute(intLiteralEClass, INT_LITERAL__VALUE);
 
     hexLiteralEClass = createEClass(HEX_LITERAL);
     createEAttribute(hexLiteralEClass, HEX_LITERAL__VALUE);
@@ -4075,11 +3988,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     createEReference(typeCastEClass, TYPE_CAST__VALUE);
     createEReference(typeCastEClass, TYPE_CAST__EXPRESSION);
 
-    specialVariablesEClass = createEClass(SPECIAL_VARIABLES);
-    createEAttribute(specialVariablesEClass, SPECIAL_VARIABLES__TYPE);
-    createEAttribute(specialVariablesEClass, SPECIAL_VARIABLES__FIELD);
-    createEReference(specialVariablesEClass, SPECIAL_VARIABLES__QUALIFIERS);
-
     elementaryTypeNameEnumEClass = createEClass(ELEMENTARY_TYPE_NAME_ENUM);
     createEAttribute(elementaryTypeNameEnumEClass, ELEMENTARY_TYPE_NAME_ENUM__TYPE);
 
@@ -4092,14 +4000,11 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     visibilityEnumEClass = createEClass(VISIBILITY_ENUM);
     createEAttribute(visibilityEnumEClass, VISIBILITY_ENUM__TYPE);
 
-    etherSubDenominationEnumEClass = createEClass(ETHER_SUB_DENOMINATION_ENUM);
-    createEAttribute(etherSubDenominationEnumEClass, ETHER_SUB_DENOMINATION_ENUM__VALUE);
+    unitsLiteralEClass = createEClass(UNITS_LITERAL);
+    createEAttribute(unitsLiteralEClass, UNITS_LITERAL__VALUE);
 
-    timeSubdenominationEnumEClass = createEClass(TIME_SUBDENOMINATION_ENUM);
-    createEAttribute(timeSubdenominationEnumEClass, TIME_SUBDENOMINATION_ENUM__VALUE);
-
-    specialLiteralEClass = createEClass(SPECIAL_LITERAL);
-    createEAttribute(specialLiteralEClass, SPECIAL_LITERAL__NAME);
+    timeUnitsLiteralEClass = createEClass(TIME_UNITS_LITERAL);
+    createEAttribute(timeUnitsLiteralEClass, TIME_UNITS_LITERAL__VALUE);
 
     varVariableTypeDeclarationEClass = createEClass(VAR_VARIABLE_TYPE_DECLARATION);
     createEReference(varVariableTypeDeclarationEClass, VAR_VARIABLE_TYPE_DECLARATION__VARIABLE);
@@ -4183,9 +4088,7 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     mulDivModOpEnumEEnum = createEEnum(MUL_DIV_MOD_OP_ENUM);
     incDecOpEnumEEnum = createEEnum(INC_DEC_OP_ENUM);
     booleanLiteralEnumEEnum = createEEnum(BOOLEAN_LITERAL_ENUM);
-    specialVariablesTypeEnumEEnum = createEEnum(SPECIAL_VARIABLES_TYPE_ENUM);
     specialExpressionTypeEnumEEnum = createEEnum(SPECIAL_EXPRESSION_TYPE_ENUM);
-    reservedWordsEnumEEnum = createEEnum(RESERVED_WORDS_ENUM);
   }
 
   /**
@@ -4267,11 +4170,11 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     signExpressionEClass.getESuperTypes().add(this.getExpression());
     newExpressionEClass.getESuperTypes().add(this.getExpression());
     literalEClass.getESuperTypes().add(this.getExpression());
+    specialLiteralEClass.getESuperTypes().add(this.getLiteral());
     booleanConstEClass.getESuperTypes().add(this.getLiteral());
+    numericLiteralEClass.getESuperTypes().add(this.getLiteral());
     stringLiteralEClass.getESuperTypes().add(this.getLiteral());
     typeCastEClass.getESuperTypes().add(this.getExpression());
-    specialVariablesEClass.getESuperTypes().add(this.getLiteral());
-    specialLiteralEClass.getESuperTypes().add(this.getLiteral());
     varVariableTypeDeclarationEClass.getESuperTypes().add(this.getSimpleStatement());
     varVariableTypeDeclarationEClass.getESuperTypes().add(this.getSimpleStatement2());
     blockEClass.getESuperTypes().add(this.getBody());
@@ -4509,21 +4412,24 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     initEClass(literalEClass, Literal.class, "Literal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(specialLiteralEClass, SpecialLiteral.class, "SpecialLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSpecialLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, SpecialLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(booleanConstEClass, BooleanConst.class, "BooleanConst", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBooleanConst_Value(), this.getBooleanLiteralEnum(), "value", null, 0, 1, BooleanConst.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(numericLiteralEClass, NumericLiteral.class, "NumericLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNumericLiteral_IntValue(), this.getNumberDimensionless(), null, "intValue", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNumericLiteral_IntValue(), this.getIntLiteral(), null, "intValue", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNumericLiteral_HexValue(), this.getHexLiteral(), null, "hexValue", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNumericLiteral_DecimalValue(), this.getDecimalLiteral(), null, "decimalValue", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNumericLiteral_EtherUnit(), this.getUnitTypes(), null, "etherUnit", null, 0, 1, NumericLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(unitTypesEClass, UnitTypes.class, "UnitTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUnitTypes_Time(), this.getTimeSubdenominationEnum(), null, "time", null, 0, 1, UnitTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUnitTypes_Units(), this.getEtherSubDenominationEnum(), null, "units", null, 0, 1, UnitTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnitTypes_Time(), this.getTimeUnitsLiteral(), null, "time", null, 0, 1, UnitTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUnitTypes_Units(), this.getUnitsLiteral(), null, "units", null, 0, 1, UnitTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(numberDimensionlessEClass, NumberDimensionless.class, "NumberDimensionless", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNumberDimensionless_Value(), ecorePackage.getEInt(), "value", null, 0, 1, NumberDimensionless.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(intLiteralEClass, IntLiteral.class, "IntLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIntLiteral_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(hexLiteralEClass, HexLiteral.class, "HexLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHexLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, HexLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4538,11 +4444,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEReference(getTypeCast_Value(), this.getElementaryTypeNameEnum(), null, "value", null, 0, 1, TypeCast.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeCast_Expression(), this.getExpression(), null, "expression", null, 0, 1, TypeCast.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(specialVariablesEClass, SpecialVariables.class, "SpecialVariables", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSpecialVariables_Type(), this.getSpecialVariablesTypeEnum(), "type", null, 0, 1, SpecialVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSpecialVariables_Field(), ecorePackage.getEString(), "field", null, 0, 1, SpecialVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSpecialVariables_Qualifiers(), this.getQualifier(), null, "qualifiers", null, 0, -1, SpecialVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(elementaryTypeNameEnumEClass, ElementaryTypeNameEnum.class, "ElementaryTypeNameEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElementaryTypeNameEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, ElementaryTypeNameEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4555,14 +4456,11 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEClass(visibilityEnumEClass, VisibilityEnum.class, "VisibilityEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVisibilityEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, VisibilityEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(etherSubDenominationEnumEClass, EtherSubDenominationEnum.class, "EtherSubDenominationEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEtherSubDenominationEnum_Value(), ecorePackage.getEString(), "value", null, 0, 1, EtherSubDenominationEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(unitsLiteralEClass, UnitsLiteral.class, "UnitsLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnitsLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, UnitsLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(timeSubdenominationEnumEClass, TimeSubdenominationEnum.class, "TimeSubdenominationEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTimeSubdenominationEnum_Value(), ecorePackage.getEString(), "value", null, 0, 1, TimeSubdenominationEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(specialLiteralEClass, SpecialLiteral.class, "SpecialLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSpecialLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, SpecialLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(timeUnitsLiteralEClass, TimeUnitsLiteral.class, "TimeUnitsLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTimeUnitsLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, TimeUnitsLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varVariableTypeDeclarationEClass, VarVariableTypeDeclaration.class, "VarVariableTypeDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getVarVariableTypeDeclaration_Variable(), this.getVariable(), null, "variable", null, 0, 1, VarVariableTypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4685,30 +4583,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     addEEnumLiteral(booleanLiteralEnumEEnum, BooleanLiteralEnum.TRUE);
     addEEnumLiteral(booleanLiteralEnumEEnum, BooleanLiteralEnum.FALSE);
 
-    initEEnum(specialVariablesTypeEnumEEnum, SpecialVariablesTypeEnum.class, "SpecialVariablesTypeEnum");
-    addEEnumLiteral(specialVariablesTypeEnumEEnum, SpecialVariablesTypeEnum.MSG);
-    addEEnumLiteral(specialVariablesTypeEnumEEnum, SpecialVariablesTypeEnum.BLOCK);
-    addEEnumLiteral(specialVariablesTypeEnumEEnum, SpecialVariablesTypeEnum.TX);
-
     initEEnum(specialExpressionTypeEnumEEnum, SpecialExpressionTypeEnum.class, "SpecialExpressionTypeEnum");
     addEEnumLiteral(specialExpressionTypeEnumEEnum, SpecialExpressionTypeEnum.SUPER);
     addEEnumLiteral(specialExpressionTypeEnumEEnum, SpecialExpressionTypeEnum.THIS);
-
-    initEEnum(reservedWordsEnumEEnum, ReservedWordsEnum.class, "ReservedWordsEnum");
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.AS);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.CASE);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.CATCH);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.FINAL);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.LET);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.MATCH);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.OF);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.RELOCATABLE);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.SWITCH);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.TRY);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.TYPE);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.TYPEOF);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.USING);
-    addEEnumLiteral(reservedWordsEnumEEnum, ReservedWordsEnum.ILLEGAL);
 
     // Create resource
     createResource(eNS_URI);

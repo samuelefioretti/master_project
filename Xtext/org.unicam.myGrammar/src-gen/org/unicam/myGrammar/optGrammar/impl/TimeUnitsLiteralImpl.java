@@ -10,23 +10,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.NumberDimensionless;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
+import org.unicam.myGrammar.optGrammar.TimeUnitsLiteral;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Number Dimensionless</b></em>'.
+ * An implementation of the model object '<em><b>Time Units Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.NumberDimensionlessImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.TimeUnitsLiteralImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implements NumberDimensionless
+public class TimeUnitsLiteralImpl extends MinimalEObjectImpl.Container implements TimeUnitsLiteral
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -36,7 +36,7 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -46,14 +46,14 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected int value = VALUE_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NumberDimensionlessImpl()
+  protected TimeUnitsLiteralImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.NUMBER_DIMENSIONLESS;
+    return OptGrammarPackage.Literals.TIME_UNITS_LITERAL;
   }
 
   /**
@@ -75,7 +75,7 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
-  public int getValue()
+  public String getValue()
   {
     return value;
   }
@@ -86,12 +86,12 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
-  public void setValue(int newValue)
+  public void setValue(String newValue)
   {
-    int oldValue = value;
+    String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.NUMBER_DIMENSIONLESS__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.TIME_UNITS_LITERAL__VALUE, oldValue, value));
   }
 
   /**
@@ -104,7 +104,7 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case OptGrammarPackage.NUMBER_DIMENSIONLESS__VALUE:
+      case OptGrammarPackage.TIME_UNITS_LITERAL__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -120,8 +120,8 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case OptGrammarPackage.NUMBER_DIMENSIONLESS__VALUE:
-        setValue((Integer)newValue);
+      case OptGrammarPackage.TIME_UNITS_LITERAL__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,7 +137,7 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case OptGrammarPackage.NUMBER_DIMENSIONLESS__VALUE:
+      case OptGrammarPackage.TIME_UNITS_LITERAL__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -154,8 +154,8 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case OptGrammarPackage.NUMBER_DIMENSIONLESS__VALUE:
-        return value != VALUE_EDEFAULT;
+      case OptGrammarPackage.TIME_UNITS_LITERAL__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -177,4 +177,4 @@ public class NumberDimensionlessImpl extends MinimalEObjectImpl.Container implem
     return result.toString();
   }
 
-} //NumberDimensionlessImpl
+} //TimeUnitsLiteralImpl

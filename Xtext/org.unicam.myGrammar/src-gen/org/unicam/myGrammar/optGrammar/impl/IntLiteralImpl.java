@@ -10,23 +10,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.unicam.myGrammar.optGrammar.IntLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Time Subdenomination Enum</b></em>'.
+ * An implementation of the model object '<em><b>Int Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.TimeSubdenominationEnumImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.IntLiteralImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container implements TimeSubdenominationEnum
+public class IntLiteralImpl extends MinimalEObjectImpl.Container implements IntLiteral
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -36,7 +36,7 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected static final int VALUE_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -46,14 +46,14 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected int value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TimeSubdenominationEnumImpl()
+  protected IntLiteralImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.TIME_SUBDENOMINATION_ENUM;
+    return OptGrammarPackage.Literals.INT_LITERAL;
   }
 
   /**
@@ -75,7 +75,7 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
    * @generated
    */
   @Override
-  public String getValue()
+  public int getValue()
   {
     return value;
   }
@@ -86,12 +86,12 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
    * @generated
    */
   @Override
-  public void setValue(String newValue)
+  public void setValue(int newValue)
   {
-    String oldValue = value;
+    int oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.INT_LITERAL__VALUE, oldValue, value));
   }
 
   /**
@@ -104,7 +104,7 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE:
+      case OptGrammarPackage.INT_LITERAL__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -120,8 +120,8 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE:
-        setValue((String)newValue);
+      case OptGrammarPackage.INT_LITERAL__VALUE:
+        setValue((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,7 +137,7 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE:
+      case OptGrammarPackage.INT_LITERAL__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -154,8 +154,8 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case OptGrammarPackage.INT_LITERAL__VALUE:
+        return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -177,4 +177,4 @@ public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container im
     return result.toString();
   }
 
-} //TimeSubdenominationEnumImpl
+} //IntLiteralImpl

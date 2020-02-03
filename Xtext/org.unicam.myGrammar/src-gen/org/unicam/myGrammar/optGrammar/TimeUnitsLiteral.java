@@ -7,42 +7,42 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Number Dimensionless</b></em>'.
+ * A representation of the model object '<em><b>Time Units Literal</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.NumberDimensionless#getValue <em>Value</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.TimeUnitsLiteral#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getNumberDimensionless()
+ * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getTimeUnitsLiteral()
  * @model
  * @generated
  */
-public interface NumberDimensionless extends EObject
+public interface TimeUnitsLiteral extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(int)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getNumberDimensionless_Value()
+   * @see #setValue(String)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getTimeUnitsLiteral_Value()
    * @model
    * @generated
    */
-  int getValue();
+  String getValue();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.NumberDimensionless#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.TimeUnitsLiteral#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
    * @see #getValue()
    * @generated
    */
-  void setValue(int value);
+  void setValue(String value);
 
-} // NumberDimensionless
+} // TimeUnitsLiteral

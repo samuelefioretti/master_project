@@ -53,30 +53,9 @@
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//BooleanLiteralEnum/TRUE"/>
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//BooleanLiteralEnum/FALSE"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//SpecialVariablesTypeEnum">
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//SpecialVariablesTypeEnum/MSG"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//SpecialVariablesTypeEnum/BLOCK"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//SpecialVariablesTypeEnum/TX"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//SpecialExpressionTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//SpecialExpressionTypeEnum/SUPER"/>
       <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//SpecialExpressionTypeEnum/THIS"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="OptGrammar.ecore#//ReservedWordsEnum">
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/AS"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/CASE"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/CATCH"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/FINAL"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/LET"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/MATCH"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/OF"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/RELOCATABLE"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/SWITCH"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/TRY"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/TYPE"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/TYPEOF"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/USING"/>
-      <genEnumLiterals ecoreEnumLiteral="OptGrammar.ecore#//ReservedWordsEnum/ILLEGAL"/>
     </genEnums>
     <genClasses ecoreClass="OptGrammar.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//Model/operations"/>
@@ -276,6 +255,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//NewExpression/args"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//Literal"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//SpecialLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialLiteral/name"/>
+    </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//BooleanConst">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//BooleanConst/value"/>
     </genClasses>
@@ -289,8 +271,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//UnitTypes/time"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//UnitTypes/units"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//NumberDimensionless">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//NumberDimensionless/value"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//IntLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//IntLiteral/value"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//HexLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//HexLiteral/value"/>
@@ -305,11 +287,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//TypeCast/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//TypeCast/expression"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//SpecialVariables">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialVariables/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialVariables/field"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//SpecialVariables/qualifiers"/>
-    </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//ElementaryTypeNameEnum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ElementaryTypeNameEnum/type"/>
     </genClasses>
@@ -322,14 +299,11 @@
     <genClasses ecoreClass="OptGrammar.ecore#//VisibilityEnum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//VisibilityEnum/type"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//EtherSubDenominationEnum">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//EtherSubDenominationEnum/value"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//UnitsLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//UnitsLiteral/value"/>
     </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//TimeSubdenominationEnum">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//TimeSubdenominationEnum/value"/>
-    </genClasses>
-    <genClasses ecoreClass="OptGrammar.ecore#//SpecialLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SpecialLiteral/name"/>
+    <genClasses ecoreClass="OptGrammar.ecore#//TimeUnitsLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//TimeUnitsLiteral/value"/>
     </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//VarVariableTypeDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference OptGrammar.ecore#//VarVariableTypeDeclaration/variable"/>

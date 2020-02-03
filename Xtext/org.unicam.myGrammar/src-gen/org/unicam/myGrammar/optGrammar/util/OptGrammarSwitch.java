@@ -582,6 +582,15 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.SPECIAL_LITERAL:
+      {
+        SpecialLiteral specialLiteral = (SpecialLiteral)theEObject;
+        T result = caseSpecialLiteral(specialLiteral);
+        if (result == null) result = caseLiteral(specialLiteral);
+        if (result == null) result = caseExpression(specialLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.BOOLEAN_CONST:
       {
         BooleanConst booleanConst = (BooleanConst)theEObject;
@@ -595,6 +604,8 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         NumericLiteral numericLiteral = (NumericLiteral)theEObject;
         T result = caseNumericLiteral(numericLiteral);
+        if (result == null) result = caseLiteral(numericLiteral);
+        if (result == null) result = caseExpression(numericLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -605,10 +616,10 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.NUMBER_DIMENSIONLESS:
+      case OptGrammarPackage.INT_LITERAL:
       {
-        NumberDimensionless numberDimensionless = (NumberDimensionless)theEObject;
-        T result = caseNumberDimensionless(numberDimensionless);
+        IntLiteral intLiteral = (IntLiteral)theEObject;
+        T result = caseIntLiteral(intLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -643,15 +654,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.SPECIAL_VARIABLES:
-      {
-        SpecialVariables specialVariables = (SpecialVariables)theEObject;
-        T result = caseSpecialVariables(specialVariables);
-        if (result == null) result = caseLiteral(specialVariables);
-        if (result == null) result = caseExpression(specialVariables);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
       {
         ElementaryTypeNameEnum elementaryTypeNameEnum = (ElementaryTypeNameEnum)theEObject;
@@ -680,26 +682,17 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM:
+      case OptGrammarPackage.UNITS_LITERAL:
       {
-        EtherSubDenominationEnum etherSubDenominationEnum = (EtherSubDenominationEnum)theEObject;
-        T result = caseEtherSubDenominationEnum(etherSubDenominationEnum);
+        UnitsLiteral unitsLiteral = (UnitsLiteral)theEObject;
+        T result = caseUnitsLiteral(unitsLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM:
+      case OptGrammarPackage.TIME_UNITS_LITERAL:
       {
-        TimeSubdenominationEnum timeSubdenominationEnum = (TimeSubdenominationEnum)theEObject;
-        T result = caseTimeSubdenominationEnum(timeSubdenominationEnum);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.SPECIAL_LITERAL:
-      {
-        SpecialLiteral specialLiteral = (SpecialLiteral)theEObject;
-        T result = caseSpecialLiteral(specialLiteral);
-        if (result == null) result = caseLiteral(specialLiteral);
-        if (result == null) result = caseExpression(specialLiteral);
+        TimeUnitsLiteral timeUnitsLiteral = (TimeUnitsLiteral)theEObject;
+        T result = caseTimeUnitsLiteral(timeUnitsLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1872,6 +1865,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Special Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Special Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSpecialLiteral(SpecialLiteral object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Boolean Const</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1920,17 +1929,17 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Number Dimensionless</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Int Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Number Dimensionless</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Int Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNumberDimensionless(NumberDimensionless object)
+  public T caseIntLiteral(IntLiteral object)
   {
     return null;
   }
@@ -2000,22 +2009,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Special Variables</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Special Variables</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSpecialVariables(SpecialVariables object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Elementary Type Name Enum</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2080,49 +2073,33 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Ether Sub Denomination Enum</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Units Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ether Sub Denomination Enum</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Units Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEtherSubDenominationEnum(EtherSubDenominationEnum object)
+  public T caseUnitsLiteral(UnitsLiteral object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Time Subdenomination Enum</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Time Units Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Time Subdenomination Enum</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Time Units Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTimeSubdenominationEnum(TimeSubdenominationEnum object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Special Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Special Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSpecialLiteral(SpecialLiteral object)
+  public T caseTimeUnitsLiteral(TimeUnitsLiteral object)
   {
     return null;
   }

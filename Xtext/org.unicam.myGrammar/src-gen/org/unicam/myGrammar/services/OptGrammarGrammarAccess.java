@@ -65,23 +65,23 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBodyDefinitionBodyParserRuleCall_3_0 = (RuleCall)cBodyAssignment_3.eContents().get(0);
 		
 		///*
-		//	 * Solidity:
-		//	 * (importDirective+=ImportDirective |
-		//	 * contract+=Contract |
-		//	 * library+=Library)*;
-		//	 * 
-		//	 * ImportDirective:
-		//	 * "import" importURI=STRING ";" |
-		//	 * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
-		//	 * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
-		//	 * 
-		//	 * SymbolAlias:
-		//	 * symbol=ID "as" alias=ID
-		//	 * 
-		//	 * ContractOrLibrary:
-		//	 * Contract |
-		//	 * Library;
-		//	 */ Contract:
+		// * Solidity:
+		// * (importDirective+=ImportDirective |
+		// * contract+=Contract |
+		// * library+=Library)
+		// * 
+		// * ImportDirective:
+		// * "import" importURI=STRING ";" |
+		// * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+		// * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
+		// * 
+		// * SymbolAlias:
+		// * symbol=ID "as" alias=I
+		// * 
+		// * ContractOrLibrary:
+		// * Contract |
+		// * Library;
+		// */ Contract:
 		//	"contract" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier (","
 		//	inheritanceSpecifiers+=InheritanceSpecifier)*)? body=DefinitionBody;
 		@Override public ParserRule getRule() { return rule; }
@@ -3281,44 +3281,63 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	public class LiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Literal");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSpecialVariablesParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cStringLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cBooleanConstParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cSpecialLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cSpecialLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBooleanConstParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cNumericLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cStringLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Literal:
-		//	SpecialVariables | StringLiteral | BooleanConst | SpecialLiteral //|
-		//	/*
-		//	 * FunctionCall |
-		//	 * ArrayAccess |
-		//	 * MappingAccess |
-		//	 * FieldAccess |
-		//	 * BlockhashFunction |
-		//	 * GasleftFunction |
-		//	 * MathematicalFunction |
-		//	 * HashFunction |
-		//	 * EcrecoverFunction |
-		//	 * ref=[Declaration]
-		//	 */;
+		//	SpecialLiteral | BooleanConst | NumericLiteral | StringLiteral;
 		@Override public ParserRule getRule() { return rule; }
 		
-		////ArithmeticOperations |
-		//SpecialVariables | StringLiteral | BooleanConst | SpecialLiteral
+		//SpecialLiteral | BooleanConst | NumericLiteral | StringLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		////ArithmeticOperations |
-		//SpecialVariables
-		public RuleCall getSpecialVariablesParserRuleCall_0() { return cSpecialVariablesParserRuleCall_0; }
-		
-		////NumericLiteral |
-		//StringLiteral
-		public RuleCall getStringLiteralParserRuleCall_1() { return cStringLiteralParserRuleCall_1; }
+		//SpecialLiteral
+		public RuleCall getSpecialLiteralParserRuleCall_0() { return cSpecialLiteralParserRuleCall_0; }
 		
 		//BooleanConst
-		public RuleCall getBooleanConstParserRuleCall_2() { return cBooleanConstParserRuleCall_2; }
+		public RuleCall getBooleanConstParserRuleCall_1() { return cBooleanConstParserRuleCall_1; }
 		
-		//SpecialLiteral
-		public RuleCall getSpecialLiteralParserRuleCall_3() { return cSpecialLiteralParserRuleCall_3; }
+		//NumericLiteral
+		public RuleCall getNumericLiteralParserRuleCall_2() { return cNumericLiteralParserRuleCall_2; }
+		
+		//StringLiteral
+		public RuleCall getStringLiteralParserRuleCall_3() { return cStringLiteralParserRuleCall_3; }
+	}
+	public class SpecialLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SpecialLiteral");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cNameAlternatives_0 = (Alternatives)cNameAssignment.eContents().get(0);
+		private final RuleCall cNameBLOCKTerminalRuleCall_0_0 = (RuleCall)cNameAlternatives_0.eContents().get(0);
+		private final RuleCall cNameMSGTerminalRuleCall_0_1 = (RuleCall)cNameAlternatives_0.eContents().get(1);
+		private final RuleCall cNameTXTerminalRuleCall_0_2 = (RuleCall)cNameAlternatives_0.eContents().get(2);
+		private final RuleCall cNameNOWTerminalRuleCall_0_3 = (RuleCall)cNameAlternatives_0.eContents().get(3);
+		
+		//SpecialLiteral:
+		//	name=(BLOCK
+		//	| MSG
+		//	| TX
+		//	| NOW);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=(BLOCK | MSG | TX | NOW)
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//(BLOCK | MSG | TX | NOW)
+		public Alternatives getNameAlternatives_0() { return cNameAlternatives_0; }
+		
+		//BLOCK
+		public RuleCall getNameBLOCKTerminalRuleCall_0_0() { return cNameBLOCKTerminalRuleCall_0_0; }
+		
+		//MSG
+		public RuleCall getNameMSGTerminalRuleCall_0_1() { return cNameMSGTerminalRuleCall_0_1; }
+		
+		//TX
+		public RuleCall getNameTXTerminalRuleCall_0_2() { return cNameTXTerminalRuleCall_0_2; }
+		
+		//NOW
+		public RuleCall getNameNOWTerminalRuleCall_0_3() { return cNameNOWTerminalRuleCall_0_3; }
 	}
 	public class BooleanConstElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.BooleanConst");
@@ -3340,7 +3359,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final Assignment cIntValueAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
-		private final RuleCall cIntValueNumberDimensionlessParserRuleCall_0_0_0 = (RuleCall)cIntValueAssignment_0_0.eContents().get(0);
+		private final RuleCall cIntValueIntLiteralParserRuleCall_0_0_0 = (RuleCall)cIntValueAssignment_0_0.eContents().get(0);
 		private final Assignment cHexValueAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
 		private final RuleCall cHexValueHexLiteralParserRuleCall_0_1_0 = (RuleCall)cHexValueAssignment_0_1.eContents().get(0);
 		private final Assignment cDecimalValueAssignment_0_2 = (Assignment)cAlternatives_0.eContents().get(2);
@@ -3349,20 +3368,22 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEtherUnitUnitTypesParserRuleCall_1_0 = (RuleCall)cEtherUnitAssignment_1.eContents().get(0);
 		
 		//NumericLiteral:
-		//	(intValue=NumberDimensionless | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?;
+		//	(intValue=IntLiteral
+		//	| hexValue=HexLiteral
+		//	| decimalValue=DecimalLiteral) etherUnit=UnitTypes?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(intValue=NumberDimensionless | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?
+		//(intValue=IntLiteral | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?
 		public Group getGroup() { return cGroup; }
 		
-		//(intValue=NumberDimensionless | hexValue=HexLiteral | decimalValue=DecimalLiteral)
+		//(intValue=IntLiteral | hexValue=HexLiteral | decimalValue=DecimalLiteral)
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//intValue=NumberDimensionless
+		//intValue=IntLiteral
 		public Assignment getIntValueAssignment_0_0() { return cIntValueAssignment_0_0; }
 		
-		//NumberDimensionless
-		public RuleCall getIntValueNumberDimensionlessParserRuleCall_0_0_0() { return cIntValueNumberDimensionlessParserRuleCall_0_0_0; }
+		//IntLiteral
+		public RuleCall getIntValueIntLiteralParserRuleCall_0_0_0() { return cIntValueIntLiteralParserRuleCall_0_0_0; }
 		
 		//hexValue=HexLiteral
 		public Assignment getHexValueAssignment_0_1() { return cHexValueAssignment_0_1; }
@@ -3386,35 +3407,36 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.UnitTypes");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cTimeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cTimeTimeSubdenominationEnumParserRuleCall_0_0 = (RuleCall)cTimeAssignment_0.eContents().get(0);
+		private final RuleCall cTimeTimeUnitsLiteralParserRuleCall_0_0 = (RuleCall)cTimeAssignment_0.eContents().get(0);
 		private final Assignment cUnitsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cUnitsEtherSubDenominationEnumParserRuleCall_1_0 = (RuleCall)cUnitsAssignment_1.eContents().get(0);
+		private final RuleCall cUnitsUnitsLiteralParserRuleCall_1_0 = (RuleCall)cUnitsAssignment_1.eContents().get(0);
 		
 		//UnitTypes:
-		//	time=TimeSubdenominationEnum | units=EtherSubDenominationEnum;
+		//	time=TimeUnitsLiteral
+		//	| units=UnitsLiteral;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//time=TimeSubdenominationEnum | units=EtherSubDenominationEnum
+		//time=TimeUnitsLiteral | units=UnitsLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//time=TimeSubdenominationEnum
+		//time=TimeUnitsLiteral
 		public Assignment getTimeAssignment_0() { return cTimeAssignment_0; }
 		
-		//TimeSubdenominationEnum
-		public RuleCall getTimeTimeSubdenominationEnumParserRuleCall_0_0() { return cTimeTimeSubdenominationEnumParserRuleCall_0_0; }
+		//TimeUnitsLiteral
+		public RuleCall getTimeTimeUnitsLiteralParserRuleCall_0_0() { return cTimeTimeUnitsLiteralParserRuleCall_0_0; }
 		
-		//units=EtherSubDenominationEnum
+		//units=UnitsLiteral
 		public Assignment getUnitsAssignment_1() { return cUnitsAssignment_1; }
 		
-		//EtherSubDenominationEnum
-		public RuleCall getUnitsEtherSubDenominationEnumParserRuleCall_1_0() { return cUnitsEtherSubDenominationEnumParserRuleCall_1_0; }
+		//UnitsLiteral
+		public RuleCall getUnitsUnitsLiteralParserRuleCall_1_0() { return cUnitsUnitsLiteralParserRuleCall_1_0; }
 	}
-	public class NumberDimensionlessElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.NumberDimensionless");
+	public class IntLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.IntLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValueINTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//NumberDimensionless:
+		//IntLiteral:
 		//	value=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -3504,45 +3526,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
-	public class SpecialVariablesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SpecialVariables");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTypeSpecialVariablesTypeEnumEnumRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cFieldAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFieldIDTerminalRuleCall_2_0 = (RuleCall)cFieldAssignment_2.eContents().get(0);
-		private final Assignment cQualifiersAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cQualifiersQualifierParserRuleCall_3_0 = (RuleCall)cQualifiersAssignment_3.eContents().get(0);
-		
-		//SpecialVariables:
-		//	type=SpecialVariablesTypeEnum "." field=ID qualifiers+=Qualifier*;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//type=SpecialVariablesTypeEnum "." field=ID qualifiers+=Qualifier*
-		public Group getGroup() { return cGroup; }
-		
-		//type=SpecialVariablesTypeEnum
-		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
-		
-		//SpecialVariablesTypeEnum
-		public RuleCall getTypeSpecialVariablesTypeEnumEnumRuleCall_0_0() { return cTypeSpecialVariablesTypeEnumEnumRuleCall_0_0; }
-		
-		//"."
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
-		
-		//field=ID
-		public Assignment getFieldAssignment_2() { return cFieldAssignment_2; }
-		
-		//ID
-		public RuleCall getFieldIDTerminalRuleCall_2_0() { return cFieldIDTerminalRuleCall_2_0; }
-		
-		//qualifiers+=Qualifier*
-		public Assignment getQualifiersAssignment_3() { return cQualifiersAssignment_3; }
-		
-		//Qualifier
-		public RuleCall getQualifiersQualifierParserRuleCall_3_0() { return cQualifiersQualifierParserRuleCall_3_0; }
-	}
 	public class ElementaryTypeNameEnumElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ElementaryTypeNameEnum");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -3617,59 +3600,63 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypeUint256Keyword_1_0_32 = (Keyword)cTypeAlternatives_1_0.eContents().get(32);
 		private final Assignment cTypeAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
 		private final Alternatives cTypeAlternatives_2_0 = (Alternatives)cTypeAssignment_2.eContents().get(0);
-		private final Keyword cTypeByteKeyword_2_0_0 = (Keyword)cTypeAlternatives_2_0.eContents().get(0);
-		private final Keyword cTypeBytesKeyword_2_0_1 = (Keyword)cTypeAlternatives_2_0.eContents().get(1);
-		private final Keyword cTypeBytes1Keyword_2_0_2 = (Keyword)cTypeAlternatives_2_0.eContents().get(2);
-		private final Keyword cTypeBytes2Keyword_2_0_3 = (Keyword)cTypeAlternatives_2_0.eContents().get(3);
-		private final Keyword cTypeBytes3Keyword_2_0_4 = (Keyword)cTypeAlternatives_2_0.eContents().get(4);
-		private final Keyword cTypeBytes4Keyword_2_0_5 = (Keyword)cTypeAlternatives_2_0.eContents().get(5);
-		private final Keyword cTypeBytes5Keyword_2_0_6 = (Keyword)cTypeAlternatives_2_0.eContents().get(6);
-		private final Keyword cTypeBytes6Keyword_2_0_7 = (Keyword)cTypeAlternatives_2_0.eContents().get(7);
-		private final Keyword cTypeBytes7Keyword_2_0_8 = (Keyword)cTypeAlternatives_2_0.eContents().get(8);
-		private final Keyword cTypeBytes8Keyword_2_0_9 = (Keyword)cTypeAlternatives_2_0.eContents().get(9);
-		private final Keyword cTypeBytes9Keyword_2_0_10 = (Keyword)cTypeAlternatives_2_0.eContents().get(10);
-		private final Keyword cTypeBytes10Keyword_2_0_11 = (Keyword)cTypeAlternatives_2_0.eContents().get(11);
-		private final Keyword cTypeBytes11Keyword_2_0_12 = (Keyword)cTypeAlternatives_2_0.eContents().get(12);
-		private final Keyword cTypeBytes12Keyword_2_0_13 = (Keyword)cTypeAlternatives_2_0.eContents().get(13);
-		private final Keyword cTypeBytes13Keyword_2_0_14 = (Keyword)cTypeAlternatives_2_0.eContents().get(14);
-		private final Keyword cTypeBytes14Keyword_2_0_15 = (Keyword)cTypeAlternatives_2_0.eContents().get(15);
-		private final Keyword cTypeBytes15Keyword_2_0_16 = (Keyword)cTypeAlternatives_2_0.eContents().get(16);
-		private final Keyword cTypeBytes16Keyword_2_0_17 = (Keyword)cTypeAlternatives_2_0.eContents().get(17);
-		private final Keyword cTypeBytes17Keyword_2_0_18 = (Keyword)cTypeAlternatives_2_0.eContents().get(18);
-		private final Keyword cTypeBytes18Keyword_2_0_19 = (Keyword)cTypeAlternatives_2_0.eContents().get(19);
-		private final Keyword cTypeBytes19Keyword_2_0_20 = (Keyword)cTypeAlternatives_2_0.eContents().get(20);
-		private final Keyword cTypeBytes20Keyword_2_0_21 = (Keyword)cTypeAlternatives_2_0.eContents().get(21);
-		private final Keyword cTypeBytes21Keyword_2_0_22 = (Keyword)cTypeAlternatives_2_0.eContents().get(22);
-		private final Keyword cTypeBytes22Keyword_2_0_23 = (Keyword)cTypeAlternatives_2_0.eContents().get(23);
-		private final Keyword cTypeBytes23Keyword_2_0_24 = (Keyword)cTypeAlternatives_2_0.eContents().get(24);
-		private final Keyword cTypeBytes24Keyword_2_0_25 = (Keyword)cTypeAlternatives_2_0.eContents().get(25);
-		private final Keyword cTypeBytes25Keyword_2_0_26 = (Keyword)cTypeAlternatives_2_0.eContents().get(26);
-		private final Keyword cTypeBytes26Keyword_2_0_27 = (Keyword)cTypeAlternatives_2_0.eContents().get(27);
-		private final Keyword cTypeBytes27Keyword_2_0_28 = (Keyword)cTypeAlternatives_2_0.eContents().get(28);
-		private final Keyword cTypeBytes28Keyword_2_0_29 = (Keyword)cTypeAlternatives_2_0.eContents().get(29);
-		private final Keyword cTypeBytes29Keyword_2_0_30 = (Keyword)cTypeAlternatives_2_0.eContents().get(30);
-		private final Keyword cTypeBytes30Keyword_2_0_31 = (Keyword)cTypeAlternatives_2_0.eContents().get(31);
-		private final Keyword cTypeBytes31Keyword_2_0_32 = (Keyword)cTypeAlternatives_2_0.eContents().get(32);
-		private final Keyword cTypeBytes32Keyword_2_0_33 = (Keyword)cTypeAlternatives_2_0.eContents().get(33);
+		private final Keyword cTypeBytes1Keyword_2_0_0 = (Keyword)cTypeAlternatives_2_0.eContents().get(0);
+		private final Keyword cTypeBytes2Keyword_2_0_1 = (Keyword)cTypeAlternatives_2_0.eContents().get(1);
+		private final Keyword cTypeBytes3Keyword_2_0_2 = (Keyword)cTypeAlternatives_2_0.eContents().get(2);
+		private final Keyword cTypeBytes4Keyword_2_0_3 = (Keyword)cTypeAlternatives_2_0.eContents().get(3);
+		private final Keyword cTypeBytes5Keyword_2_0_4 = (Keyword)cTypeAlternatives_2_0.eContents().get(4);
+		private final Keyword cTypeBytes6Keyword_2_0_5 = (Keyword)cTypeAlternatives_2_0.eContents().get(5);
+		private final Keyword cTypeBytes7Keyword_2_0_6 = (Keyword)cTypeAlternatives_2_0.eContents().get(6);
+		private final Keyword cTypeBytes8Keyword_2_0_7 = (Keyword)cTypeAlternatives_2_0.eContents().get(7);
+		private final Keyword cTypeBytes9Keyword_2_0_8 = (Keyword)cTypeAlternatives_2_0.eContents().get(8);
+		private final Keyword cTypeBytes10Keyword_2_0_9 = (Keyword)cTypeAlternatives_2_0.eContents().get(9);
+		private final Keyword cTypeBytes11Keyword_2_0_10 = (Keyword)cTypeAlternatives_2_0.eContents().get(10);
+		private final Keyword cTypeBytes12Keyword_2_0_11 = (Keyword)cTypeAlternatives_2_0.eContents().get(11);
+		private final Keyword cTypeBytes13Keyword_2_0_12 = (Keyword)cTypeAlternatives_2_0.eContents().get(12);
+		private final Keyword cTypeBytes14Keyword_2_0_13 = (Keyword)cTypeAlternatives_2_0.eContents().get(13);
+		private final Keyword cTypeBytes15Keyword_2_0_14 = (Keyword)cTypeAlternatives_2_0.eContents().get(14);
+		private final Keyword cTypeBytes16Keyword_2_0_15 = (Keyword)cTypeAlternatives_2_0.eContents().get(15);
+		private final Keyword cTypeBytes17Keyword_2_0_16 = (Keyword)cTypeAlternatives_2_0.eContents().get(16);
+		private final Keyword cTypeBytes18Keyword_2_0_17 = (Keyword)cTypeAlternatives_2_0.eContents().get(17);
+		private final Keyword cTypeBytes19Keyword_2_0_18 = (Keyword)cTypeAlternatives_2_0.eContents().get(18);
+		private final Keyword cTypeBytes20Keyword_2_0_19 = (Keyword)cTypeAlternatives_2_0.eContents().get(19);
+		private final Keyword cTypeBytes21Keyword_2_0_20 = (Keyword)cTypeAlternatives_2_0.eContents().get(20);
+		private final Keyword cTypeBytes22Keyword_2_0_21 = (Keyword)cTypeAlternatives_2_0.eContents().get(21);
+		private final Keyword cTypeBytes23Keyword_2_0_22 = (Keyword)cTypeAlternatives_2_0.eContents().get(22);
+		private final Keyword cTypeBytes24Keyword_2_0_23 = (Keyword)cTypeAlternatives_2_0.eContents().get(23);
+		private final Keyword cTypeBytes25Keyword_2_0_24 = (Keyword)cTypeAlternatives_2_0.eContents().get(24);
+		private final Keyword cTypeBytes26Keyword_2_0_25 = (Keyword)cTypeAlternatives_2_0.eContents().get(25);
+		private final Keyword cTypeBytes27Keyword_2_0_26 = (Keyword)cTypeAlternatives_2_0.eContents().get(26);
+		private final Keyword cTypeBytes28Keyword_2_0_27 = (Keyword)cTypeAlternatives_2_0.eContents().get(27);
+		private final Keyword cTypeBytes29Keyword_2_0_28 = (Keyword)cTypeAlternatives_2_0.eContents().get(28);
+		private final Keyword cTypeBytes30Keyword_2_0_29 = (Keyword)cTypeAlternatives_2_0.eContents().get(29);
+		private final Keyword cTypeBytes31Keyword_2_0_30 = (Keyword)cTypeAlternatives_2_0.eContents().get(30);
+		private final Keyword cTypeBytes32Keyword_2_0_31 = (Keyword)cTypeAlternatives_2_0.eContents().get(31);
+		private final Keyword cTypeBytesKeyword_2_0_32 = (Keyword)cTypeAlternatives_2_0.eContents().get(32);
+		private final Keyword cTypeByteKeyword_2_0_33 = (Keyword)cTypeAlternatives_2_0.eContents().get(33);
 		private final Assignment cTypeAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final Keyword cTypeAddressKeyword_3_0 = (Keyword)cTypeAssignment_3.eContents().get(0);
+		private final Alternatives cTypeAlternatives_3_0 = (Alternatives)cTypeAssignment_3.eContents().get(0);
+		private final Keyword cTypeAddressKeyword_3_0_0 = (Keyword)cTypeAlternatives_3_0.eContents().get(0);
+		private final Keyword cTypeRealKeyword_3_0_1 = (Keyword)cTypeAlternatives_3_0.eContents().get(1);
+		private final Keyword cTypeUrealKeyword_3_0_2 = (Keyword)cTypeAlternatives_3_0.eContents().get(2);
 		
 		//ElementaryTypeNameEnum:
 		//	type=(
 		//	//INT
-		//	"int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" | "int96" |
-		//	"int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" | "int178" |
-		//	"int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" | "int256") | type=(
+		//	"int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" |
+		//	"int96" | "int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" |
+		//	"int178" | "int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" |
+		//	"int256") | type=(
 		//	// UINT
-		//	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
-		//	"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
-		//	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
-		//	| "uint248" | "uint256") | type=(
+		//	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" |
+		//	"uint80" | "uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" |
+		//	"uint160" | "uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" |
+		//	"uint232" | "uint240" | "uint248" | "uint256") | type=(
 		//	// BYTES
-		//	"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-		//	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
-		//	| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
-		//	"bytes29" | "bytes30" | "bytes31" | "bytes32") | type="address";
+		//	"bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" | "bytes10" |
+		//	"bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19" |
+		//	"bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
+		//	"bytes29" | "bytes30" | "bytes31" | "bytes32" | "bytes" | "byte") | type=("address" | "real" | "ureal");
 		@Override public ParserRule getRule() { return rule; }
 		
 		//type=( //INT
@@ -3680,10 +3667,10 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
 		//"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
 		//| "uint248" | "uint256") | type=( // BYTES
-		//"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-		//"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
-		//| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
-		//"bytes29" | "bytes30" | "bytes31" | "bytes32") | type="address"
+		//"bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" | "bytes10" | "bytes11"
+		//| "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19" | "bytes20" |
+		//"bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" | "bytes29" | "bytes30"
+		//| "bytes31" | "bytes32" | "bytes" | "byte") | type=("address" | "real" | "ureal")
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//type=( //INT
@@ -3910,128 +3897,137 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getTypeUint256Keyword_1_0_32() { return cTypeUint256Keyword_1_0_32; }
 		
 		//type=( // BYTES
-		//"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-		//"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
-		//| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
-		//"bytes29" | "bytes30" | "bytes31" | "bytes32")
+		//"bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" | "bytes10" | "bytes11"
+		//| "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19" | "bytes20" |
+		//"bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" | "bytes29" | "bytes30"
+		//| "bytes31" | "bytes32" | "bytes" | "byte")
 		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
 		
 		//( // BYTES
-		//"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-		//"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
-		//| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
-		//"bytes29" | "bytes30" | "bytes31" | "bytes32")
+		//"bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" | "bytes10" | "bytes11"
+		//| "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19" | "bytes20" |
+		//"bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" | "bytes29" | "bytes30"
+		//| "bytes31" | "bytes32" | "bytes" | "byte")
 		public Alternatives getTypeAlternatives_2_0() { return cTypeAlternatives_2_0; }
 		
 		//// BYTES
-		//"byte"
-		public Keyword getTypeByteKeyword_2_0_0() { return cTypeByteKeyword_2_0_0; }
-		
-		//"bytes"
-		public Keyword getTypeBytesKeyword_2_0_1() { return cTypeBytesKeyword_2_0_1; }
-		
 		//"bytes1"
-		public Keyword getTypeBytes1Keyword_2_0_2() { return cTypeBytes1Keyword_2_0_2; }
+		public Keyword getTypeBytes1Keyword_2_0_0() { return cTypeBytes1Keyword_2_0_0; }
 		
 		//"bytes2"
-		public Keyword getTypeBytes2Keyword_2_0_3() { return cTypeBytes2Keyword_2_0_3; }
+		public Keyword getTypeBytes2Keyword_2_0_1() { return cTypeBytes2Keyword_2_0_1; }
 		
 		//"bytes3"
-		public Keyword getTypeBytes3Keyword_2_0_4() { return cTypeBytes3Keyword_2_0_4; }
+		public Keyword getTypeBytes3Keyword_2_0_2() { return cTypeBytes3Keyword_2_0_2; }
 		
 		//"bytes4"
-		public Keyword getTypeBytes4Keyword_2_0_5() { return cTypeBytes4Keyword_2_0_5; }
+		public Keyword getTypeBytes4Keyword_2_0_3() { return cTypeBytes4Keyword_2_0_3; }
 		
 		//"bytes5"
-		public Keyword getTypeBytes5Keyword_2_0_6() { return cTypeBytes5Keyword_2_0_6; }
+		public Keyword getTypeBytes5Keyword_2_0_4() { return cTypeBytes5Keyword_2_0_4; }
 		
 		//"bytes6"
-		public Keyword getTypeBytes6Keyword_2_0_7() { return cTypeBytes6Keyword_2_0_7; }
+		public Keyword getTypeBytes6Keyword_2_0_5() { return cTypeBytes6Keyword_2_0_5; }
 		
 		//"bytes7"
-		public Keyword getTypeBytes7Keyword_2_0_8() { return cTypeBytes7Keyword_2_0_8; }
+		public Keyword getTypeBytes7Keyword_2_0_6() { return cTypeBytes7Keyword_2_0_6; }
 		
 		//"bytes8"
-		public Keyword getTypeBytes8Keyword_2_0_9() { return cTypeBytes8Keyword_2_0_9; }
+		public Keyword getTypeBytes8Keyword_2_0_7() { return cTypeBytes8Keyword_2_0_7; }
 		
 		//"bytes9"
-		public Keyword getTypeBytes9Keyword_2_0_10() { return cTypeBytes9Keyword_2_0_10; }
+		public Keyword getTypeBytes9Keyword_2_0_8() { return cTypeBytes9Keyword_2_0_8; }
 		
 		//"bytes10"
-		public Keyword getTypeBytes10Keyword_2_0_11() { return cTypeBytes10Keyword_2_0_11; }
+		public Keyword getTypeBytes10Keyword_2_0_9() { return cTypeBytes10Keyword_2_0_9; }
 		
 		//"bytes11"
-		public Keyword getTypeBytes11Keyword_2_0_12() { return cTypeBytes11Keyword_2_0_12; }
+		public Keyword getTypeBytes11Keyword_2_0_10() { return cTypeBytes11Keyword_2_0_10; }
 		
 		//"bytes12"
-		public Keyword getTypeBytes12Keyword_2_0_13() { return cTypeBytes12Keyword_2_0_13; }
+		public Keyword getTypeBytes12Keyword_2_0_11() { return cTypeBytes12Keyword_2_0_11; }
 		
 		//"bytes13"
-		public Keyword getTypeBytes13Keyword_2_0_14() { return cTypeBytes13Keyword_2_0_14; }
+		public Keyword getTypeBytes13Keyword_2_0_12() { return cTypeBytes13Keyword_2_0_12; }
 		
 		//"bytes14"
-		public Keyword getTypeBytes14Keyword_2_0_15() { return cTypeBytes14Keyword_2_0_15; }
+		public Keyword getTypeBytes14Keyword_2_0_13() { return cTypeBytes14Keyword_2_0_13; }
 		
 		//"bytes15"
-		public Keyword getTypeBytes15Keyword_2_0_16() { return cTypeBytes15Keyword_2_0_16; }
+		public Keyword getTypeBytes15Keyword_2_0_14() { return cTypeBytes15Keyword_2_0_14; }
 		
 		//"bytes16"
-		public Keyword getTypeBytes16Keyword_2_0_17() { return cTypeBytes16Keyword_2_0_17; }
+		public Keyword getTypeBytes16Keyword_2_0_15() { return cTypeBytes16Keyword_2_0_15; }
 		
 		//"bytes17"
-		public Keyword getTypeBytes17Keyword_2_0_18() { return cTypeBytes17Keyword_2_0_18; }
+		public Keyword getTypeBytes17Keyword_2_0_16() { return cTypeBytes17Keyword_2_0_16; }
 		
 		//"bytes18"
-		public Keyword getTypeBytes18Keyword_2_0_19() { return cTypeBytes18Keyword_2_0_19; }
+		public Keyword getTypeBytes18Keyword_2_0_17() { return cTypeBytes18Keyword_2_0_17; }
 		
 		//"bytes19"
-		public Keyword getTypeBytes19Keyword_2_0_20() { return cTypeBytes19Keyword_2_0_20; }
+		public Keyword getTypeBytes19Keyword_2_0_18() { return cTypeBytes19Keyword_2_0_18; }
 		
 		//"bytes20"
-		public Keyword getTypeBytes20Keyword_2_0_21() { return cTypeBytes20Keyword_2_0_21; }
+		public Keyword getTypeBytes20Keyword_2_0_19() { return cTypeBytes20Keyword_2_0_19; }
 		
 		//"bytes21"
-		public Keyword getTypeBytes21Keyword_2_0_22() { return cTypeBytes21Keyword_2_0_22; }
+		public Keyword getTypeBytes21Keyword_2_0_20() { return cTypeBytes21Keyword_2_0_20; }
 		
 		//"bytes22"
-		public Keyword getTypeBytes22Keyword_2_0_23() { return cTypeBytes22Keyword_2_0_23; }
+		public Keyword getTypeBytes22Keyword_2_0_21() { return cTypeBytes22Keyword_2_0_21; }
 		
 		//"bytes23"
-		public Keyword getTypeBytes23Keyword_2_0_24() { return cTypeBytes23Keyword_2_0_24; }
+		public Keyword getTypeBytes23Keyword_2_0_22() { return cTypeBytes23Keyword_2_0_22; }
 		
 		//"bytes24"
-		public Keyword getTypeBytes24Keyword_2_0_25() { return cTypeBytes24Keyword_2_0_25; }
+		public Keyword getTypeBytes24Keyword_2_0_23() { return cTypeBytes24Keyword_2_0_23; }
 		
 		//"bytes25"
-		public Keyword getTypeBytes25Keyword_2_0_26() { return cTypeBytes25Keyword_2_0_26; }
+		public Keyword getTypeBytes25Keyword_2_0_24() { return cTypeBytes25Keyword_2_0_24; }
 		
 		//"bytes26"
-		public Keyword getTypeBytes26Keyword_2_0_27() { return cTypeBytes26Keyword_2_0_27; }
+		public Keyword getTypeBytes26Keyword_2_0_25() { return cTypeBytes26Keyword_2_0_25; }
 		
 		//"bytes27"
-		public Keyword getTypeBytes27Keyword_2_0_28() { return cTypeBytes27Keyword_2_0_28; }
+		public Keyword getTypeBytes27Keyword_2_0_26() { return cTypeBytes27Keyword_2_0_26; }
 		
 		//"bytes28"
-		public Keyword getTypeBytes28Keyword_2_0_29() { return cTypeBytes28Keyword_2_0_29; }
+		public Keyword getTypeBytes28Keyword_2_0_27() { return cTypeBytes28Keyword_2_0_27; }
 		
 		//"bytes29"
-		public Keyword getTypeBytes29Keyword_2_0_30() { return cTypeBytes29Keyword_2_0_30; }
+		public Keyword getTypeBytes29Keyword_2_0_28() { return cTypeBytes29Keyword_2_0_28; }
 		
 		//"bytes30"
-		public Keyword getTypeBytes30Keyword_2_0_31() { return cTypeBytes30Keyword_2_0_31; }
+		public Keyword getTypeBytes30Keyword_2_0_29() { return cTypeBytes30Keyword_2_0_29; }
 		
 		//"bytes31"
-		public Keyword getTypeBytes31Keyword_2_0_32() { return cTypeBytes31Keyword_2_0_32; }
+		public Keyword getTypeBytes31Keyword_2_0_30() { return cTypeBytes31Keyword_2_0_30; }
 		
 		//"bytes32"
-		public Keyword getTypeBytes32Keyword_2_0_33() { return cTypeBytes32Keyword_2_0_33; }
+		public Keyword getTypeBytes32Keyword_2_0_31() { return cTypeBytes32Keyword_2_0_31; }
 		
-		//// OTHER
-		//type="address"
+		//"bytes"
+		public Keyword getTypeBytesKeyword_2_0_32() { return cTypeBytesKeyword_2_0_32; }
+		
+		//"byte"
+		public Keyword getTypeByteKeyword_2_0_33() { return cTypeByteKeyword_2_0_33; }
+		
+		//// Other
+		//type=("address" | "real" | "ureal")
 		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 		
+		//("address" | "real" | "ureal")
+		public Alternatives getTypeAlternatives_3_0() { return cTypeAlternatives_3_0; }
+		
 		//"address"
-		public Keyword getTypeAddressKeyword_3_0() { return cTypeAddressKeyword_3_0; }
+		public Keyword getTypeAddressKeyword_3_0_0() { return cTypeAddressKeyword_3_0_0; }
+		
+		//"real"
+		public Keyword getTypeRealKeyword_3_0_1() { return cTypeRealKeyword_3_0_1; }
+		
+		//"ureal"
+		public Keyword getTypeUrealKeyword_3_0_2() { return cTypeUrealKeyword_3_0_2; }
 	}
 	public class SimpleTypeDeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SimpleTypeDeclaration");
@@ -4125,8 +4121,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"external"
 		public Keyword getTypeExternalKeyword_0_3() { return cTypeExternalKeyword_0_3; }
 	}
-	public class EtherSubDenominationEnumElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.EtherSubDenominationEnum");
+	public class UnitsLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.UnitsLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
 		private final Keyword cValueWeiKeyword_0_0 = (Keyword)cValueAlternatives_0.eContents().get(0);
@@ -4134,7 +4130,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueFinneyKeyword_0_2 = (Keyword)cValueAlternatives_0.eContents().get(2);
 		private final Keyword cValueEtherKeyword_0_3 = (Keyword)cValueAlternatives_0.eContents().get(3);
 		
-		//EtherSubDenominationEnum:
+		//UnitsLiteral:
 		//	value=("wei" | "szabo" | "finney" | "ether");
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -4156,8 +4152,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"ether"
 		public Keyword getValueEtherKeyword_0_3() { return cValueEtherKeyword_0_3; }
 	}
-	public class TimeSubdenominationEnumElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.TimeSubdenominationEnum");
+	public class TimeUnitsLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.TimeUnitsLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
 		private final Keyword cValueSecondsKeyword_0_0 = (Keyword)cValueAlternatives_0.eContents().get(0);
@@ -4167,7 +4163,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueWeeksKeyword_0_4 = (Keyword)cValueAlternatives_0.eContents().get(4);
 		private final Keyword cValueYearsKeyword_0_5 = (Keyword)cValueAlternatives_0.eContents().get(5);
 		
-		//TimeSubdenominationEnum:
+		//TimeUnitsLiteral:
 		//	value=("seconds" | "minutes" | "hours" | "days" | "weeks" | "years");
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -4194,37 +4190,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"years"
 		public Keyword getValueYearsKeyword_0_5() { return cValueYearsKeyword_0_5; }
-	}
-	public class SpecialLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SpecialLiteral");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cNameAlternatives_0 = (Alternatives)cNameAssignment.eContents().get(0);
-		private final RuleCall cNameBLOCKTerminalRuleCall_0_0 = (RuleCall)cNameAlternatives_0.eContents().get(0);
-		private final RuleCall cNameMSGTerminalRuleCall_0_1 = (RuleCall)cNameAlternatives_0.eContents().get(1);
-		private final RuleCall cNameTXTerminalRuleCall_0_2 = (RuleCall)cNameAlternatives_0.eContents().get(2);
-		private final RuleCall cNameNOWTerminalRuleCall_0_3 = (RuleCall)cNameAlternatives_0.eContents().get(3);
-		
-		//SpecialLiteral:
-		//	name=(BLOCK | MSG | TX | NOW);
-		@Override public ParserRule getRule() { return rule; }
-		
-		//name=(BLOCK | MSG | TX | NOW)
-		public Assignment getNameAssignment() { return cNameAssignment; }
-		
-		//(BLOCK | MSG | TX | NOW)
-		public Alternatives getNameAlternatives_0() { return cNameAlternatives_0; }
-		
-		//BLOCK
-		public RuleCall getNameBLOCKTerminalRuleCall_0_0() { return cNameBLOCKTerminalRuleCall_0_0; }
-		
-		//MSG
-		public RuleCall getNameMSGTerminalRuleCall_0_1() { return cNameMSGTerminalRuleCall_0_1; }
-		
-		//TX
-		public RuleCall getNameTXTerminalRuleCall_0_2() { return cNameTXTerminalRuleCall_0_2; }
-		
-		//NOW
-		public RuleCall getNameNOWTerminalRuleCall_0_3() { return cNameNOWTerminalRuleCall_0_3; }
 	}
 	
 	public class AssignmentOpEnumElements extends AbstractEnumRuleElementFinder {
@@ -4567,41 +4532,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"false"
 		public Keyword getFALSEFalseKeyword_1_0() { return cFALSEFalseKeyword_1_0; }
 	}
-	public class SpecialVariablesTypeEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SpecialVariablesTypeEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cMSGEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cMSGMsgKeyword_0_0 = (Keyword)cMSGEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cBLOCKEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cBLOCKBlockKeyword_1_0 = (Keyword)cBLOCKEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cTXEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cTXTxKeyword_2_0 = (Keyword)cTXEnumLiteralDeclaration_2.eContents().get(0);
-		
-		//enum SpecialVariablesTypeEnum:
-		//	MSG="msg" | BLOCK="block" | TX="tx";
-		public EnumRule getRule() { return rule; }
-		
-		//MSG="msg" | BLOCK="block" | TX="tx"
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//MSG="msg"
-		public EnumLiteralDeclaration getMSGEnumLiteralDeclaration_0() { return cMSGEnumLiteralDeclaration_0; }
-		
-		//"msg"
-		public Keyword getMSGMsgKeyword_0_0() { return cMSGMsgKeyword_0_0; }
-		
-		//BLOCK="block"
-		public EnumLiteralDeclaration getBLOCKEnumLiteralDeclaration_1() { return cBLOCKEnumLiteralDeclaration_1; }
-		
-		//"block"
-		public Keyword getBLOCKBlockKeyword_1_0() { return cBLOCKBlockKeyword_1_0; }
-		
-		//TX="tx"
-		public EnumLiteralDeclaration getTXEnumLiteralDeclaration_2() { return cTXEnumLiteralDeclaration_2; }
-		
-		//"tx"
-		public Keyword getTXTxKeyword_2_0() { return cTXTxKeyword_2_0; }
-	}
 	public class SpecialExpressionTypeEnumElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SpecialExpressionTypeEnum");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -4628,132 +4558,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"this"
 		public Keyword getTHISThisKeyword_1_0() { return cTHISThisKeyword_1_0; }
-	}
-	public class ReservedWordsEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.ReservedWordsEnum");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cASEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cASAsKeyword_0_0 = (Keyword)cASEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cCASEEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cCASECaseKeyword_1_0 = (Keyword)cCASEEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cCATCHEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cCATCHCatchKeyword_2_0 = (Keyword)cCATCHEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cFINALEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cFINALFinalKeyword_3_0 = (Keyword)cFINALEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cLETEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cLETLetKeyword_4_0 = (Keyword)cLETEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cMATCHEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cMATCHMatchKeyword_5_0 = (Keyword)cMATCHEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cOFEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cOFOfKeyword_6_0 = (Keyword)cOFEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cRELOCATABLEEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cRELOCATABLERelocatableKeyword_7_0 = (Keyword)cRELOCATABLEEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cSWITCHEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cSWITCHSwitchKeyword_8_0 = (Keyword)cSWITCHEnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cTRYEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cTRYTryKeyword_9_0 = (Keyword)cTRYEnumLiteralDeclaration_9.eContents().get(0);
-		private final EnumLiteralDeclaration cTYPEEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
-		private final Keyword cTYPETypeKeyword_10_0 = (Keyword)cTYPEEnumLiteralDeclaration_10.eContents().get(0);
-		private final EnumLiteralDeclaration cTYPEOFEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
-		private final Keyword cTYPEOFTypeofKeyword_11_0 = (Keyword)cTYPEOFEnumLiteralDeclaration_11.eContents().get(0);
-		private final EnumLiteralDeclaration cUSINGEnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
-		private final Keyword cUSINGUsingKeyword_12_0 = (Keyword)cUSINGEnumLiteralDeclaration_12.eContents().get(0);
-		private final EnumLiteralDeclaration cILLEGALEnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
-		private final Keyword cILLEGALILLEGALKeyword_13_0 = (Keyword)cILLEGALEnumLiteralDeclaration_13.eContents().get(0);
-		
-		//enum ReservedWordsEnum:
-		//	AS="as" | CASE="case" | CATCH="catch" | FINAL="final" | LET="let" | MATCH="match" | OF="of" |
-		//	RELOCATABLE="relocatable" | SWITCH="switch" | TRY="try" | TYPE="type" | TYPEOF="typeof" | USING="using" |
-		//	ILLEGAL;
-		public EnumRule getRule() { return rule; }
-		
-		//AS="as" | CASE="case" | CATCH="catch" | FINAL="final" | LET="let" | MATCH="match" | OF="of" | RELOCATABLE="relocatable"
-		//| SWITCH="switch" | TRY="try" | TYPE="type" | TYPEOF="typeof" | USING="using" | ILLEGAL
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//AS="as"
-		public EnumLiteralDeclaration getASEnumLiteralDeclaration_0() { return cASEnumLiteralDeclaration_0; }
-		
-		//"as"
-		public Keyword getASAsKeyword_0_0() { return cASAsKeyword_0_0; }
-		
-		//CASE="case"
-		public EnumLiteralDeclaration getCASEEnumLiteralDeclaration_1() { return cCASEEnumLiteralDeclaration_1; }
-		
-		//"case"
-		public Keyword getCASECaseKeyword_1_0() { return cCASECaseKeyword_1_0; }
-		
-		//CATCH="catch"
-		public EnumLiteralDeclaration getCATCHEnumLiteralDeclaration_2() { return cCATCHEnumLiteralDeclaration_2; }
-		
-		//"catch"
-		public Keyword getCATCHCatchKeyword_2_0() { return cCATCHCatchKeyword_2_0; }
-		
-		//FINAL="final"
-		public EnumLiteralDeclaration getFINALEnumLiteralDeclaration_3() { return cFINALEnumLiteralDeclaration_3; }
-		
-		//"final"
-		public Keyword getFINALFinalKeyword_3_0() { return cFINALFinalKeyword_3_0; }
-		
-		//LET="let"
-		public EnumLiteralDeclaration getLETEnumLiteralDeclaration_4() { return cLETEnumLiteralDeclaration_4; }
-		
-		//"let"
-		public Keyword getLETLetKeyword_4_0() { return cLETLetKeyword_4_0; }
-		
-		//MATCH="match"
-		public EnumLiteralDeclaration getMATCHEnumLiteralDeclaration_5() { return cMATCHEnumLiteralDeclaration_5; }
-		
-		//"match"
-		public Keyword getMATCHMatchKeyword_5_0() { return cMATCHMatchKeyword_5_0; }
-		
-		//OF="of"
-		public EnumLiteralDeclaration getOFEnumLiteralDeclaration_6() { return cOFEnumLiteralDeclaration_6; }
-		
-		//"of"
-		public Keyword getOFOfKeyword_6_0() { return cOFOfKeyword_6_0; }
-		
-		//RELOCATABLE="relocatable"
-		public EnumLiteralDeclaration getRELOCATABLEEnumLiteralDeclaration_7() { return cRELOCATABLEEnumLiteralDeclaration_7; }
-		
-		//"relocatable"
-		public Keyword getRELOCATABLERelocatableKeyword_7_0() { return cRELOCATABLERelocatableKeyword_7_0; }
-		
-		//SWITCH="switch"
-		public EnumLiteralDeclaration getSWITCHEnumLiteralDeclaration_8() { return cSWITCHEnumLiteralDeclaration_8; }
-		
-		//"switch"
-		public Keyword getSWITCHSwitchKeyword_8_0() { return cSWITCHSwitchKeyword_8_0; }
-		
-		//TRY="try"
-		public EnumLiteralDeclaration getTRYEnumLiteralDeclaration_9() { return cTRYEnumLiteralDeclaration_9; }
-		
-		//"try"
-		public Keyword getTRYTryKeyword_9_0() { return cTRYTryKeyword_9_0; }
-		
-		//TYPE="type"
-		public EnumLiteralDeclaration getTYPEEnumLiteralDeclaration_10() { return cTYPEEnumLiteralDeclaration_10; }
-		
-		//"type"
-		public Keyword getTYPETypeKeyword_10_0() { return cTYPETypeKeyword_10_0; }
-		
-		//TYPEOF="typeof"
-		public EnumLiteralDeclaration getTYPEOFEnumLiteralDeclaration_11() { return cTYPEOFEnumLiteralDeclaration_11; }
-		
-		//"typeof"
-		public Keyword getTYPEOFTypeofKeyword_11_0() { return cTYPEOFTypeofKeyword_11_0; }
-		
-		//USING="using"
-		public EnumLiteralDeclaration getUSINGEnumLiteralDeclaration_12() { return cUSINGEnumLiteralDeclaration_12; }
-		
-		//"using"
-		public Keyword getUSINGUsingKeyword_12_0() { return cUSINGUsingKeyword_12_0; }
-		
-		//ILLEGAL
-		public EnumLiteralDeclaration getILLEGALEnumLiteralDeclaration_13() { return cILLEGALEnumLiteralDeclaration_13; }
-		
-		//"ILLEGAL"
-		public Keyword getILLEGALILLEGALKeyword_13_0() { return cILLEGALILLEGALKeyword_13_0; }
 	}
 	
 	private final ModelElements pModel;
@@ -4839,25 +4643,24 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final PostIncDecExpressionElements pPostIncDecExpression;
 	private final PrimaryExpressionElements pPrimaryExpression;
 	private final LiteralElements pLiteral;
+	private final SpecialLiteralElements pSpecialLiteral;
 	private final BooleanConstElements pBooleanConst;
 	private final NumericLiteralElements pNumericLiteral;
 	private final UnitTypesElements pUnitTypes;
-	private final NumberDimensionlessElements pNumberDimensionless;
+	private final IntLiteralElements pIntLiteral;
 	private final HexLiteralElements pHexLiteral;
 	private final DecimalLiteralElements pDecimalLiteral;
 	private final TerminalRule tHEX;
 	private final TerminalRule tDECIMAL;
 	private final StringLiteralElements pStringLiteral;
 	private final TypeCastElements pTypeCast;
-	private final SpecialVariablesElements pSpecialVariables;
 	private final ElementaryTypeNameEnumElements pElementaryTypeNameEnum;
 	private final SimpleTypeDeclarationElements pSimpleTypeDeclaration;
 	private final MapLocationLiteralElements pMapLocationLiteral;
 	private final LocationSpecifierEnumElements pLocationSpecifierEnum;
 	private final VisibilityEnumElements pVisibilityEnum;
-	private final EtherSubDenominationEnumElements pEtherSubDenominationEnum;
-	private final TimeSubdenominationEnumElements pTimeSubdenominationEnum;
-	private final SpecialLiteralElements pSpecialLiteral;
+	private final UnitsLiteralElements pUnitsLiteral;
+	private final TimeUnitsLiteralElements pTimeUnitsLiteral;
 	private final TerminalRule tBLOCK;
 	private final TerminalRule tMSG;
 	private final TerminalRule tTX;
@@ -4870,9 +4673,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final MulDivModOpEnumElements eMulDivModOpEnum;
 	private final IncDecOpEnumElements eIncDecOpEnum;
 	private final BooleanLiteralEnumElements eBooleanLiteralEnum;
-	private final SpecialVariablesTypeEnumElements eSpecialVariablesTypeEnum;
 	private final SpecialExpressionTypeEnumElements eSpecialExpressionTypeEnum;
-	private final ReservedWordsEnumElements eReservedWordsEnum;
 	
 	private final Grammar grammar;
 	
@@ -4966,25 +4767,24 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPostIncDecExpression = new PostIncDecExpressionElements();
 		this.pPrimaryExpression = new PrimaryExpressionElements();
 		this.pLiteral = new LiteralElements();
+		this.pSpecialLiteral = new SpecialLiteralElements();
 		this.pBooleanConst = new BooleanConstElements();
 		this.pNumericLiteral = new NumericLiteralElements();
 		this.pUnitTypes = new UnitTypesElements();
-		this.pNumberDimensionless = new NumberDimensionlessElements();
+		this.pIntLiteral = new IntLiteralElements();
 		this.pHexLiteral = new HexLiteralElements();
 		this.pDecimalLiteral = new DecimalLiteralElements();
 		this.tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.HEX");
 		this.tDECIMAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.DECIMAL");
 		this.pStringLiteral = new StringLiteralElements();
 		this.pTypeCast = new TypeCastElements();
-		this.pSpecialVariables = new SpecialVariablesElements();
 		this.pElementaryTypeNameEnum = new ElementaryTypeNameEnumElements();
 		this.pSimpleTypeDeclaration = new SimpleTypeDeclarationElements();
 		this.pMapLocationLiteral = new MapLocationLiteralElements();
 		this.pLocationSpecifierEnum = new LocationSpecifierEnumElements();
 		this.pVisibilityEnum = new VisibilityEnumElements();
-		this.pEtherSubDenominationEnum = new EtherSubDenominationEnumElements();
-		this.pTimeSubdenominationEnum = new TimeSubdenominationEnumElements();
-		this.pSpecialLiteral = new SpecialLiteralElements();
+		this.pUnitsLiteral = new UnitsLiteralElements();
+		this.pTimeUnitsLiteral = new TimeUnitsLiteralElements();
 		this.tBLOCK = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.BLOCK");
 		this.tMSG = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.MSG");
 		this.tTX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.TX");
@@ -4997,9 +4797,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.eMulDivModOpEnum = new MulDivModOpEnumElements();
 		this.eIncDecOpEnum = new IncDecOpEnumElements();
 		this.eBooleanLiteralEnum = new BooleanLiteralEnumElements();
-		this.eSpecialVariablesTypeEnum = new SpecialVariablesTypeEnumElements();
 		this.eSpecialExpressionTypeEnum = new SpecialExpressionTypeEnumElements();
-		this.eReservedWordsEnum = new ReservedWordsEnumElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -5045,23 +4843,23 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	///*
-	//	 * Solidity:
-	//	 * (importDirective+=ImportDirective |
-	//	 * contract+=Contract |
-	//	 * library+=Library)*;
-	//	 * 
-	//	 * ImportDirective:
-	//	 * "import" importURI=STRING ";" |
-	//	 * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
-	//	 * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
-	//	 * 
-	//	 * SymbolAlias:
-	//	 * symbol=ID "as" alias=ID
-	//	 * 
-	//	 * ContractOrLibrary:
-	//	 * Contract |
-	//	 * Library;
-	//	 */ Contract:
+	// * Solidity:
+	// * (importDirective+=ImportDirective |
+	// * contract+=Contract |
+	// * library+=Library)
+	// * 
+	// * ImportDirective:
+	// * "import" importURI=STRING ";" |
+	// * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+	// * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
+	// * 
+	// * SymbolAlias:
+	// * symbol=ID "as" alias=I
+	// * 
+	// * ContractOrLibrary:
+	// * Contract |
+	// * Library;
+	// */ Contract:
 	//	"contract" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier (","
 	//	inheritanceSpecifiers+=InheritanceSpecifier)*)? body=DefinitionBody;
 	public ContractElements getContractAccess() {
@@ -5926,25 +5724,26 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Literal:
-	//	SpecialVariables | StringLiteral | BooleanConst | SpecialLiteral //|
-	//	/*
-	//	 * FunctionCall |
-	//	 * ArrayAccess |
-	//	 * MappingAccess |
-	//	 * FieldAccess |
-	//	 * BlockhashFunction |
-	//	 * GasleftFunction |
-	//	 * MathematicalFunction |
-	//	 * HashFunction |
-	//	 * EcrecoverFunction |
-	//	 * ref=[Declaration]
-	//	 */;
+	//	SpecialLiteral | BooleanConst | NumericLiteral | StringLiteral;
 	public LiteralElements getLiteralAccess() {
 		return pLiteral;
 	}
 	
 	public ParserRule getLiteralRule() {
 		return getLiteralAccess().getRule();
+	}
+	
+	//SpecialLiteral:
+	//	name=(BLOCK
+	//	| MSG
+	//	| TX
+	//	| NOW);
+	public SpecialLiteralElements getSpecialLiteralAccess() {
+		return pSpecialLiteral;
+	}
+	
+	public ParserRule getSpecialLiteralRule() {
+		return getSpecialLiteralAccess().getRule();
 	}
 	
 	//BooleanConst:
@@ -5958,7 +5757,9 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NumericLiteral:
-	//	(intValue=NumberDimensionless | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?;
+	//	(intValue=IntLiteral
+	//	| hexValue=HexLiteral
+	//	| decimalValue=DecimalLiteral) etherUnit=UnitTypes?;
 	public NumericLiteralElements getNumericLiteralAccess() {
 		return pNumericLiteral;
 	}
@@ -5968,7 +5769,8 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UnitTypes:
-	//	time=TimeSubdenominationEnum | units=EtherSubDenominationEnum;
+	//	time=TimeUnitsLiteral
+	//	| units=UnitsLiteral;
 	public UnitTypesElements getUnitTypesAccess() {
 		return pUnitTypes;
 	}
@@ -5977,14 +5779,14 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnitTypesAccess().getRule();
 	}
 	
-	//NumberDimensionless:
+	//IntLiteral:
 	//	value=INT;
-	public NumberDimensionlessElements getNumberDimensionlessAccess() {
-		return pNumberDimensionless;
+	public IntLiteralElements getIntLiteralAccess() {
+		return pIntLiteral;
 	}
 	
-	public ParserRule getNumberDimensionlessRule() {
-		return getNumberDimensionlessAccess().getRule();
+	public ParserRule getIntLiteralRule() {
+		return getIntLiteralAccess().getRule();
 	}
 	
 	//HexLiteral:
@@ -6039,32 +5841,23 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeCastAccess().getRule();
 	}
 	
-	//SpecialVariables:
-	//	type=SpecialVariablesTypeEnum "." field=ID qualifiers+=Qualifier*;
-	public SpecialVariablesElements getSpecialVariablesAccess() {
-		return pSpecialVariables;
-	}
-	
-	public ParserRule getSpecialVariablesRule() {
-		return getSpecialVariablesAccess().getRule();
-	}
-	
 	//ElementaryTypeNameEnum:
 	//	type=(
 	//	//INT
-	//	"int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" | "int96" |
-	//	"int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" | "int178" |
-	//	"int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" | "int256") | type=(
+	//	"int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" |
+	//	"int96" | "int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" |
+	//	"int178" | "int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" |
+	//	"int256") | type=(
 	//	// UINT
-	//	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
-	//	"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
-	//	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
-	//	| "uint248" | "uint256") | type=(
+	//	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" |
+	//	"uint80" | "uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" |
+	//	"uint160" | "uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" |
+	//	"uint232" | "uint240" | "uint248" | "uint256") | type=(
 	//	// BYTES
-	//	"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-	//	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
-	//	| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
-	//	"bytes29" | "bytes30" | "bytes31" | "bytes32") | type="address";
+	//	"bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" | "bytes10" |
+	//	"bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19" |
+	//	"bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
+	//	"bytes29" | "bytes30" | "bytes31" | "bytes32" | "bytes" | "byte") | type=("address" | "real" | "ureal");
 	public ElementaryTypeNameEnumElements getElementaryTypeNameEnumAccess() {
 		return pElementaryTypeNameEnum;
 	}
@@ -6113,34 +5906,24 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getVisibilityEnumAccess().getRule();
 	}
 	
-	//EtherSubDenominationEnum:
+	//UnitsLiteral:
 	//	value=("wei" | "szabo" | "finney" | "ether");
-	public EtherSubDenominationEnumElements getEtherSubDenominationEnumAccess() {
-		return pEtherSubDenominationEnum;
+	public UnitsLiteralElements getUnitsLiteralAccess() {
+		return pUnitsLiteral;
 	}
 	
-	public ParserRule getEtherSubDenominationEnumRule() {
-		return getEtherSubDenominationEnumAccess().getRule();
+	public ParserRule getUnitsLiteralRule() {
+		return getUnitsLiteralAccess().getRule();
 	}
 	
-	//TimeSubdenominationEnum:
+	//TimeUnitsLiteral:
 	//	value=("seconds" | "minutes" | "hours" | "days" | "weeks" | "years");
-	public TimeSubdenominationEnumElements getTimeSubdenominationEnumAccess() {
-		return pTimeSubdenominationEnum;
+	public TimeUnitsLiteralElements getTimeUnitsLiteralAccess() {
+		return pTimeUnitsLiteral;
 	}
 	
-	public ParserRule getTimeSubdenominationEnumRule() {
-		return getTimeSubdenominationEnumAccess().getRule();
-	}
-	
-	//SpecialLiteral:
-	//	name=(BLOCK | MSG | TX | NOW);
-	public SpecialLiteralElements getSpecialLiteralAccess() {
-		return pSpecialLiteral;
-	}
-	
-	public ParserRule getSpecialLiteralRule() {
-		return getSpecialLiteralAccess().getRule();
+	public ParserRule getTimeUnitsLiteralRule() {
+		return getTimeUnitsLiteralAccess().getRule();
 	}
 	
 	//terminal BLOCK:
@@ -6249,16 +6032,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getBooleanLiteralEnumAccess().getRule();
 	}
 	
-	//enum SpecialVariablesTypeEnum:
-	//	MSG="msg" | BLOCK="block" | TX="tx";
-	public SpecialVariablesTypeEnumElements getSpecialVariablesTypeEnumAccess() {
-		return eSpecialVariablesTypeEnum;
-	}
-	
-	public EnumRule getSpecialVariablesTypeEnumRule() {
-		return getSpecialVariablesTypeEnumAccess().getRule();
-	}
-	
 	//enum SpecialExpressionTypeEnum:
 	//	SUPER="super" | THIS="this";
 	public SpecialExpressionTypeEnumElements getSpecialExpressionTypeEnumAccess() {
@@ -6267,18 +6040,6 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getSpecialExpressionTypeEnumRule() {
 		return getSpecialExpressionTypeEnumAccess().getRule();
-	}
-	
-	//enum ReservedWordsEnum:
-	//	AS="as" | CASE="case" | CATCH="catch" | FINAL="final" | LET="let" | MATCH="match" | OF="of" |
-	//	RELOCATABLE="relocatable" | SWITCH="switch" | TRY="try" | TYPE="type" | TYPEOF="typeof" | USING="using" |
-	//	ILLEGAL;
-	public ReservedWordsEnumElements getReservedWordsEnumAccess() {
-		return eReservedWordsEnum;
-	}
-	
-	public EnumRule getReservedWordsEnumRule() {
-		return getReservedWordsEnumAccess().getRule();
 	}
 	
 	//terminal ID:

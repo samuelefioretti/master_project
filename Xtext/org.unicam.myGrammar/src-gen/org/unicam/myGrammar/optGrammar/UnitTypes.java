@@ -29,12 +29,12 @@ public interface UnitTypes extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Time</em>' containment reference.
-   * @see #setTime(TimeSubdenominationEnum)
+   * @see #setTime(TimeUnitsLiteral)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getUnitTypes_Time()
    * @model containment="true"
    * @generated
    */
-  TimeSubdenominationEnum getTime();
+  TimeUnitsLiteral getTime();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.UnitTypes#getTime <em>Time</em>}' containment reference.
@@ -44,19 +44,19 @@ public interface UnitTypes extends EObject
    * @see #getTime()
    * @generated
    */
-  void setTime(TimeSubdenominationEnum value);
+  void setTime(TimeUnitsLiteral value);
 
   /**
    * Returns the value of the '<em><b>Units</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Units</em>' containment reference.
-   * @see #setUnits(EtherSubDenominationEnum)
+   * @see #setUnits(UnitsLiteral)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getUnitTypes_Units()
    * @model containment="true"
    * @generated
    */
-  EtherSubDenominationEnum getUnits();
+  UnitsLiteral getUnits();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.UnitTypes#getUnits <em>Units</em>}' containment reference.
@@ -66,6 +66,6 @@ public interface UnitTypes extends EObject
    * @see #getUnits()
    * @generated
    */
-  void setUnits(EtherSubDenominationEnum value);
+  void setUnits(UnitsLiteral value);
 
 } // UnitTypes

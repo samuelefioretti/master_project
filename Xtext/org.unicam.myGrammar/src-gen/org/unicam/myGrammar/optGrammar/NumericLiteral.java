@@ -3,7 +3,6 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,19 +23,19 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface NumericLiteral extends EObject
+public interface NumericLiteral extends Literal
 {
   /**
    * Returns the value of the '<em><b>Int Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Int Value</em>' containment reference.
-   * @see #setIntValue(NumberDimensionless)
+   * @see #setIntValue(IntLiteral)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getNumericLiteral_IntValue()
    * @model containment="true"
    * @generated
    */
-  NumberDimensionless getIntValue();
+  IntLiteral getIntValue();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.NumericLiteral#getIntValue <em>Int Value</em>}' containment reference.
@@ -46,7 +45,7 @@ public interface NumericLiteral extends EObject
    * @see #getIntValue()
    * @generated
    */
-  void setIntValue(NumberDimensionless value);
+  void setIntValue(IntLiteral value);
 
   /**
    * Returns the value of the '<em><b>Hex Value</b></em>' containment reference.

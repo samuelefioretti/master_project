@@ -10,23 +10,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
+import org.unicam.myGrammar.optGrammar.UnitsLiteral;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ether Sub Denomination Enum</b></em>'.
+ * An implementation of the model object '<em><b>Units Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.EtherSubDenominationEnumImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.UnitsLiteralImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container implements EtherSubDenominationEnum
+public class UnitsLiteralImpl extends MinimalEObjectImpl.Container implements UnitsLiteral
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -53,7 +53,7 @@ public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container i
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EtherSubDenominationEnumImpl()
+  protected UnitsLiteralImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container i
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.ETHER_SUB_DENOMINATION_ENUM;
+    return OptGrammarPackage.Literals.UNITS_LITERAL;
   }
 
   /**
@@ -91,7 +91,7 @@ public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container i
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.UNITS_LITERAL__VALUE, oldValue, value));
   }
 
   /**
@@ -104,7 +104,7 @@ public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container i
   {
     switch (featureID)
     {
-      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE:
+      case OptGrammarPackage.UNITS_LITERAL__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -120,7 +120,7 @@ public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container i
   {
     switch (featureID)
     {
-      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE:
+      case OptGrammarPackage.UNITS_LITERAL__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -137,7 +137,7 @@ public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container i
   {
     switch (featureID)
     {
-      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE:
+      case OptGrammarPackage.UNITS_LITERAL__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -154,7 +154,7 @@ public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container i
   {
     switch (featureID)
     {
-      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE:
+      case OptGrammarPackage.UNITS_LITERAL__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -177,4 +177,4 @@ public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container i
     return result.toString();
   }
 
-} //EtherSubDenominationEnumImpl
+} //UnitsLiteralImpl

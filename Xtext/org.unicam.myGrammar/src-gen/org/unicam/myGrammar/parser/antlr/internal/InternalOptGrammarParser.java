@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_HEX", "RULE_DECIMAL", "RULE_STRING", "RULE_BLOCK", "RULE_MSG", "RULE_TX", "RULE_NOW", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'contract'", "'is'", "','", "'{'", "';'", "'}'", "'('", "')'", "':'", "'function'", "'returns'", "'constant'", "'struct'", "'enum'", "'='", "'indexed'", "'mapping'", "'=>'", "'['", "']'", "'var'", "'.'", "'modifier'", "'event'", "'anonymous'", "'delete'", "'if'", "'else'", "'while'", "'for'", "'continue'", "'break'", "'return'", "'throw'", "'_'", "'||'", "'&&'", "'|'", "'^'", "'&'", "'**'", "'!'", "'~'", "'+'", "'-'", "'new'", "'++'", "'--'", "'int'", "'int16'", "'int24'", "'int32'", "'int40'", "'int48'", "'int56'", "'int64'", "'int72'", "'int80'", "'int88'", "'int96'", "'int104'", "'int112'", "'int120'", "'int128'", "'int136'", "'int144'", "'int152'", "'int160'", "'int168'", "'int178'", "'int184'", "'int192'", "'int200'", "'int208'", "'int216'", "'int224'", "'int232'", "'int240'", "'int248'", "'int256'", "'uint'", "'uint8'", "'uint16'", "'uint24'", "'uint32'", "'uint40'", "'uint48'", "'uint56'", "'uint64'", "'uint72'", "'uint80'", "'uint88'", "'uint96'", "'uint104'", "'uint112'", "'uint120'", "'uint128'", "'uint136'", "'uint144'", "'uint152'", "'uint160'", "'uint168'", "'uint178'", "'uint184'", "'uint192'", "'uint200'", "'uint208'", "'uint216'", "'uint224'", "'uint232'", "'uint240'", "'uint248'", "'uint256'", "'byte'", "'bytes'", "'bytes1'", "'bytes2'", "'bytes3'", "'bytes4'", "'bytes5'", "'bytes6'", "'bytes7'", "'bytes8'", "'bytes9'", "'bytes10'", "'bytes11'", "'bytes12'", "'bytes13'", "'bytes14'", "'bytes15'", "'bytes16'", "'bytes17'", "'bytes18'", "'bytes19'", "'bytes20'", "'bytes21'", "'bytes22'", "'bytes23'", "'bytes24'", "'bytes25'", "'bytes26'", "'bytes27'", "'bytes28'", "'bytes29'", "'bytes30'", "'bytes31'", "'bytes32'", "'address'", "'storage'", "'memory'", "'calldata'", "'public'", "'internal'", "'private'", "'external'", "'wei'", "'szabo'", "'finney'", "'ether'", "'seconds'", "'minutes'", "'hours'", "'days'", "'weeks'", "'years'", "'|='", "'^='", "'&='", "'<<='", "'>>='", "'>>>='", "'+='", "'-='", "'*='", "'/='", "'%='", "'=='", "'!='", "'<'", "'>'", "'<='", "'>='", "'in'", "'<<'", "'>>'", "'>>>'", "'*'", "'/'", "'%'", "'true'", "'false'", "'msg'", "'block'", "'tx'", "'super'", "'this'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_BLOCK", "RULE_MSG", "RULE_TX", "RULE_NOW", "RULE_INT", "RULE_HEX", "RULE_DECIMAL", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'contract'", "'is'", "','", "'{'", "';'", "'}'", "'('", "')'", "':'", "'function'", "'returns'", "'constant'", "'struct'", "'enum'", "'='", "'indexed'", "'mapping'", "'=>'", "'['", "']'", "'var'", "'.'", "'modifier'", "'event'", "'anonymous'", "'delete'", "'if'", "'else'", "'while'", "'for'", "'continue'", "'break'", "'return'", "'throw'", "'_'", "'||'", "'&&'", "'|'", "'^'", "'&'", "'**'", "'!'", "'~'", "'+'", "'-'", "'new'", "'++'", "'--'", "'int'", "'int16'", "'int24'", "'int32'", "'int40'", "'int48'", "'int56'", "'int64'", "'int72'", "'int80'", "'int88'", "'int96'", "'int104'", "'int112'", "'int120'", "'int128'", "'int136'", "'int144'", "'int152'", "'int160'", "'int168'", "'int178'", "'int184'", "'int192'", "'int200'", "'int208'", "'int216'", "'int224'", "'int232'", "'int240'", "'int248'", "'int256'", "'uint'", "'uint8'", "'uint16'", "'uint24'", "'uint32'", "'uint40'", "'uint48'", "'uint56'", "'uint64'", "'uint72'", "'uint80'", "'uint88'", "'uint96'", "'uint104'", "'uint112'", "'uint120'", "'uint128'", "'uint136'", "'uint144'", "'uint152'", "'uint160'", "'uint168'", "'uint178'", "'uint184'", "'uint192'", "'uint200'", "'uint208'", "'uint216'", "'uint224'", "'uint232'", "'uint240'", "'uint248'", "'uint256'", "'bytes1'", "'bytes2'", "'bytes3'", "'bytes4'", "'bytes5'", "'bytes6'", "'bytes7'", "'bytes8'", "'bytes9'", "'bytes10'", "'bytes11'", "'bytes12'", "'bytes13'", "'bytes14'", "'bytes15'", "'bytes16'", "'bytes17'", "'bytes18'", "'bytes19'", "'bytes20'", "'bytes21'", "'bytes22'", "'bytes23'", "'bytes24'", "'bytes25'", "'bytes26'", "'bytes27'", "'bytes28'", "'bytes29'", "'bytes30'", "'bytes31'", "'bytes32'", "'bytes'", "'byte'", "'address'", "'real'", "'ureal'", "'storage'", "'memory'", "'calldata'", "'public'", "'internal'", "'private'", "'external'", "'wei'", "'szabo'", "'finney'", "'ether'", "'seconds'", "'minutes'", "'hours'", "'days'", "'weeks'", "'years'", "'|='", "'^='", "'&='", "'<<='", "'>>='", "'>>>='", "'+='", "'-='", "'*='", "'/='", "'%='", "'=='", "'!='", "'<'", "'>'", "'<='", "'>='", "'in'", "'<<'", "'>>'", "'>>>'", "'*'", "'/'", "'%'", "'true'", "'false'", "'super'", "'this'"
     };
     public static final int T__144=144;
     public static final int T__143=143;
@@ -55,7 +55,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     public static final int RULE_ID=4;
     public static final int T__131=131;
     public static final int T__130=130;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=9;
     public static final int T__66=66;
     public static final int T__67=67;
     public static final int T__129=129;
@@ -93,7 +93,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     public static final int T__155=155;
     public static final int T__154=154;
     public static final int T__157=157;
-    public static final int RULE_BLOCK=9;
+    public static final int RULE_BLOCK=5;
     public static final int T__156=156;
     public static final int T__151=151;
     public static final int T__150=150;
@@ -119,9 +119,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__210=210;
-    public static final int T__212=212;
     public static final int T__211=211;
-    public static final int RULE_DECIMAL=7;
+    public static final int RULE_DECIMAL=11;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
@@ -145,7 +144,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     public static final int T__124=124;
     public static final int T__123=123;
     public static final int T__120=120;
-    public static final int RULE_NOW=12;
+    public static final int RULE_NOW=8;
     public static final int RULE_SL_COMMENT=14;
     public static final int T__119=119;
     public static final int T__118=118;
@@ -165,7 +164,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     public static final int T__103=103;
     public static final int T__106=106;
     public static final int T__105=105;
-    public static final int RULE_HEX=6;
+    public static final int RULE_HEX=10;
     public static final int RULE_ML_COMMENT=13;
     public static final int T__201=201;
     public static final int T__200=200;
@@ -195,17 +194,17 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     public static final int T__178=178;
     public static final int T__173=173;
     public static final int T__172=172;
-    public static final int RULE_MSG=10;
+    public static final int RULE_MSG=6;
     public static final int T__175=175;
     public static final int T__174=174;
     public static final int T__171=171;
     public static final int T__170=170;
     public static final int T__169=169;
-    public static final int RULE_TX=11;
+    public static final int RULE_TX=7;
     public static final int T__70=70;
     public static final int T__71=71;
     public static final int T__72=72;
-    public static final int RULE_STRING=8;
+    public static final int RULE_STRING=12;
     public static final int T__77=77;
     public static final int T__78=78;
     public static final int T__79=79;
@@ -901,6 +900,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 case 162:
                 case 163:
                 case 164:
+                case 165:
+                case 166:
                     {
                     alt4=4;
                     }
@@ -1453,7 +1454,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==RULE_ID||(LA7_0>=RULE_STRING && LA7_0<=RULE_NOW)||LA7_0==23||(LA7_0>=58 && LA7_0<=164)||(LA7_0>=206 && LA7_0<=212)) ) {
+            if ( ((LA7_0>=RULE_ID && LA7_0<=RULE_STRING)||LA7_0==23||(LA7_0>=58 && LA7_0<=166)||(LA7_0>=208 && LA7_0<=211)) ) {
                 alt7=1;
             }
             switch (alt7) {
@@ -1667,7 +1668,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             if ( (LA10_0==23) ) {
                 int LA10_1 = input.LA(2);
 
-                if ( (LA10_1==RULE_ID||(LA10_1>=RULE_STRING && LA10_1<=RULE_NOW)||(LA10_1>=23 && LA10_1<=24)||(LA10_1>=58 && LA10_1<=164)||(LA10_1>=206 && LA10_1<=212)) ) {
+                if ( ((LA10_1>=RULE_ID && LA10_1<=RULE_STRING)||(LA10_1>=23 && LA10_1<=24)||(LA10_1>=58 && LA10_1<=166)||(LA10_1>=208 && LA10_1<=211)) ) {
                     alt10=2;
                 }
                 else if ( (LA10_1==20) ) {
@@ -2225,7 +2226,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( (LA12_0==RULE_ID||LA12_0==28||(LA12_0>=168 && LA12_0<=171)) ) {
+                if ( (LA12_0==RULE_ID||LA12_0==28||(LA12_0>=170 && LA12_0<=173)) ) {
                     alt12=1;
                 }
 
@@ -2500,10 +2501,10 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 alt15=2;
                 }
                 break;
-            case 168:
-            case 169:
             case 170:
             case 171:
+            case 172:
+            case 173:
                 {
                 alt15=3;
                 }
@@ -2929,7 +2930,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 int alt16=2;
                 int LA16_0 = input.LA(1);
 
-                if ( (LA16_0==RULE_ID||LA16_0==33||LA16_0==37||(LA16_0>=65 && LA16_0<=164)) ) {
+                if ( (LA16_0==RULE_ID||LA16_0==33||LA16_0==37||(LA16_0>=65 && LA16_0<=166)) ) {
                     alt16=1;
                 }
 
@@ -3545,7 +3546,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt19=3;
             int LA19_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_ID||LA19_0==33||(LA19_0>=65 && LA19_0<=164)) ) {
+            if ( (LA19_0==RULE_ID||LA19_0==33||(LA19_0>=65 && LA19_0<=166)) ) {
                 alt19=1;
             }
             else if ( (LA19_0==37) ) {
@@ -3769,7 +3770,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==28||LA20_0==32||(LA20_0>=165 && LA20_0<=171)) ) {
+                if ( (LA20_0==28||LA20_0==32||(LA20_0>=167 && LA20_0<=173)) ) {
                     alt20=1;
                 }
 
@@ -4427,10 +4428,10 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             // InternalOptGrammar.g:1473:2: (this_VisibilitySpecifier_0= ruleVisibilitySpecifier | this_IndexedSpecifer_1= ruleIndexedSpecifer | this_ConstantSpecifier_2= ruleConstantSpecifier | this_LocationSpecifier_3= ruleLocationSpecifier )
             int alt24=4;
             switch ( input.LA(1) ) {
-            case 168:
-            case 169:
             case 170:
             case 171:
+            case 172:
+            case 173:
                 {
                 alt24=1;
                 }
@@ -4445,9 +4446,9 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 alt24=3;
                 }
                 break;
-            case 165:
-            case 166:
             case 167:
+            case 168:
+            case 169:
                 {
                 alt24=4;
                 }
@@ -4945,7 +4946,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt25=2;
             int LA25_0 = input.LA(1);
 
-            if ( (LA25_0==RULE_ID||LA25_0==33||(LA25_0>=65 && LA25_0<=164)) ) {
+            if ( (LA25_0==RULE_ID||LA25_0==33||(LA25_0>=65 && LA25_0<=166)) ) {
                 alt25=1;
             }
             else if ( (LA25_0==37) ) {
@@ -5210,6 +5211,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             case 162:
             case 163:
             case 164:
+            case 165:
+            case 166:
                 {
                 alt27=1;
                 }
@@ -5438,7 +5441,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt29=2;
             int LA29_0 = input.LA(1);
 
-            if ( ((LA29_0>=65 && LA29_0<=164)) ) {
+            if ( ((LA29_0>=65 && LA29_0<=166)) ) {
                 alt29=1;
             }
             else if ( (LA29_0==33) ) {
@@ -5952,7 +5955,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( (LA30_0==RULE_ID||(LA30_0>=RULE_STRING && LA30_0<=RULE_NOW)||LA30_0==23||(LA30_0>=58 && LA30_0<=164)||(LA30_0>=206 && LA30_0<=212)) ) {
+            if ( ((LA30_0>=RULE_ID && LA30_0<=RULE_STRING)||LA30_0==23||(LA30_0>=58 && LA30_0<=166)||(LA30_0>=208 && LA30_0<=211)) ) {
                 alt30=1;
             }
             switch (alt30) {
@@ -6025,7 +6028,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             	    int alt31=2;
             	    int LA31_0 = input.LA(1);
 
-            	    if ( (LA31_0==RULE_ID||(LA31_0>=RULE_STRING && LA31_0<=RULE_NOW)||LA31_0==23||(LA31_0>=58 && LA31_0<=164)||(LA31_0>=206 && LA31_0<=212)) ) {
+            	    if ( ((LA31_0>=RULE_ID && LA31_0<=RULE_STRING)||LA31_0==23||(LA31_0>=58 && LA31_0<=166)||(LA31_0>=208 && LA31_0<=211)) ) {
             	        alt31=1;
             	    }
             	    switch (alt31) {
@@ -6275,7 +6278,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( (LA36_0==RULE_ID||(LA36_0>=RULE_STRING && LA36_0<=RULE_NOW)||LA36_0==19||LA36_0==23||(LA36_0>=58 && LA36_0<=164)||(LA36_0>=206 && LA36_0<=212)) ) {
+            if ( ((LA36_0>=RULE_ID && LA36_0<=RULE_STRING)||LA36_0==19||LA36_0==23||(LA36_0>=58 && LA36_0<=166)||(LA36_0>=208 && LA36_0<=211)) ) {
                 alt36=1;
             }
             switch (alt36) {
@@ -6286,7 +6289,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     int alt33=2;
                     int LA33_0 = input.LA(1);
 
-                    if ( (LA33_0==RULE_ID||(LA33_0>=RULE_STRING && LA33_0<=RULE_NOW)||LA33_0==23||(LA33_0>=58 && LA33_0<=164)||(LA33_0>=206 && LA33_0<=212)) ) {
+                    if ( ((LA33_0>=RULE_ID && LA33_0<=RULE_STRING)||LA33_0==23||(LA33_0>=58 && LA33_0<=166)||(LA33_0>=208 && LA33_0<=211)) ) {
                         alt33=1;
                     }
                     switch (alt33) {
@@ -6383,7 +6386,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     	    int alt34=2;
                     	    int LA34_0 = input.LA(1);
 
-                    	    if ( (LA34_0==RULE_ID||(LA34_0>=RULE_STRING && LA34_0<=RULE_NOW)||LA34_0==23||(LA34_0>=58 && LA34_0<=164)||(LA34_0>=206 && LA34_0<=212)) ) {
+                    	    if ( ((LA34_0>=RULE_ID && LA34_0<=RULE_STRING)||LA34_0==23||(LA34_0>=58 && LA34_0<=166)||(LA34_0>=208 && LA34_0<=211)) ) {
                     	        alt34=1;
                     	    }
                     	    switch (alt34) {
@@ -6701,7 +6704,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                         int alt37=2;
                         int LA37_0 = input.LA(1);
 
-                        if ( (LA37_0==28||LA37_0==32||(LA37_0>=165 && LA37_0<=171)) ) {
+                        if ( (LA37_0==28||LA37_0==32||(LA37_0>=167 && LA37_0<=173)) ) {
                             alt37=1;
                         }
 
@@ -7309,7 +7312,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                         int alt41=2;
                         int LA41_0 = input.LA(1);
 
-                        if ( (LA41_0==28||LA41_0==32||(LA41_0>=165 && LA41_0<=171)) ) {
+                        if ( (LA41_0==28||LA41_0==32||(LA41_0>=167 && LA41_0<=173)) ) {
                             alt41=1;
                         }
 
@@ -8420,7 +8423,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt47=2;
             int LA47_0 = input.LA(1);
 
-            if ( (LA47_0==RULE_ID||(LA47_0>=RULE_STRING && LA47_0<=RULE_NOW)||LA47_0==23||(LA47_0>=58 && LA47_0<=164)||(LA47_0>=206 && LA47_0<=212)) ) {
+            if ( ((LA47_0>=RULE_ID && LA47_0<=RULE_STRING)||LA47_0==23||(LA47_0>=58 && LA47_0<=166)||(LA47_0>=208 && LA47_0<=211)) ) {
                 alt47=1;
             }
             switch (alt47) {
@@ -9257,7 +9260,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt53=2;
             int LA53_0 = input.LA(1);
 
-            if ( (LA53_0==RULE_ID||LA53_0==33||LA53_0==37||(LA53_0>=65 && LA53_0<=164)) ) {
+            if ( (LA53_0==RULE_ID||LA53_0==33||LA53_0==37||(LA53_0>=65 && LA53_0<=166)) ) {
                 alt53=1;
             }
             switch (alt53) {
@@ -9486,7 +9489,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( (LA55_0==RULE_ID||LA55_0==33||LA55_0==37||(LA55_0>=65 && LA55_0<=164)) ) {
+            if ( (LA55_0==RULE_ID||LA55_0==33||LA55_0==37||(LA55_0>=65 && LA55_0<=166)) ) {
                 alt55=1;
             }
             switch (alt55) {
@@ -9898,11 +9901,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case RULE_ID:
-            case RULE_STRING:
             case RULE_BLOCK:
             case RULE_MSG:
             case RULE_TX:
             case RULE_NOW:
+            case RULE_INT:
+            case RULE_HEX:
+            case RULE_DECIMAL:
+            case RULE_STRING:
             case 23:
             case 33:
             case 37:
@@ -10018,13 +10024,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             case 162:
             case 163:
             case 164:
-            case 206:
-            case 207:
+            case 165:
+            case 166:
             case 208:
             case 209:
             case 210:
             case 211:
-            case 212:
                 {
                 alt58=6;
                 }
@@ -10180,11 +10185,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                         }
                         break;
                     case RULE_ID:
-                    case RULE_STRING:
                     case RULE_BLOCK:
                     case RULE_MSG:
                     case RULE_TX:
                     case RULE_NOW:
+                    case RULE_INT:
+                    case RULE_HEX:
+                    case RULE_DECIMAL:
+                    case RULE_STRING:
                     case 23:
                     case 33:
                     case 37:
@@ -10295,13 +10303,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     case 162:
                     case 163:
                     case 164:
-                    case 206:
-                    case 207:
+                    case 165:
+                    case 166:
                     case 208:
                     case 209:
                     case 210:
                     case 211:
-                    case 212:
                         {
                         alt57=6;
                         }
@@ -11114,7 +11121,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt60=2;
             int LA60_0 = input.LA(1);
 
-            if ( (LA60_0==RULE_ID||(LA60_0>=RULE_STRING && LA60_0<=RULE_NOW)||LA60_0==23||LA60_0==33||LA60_0==37||(LA60_0>=58 && LA60_0<=164)||(LA60_0>=206 && LA60_0<=212)) ) {
+            if ( ((LA60_0>=RULE_ID && LA60_0<=RULE_STRING)||LA60_0==23||LA60_0==33||LA60_0==37||(LA60_0>=58 && LA60_0<=166)||(LA60_0>=208 && LA60_0<=211)) ) {
                 alt60=1;
             }
             switch (alt60) {
@@ -11172,7 +11179,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt61=2;
             int LA61_0 = input.LA(1);
 
-            if ( (LA61_0==RULE_ID||(LA61_0>=RULE_STRING && LA61_0<=RULE_NOW)||LA61_0==23||(LA61_0>=58 && LA61_0<=164)||(LA61_0>=206 && LA61_0<=212)) ) {
+            if ( ((LA61_0>=RULE_ID && LA61_0<=RULE_STRING)||LA61_0==23||(LA61_0>=58 && LA61_0<=166)||(LA61_0>=208 && LA61_0<=211)) ) {
                 alt61=1;
             }
             switch (alt61) {
@@ -11224,7 +11231,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt62=2;
             int LA62_0 = input.LA(1);
 
-            if ( (LA62_0==RULE_ID||(LA62_0>=RULE_STRING && LA62_0<=RULE_NOW)||LA62_0==23||(LA62_0>=58 && LA62_0<=164)||(LA62_0>=206 && LA62_0<=212)) ) {
+            if ( ((LA62_0>=RULE_ID && LA62_0<=RULE_STRING)||LA62_0==23||(LA62_0>=58 && LA62_0<=166)||(LA62_0>=208 && LA62_0<=211)) ) {
                 alt62=1;
             }
             switch (alt62) {
@@ -11416,7 +11423,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt64=2;
             int LA64_0 = input.LA(1);
 
-            if ( (LA64_0==RULE_ID||(LA64_0>=RULE_STRING && LA64_0<=RULE_NOW)||LA64_0==20||LA64_0==23||LA64_0==33||LA64_0==37||(LA64_0>=42 && LA64_0<=43)||(LA64_0>=45 && LA64_0<=51)||(LA64_0>=58 && LA64_0<=164)||(LA64_0>=206 && LA64_0<=212)) ) {
+            if ( ((LA64_0>=RULE_ID && LA64_0<=RULE_STRING)||LA64_0==20||LA64_0==23||LA64_0==33||LA64_0==37||(LA64_0>=42 && LA64_0<=43)||(LA64_0>=45 && LA64_0<=51)||(LA64_0>=58 && LA64_0<=166)||(LA64_0>=208 && LA64_0<=211)) ) {
                 alt64=1;
             }
             switch (alt64) {
@@ -11464,7 +11471,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                         int alt63=2;
                         int LA63_0 = input.LA(1);
 
-                        if ( (LA63_0==RULE_ID||(LA63_0>=RULE_STRING && LA63_0<=RULE_NOW)||LA63_0==20||LA63_0==23||LA63_0==33||LA63_0==37||(LA63_0>=42 && LA63_0<=43)||(LA63_0>=45 && LA63_0<=51)||(LA63_0>=58 && LA63_0<=164)||(LA63_0>=206 && LA63_0<=212)) ) {
+                        if ( ((LA63_0>=RULE_ID && LA63_0<=RULE_STRING)||LA63_0==20||LA63_0==23||LA63_0==33||LA63_0==37||(LA63_0>=42 && LA63_0<=43)||(LA63_0>=45 && LA63_0<=51)||(LA63_0>=58 && LA63_0<=166)||(LA63_0>=208 && LA63_0<=211)) ) {
                             alt63=1;
                         }
 
@@ -11844,7 +11851,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt65=2;
             int LA65_0 = input.LA(1);
 
-            if ( (LA65_0==RULE_ID||(LA65_0>=RULE_STRING && LA65_0<=RULE_NOW)||LA65_0==23||(LA65_0>=58 && LA65_0<=164)||(LA65_0>=206 && LA65_0<=212)) ) {
+            if ( ((LA65_0>=RULE_ID && LA65_0<=RULE_STRING)||LA65_0==23||(LA65_0>=58 && LA65_0<=166)||(LA65_0>=208 && LA65_0<=211)) ) {
                 alt65=1;
             }
             switch (alt65) {
@@ -12580,7 +12587,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt70=3;
             int LA70_0 = input.LA(1);
 
-            if ( (LA70_0==31||(LA70_0>=182 && LA70_0<=192)) ) {
+            if ( (LA70_0==31||(LA70_0>=184 && LA70_0<=194)) ) {
                 alt70=1;
             }
             else if ( (LA70_0==RULE_ID) ) {
@@ -13361,7 +13368,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 int alt73=2;
                 int LA73_0 = input.LA(1);
 
-                if ( ((LA73_0>=193 && LA73_0<=194)) ) {
+                if ( ((LA73_0>=195 && LA73_0<=196)) ) {
                     alt73=1;
                 }
 
@@ -13570,7 +13577,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 int alt74=2;
                 int LA74_0 = input.LA(1);
 
-                if ( ((LA74_0>=195 && LA74_0<=199)) ) {
+                if ( ((LA74_0>=197 && LA74_0<=201)) ) {
                     alt74=1;
                 }
 
@@ -14316,7 +14323,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 int alt78=2;
                 int LA78_0 = input.LA(1);
 
-                if ( ((LA78_0>=200 && LA78_0<=202)) ) {
+                if ( ((LA78_0>=202 && LA78_0<=204)) ) {
                     alt78=1;
                 }
 
@@ -14743,7 +14750,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 int alt80=2;
                 int LA80_0 = input.LA(1);
 
-                if ( ((LA80_0>=203 && LA80_0<=205)) ) {
+                if ( ((LA80_0>=205 && LA80_0<=207)) ) {
                     alt80=1;
                 }
 
@@ -15135,11 +15142,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case RULE_ID:
-            case RULE_STRING:
             case RULE_BLOCK:
             case RULE_MSG:
             case RULE_TX:
             case RULE_NOW:
+            case RULE_INT:
+            case RULE_HEX:
+            case RULE_DECIMAL:
+            case RULE_STRING:
             case 23:
             case 63:
             case 64:
@@ -15243,13 +15253,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             case 162:
             case 163:
             case 164:
-            case 206:
-            case 207:
+            case 165:
+            case 166:
             case 208:
             case 209:
             case 210:
             case 211:
-            case 212:
                 {
                 alt82=5;
                 }
@@ -16052,11 +16061,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             int alt84=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
-            case RULE_STRING:
             case RULE_BLOCK:
             case RULE_MSG:
             case RULE_TX:
             case RULE_NOW:
+            case RULE_INT:
+            case RULE_HEX:
+            case RULE_DECIMAL:
+            case RULE_STRING:
             case 23:
             case 65:
             case 66:
@@ -16158,13 +16170,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             case 162:
             case 163:
             case 164:
-            case 206:
-            case 207:
+            case 165:
+            case 166:
             case 208:
             case 209:
             case 210:
             case 211:
-            case 212:
                 {
                 alt84=1;
                 }
@@ -16584,8 +16595,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             // InternalOptGrammar.g:5413:2: (this_SpecialExpression_0= ruleSpecialExpression | this_QualifiedIdentifier_1= ruleQualifiedIdentifier | this_Literal_2= ruleLiteral | this_TypeCast_3= ruleTypeCast | (otherlv_4= '(' this_Expression_5= ruleExpression ( () ( ( (lv_members_7_0= ruleTupleSeparator ) ) ( (lv_members_8_0= ruleExpression ) )? )+ )? otherlv_9= ')' ) | (otherlv_10= '(' this_TupleSeparator_11= ruleTupleSeparator ( () ( (lv_members_13_0= ruleExpression ) )? ( ( (lv_members_14_0= ruleTupleSeparator ) ) ( (lv_members_15_0= ruleExpression ) )? )* ) otherlv_16= ')' ) | (otherlv_17= '(' otherlv_18= ')' () ) )
             int alt92=7;
             switch ( input.LA(1) ) {
+            case 210:
             case 211:
-            case 212:
                 {
                 alt92=1;
                 }
@@ -16595,16 +16606,16 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 alt92=2;
                 }
                 break;
-            case RULE_STRING:
             case RULE_BLOCK:
             case RULE_MSG:
             case RULE_TX:
             case RULE_NOW:
-            case 206:
-            case 207:
+            case RULE_INT:
+            case RULE_HEX:
+            case RULE_DECIMAL:
+            case RULE_STRING:
             case 208:
             case 209:
-            case 210:
                 {
                 alt92=3;
                 }
@@ -16709,6 +16720,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             case 162:
             case 163:
             case 164:
+            case 165:
+            case 166:
                 {
                 alt92=4;
                 }
@@ -16727,11 +16740,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case RULE_ID:
-                case RULE_STRING:
                 case RULE_BLOCK:
                 case RULE_MSG:
                 case RULE_TX:
                 case RULE_NOW:
+                case RULE_INT:
+                case RULE_HEX:
+                case RULE_DECIMAL:
+                case RULE_STRING:
                 case 23:
                 case 58:
                 case 59:
@@ -16840,13 +16856,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                 case 162:
                 case 163:
                 case 164:
-                case 206:
-                case 207:
+                case 165:
+                case 166:
                 case 208:
                 case 209:
                 case 210:
                 case 211:
-                case 212:
                     {
                     alt92=5;
                     }
@@ -17065,7 +17080,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             	    int alt86=2;
                             	    int LA86_0 = input.LA(1);
 
-                            	    if ( (LA86_0==RULE_ID||(LA86_0>=RULE_STRING && LA86_0<=RULE_NOW)||LA86_0==23||(LA86_0>=58 && LA86_0<=164)||(LA86_0>=206 && LA86_0<=212)) ) {
+                            	    if ( ((LA86_0>=RULE_ID && LA86_0<=RULE_STRING)||LA86_0==23||(LA86_0>=58 && LA86_0<=166)||(LA86_0>=208 && LA86_0<=211)) ) {
                             	        alt86=1;
                             	    }
                             	    switch (alt86) {
@@ -17187,7 +17202,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     int alt89=2;
                     int LA89_0 = input.LA(1);
 
-                    if ( (LA89_0==RULE_ID||(LA89_0>=RULE_STRING && LA89_0<=RULE_NOW)||LA89_0==23||(LA89_0>=58 && LA89_0<=164)||(LA89_0>=206 && LA89_0<=212)) ) {
+                    if ( ((LA89_0>=RULE_ID && LA89_0<=RULE_STRING)||LA89_0==23||(LA89_0>=58 && LA89_0<=166)||(LA89_0>=208 && LA89_0<=211)) ) {
                         alt89=1;
                     }
                     switch (alt89) {
@@ -17283,7 +17298,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     	    int alt90=2;
                     	    int LA90_0 = input.LA(1);
 
-                    	    if ( (LA90_0==RULE_ID||(LA90_0>=RULE_STRING && LA90_0<=RULE_NOW)||LA90_0==23||(LA90_0>=58 && LA90_0<=164)||(LA90_0>=206 && LA90_0<=212)) ) {
+                    	    if ( ((LA90_0>=RULE_ID && LA90_0<=RULE_STRING)||LA90_0==23||(LA90_0>=58 && LA90_0<=166)||(LA90_0>=208 && LA90_0<=211)) ) {
                     	        alt90=1;
                     	    }
                     	    switch (alt90) {
@@ -17451,51 +17466,51 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteral"
-    // InternalOptGrammar.g:5633:1: ruleLiteral returns [EObject current=null] : (this_SpecialVariables_0= ruleSpecialVariables | this_StringLiteral_1= ruleStringLiteral | this_BooleanConst_2= ruleBooleanConst | this_SpecialLiteral_3= ruleSpecialLiteral ) ;
+    // InternalOptGrammar.g:5633:1: ruleLiteral returns [EObject current=null] : (this_SpecialLiteral_0= ruleSpecialLiteral | this_BooleanConst_1= ruleBooleanConst | this_NumericLiteral_2= ruleNumericLiteral | this_StringLiteral_3= ruleStringLiteral ) ;
     public final EObject ruleLiteral() throws RecognitionException {
         EObject current = null;
 
-        EObject this_SpecialVariables_0 = null;
+        EObject this_SpecialLiteral_0 = null;
 
-        EObject this_StringLiteral_1 = null;
+        EObject this_BooleanConst_1 = null;
 
-        EObject this_BooleanConst_2 = null;
+        EObject this_NumericLiteral_2 = null;
 
-        EObject this_SpecialLiteral_3 = null;
+        EObject this_StringLiteral_3 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:5639:2: ( (this_SpecialVariables_0= ruleSpecialVariables | this_StringLiteral_1= ruleStringLiteral | this_BooleanConst_2= ruleBooleanConst | this_SpecialLiteral_3= ruleSpecialLiteral ) )
-            // InternalOptGrammar.g:5640:2: (this_SpecialVariables_0= ruleSpecialVariables | this_StringLiteral_1= ruleStringLiteral | this_BooleanConst_2= ruleBooleanConst | this_SpecialLiteral_3= ruleSpecialLiteral )
+            // InternalOptGrammar.g:5639:2: ( (this_SpecialLiteral_0= ruleSpecialLiteral | this_BooleanConst_1= ruleBooleanConst | this_NumericLiteral_2= ruleNumericLiteral | this_StringLiteral_3= ruleStringLiteral ) )
+            // InternalOptGrammar.g:5640:2: (this_SpecialLiteral_0= ruleSpecialLiteral | this_BooleanConst_1= ruleBooleanConst | this_NumericLiteral_2= ruleNumericLiteral | this_StringLiteral_3= ruleStringLiteral )
             {
-            // InternalOptGrammar.g:5640:2: (this_SpecialVariables_0= ruleSpecialVariables | this_StringLiteral_1= ruleStringLiteral | this_BooleanConst_2= ruleBooleanConst | this_SpecialLiteral_3= ruleSpecialLiteral )
+            // InternalOptGrammar.g:5640:2: (this_SpecialLiteral_0= ruleSpecialLiteral | this_BooleanConst_1= ruleBooleanConst | this_NumericLiteral_2= ruleNumericLiteral | this_StringLiteral_3= ruleStringLiteral )
             int alt93=4;
             switch ( input.LA(1) ) {
-            case 208:
-            case 209:
-            case 210:
-                {
-                alt93=1;
-                }
-                break;
-            case RULE_STRING:
-                {
-                alt93=2;
-                }
-                break;
-            case 206:
-            case 207:
-                {
-                alt93=3;
-                }
-                break;
             case RULE_BLOCK:
             case RULE_MSG:
             case RULE_TX:
             case RULE_NOW:
+                {
+                alt93=1;
+                }
+                break;
+            case 208:
+            case 209:
+                {
+                alt93=2;
+                }
+                break;
+            case RULE_INT:
+            case RULE_HEX:
+            case RULE_DECIMAL:
+                {
+                alt93=3;
+                }
+                break;
+            case RULE_STRING:
                 {
                 alt93=4;
                 }
@@ -17510,21 +17525,21 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
             switch (alt93) {
                 case 1 :
-                    // InternalOptGrammar.g:5641:3: this_SpecialVariables_0= ruleSpecialVariables
+                    // InternalOptGrammar.g:5641:3: this_SpecialLiteral_0= ruleSpecialLiteral
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getLiteralAccess().getSpecialVariablesParserRuleCall_0());
+                      			newCompositeNode(grammarAccess.getLiteralAccess().getSpecialLiteralParserRuleCall_0());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SpecialVariables_0=ruleSpecialVariables();
+                    this_SpecialLiteral_0=ruleSpecialLiteral();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SpecialVariables_0;
+                      			current = this_SpecialLiteral_0;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -17532,21 +17547,21 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:5650:3: this_StringLiteral_1= ruleStringLiteral
+                    // InternalOptGrammar.g:5650:3: this_BooleanConst_1= ruleBooleanConst
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getLiteralAccess().getStringLiteralParserRuleCall_1());
+                      			newCompositeNode(grammarAccess.getLiteralAccess().getBooleanConstParserRuleCall_1());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_StringLiteral_1=ruleStringLiteral();
+                    this_BooleanConst_1=ruleBooleanConst();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_StringLiteral_1;
+                      			current = this_BooleanConst_1;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -17554,21 +17569,21 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:5659:3: this_BooleanConst_2= ruleBooleanConst
+                    // InternalOptGrammar.g:5659:3: this_NumericLiteral_2= ruleNumericLiteral
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getLiteralAccess().getBooleanConstParserRuleCall_2());
+                      			newCompositeNode(grammarAccess.getLiteralAccess().getNumericLiteralParserRuleCall_2());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_BooleanConst_2=ruleBooleanConst();
+                    this_NumericLiteral_2=ruleNumericLiteral();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_BooleanConst_2;
+                      			current = this_NumericLiteral_2;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -17576,21 +17591,21 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:5668:3: this_SpecialLiteral_3= ruleSpecialLiteral
+                    // InternalOptGrammar.g:5668:3: this_StringLiteral_3= ruleStringLiteral
                     {
                     if ( state.backtracking==0 ) {
 
-                      			newCompositeNode(grammarAccess.getLiteralAccess().getSpecialLiteralParserRuleCall_3());
+                      			newCompositeNode(grammarAccess.getLiteralAccess().getStringLiteralParserRuleCall_3());
                       		
                     }
                     pushFollow(FOLLOW_2);
-                    this_SpecialLiteral_3=ruleSpecialLiteral();
+                    this_StringLiteral_3=ruleStringLiteral();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      			current = this_SpecialLiteral_3;
+                      			current = this_StringLiteral_3;
                       			afterParserOrEnumRuleCall();
                       		
                     }
@@ -17621,8 +17636,229 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleLiteral"
 
 
+    // $ANTLR start "entryRuleSpecialLiteral"
+    // InternalOptGrammar.g:5680:1: entryRuleSpecialLiteral returns [EObject current=null] : iv_ruleSpecialLiteral= ruleSpecialLiteral EOF ;
+    public final EObject entryRuleSpecialLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSpecialLiteral = null;
+
+
+        try {
+            // InternalOptGrammar.g:5680:55: (iv_ruleSpecialLiteral= ruleSpecialLiteral EOF )
+            // InternalOptGrammar.g:5681:2: iv_ruleSpecialLiteral= ruleSpecialLiteral EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getSpecialLiteralRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleSpecialLiteral=ruleSpecialLiteral();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleSpecialLiteral; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSpecialLiteral"
+
+
+    // $ANTLR start "ruleSpecialLiteral"
+    // InternalOptGrammar.g:5687:1: ruleSpecialLiteral returns [EObject current=null] : ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) ) ) ;
+    public final EObject ruleSpecialLiteral() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_name_0_1=null;
+        Token lv_name_0_2=null;
+        Token lv_name_0_3=null;
+        Token lv_name_0_4=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalOptGrammar.g:5693:2: ( ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) ) ) )
+            // InternalOptGrammar.g:5694:2: ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) ) )
+            {
+            // InternalOptGrammar.g:5694:2: ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) ) )
+            // InternalOptGrammar.g:5695:3: ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) )
+            {
+            // InternalOptGrammar.g:5695:3: ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) )
+            // InternalOptGrammar.g:5696:4: (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW )
+            {
+            // InternalOptGrammar.g:5696:4: (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW )
+            int alt94=4;
+            switch ( input.LA(1) ) {
+            case RULE_BLOCK:
+                {
+                alt94=1;
+                }
+                break;
+            case RULE_MSG:
+                {
+                alt94=2;
+                }
+                break;
+            case RULE_TX:
+                {
+                alt94=3;
+                }
+                break;
+            case RULE_NOW:
+                {
+                alt94=4;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 94, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt94) {
+                case 1 :
+                    // InternalOptGrammar.g:5697:5: lv_name_0_1= RULE_BLOCK
+                    {
+                    lv_name_0_1=(Token)match(input,RULE_BLOCK,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_name_0_1, grammarAccess.getSpecialLiteralAccess().getNameBLOCKTerminalRuleCall_0_0());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getSpecialLiteralRule());
+                      					}
+                      					setWithLastConsumed(
+                      						current,
+                      						"name",
+                      						lv_name_0_1,
+                      						"org.unicam.myGrammar.OptGrammar.BLOCK");
+                      				
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // InternalOptGrammar.g:5712:5: lv_name_0_2= RULE_MSG
+                    {
+                    lv_name_0_2=(Token)match(input,RULE_MSG,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_name_0_2, grammarAccess.getSpecialLiteralAccess().getNameMSGTerminalRuleCall_0_1());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getSpecialLiteralRule());
+                      					}
+                      					setWithLastConsumed(
+                      						current,
+                      						"name",
+                      						lv_name_0_2,
+                      						"org.unicam.myGrammar.OptGrammar.MSG");
+                      				
+                    }
+
+                    }
+                    break;
+                case 3 :
+                    // InternalOptGrammar.g:5727:5: lv_name_0_3= RULE_TX
+                    {
+                    lv_name_0_3=(Token)match(input,RULE_TX,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_name_0_3, grammarAccess.getSpecialLiteralAccess().getNameTXTerminalRuleCall_0_2());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getSpecialLiteralRule());
+                      					}
+                      					setWithLastConsumed(
+                      						current,
+                      						"name",
+                      						lv_name_0_3,
+                      						"org.unicam.myGrammar.OptGrammar.TX");
+                      				
+                    }
+
+                    }
+                    break;
+                case 4 :
+                    // InternalOptGrammar.g:5742:5: lv_name_0_4= RULE_NOW
+                    {
+                    lv_name_0_4=(Token)match(input,RULE_NOW,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					newLeafNode(lv_name_0_4, grammarAccess.getSpecialLiteralAccess().getNameNOWTerminalRuleCall_0_3());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElement(grammarAccess.getSpecialLiteralRule());
+                      					}
+                      					setWithLastConsumed(
+                      						current,
+                      						"name",
+                      						lv_name_0_4,
+                      						"org.unicam.myGrammar.OptGrammar.NOW");
+                      				
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSpecialLiteral"
+
+
     // $ANTLR start "entryRuleBooleanConst"
-    // InternalOptGrammar.g:5680:1: entryRuleBooleanConst returns [EObject current=null] : iv_ruleBooleanConst= ruleBooleanConst EOF ;
+    // InternalOptGrammar.g:5762:1: entryRuleBooleanConst returns [EObject current=null] : iv_ruleBooleanConst= ruleBooleanConst EOF ;
     public final EObject entryRuleBooleanConst() throws RecognitionException {
         EObject current = null;
 
@@ -17630,8 +17866,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:5680:53: (iv_ruleBooleanConst= ruleBooleanConst EOF )
-            // InternalOptGrammar.g:5681:2: iv_ruleBooleanConst= ruleBooleanConst EOF
+            // InternalOptGrammar.g:5762:53: (iv_ruleBooleanConst= ruleBooleanConst EOF )
+            // InternalOptGrammar.g:5763:2: iv_ruleBooleanConst= ruleBooleanConst EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBooleanConstRule()); 
@@ -17662,7 +17898,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanConst"
-    // InternalOptGrammar.g:5687:1: ruleBooleanConst returns [EObject current=null] : ( (lv_value_0_0= ruleBooleanLiteralEnum ) ) ;
+    // InternalOptGrammar.g:5769:1: ruleBooleanConst returns [EObject current=null] : ( (lv_value_0_0= ruleBooleanLiteralEnum ) ) ;
     public final EObject ruleBooleanConst() throws RecognitionException {
         EObject current = null;
 
@@ -17673,14 +17909,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:5693:2: ( ( (lv_value_0_0= ruleBooleanLiteralEnum ) ) )
-            // InternalOptGrammar.g:5694:2: ( (lv_value_0_0= ruleBooleanLiteralEnum ) )
+            // InternalOptGrammar.g:5775:2: ( ( (lv_value_0_0= ruleBooleanLiteralEnum ) ) )
+            // InternalOptGrammar.g:5776:2: ( (lv_value_0_0= ruleBooleanLiteralEnum ) )
             {
-            // InternalOptGrammar.g:5694:2: ( (lv_value_0_0= ruleBooleanLiteralEnum ) )
-            // InternalOptGrammar.g:5695:3: (lv_value_0_0= ruleBooleanLiteralEnum )
+            // InternalOptGrammar.g:5776:2: ( (lv_value_0_0= ruleBooleanLiteralEnum ) )
+            // InternalOptGrammar.g:5777:3: (lv_value_0_0= ruleBooleanLiteralEnum )
             {
-            // InternalOptGrammar.g:5695:3: (lv_value_0_0= ruleBooleanLiteralEnum )
-            // InternalOptGrammar.g:5696:4: lv_value_0_0= ruleBooleanLiteralEnum
+            // InternalOptGrammar.g:5777:3: (lv_value_0_0= ruleBooleanLiteralEnum )
+            // InternalOptGrammar.g:5778:4: lv_value_0_0= ruleBooleanLiteralEnum
             {
             if ( state.backtracking==0 ) {
 
@@ -17732,8 +17968,295 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleBooleanConst"
 
 
+    // $ANTLR start "entryRuleNumericLiteral"
+    // InternalOptGrammar.g:5798:1: entryRuleNumericLiteral returns [EObject current=null] : iv_ruleNumericLiteral= ruleNumericLiteral EOF ;
+    public final EObject entryRuleNumericLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleNumericLiteral = null;
+
+
+        try {
+            // InternalOptGrammar.g:5798:55: (iv_ruleNumericLiteral= ruleNumericLiteral EOF )
+            // InternalOptGrammar.g:5799:2: iv_ruleNumericLiteral= ruleNumericLiteral EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getNumericLiteralRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleNumericLiteral=ruleNumericLiteral();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleNumericLiteral; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleNumericLiteral"
+
+
+    // $ANTLR start "ruleNumericLiteral"
+    // InternalOptGrammar.g:5805:1: ruleNumericLiteral returns [EObject current=null] : ( ( ( (lv_intValue_0_0= ruleIntLiteral ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )? ) ;
+    public final EObject ruleNumericLiteral() throws RecognitionException {
+        EObject current = null;
+
+        EObject lv_intValue_0_0 = null;
+
+        EObject lv_hexValue_1_0 = null;
+
+        EObject lv_decimalValue_2_0 = null;
+
+        EObject lv_etherUnit_3_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalOptGrammar.g:5811:2: ( ( ( ( (lv_intValue_0_0= ruleIntLiteral ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )? ) )
+            // InternalOptGrammar.g:5812:2: ( ( ( (lv_intValue_0_0= ruleIntLiteral ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )? )
+            {
+            // InternalOptGrammar.g:5812:2: ( ( ( (lv_intValue_0_0= ruleIntLiteral ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )? )
+            // InternalOptGrammar.g:5813:3: ( ( (lv_intValue_0_0= ruleIntLiteral ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) ) ( (lv_etherUnit_3_0= ruleUnitTypes ) )?
+            {
+            // InternalOptGrammar.g:5813:3: ( ( (lv_intValue_0_0= ruleIntLiteral ) ) | ( (lv_hexValue_1_0= ruleHexLiteral ) ) | ( (lv_decimalValue_2_0= ruleDecimalLiteral ) ) )
+            int alt95=3;
+            switch ( input.LA(1) ) {
+            case RULE_INT:
+                {
+                alt95=1;
+                }
+                break;
+            case RULE_HEX:
+                {
+                alt95=2;
+                }
+                break;
+            case RULE_DECIMAL:
+                {
+                alt95=3;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 95, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt95) {
+                case 1 :
+                    // InternalOptGrammar.g:5814:4: ( (lv_intValue_0_0= ruleIntLiteral ) )
+                    {
+                    // InternalOptGrammar.g:5814:4: ( (lv_intValue_0_0= ruleIntLiteral ) )
+                    // InternalOptGrammar.g:5815:5: (lv_intValue_0_0= ruleIntLiteral )
+                    {
+                    // InternalOptGrammar.g:5815:5: (lv_intValue_0_0= ruleIntLiteral )
+                    // InternalOptGrammar.g:5816:6: lv_intValue_0_0= ruleIntLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getNumericLiteralAccess().getIntValueIntLiteralParserRuleCall_0_0_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_63);
+                    lv_intValue_0_0=ruleIntLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+                      						}
+                      						set(
+                      							current,
+                      							"intValue",
+                      							lv_intValue_0_0,
+                      							"org.unicam.myGrammar.OptGrammar.IntLiteral");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalOptGrammar.g:5834:4: ( (lv_hexValue_1_0= ruleHexLiteral ) )
+                    {
+                    // InternalOptGrammar.g:5834:4: ( (lv_hexValue_1_0= ruleHexLiteral ) )
+                    // InternalOptGrammar.g:5835:5: (lv_hexValue_1_0= ruleHexLiteral )
+                    {
+                    // InternalOptGrammar.g:5835:5: (lv_hexValue_1_0= ruleHexLiteral )
+                    // InternalOptGrammar.g:5836:6: lv_hexValue_1_0= ruleHexLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getNumericLiteralAccess().getHexValueHexLiteralParserRuleCall_0_1_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_63);
+                    lv_hexValue_1_0=ruleHexLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+                      						}
+                      						set(
+                      							current,
+                      							"hexValue",
+                      							lv_hexValue_1_0,
+                      							"org.unicam.myGrammar.OptGrammar.HexLiteral");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalOptGrammar.g:5854:4: ( (lv_decimalValue_2_0= ruleDecimalLiteral ) )
+                    {
+                    // InternalOptGrammar.g:5854:4: ( (lv_decimalValue_2_0= ruleDecimalLiteral ) )
+                    // InternalOptGrammar.g:5855:5: (lv_decimalValue_2_0= ruleDecimalLiteral )
+                    {
+                    // InternalOptGrammar.g:5855:5: (lv_decimalValue_2_0= ruleDecimalLiteral )
+                    // InternalOptGrammar.g:5856:6: lv_decimalValue_2_0= ruleDecimalLiteral
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      						newCompositeNode(grammarAccess.getNumericLiteralAccess().getDecimalValueDecimalLiteralParserRuleCall_0_2_0());
+                      					
+                    }
+                    pushFollow(FOLLOW_63);
+                    lv_decimalValue_2_0=ruleDecimalLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      						if (current==null) {
+                      							current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+                      						}
+                      						set(
+                      							current,
+                      							"decimalValue",
+                      							lv_decimalValue_2_0,
+                      							"org.unicam.myGrammar.OptGrammar.DecimalLiteral");
+                      						afterParserOrEnumRuleCall();
+                      					
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // InternalOptGrammar.g:5874:3: ( (lv_etherUnit_3_0= ruleUnitTypes ) )?
+            int alt96=2;
+            int LA96_0 = input.LA(1);
+
+            if ( ((LA96_0>=174 && LA96_0<=183)) ) {
+                alt96=1;
+            }
+            switch (alt96) {
+                case 1 :
+                    // InternalOptGrammar.g:5875:4: (lv_etherUnit_3_0= ruleUnitTypes )
+                    {
+                    // InternalOptGrammar.g:5875:4: (lv_etherUnit_3_0= ruleUnitTypes )
+                    // InternalOptGrammar.g:5876:5: lv_etherUnit_3_0= ruleUnitTypes
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getNumericLiteralAccess().getEtherUnitUnitTypesParserRuleCall_1_0());
+                      				
+                    }
+                    pushFollow(FOLLOW_2);
+                    lv_etherUnit_3_0=ruleUnitTypes();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					if (current==null) {
+                      						current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+                      					}
+                      					set(
+                      						current,
+                      						"etherUnit",
+                      						lv_etherUnit_3_0,
+                      						"org.unicam.myGrammar.OptGrammar.UnitTypes");
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleNumericLiteral"
+
+
     // $ANTLR start "entryRuleUnitTypes"
-    // InternalOptGrammar.g:5716:1: entryRuleUnitTypes returns [EObject current=null] : iv_ruleUnitTypes= ruleUnitTypes EOF ;
+    // InternalOptGrammar.g:5897:1: entryRuleUnitTypes returns [EObject current=null] : iv_ruleUnitTypes= ruleUnitTypes EOF ;
     public final EObject entryRuleUnitTypes() throws RecognitionException {
         EObject current = null;
 
@@ -17741,8 +18264,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:5716:50: (iv_ruleUnitTypes= ruleUnitTypes EOF )
-            // InternalOptGrammar.g:5717:2: iv_ruleUnitTypes= ruleUnitTypes EOF
+            // InternalOptGrammar.g:5897:50: (iv_ruleUnitTypes= ruleUnitTypes EOF )
+            // InternalOptGrammar.g:5898:2: iv_ruleUnitTypes= ruleUnitTypes EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getUnitTypesRule()); 
@@ -17773,7 +18296,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnitTypes"
-    // InternalOptGrammar.g:5723:1: ruleUnitTypes returns [EObject current=null] : ( ( (lv_time_0_0= ruleTimeSubdenominationEnum ) ) | ( (lv_units_1_0= ruleEtherSubDenominationEnum ) ) ) ;
+    // InternalOptGrammar.g:5904:1: ruleUnitTypes returns [EObject current=null] : ( ( (lv_time_0_0= ruleTimeUnitsLiteral ) ) | ( (lv_units_1_0= ruleUnitsLiteral ) ) ) ;
     public final EObject ruleUnitTypes() throws RecognitionException {
         EObject current = null;
 
@@ -17786,43 +18309,43 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:5729:2: ( ( ( (lv_time_0_0= ruleTimeSubdenominationEnum ) ) | ( (lv_units_1_0= ruleEtherSubDenominationEnum ) ) ) )
-            // InternalOptGrammar.g:5730:2: ( ( (lv_time_0_0= ruleTimeSubdenominationEnum ) ) | ( (lv_units_1_0= ruleEtherSubDenominationEnum ) ) )
+            // InternalOptGrammar.g:5910:2: ( ( ( (lv_time_0_0= ruleTimeUnitsLiteral ) ) | ( (lv_units_1_0= ruleUnitsLiteral ) ) ) )
+            // InternalOptGrammar.g:5911:2: ( ( (lv_time_0_0= ruleTimeUnitsLiteral ) ) | ( (lv_units_1_0= ruleUnitsLiteral ) ) )
             {
-            // InternalOptGrammar.g:5730:2: ( ( (lv_time_0_0= ruleTimeSubdenominationEnum ) ) | ( (lv_units_1_0= ruleEtherSubDenominationEnum ) ) )
-            int alt94=2;
-            int LA94_0 = input.LA(1);
+            // InternalOptGrammar.g:5911:2: ( ( (lv_time_0_0= ruleTimeUnitsLiteral ) ) | ( (lv_units_1_0= ruleUnitsLiteral ) ) )
+            int alt97=2;
+            int LA97_0 = input.LA(1);
 
-            if ( ((LA94_0>=176 && LA94_0<=181)) ) {
-                alt94=1;
+            if ( ((LA97_0>=178 && LA97_0<=183)) ) {
+                alt97=1;
             }
-            else if ( ((LA94_0>=172 && LA94_0<=175)) ) {
-                alt94=2;
+            else if ( ((LA97_0>=174 && LA97_0<=177)) ) {
+                alt97=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 94, 0, input);
+                    new NoViableAltException("", 97, 0, input);
 
                 throw nvae;
             }
-            switch (alt94) {
+            switch (alt97) {
                 case 1 :
-                    // InternalOptGrammar.g:5731:3: ( (lv_time_0_0= ruleTimeSubdenominationEnum ) )
+                    // InternalOptGrammar.g:5912:3: ( (lv_time_0_0= ruleTimeUnitsLiteral ) )
                     {
-                    // InternalOptGrammar.g:5731:3: ( (lv_time_0_0= ruleTimeSubdenominationEnum ) )
-                    // InternalOptGrammar.g:5732:4: (lv_time_0_0= ruleTimeSubdenominationEnum )
+                    // InternalOptGrammar.g:5912:3: ( (lv_time_0_0= ruleTimeUnitsLiteral ) )
+                    // InternalOptGrammar.g:5913:4: (lv_time_0_0= ruleTimeUnitsLiteral )
                     {
-                    // InternalOptGrammar.g:5732:4: (lv_time_0_0= ruleTimeSubdenominationEnum )
-                    // InternalOptGrammar.g:5733:5: lv_time_0_0= ruleTimeSubdenominationEnum
+                    // InternalOptGrammar.g:5913:4: (lv_time_0_0= ruleTimeUnitsLiteral )
+                    // InternalOptGrammar.g:5914:5: lv_time_0_0= ruleTimeUnitsLiteral
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getUnitTypesAccess().getTimeTimeSubdenominationEnumParserRuleCall_0_0());
+                      					newCompositeNode(grammarAccess.getUnitTypesAccess().getTimeTimeUnitsLiteralParserRuleCall_0_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
-                    lv_time_0_0=ruleTimeSubdenominationEnum();
+                    lv_time_0_0=ruleTimeUnitsLiteral();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -17835,7 +18358,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                       						current,
                       						"time",
                       						lv_time_0_0,
-                      						"org.unicam.myGrammar.OptGrammar.TimeSubdenominationEnum");
+                      						"org.unicam.myGrammar.OptGrammar.TimeUnitsLiteral");
                       					afterParserOrEnumRuleCall();
                       				
                     }
@@ -17849,21 +18372,21 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:5751:3: ( (lv_units_1_0= ruleEtherSubDenominationEnum ) )
+                    // InternalOptGrammar.g:5932:3: ( (lv_units_1_0= ruleUnitsLiteral ) )
                     {
-                    // InternalOptGrammar.g:5751:3: ( (lv_units_1_0= ruleEtherSubDenominationEnum ) )
-                    // InternalOptGrammar.g:5752:4: (lv_units_1_0= ruleEtherSubDenominationEnum )
+                    // InternalOptGrammar.g:5932:3: ( (lv_units_1_0= ruleUnitsLiteral ) )
+                    // InternalOptGrammar.g:5933:4: (lv_units_1_0= ruleUnitsLiteral )
                     {
-                    // InternalOptGrammar.g:5752:4: (lv_units_1_0= ruleEtherSubDenominationEnum )
-                    // InternalOptGrammar.g:5753:5: lv_units_1_0= ruleEtherSubDenominationEnum
+                    // InternalOptGrammar.g:5933:4: (lv_units_1_0= ruleUnitsLiteral )
+                    // InternalOptGrammar.g:5934:5: lv_units_1_0= ruleUnitsLiteral
                     {
                     if ( state.backtracking==0 ) {
 
-                      					newCompositeNode(grammarAccess.getUnitTypesAccess().getUnitsEtherSubDenominationEnumParserRuleCall_1_0());
+                      					newCompositeNode(grammarAccess.getUnitTypesAccess().getUnitsUnitsLiteralParserRuleCall_1_0());
                       				
                     }
                     pushFollow(FOLLOW_2);
-                    lv_units_1_0=ruleEtherSubDenominationEnum();
+                    lv_units_1_0=ruleUnitsLiteral();
 
                     state._fsp--;
                     if (state.failed) return current;
@@ -17876,7 +18399,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                       						current,
                       						"units",
                       						lv_units_1_0,
-                      						"org.unicam.myGrammar.OptGrammar.EtherSubDenominationEnum");
+                      						"org.unicam.myGrammar.OptGrammar.UnitsLiteral");
                       					afterParserOrEnumRuleCall();
                       				
                     }
@@ -17913,28 +18436,28 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleUnitTypes"
 
 
-    // $ANTLR start "entryRuleNumberDimensionless"
-    // InternalOptGrammar.g:5774:1: entryRuleNumberDimensionless returns [EObject current=null] : iv_ruleNumberDimensionless= ruleNumberDimensionless EOF ;
-    public final EObject entryRuleNumberDimensionless() throws RecognitionException {
+    // $ANTLR start "entryRuleIntLiteral"
+    // InternalOptGrammar.g:5955:1: entryRuleIntLiteral returns [EObject current=null] : iv_ruleIntLiteral= ruleIntLiteral EOF ;
+    public final EObject entryRuleIntLiteral() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleNumberDimensionless = null;
+        EObject iv_ruleIntLiteral = null;
 
 
         try {
-            // InternalOptGrammar.g:5774:60: (iv_ruleNumberDimensionless= ruleNumberDimensionless EOF )
-            // InternalOptGrammar.g:5775:2: iv_ruleNumberDimensionless= ruleNumberDimensionless EOF
+            // InternalOptGrammar.g:5955:51: (iv_ruleIntLiteral= ruleIntLiteral EOF )
+            // InternalOptGrammar.g:5956:2: iv_ruleIntLiteral= ruleIntLiteral EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getNumberDimensionlessRule()); 
+               newCompositeNode(grammarAccess.getIntLiteralRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleNumberDimensionless=ruleNumberDimensionless();
+            iv_ruleIntLiteral=ruleIntLiteral();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleNumberDimensionless; 
+               current =iv_ruleIntLiteral; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -17950,12 +18473,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleNumberDimensionless"
+    // $ANTLR end "entryRuleIntLiteral"
 
 
-    // $ANTLR start "ruleNumberDimensionless"
-    // InternalOptGrammar.g:5781:1: ruleNumberDimensionless returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
-    public final EObject ruleNumberDimensionless() throws RecognitionException {
+    // $ANTLR start "ruleIntLiteral"
+    // InternalOptGrammar.g:5962:1: ruleIntLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
+    public final EObject ruleIntLiteral() throws RecognitionException {
         EObject current = null;
 
         Token lv_value_0_0=null;
@@ -17964,25 +18487,25 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:5787:2: ( ( (lv_value_0_0= RULE_INT ) ) )
-            // InternalOptGrammar.g:5788:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalOptGrammar.g:5968:2: ( ( (lv_value_0_0= RULE_INT ) ) )
+            // InternalOptGrammar.g:5969:2: ( (lv_value_0_0= RULE_INT ) )
             {
-            // InternalOptGrammar.g:5788:2: ( (lv_value_0_0= RULE_INT ) )
-            // InternalOptGrammar.g:5789:3: (lv_value_0_0= RULE_INT )
+            // InternalOptGrammar.g:5969:2: ( (lv_value_0_0= RULE_INT ) )
+            // InternalOptGrammar.g:5970:3: (lv_value_0_0= RULE_INT )
             {
-            // InternalOptGrammar.g:5789:3: (lv_value_0_0= RULE_INT )
-            // InternalOptGrammar.g:5790:4: lv_value_0_0= RULE_INT
+            // InternalOptGrammar.g:5970:3: (lv_value_0_0= RULE_INT )
+            // InternalOptGrammar.g:5971:4: lv_value_0_0= RULE_INT
             {
             lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              				newLeafNode(lv_value_0_0, grammarAccess.getNumberDimensionlessAccess().getValueINTTerminalRuleCall_0());
+              				newLeafNode(lv_value_0_0, grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0());
               			
             }
             if ( state.backtracking==0 ) {
 
               				if (current==null) {
-              					current = createModelElement(grammarAccess.getNumberDimensionlessRule());
+              					current = createModelElement(grammarAccess.getIntLiteralRule());
               				}
               				setWithLastConsumed(
               					current,
@@ -18015,11 +18538,11 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleNumberDimensionless"
+    // $ANTLR end "ruleIntLiteral"
 
 
     // $ANTLR start "entryRuleHexLiteral"
-    // InternalOptGrammar.g:5809:1: entryRuleHexLiteral returns [EObject current=null] : iv_ruleHexLiteral= ruleHexLiteral EOF ;
+    // InternalOptGrammar.g:5990:1: entryRuleHexLiteral returns [EObject current=null] : iv_ruleHexLiteral= ruleHexLiteral EOF ;
     public final EObject entryRuleHexLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -18027,8 +18550,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:5809:51: (iv_ruleHexLiteral= ruleHexLiteral EOF )
-            // InternalOptGrammar.g:5810:2: iv_ruleHexLiteral= ruleHexLiteral EOF
+            // InternalOptGrammar.g:5990:51: (iv_ruleHexLiteral= ruleHexLiteral EOF )
+            // InternalOptGrammar.g:5991:2: iv_ruleHexLiteral= ruleHexLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getHexLiteralRule()); 
@@ -18059,7 +18582,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleHexLiteral"
-    // InternalOptGrammar.g:5816:1: ruleHexLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_HEX ) ) ;
+    // InternalOptGrammar.g:5997:1: ruleHexLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_HEX ) ) ;
     public final EObject ruleHexLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -18069,14 +18592,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:5822:2: ( ( (lv_value_0_0= RULE_HEX ) ) )
-            // InternalOptGrammar.g:5823:2: ( (lv_value_0_0= RULE_HEX ) )
+            // InternalOptGrammar.g:6003:2: ( ( (lv_value_0_0= RULE_HEX ) ) )
+            // InternalOptGrammar.g:6004:2: ( (lv_value_0_0= RULE_HEX ) )
             {
-            // InternalOptGrammar.g:5823:2: ( (lv_value_0_0= RULE_HEX ) )
-            // InternalOptGrammar.g:5824:3: (lv_value_0_0= RULE_HEX )
+            // InternalOptGrammar.g:6004:2: ( (lv_value_0_0= RULE_HEX ) )
+            // InternalOptGrammar.g:6005:3: (lv_value_0_0= RULE_HEX )
             {
-            // InternalOptGrammar.g:5824:3: (lv_value_0_0= RULE_HEX )
-            // InternalOptGrammar.g:5825:4: lv_value_0_0= RULE_HEX
+            // InternalOptGrammar.g:6005:3: (lv_value_0_0= RULE_HEX )
+            // InternalOptGrammar.g:6006:4: lv_value_0_0= RULE_HEX
             {
             lv_value_0_0=(Token)match(input,RULE_HEX,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -18124,7 +18647,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDecimalLiteral"
-    // InternalOptGrammar.g:5844:1: entryRuleDecimalLiteral returns [EObject current=null] : iv_ruleDecimalLiteral= ruleDecimalLiteral EOF ;
+    // InternalOptGrammar.g:6025:1: entryRuleDecimalLiteral returns [EObject current=null] : iv_ruleDecimalLiteral= ruleDecimalLiteral EOF ;
     public final EObject entryRuleDecimalLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -18132,8 +18655,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:5844:55: (iv_ruleDecimalLiteral= ruleDecimalLiteral EOF )
-            // InternalOptGrammar.g:5845:2: iv_ruleDecimalLiteral= ruleDecimalLiteral EOF
+            // InternalOptGrammar.g:6025:55: (iv_ruleDecimalLiteral= ruleDecimalLiteral EOF )
+            // InternalOptGrammar.g:6026:2: iv_ruleDecimalLiteral= ruleDecimalLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDecimalLiteralRule()); 
@@ -18164,7 +18687,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDecimalLiteral"
-    // InternalOptGrammar.g:5851:1: ruleDecimalLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_DECIMAL ) ) ;
+    // InternalOptGrammar.g:6032:1: ruleDecimalLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_DECIMAL ) ) ;
     public final EObject ruleDecimalLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -18174,14 +18697,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:5857:2: ( ( (lv_value_0_0= RULE_DECIMAL ) ) )
-            // InternalOptGrammar.g:5858:2: ( (lv_value_0_0= RULE_DECIMAL ) )
+            // InternalOptGrammar.g:6038:2: ( ( (lv_value_0_0= RULE_DECIMAL ) ) )
+            // InternalOptGrammar.g:6039:2: ( (lv_value_0_0= RULE_DECIMAL ) )
             {
-            // InternalOptGrammar.g:5858:2: ( (lv_value_0_0= RULE_DECIMAL ) )
-            // InternalOptGrammar.g:5859:3: (lv_value_0_0= RULE_DECIMAL )
+            // InternalOptGrammar.g:6039:2: ( (lv_value_0_0= RULE_DECIMAL ) )
+            // InternalOptGrammar.g:6040:3: (lv_value_0_0= RULE_DECIMAL )
             {
-            // InternalOptGrammar.g:5859:3: (lv_value_0_0= RULE_DECIMAL )
-            // InternalOptGrammar.g:5860:4: lv_value_0_0= RULE_DECIMAL
+            // InternalOptGrammar.g:6040:3: (lv_value_0_0= RULE_DECIMAL )
+            // InternalOptGrammar.g:6041:4: lv_value_0_0= RULE_DECIMAL
             {
             lv_value_0_0=(Token)match(input,RULE_DECIMAL,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -18229,7 +18752,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringLiteral"
-    // InternalOptGrammar.g:5879:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // InternalOptGrammar.g:6060:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -18237,8 +18760,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:5879:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // InternalOptGrammar.g:5880:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // InternalOptGrammar.g:6060:54: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // InternalOptGrammar.g:6061:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStringLiteralRule()); 
@@ -18269,7 +18792,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // InternalOptGrammar.g:5886:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // InternalOptGrammar.g:6067:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -18279,14 +18802,14 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:5892:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // InternalOptGrammar.g:5893:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalOptGrammar.g:6073:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
+            // InternalOptGrammar.g:6074:2: ( (lv_value_0_0= RULE_STRING ) )
             {
-            // InternalOptGrammar.g:5893:2: ( (lv_value_0_0= RULE_STRING ) )
-            // InternalOptGrammar.g:5894:3: (lv_value_0_0= RULE_STRING )
+            // InternalOptGrammar.g:6074:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalOptGrammar.g:6075:3: (lv_value_0_0= RULE_STRING )
             {
-            // InternalOptGrammar.g:5894:3: (lv_value_0_0= RULE_STRING )
-            // InternalOptGrammar.g:5895:4: lv_value_0_0= RULE_STRING
+            // InternalOptGrammar.g:6075:3: (lv_value_0_0= RULE_STRING )
+            // InternalOptGrammar.g:6076:4: lv_value_0_0= RULE_STRING
             {
             lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -18334,7 +18857,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeCast"
-    // InternalOptGrammar.g:5914:1: entryRuleTypeCast returns [EObject current=null] : iv_ruleTypeCast= ruleTypeCast EOF ;
+    // InternalOptGrammar.g:6095:1: entryRuleTypeCast returns [EObject current=null] : iv_ruleTypeCast= ruleTypeCast EOF ;
     public final EObject entryRuleTypeCast() throws RecognitionException {
         EObject current = null;
 
@@ -18342,8 +18865,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:5914:49: (iv_ruleTypeCast= ruleTypeCast EOF )
-            // InternalOptGrammar.g:5915:2: iv_ruleTypeCast= ruleTypeCast EOF
+            // InternalOptGrammar.g:6095:49: (iv_ruleTypeCast= ruleTypeCast EOF )
+            // InternalOptGrammar.g:6096:2: iv_ruleTypeCast= ruleTypeCast EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTypeCastRule()); 
@@ -18374,7 +18897,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeCast"
-    // InternalOptGrammar.g:5921:1: ruleTypeCast returns [EObject current=null] : ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ) ;
+    // InternalOptGrammar.g:6102:1: ruleTypeCast returns [EObject current=null] : ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ) ;
     public final EObject ruleTypeCast() throws RecognitionException {
         EObject current = null;
 
@@ -18389,17 +18912,17 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:5927:2: ( ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ) )
-            // InternalOptGrammar.g:5928:2: ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' )
+            // InternalOptGrammar.g:6108:2: ( ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' ) )
+            // InternalOptGrammar.g:6109:2: ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' )
             {
-            // InternalOptGrammar.g:5928:2: ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' )
-            // InternalOptGrammar.g:5929:3: ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')'
+            // InternalOptGrammar.g:6109:2: ( ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')' )
+            // InternalOptGrammar.g:6110:3: ( (lv_value_0_0= ruleElementaryTypeNameEnum ) ) otherlv_1= '(' ( (lv_expression_2_0= ruleExpression ) ) otherlv_3= ')'
             {
-            // InternalOptGrammar.g:5929:3: ( (lv_value_0_0= ruleElementaryTypeNameEnum ) )
-            // InternalOptGrammar.g:5930:4: (lv_value_0_0= ruleElementaryTypeNameEnum )
+            // InternalOptGrammar.g:6110:3: ( (lv_value_0_0= ruleElementaryTypeNameEnum ) )
+            // InternalOptGrammar.g:6111:4: (lv_value_0_0= ruleElementaryTypeNameEnum )
             {
-            // InternalOptGrammar.g:5930:4: (lv_value_0_0= ruleElementaryTypeNameEnum )
-            // InternalOptGrammar.g:5931:5: lv_value_0_0= ruleElementaryTypeNameEnum
+            // InternalOptGrammar.g:6111:4: (lv_value_0_0= ruleElementaryTypeNameEnum )
+            // InternalOptGrammar.g:6112:5: lv_value_0_0= ruleElementaryTypeNameEnum
             {
             if ( state.backtracking==0 ) {
 
@@ -18436,11 +18959,11 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
               			newLeafNode(otherlv_1, grammarAccess.getTypeCastAccess().getLeftParenthesisKeyword_1());
               		
             }
-            // InternalOptGrammar.g:5952:3: ( (lv_expression_2_0= ruleExpression ) )
-            // InternalOptGrammar.g:5953:4: (lv_expression_2_0= ruleExpression )
+            // InternalOptGrammar.g:6133:3: ( (lv_expression_2_0= ruleExpression ) )
+            // InternalOptGrammar.g:6134:4: (lv_expression_2_0= ruleExpression )
             {
-            // InternalOptGrammar.g:5953:4: (lv_expression_2_0= ruleExpression )
-            // InternalOptGrammar.g:5954:5: lv_expression_2_0= ruleExpression
+            // InternalOptGrammar.g:6134:4: (lv_expression_2_0= ruleExpression )
+            // InternalOptGrammar.g:6135:5: lv_expression_2_0= ruleExpression
             {
             if ( state.backtracking==0 ) {
 
@@ -18501,218 +19024,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleTypeCast"
 
 
-    // $ANTLR start "entryRuleSpecialVariables"
-    // InternalOptGrammar.g:5979:1: entryRuleSpecialVariables returns [EObject current=null] : iv_ruleSpecialVariables= ruleSpecialVariables EOF ;
-    public final EObject entryRuleSpecialVariables() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSpecialVariables = null;
-
-
-        try {
-            // InternalOptGrammar.g:5979:57: (iv_ruleSpecialVariables= ruleSpecialVariables EOF )
-            // InternalOptGrammar.g:5980:2: iv_ruleSpecialVariables= ruleSpecialVariables EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSpecialVariablesRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleSpecialVariables=ruleSpecialVariables();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleSpecialVariables; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSpecialVariables"
-
-
-    // $ANTLR start "ruleSpecialVariables"
-    // InternalOptGrammar.g:5986:1: ruleSpecialVariables returns [EObject current=null] : ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* ) ;
-    public final EObject ruleSpecialVariables() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_1=null;
-        Token lv_field_2_0=null;
-        Enumerator lv_type_0_0 = null;
-
-        EObject lv_qualifiers_3_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalOptGrammar.g:5992:2: ( ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* ) )
-            // InternalOptGrammar.g:5993:2: ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* )
-            {
-            // InternalOptGrammar.g:5993:2: ( ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )* )
-            // InternalOptGrammar.g:5994:3: ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) ) otherlv_1= '.' ( (lv_field_2_0= RULE_ID ) ) ( (lv_qualifiers_3_0= ruleQualifier ) )*
-            {
-            // InternalOptGrammar.g:5994:3: ( (lv_type_0_0= ruleSpecialVariablesTypeEnum ) )
-            // InternalOptGrammar.g:5995:4: (lv_type_0_0= ruleSpecialVariablesTypeEnum )
-            {
-            // InternalOptGrammar.g:5995:4: (lv_type_0_0= ruleSpecialVariablesTypeEnum )
-            // InternalOptGrammar.g:5996:5: lv_type_0_0= ruleSpecialVariablesTypeEnum
-            {
-            if ( state.backtracking==0 ) {
-
-              					newCompositeNode(grammarAccess.getSpecialVariablesAccess().getTypeSpecialVariablesTypeEnumEnumRuleCall_0_0());
-              				
-            }
-            pushFollow(FOLLOW_63);
-            lv_type_0_0=ruleSpecialVariablesTypeEnum();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              					if (current==null) {
-              						current = createModelElementForParent(grammarAccess.getSpecialVariablesRule());
-              					}
-              					set(
-              						current,
-              						"type",
-              						lv_type_0_0,
-              						"org.unicam.myGrammar.OptGrammar.SpecialVariablesTypeEnum");
-              					afterParserOrEnumRuleCall();
-              				
-            }
-
-            }
-
-
-            }
-
-            otherlv_1=(Token)match(input,38,FOLLOW_4); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              			newLeafNode(otherlv_1, grammarAccess.getSpecialVariablesAccess().getFullStopKeyword_1());
-              		
-            }
-            // InternalOptGrammar.g:6017:3: ( (lv_field_2_0= RULE_ID ) )
-            // InternalOptGrammar.g:6018:4: (lv_field_2_0= RULE_ID )
-            {
-            // InternalOptGrammar.g:6018:4: (lv_field_2_0= RULE_ID )
-            // InternalOptGrammar.g:6019:5: lv_field_2_0= RULE_ID
-            {
-            lv_field_2_0=(Token)match(input,RULE_ID,FOLLOW_36); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              					newLeafNode(lv_field_2_0, grammarAccess.getSpecialVariablesAccess().getFieldIDTerminalRuleCall_2_0());
-              				
-            }
-            if ( state.backtracking==0 ) {
-
-              					if (current==null) {
-              						current = createModelElement(grammarAccess.getSpecialVariablesRule());
-              					}
-              					setWithLastConsumed(
-              						current,
-              						"field",
-              						lv_field_2_0,
-              						"org.eclipse.xtext.common.Terminals.ID");
-              				
-            }
-
-            }
-
-
-            }
-
-            // InternalOptGrammar.g:6035:3: ( (lv_qualifiers_3_0= ruleQualifier ) )*
-            loop95:
-            do {
-                int alt95=2;
-                int LA95_0 = input.LA(1);
-
-                if ( (LA95_0==23||LA95_0==35||LA95_0==38) ) {
-                    alt95=1;
-                }
-
-
-                switch (alt95) {
-            	case 1 :
-            	    // InternalOptGrammar.g:6036:4: (lv_qualifiers_3_0= ruleQualifier )
-            	    {
-            	    // InternalOptGrammar.g:6036:4: (lv_qualifiers_3_0= ruleQualifier )
-            	    // InternalOptGrammar.g:6037:5: lv_qualifiers_3_0= ruleQualifier
-            	    {
-            	    if ( state.backtracking==0 ) {
-
-            	      					newCompositeNode(grammarAccess.getSpecialVariablesAccess().getQualifiersQualifierParserRuleCall_3_0());
-            	      				
-            	    }
-            	    pushFollow(FOLLOW_36);
-            	    lv_qualifiers_3_0=ruleQualifier();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      					if (current==null) {
-            	      						current = createModelElementForParent(grammarAccess.getSpecialVariablesRule());
-            	      					}
-            	      					add(
-            	      						current,
-            	      						"qualifiers",
-            	      						lv_qualifiers_3_0,
-            	      						"org.unicam.myGrammar.OptGrammar.Qualifier");
-            	      					afterParserOrEnumRuleCall();
-            	      				
-            	    }
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop95;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleSpecialVariables"
-
-
     // $ANTLR start "entryRuleElementaryTypeNameEnum"
-    // InternalOptGrammar.g:6058:1: entryRuleElementaryTypeNameEnum returns [EObject current=null] : iv_ruleElementaryTypeNameEnum= ruleElementaryTypeNameEnum EOF ;
+    // InternalOptGrammar.g:6160:1: entryRuleElementaryTypeNameEnum returns [EObject current=null] : iv_ruleElementaryTypeNameEnum= ruleElementaryTypeNameEnum EOF ;
     public final EObject entryRuleElementaryTypeNameEnum() throws RecognitionException {
         EObject current = null;
 
@@ -18720,8 +19033,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:6058:63: (iv_ruleElementaryTypeNameEnum= ruleElementaryTypeNameEnum EOF )
-            // InternalOptGrammar.g:6059:2: iv_ruleElementaryTypeNameEnum= ruleElementaryTypeNameEnum EOF
+            // InternalOptGrammar.g:6160:63: (iv_ruleElementaryTypeNameEnum= ruleElementaryTypeNameEnum EOF )
+            // InternalOptGrammar.g:6161:2: iv_ruleElementaryTypeNameEnum= ruleElementaryTypeNameEnum EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getElementaryTypeNameEnumRule()); 
@@ -18752,7 +19065,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElementaryTypeNameEnum"
-    // InternalOptGrammar.g:6065:1: ruleElementaryTypeNameEnum returns [EObject current=null] : ( ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) ) | ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) ) | ( ( (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' ) ) ) | ( (lv_type_3_0= 'address' ) ) ) ;
+    // InternalOptGrammar.g:6167:1: ruleElementaryTypeNameEnum returns [EObject current=null] : ( ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) ) | ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) ) | ( ( (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' ) ) ) | ( ( (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' ) ) ) ) ;
     public final EObject ruleElementaryTypeNameEnum() throws RecognitionException {
         EObject current = null;
 
@@ -18855,17 +19168,19 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         Token lv_type_2_32=null;
         Token lv_type_2_33=null;
         Token lv_type_2_34=null;
-        Token lv_type_3_0=null;
+        Token lv_type_3_1=null;
+        Token lv_type_3_2=null;
+        Token lv_type_3_3=null;
 
 
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:6071:2: ( ( ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) ) | ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) ) | ( ( (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' ) ) ) | ( (lv_type_3_0= 'address' ) ) ) )
-            // InternalOptGrammar.g:6072:2: ( ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) ) | ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) ) | ( ( (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' ) ) ) | ( (lv_type_3_0= 'address' ) ) )
+            // InternalOptGrammar.g:6173:2: ( ( ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) ) | ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) ) | ( ( (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' ) ) ) | ( ( (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' ) ) ) ) )
+            // InternalOptGrammar.g:6174:2: ( ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) ) | ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) ) | ( ( (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' ) ) ) | ( ( (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' ) ) ) )
             {
-            // InternalOptGrammar.g:6072:2: ( ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) ) | ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) ) | ( ( (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' ) ) ) | ( (lv_type_3_0= 'address' ) ) )
-            int alt99=4;
+            // InternalOptGrammar.g:6174:2: ( ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) ) | ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) ) | ( ( (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' ) ) ) | ( ( (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' ) ) ) )
+            int alt102=4;
             switch ( input.LA(1) ) {
             case 65:
             case 66:
@@ -18900,7 +19215,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             case 95:
             case 96:
                 {
-                alt99=1;
+                alt102=1;
                 }
                 break;
             case 97:
@@ -18937,7 +19252,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             case 128:
             case 129:
                 {
-                alt99=2;
+                alt102=2;
                 }
                 break;
             case 130:
@@ -18975,206 +19290,208 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
             case 162:
             case 163:
                 {
-                alt99=3;
+                alt102=3;
                 }
                 break;
             case 164:
+            case 165:
+            case 166:
                 {
-                alt99=4;
+                alt102=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 99, 0, input);
+                    new NoViableAltException("", 102, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt99) {
+            switch (alt102) {
                 case 1 :
-                    // InternalOptGrammar.g:6073:3: ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) )
+                    // InternalOptGrammar.g:6175:3: ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) )
                     {
-                    // InternalOptGrammar.g:6073:3: ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) )
-                    // InternalOptGrammar.g:6074:4: ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) )
+                    // InternalOptGrammar.g:6175:3: ( ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) ) )
+                    // InternalOptGrammar.g:6176:4: ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) )
                     {
-                    // InternalOptGrammar.g:6074:4: ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) )
-                    // InternalOptGrammar.g:6075:5: (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' )
+                    // InternalOptGrammar.g:6176:4: ( (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' ) )
+                    // InternalOptGrammar.g:6177:5: (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' )
                     {
-                    // InternalOptGrammar.g:6075:5: (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' )
-                    int alt96=32;
+                    // InternalOptGrammar.g:6177:5: (lv_type_0_1= 'int' | lv_type_0_2= 'int16' | lv_type_0_3= 'int24' | lv_type_0_4= 'int32' | lv_type_0_5= 'int40' | lv_type_0_6= 'int48' | lv_type_0_7= 'int56' | lv_type_0_8= 'int64' | lv_type_0_9= 'int72' | lv_type_0_10= 'int80' | lv_type_0_11= 'int88' | lv_type_0_12= 'int96' | lv_type_0_13= 'int104' | lv_type_0_14= 'int112' | lv_type_0_15= 'int120' | lv_type_0_16= 'int128' | lv_type_0_17= 'int136' | lv_type_0_18= 'int144' | lv_type_0_19= 'int152' | lv_type_0_20= 'int160' | lv_type_0_21= 'int168' | lv_type_0_22= 'int178' | lv_type_0_23= 'int184' | lv_type_0_24= 'int192' | lv_type_0_25= 'int200' | lv_type_0_26= 'int208' | lv_type_0_27= 'int216' | lv_type_0_28= 'int224' | lv_type_0_29= 'int232' | lv_type_0_30= 'int240' | lv_type_0_31= 'int248' | lv_type_0_32= 'int256' )
+                    int alt98=32;
                     switch ( input.LA(1) ) {
                     case 65:
                         {
-                        alt96=1;
+                        alt98=1;
                         }
                         break;
                     case 66:
                         {
-                        alt96=2;
+                        alt98=2;
                         }
                         break;
                     case 67:
                         {
-                        alt96=3;
+                        alt98=3;
                         }
                         break;
                     case 68:
                         {
-                        alt96=4;
+                        alt98=4;
                         }
                         break;
                     case 69:
                         {
-                        alt96=5;
+                        alt98=5;
                         }
                         break;
                     case 70:
                         {
-                        alt96=6;
+                        alt98=6;
                         }
                         break;
                     case 71:
                         {
-                        alt96=7;
+                        alt98=7;
                         }
                         break;
                     case 72:
                         {
-                        alt96=8;
+                        alt98=8;
                         }
                         break;
                     case 73:
                         {
-                        alt96=9;
+                        alt98=9;
                         }
                         break;
                     case 74:
                         {
-                        alt96=10;
+                        alt98=10;
                         }
                         break;
                     case 75:
                         {
-                        alt96=11;
+                        alt98=11;
                         }
                         break;
                     case 76:
                         {
-                        alt96=12;
+                        alt98=12;
                         }
                         break;
                     case 77:
                         {
-                        alt96=13;
+                        alt98=13;
                         }
                         break;
                     case 78:
                         {
-                        alt96=14;
+                        alt98=14;
                         }
                         break;
                     case 79:
                         {
-                        alt96=15;
+                        alt98=15;
                         }
                         break;
                     case 80:
                         {
-                        alt96=16;
+                        alt98=16;
                         }
                         break;
                     case 81:
                         {
-                        alt96=17;
+                        alt98=17;
                         }
                         break;
                     case 82:
                         {
-                        alt96=18;
+                        alt98=18;
                         }
                         break;
                     case 83:
                         {
-                        alt96=19;
+                        alt98=19;
                         }
                         break;
                     case 84:
                         {
-                        alt96=20;
+                        alt98=20;
                         }
                         break;
                     case 85:
                         {
-                        alt96=21;
+                        alt98=21;
                         }
                         break;
                     case 86:
                         {
-                        alt96=22;
+                        alt98=22;
                         }
                         break;
                     case 87:
                         {
-                        alt96=23;
+                        alt98=23;
                         }
                         break;
                     case 88:
                         {
-                        alt96=24;
+                        alt98=24;
                         }
                         break;
                     case 89:
                         {
-                        alt96=25;
+                        alt98=25;
                         }
                         break;
                     case 90:
                         {
-                        alt96=26;
+                        alt98=26;
                         }
                         break;
                     case 91:
                         {
-                        alt96=27;
+                        alt98=27;
                         }
                         break;
                     case 92:
                         {
-                        alt96=28;
+                        alt98=28;
                         }
                         break;
                     case 93:
                         {
-                        alt96=29;
+                        alt98=29;
                         }
                         break;
                     case 94:
                         {
-                        alt96=30;
+                        alt98=30;
                         }
                         break;
                     case 95:
                         {
-                        alt96=31;
+                        alt98=31;
                         }
                         break;
                     case 96:
                         {
-                        alt96=32;
+                        alt98=32;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 96, 0, input);
+                            new NoViableAltException("", 98, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt96) {
+                    switch (alt98) {
                         case 1 :
-                            // InternalOptGrammar.g:6076:6: lv_type_0_1= 'int'
+                            // InternalOptGrammar.g:6178:6: lv_type_0_1= 'int'
                             {
                             lv_type_0_1=(Token)match(input,65,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19194,7 +19511,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalOptGrammar.g:6087:6: lv_type_0_2= 'int16'
+                            // InternalOptGrammar.g:6189:6: lv_type_0_2= 'int16'
                             {
                             lv_type_0_2=(Token)match(input,66,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19214,7 +19531,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // InternalOptGrammar.g:6098:6: lv_type_0_3= 'int24'
+                            // InternalOptGrammar.g:6200:6: lv_type_0_3= 'int24'
                             {
                             lv_type_0_3=(Token)match(input,67,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19234,7 +19551,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // InternalOptGrammar.g:6109:6: lv_type_0_4= 'int32'
+                            // InternalOptGrammar.g:6211:6: lv_type_0_4= 'int32'
                             {
                             lv_type_0_4=(Token)match(input,68,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19254,7 +19571,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 5 :
-                            // InternalOptGrammar.g:6120:6: lv_type_0_5= 'int40'
+                            // InternalOptGrammar.g:6222:6: lv_type_0_5= 'int40'
                             {
                             lv_type_0_5=(Token)match(input,69,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19274,7 +19591,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 6 :
-                            // InternalOptGrammar.g:6131:6: lv_type_0_6= 'int48'
+                            // InternalOptGrammar.g:6233:6: lv_type_0_6= 'int48'
                             {
                             lv_type_0_6=(Token)match(input,70,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19294,7 +19611,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 7 :
-                            // InternalOptGrammar.g:6142:6: lv_type_0_7= 'int56'
+                            // InternalOptGrammar.g:6244:6: lv_type_0_7= 'int56'
                             {
                             lv_type_0_7=(Token)match(input,71,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19314,7 +19631,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 8 :
-                            // InternalOptGrammar.g:6153:6: lv_type_0_8= 'int64'
+                            // InternalOptGrammar.g:6255:6: lv_type_0_8= 'int64'
                             {
                             lv_type_0_8=(Token)match(input,72,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19334,7 +19651,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 9 :
-                            // InternalOptGrammar.g:6164:6: lv_type_0_9= 'int72'
+                            // InternalOptGrammar.g:6266:6: lv_type_0_9= 'int72'
                             {
                             lv_type_0_9=(Token)match(input,73,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19354,7 +19671,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 10 :
-                            // InternalOptGrammar.g:6175:6: lv_type_0_10= 'int80'
+                            // InternalOptGrammar.g:6277:6: lv_type_0_10= 'int80'
                             {
                             lv_type_0_10=(Token)match(input,74,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19374,7 +19691,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 11 :
-                            // InternalOptGrammar.g:6186:6: lv_type_0_11= 'int88'
+                            // InternalOptGrammar.g:6288:6: lv_type_0_11= 'int88'
                             {
                             lv_type_0_11=(Token)match(input,75,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19394,7 +19711,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 12 :
-                            // InternalOptGrammar.g:6197:6: lv_type_0_12= 'int96'
+                            // InternalOptGrammar.g:6299:6: lv_type_0_12= 'int96'
                             {
                             lv_type_0_12=(Token)match(input,76,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19414,7 +19731,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 13 :
-                            // InternalOptGrammar.g:6208:6: lv_type_0_13= 'int104'
+                            // InternalOptGrammar.g:6310:6: lv_type_0_13= 'int104'
                             {
                             lv_type_0_13=(Token)match(input,77,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19434,7 +19751,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 14 :
-                            // InternalOptGrammar.g:6219:6: lv_type_0_14= 'int112'
+                            // InternalOptGrammar.g:6321:6: lv_type_0_14= 'int112'
                             {
                             lv_type_0_14=(Token)match(input,78,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19454,7 +19771,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 15 :
-                            // InternalOptGrammar.g:6230:6: lv_type_0_15= 'int120'
+                            // InternalOptGrammar.g:6332:6: lv_type_0_15= 'int120'
                             {
                             lv_type_0_15=(Token)match(input,79,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19474,7 +19791,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 16 :
-                            // InternalOptGrammar.g:6241:6: lv_type_0_16= 'int128'
+                            // InternalOptGrammar.g:6343:6: lv_type_0_16= 'int128'
                             {
                             lv_type_0_16=(Token)match(input,80,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19494,7 +19811,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 17 :
-                            // InternalOptGrammar.g:6252:6: lv_type_0_17= 'int136'
+                            // InternalOptGrammar.g:6354:6: lv_type_0_17= 'int136'
                             {
                             lv_type_0_17=(Token)match(input,81,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19514,7 +19831,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 18 :
-                            // InternalOptGrammar.g:6263:6: lv_type_0_18= 'int144'
+                            // InternalOptGrammar.g:6365:6: lv_type_0_18= 'int144'
                             {
                             lv_type_0_18=(Token)match(input,82,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19534,7 +19851,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 19 :
-                            // InternalOptGrammar.g:6274:6: lv_type_0_19= 'int152'
+                            // InternalOptGrammar.g:6376:6: lv_type_0_19= 'int152'
                             {
                             lv_type_0_19=(Token)match(input,83,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19554,7 +19871,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 20 :
-                            // InternalOptGrammar.g:6285:6: lv_type_0_20= 'int160'
+                            // InternalOptGrammar.g:6387:6: lv_type_0_20= 'int160'
                             {
                             lv_type_0_20=(Token)match(input,84,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19574,7 +19891,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 21 :
-                            // InternalOptGrammar.g:6296:6: lv_type_0_21= 'int168'
+                            // InternalOptGrammar.g:6398:6: lv_type_0_21= 'int168'
                             {
                             lv_type_0_21=(Token)match(input,85,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19594,7 +19911,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 22 :
-                            // InternalOptGrammar.g:6307:6: lv_type_0_22= 'int178'
+                            // InternalOptGrammar.g:6409:6: lv_type_0_22= 'int178'
                             {
                             lv_type_0_22=(Token)match(input,86,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19614,7 +19931,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 23 :
-                            // InternalOptGrammar.g:6318:6: lv_type_0_23= 'int184'
+                            // InternalOptGrammar.g:6420:6: lv_type_0_23= 'int184'
                             {
                             lv_type_0_23=(Token)match(input,87,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19634,7 +19951,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 24 :
-                            // InternalOptGrammar.g:6329:6: lv_type_0_24= 'int192'
+                            // InternalOptGrammar.g:6431:6: lv_type_0_24= 'int192'
                             {
                             lv_type_0_24=(Token)match(input,88,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19654,7 +19971,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 25 :
-                            // InternalOptGrammar.g:6340:6: lv_type_0_25= 'int200'
+                            // InternalOptGrammar.g:6442:6: lv_type_0_25= 'int200'
                             {
                             lv_type_0_25=(Token)match(input,89,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19674,7 +19991,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 26 :
-                            // InternalOptGrammar.g:6351:6: lv_type_0_26= 'int208'
+                            // InternalOptGrammar.g:6453:6: lv_type_0_26= 'int208'
                             {
                             lv_type_0_26=(Token)match(input,90,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19694,7 +20011,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 27 :
-                            // InternalOptGrammar.g:6362:6: lv_type_0_27= 'int216'
+                            // InternalOptGrammar.g:6464:6: lv_type_0_27= 'int216'
                             {
                             lv_type_0_27=(Token)match(input,91,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19714,7 +20031,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 28 :
-                            // InternalOptGrammar.g:6373:6: lv_type_0_28= 'int224'
+                            // InternalOptGrammar.g:6475:6: lv_type_0_28= 'int224'
                             {
                             lv_type_0_28=(Token)match(input,92,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19734,7 +20051,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 29 :
-                            // InternalOptGrammar.g:6384:6: lv_type_0_29= 'int232'
+                            // InternalOptGrammar.g:6486:6: lv_type_0_29= 'int232'
                             {
                             lv_type_0_29=(Token)match(input,93,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19754,7 +20071,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 30 :
-                            // InternalOptGrammar.g:6395:6: lv_type_0_30= 'int240'
+                            // InternalOptGrammar.g:6497:6: lv_type_0_30= 'int240'
                             {
                             lv_type_0_30=(Token)match(input,94,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19774,7 +20091,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 31 :
-                            // InternalOptGrammar.g:6406:6: lv_type_0_31= 'int248'
+                            // InternalOptGrammar.g:6508:6: lv_type_0_31= 'int248'
                             {
                             lv_type_0_31=(Token)match(input,95,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19794,7 +20111,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 32 :
-                            // InternalOptGrammar.g:6417:6: lv_type_0_32= 'int256'
+                            // InternalOptGrammar.g:6519:6: lv_type_0_32= 'int256'
                             {
                             lv_type_0_32=(Token)match(input,96,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -19826,193 +20143,193 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:6431:3: ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) )
+                    // InternalOptGrammar.g:6533:3: ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) )
                     {
-                    // InternalOptGrammar.g:6431:3: ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) )
-                    // InternalOptGrammar.g:6432:4: ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) )
+                    // InternalOptGrammar.g:6533:3: ( ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) ) )
+                    // InternalOptGrammar.g:6534:4: ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) )
                     {
-                    // InternalOptGrammar.g:6432:4: ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) )
-                    // InternalOptGrammar.g:6433:5: (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' )
+                    // InternalOptGrammar.g:6534:4: ( (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' ) )
+                    // InternalOptGrammar.g:6535:5: (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' )
                     {
-                    // InternalOptGrammar.g:6433:5: (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' )
-                    int alt97=33;
+                    // InternalOptGrammar.g:6535:5: (lv_type_1_1= 'uint' | lv_type_1_2= 'uint8' | lv_type_1_3= 'uint16' | lv_type_1_4= 'uint24' | lv_type_1_5= 'uint32' | lv_type_1_6= 'uint40' | lv_type_1_7= 'uint48' | lv_type_1_8= 'uint56' | lv_type_1_9= 'uint64' | lv_type_1_10= 'uint72' | lv_type_1_11= 'uint80' | lv_type_1_12= 'uint88' | lv_type_1_13= 'uint96' | lv_type_1_14= 'uint104' | lv_type_1_15= 'uint112' | lv_type_1_16= 'uint120' | lv_type_1_17= 'uint128' | lv_type_1_18= 'uint136' | lv_type_1_19= 'uint144' | lv_type_1_20= 'uint152' | lv_type_1_21= 'uint160' | lv_type_1_22= 'uint168' | lv_type_1_23= 'uint178' | lv_type_1_24= 'uint184' | lv_type_1_25= 'uint192' | lv_type_1_26= 'uint200' | lv_type_1_27= 'uint208' | lv_type_1_28= 'uint216' | lv_type_1_29= 'uint224' | lv_type_1_30= 'uint232' | lv_type_1_31= 'uint240' | lv_type_1_32= 'uint248' | lv_type_1_33= 'uint256' )
+                    int alt99=33;
                     switch ( input.LA(1) ) {
                     case 97:
                         {
-                        alt97=1;
+                        alt99=1;
                         }
                         break;
                     case 98:
                         {
-                        alt97=2;
+                        alt99=2;
                         }
                         break;
                     case 99:
                         {
-                        alt97=3;
+                        alt99=3;
                         }
                         break;
                     case 100:
                         {
-                        alt97=4;
+                        alt99=4;
                         }
                         break;
                     case 101:
                         {
-                        alt97=5;
+                        alt99=5;
                         }
                         break;
                     case 102:
                         {
-                        alt97=6;
+                        alt99=6;
                         }
                         break;
                     case 103:
                         {
-                        alt97=7;
+                        alt99=7;
                         }
                         break;
                     case 104:
                         {
-                        alt97=8;
+                        alt99=8;
                         }
                         break;
                     case 105:
                         {
-                        alt97=9;
+                        alt99=9;
                         }
                         break;
                     case 106:
                         {
-                        alt97=10;
+                        alt99=10;
                         }
                         break;
                     case 107:
                         {
-                        alt97=11;
+                        alt99=11;
                         }
                         break;
                     case 108:
                         {
-                        alt97=12;
+                        alt99=12;
                         }
                         break;
                     case 109:
                         {
-                        alt97=13;
+                        alt99=13;
                         }
                         break;
                     case 110:
                         {
-                        alt97=14;
+                        alt99=14;
                         }
                         break;
                     case 111:
                         {
-                        alt97=15;
+                        alt99=15;
                         }
                         break;
                     case 112:
                         {
-                        alt97=16;
+                        alt99=16;
                         }
                         break;
                     case 113:
                         {
-                        alt97=17;
+                        alt99=17;
                         }
                         break;
                     case 114:
                         {
-                        alt97=18;
+                        alt99=18;
                         }
                         break;
                     case 115:
                         {
-                        alt97=19;
+                        alt99=19;
                         }
                         break;
                     case 116:
                         {
-                        alt97=20;
+                        alt99=20;
                         }
                         break;
                     case 117:
                         {
-                        alt97=21;
+                        alt99=21;
                         }
                         break;
                     case 118:
                         {
-                        alt97=22;
+                        alt99=22;
                         }
                         break;
                     case 119:
                         {
-                        alt97=23;
+                        alt99=23;
                         }
                         break;
                     case 120:
                         {
-                        alt97=24;
+                        alt99=24;
                         }
                         break;
                     case 121:
                         {
-                        alt97=25;
+                        alt99=25;
                         }
                         break;
                     case 122:
                         {
-                        alt97=26;
+                        alt99=26;
                         }
                         break;
                     case 123:
                         {
-                        alt97=27;
+                        alt99=27;
                         }
                         break;
                     case 124:
                         {
-                        alt97=28;
+                        alt99=28;
                         }
                         break;
                     case 125:
                         {
-                        alt97=29;
+                        alt99=29;
                         }
                         break;
                     case 126:
                         {
-                        alt97=30;
+                        alt99=30;
                         }
                         break;
                     case 127:
                         {
-                        alt97=31;
+                        alt99=31;
                         }
                         break;
                     case 128:
                         {
-                        alt97=32;
+                        alt99=32;
                         }
                         break;
                     case 129:
                         {
-                        alt97=33;
+                        alt99=33;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 97, 0, input);
+                            new NoViableAltException("", 99, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt97) {
+                    switch (alt99) {
                         case 1 :
-                            // InternalOptGrammar.g:6434:6: lv_type_1_1= 'uint'
+                            // InternalOptGrammar.g:6536:6: lv_type_1_1= 'uint'
                             {
                             lv_type_1_1=(Token)match(input,97,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20032,7 +20349,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalOptGrammar.g:6445:6: lv_type_1_2= 'uint8'
+                            // InternalOptGrammar.g:6547:6: lv_type_1_2= 'uint8'
                             {
                             lv_type_1_2=(Token)match(input,98,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20052,7 +20369,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // InternalOptGrammar.g:6456:6: lv_type_1_3= 'uint16'
+                            // InternalOptGrammar.g:6558:6: lv_type_1_3= 'uint16'
                             {
                             lv_type_1_3=(Token)match(input,99,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20072,7 +20389,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // InternalOptGrammar.g:6467:6: lv_type_1_4= 'uint24'
+                            // InternalOptGrammar.g:6569:6: lv_type_1_4= 'uint24'
                             {
                             lv_type_1_4=(Token)match(input,100,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20092,7 +20409,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 5 :
-                            // InternalOptGrammar.g:6478:6: lv_type_1_5= 'uint32'
+                            // InternalOptGrammar.g:6580:6: lv_type_1_5= 'uint32'
                             {
                             lv_type_1_5=(Token)match(input,101,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20112,7 +20429,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 6 :
-                            // InternalOptGrammar.g:6489:6: lv_type_1_6= 'uint40'
+                            // InternalOptGrammar.g:6591:6: lv_type_1_6= 'uint40'
                             {
                             lv_type_1_6=(Token)match(input,102,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20132,7 +20449,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 7 :
-                            // InternalOptGrammar.g:6500:6: lv_type_1_7= 'uint48'
+                            // InternalOptGrammar.g:6602:6: lv_type_1_7= 'uint48'
                             {
                             lv_type_1_7=(Token)match(input,103,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20152,7 +20469,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 8 :
-                            // InternalOptGrammar.g:6511:6: lv_type_1_8= 'uint56'
+                            // InternalOptGrammar.g:6613:6: lv_type_1_8= 'uint56'
                             {
                             lv_type_1_8=(Token)match(input,104,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20172,7 +20489,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 9 :
-                            // InternalOptGrammar.g:6522:6: lv_type_1_9= 'uint64'
+                            // InternalOptGrammar.g:6624:6: lv_type_1_9= 'uint64'
                             {
                             lv_type_1_9=(Token)match(input,105,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20192,7 +20509,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 10 :
-                            // InternalOptGrammar.g:6533:6: lv_type_1_10= 'uint72'
+                            // InternalOptGrammar.g:6635:6: lv_type_1_10= 'uint72'
                             {
                             lv_type_1_10=(Token)match(input,106,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20212,7 +20529,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 11 :
-                            // InternalOptGrammar.g:6544:6: lv_type_1_11= 'uint80'
+                            // InternalOptGrammar.g:6646:6: lv_type_1_11= 'uint80'
                             {
                             lv_type_1_11=(Token)match(input,107,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20232,7 +20549,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 12 :
-                            // InternalOptGrammar.g:6555:6: lv_type_1_12= 'uint88'
+                            // InternalOptGrammar.g:6657:6: lv_type_1_12= 'uint88'
                             {
                             lv_type_1_12=(Token)match(input,108,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20252,7 +20569,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 13 :
-                            // InternalOptGrammar.g:6566:6: lv_type_1_13= 'uint96'
+                            // InternalOptGrammar.g:6668:6: lv_type_1_13= 'uint96'
                             {
                             lv_type_1_13=(Token)match(input,109,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20272,7 +20589,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 14 :
-                            // InternalOptGrammar.g:6577:6: lv_type_1_14= 'uint104'
+                            // InternalOptGrammar.g:6679:6: lv_type_1_14= 'uint104'
                             {
                             lv_type_1_14=(Token)match(input,110,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20292,7 +20609,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 15 :
-                            // InternalOptGrammar.g:6588:6: lv_type_1_15= 'uint112'
+                            // InternalOptGrammar.g:6690:6: lv_type_1_15= 'uint112'
                             {
                             lv_type_1_15=(Token)match(input,111,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20312,7 +20629,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 16 :
-                            // InternalOptGrammar.g:6599:6: lv_type_1_16= 'uint120'
+                            // InternalOptGrammar.g:6701:6: lv_type_1_16= 'uint120'
                             {
                             lv_type_1_16=(Token)match(input,112,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20332,7 +20649,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 17 :
-                            // InternalOptGrammar.g:6610:6: lv_type_1_17= 'uint128'
+                            // InternalOptGrammar.g:6712:6: lv_type_1_17= 'uint128'
                             {
                             lv_type_1_17=(Token)match(input,113,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20352,7 +20669,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 18 :
-                            // InternalOptGrammar.g:6621:6: lv_type_1_18= 'uint136'
+                            // InternalOptGrammar.g:6723:6: lv_type_1_18= 'uint136'
                             {
                             lv_type_1_18=(Token)match(input,114,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20372,7 +20689,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 19 :
-                            // InternalOptGrammar.g:6632:6: lv_type_1_19= 'uint144'
+                            // InternalOptGrammar.g:6734:6: lv_type_1_19= 'uint144'
                             {
                             lv_type_1_19=(Token)match(input,115,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20392,7 +20709,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 20 :
-                            // InternalOptGrammar.g:6643:6: lv_type_1_20= 'uint152'
+                            // InternalOptGrammar.g:6745:6: lv_type_1_20= 'uint152'
                             {
                             lv_type_1_20=(Token)match(input,116,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20412,7 +20729,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 21 :
-                            // InternalOptGrammar.g:6654:6: lv_type_1_21= 'uint160'
+                            // InternalOptGrammar.g:6756:6: lv_type_1_21= 'uint160'
                             {
                             lv_type_1_21=(Token)match(input,117,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20432,7 +20749,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 22 :
-                            // InternalOptGrammar.g:6665:6: lv_type_1_22= 'uint168'
+                            // InternalOptGrammar.g:6767:6: lv_type_1_22= 'uint168'
                             {
                             lv_type_1_22=(Token)match(input,118,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20452,7 +20769,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 23 :
-                            // InternalOptGrammar.g:6676:6: lv_type_1_23= 'uint178'
+                            // InternalOptGrammar.g:6778:6: lv_type_1_23= 'uint178'
                             {
                             lv_type_1_23=(Token)match(input,119,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20472,7 +20789,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 24 :
-                            // InternalOptGrammar.g:6687:6: lv_type_1_24= 'uint184'
+                            // InternalOptGrammar.g:6789:6: lv_type_1_24= 'uint184'
                             {
                             lv_type_1_24=(Token)match(input,120,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20492,7 +20809,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 25 :
-                            // InternalOptGrammar.g:6698:6: lv_type_1_25= 'uint192'
+                            // InternalOptGrammar.g:6800:6: lv_type_1_25= 'uint192'
                             {
                             lv_type_1_25=(Token)match(input,121,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20512,7 +20829,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 26 :
-                            // InternalOptGrammar.g:6709:6: lv_type_1_26= 'uint200'
+                            // InternalOptGrammar.g:6811:6: lv_type_1_26= 'uint200'
                             {
                             lv_type_1_26=(Token)match(input,122,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20532,7 +20849,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 27 :
-                            // InternalOptGrammar.g:6720:6: lv_type_1_27= 'uint208'
+                            // InternalOptGrammar.g:6822:6: lv_type_1_27= 'uint208'
                             {
                             lv_type_1_27=(Token)match(input,123,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20552,7 +20869,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 28 :
-                            // InternalOptGrammar.g:6731:6: lv_type_1_28= 'uint216'
+                            // InternalOptGrammar.g:6833:6: lv_type_1_28= 'uint216'
                             {
                             lv_type_1_28=(Token)match(input,124,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20572,7 +20889,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 29 :
-                            // InternalOptGrammar.g:6742:6: lv_type_1_29= 'uint224'
+                            // InternalOptGrammar.g:6844:6: lv_type_1_29= 'uint224'
                             {
                             lv_type_1_29=(Token)match(input,125,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20592,7 +20909,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 30 :
-                            // InternalOptGrammar.g:6753:6: lv_type_1_30= 'uint232'
+                            // InternalOptGrammar.g:6855:6: lv_type_1_30= 'uint232'
                             {
                             lv_type_1_30=(Token)match(input,126,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20612,7 +20929,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 31 :
-                            // InternalOptGrammar.g:6764:6: lv_type_1_31= 'uint240'
+                            // InternalOptGrammar.g:6866:6: lv_type_1_31= 'uint240'
                             {
                             lv_type_1_31=(Token)match(input,127,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20632,7 +20949,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 32 :
-                            // InternalOptGrammar.g:6775:6: lv_type_1_32= 'uint248'
+                            // InternalOptGrammar.g:6877:6: lv_type_1_32= 'uint248'
                             {
                             lv_type_1_32=(Token)match(input,128,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20652,7 +20969,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 33 :
-                            // InternalOptGrammar.g:6786:6: lv_type_1_33= 'uint256'
+                            // InternalOptGrammar.g:6888:6: lv_type_1_33= 'uint256'
                             {
                             lv_type_1_33=(Token)match(input,129,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
@@ -20684,203 +21001,203 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:6800:3: ( ( (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' ) ) )
+                    // InternalOptGrammar.g:6902:3: ( ( (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' ) ) )
                     {
-                    // InternalOptGrammar.g:6800:3: ( ( (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' ) ) )
-                    // InternalOptGrammar.g:6801:4: ( (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' ) )
+                    // InternalOptGrammar.g:6902:3: ( ( (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' ) ) )
+                    // InternalOptGrammar.g:6903:4: ( (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' ) )
                     {
-                    // InternalOptGrammar.g:6801:4: ( (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' ) )
-                    // InternalOptGrammar.g:6802:5: (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' )
+                    // InternalOptGrammar.g:6903:4: ( (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' ) )
+                    // InternalOptGrammar.g:6904:5: (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' )
                     {
-                    // InternalOptGrammar.g:6802:5: (lv_type_2_1= 'byte' | lv_type_2_2= 'bytes' | lv_type_2_3= 'bytes1' | lv_type_2_4= 'bytes2' | lv_type_2_5= 'bytes3' | lv_type_2_6= 'bytes4' | lv_type_2_7= 'bytes5' | lv_type_2_8= 'bytes6' | lv_type_2_9= 'bytes7' | lv_type_2_10= 'bytes8' | lv_type_2_11= 'bytes9' | lv_type_2_12= 'bytes10' | lv_type_2_13= 'bytes11' | lv_type_2_14= 'bytes12' | lv_type_2_15= 'bytes13' | lv_type_2_16= 'bytes14' | lv_type_2_17= 'bytes15' | lv_type_2_18= 'bytes16' | lv_type_2_19= 'bytes17' | lv_type_2_20= 'bytes18' | lv_type_2_21= 'bytes19' | lv_type_2_22= 'bytes20' | lv_type_2_23= 'bytes21' | lv_type_2_24= 'bytes22' | lv_type_2_25= 'bytes23' | lv_type_2_26= 'bytes24' | lv_type_2_27= 'bytes25' | lv_type_2_28= 'bytes26' | lv_type_2_29= 'bytes27' | lv_type_2_30= 'bytes28' | lv_type_2_31= 'bytes29' | lv_type_2_32= 'bytes30' | lv_type_2_33= 'bytes31' | lv_type_2_34= 'bytes32' )
-                    int alt98=34;
+                    // InternalOptGrammar.g:6904:5: (lv_type_2_1= 'bytes1' | lv_type_2_2= 'bytes2' | lv_type_2_3= 'bytes3' | lv_type_2_4= 'bytes4' | lv_type_2_5= 'bytes5' | lv_type_2_6= 'bytes6' | lv_type_2_7= 'bytes7' | lv_type_2_8= 'bytes8' | lv_type_2_9= 'bytes9' | lv_type_2_10= 'bytes10' | lv_type_2_11= 'bytes11' | lv_type_2_12= 'bytes12' | lv_type_2_13= 'bytes13' | lv_type_2_14= 'bytes14' | lv_type_2_15= 'bytes15' | lv_type_2_16= 'bytes16' | lv_type_2_17= 'bytes17' | lv_type_2_18= 'bytes18' | lv_type_2_19= 'bytes19' | lv_type_2_20= 'bytes20' | lv_type_2_21= 'bytes21' | lv_type_2_22= 'bytes22' | lv_type_2_23= 'bytes23' | lv_type_2_24= 'bytes24' | lv_type_2_25= 'bytes25' | lv_type_2_26= 'bytes26' | lv_type_2_27= 'bytes27' | lv_type_2_28= 'bytes28' | lv_type_2_29= 'bytes29' | lv_type_2_30= 'bytes30' | lv_type_2_31= 'bytes31' | lv_type_2_32= 'bytes32' | lv_type_2_33= 'bytes' | lv_type_2_34= 'byte' )
+                    int alt100=34;
                     switch ( input.LA(1) ) {
                     case 130:
                         {
-                        alt98=1;
+                        alt100=1;
                         }
                         break;
                     case 131:
                         {
-                        alt98=2;
+                        alt100=2;
                         }
                         break;
                     case 132:
                         {
-                        alt98=3;
+                        alt100=3;
                         }
                         break;
                     case 133:
                         {
-                        alt98=4;
+                        alt100=4;
                         }
                         break;
                     case 134:
                         {
-                        alt98=5;
+                        alt100=5;
                         }
                         break;
                     case 135:
                         {
-                        alt98=6;
+                        alt100=6;
                         }
                         break;
                     case 136:
                         {
-                        alt98=7;
+                        alt100=7;
                         }
                         break;
                     case 137:
                         {
-                        alt98=8;
+                        alt100=8;
                         }
                         break;
                     case 138:
                         {
-                        alt98=9;
+                        alt100=9;
                         }
                         break;
                     case 139:
                         {
-                        alt98=10;
+                        alt100=10;
                         }
                         break;
                     case 140:
                         {
-                        alt98=11;
+                        alt100=11;
                         }
                         break;
                     case 141:
                         {
-                        alt98=12;
+                        alt100=12;
                         }
                         break;
                     case 142:
                         {
-                        alt98=13;
+                        alt100=13;
                         }
                         break;
                     case 143:
                         {
-                        alt98=14;
+                        alt100=14;
                         }
                         break;
                     case 144:
                         {
-                        alt98=15;
+                        alt100=15;
                         }
                         break;
                     case 145:
                         {
-                        alt98=16;
+                        alt100=16;
                         }
                         break;
                     case 146:
                         {
-                        alt98=17;
+                        alt100=17;
                         }
                         break;
                     case 147:
                         {
-                        alt98=18;
+                        alt100=18;
                         }
                         break;
                     case 148:
                         {
-                        alt98=19;
+                        alt100=19;
                         }
                         break;
                     case 149:
                         {
-                        alt98=20;
+                        alt100=20;
                         }
                         break;
                     case 150:
                         {
-                        alt98=21;
+                        alt100=21;
                         }
                         break;
                     case 151:
                         {
-                        alt98=22;
+                        alt100=22;
                         }
                         break;
                     case 152:
                         {
-                        alt98=23;
+                        alt100=23;
                         }
                         break;
                     case 153:
                         {
-                        alt98=24;
+                        alt100=24;
                         }
                         break;
                     case 154:
                         {
-                        alt98=25;
+                        alt100=25;
                         }
                         break;
                     case 155:
                         {
-                        alt98=26;
+                        alt100=26;
                         }
                         break;
                     case 156:
                         {
-                        alt98=27;
+                        alt100=27;
                         }
                         break;
                     case 157:
                         {
-                        alt98=28;
+                        alt100=28;
                         }
                         break;
                     case 158:
                         {
-                        alt98=29;
+                        alt100=29;
                         }
                         break;
                     case 159:
                         {
-                        alt98=30;
+                        alt100=30;
                         }
                         break;
                     case 160:
                         {
-                        alt98=31;
+                        alt100=31;
                         }
                         break;
                     case 161:
                         {
-                        alt98=32;
+                        alt100=32;
                         }
                         break;
                     case 162:
                         {
-                        alt98=33;
+                        alt100=33;
                         }
                         break;
                     case 163:
                         {
-                        alt98=34;
+                        alt100=34;
                         }
                         break;
                     default:
                         if (state.backtracking>0) {state.failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("", 98, 0, input);
+                            new NoViableAltException("", 100, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt98) {
+                    switch (alt100) {
                         case 1 :
-                            // InternalOptGrammar.g:6803:6: lv_type_2_1= 'byte'
+                            // InternalOptGrammar.g:6905:6: lv_type_2_1= 'bytes1'
                             {
                             lv_type_2_1=(Token)match(input,130,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_1, grammarAccess.getElementaryTypeNameEnumAccess().getTypeByteKeyword_2_0_0());
+                              						newLeafNode(lv_type_2_1, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes1Keyword_2_0_0());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -20895,12 +21212,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalOptGrammar.g:6814:6: lv_type_2_2= 'bytes'
+                            // InternalOptGrammar.g:6916:6: lv_type_2_2= 'bytes2'
                             {
                             lv_type_2_2=(Token)match(input,131,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_2, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytesKeyword_2_0_1());
+                              						newLeafNode(lv_type_2_2, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes2Keyword_2_0_1());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -20915,12 +21232,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // InternalOptGrammar.g:6825:6: lv_type_2_3= 'bytes1'
+                            // InternalOptGrammar.g:6927:6: lv_type_2_3= 'bytes3'
                             {
                             lv_type_2_3=(Token)match(input,132,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_3, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes1Keyword_2_0_2());
+                              						newLeafNode(lv_type_2_3, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes3Keyword_2_0_2());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -20935,12 +21252,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 4 :
-                            // InternalOptGrammar.g:6836:6: lv_type_2_4= 'bytes2'
+                            // InternalOptGrammar.g:6938:6: lv_type_2_4= 'bytes4'
                             {
                             lv_type_2_4=(Token)match(input,133,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_4, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes2Keyword_2_0_3());
+                              						newLeafNode(lv_type_2_4, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes4Keyword_2_0_3());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -20955,12 +21272,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 5 :
-                            // InternalOptGrammar.g:6847:6: lv_type_2_5= 'bytes3'
+                            // InternalOptGrammar.g:6949:6: lv_type_2_5= 'bytes5'
                             {
                             lv_type_2_5=(Token)match(input,134,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_5, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes3Keyword_2_0_4());
+                              						newLeafNode(lv_type_2_5, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes5Keyword_2_0_4());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -20975,12 +21292,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 6 :
-                            // InternalOptGrammar.g:6858:6: lv_type_2_6= 'bytes4'
+                            // InternalOptGrammar.g:6960:6: lv_type_2_6= 'bytes6'
                             {
                             lv_type_2_6=(Token)match(input,135,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_6, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes4Keyword_2_0_5());
+                              						newLeafNode(lv_type_2_6, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes6Keyword_2_0_5());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -20995,12 +21312,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 7 :
-                            // InternalOptGrammar.g:6869:6: lv_type_2_7= 'bytes5'
+                            // InternalOptGrammar.g:6971:6: lv_type_2_7= 'bytes7'
                             {
                             lv_type_2_7=(Token)match(input,136,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_7, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes5Keyword_2_0_6());
+                              						newLeafNode(lv_type_2_7, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes7Keyword_2_0_6());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21015,12 +21332,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 8 :
-                            // InternalOptGrammar.g:6880:6: lv_type_2_8= 'bytes6'
+                            // InternalOptGrammar.g:6982:6: lv_type_2_8= 'bytes8'
                             {
                             lv_type_2_8=(Token)match(input,137,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_8, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes6Keyword_2_0_7());
+                              						newLeafNode(lv_type_2_8, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes8Keyword_2_0_7());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21035,12 +21352,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 9 :
-                            // InternalOptGrammar.g:6891:6: lv_type_2_9= 'bytes7'
+                            // InternalOptGrammar.g:6993:6: lv_type_2_9= 'bytes9'
                             {
                             lv_type_2_9=(Token)match(input,138,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_9, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes7Keyword_2_0_8());
+                              						newLeafNode(lv_type_2_9, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes9Keyword_2_0_8());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21055,12 +21372,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 10 :
-                            // InternalOptGrammar.g:6902:6: lv_type_2_10= 'bytes8'
+                            // InternalOptGrammar.g:7004:6: lv_type_2_10= 'bytes10'
                             {
                             lv_type_2_10=(Token)match(input,139,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_10, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes8Keyword_2_0_9());
+                              						newLeafNode(lv_type_2_10, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes10Keyword_2_0_9());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21075,12 +21392,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 11 :
-                            // InternalOptGrammar.g:6913:6: lv_type_2_11= 'bytes9'
+                            // InternalOptGrammar.g:7015:6: lv_type_2_11= 'bytes11'
                             {
                             lv_type_2_11=(Token)match(input,140,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_11, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes9Keyword_2_0_10());
+                              						newLeafNode(lv_type_2_11, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes11Keyword_2_0_10());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21095,12 +21412,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 12 :
-                            // InternalOptGrammar.g:6924:6: lv_type_2_12= 'bytes10'
+                            // InternalOptGrammar.g:7026:6: lv_type_2_12= 'bytes12'
                             {
                             lv_type_2_12=(Token)match(input,141,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_12, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes10Keyword_2_0_11());
+                              						newLeafNode(lv_type_2_12, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes12Keyword_2_0_11());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21115,12 +21432,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 13 :
-                            // InternalOptGrammar.g:6935:6: lv_type_2_13= 'bytes11'
+                            // InternalOptGrammar.g:7037:6: lv_type_2_13= 'bytes13'
                             {
                             lv_type_2_13=(Token)match(input,142,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_13, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes11Keyword_2_0_12());
+                              						newLeafNode(lv_type_2_13, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes13Keyword_2_0_12());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21135,12 +21452,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 14 :
-                            // InternalOptGrammar.g:6946:6: lv_type_2_14= 'bytes12'
+                            // InternalOptGrammar.g:7048:6: lv_type_2_14= 'bytes14'
                             {
                             lv_type_2_14=(Token)match(input,143,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_14, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes12Keyword_2_0_13());
+                              						newLeafNode(lv_type_2_14, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes14Keyword_2_0_13());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21155,12 +21472,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 15 :
-                            // InternalOptGrammar.g:6957:6: lv_type_2_15= 'bytes13'
+                            // InternalOptGrammar.g:7059:6: lv_type_2_15= 'bytes15'
                             {
                             lv_type_2_15=(Token)match(input,144,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_15, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes13Keyword_2_0_14());
+                              						newLeafNode(lv_type_2_15, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes15Keyword_2_0_14());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21175,12 +21492,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 16 :
-                            // InternalOptGrammar.g:6968:6: lv_type_2_16= 'bytes14'
+                            // InternalOptGrammar.g:7070:6: lv_type_2_16= 'bytes16'
                             {
                             lv_type_2_16=(Token)match(input,145,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_16, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes14Keyword_2_0_15());
+                              						newLeafNode(lv_type_2_16, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes16Keyword_2_0_15());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21195,12 +21512,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 17 :
-                            // InternalOptGrammar.g:6979:6: lv_type_2_17= 'bytes15'
+                            // InternalOptGrammar.g:7081:6: lv_type_2_17= 'bytes17'
                             {
                             lv_type_2_17=(Token)match(input,146,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_17, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes15Keyword_2_0_16());
+                              						newLeafNode(lv_type_2_17, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes17Keyword_2_0_16());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21215,12 +21532,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 18 :
-                            // InternalOptGrammar.g:6990:6: lv_type_2_18= 'bytes16'
+                            // InternalOptGrammar.g:7092:6: lv_type_2_18= 'bytes18'
                             {
                             lv_type_2_18=(Token)match(input,147,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_18, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes16Keyword_2_0_17());
+                              						newLeafNode(lv_type_2_18, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes18Keyword_2_0_17());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21235,12 +21552,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 19 :
-                            // InternalOptGrammar.g:7001:6: lv_type_2_19= 'bytes17'
+                            // InternalOptGrammar.g:7103:6: lv_type_2_19= 'bytes19'
                             {
                             lv_type_2_19=(Token)match(input,148,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_19, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes17Keyword_2_0_18());
+                              						newLeafNode(lv_type_2_19, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes19Keyword_2_0_18());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21255,12 +21572,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 20 :
-                            // InternalOptGrammar.g:7012:6: lv_type_2_20= 'bytes18'
+                            // InternalOptGrammar.g:7114:6: lv_type_2_20= 'bytes20'
                             {
                             lv_type_2_20=(Token)match(input,149,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_20, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes18Keyword_2_0_19());
+                              						newLeafNode(lv_type_2_20, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes20Keyword_2_0_19());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21275,12 +21592,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 21 :
-                            // InternalOptGrammar.g:7023:6: lv_type_2_21= 'bytes19'
+                            // InternalOptGrammar.g:7125:6: lv_type_2_21= 'bytes21'
                             {
                             lv_type_2_21=(Token)match(input,150,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_21, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes19Keyword_2_0_20());
+                              						newLeafNode(lv_type_2_21, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes21Keyword_2_0_20());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21295,12 +21612,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 22 :
-                            // InternalOptGrammar.g:7034:6: lv_type_2_22= 'bytes20'
+                            // InternalOptGrammar.g:7136:6: lv_type_2_22= 'bytes22'
                             {
                             lv_type_2_22=(Token)match(input,151,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_22, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes20Keyword_2_0_21());
+                              						newLeafNode(lv_type_2_22, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes22Keyword_2_0_21());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21315,12 +21632,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 23 :
-                            // InternalOptGrammar.g:7045:6: lv_type_2_23= 'bytes21'
+                            // InternalOptGrammar.g:7147:6: lv_type_2_23= 'bytes23'
                             {
                             lv_type_2_23=(Token)match(input,152,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_23, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes21Keyword_2_0_22());
+                              						newLeafNode(lv_type_2_23, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes23Keyword_2_0_22());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21335,12 +21652,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 24 :
-                            // InternalOptGrammar.g:7056:6: lv_type_2_24= 'bytes22'
+                            // InternalOptGrammar.g:7158:6: lv_type_2_24= 'bytes24'
                             {
                             lv_type_2_24=(Token)match(input,153,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_24, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes22Keyword_2_0_23());
+                              						newLeafNode(lv_type_2_24, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes24Keyword_2_0_23());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21355,12 +21672,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 25 :
-                            // InternalOptGrammar.g:7067:6: lv_type_2_25= 'bytes23'
+                            // InternalOptGrammar.g:7169:6: lv_type_2_25= 'bytes25'
                             {
                             lv_type_2_25=(Token)match(input,154,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_25, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes23Keyword_2_0_24());
+                              						newLeafNode(lv_type_2_25, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes25Keyword_2_0_24());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21375,12 +21692,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 26 :
-                            // InternalOptGrammar.g:7078:6: lv_type_2_26= 'bytes24'
+                            // InternalOptGrammar.g:7180:6: lv_type_2_26= 'bytes26'
                             {
                             lv_type_2_26=(Token)match(input,155,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_26, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes24Keyword_2_0_25());
+                              						newLeafNode(lv_type_2_26, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes26Keyword_2_0_25());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21395,12 +21712,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 27 :
-                            // InternalOptGrammar.g:7089:6: lv_type_2_27= 'bytes25'
+                            // InternalOptGrammar.g:7191:6: lv_type_2_27= 'bytes27'
                             {
                             lv_type_2_27=(Token)match(input,156,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_27, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes25Keyword_2_0_26());
+                              						newLeafNode(lv_type_2_27, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes27Keyword_2_0_26());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21415,12 +21732,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 28 :
-                            // InternalOptGrammar.g:7100:6: lv_type_2_28= 'bytes26'
+                            // InternalOptGrammar.g:7202:6: lv_type_2_28= 'bytes28'
                             {
                             lv_type_2_28=(Token)match(input,157,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_28, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes26Keyword_2_0_27());
+                              						newLeafNode(lv_type_2_28, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes28Keyword_2_0_27());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21435,12 +21752,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 29 :
-                            // InternalOptGrammar.g:7111:6: lv_type_2_29= 'bytes27'
+                            // InternalOptGrammar.g:7213:6: lv_type_2_29= 'bytes29'
                             {
                             lv_type_2_29=(Token)match(input,158,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_29, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes27Keyword_2_0_28());
+                              						newLeafNode(lv_type_2_29, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes29Keyword_2_0_28());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21455,12 +21772,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 30 :
-                            // InternalOptGrammar.g:7122:6: lv_type_2_30= 'bytes28'
+                            // InternalOptGrammar.g:7224:6: lv_type_2_30= 'bytes30'
                             {
                             lv_type_2_30=(Token)match(input,159,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_30, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes28Keyword_2_0_29());
+                              						newLeafNode(lv_type_2_30, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes30Keyword_2_0_29());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21475,12 +21792,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 31 :
-                            // InternalOptGrammar.g:7133:6: lv_type_2_31= 'bytes29'
+                            // InternalOptGrammar.g:7235:6: lv_type_2_31= 'bytes31'
                             {
                             lv_type_2_31=(Token)match(input,160,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_31, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes29Keyword_2_0_30());
+                              						newLeafNode(lv_type_2_31, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes31Keyword_2_0_30());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21495,12 +21812,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 32 :
-                            // InternalOptGrammar.g:7144:6: lv_type_2_32= 'bytes30'
+                            // InternalOptGrammar.g:7246:6: lv_type_2_32= 'bytes32'
                             {
                             lv_type_2_32=(Token)match(input,161,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_32, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes30Keyword_2_0_31());
+                              						newLeafNode(lv_type_2_32, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes32Keyword_2_0_31());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21515,12 +21832,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 33 :
-                            // InternalOptGrammar.g:7155:6: lv_type_2_33= 'bytes31'
+                            // InternalOptGrammar.g:7257:6: lv_type_2_33= 'bytes'
                             {
                             lv_type_2_33=(Token)match(input,162,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_33, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes31Keyword_2_0_32());
+                              						newLeafNode(lv_type_2_33, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytesKeyword_2_0_32());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21535,12 +21852,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 34 :
-                            // InternalOptGrammar.g:7166:6: lv_type_2_34= 'bytes32'
+                            // InternalOptGrammar.g:7268:6: lv_type_2_34= 'byte'
                             {
                             lv_type_2_34=(Token)match(input,163,FOLLOW_2); if (state.failed) return current;
                             if ( state.backtracking==0 ) {
 
-                              						newLeafNode(lv_type_2_34, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes32Keyword_2_0_33());
+                              						newLeafNode(lv_type_2_34, grammarAccess.getElementaryTypeNameEnumAccess().getTypeByteKeyword_2_0_33());
                               					
                             }
                             if ( state.backtracking==0 ) {
@@ -21567,28 +21884,104 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:7180:3: ( (lv_type_3_0= 'address' ) )
+                    // InternalOptGrammar.g:7282:3: ( ( (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' ) ) )
                     {
-                    // InternalOptGrammar.g:7180:3: ( (lv_type_3_0= 'address' ) )
-                    // InternalOptGrammar.g:7181:4: (lv_type_3_0= 'address' )
+                    // InternalOptGrammar.g:7282:3: ( ( (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' ) ) )
+                    // InternalOptGrammar.g:7283:4: ( (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' ) )
                     {
-                    // InternalOptGrammar.g:7181:4: (lv_type_3_0= 'address' )
-                    // InternalOptGrammar.g:7182:5: lv_type_3_0= 'address'
+                    // InternalOptGrammar.g:7283:4: ( (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' ) )
+                    // InternalOptGrammar.g:7284:5: (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' )
                     {
-                    lv_type_3_0=(Token)match(input,164,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
+                    // InternalOptGrammar.g:7284:5: (lv_type_3_1= 'address' | lv_type_3_2= 'real' | lv_type_3_3= 'ureal' )
+                    int alt101=3;
+                    switch ( input.LA(1) ) {
+                    case 164:
+                        {
+                        alt101=1;
+                        }
+                        break;
+                    case 165:
+                        {
+                        alt101=2;
+                        }
+                        break;
+                    case 166:
+                        {
+                        alt101=3;
+                        }
+                        break;
+                    default:
+                        if (state.backtracking>0) {state.failed=true; return current;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 101, 0, input);
 
-                      					newLeafNode(lv_type_3_0, grammarAccess.getElementaryTypeNameEnumAccess().getTypeAddressKeyword_3_0());
-                      				
+                        throw nvae;
                     }
-                    if ( state.backtracking==0 ) {
 
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
-                      					}
-                      					setWithLastConsumed(current, "type", lv_type_3_0, "address");
-                      				
+                    switch (alt101) {
+                        case 1 :
+                            // InternalOptGrammar.g:7285:6: lv_type_3_1= 'address'
+                            {
+                            lv_type_3_1=(Token)match(input,164,FOLLOW_2); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              						newLeafNode(lv_type_3_1, grammarAccess.getElementaryTypeNameEnumAccess().getTypeAddressKeyword_3_0_0());
+                              					
+                            }
+                            if ( state.backtracking==0 ) {
+
+                              						if (current==null) {
+                              							current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+                              						}
+                              						setWithLastConsumed(current, "type", lv_type_3_1, null);
+                              					
+                            }
+
+                            }
+                            break;
+                        case 2 :
+                            // InternalOptGrammar.g:7296:6: lv_type_3_2= 'real'
+                            {
+                            lv_type_3_2=(Token)match(input,165,FOLLOW_2); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              						newLeafNode(lv_type_3_2, grammarAccess.getElementaryTypeNameEnumAccess().getTypeRealKeyword_3_0_1());
+                              					
+                            }
+                            if ( state.backtracking==0 ) {
+
+                              						if (current==null) {
+                              							current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+                              						}
+                              						setWithLastConsumed(current, "type", lv_type_3_2, null);
+                              					
+                            }
+
+                            }
+                            break;
+                        case 3 :
+                            // InternalOptGrammar.g:7307:6: lv_type_3_3= 'ureal'
+                            {
+                            lv_type_3_3=(Token)match(input,166,FOLLOW_2); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              						newLeafNode(lv_type_3_3, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUrealKeyword_3_0_2());
+                              					
+                            }
+                            if ( state.backtracking==0 ) {
+
+                              						if (current==null) {
+                              							current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+                              						}
+                              						setWithLastConsumed(current, "type", lv_type_3_3, null);
+                              					
+                            }
+
+                            }
+                            break;
+
                     }
+
 
                     }
 
@@ -21623,7 +22016,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMapLocationLiteral"
-    // InternalOptGrammar.g:7198:1: entryRuleMapLocationLiteral returns [String current=null] : iv_ruleMapLocationLiteral= ruleMapLocationLiteral EOF ;
+    // InternalOptGrammar.g:7324:1: entryRuleMapLocationLiteral returns [String current=null] : iv_ruleMapLocationLiteral= ruleMapLocationLiteral EOF ;
     public final String entryRuleMapLocationLiteral() throws RecognitionException {
         String current = null;
 
@@ -21631,8 +22024,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:7198:58: (iv_ruleMapLocationLiteral= ruleMapLocationLiteral EOF )
-            // InternalOptGrammar.g:7199:2: iv_ruleMapLocationLiteral= ruleMapLocationLiteral EOF
+            // InternalOptGrammar.g:7324:58: (iv_ruleMapLocationLiteral= ruleMapLocationLiteral EOF )
+            // InternalOptGrammar.g:7325:2: iv_ruleMapLocationLiteral= ruleMapLocationLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMapLocationLiteralRule()); 
@@ -21663,7 +22056,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMapLocationLiteral"
-    // InternalOptGrammar.g:7205:1: ruleMapLocationLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'storage' ;
+    // InternalOptGrammar.g:7331:1: ruleMapLocationLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'storage' ;
     public final AntlrDatatypeRuleToken ruleMapLocationLiteral() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -21673,10 +22066,10 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7211:2: (kw= 'storage' )
-            // InternalOptGrammar.g:7212:2: kw= 'storage'
+            // InternalOptGrammar.g:7337:2: (kw= 'storage' )
+            // InternalOptGrammar.g:7338:2: kw= 'storage'
             {
-            kw=(Token)match(input,165,FOLLOW_2); if (state.failed) return current;
+            kw=(Token)match(input,167,FOLLOW_2); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(kw);
@@ -21705,7 +22098,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLocationSpecifierEnum"
-    // InternalOptGrammar.g:7220:1: entryRuleLocationSpecifierEnum returns [EObject current=null] : iv_ruleLocationSpecifierEnum= ruleLocationSpecifierEnum EOF ;
+    // InternalOptGrammar.g:7346:1: entryRuleLocationSpecifierEnum returns [EObject current=null] : iv_ruleLocationSpecifierEnum= ruleLocationSpecifierEnum EOF ;
     public final EObject entryRuleLocationSpecifierEnum() throws RecognitionException {
         EObject current = null;
 
@@ -21713,8 +22106,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:7220:62: (iv_ruleLocationSpecifierEnum= ruleLocationSpecifierEnum EOF )
-            // InternalOptGrammar.g:7221:2: iv_ruleLocationSpecifierEnum= ruleLocationSpecifierEnum EOF
+            // InternalOptGrammar.g:7346:62: (iv_ruleLocationSpecifierEnum= ruleLocationSpecifierEnum EOF )
+            // InternalOptGrammar.g:7347:2: iv_ruleLocationSpecifierEnum= ruleLocationSpecifierEnum EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLocationSpecifierEnumRule()); 
@@ -21745,7 +22138,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLocationSpecifierEnum"
-    // InternalOptGrammar.g:7227:1: ruleLocationSpecifierEnum returns [EObject current=null] : ( ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) ) ) ;
+    // InternalOptGrammar.g:7353:1: ruleLocationSpecifierEnum returns [EObject current=null] : ( ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) ) ) ;
     public final EObject ruleLocationSpecifierEnum() throws RecognitionException {
         EObject current = null;
 
@@ -21758,46 +22151,46 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7233:2: ( ( ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) ) ) )
-            // InternalOptGrammar.g:7234:2: ( ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) ) )
+            // InternalOptGrammar.g:7359:2: ( ( ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) ) ) )
+            // InternalOptGrammar.g:7360:2: ( ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) ) )
             {
-            // InternalOptGrammar.g:7234:2: ( ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) ) )
-            // InternalOptGrammar.g:7235:3: ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) )
+            // InternalOptGrammar.g:7360:2: ( ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) ) )
+            // InternalOptGrammar.g:7361:3: ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) )
             {
-            // InternalOptGrammar.g:7235:3: ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) )
-            // InternalOptGrammar.g:7236:4: (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' )
+            // InternalOptGrammar.g:7361:3: ( (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' ) )
+            // InternalOptGrammar.g:7362:4: (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' )
             {
-            // InternalOptGrammar.g:7236:4: (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' )
-            int alt100=3;
+            // InternalOptGrammar.g:7362:4: (lv_type_0_1= 'memory' | lv_type_0_2= ruleMapLocationLiteral | lv_type_0_3= 'calldata' )
+            int alt103=3;
             switch ( input.LA(1) ) {
-            case 166:
+            case 168:
                 {
-                alt100=1;
-                }
-                break;
-            case 165:
-                {
-                alt100=2;
+                alt103=1;
                 }
                 break;
             case 167:
                 {
-                alt100=3;
+                alt103=2;
+                }
+                break;
+            case 169:
+                {
+                alt103=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 100, 0, input);
+                    new NoViableAltException("", 103, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt100) {
+            switch (alt103) {
                 case 1 :
-                    // InternalOptGrammar.g:7237:5: lv_type_0_1= 'memory'
+                    // InternalOptGrammar.g:7363:5: lv_type_0_1= 'memory'
                     {
-                    lv_type_0_1=(Token)match(input,166,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_1=(Token)match(input,168,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_1, grammarAccess.getLocationSpecifierEnumAccess().getTypeMemoryKeyword_0_0());
@@ -21815,7 +22208,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7248:5: lv_type_0_2= ruleMapLocationLiteral
+                    // InternalOptGrammar.g:7374:5: lv_type_0_2= ruleMapLocationLiteral
                     {
                     if ( state.backtracking==0 ) {
 
@@ -21844,9 +22237,9 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7264:5: lv_type_0_3= 'calldata'
+                    // InternalOptGrammar.g:7390:5: lv_type_0_3= 'calldata'
                     {
-                    lv_type_0_3=(Token)match(input,167,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_3=(Token)match(input,169,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_3, grammarAccess.getLocationSpecifierEnumAccess().getTypeCalldataKeyword_0_2());
@@ -21894,7 +22287,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVisibilityEnum"
-    // InternalOptGrammar.g:7280:1: entryRuleVisibilityEnum returns [EObject current=null] : iv_ruleVisibilityEnum= ruleVisibilityEnum EOF ;
+    // InternalOptGrammar.g:7406:1: entryRuleVisibilityEnum returns [EObject current=null] : iv_ruleVisibilityEnum= ruleVisibilityEnum EOF ;
     public final EObject entryRuleVisibilityEnum() throws RecognitionException {
         EObject current = null;
 
@@ -21902,8 +22295,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalOptGrammar.g:7280:55: (iv_ruleVisibilityEnum= ruleVisibilityEnum EOF )
-            // InternalOptGrammar.g:7281:2: iv_ruleVisibilityEnum= ruleVisibilityEnum EOF
+            // InternalOptGrammar.g:7406:55: (iv_ruleVisibilityEnum= ruleVisibilityEnum EOF )
+            // InternalOptGrammar.g:7407:2: iv_ruleVisibilityEnum= ruleVisibilityEnum EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getVisibilityEnumRule()); 
@@ -21934,7 +22327,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVisibilityEnum"
-    // InternalOptGrammar.g:7287:1: ruleVisibilityEnum returns [EObject current=null] : ( ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) ) ) ;
+    // InternalOptGrammar.g:7413:1: ruleVisibilityEnum returns [EObject current=null] : ( ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) ) ) ;
     public final EObject ruleVisibilityEnum() throws RecognitionException {
         EObject current = null;
 
@@ -21947,51 +22340,51 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7293:2: ( ( ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) ) ) )
-            // InternalOptGrammar.g:7294:2: ( ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) ) )
+            // InternalOptGrammar.g:7419:2: ( ( ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) ) ) )
+            // InternalOptGrammar.g:7420:2: ( ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) ) )
             {
-            // InternalOptGrammar.g:7294:2: ( ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) ) )
-            // InternalOptGrammar.g:7295:3: ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) )
+            // InternalOptGrammar.g:7420:2: ( ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) ) )
+            // InternalOptGrammar.g:7421:3: ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) )
             {
-            // InternalOptGrammar.g:7295:3: ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) )
-            // InternalOptGrammar.g:7296:4: (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' )
+            // InternalOptGrammar.g:7421:3: ( (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' ) )
+            // InternalOptGrammar.g:7422:4: (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' )
             {
-            // InternalOptGrammar.g:7296:4: (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' )
-            int alt101=4;
+            // InternalOptGrammar.g:7422:4: (lv_type_0_1= 'public' | lv_type_0_2= 'internal' | lv_type_0_3= 'private' | lv_type_0_4= 'external' )
+            int alt104=4;
             switch ( input.LA(1) ) {
-            case 168:
-                {
-                alt101=1;
-                }
-                break;
-            case 169:
-                {
-                alt101=2;
-                }
-                break;
             case 170:
                 {
-                alt101=3;
+                alt104=1;
                 }
                 break;
             case 171:
                 {
-                alt101=4;
+                alt104=2;
+                }
+                break;
+            case 172:
+                {
+                alt104=3;
+                }
+                break;
+            case 173:
+                {
+                alt104=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 101, 0, input);
+                    new NoViableAltException("", 104, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt101) {
+            switch (alt104) {
                 case 1 :
-                    // InternalOptGrammar.g:7297:5: lv_type_0_1= 'public'
+                    // InternalOptGrammar.g:7423:5: lv_type_0_1= 'public'
                     {
-                    lv_type_0_1=(Token)match(input,168,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_1=(Token)match(input,170,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_1, grammarAccess.getVisibilityEnumAccess().getTypePublicKeyword_0_0());
@@ -22009,9 +22402,9 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7308:5: lv_type_0_2= 'internal'
+                    // InternalOptGrammar.g:7434:5: lv_type_0_2= 'internal'
                     {
-                    lv_type_0_2=(Token)match(input,169,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_2=(Token)match(input,171,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_2, grammarAccess.getVisibilityEnumAccess().getTypeInternalKeyword_0_1());
@@ -22029,9 +22422,9 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7319:5: lv_type_0_3= 'private'
+                    // InternalOptGrammar.g:7445:5: lv_type_0_3= 'private'
                     {
-                    lv_type_0_3=(Token)match(input,170,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_3=(Token)match(input,172,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_3, grammarAccess.getVisibilityEnumAccess().getTypePrivateKeyword_0_2());
@@ -22049,9 +22442,9 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:7330:5: lv_type_0_4= 'external'
+                    // InternalOptGrammar.g:7456:5: lv_type_0_4= 'external'
                     {
-                    lv_type_0_4=(Token)match(input,171,FOLLOW_2); if (state.failed) return current;
+                    lv_type_0_4=(Token)match(input,173,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       					newLeafNode(lv_type_0_4, grammarAccess.getVisibilityEnumAccess().getTypeExternalKeyword_0_3());
@@ -22098,28 +22491,28 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleVisibilityEnum"
 
 
-    // $ANTLR start "entryRuleEtherSubDenominationEnum"
-    // InternalOptGrammar.g:7346:1: entryRuleEtherSubDenominationEnum returns [EObject current=null] : iv_ruleEtherSubDenominationEnum= ruleEtherSubDenominationEnum EOF ;
-    public final EObject entryRuleEtherSubDenominationEnum() throws RecognitionException {
+    // $ANTLR start "entryRuleUnitsLiteral"
+    // InternalOptGrammar.g:7472:1: entryRuleUnitsLiteral returns [EObject current=null] : iv_ruleUnitsLiteral= ruleUnitsLiteral EOF ;
+    public final EObject entryRuleUnitsLiteral() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleEtherSubDenominationEnum = null;
+        EObject iv_ruleUnitsLiteral = null;
 
 
         try {
-            // InternalOptGrammar.g:7346:65: (iv_ruleEtherSubDenominationEnum= ruleEtherSubDenominationEnum EOF )
-            // InternalOptGrammar.g:7347:2: iv_ruleEtherSubDenominationEnum= ruleEtherSubDenominationEnum EOF
+            // InternalOptGrammar.g:7472:53: (iv_ruleUnitsLiteral= ruleUnitsLiteral EOF )
+            // InternalOptGrammar.g:7473:2: iv_ruleUnitsLiteral= ruleUnitsLiteral EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getEtherSubDenominationEnumRule()); 
+               newCompositeNode(grammarAccess.getUnitsLiteralRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleEtherSubDenominationEnum=ruleEtherSubDenominationEnum();
+            iv_ruleUnitsLiteral=ruleUnitsLiteral();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleEtherSubDenominationEnum; 
+               current =iv_ruleUnitsLiteral; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -22135,12 +22528,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleEtherSubDenominationEnum"
+    // $ANTLR end "entryRuleUnitsLiteral"
 
 
-    // $ANTLR start "ruleEtherSubDenominationEnum"
-    // InternalOptGrammar.g:7353:1: ruleEtherSubDenominationEnum returns [EObject current=null] : ( ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) ) ) ;
-    public final EObject ruleEtherSubDenominationEnum() throws RecognitionException {
+    // $ANTLR start "ruleUnitsLiteral"
+    // InternalOptGrammar.g:7479:1: ruleUnitsLiteral returns [EObject current=null] : ( ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) ) ) ;
+    public final EObject ruleUnitsLiteral() throws RecognitionException {
         EObject current = null;
 
         Token lv_value_0_1=null;
@@ -22152,60 +22545,60 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7359:2: ( ( ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) ) ) )
-            // InternalOptGrammar.g:7360:2: ( ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) ) )
+            // InternalOptGrammar.g:7485:2: ( ( ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) ) ) )
+            // InternalOptGrammar.g:7486:2: ( ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) ) )
             {
-            // InternalOptGrammar.g:7360:2: ( ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) ) )
-            // InternalOptGrammar.g:7361:3: ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) )
+            // InternalOptGrammar.g:7486:2: ( ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) ) )
+            // InternalOptGrammar.g:7487:3: ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) )
             {
-            // InternalOptGrammar.g:7361:3: ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) )
-            // InternalOptGrammar.g:7362:4: (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' )
+            // InternalOptGrammar.g:7487:3: ( (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' ) )
+            // InternalOptGrammar.g:7488:4: (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' )
             {
-            // InternalOptGrammar.g:7362:4: (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' )
-            int alt102=4;
+            // InternalOptGrammar.g:7488:4: (lv_value_0_1= 'wei' | lv_value_0_2= 'szabo' | lv_value_0_3= 'finney' | lv_value_0_4= 'ether' )
+            int alt105=4;
             switch ( input.LA(1) ) {
-            case 172:
-                {
-                alt102=1;
-                }
-                break;
-            case 173:
-                {
-                alt102=2;
-                }
-                break;
             case 174:
                 {
-                alt102=3;
+                alt105=1;
                 }
                 break;
             case 175:
                 {
-                alt102=4;
+                alt105=2;
+                }
+                break;
+            case 176:
+                {
+                alt105=3;
+                }
+                break;
+            case 177:
+                {
+                alt105=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 102, 0, input);
+                    new NoViableAltException("", 105, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt102) {
+            switch (alt105) {
                 case 1 :
-                    // InternalOptGrammar.g:7363:5: lv_value_0_1= 'wei'
+                    // InternalOptGrammar.g:7489:5: lv_value_0_1= 'wei'
                     {
-                    lv_value_0_1=(Token)match(input,172,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_1=(Token)match(input,174,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_1, grammarAccess.getEtherSubDenominationEnumAccess().getValueWeiKeyword_0_0());
+                      					newLeafNode(lv_value_0_1, grammarAccess.getUnitsLiteralAccess().getValueWeiKeyword_0_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getEtherSubDenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_1, null);
                       				
@@ -22214,18 +22607,18 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7374:5: lv_value_0_2= 'szabo'
+                    // InternalOptGrammar.g:7500:5: lv_value_0_2= 'szabo'
                     {
-                    lv_value_0_2=(Token)match(input,173,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_2=(Token)match(input,175,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_2, grammarAccess.getEtherSubDenominationEnumAccess().getValueSzaboKeyword_0_1());
+                      					newLeafNode(lv_value_0_2, grammarAccess.getUnitsLiteralAccess().getValueSzaboKeyword_0_1());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getEtherSubDenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_2, null);
                       				
@@ -22234,18 +22627,18 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7385:5: lv_value_0_3= 'finney'
+                    // InternalOptGrammar.g:7511:5: lv_value_0_3= 'finney'
                     {
-                    lv_value_0_3=(Token)match(input,174,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_3=(Token)match(input,176,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_3, grammarAccess.getEtherSubDenominationEnumAccess().getValueFinneyKeyword_0_2());
+                      					newLeafNode(lv_value_0_3, grammarAccess.getUnitsLiteralAccess().getValueFinneyKeyword_0_2());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getEtherSubDenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_3, null);
                       				
@@ -22254,18 +22647,18 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:7396:5: lv_value_0_4= 'ether'
+                    // InternalOptGrammar.g:7522:5: lv_value_0_4= 'ether'
                     {
-                    lv_value_0_4=(Token)match(input,175,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_4=(Token)match(input,177,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_4, grammarAccess.getEtherSubDenominationEnumAccess().getValueEtherKeyword_0_3());
+                      					newLeafNode(lv_value_0_4, grammarAccess.getUnitsLiteralAccess().getValueEtherKeyword_0_3());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getEtherSubDenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_4, null);
                       				
@@ -22300,31 +22693,31 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleEtherSubDenominationEnum"
+    // $ANTLR end "ruleUnitsLiteral"
 
 
-    // $ANTLR start "entryRuleTimeSubdenominationEnum"
-    // InternalOptGrammar.g:7412:1: entryRuleTimeSubdenominationEnum returns [EObject current=null] : iv_ruleTimeSubdenominationEnum= ruleTimeSubdenominationEnum EOF ;
-    public final EObject entryRuleTimeSubdenominationEnum() throws RecognitionException {
+    // $ANTLR start "entryRuleTimeUnitsLiteral"
+    // InternalOptGrammar.g:7538:1: entryRuleTimeUnitsLiteral returns [EObject current=null] : iv_ruleTimeUnitsLiteral= ruleTimeUnitsLiteral EOF ;
+    public final EObject entryRuleTimeUnitsLiteral() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleTimeSubdenominationEnum = null;
+        EObject iv_ruleTimeUnitsLiteral = null;
 
 
         try {
-            // InternalOptGrammar.g:7412:64: (iv_ruleTimeSubdenominationEnum= ruleTimeSubdenominationEnum EOF )
-            // InternalOptGrammar.g:7413:2: iv_ruleTimeSubdenominationEnum= ruleTimeSubdenominationEnum EOF
+            // InternalOptGrammar.g:7538:57: (iv_ruleTimeUnitsLiteral= ruleTimeUnitsLiteral EOF )
+            // InternalOptGrammar.g:7539:2: iv_ruleTimeUnitsLiteral= ruleTimeUnitsLiteral EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getTimeSubdenominationEnumRule()); 
+               newCompositeNode(grammarAccess.getTimeUnitsLiteralRule()); 
             }
             pushFollow(FOLLOW_1);
-            iv_ruleTimeSubdenominationEnum=ruleTimeSubdenominationEnum();
+            iv_ruleTimeUnitsLiteral=ruleTimeUnitsLiteral();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleTimeSubdenominationEnum; 
+               current =iv_ruleTimeUnitsLiteral; 
             }
             match(input,EOF,FOLLOW_2); if (state.failed) return current;
 
@@ -22340,12 +22733,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleTimeSubdenominationEnum"
+    // $ANTLR end "entryRuleTimeUnitsLiteral"
 
 
-    // $ANTLR start "ruleTimeSubdenominationEnum"
-    // InternalOptGrammar.g:7419:1: ruleTimeSubdenominationEnum returns [EObject current=null] : ( ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) ) ) ;
-    public final EObject ruleTimeSubdenominationEnum() throws RecognitionException {
+    // $ANTLR start "ruleTimeUnitsLiteral"
+    // InternalOptGrammar.g:7545:1: ruleTimeUnitsLiteral returns [EObject current=null] : ( ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) ) ) ;
+    public final EObject ruleTimeUnitsLiteral() throws RecognitionException {
         EObject current = null;
 
         Token lv_value_0_1=null;
@@ -22359,70 +22752,70 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7425:2: ( ( ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) ) ) )
-            // InternalOptGrammar.g:7426:2: ( ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) ) )
+            // InternalOptGrammar.g:7551:2: ( ( ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) ) ) )
+            // InternalOptGrammar.g:7552:2: ( ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) ) )
             {
-            // InternalOptGrammar.g:7426:2: ( ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) ) )
-            // InternalOptGrammar.g:7427:3: ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) )
+            // InternalOptGrammar.g:7552:2: ( ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) ) )
+            // InternalOptGrammar.g:7553:3: ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) )
             {
-            // InternalOptGrammar.g:7427:3: ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) )
-            // InternalOptGrammar.g:7428:4: (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' )
+            // InternalOptGrammar.g:7553:3: ( (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' ) )
+            // InternalOptGrammar.g:7554:4: (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' )
             {
-            // InternalOptGrammar.g:7428:4: (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' )
-            int alt103=6;
+            // InternalOptGrammar.g:7554:4: (lv_value_0_1= 'seconds' | lv_value_0_2= 'minutes' | lv_value_0_3= 'hours' | lv_value_0_4= 'days' | lv_value_0_5= 'weeks' | lv_value_0_6= 'years' )
+            int alt106=6;
             switch ( input.LA(1) ) {
-            case 176:
-                {
-                alt103=1;
-                }
-                break;
-            case 177:
-                {
-                alt103=2;
-                }
-                break;
             case 178:
                 {
-                alt103=3;
+                alt106=1;
                 }
                 break;
             case 179:
                 {
-                alt103=4;
+                alt106=2;
                 }
                 break;
             case 180:
                 {
-                alt103=5;
+                alt106=3;
                 }
                 break;
             case 181:
                 {
-                alt103=6;
+                alt106=4;
+                }
+                break;
+            case 182:
+                {
+                alt106=5;
+                }
+                break;
+            case 183:
+                {
+                alt106=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 103, 0, input);
+                    new NoViableAltException("", 106, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt103) {
+            switch (alt106) {
                 case 1 :
-                    // InternalOptGrammar.g:7429:5: lv_value_0_1= 'seconds'
+                    // InternalOptGrammar.g:7555:5: lv_value_0_1= 'seconds'
                     {
-                    lv_value_0_1=(Token)match(input,176,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_1=(Token)match(input,178,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_1, grammarAccess.getTimeSubdenominationEnumAccess().getValueSecondsKeyword_0_0());
+                      					newLeafNode(lv_value_0_1, grammarAccess.getTimeUnitsLiteralAccess().getValueSecondsKeyword_0_0());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_1, null);
                       				
@@ -22431,18 +22824,18 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7440:5: lv_value_0_2= 'minutes'
+                    // InternalOptGrammar.g:7566:5: lv_value_0_2= 'minutes'
                     {
-                    lv_value_0_2=(Token)match(input,177,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_2=(Token)match(input,179,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_2, grammarAccess.getTimeSubdenominationEnumAccess().getValueMinutesKeyword_0_1());
+                      					newLeafNode(lv_value_0_2, grammarAccess.getTimeUnitsLiteralAccess().getValueMinutesKeyword_0_1());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_2, null);
                       				
@@ -22451,18 +22844,18 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7451:5: lv_value_0_3= 'hours'
+                    // InternalOptGrammar.g:7577:5: lv_value_0_3= 'hours'
                     {
-                    lv_value_0_3=(Token)match(input,178,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_3=(Token)match(input,180,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_3, grammarAccess.getTimeSubdenominationEnumAccess().getValueHoursKeyword_0_2());
+                      					newLeafNode(lv_value_0_3, grammarAccess.getTimeUnitsLiteralAccess().getValueHoursKeyword_0_2());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_3, null);
                       				
@@ -22471,18 +22864,18 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:7462:5: lv_value_0_4= 'days'
+                    // InternalOptGrammar.g:7588:5: lv_value_0_4= 'days'
                     {
-                    lv_value_0_4=(Token)match(input,179,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_4=(Token)match(input,181,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_4, grammarAccess.getTimeSubdenominationEnumAccess().getValueDaysKeyword_0_3());
+                      					newLeafNode(lv_value_0_4, grammarAccess.getTimeUnitsLiteralAccess().getValueDaysKeyword_0_3());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_4, null);
                       				
@@ -22491,18 +22884,18 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalOptGrammar.g:7473:5: lv_value_0_5= 'weeks'
+                    // InternalOptGrammar.g:7599:5: lv_value_0_5= 'weeks'
                     {
-                    lv_value_0_5=(Token)match(input,180,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_5=(Token)match(input,182,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_5, grammarAccess.getTimeSubdenominationEnumAccess().getValueWeeksKeyword_0_4());
+                      					newLeafNode(lv_value_0_5, grammarAccess.getTimeUnitsLiteralAccess().getValueWeeksKeyword_0_4());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_5, null);
                       				
@@ -22511,18 +22904,18 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalOptGrammar.g:7484:5: lv_value_0_6= 'years'
+                    // InternalOptGrammar.g:7610:5: lv_value_0_6= 'years'
                     {
-                    lv_value_0_6=(Token)match(input,181,FOLLOW_2); if (state.failed) return current;
+                    lv_value_0_6=(Token)match(input,183,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                      					newLeafNode(lv_value_0_6, grammarAccess.getTimeSubdenominationEnumAccess().getValueYearsKeyword_0_5());
+                      					newLeafNode(lv_value_0_6, grammarAccess.getTimeUnitsLiteralAccess().getValueYearsKeyword_0_5());
                       				
                     }
                     if ( state.backtracking==0 ) {
 
                       					if (current==null) {
-                      						current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+                      						current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
                       					}
                       					setWithLastConsumed(current, "value", lv_value_0_6, null);
                       				
@@ -22557,232 +22950,11 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleTimeSubdenominationEnum"
-
-
-    // $ANTLR start "entryRuleSpecialLiteral"
-    // InternalOptGrammar.g:7500:1: entryRuleSpecialLiteral returns [EObject current=null] : iv_ruleSpecialLiteral= ruleSpecialLiteral EOF ;
-    public final EObject entryRuleSpecialLiteral() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSpecialLiteral = null;
-
-
-        try {
-            // InternalOptGrammar.g:7500:55: (iv_ruleSpecialLiteral= ruleSpecialLiteral EOF )
-            // InternalOptGrammar.g:7501:2: iv_ruleSpecialLiteral= ruleSpecialLiteral EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getSpecialLiteralRule()); 
-            }
-            pushFollow(FOLLOW_1);
-            iv_ruleSpecialLiteral=ruleSpecialLiteral();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleSpecialLiteral; 
-            }
-            match(input,EOF,FOLLOW_2); if (state.failed) return current;
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSpecialLiteral"
-
-
-    // $ANTLR start "ruleSpecialLiteral"
-    // InternalOptGrammar.g:7507:1: ruleSpecialLiteral returns [EObject current=null] : ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) ) ) ;
-    public final EObject ruleSpecialLiteral() throws RecognitionException {
-        EObject current = null;
-
-        Token lv_name_0_1=null;
-        Token lv_name_0_2=null;
-        Token lv_name_0_3=null;
-        Token lv_name_0_4=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalOptGrammar.g:7513:2: ( ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) ) ) )
-            // InternalOptGrammar.g:7514:2: ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) ) )
-            {
-            // InternalOptGrammar.g:7514:2: ( ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) ) )
-            // InternalOptGrammar.g:7515:3: ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) )
-            {
-            // InternalOptGrammar.g:7515:3: ( (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW ) )
-            // InternalOptGrammar.g:7516:4: (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW )
-            {
-            // InternalOptGrammar.g:7516:4: (lv_name_0_1= RULE_BLOCK | lv_name_0_2= RULE_MSG | lv_name_0_3= RULE_TX | lv_name_0_4= RULE_NOW )
-            int alt104=4;
-            switch ( input.LA(1) ) {
-            case RULE_BLOCK:
-                {
-                alt104=1;
-                }
-                break;
-            case RULE_MSG:
-                {
-                alt104=2;
-                }
-                break;
-            case RULE_TX:
-                {
-                alt104=3;
-                }
-                break;
-            case RULE_NOW:
-                {
-                alt104=4;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return current;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 104, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt104) {
-                case 1 :
-                    // InternalOptGrammar.g:7517:5: lv_name_0_1= RULE_BLOCK
-                    {
-                    lv_name_0_1=(Token)match(input,RULE_BLOCK,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(lv_name_0_1, grammarAccess.getSpecialLiteralAccess().getNameBLOCKTerminalRuleCall_0_0());
-                      				
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getSpecialLiteralRule());
-                      					}
-                      					setWithLastConsumed(
-                      						current,
-                      						"name",
-                      						lv_name_0_1,
-                      						"org.unicam.myGrammar.OptGrammar.BLOCK");
-                      				
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // InternalOptGrammar.g:7532:5: lv_name_0_2= RULE_MSG
-                    {
-                    lv_name_0_2=(Token)match(input,RULE_MSG,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(lv_name_0_2, grammarAccess.getSpecialLiteralAccess().getNameMSGTerminalRuleCall_0_1());
-                      				
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getSpecialLiteralRule());
-                      					}
-                      					setWithLastConsumed(
-                      						current,
-                      						"name",
-                      						lv_name_0_2,
-                      						"org.unicam.myGrammar.OptGrammar.MSG");
-                      				
-                    }
-
-                    }
-                    break;
-                case 3 :
-                    // InternalOptGrammar.g:7547:5: lv_name_0_3= RULE_TX
-                    {
-                    lv_name_0_3=(Token)match(input,RULE_TX,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(lv_name_0_3, grammarAccess.getSpecialLiteralAccess().getNameTXTerminalRuleCall_0_2());
-                      				
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getSpecialLiteralRule());
-                      					}
-                      					setWithLastConsumed(
-                      						current,
-                      						"name",
-                      						lv_name_0_3,
-                      						"org.unicam.myGrammar.OptGrammar.TX");
-                      				
-                    }
-
-                    }
-                    break;
-                case 4 :
-                    // InternalOptGrammar.g:7562:5: lv_name_0_4= RULE_NOW
-                    {
-                    lv_name_0_4=(Token)match(input,RULE_NOW,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      					newLeafNode(lv_name_0_4, grammarAccess.getSpecialLiteralAccess().getNameNOWTerminalRuleCall_0_3());
-                      				
-                    }
-                    if ( state.backtracking==0 ) {
-
-                      					if (current==null) {
-                      						current = createModelElement(grammarAccess.getSpecialLiteralRule());
-                      					}
-                      					setWithLastConsumed(
-                      						current,
-                      						"name",
-                      						lv_name_0_4,
-                      						"org.unicam.myGrammar.OptGrammar.NOW");
-                      				
-                    }
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleSpecialLiteral"
+    // $ANTLR end "ruleTimeUnitsLiteral"
 
 
     // $ANTLR start "ruleAssignmentOpEnum"
-    // InternalOptGrammar.g:7582:1: ruleAssignmentOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) ) ;
+    // InternalOptGrammar.g:7626:1: ruleAssignmentOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) ) ;
     public final Enumerator ruleAssignmentOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -22803,86 +22975,86 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7588:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) ) )
-            // InternalOptGrammar.g:7589:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) )
+            // InternalOptGrammar.g:7632:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) ) )
+            // InternalOptGrammar.g:7633:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) )
             {
-            // InternalOptGrammar.g:7589:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) )
-            int alt105=12;
+            // InternalOptGrammar.g:7633:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '|=' ) | (enumLiteral_2= '^=' ) | (enumLiteral_3= '&=' ) | (enumLiteral_4= '<<=' ) | (enumLiteral_5= '>>=' ) | (enumLiteral_6= '>>>=' ) | (enumLiteral_7= '+=' ) | (enumLiteral_8= '-=' ) | (enumLiteral_9= '*=' ) | (enumLiteral_10= '/=' ) | (enumLiteral_11= '%=' ) )
+            int alt107=12;
             switch ( input.LA(1) ) {
             case 31:
                 {
-                alt105=1;
-                }
-                break;
-            case 182:
-                {
-                alt105=2;
-                }
-                break;
-            case 183:
-                {
-                alt105=3;
+                alt107=1;
                 }
                 break;
             case 184:
                 {
-                alt105=4;
+                alt107=2;
                 }
                 break;
             case 185:
                 {
-                alt105=5;
+                alt107=3;
                 }
                 break;
             case 186:
                 {
-                alt105=6;
+                alt107=4;
                 }
                 break;
             case 187:
                 {
-                alt105=7;
+                alt107=5;
                 }
                 break;
             case 188:
                 {
-                alt105=8;
+                alt107=6;
                 }
                 break;
             case 189:
                 {
-                alt105=9;
+                alt107=7;
                 }
                 break;
             case 190:
                 {
-                alt105=10;
+                alt107=8;
                 }
                 break;
             case 191:
                 {
-                alt105=11;
+                alt107=9;
                 }
                 break;
             case 192:
                 {
-                alt105=12;
+                alt107=10;
+                }
+                break;
+            case 193:
+                {
+                alt107=11;
+                }
+                break;
+            case 194:
+                {
+                alt107=12;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 105, 0, input);
+                    new NoViableAltException("", 107, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt105) {
+            switch (alt107) {
                 case 1 :
-                    // InternalOptGrammar.g:7590:3: (enumLiteral_0= '=' )
+                    // InternalOptGrammar.g:7634:3: (enumLiteral_0= '=' )
                     {
-                    // InternalOptGrammar.g:7590:3: (enumLiteral_0= '=' )
-                    // InternalOptGrammar.g:7591:4: enumLiteral_0= '='
+                    // InternalOptGrammar.g:7634:3: (enumLiteral_0= '=' )
+                    // InternalOptGrammar.g:7635:4: enumLiteral_0= '='
                     {
                     enumLiteral_0=(Token)match(input,31,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -22898,12 +23070,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7598:3: (enumLiteral_1= '|=' )
+                    // InternalOptGrammar.g:7642:3: (enumLiteral_1= '|=' )
                     {
-                    // InternalOptGrammar.g:7598:3: (enumLiteral_1= '|=' )
-                    // InternalOptGrammar.g:7599:4: enumLiteral_1= '|='
+                    // InternalOptGrammar.g:7642:3: (enumLiteral_1= '|=' )
+                    // InternalOptGrammar.g:7643:4: enumLiteral_1= '|='
                     {
-                    enumLiteral_1=(Token)match(input,182,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,184,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_OREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -22917,12 +23089,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7606:3: (enumLiteral_2= '^=' )
+                    // InternalOptGrammar.g:7650:3: (enumLiteral_2= '^=' )
                     {
-                    // InternalOptGrammar.g:7606:3: (enumLiteral_2= '^=' )
-                    // InternalOptGrammar.g:7607:4: enumLiteral_2= '^='
+                    // InternalOptGrammar.g:7650:3: (enumLiteral_2= '^=' )
+                    // InternalOptGrammar.g:7651:4: enumLiteral_2= '^='
                     {
-                    enumLiteral_2=(Token)match(input,183,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,185,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_XOREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -22936,12 +23108,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:7614:3: (enumLiteral_3= '&=' )
+                    // InternalOptGrammar.g:7658:3: (enumLiteral_3= '&=' )
                     {
-                    // InternalOptGrammar.g:7614:3: (enumLiteral_3= '&=' )
-                    // InternalOptGrammar.g:7615:4: enumLiteral_3= '&='
+                    // InternalOptGrammar.g:7658:3: (enumLiteral_3= '&=' )
+                    // InternalOptGrammar.g:7659:4: enumLiteral_3= '&='
                     {
-                    enumLiteral_3=(Token)match(input,184,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,186,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_ANDEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -22955,12 +23127,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalOptGrammar.g:7622:3: (enumLiteral_4= '<<=' )
+                    // InternalOptGrammar.g:7666:3: (enumLiteral_4= '<<=' )
                     {
-                    // InternalOptGrammar.g:7622:3: (enumLiteral_4= '<<=' )
-                    // InternalOptGrammar.g:7623:4: enumLiteral_4= '<<='
+                    // InternalOptGrammar.g:7666:3: (enumLiteral_4= '<<=' )
+                    // InternalOptGrammar.g:7667:4: enumLiteral_4= '<<='
                     {
-                    enumLiteral_4=(Token)match(input,185,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,187,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_SHIFT_LEFTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -22974,12 +23146,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalOptGrammar.g:7630:3: (enumLiteral_5= '>>=' )
+                    // InternalOptGrammar.g:7674:3: (enumLiteral_5= '>>=' )
                     {
-                    // InternalOptGrammar.g:7630:3: (enumLiteral_5= '>>=' )
-                    // InternalOptGrammar.g:7631:4: enumLiteral_5= '>>='
+                    // InternalOptGrammar.g:7674:3: (enumLiteral_5= '>>=' )
+                    // InternalOptGrammar.g:7675:4: enumLiteral_5= '>>='
                     {
-                    enumLiteral_5=(Token)match(input,186,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_5=(Token)match(input,188,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_SHIFT_RIGHTEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
@@ -22993,12 +23165,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalOptGrammar.g:7638:3: (enumLiteral_6= '>>>=' )
+                    // InternalOptGrammar.g:7682:3: (enumLiteral_6= '>>>=' )
                     {
-                    // InternalOptGrammar.g:7638:3: (enumLiteral_6= '>>>=' )
-                    // InternalOptGrammar.g:7639:4: enumLiteral_6= '>>>='
+                    // InternalOptGrammar.g:7682:3: (enumLiteral_6= '>>>=' )
+                    // InternalOptGrammar.g:7683:4: enumLiteral_6= '>>>='
                     {
-                    enumLiteral_6=(Token)match(input,187,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_6=(Token)match(input,189,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_SHIFT_RIGHT_ARIMETICEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
@@ -23012,12 +23184,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalOptGrammar.g:7646:3: (enumLiteral_7= '+=' )
+                    // InternalOptGrammar.g:7690:3: (enumLiteral_7= '+=' )
                     {
-                    // InternalOptGrammar.g:7646:3: (enumLiteral_7= '+=' )
-                    // InternalOptGrammar.g:7647:4: enumLiteral_7= '+='
+                    // InternalOptGrammar.g:7690:3: (enumLiteral_7= '+=' )
+                    // InternalOptGrammar.g:7691:4: enumLiteral_7= '+='
                     {
-                    enumLiteral_7=(Token)match(input,188,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_7=(Token)match(input,190,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_ADDEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
@@ -23031,12 +23203,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // InternalOptGrammar.g:7654:3: (enumLiteral_8= '-=' )
+                    // InternalOptGrammar.g:7698:3: (enumLiteral_8= '-=' )
                     {
-                    // InternalOptGrammar.g:7654:3: (enumLiteral_8= '-=' )
-                    // InternalOptGrammar.g:7655:4: enumLiteral_8= '-='
+                    // InternalOptGrammar.g:7698:3: (enumLiteral_8= '-=' )
+                    // InternalOptGrammar.g:7699:4: enumLiteral_8= '-='
                     {
-                    enumLiteral_8=(Token)match(input,189,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_8=(Token)match(input,191,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_SUBEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
@@ -23050,12 +23222,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // InternalOptGrammar.g:7662:3: (enumLiteral_9= '*=' )
+                    // InternalOptGrammar.g:7706:3: (enumLiteral_9= '*=' )
                     {
-                    // InternalOptGrammar.g:7662:3: (enumLiteral_9= '*=' )
-                    // InternalOptGrammar.g:7663:4: enumLiteral_9= '*='
+                    // InternalOptGrammar.g:7706:3: (enumLiteral_9= '*=' )
+                    // InternalOptGrammar.g:7707:4: enumLiteral_9= '*='
                     {
-                    enumLiteral_9=(Token)match(input,190,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_9=(Token)match(input,192,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_MULTEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
@@ -23069,12 +23241,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // InternalOptGrammar.g:7670:3: (enumLiteral_10= '/=' )
+                    // InternalOptGrammar.g:7714:3: (enumLiteral_10= '/=' )
                     {
-                    // InternalOptGrammar.g:7670:3: (enumLiteral_10= '/=' )
-                    // InternalOptGrammar.g:7671:4: enumLiteral_10= '/='
+                    // InternalOptGrammar.g:7714:3: (enumLiteral_10= '/=' )
+                    // InternalOptGrammar.g:7715:4: enumLiteral_10= '/='
                     {
-                    enumLiteral_10=(Token)match(input,191,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_10=(Token)match(input,193,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_DIVEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
@@ -23088,12 +23260,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // InternalOptGrammar.g:7678:3: (enumLiteral_11= '%=' )
+                    // InternalOptGrammar.g:7722:3: (enumLiteral_11= '%=' )
                     {
-                    // InternalOptGrammar.g:7678:3: (enumLiteral_11= '%=' )
-                    // InternalOptGrammar.g:7679:4: enumLiteral_11= '%='
+                    // InternalOptGrammar.g:7722:3: (enumLiteral_11= '%=' )
+                    // InternalOptGrammar.g:7723:4: enumLiteral_11= '%='
                     {
-                    enumLiteral_11=(Token)match(input,192,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_11=(Token)match(input,194,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getAssignmentOpEnumAccess().getASSIGN_MODEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
@@ -23131,7 +23303,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEqualityOpEnum"
-    // InternalOptGrammar.g:7689:1: ruleEqualityOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) ) ;
+    // InternalOptGrammar.g:7733:1: ruleEqualityOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) ) ;
     public final Enumerator ruleEqualityOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23142,34 +23314,34 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7695:2: ( ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) ) )
-            // InternalOptGrammar.g:7696:2: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) )
+            // InternalOptGrammar.g:7739:2: ( ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) ) )
+            // InternalOptGrammar.g:7740:2: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) )
             {
-            // InternalOptGrammar.g:7696:2: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) )
-            int alt106=2;
-            int LA106_0 = input.LA(1);
+            // InternalOptGrammar.g:7740:2: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) )
+            int alt108=2;
+            int LA108_0 = input.LA(1);
 
-            if ( (LA106_0==193) ) {
-                alt106=1;
+            if ( (LA108_0==195) ) {
+                alt108=1;
             }
-            else if ( (LA106_0==194) ) {
-                alt106=2;
+            else if ( (LA108_0==196) ) {
+                alt108=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 106, 0, input);
+                    new NoViableAltException("", 108, 0, input);
 
                 throw nvae;
             }
-            switch (alt106) {
+            switch (alt108) {
                 case 1 :
-                    // InternalOptGrammar.g:7697:3: (enumLiteral_0= '==' )
+                    // InternalOptGrammar.g:7741:3: (enumLiteral_0= '==' )
                     {
-                    // InternalOptGrammar.g:7697:3: (enumLiteral_0= '==' )
-                    // InternalOptGrammar.g:7698:4: enumLiteral_0= '=='
+                    // InternalOptGrammar.g:7741:3: (enumLiteral_0= '==' )
+                    // InternalOptGrammar.g:7742:4: enumLiteral_0= '=='
                     {
-                    enumLiteral_0=(Token)match(input,193,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,195,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getEqualityOpEnumAccess().getEQEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -23183,12 +23355,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7705:3: (enumLiteral_1= '!=' )
+                    // InternalOptGrammar.g:7749:3: (enumLiteral_1= '!=' )
                     {
-                    // InternalOptGrammar.g:7705:3: (enumLiteral_1= '!=' )
-                    // InternalOptGrammar.g:7706:4: enumLiteral_1= '!='
+                    // InternalOptGrammar.g:7749:3: (enumLiteral_1= '!=' )
+                    // InternalOptGrammar.g:7750:4: enumLiteral_1= '!='
                     {
-                    enumLiteral_1=(Token)match(input,194,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,196,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getEqualityOpEnumAccess().getNOTEQEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23226,7 +23398,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComparisonOpEnum"
-    // InternalOptGrammar.g:7716:1: ruleComparisonOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) ) ;
+    // InternalOptGrammar.g:7760:1: ruleComparisonOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) ) ;
     public final Enumerator ruleComparisonOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23240,53 +23412,53 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7722:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) ) )
-            // InternalOptGrammar.g:7723:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) )
+            // InternalOptGrammar.g:7766:2: ( ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) ) )
+            // InternalOptGrammar.g:7767:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) )
             {
-            // InternalOptGrammar.g:7723:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) )
-            int alt107=5;
+            // InternalOptGrammar.g:7767:2: ( (enumLiteral_0= '<' ) | (enumLiteral_1= '>' ) | (enumLiteral_2= '<=' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= 'in' ) )
+            int alt109=5;
             switch ( input.LA(1) ) {
-            case 195:
-                {
-                alt107=1;
-                }
-                break;
-            case 196:
-                {
-                alt107=2;
-                }
-                break;
             case 197:
                 {
-                alt107=3;
+                alt109=1;
                 }
                 break;
             case 198:
                 {
-                alt107=4;
+                alt109=2;
                 }
                 break;
             case 199:
                 {
-                alt107=5;
+                alt109=3;
+                }
+                break;
+            case 200:
+                {
+                alt109=4;
+                }
+                break;
+            case 201:
+                {
+                alt109=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 107, 0, input);
+                    new NoViableAltException("", 109, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt107) {
+            switch (alt109) {
                 case 1 :
-                    // InternalOptGrammar.g:7724:3: (enumLiteral_0= '<' )
+                    // InternalOptGrammar.g:7768:3: (enumLiteral_0= '<' )
                     {
-                    // InternalOptGrammar.g:7724:3: (enumLiteral_0= '<' )
-                    // InternalOptGrammar.g:7725:4: enumLiteral_0= '<'
+                    // InternalOptGrammar.g:7768:3: (enumLiteral_0= '<' )
+                    // InternalOptGrammar.g:7769:4: enumLiteral_0= '<'
                     {
-                    enumLiteral_0=(Token)match(input,195,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,197,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getLTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -23300,12 +23472,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7732:3: (enumLiteral_1= '>' )
+                    // InternalOptGrammar.g:7776:3: (enumLiteral_1= '>' )
                     {
-                    // InternalOptGrammar.g:7732:3: (enumLiteral_1= '>' )
-                    // InternalOptGrammar.g:7733:4: enumLiteral_1= '>'
+                    // InternalOptGrammar.g:7776:3: (enumLiteral_1= '>' )
+                    // InternalOptGrammar.g:7777:4: enumLiteral_1= '>'
                     {
-                    enumLiteral_1=(Token)match(input,196,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,198,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getGTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23319,12 +23491,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7740:3: (enumLiteral_2= '<=' )
+                    // InternalOptGrammar.g:7784:3: (enumLiteral_2= '<=' )
                     {
-                    // InternalOptGrammar.g:7740:3: (enumLiteral_2= '<=' )
-                    // InternalOptGrammar.g:7741:4: enumLiteral_2= '<='
+                    // InternalOptGrammar.g:7784:3: (enumLiteral_2= '<=' )
+                    // InternalOptGrammar.g:7785:4: enumLiteral_2= '<='
                     {
-                    enumLiteral_2=(Token)match(input,197,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,199,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getLTEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -23338,12 +23510,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalOptGrammar.g:7748:3: (enumLiteral_3= '>=' )
+                    // InternalOptGrammar.g:7792:3: (enumLiteral_3= '>=' )
                     {
-                    // InternalOptGrammar.g:7748:3: (enumLiteral_3= '>=' )
-                    // InternalOptGrammar.g:7749:4: enumLiteral_3= '>='
+                    // InternalOptGrammar.g:7792:3: (enumLiteral_3= '>=' )
+                    // InternalOptGrammar.g:7793:4: enumLiteral_3= '>='
                     {
-                    enumLiteral_3=(Token)match(input,198,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_3=(Token)match(input,200,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getGTEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -23357,12 +23529,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalOptGrammar.g:7756:3: (enumLiteral_4= 'in' )
+                    // InternalOptGrammar.g:7800:3: (enumLiteral_4= 'in' )
                     {
-                    // InternalOptGrammar.g:7756:3: (enumLiteral_4= 'in' )
-                    // InternalOptGrammar.g:7757:4: enumLiteral_4= 'in'
+                    // InternalOptGrammar.g:7800:3: (enumLiteral_4= 'in' )
+                    // InternalOptGrammar.g:7801:4: enumLiteral_4= 'in'
                     {
-                    enumLiteral_4=(Token)match(input,199,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_4=(Token)match(input,201,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getComparisonOpEnumAccess().getINEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
@@ -23400,7 +23572,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleShiftOpEnum"
-    // InternalOptGrammar.g:7767:1: ruleShiftOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) ) ;
+    // InternalOptGrammar.g:7811:1: ruleShiftOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) ) ;
     public final Enumerator ruleShiftOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23412,43 +23584,43 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7773:2: ( ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) ) )
-            // InternalOptGrammar.g:7774:2: ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) )
+            // InternalOptGrammar.g:7817:2: ( ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) ) )
+            // InternalOptGrammar.g:7818:2: ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) )
             {
-            // InternalOptGrammar.g:7774:2: ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) )
-            int alt108=3;
+            // InternalOptGrammar.g:7818:2: ( (enumLiteral_0= '<<' ) | (enumLiteral_1= '>>' ) | (enumLiteral_2= '>>>' ) )
+            int alt110=3;
             switch ( input.LA(1) ) {
-            case 200:
-                {
-                alt108=1;
-                }
-                break;
-            case 201:
-                {
-                alt108=2;
-                }
-                break;
             case 202:
                 {
-                alt108=3;
+                alt110=1;
+                }
+                break;
+            case 203:
+                {
+                alt110=2;
+                }
+                break;
+            case 204:
+                {
+                alt110=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 108, 0, input);
+                    new NoViableAltException("", 110, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt108) {
+            switch (alt110) {
                 case 1 :
-                    // InternalOptGrammar.g:7775:3: (enumLiteral_0= '<<' )
+                    // InternalOptGrammar.g:7819:3: (enumLiteral_0= '<<' )
                     {
-                    // InternalOptGrammar.g:7775:3: (enumLiteral_0= '<<' )
-                    // InternalOptGrammar.g:7776:4: enumLiteral_0= '<<'
+                    // InternalOptGrammar.g:7819:3: (enumLiteral_0= '<<' )
+                    // InternalOptGrammar.g:7820:4: enumLiteral_0= '<<'
                     {
-                    enumLiteral_0=(Token)match(input,200,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,202,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getShiftOpEnumAccess().getLEFT_SHIFTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -23462,12 +23634,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7783:3: (enumLiteral_1= '>>' )
+                    // InternalOptGrammar.g:7827:3: (enumLiteral_1= '>>' )
                     {
-                    // InternalOptGrammar.g:7783:3: (enumLiteral_1= '>>' )
-                    // InternalOptGrammar.g:7784:4: enumLiteral_1= '>>'
+                    // InternalOptGrammar.g:7827:3: (enumLiteral_1= '>>' )
+                    // InternalOptGrammar.g:7828:4: enumLiteral_1= '>>'
                     {
-                    enumLiteral_1=(Token)match(input,201,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,203,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getShiftOpEnumAccess().getRIGHT_SHIFTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23481,12 +23653,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7791:3: (enumLiteral_2= '>>>' )
+                    // InternalOptGrammar.g:7835:3: (enumLiteral_2= '>>>' )
                     {
-                    // InternalOptGrammar.g:7791:3: (enumLiteral_2= '>>>' )
-                    // InternalOptGrammar.g:7792:4: enumLiteral_2= '>>>'
+                    // InternalOptGrammar.g:7835:3: (enumLiteral_2= '>>>' )
+                    // InternalOptGrammar.g:7836:4: enumLiteral_2= '>>>'
                     {
-                    enumLiteral_2=(Token)match(input,202,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,204,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getShiftOpEnumAccess().getARITHMETIC_RIGHT_SHIFTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -23524,7 +23696,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAdditionOpEnum"
-    // InternalOptGrammar.g:7802:1: ruleAdditionOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
+    // InternalOptGrammar.g:7846:1: ruleAdditionOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) ;
     public final Enumerator ruleAdditionOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23535,32 +23707,32 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7808:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
-            // InternalOptGrammar.g:7809:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            // InternalOptGrammar.g:7852:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) ) )
+            // InternalOptGrammar.g:7853:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
             {
-            // InternalOptGrammar.g:7809:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
-            int alt109=2;
-            int LA109_0 = input.LA(1);
+            // InternalOptGrammar.g:7853:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) )
+            int alt111=2;
+            int LA111_0 = input.LA(1);
 
-            if ( (LA109_0==60) ) {
-                alt109=1;
+            if ( (LA111_0==60) ) {
+                alt111=1;
             }
-            else if ( (LA109_0==61) ) {
-                alt109=2;
+            else if ( (LA111_0==61) ) {
+                alt111=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 109, 0, input);
+                    new NoViableAltException("", 111, 0, input);
 
                 throw nvae;
             }
-            switch (alt109) {
+            switch (alt111) {
                 case 1 :
-                    // InternalOptGrammar.g:7810:3: (enumLiteral_0= '+' )
+                    // InternalOptGrammar.g:7854:3: (enumLiteral_0= '+' )
                     {
-                    // InternalOptGrammar.g:7810:3: (enumLiteral_0= '+' )
-                    // InternalOptGrammar.g:7811:4: enumLiteral_0= '+'
+                    // InternalOptGrammar.g:7854:3: (enumLiteral_0= '+' )
+                    // InternalOptGrammar.g:7855:4: enumLiteral_0= '+'
                     {
                     enumLiteral_0=(Token)match(input,60,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -23576,10 +23748,10 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7818:3: (enumLiteral_1= '-' )
+                    // InternalOptGrammar.g:7862:3: (enumLiteral_1= '-' )
                     {
-                    // InternalOptGrammar.g:7818:3: (enumLiteral_1= '-' )
-                    // InternalOptGrammar.g:7819:4: enumLiteral_1= '-'
+                    // InternalOptGrammar.g:7862:3: (enumLiteral_1= '-' )
+                    // InternalOptGrammar.g:7863:4: enumLiteral_1= '-'
                     {
                     enumLiteral_1=(Token)match(input,61,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -23619,7 +23791,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMulDivModOpEnum"
-    // InternalOptGrammar.g:7829:1: ruleMulDivModOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) ) ;
+    // InternalOptGrammar.g:7873:1: ruleMulDivModOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) ) ;
     public final Enumerator ruleMulDivModOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23631,43 +23803,43 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7835:2: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) ) )
-            // InternalOptGrammar.g:7836:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) )
+            // InternalOptGrammar.g:7879:2: ( ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) ) )
+            // InternalOptGrammar.g:7880:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) )
             {
-            // InternalOptGrammar.g:7836:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) )
-            int alt110=3;
+            // InternalOptGrammar.g:7880:2: ( (enumLiteral_0= '*' ) | (enumLiteral_1= '/' ) | (enumLiteral_2= '%' ) )
+            int alt112=3;
             switch ( input.LA(1) ) {
-            case 203:
-                {
-                alt110=1;
-                }
-                break;
-            case 204:
-                {
-                alt110=2;
-                }
-                break;
             case 205:
                 {
-                alt110=3;
+                alt112=1;
+                }
+                break;
+            case 206:
+                {
+                alt112=2;
+                }
+                break;
+            case 207:
+                {
+                alt112=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 110, 0, input);
+                    new NoViableAltException("", 112, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt110) {
+            switch (alt112) {
                 case 1 :
-                    // InternalOptGrammar.g:7837:3: (enumLiteral_0= '*' )
+                    // InternalOptGrammar.g:7881:3: (enumLiteral_0= '*' )
                     {
-                    // InternalOptGrammar.g:7837:3: (enumLiteral_0= '*' )
-                    // InternalOptGrammar.g:7838:4: enumLiteral_0= '*'
+                    // InternalOptGrammar.g:7881:3: (enumLiteral_0= '*' )
+                    // InternalOptGrammar.g:7882:4: enumLiteral_0= '*'
                     {
-                    enumLiteral_0=(Token)match(input,203,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,205,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getMulDivModOpEnumAccess().getMULTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -23681,12 +23853,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7845:3: (enumLiteral_1= '/' )
+                    // InternalOptGrammar.g:7889:3: (enumLiteral_1= '/' )
                     {
-                    // InternalOptGrammar.g:7845:3: (enumLiteral_1= '/' )
-                    // InternalOptGrammar.g:7846:4: enumLiteral_1= '/'
+                    // InternalOptGrammar.g:7889:3: (enumLiteral_1= '/' )
+                    // InternalOptGrammar.g:7890:4: enumLiteral_1= '/'
                     {
-                    enumLiteral_1=(Token)match(input,204,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,206,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getMulDivModOpEnumAccess().getDIVEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23700,12 +23872,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalOptGrammar.g:7853:3: (enumLiteral_2= '%' )
+                    // InternalOptGrammar.g:7897:3: (enumLiteral_2= '%' )
                     {
-                    // InternalOptGrammar.g:7853:3: (enumLiteral_2= '%' )
-                    // InternalOptGrammar.g:7854:4: enumLiteral_2= '%'
+                    // InternalOptGrammar.g:7897:3: (enumLiteral_2= '%' )
+                    // InternalOptGrammar.g:7898:4: enumLiteral_2= '%'
                     {
-                    enumLiteral_2=(Token)match(input,205,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_2=(Token)match(input,207,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getMulDivModOpEnumAccess().getMODEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -23743,7 +23915,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIncDecOpEnum"
-    // InternalOptGrammar.g:7864:1: ruleIncDecOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) ) ;
+    // InternalOptGrammar.g:7908:1: ruleIncDecOpEnum returns [Enumerator current=null] : ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) ) ;
     public final Enumerator ruleIncDecOpEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23754,32 +23926,32 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7870:2: ( ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) ) )
-            // InternalOptGrammar.g:7871:2: ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) )
+            // InternalOptGrammar.g:7914:2: ( ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) ) )
+            // InternalOptGrammar.g:7915:2: ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) )
             {
-            // InternalOptGrammar.g:7871:2: ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) )
-            int alt111=2;
-            int LA111_0 = input.LA(1);
+            // InternalOptGrammar.g:7915:2: ( (enumLiteral_0= '++' ) | (enumLiteral_1= '--' ) )
+            int alt113=2;
+            int LA113_0 = input.LA(1);
 
-            if ( (LA111_0==63) ) {
-                alt111=1;
+            if ( (LA113_0==63) ) {
+                alt113=1;
             }
-            else if ( (LA111_0==64) ) {
-                alt111=2;
+            else if ( (LA113_0==64) ) {
+                alt113=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 111, 0, input);
+                    new NoViableAltException("", 113, 0, input);
 
                 throw nvae;
             }
-            switch (alt111) {
+            switch (alt113) {
                 case 1 :
-                    // InternalOptGrammar.g:7872:3: (enumLiteral_0= '++' )
+                    // InternalOptGrammar.g:7916:3: (enumLiteral_0= '++' )
                     {
-                    // InternalOptGrammar.g:7872:3: (enumLiteral_0= '++' )
-                    // InternalOptGrammar.g:7873:4: enumLiteral_0= '++'
+                    // InternalOptGrammar.g:7916:3: (enumLiteral_0= '++' )
+                    // InternalOptGrammar.g:7917:4: enumLiteral_0= '++'
                     {
                     enumLiteral_0=(Token)match(input,63,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -23795,10 +23967,10 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7880:3: (enumLiteral_1= '--' )
+                    // InternalOptGrammar.g:7924:3: (enumLiteral_1= '--' )
                     {
-                    // InternalOptGrammar.g:7880:3: (enumLiteral_1= '--' )
-                    // InternalOptGrammar.g:7881:4: enumLiteral_1= '--'
+                    // InternalOptGrammar.g:7924:3: (enumLiteral_1= '--' )
+                    // InternalOptGrammar.g:7925:4: enumLiteral_1= '--'
                     {
                     enumLiteral_1=(Token)match(input,64,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
@@ -23838,7 +24010,7 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanLiteralEnum"
-    // InternalOptGrammar.g:7891:1: ruleBooleanLiteralEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) ;
+    // InternalOptGrammar.g:7935:1: ruleBooleanLiteralEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) ;
     public final Enumerator ruleBooleanLiteralEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -23849,34 +24021,34 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7897:2: ( ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) )
-            // InternalOptGrammar.g:7898:2: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
+            // InternalOptGrammar.g:7941:2: ( ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) ) )
+            // InternalOptGrammar.g:7942:2: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
             {
-            // InternalOptGrammar.g:7898:2: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
-            int alt112=2;
-            int LA112_0 = input.LA(1);
+            // InternalOptGrammar.g:7942:2: ( (enumLiteral_0= 'true' ) | (enumLiteral_1= 'false' ) )
+            int alt114=2;
+            int LA114_0 = input.LA(1);
 
-            if ( (LA112_0==206) ) {
-                alt112=1;
+            if ( (LA114_0==208) ) {
+                alt114=1;
             }
-            else if ( (LA112_0==207) ) {
-                alt112=2;
+            else if ( (LA114_0==209) ) {
+                alt114=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 112, 0, input);
+                    new NoViableAltException("", 114, 0, input);
 
                 throw nvae;
             }
-            switch (alt112) {
+            switch (alt114) {
                 case 1 :
-                    // InternalOptGrammar.g:7899:3: (enumLiteral_0= 'true' )
+                    // InternalOptGrammar.g:7943:3: (enumLiteral_0= 'true' )
                     {
-                    // InternalOptGrammar.g:7899:3: (enumLiteral_0= 'true' )
-                    // InternalOptGrammar.g:7900:4: enumLiteral_0= 'true'
+                    // InternalOptGrammar.g:7943:3: (enumLiteral_0= 'true' )
+                    // InternalOptGrammar.g:7944:4: enumLiteral_0= 'true'
                     {
-                    enumLiteral_0=(Token)match(input,206,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,208,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getBooleanLiteralEnumAccess().getTRUEEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -23890,12 +24062,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7907:3: (enumLiteral_1= 'false' )
+                    // InternalOptGrammar.g:7951:3: (enumLiteral_1= 'false' )
                     {
-                    // InternalOptGrammar.g:7907:3: (enumLiteral_1= 'false' )
-                    // InternalOptGrammar.g:7908:4: enumLiteral_1= 'false'
+                    // InternalOptGrammar.g:7951:3: (enumLiteral_1= 'false' )
+                    // InternalOptGrammar.g:7952:4: enumLiteral_1= 'false'
                     {
-                    enumLiteral_1=(Token)match(input,207,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,209,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getBooleanLiteralEnumAccess().getFALSEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -23932,132 +24104,8 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleBooleanLiteralEnum"
 
 
-    // $ANTLR start "ruleSpecialVariablesTypeEnum"
-    // InternalOptGrammar.g:7918:1: ruleSpecialVariablesTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'msg' ) | (enumLiteral_1= 'block' ) | (enumLiteral_2= 'tx' ) ) ;
-    public final Enumerator ruleSpecialVariablesTypeEnum() throws RecognitionException {
-        Enumerator current = null;
-
-        Token enumLiteral_0=null;
-        Token enumLiteral_1=null;
-        Token enumLiteral_2=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalOptGrammar.g:7924:2: ( ( (enumLiteral_0= 'msg' ) | (enumLiteral_1= 'block' ) | (enumLiteral_2= 'tx' ) ) )
-            // InternalOptGrammar.g:7925:2: ( (enumLiteral_0= 'msg' ) | (enumLiteral_1= 'block' ) | (enumLiteral_2= 'tx' ) )
-            {
-            // InternalOptGrammar.g:7925:2: ( (enumLiteral_0= 'msg' ) | (enumLiteral_1= 'block' ) | (enumLiteral_2= 'tx' ) )
-            int alt113=3;
-            switch ( input.LA(1) ) {
-            case 208:
-                {
-                alt113=1;
-                }
-                break;
-            case 209:
-                {
-                alt113=2;
-                }
-                break;
-            case 210:
-                {
-                alt113=3;
-                }
-                break;
-            default:
-                if (state.backtracking>0) {state.failed=true; return current;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 113, 0, input);
-
-                throw nvae;
-            }
-
-            switch (alt113) {
-                case 1 :
-                    // InternalOptGrammar.g:7926:3: (enumLiteral_0= 'msg' )
-                    {
-                    // InternalOptGrammar.g:7926:3: (enumLiteral_0= 'msg' )
-                    // InternalOptGrammar.g:7927:4: enumLiteral_0= 'msg'
-                    {
-                    enumLiteral_0=(Token)match(input,208,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current = grammarAccess.getSpecialVariablesTypeEnumAccess().getMSGEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_0, grammarAccess.getSpecialVariablesTypeEnumAccess().getMSGEnumLiteralDeclaration_0());
-                      			
-                    }
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalOptGrammar.g:7934:3: (enumLiteral_1= 'block' )
-                    {
-                    // InternalOptGrammar.g:7934:3: (enumLiteral_1= 'block' )
-                    // InternalOptGrammar.g:7935:4: enumLiteral_1= 'block'
-                    {
-                    enumLiteral_1=(Token)match(input,209,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current = grammarAccess.getSpecialVariablesTypeEnumAccess().getBLOCKEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_1, grammarAccess.getSpecialVariablesTypeEnumAccess().getBLOCKEnumLiteralDeclaration_1());
-                      			
-                    }
-
-                    }
-
-
-                    }
-                    break;
-                case 3 :
-                    // InternalOptGrammar.g:7942:3: (enumLiteral_2= 'tx' )
-                    {
-                    // InternalOptGrammar.g:7942:3: (enumLiteral_2= 'tx' )
-                    // InternalOptGrammar.g:7943:4: enumLiteral_2= 'tx'
-                    {
-                    enumLiteral_2=(Token)match(input,210,FOLLOW_2); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                      				current = grammarAccess.getSpecialVariablesTypeEnumAccess().getTXEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-                      				newLeafNode(enumLiteral_2, grammarAccess.getSpecialVariablesTypeEnumAccess().getTXEnumLiteralDeclaration_2());
-                      			
-                    }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-
-              	leaveRule();
-
-            }
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleSpecialVariablesTypeEnum"
-
-
     // $ANTLR start "ruleSpecialExpressionTypeEnum"
-    // InternalOptGrammar.g:7953:1: ruleSpecialExpressionTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) ) ;
+    // InternalOptGrammar.g:7962:1: ruleSpecialExpressionTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) ) ;
     public final Enumerator ruleSpecialExpressionTypeEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -24068,34 +24116,34 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalOptGrammar.g:7959:2: ( ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) ) )
-            // InternalOptGrammar.g:7960:2: ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) )
+            // InternalOptGrammar.g:7968:2: ( ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) ) )
+            // InternalOptGrammar.g:7969:2: ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) )
             {
-            // InternalOptGrammar.g:7960:2: ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) )
-            int alt114=2;
-            int LA114_0 = input.LA(1);
+            // InternalOptGrammar.g:7969:2: ( (enumLiteral_0= 'super' ) | (enumLiteral_1= 'this' ) )
+            int alt115=2;
+            int LA115_0 = input.LA(1);
 
-            if ( (LA114_0==211) ) {
-                alt114=1;
+            if ( (LA115_0==210) ) {
+                alt115=1;
             }
-            else if ( (LA114_0==212) ) {
-                alt114=2;
+            else if ( (LA115_0==211) ) {
+                alt115=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 114, 0, input);
+                    new NoViableAltException("", 115, 0, input);
 
                 throw nvae;
             }
-            switch (alt114) {
+            switch (alt115) {
                 case 1 :
-                    // InternalOptGrammar.g:7961:3: (enumLiteral_0= 'super' )
+                    // InternalOptGrammar.g:7970:3: (enumLiteral_0= 'super' )
                     {
-                    // InternalOptGrammar.g:7961:3: (enumLiteral_0= 'super' )
-                    // InternalOptGrammar.g:7962:4: enumLiteral_0= 'super'
+                    // InternalOptGrammar.g:7970:3: (enumLiteral_0= 'super' )
+                    // InternalOptGrammar.g:7971:4: enumLiteral_0= 'super'
                     {
-                    enumLiteral_0=(Token)match(input,211,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,210,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getSpecialExpressionTypeEnumAccess().getSUPEREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -24109,12 +24157,12 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalOptGrammar.g:7969:3: (enumLiteral_1= 'this' )
+                    // InternalOptGrammar.g:7978:3: (enumLiteral_1= 'this' )
                     {
-                    // InternalOptGrammar.g:7969:3: (enumLiteral_1= 'this' )
-                    // InternalOptGrammar.g:7970:4: enumLiteral_1= 'this'
+                    // InternalOptGrammar.g:7978:3: (enumLiteral_1= 'this' )
+                    // InternalOptGrammar.g:7979:4: enumLiteral_1= 'this'
                     {
-                    enumLiteral_1=(Token)match(input,212,FOLLOW_2); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,211,FOLLOW_2); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       				current = grammarAccess.getSpecialExpressionTypeEnumAccess().getTHISEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -24275,113 +24323,115 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
 
     protected DFA40 dfa40 = new DFA40(this);
     protected DFA44 dfa44 = new DFA44(this);
-    static final String dfa_1s = "\150\uffff";
-    static final String dfa_2s = "\145\4\3\uffff";
-    static final String dfa_3s = "\1\u00d4\144\u00ab\3\uffff";
-    static final String dfa_4s = "\145\uffff\1\1\1\2\1\3";
-    static final String dfa_5s = "\150\uffff}>";
+    static final String dfa_1s = "\152\uffff";
+    static final String dfa_2s = "\147\4\3\uffff";
+    static final String dfa_3s = "\1\u00d3\146\u00ad\3\uffff";
+    static final String dfa_4s = "\147\uffff\1\1\1\2\1\3";
+    static final String dfa_5s = "\152\uffff}>";
     static final String[] dfa_6s = {
-            "\1\147\3\uffff\5\147\12\uffff\1\147\11\uffff\1\145\3\uffff\1\146\24\uffff\7\147\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\1\63\1\64\1\65\1\66\1\67\1\70\1\71\1\72\1\73\1\74\1\75\1\76\1\77\1\100\1\101\1\102\1\103\1\104\1\105\1\106\1\107\1\110\1\111\1\112\1\113\1\114\1\115\1\116\1\117\1\120\1\121\1\122\1\123\1\124\1\125\1\126\1\127\1\130\1\131\1\132\1\133\1\134\1\135\1\136\1\137\1\140\1\141\1\142\1\143\1\144\51\uffff\7\147",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
-            "\1\145\22\uffff\1\147\4\uffff\1\145\3\uffff\1\145\2\uffff\1\145\u0081\uffff\7\145",
+            "\11\151\12\uffff\1\151\11\uffff\1\147\3\uffff\1\150\24\uffff\7\151\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\1\63\1\64\1\65\1\66\1\67\1\70\1\71\1\72\1\73\1\74\1\75\1\76\1\77\1\100\1\101\1\102\1\103\1\104\1\105\1\106\1\107\1\110\1\111\1\112\1\113\1\114\1\115\1\116\1\117\1\120\1\121\1\122\1\123\1\124\1\125\1\126\1\127\1\130\1\131\1\132\1\133\1\134\1\135\1\136\1\137\1\140\1\141\1\142\1\143\1\144\1\145\1\146\51\uffff\4\151",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
+            "\1\147\22\uffff\1\151\4\uffff\1\147\3\uffff\1\147\2\uffff\1\147\u0083\uffff\7\147",
             "",
             "",
             ""
@@ -24437,62 +24487,62 @@ public class InternalOptGrammarParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000140000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x00000000001C0000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000001A264400010L,0xFFFFFFFFFFFFFFFEL,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000001A264400010L,0xFFFFFFFFFFFFFFFEL,0x0000007FFFFFFFFFL});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0xFC00000201801F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0xFC00000201801FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000001080000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0xFC00000200801F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0xFC00000200801FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400010L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000480000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000800010L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000018300010L,0x0000000000000000L,0x00000F0000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000018300010L,0x0000000000000000L,0x00003C0000000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000300000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000002200400010L,0xFFFFFFFFFFFFFFFEL,0x0000001FFFFFFFFFL});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000110000010L,0x0000000000000000L,0x00000FE000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000002200400010L,0xFFFFFFFFFFFFFFFEL,0x0000007FFFFFFFFFL});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000110000010L,0x0000000000000000L,0x00003F8000000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000080000002L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000800000002L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000000L,0xFFFFFFFFFFFFFFFEL,0x0000001FFFFFFFFFL});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000000L,0xFFFFFFFFFFFFFFFEL,0x0000007FFFFFFFFFL});
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000002200000010L,0xFFFFFFFFFFFFFFFEL,0x0000001FFFFFFFFFL});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0xFC00001200801F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000002200000010L,0xFFFFFFFFFFFFFFFEL,0x0000007FFFFFFFFFL});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0xFC00001200801FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0xFC00000201881F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0xFC00000200881F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0xFC00000201881FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0xFC00000200881FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000080200000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000110800010L,0x0000000000000000L,0x00000FE000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000110800010L,0x0000000000000000L,0x00003F8000000000L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000080000000L});
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000004800800002L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000000900010L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000020000A00010L});
     public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000020000200000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000002201000010L,0xFFFFFFFFFFFFFFFEL,0x0000001FFFFFFFFFL});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000110000012L,0x0000000000000000L,0x00000FE000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000200000010L,0xFFFFFFFFFFFFFFFEL,0x0000001FFFFFFFFFL});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0xFC0FEC2200901F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000002201000010L,0xFFFFFFFFFFFFFFFEL,0x0000007FFFFFFFFFL});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000110000012L,0x0000000000000000L,0x00003F8000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000200000010L,0xFFFFFFFFFFFFFFFEL,0x0000007FFFFFFFFFL});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0xFC0FEC2200901FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
     public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0xFC0FEC2200B01F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0xFC00000200A01F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0xFC0FEC2201901F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0xFC0FEC2200D01F10L,0xFFFFFFFFFFFFFFFFL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000190000012L,0x0000000000000000L,0xFFC00FE000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0xFC0FEC2200B01FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0xFC00000200A01FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0xFC0FEC2201901FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0xFC0FEC2200D01FF0L,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000190000012L,0x0000000000000000L,0xFF003F8000000000L,0x0000000000000007L});
     public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0010000000000002L});
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000006L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x00000000000000F8L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x00000000000003E0L});
     public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0040000000000002L});
     public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0080000000000002L});
     public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0100000000000002L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000700L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000001C00L});
     public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x3000000000000002L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000003800L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x000000000000E000L});
     public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0200000000000002L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000200801F10L,0xFFFFFFFFFFFFFFFEL,0x0000001FFFFFFFFFL,0x00000000001FC000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0000000200801FF0L,0xFFFFFFFFFFFFFFFEL,0x0000007FFFFFFFFFL,0x00000000000F0000L});
     public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x8000000000000002L,0x0000000000000001L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x00FFC00000000000L});
 
 }

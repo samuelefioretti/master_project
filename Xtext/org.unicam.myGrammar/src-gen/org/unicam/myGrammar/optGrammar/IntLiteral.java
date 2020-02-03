@@ -7,42 +7,42 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Ether Sub Denomination Enum</b></em>'.
+ * A representation of the model object '<em><b>Int Literal</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum#getValue <em>Value</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.IntLiteral#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getEtherSubDenominationEnum()
+ * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getIntLiteral()
  * @model
  * @generated
  */
-public interface EtherSubDenominationEnum extends EObject
+public interface IntLiteral extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getEtherSubDenominationEnum_Value()
+   * @see #setValue(int)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getIntLiteral_Value()
    * @model
    * @generated
    */
-  String getValue();
+  int getValue();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.IntLiteral#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
    * @see #getValue()
    * @generated
    */
-  void setValue(String value);
+  void setValue(int value);
 
-} // EtherSubDenominationEnum
+} // IntLiteral

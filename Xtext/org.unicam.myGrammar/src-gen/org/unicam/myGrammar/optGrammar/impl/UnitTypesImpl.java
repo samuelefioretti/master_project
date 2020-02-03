@@ -12,10 +12,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
+import org.unicam.myGrammar.optGrammar.TimeUnitsLiteral;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
+import org.unicam.myGrammar.optGrammar.UnitsLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +41,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    * @ordered
    */
-  protected TimeSubdenominationEnum time;
+  protected TimeUnitsLiteral time;
 
   /**
    * The cached value of the '{@link #getUnits() <em>Units</em>}' containment reference.
@@ -51,7 +51,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    * @ordered
    */
-  protected EtherSubDenominationEnum units;
+  protected UnitsLiteral units;
 
   /**
    * <!-- begin-user-doc -->
@@ -80,7 +80,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    */
   @Override
-  public TimeSubdenominationEnum getTime()
+  public TimeUnitsLiteral getTime()
   {
     return time;
   }
@@ -90,9 +90,9 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTime(TimeSubdenominationEnum newTime, NotificationChain msgs)
+  public NotificationChain basicSetTime(TimeUnitsLiteral newTime, NotificationChain msgs)
   {
-    TimeSubdenominationEnum oldTime = time;
+    TimeUnitsLiteral oldTime = time;
     time = newTime;
     if (eNotificationRequired())
     {
@@ -108,7 +108,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    */
   @Override
-  public void setTime(TimeSubdenominationEnum newTime)
+  public void setTime(TimeUnitsLiteral newTime)
   {
     if (newTime != time)
     {
@@ -130,7 +130,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    */
   @Override
-  public EtherSubDenominationEnum getUnits()
+  public UnitsLiteral getUnits()
   {
     return units;
   }
@@ -140,9 +140,9 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetUnits(EtherSubDenominationEnum newUnits, NotificationChain msgs)
+  public NotificationChain basicSetUnits(UnitsLiteral newUnits, NotificationChain msgs)
   {
-    EtherSubDenominationEnum oldUnits = units;
+    UnitsLiteral oldUnits = units;
     units = newUnits;
     if (eNotificationRequired())
     {
@@ -158,7 +158,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    */
   @Override
-  public void setUnits(EtherSubDenominationEnum newUnits)
+  public void setUnits(UnitsLiteral newUnits)
   {
     if (newUnits != units)
     {
@@ -221,10 +221,10 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
     switch (featureID)
     {
       case OptGrammarPackage.UNIT_TYPES__TIME:
-        setTime((TimeSubdenominationEnum)newValue);
+        setTime((TimeUnitsLiteral)newValue);
         return;
       case OptGrammarPackage.UNIT_TYPES__UNITS:
-        setUnits((EtherSubDenominationEnum)newValue);
+        setUnits((UnitsLiteral)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,10 +241,10 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
     switch (featureID)
     {
       case OptGrammarPackage.UNIT_TYPES__TIME:
-        setTime((TimeSubdenominationEnum)null);
+        setTime((TimeUnitsLiteral)null);
         return;
       case OptGrammarPackage.UNIT_TYPES__UNITS:
-        setUnits((EtherSubDenominationEnum)null);
+        setUnits((UnitsLiteral)null);
         return;
     }
     super.eUnset(featureID);

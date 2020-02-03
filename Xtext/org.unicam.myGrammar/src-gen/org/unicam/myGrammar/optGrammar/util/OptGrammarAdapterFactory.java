@@ -396,6 +396,11 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createLiteralAdapter();
       }
       @Override
+      public Adapter caseSpecialLiteral(SpecialLiteral object)
+      {
+        return createSpecialLiteralAdapter();
+      }
+      @Override
       public Adapter caseBooleanConst(BooleanConst object)
       {
         return createBooleanConstAdapter();
@@ -411,9 +416,9 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createUnitTypesAdapter();
       }
       @Override
-      public Adapter caseNumberDimensionless(NumberDimensionless object)
+      public Adapter caseIntLiteral(IntLiteral object)
       {
-        return createNumberDimensionlessAdapter();
+        return createIntLiteralAdapter();
       }
       @Override
       public Adapter caseHexLiteral(HexLiteral object)
@@ -436,11 +441,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createTypeCastAdapter();
       }
       @Override
-      public Adapter caseSpecialVariables(SpecialVariables object)
-      {
-        return createSpecialVariablesAdapter();
-      }
-      @Override
       public Adapter caseElementaryTypeNameEnum(ElementaryTypeNameEnum object)
       {
         return createElementaryTypeNameEnumAdapter();
@@ -461,19 +461,14 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createVisibilityEnumAdapter();
       }
       @Override
-      public Adapter caseEtherSubDenominationEnum(EtherSubDenominationEnum object)
+      public Adapter caseUnitsLiteral(UnitsLiteral object)
       {
-        return createEtherSubDenominationEnumAdapter();
+        return createUnitsLiteralAdapter();
       }
       @Override
-      public Adapter caseTimeSubdenominationEnum(TimeSubdenominationEnum object)
+      public Adapter caseTimeUnitsLiteral(TimeUnitsLiteral object)
       {
-        return createTimeSubdenominationEnumAdapter();
-      }
-      @Override
-      public Adapter caseSpecialLiteral(SpecialLiteral object)
-      {
-        return createSpecialLiteralAdapter();
+        return createTimeUnitsLiteralAdapter();
       }
       @Override
       public Adapter caseVarVariableTypeDeclaration(VarVariableTypeDeclaration object)
@@ -1543,6 +1538,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SpecialLiteral <em>Special Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.SpecialLiteral
+   * @generated
+   */
+  public Adapter createSpecialLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.BooleanConst <em>Boolean Const</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1588,16 +1598,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.NumberDimensionless <em>Number Dimensionless</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.IntLiteral <em>Int Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.NumberDimensionless
+   * @see org.unicam.myGrammar.optGrammar.IntLiteral
    * @generated
    */
-  public Adapter createNumberDimensionlessAdapter()
+  public Adapter createIntLiteralAdapter()
   {
     return null;
   }
@@ -1663,21 +1673,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SpecialVariables <em>Special Variables</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.SpecialVariables
-   * @generated
-   */
-  public Adapter createSpecialVariablesAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum <em>Elementary Type Name Enum</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1738,46 +1733,31 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum <em>Ether Sub Denomination Enum</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.UnitsLiteral <em>Units Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum
+   * @see org.unicam.myGrammar.optGrammar.UnitsLiteral
    * @generated
    */
-  public Adapter createEtherSubDenominationEnumAdapter()
+  public Adapter createUnitsLiteralAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum <em>Time Subdenomination Enum</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.TimeUnitsLiteral <em>Time Units Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum
+   * @see org.unicam.myGrammar.optGrammar.TimeUnitsLiteral
    * @generated
    */
-  public Adapter createTimeSubdenominationEnumAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SpecialLiteral <em>Special Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.SpecialLiteral
-   * @generated
-   */
-  public Adapter createSpecialLiteralAdapter()
+  public Adapter createTimeUnitsLiteralAdapter()
   {
     return null;
   }

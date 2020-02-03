@@ -115,26 +115,30 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) '++' (ambiguity) '(' ')' (rule start)
+	 *     (rule start) '++' (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) '++' (ambiguity) hexValue=HexLiteral
 	 *     (rule start) '++' (ambiguity) identifier=ID
+	 *     (rule start) '++' (ambiguity) intValue=IntLiteral
 	 *     (rule start) '++' (ambiguity) name=BLOCK
 	 *     (rule start) '++' (ambiguity) name=MSG
 	 *     (rule start) '++' (ambiguity) name=NOW
 	 *     (rule start) '++' (ambiguity) name=TX
 	 *     (rule start) '++' (ambiguity) type=SpecialExpressionTypeEnum
-	 *     (rule start) '++' (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) '++' (ambiguity) value=BooleanLiteralEnum
 	 *     (rule start) '++' (ambiguity) value=ElementaryTypeNameEnum
 	 *     (rule start) '++' (ambiguity) value=STRING
 	 *     (rule start) '++' (ambiguity) {PostIncDecExpression.expression=}
 	 *     (rule start) '++' (ambiguity) {Tuple.members+=}
 	 *     (rule start) '--' (ambiguity) '(' ')' (rule start)
+	 *     (rule start) '--' (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) '--' (ambiguity) hexValue=HexLiteral
 	 *     (rule start) '--' (ambiguity) identifier=ID
+	 *     (rule start) '--' (ambiguity) intValue=IntLiteral
 	 *     (rule start) '--' (ambiguity) name=BLOCK
 	 *     (rule start) '--' (ambiguity) name=MSG
 	 *     (rule start) '--' (ambiguity) name=NOW
 	 *     (rule start) '--' (ambiguity) name=TX
 	 *     (rule start) '--' (ambiguity) type=SpecialExpressionTypeEnum
-	 *     (rule start) '--' (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) '--' (ambiguity) value=BooleanLiteralEnum
 	 *     (rule start) '--' (ambiguity) value=ElementaryTypeNameEnum
 	 *     (rule start) '--' (ambiguity) value=STRING
@@ -144,7 +148,10 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '(' ')' (rule start)
 	 *     (rule start) (ambiguity) 'new' contract=[Contract|ID]
 	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
+	 *     (rule start) (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) (ambiguity) hexValue=HexLiteral
 	 *     (rule start) (ambiguity) identifier=ID
+	 *     (rule start) (ambiguity) intValue=IntLiteral
 	 *     (rule start) (ambiguity) name=BLOCK
 	 *     (rule start) (ambiguity) name=MSG
 	 *     (rule start) (ambiguity) name=NOW
@@ -152,7 +159,6 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) signOp='+'
 	 *     (rule start) (ambiguity) signOp='-'
 	 *     (rule start) (ambiguity) type=SpecialExpressionTypeEnum
-	 *     (rule start) (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) (ambiguity) value=BooleanLiteralEnum
 	 *     (rule start) (ambiguity) value=ElementaryTypeNameEnum
 	 *     (rule start) (ambiguity) value=STRING
@@ -227,7 +233,10 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '(' ')' (rule start)
 	 *     (rule start) (ambiguity) 'new' contract=[Contract|ID]
 	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
+	 *     (rule start) (ambiguity) decimalValue=DecimalLiteral
+	 *     (rule start) (ambiguity) hexValue=HexLiteral
 	 *     (rule start) (ambiguity) identifier=ID
+	 *     (rule start) (ambiguity) intValue=IntLiteral
 	 *     (rule start) (ambiguity) name=BLOCK
 	 *     (rule start) (ambiguity) name=MSG
 	 *     (rule start) (ambiguity) name=NOW
@@ -235,7 +244,6 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) signOp='+'
 	 *     (rule start) (ambiguity) signOp='-'
 	 *     (rule start) (ambiguity) type=SpecialExpressionTypeEnum
-	 *     (rule start) (ambiguity) type=SpecialVariablesTypeEnum
 	 *     (rule start) (ambiguity) value=BooleanLiteralEnum
 	 *     (rule start) (ambiguity) value=ElementaryTypeNameEnum
 	 *     (rule start) (ambiguity) value=STRING

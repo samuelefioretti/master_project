@@ -10,11 +10,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
-import org.unicam.myGrammar.optGrammar.NumberDimensionless;
+import org.unicam.myGrammar.optGrammar.IntLiteral;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
@@ -35,7 +34,7 @@ import org.unicam.myGrammar.optGrammar.UnitTypes;
  *
  * @generated
  */
-public class NumericLiteralImpl extends MinimalEObjectImpl.Container implements NumericLiteral
+public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
 {
   /**
    * The cached value of the '{@link #getIntValue() <em>Int Value</em>}' containment reference.
@@ -45,7 +44,7 @@ public class NumericLiteralImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    * @ordered
    */
-  protected NumberDimensionless intValue;
+  protected IntLiteral intValue;
 
   /**
    * The cached value of the '{@link #getHexValue() <em>Hex Value</em>}' containment reference.
@@ -104,7 +103,7 @@ public class NumericLiteralImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public NumberDimensionless getIntValue()
+  public IntLiteral getIntValue()
   {
     return intValue;
   }
@@ -114,9 +113,9 @@ public class NumericLiteralImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetIntValue(NumberDimensionless newIntValue, NotificationChain msgs)
+  public NotificationChain basicSetIntValue(IntLiteral newIntValue, NotificationChain msgs)
   {
-    NumberDimensionless oldIntValue = intValue;
+    IntLiteral oldIntValue = intValue;
     intValue = newIntValue;
     if (eNotificationRequired())
     {
@@ -132,7 +131,7 @@ public class NumericLiteralImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public void setIntValue(NumberDimensionless newIntValue)
+  public void setIntValue(IntLiteral newIntValue)
   {
     if (newIntValue != intValue)
     {
@@ -353,7 +352,7 @@ public class NumericLiteralImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case OptGrammarPackage.NUMERIC_LITERAL__INT_VALUE:
-        setIntValue((NumberDimensionless)newValue);
+        setIntValue((IntLiteral)newValue);
         return;
       case OptGrammarPackage.NUMERIC_LITERAL__HEX_VALUE:
         setHexValue((HexLiteral)newValue);
@@ -379,7 +378,7 @@ public class NumericLiteralImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case OptGrammarPackage.NUMERIC_LITERAL__INT_VALUE:
-        setIntValue((NumberDimensionless)null);
+        setIntValue((IntLiteral)null);
         return;
       case OptGrammarPackage.NUMERIC_LITERAL__HEX_VALUE:
         setHexValue((HexLiteral)null);

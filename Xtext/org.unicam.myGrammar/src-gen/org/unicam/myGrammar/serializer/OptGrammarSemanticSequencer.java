@@ -39,7 +39,6 @@ import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Equality;
-import org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum;
 import org.unicam.myGrammar.optGrammar.Event;
 import org.unicam.myGrammar.optGrammar.Exponent;
 import org.unicam.myGrammar.optGrammar.ExpressionStatement;
@@ -54,6 +53,7 @@ import org.unicam.myGrammar.optGrammar.IfStatement;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
 import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
+import org.unicam.myGrammar.optGrammar.IntLiteral;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
 import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
 import org.unicam.myGrammar.optGrammar.Mapping;
@@ -63,7 +63,6 @@ import org.unicam.myGrammar.optGrammar.ModifierInvocation;
 import org.unicam.myGrammar.optGrammar.MulDivMod;
 import org.unicam.myGrammar.optGrammar.NewExpression;
 import org.unicam.myGrammar.optGrammar.NotExpression;
-import org.unicam.myGrammar.optGrammar.NumberDimensionless;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Or;
@@ -81,17 +80,17 @@ import org.unicam.myGrammar.optGrammar.SignExpression;
 import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialLiteral;
-import org.unicam.myGrammar.optGrammar.SpecialVariables;
 import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.StringLiteral;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
 import org.unicam.myGrammar.optGrammar.ThrowStatement;
-import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
+import org.unicam.myGrammar.optGrammar.TimeUnitsLiteral;
 import org.unicam.myGrammar.optGrammar.Tuple;
 import org.unicam.myGrammar.optGrammar.TupleSeparator;
 import org.unicam.myGrammar.optGrammar.Type;
 import org.unicam.myGrammar.optGrammar.TypeCast;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
+import org.unicam.myGrammar.optGrammar.UnitsLiteral;
 import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
@@ -205,9 +204,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.EQUALITY:
 				sequence_Equality(context, (Equality) semanticObject); 
 				return; 
-			case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM:
-				sequence_EtherSubDenominationEnum(context, (EtherSubDenominationEnum) semanticObject); 
-				return; 
 			case OptGrammarPackage.EVENT:
 				sequence_Event(context, (Event) semanticObject); 
 				return; 
@@ -259,6 +255,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.INHERITANCE_SPECIFIER:
 				sequence_InheritanceSpecifier(context, (InheritanceSpecifier) semanticObject); 
 				return; 
+			case OptGrammarPackage.INT_LITERAL:
+				sequence_IntLiteral(context, (IntLiteral) semanticObject); 
+				return; 
 			case OptGrammarPackage.LOCATION_SPECIFIER:
 				sequence_LocationSpecifier(context, (LocationSpecifier) semanticObject); 
 				return; 
@@ -285,9 +284,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.NOT_EXPRESSION:
 				sequence_NotExpression(context, (NotExpression) semanticObject); 
-				return; 
-			case OptGrammarPackage.NUMBER_DIMENSIONLESS:
-				sequence_NumberDimensionless(context, (NumberDimensionless) semanticObject); 
 				return; 
 			case OptGrammarPackage.NUMERIC_LITERAL:
 				sequence_NumericLiteral(context, (NumericLiteral) semanticObject); 
@@ -419,9 +415,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.SPECIAL_LITERAL:
 				sequence_SpecialLiteral(context, (SpecialLiteral) semanticObject); 
 				return; 
-			case OptGrammarPackage.SPECIAL_VARIABLES:
-				sequence_SpecialVariables(context, (SpecialVariables) semanticObject); 
-				return; 
 			case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION:
 				if (rule == grammarAccess.getSimpleStatement2Rule()) {
 					sequence_SimpleStatement2(context, (StandardVariableDeclaration) semanticObject); 
@@ -447,8 +440,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.THROW_STATEMENT:
 				sequence_ThrowStatement(context, (ThrowStatement) semanticObject); 
 				return; 
-			case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM:
-				sequence_TimeSubdenominationEnum(context, (TimeSubdenominationEnum) semanticObject); 
+			case OptGrammarPackage.TIME_UNITS_LITERAL:
+				sequence_TimeUnitsLiteral(context, (TimeUnitsLiteral) semanticObject); 
 				return; 
 			case OptGrammarPackage.TUPLE:
 				if (rule == grammarAccess.getExpressionRule()
@@ -505,6 +498,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.UNIT_TYPES:
 				sequence_UnitTypes(context, (UnitTypes) semanticObject); 
+				return; 
+			case OptGrammarPackage.UNITS_LITERAL:
+				sequence_UnitsLiteral(context, (UnitsLiteral) semanticObject); 
 				return; 
 			case OptGrammarPackage.VAR_VARIABLE_DECLARATION:
 				sequence_VarVariableDeclaration(context, (VarVariableDeclaration) semanticObject); 
@@ -1338,8 +1334,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         type='uint240' | 
 	 *         type='uint248' | 
 	 *         type='uint256' | 
-	 *         type='byte' | 
-	 *         type='bytes' | 
 	 *         type='bytes1' | 
 	 *         type='bytes2' | 
 	 *         type='bytes3' | 
@@ -1372,7 +1366,11 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         type='bytes30' | 
 	 *         type='bytes31' | 
 	 *         type='bytes32' | 
-	 *         type='address'
+	 *         type='bytes' | 
+	 *         type='byte' | 
+	 *         type='address' | 
+	 *         type='real' | 
+	 *         type='ureal'
 	 *     )
 	 */
 	protected void sequence_ElementaryTypeNameEnum(ISerializationContext context, ElementaryTypeNameEnum semanticObject) {
@@ -1510,18 +1508,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getEqualityAccess().getEqualityOpEqualityOpEnumEnumRuleCall_1_1_0(), semanticObject.getEqualityOp());
 		feeder.accept(grammarAccess.getEqualityAccess().getRightComparisonParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EtherSubDenominationEnum returns EtherSubDenominationEnum
-	 *
-	 * Constraint:
-	 *     (value='wei' | value='szabo' | value='finney' | value='ether')
-	 */
-	protected void sequence_EtherSubDenominationEnum(ISerializationContext context, EtherSubDenominationEnum semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1794,6 +1780,24 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     IntLiteral returns IntLiteral
+	 *
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_IntLiteral(ISerializationContext context, IntLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.INT_LITERAL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.INT_LITERAL__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     LocationSpecifierEnum returns LocationSpecifierEnum
 	 *
 	 * Constraint:
@@ -2055,28 +2059,46 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     NumberDimensionless returns NumberDimensionless
-	 *
-	 * Constraint:
-	 *     value=INT
-	 */
-	protected void sequence_NumberDimensionless(ISerializationContext context, NumberDimensionless semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.NUMBER_DIMENSIONLESS__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.NUMBER_DIMENSIONLESS__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNumberDimensionlessAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Expression returns NumericLiteral
+	 *     Assignment returns NumericLiteral
+	 *     Assignment.Assignment_1_0_0 returns NumericLiteral
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns NumericLiteral
+	 *     BinaryExpression returns NumericLiteral
+	 *     Or returns NumericLiteral
+	 *     Or.Or_1_0 returns NumericLiteral
+	 *     And returns NumericLiteral
+	 *     And.And_1_0 returns NumericLiteral
+	 *     Equality returns NumericLiteral
+	 *     Equality.Equality_1_0 returns NumericLiteral
+	 *     Comparison returns NumericLiteral
+	 *     Comparison.Comparison_1_0 returns NumericLiteral
+	 *     BitOr returns NumericLiteral
+	 *     BitOr.BitOr_1_0 returns NumericLiteral
+	 *     BitXor returns NumericLiteral
+	 *     BitXor.BitXor_1_0 returns NumericLiteral
+	 *     BitAnd returns NumericLiteral
+	 *     BitAnd.BitAnd_1_0 returns NumericLiteral
+	 *     Shift returns NumericLiteral
+	 *     Shift.Shift_1_0 returns NumericLiteral
+	 *     AddSub returns NumericLiteral
+	 *     AddSub.AddSub_1_0_0 returns NumericLiteral
+	 *     MulDivMod returns NumericLiteral
+	 *     MulDivMod.MulDivMod_1_0 returns NumericLiteral
+	 *     Exponent returns NumericLiteral
+	 *     Exponent.Exponent_1_0 returns NumericLiteral
+	 *     UnaryExpression returns NumericLiteral
+	 *     PreExpression returns NumericLiteral
+	 *     PreExpression.PreIncExpression_1_2 returns NumericLiteral
+	 *     PreExpression.PreDecExpression_2_2 returns NumericLiteral
+	 *     PostIncDecExpression returns NumericLiteral
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NumericLiteral
+	 *     PrimaryExpression returns NumericLiteral
+	 *     PrimaryExpression.Tuple_4_2_0 returns NumericLiteral
+	 *     Literal returns NumericLiteral
 	 *     NumericLiteral returns NumericLiteral
 	 *
 	 * Constraint:
-	 *     ((intValue=NumberDimensionless | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?)
+	 *     ((intValue=IntLiteral | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?)
 	 */
 	protected void sequence_NumericLiteral(ISerializationContext context, NumericLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2835,54 +2857,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns SpecialVariables
-	 *     Assignment returns SpecialVariables
-	 *     Assignment.Assignment_1_0_0 returns SpecialVariables
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns SpecialVariables
-	 *     BinaryExpression returns SpecialVariables
-	 *     Or returns SpecialVariables
-	 *     Or.Or_1_0 returns SpecialVariables
-	 *     And returns SpecialVariables
-	 *     And.And_1_0 returns SpecialVariables
-	 *     Equality returns SpecialVariables
-	 *     Equality.Equality_1_0 returns SpecialVariables
-	 *     Comparison returns SpecialVariables
-	 *     Comparison.Comparison_1_0 returns SpecialVariables
-	 *     BitOr returns SpecialVariables
-	 *     BitOr.BitOr_1_0 returns SpecialVariables
-	 *     BitXor returns SpecialVariables
-	 *     BitXor.BitXor_1_0 returns SpecialVariables
-	 *     BitAnd returns SpecialVariables
-	 *     BitAnd.BitAnd_1_0 returns SpecialVariables
-	 *     Shift returns SpecialVariables
-	 *     Shift.Shift_1_0 returns SpecialVariables
-	 *     AddSub returns SpecialVariables
-	 *     AddSub.AddSub_1_0_0 returns SpecialVariables
-	 *     MulDivMod returns SpecialVariables
-	 *     MulDivMod.MulDivMod_1_0 returns SpecialVariables
-	 *     Exponent returns SpecialVariables
-	 *     Exponent.Exponent_1_0 returns SpecialVariables
-	 *     UnaryExpression returns SpecialVariables
-	 *     PreExpression returns SpecialVariables
-	 *     PreExpression.PreIncExpression_1_2 returns SpecialVariables
-	 *     PreExpression.PreDecExpression_2_2 returns SpecialVariables
-	 *     PostIncDecExpression returns SpecialVariables
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns SpecialVariables
-	 *     PrimaryExpression returns SpecialVariables
-	 *     PrimaryExpression.Tuple_4_2_0 returns SpecialVariables
-	 *     Literal returns SpecialVariables
-	 *     SpecialVariables returns SpecialVariables
-	 *
-	 * Constraint:
-	 *     (type=SpecialVariablesTypeEnum field=ID qualifiers+=Qualifier*)
-	 */
-	protected void sequence_SpecialVariables(ISerializationContext context, SpecialVariables semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     VariableDeclaration returns StandardVariableDeclaration
 	 *     StandardVariableDeclaration returns StandardVariableDeclaration
 	 *
@@ -2975,7 +2949,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     TimeSubdenominationEnum returns TimeSubdenominationEnum
+	 *     TimeUnitsLiteral returns TimeUnitsLiteral
 	 *
 	 * Constraint:
 	 *     (
@@ -2987,7 +2961,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         value='years'
 	 *     )
 	 */
-	protected void sequence_TimeSubdenominationEnum(ISerializationContext context, TimeSubdenominationEnum semanticObject) {
+	protected void sequence_TimeUnitsLiteral(ISerializationContext context, TimeUnitsLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -3096,9 +3070,21 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UnitTypes returns UnitTypes
 	 *
 	 * Constraint:
-	 *     (time=TimeSubdenominationEnum | units=EtherSubDenominationEnum)
+	 *     (time=TimeUnitsLiteral | units=UnitsLiteral)
 	 */
 	protected void sequence_UnitTypes(ISerializationContext context, UnitTypes semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     UnitsLiteral returns UnitsLiteral
+	 *
+	 * Constraint:
+	 *     (value='wei' | value='szabo' | value='finney' | value='ether')
+	 */
+	protected void sequence_UnitsLiteral(ISerializationContext context, UnitsLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -268,11 +268,14 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecialLiteral" eSuperTypes="#//Literal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanConst" eSuperTypes="#//Literal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//BooleanLiteralEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="intValue" eType="#//NumberDimensionless"
+  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" eSuperTypes="#//Literal">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intValue" eType="#//IntLiteral"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hexValue" eType="#//HexLiteral"
         containment="true"/>
@@ -282,12 +285,12 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnitTypes">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="time" eType="#//TimeSubdenominationEnum"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="time" eType="#//TimeUnitsLiteral"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="units" eType="#//EtherSubDenominationEnum"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="units" eType="#//UnitsLiteral"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberDimensionless">
+  <eClassifiers xsi:type="ecore:EClass" name="IntLiteral">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HexLiteral">
@@ -305,12 +308,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SpecialVariables" eSuperTypes="#//Literal">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SpecialVariablesTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiers" upperBound="-1"
-        eType="#//Qualifier" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElementaryTypeNameEnum">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -323,14 +320,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="VisibilityEnum">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EtherSubDenominationEnum">
+  <eClassifiers xsi:type="ecore:EClass" name="UnitsLiteral">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TimeSubdenominationEnum">
+  <eClassifiers xsi:type="ecore:EClass" name="TimeUnitsLiteral">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SpecialLiteral" eSuperTypes="#//Literal">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AssignmentOpEnum">
     <eLiterals name="ASSIGN" literal="="/>
@@ -379,30 +373,9 @@
     <eLiterals name="TRUE" literal="true"/>
     <eLiterals name="FALSE" value="1" literal="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SpecialVariablesTypeEnum">
-    <eLiterals name="MSG" literal="msg"/>
-    <eLiterals name="BLOCK" value="1" literal="block"/>
-    <eLiterals name="TX" value="2" literal="tx"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SpecialExpressionTypeEnum">
     <eLiterals name="SUPER" literal="super"/>
     <eLiterals name="THIS" value="1" literal="this"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ReservedWordsEnum">
-    <eLiterals name="AS" literal="as"/>
-    <eLiterals name="CASE" value="1" literal="case"/>
-    <eLiterals name="CATCH" value="2" literal="catch"/>
-    <eLiterals name="FINAL" value="3" literal="final"/>
-    <eLiterals name="LET" value="4" literal="let"/>
-    <eLiterals name="MATCH" value="5" literal="match"/>
-    <eLiterals name="OF" value="6" literal="of"/>
-    <eLiterals name="RELOCATABLE" value="7" literal="relocatable"/>
-    <eLiterals name="SWITCH" value="8" literal="switch"/>
-    <eLiterals name="TRY" value="9" literal="try"/>
-    <eLiterals name="TYPE" value="10" literal="type"/>
-    <eLiterals name="TYPEOF" value="11" literal="typeof"/>
-    <eLiterals name="USING" value="12" literal="using"/>
-    <eLiterals name="ILLEGAL" value="13" literal="ILLEGAL"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VarVariableTypeDeclaration" eSuperTypes="#//SimpleStatement #//SimpleStatement2">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"

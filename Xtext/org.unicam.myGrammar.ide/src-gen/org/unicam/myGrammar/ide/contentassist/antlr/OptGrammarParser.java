@@ -54,18 +54,19 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPreExpressionAccess().getAlternatives(), "rule__PreExpression__Alternatives");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getAlternatives(), "rule__PrimaryExpression__Alternatives");
 			builder.put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
+			builder.put(grammarAccess.getSpecialLiteralAccess().getNameAlternatives_0(), "rule__SpecialLiteral__NameAlternatives_0");
 			builder.put(grammarAccess.getNumericLiteralAccess().getAlternatives_0(), "rule__NumericLiteral__Alternatives_0");
 			builder.put(grammarAccess.getUnitTypesAccess().getAlternatives(), "rule__UnitTypes__Alternatives");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getAlternatives(), "rule__ElementaryTypeNameEnum__Alternatives");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_0_0(), "rule__ElementaryTypeNameEnum__TypeAlternatives_0_0");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_1_0(), "rule__ElementaryTypeNameEnum__TypeAlternatives_1_0");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_2_0(), "rule__ElementaryTypeNameEnum__TypeAlternatives_2_0");
+			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_3_0(), "rule__ElementaryTypeNameEnum__TypeAlternatives_3_0");
 			builder.put(grammarAccess.getSimpleTypeDeclarationAccess().getTypeAlternatives_0(), "rule__SimpleTypeDeclaration__TypeAlternatives_0");
 			builder.put(grammarAccess.getLocationSpecifierEnumAccess().getTypeAlternatives_0(), "rule__LocationSpecifierEnum__TypeAlternatives_0");
 			builder.put(grammarAccess.getVisibilityEnumAccess().getTypeAlternatives_0(), "rule__VisibilityEnum__TypeAlternatives_0");
-			builder.put(grammarAccess.getEtherSubDenominationEnumAccess().getValueAlternatives_0(), "rule__EtherSubDenominationEnum__ValueAlternatives_0");
-			builder.put(grammarAccess.getTimeSubdenominationEnumAccess().getValueAlternatives_0(), "rule__TimeSubdenominationEnum__ValueAlternatives_0");
-			builder.put(grammarAccess.getSpecialLiteralAccess().getNameAlternatives_0(), "rule__SpecialLiteral__NameAlternatives_0");
+			builder.put(grammarAccess.getUnitsLiteralAccess().getValueAlternatives_0(), "rule__UnitsLiteral__ValueAlternatives_0");
+			builder.put(grammarAccess.getTimeUnitsLiteralAccess().getValueAlternatives_0(), "rule__TimeUnitsLiteral__ValueAlternatives_0");
 			builder.put(grammarAccess.getAssignmentOpEnumAccess().getAlternatives(), "rule__AssignmentOpEnum__Alternatives");
 			builder.put(grammarAccess.getEqualityOpEnumAccess().getAlternatives(), "rule__EqualityOpEnum__Alternatives");
 			builder.put(grammarAccess.getComparisonOpEnumAccess().getAlternatives(), "rule__ComparisonOpEnum__Alternatives");
@@ -74,9 +75,7 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMulDivModOpEnumAccess().getAlternatives(), "rule__MulDivModOpEnum__Alternatives");
 			builder.put(grammarAccess.getIncDecOpEnumAccess().getAlternatives(), "rule__IncDecOpEnum__Alternatives");
 			builder.put(grammarAccess.getBooleanLiteralEnumAccess().getAlternatives(), "rule__BooleanLiteralEnum__Alternatives");
-			builder.put(grammarAccess.getSpecialVariablesTypeEnumAccess().getAlternatives(), "rule__SpecialVariablesTypeEnum__Alternatives");
 			builder.put(grammarAccess.getSpecialExpressionTypeEnumAccess().getAlternatives(), "rule__SpecialExpressionTypeEnum__Alternatives");
-			builder.put(grammarAccess.getReservedWordsEnumAccess().getAlternatives(), "rule__ReservedWordsEnum__Alternatives");
 			builder.put(grammarAccess.getContractAccess().getGroup(), "rule__Contract__Group__0");
 			builder.put(grammarAccess.getContractAccess().getGroup_2(), "rule__Contract__Group_2__0");
 			builder.put(grammarAccess.getContractAccess().getGroup_2_2(), "rule__Contract__Group_2_2__0");
@@ -202,7 +201,6 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getGroup_6(), "rule__PrimaryExpression__Group_6__0");
 			builder.put(grammarAccess.getNumericLiteralAccess().getGroup(), "rule__NumericLiteral__Group__0");
 			builder.put(grammarAccess.getTypeCastAccess().getGroup(), "rule__TypeCast__Group__0");
-			builder.put(grammarAccess.getSpecialVariablesAccess().getGroup(), "rule__SpecialVariables__Group__0");
 			builder.put(grammarAccess.getModelAccess().getOperationsAssignment(), "rule__Model__OperationsAssignment");
 			builder.put(grammarAccess.getContractAccess().getNameAssignment_1(), "rule__Contract__NameAssignment_1");
 			builder.put(grammarAccess.getContractAccess().getInheritanceSpecifiersAssignment_2_1(), "rule__Contract__InheritanceSpecifiersAssignment_2_1");
@@ -342,6 +340,7 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getMembersAssignment_5_2_1(), "rule__PrimaryExpression__MembersAssignment_5_2_1");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getMembersAssignment_5_2_2_0(), "rule__PrimaryExpression__MembersAssignment_5_2_2_0");
 			builder.put(grammarAccess.getPrimaryExpressionAccess().getMembersAssignment_5_2_2_1(), "rule__PrimaryExpression__MembersAssignment_5_2_2_1");
+			builder.put(grammarAccess.getSpecialLiteralAccess().getNameAssignment(), "rule__SpecialLiteral__NameAssignment");
 			builder.put(grammarAccess.getBooleanConstAccess().getValueAssignment(), "rule__BooleanConst__ValueAssignment");
 			builder.put(grammarAccess.getNumericLiteralAccess().getIntValueAssignment_0_0(), "rule__NumericLiteral__IntValueAssignment_0_0");
 			builder.put(grammarAccess.getNumericLiteralAccess().getHexValueAssignment_0_1(), "rule__NumericLiteral__HexValueAssignment_0_1");
@@ -349,15 +348,12 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNumericLiteralAccess().getEtherUnitAssignment_1(), "rule__NumericLiteral__EtherUnitAssignment_1");
 			builder.put(grammarAccess.getUnitTypesAccess().getTimeAssignment_0(), "rule__UnitTypes__TimeAssignment_0");
 			builder.put(grammarAccess.getUnitTypesAccess().getUnitsAssignment_1(), "rule__UnitTypes__UnitsAssignment_1");
-			builder.put(grammarAccess.getNumberDimensionlessAccess().getValueAssignment(), "rule__NumberDimensionless__ValueAssignment");
+			builder.put(grammarAccess.getIntLiteralAccess().getValueAssignment(), "rule__IntLiteral__ValueAssignment");
 			builder.put(grammarAccess.getHexLiteralAccess().getValueAssignment(), "rule__HexLiteral__ValueAssignment");
 			builder.put(grammarAccess.getDecimalLiteralAccess().getValueAssignment(), "rule__DecimalLiteral__ValueAssignment");
 			builder.put(grammarAccess.getStringLiteralAccess().getValueAssignment(), "rule__StringLiteral__ValueAssignment");
 			builder.put(grammarAccess.getTypeCastAccess().getValueAssignment_0(), "rule__TypeCast__ValueAssignment_0");
 			builder.put(grammarAccess.getTypeCastAccess().getExpressionAssignment_2(), "rule__TypeCast__ExpressionAssignment_2");
-			builder.put(grammarAccess.getSpecialVariablesAccess().getTypeAssignment_0(), "rule__SpecialVariables__TypeAssignment_0");
-			builder.put(grammarAccess.getSpecialVariablesAccess().getFieldAssignment_2(), "rule__SpecialVariables__FieldAssignment_2");
-			builder.put(grammarAccess.getSpecialVariablesAccess().getQualifiersAssignment_3(), "rule__SpecialVariables__QualifiersAssignment_3");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment_0(), "rule__ElementaryTypeNameEnum__TypeAssignment_0");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment_1(), "rule__ElementaryTypeNameEnum__TypeAssignment_1");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment_2(), "rule__ElementaryTypeNameEnum__TypeAssignment_2");
@@ -365,9 +361,8 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSimpleTypeDeclarationAccess().getTypeAssignment(), "rule__SimpleTypeDeclaration__TypeAssignment");
 			builder.put(grammarAccess.getLocationSpecifierEnumAccess().getTypeAssignment(), "rule__LocationSpecifierEnum__TypeAssignment");
 			builder.put(grammarAccess.getVisibilityEnumAccess().getTypeAssignment(), "rule__VisibilityEnum__TypeAssignment");
-			builder.put(grammarAccess.getEtherSubDenominationEnumAccess().getValueAssignment(), "rule__EtherSubDenominationEnum__ValueAssignment");
-			builder.put(grammarAccess.getTimeSubdenominationEnumAccess().getValueAssignment(), "rule__TimeSubdenominationEnum__ValueAssignment");
-			builder.put(grammarAccess.getSpecialLiteralAccess().getNameAssignment(), "rule__SpecialLiteral__NameAssignment");
+			builder.put(grammarAccess.getUnitsLiteralAccess().getValueAssignment(), "rule__UnitsLiteral__ValueAssignment");
+			builder.put(grammarAccess.getTimeUnitsLiteralAccess().getValueAssignment(), "rule__TimeUnitsLiteral__ValueAssignment");
 		}
 	}
 	

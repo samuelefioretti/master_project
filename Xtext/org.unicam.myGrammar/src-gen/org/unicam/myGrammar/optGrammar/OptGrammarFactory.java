@@ -600,6 +600,15 @@ public interface OptGrammarFactory extends EFactory
   Literal createLiteral();
 
   /**
+   * Returns a new object of class '<em>Special Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Special Literal</em>'.
+   * @generated
+   */
+  SpecialLiteral createSpecialLiteral();
+
+  /**
    * Returns a new object of class '<em>Boolean Const</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -627,13 +636,13 @@ public interface OptGrammarFactory extends EFactory
   UnitTypes createUnitTypes();
 
   /**
-   * Returns a new object of class '<em>Number Dimensionless</em>'.
+   * Returns a new object of class '<em>Int Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Number Dimensionless</em>'.
+   * @return a new object of class '<em>Int Literal</em>'.
    * @generated
    */
-  NumberDimensionless createNumberDimensionless();
+  IntLiteral createIntLiteral();
 
   /**
    * Returns a new object of class '<em>Hex Literal</em>'.
@@ -672,15 +681,6 @@ public interface OptGrammarFactory extends EFactory
   TypeCast createTypeCast();
 
   /**
-   * Returns a new object of class '<em>Special Variables</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Special Variables</em>'.
-   * @generated
-   */
-  SpecialVariables createSpecialVariables();
-
-  /**
    * Returns a new object of class '<em>Elementary Type Name Enum</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -717,31 +717,22 @@ public interface OptGrammarFactory extends EFactory
   VisibilityEnum createVisibilityEnum();
 
   /**
-   * Returns a new object of class '<em>Ether Sub Denomination Enum</em>'.
+   * Returns a new object of class '<em>Units Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ether Sub Denomination Enum</em>'.
+   * @return a new object of class '<em>Units Literal</em>'.
    * @generated
    */
-  EtherSubDenominationEnum createEtherSubDenominationEnum();
+  UnitsLiteral createUnitsLiteral();
 
   /**
-   * Returns a new object of class '<em>Time Subdenomination Enum</em>'.
+   * Returns a new object of class '<em>Time Units Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Time Subdenomination Enum</em>'.
+   * @return a new object of class '<em>Time Units Literal</em>'.
    * @generated
    */
-  TimeSubdenominationEnum createTimeSubdenominationEnum();
-
-  /**
-   * Returns a new object of class '<em>Special Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Special Literal</em>'.
-   * @generated
-   */
-  SpecialLiteral createSpecialLiteral();
+  TimeUnitsLiteral createTimeUnitsLiteral();
 
   /**
    * Returns a new object of class '<em>Var Variable Type Declaration</em>'.

@@ -5639,40 +5639,122 @@ ruleLiteral returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getSpecialVariablesParserRuleCall_0());
+			newCompositeNode(grammarAccess.getLiteralAccess().getSpecialLiteralParserRuleCall_0());
 		}
-		this_SpecialVariables_0=ruleSpecialVariables
+		this_SpecialLiteral_0=ruleSpecialLiteral
 		{
-			$current = $this_SpecialVariables_0.current;
+			$current = $this_SpecialLiteral_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getStringLiteralParserRuleCall_1());
+			newCompositeNode(grammarAccess.getLiteralAccess().getBooleanConstParserRuleCall_1());
 		}
-		this_StringLiteral_1=ruleStringLiteral
+		this_BooleanConst_1=ruleBooleanConst
 		{
-			$current = $this_StringLiteral_1.current;
+			$current = $this_BooleanConst_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getBooleanConstParserRuleCall_2());
+			newCompositeNode(grammarAccess.getLiteralAccess().getNumericLiteralParserRuleCall_2());
 		}
-		this_BooleanConst_2=ruleBooleanConst
+		this_NumericLiteral_2=ruleNumericLiteral
 		{
-			$current = $this_BooleanConst_2.current;
+			$current = $this_NumericLiteral_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getSpecialLiteralParserRuleCall_3());
+			newCompositeNode(grammarAccess.getLiteralAccess().getStringLiteralParserRuleCall_3());
 		}
-		this_SpecialLiteral_3=ruleSpecialLiteral
+		this_StringLiteral_3=ruleStringLiteral
 		{
-			$current = $this_SpecialLiteral_3.current;
+			$current = $this_StringLiteral_3.current;
 			afterParserOrEnumRuleCall();
 		}
+	)
+;
+
+// Entry rule entryRuleSpecialLiteral
+entryRuleSpecialLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSpecialLiteralRule()); }
+	iv_ruleSpecialLiteral=ruleSpecialLiteral
+	{ $current=$iv_ruleSpecialLiteral.current; }
+	EOF;
+
+// Rule SpecialLiteral
+ruleSpecialLiteral returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_1=RULE_BLOCK
+				{
+					newLeafNode(lv_name_0_1, grammarAccess.getSpecialLiteralAccess().getNameBLOCKTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSpecialLiteralRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_1,
+						"org.unicam.myGrammar.OptGrammar.BLOCK");
+				}
+				    |
+				lv_name_0_2=RULE_MSG
+				{
+					newLeafNode(lv_name_0_2, grammarAccess.getSpecialLiteralAccess().getNameMSGTerminalRuleCall_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSpecialLiteralRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_2,
+						"org.unicam.myGrammar.OptGrammar.MSG");
+				}
+				    |
+				lv_name_0_3=RULE_TX
+				{
+					newLeafNode(lv_name_0_3, grammarAccess.getSpecialLiteralAccess().getNameTXTerminalRuleCall_0_2());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSpecialLiteralRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_3,
+						"org.unicam.myGrammar.OptGrammar.TX");
+				}
+				    |
+				lv_name_0_4=RULE_NOW
+				{
+					newLeafNode(lv_name_0_4, grammarAccess.getSpecialLiteralAccess().getNameNOWTerminalRuleCall_0_3());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSpecialLiteralRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_4,
+						"org.unicam.myGrammar.OptGrammar.NOW");
+				}
+			)
+		)
 	)
 ;
 
@@ -5712,6 +5794,105 @@ ruleBooleanConst returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleNumericLiteral
+entryRuleNumericLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNumericLiteralRule()); }
+	iv_ruleNumericLiteral=ruleNumericLiteral
+	{ $current=$iv_ruleNumericLiteral.current; }
+	EOF;
+
+// Rule NumericLiteral
+ruleNumericLiteral returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNumericLiteralAccess().getIntValueIntLiteralParserRuleCall_0_0_0());
+					}
+					lv_intValue_0_0=ruleIntLiteral
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+						}
+						set(
+							$current,
+							"intValue",
+							lv_intValue_0_0,
+							"org.unicam.myGrammar.OptGrammar.IntLiteral");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNumericLiteralAccess().getHexValueHexLiteralParserRuleCall_0_1_0());
+					}
+					lv_hexValue_1_0=ruleHexLiteral
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+						}
+						set(
+							$current,
+							"hexValue",
+							lv_hexValue_1_0,
+							"org.unicam.myGrammar.OptGrammar.HexLiteral");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNumericLiteralAccess().getDecimalValueDecimalLiteralParserRuleCall_0_2_0());
+					}
+					lv_decimalValue_2_0=ruleDecimalLiteral
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+						}
+						set(
+							$current,
+							"decimalValue",
+							lv_decimalValue_2_0,
+							"org.unicam.myGrammar.OptGrammar.DecimalLiteral");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNumericLiteralAccess().getEtherUnitUnitTypesParserRuleCall_1_0());
+				}
+				lv_etherUnit_3_0=ruleUnitTypes
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
+					}
+					set(
+						$current,
+						"etherUnit",
+						lv_etherUnit_3_0,
+						"org.unicam.myGrammar.OptGrammar.UnitTypes");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+	)
+;
+
 // Entry rule entryRuleUnitTypes
 entryRuleUnitTypes returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getUnitTypesRule()); }
@@ -5731,9 +5912,9 @@ ruleUnitTypes returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUnitTypesAccess().getTimeTimeSubdenominationEnumParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getUnitTypesAccess().getTimeTimeUnitsLiteralParserRuleCall_0_0());
 				}
-				lv_time_0_0=ruleTimeSubdenominationEnum
+				lv_time_0_0=ruleTimeUnitsLiteral
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUnitTypesRule());
@@ -5742,7 +5923,7 @@ ruleUnitTypes returns [EObject current=null]
 						$current,
 						"time",
 						lv_time_0_0,
-						"org.unicam.myGrammar.OptGrammar.TimeSubdenominationEnum");
+						"org.unicam.myGrammar.OptGrammar.TimeUnitsLiteral");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -5751,9 +5932,9 @@ ruleUnitTypes returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUnitTypesAccess().getUnitsEtherSubDenominationEnumParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getUnitTypesAccess().getUnitsUnitsLiteralParserRuleCall_1_0());
 				}
-				lv_units_1_0=ruleEtherSubDenominationEnum
+				lv_units_1_0=ruleUnitsLiteral
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUnitTypesRule());
@@ -5762,7 +5943,7 @@ ruleUnitTypes returns [EObject current=null]
 						$current,
 						"units",
 						lv_units_1_0,
-						"org.unicam.myGrammar.OptGrammar.EtherSubDenominationEnum");
+						"org.unicam.myGrammar.OptGrammar.UnitsLiteral");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -5770,15 +5951,15 @@ ruleUnitTypes returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleNumberDimensionless
-entryRuleNumberDimensionless returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNumberDimensionlessRule()); }
-	iv_ruleNumberDimensionless=ruleNumberDimensionless
-	{ $current=$iv_ruleNumberDimensionless.current; }
+// Entry rule entryRuleIntLiteral
+entryRuleIntLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getIntLiteralRule()); }
+	iv_ruleIntLiteral=ruleIntLiteral
+	{ $current=$iv_ruleIntLiteral.current; }
 	EOF;
 
-// Rule NumberDimensionless
-ruleNumberDimensionless returns [EObject current=null]
+// Rule IntLiteral
+ruleIntLiteral returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -5789,11 +5970,11 @@ ruleNumberDimensionless returns [EObject current=null]
 		(
 			lv_value_0_0=RULE_INT
 			{
-				newLeafNode(lv_value_0_0, grammarAccess.getNumberDimensionlessAccess().getValueINTTerminalRuleCall_0());
+				newLeafNode(lv_value_0_0, grammarAccess.getIntLiteralAccess().getValueINTTerminalRuleCall_0());
 			}
 			{
 				if ($current==null) {
-					$current = createModelElement(grammarAccess.getNumberDimensionlessRule());
+					$current = createModelElement(grammarAccess.getIntLiteralRule());
 				}
 				setWithLastConsumed(
 					$current,
@@ -5972,85 +6153,6 @@ ruleTypeCast returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getTypeCastAccess().getRightParenthesisKeyword_3());
 		}
-	)
-;
-
-// Entry rule entryRuleSpecialVariables
-entryRuleSpecialVariables returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSpecialVariablesRule()); }
-	iv_ruleSpecialVariables=ruleSpecialVariables
-	{ $current=$iv_ruleSpecialVariables.current; }
-	EOF;
-
-// Rule SpecialVariables
-ruleSpecialVariables returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSpecialVariablesAccess().getTypeSpecialVariablesTypeEnumEnumRuleCall_0_0());
-				}
-				lv_type_0_0=ruleSpecialVariablesTypeEnum
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSpecialVariablesRule());
-					}
-					set(
-						$current,
-						"type",
-						lv_type_0_0,
-						"org.unicam.myGrammar.OptGrammar.SpecialVariablesTypeEnum");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_1='.'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSpecialVariablesAccess().getFullStopKeyword_1());
-		}
-		(
-			(
-				lv_field_2_0=RULE_ID
-				{
-					newLeafNode(lv_field_2_0, grammarAccess.getSpecialVariablesAccess().getFieldIDTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSpecialVariablesRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"field",
-						lv_field_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getSpecialVariablesAccess().getQualifiersQualifierParserRuleCall_3_0());
-				}
-				lv_qualifiers_3_0=ruleQualifier
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getSpecialVariablesRule());
-					}
-					add(
-						$current,
-						"qualifiers",
-						lv_qualifiers_3_0,
-						"org.unicam.myGrammar.OptGrammar.Qualifier");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
 	)
 ;
 
@@ -6800,9 +6902,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 		(
 			(
 				(
-					lv_type_2_1='byte'
+					lv_type_2_1='bytes1'
 					{
-						newLeafNode(lv_type_2_1, grammarAccess.getElementaryTypeNameEnumAccess().getTypeByteKeyword_2_0_0());
+						newLeafNode(lv_type_2_1, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes1Keyword_2_0_0());
 					}
 					{
 						if ($current==null) {
@@ -6811,9 +6913,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_1, null);
 					}
 					    |
-					lv_type_2_2='bytes'
+					lv_type_2_2='bytes2'
 					{
-						newLeafNode(lv_type_2_2, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytesKeyword_2_0_1());
+						newLeafNode(lv_type_2_2, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes2Keyword_2_0_1());
 					}
 					{
 						if ($current==null) {
@@ -6822,9 +6924,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_2, null);
 					}
 					    |
-					lv_type_2_3='bytes1'
+					lv_type_2_3='bytes3'
 					{
-						newLeafNode(lv_type_2_3, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes1Keyword_2_0_2());
+						newLeafNode(lv_type_2_3, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes3Keyword_2_0_2());
 					}
 					{
 						if ($current==null) {
@@ -6833,9 +6935,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_3, null);
 					}
 					    |
-					lv_type_2_4='bytes2'
+					lv_type_2_4='bytes4'
 					{
-						newLeafNode(lv_type_2_4, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes2Keyword_2_0_3());
+						newLeafNode(lv_type_2_4, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes4Keyword_2_0_3());
 					}
 					{
 						if ($current==null) {
@@ -6844,9 +6946,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_4, null);
 					}
 					    |
-					lv_type_2_5='bytes3'
+					lv_type_2_5='bytes5'
 					{
-						newLeafNode(lv_type_2_5, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes3Keyword_2_0_4());
+						newLeafNode(lv_type_2_5, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes5Keyword_2_0_4());
 					}
 					{
 						if ($current==null) {
@@ -6855,9 +6957,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_5, null);
 					}
 					    |
-					lv_type_2_6='bytes4'
+					lv_type_2_6='bytes6'
 					{
-						newLeafNode(lv_type_2_6, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes4Keyword_2_0_5());
+						newLeafNode(lv_type_2_6, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes6Keyword_2_0_5());
 					}
 					{
 						if ($current==null) {
@@ -6866,9 +6968,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_6, null);
 					}
 					    |
-					lv_type_2_7='bytes5'
+					lv_type_2_7='bytes7'
 					{
-						newLeafNode(lv_type_2_7, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes5Keyword_2_0_6());
+						newLeafNode(lv_type_2_7, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes7Keyword_2_0_6());
 					}
 					{
 						if ($current==null) {
@@ -6877,9 +6979,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_7, null);
 					}
 					    |
-					lv_type_2_8='bytes6'
+					lv_type_2_8='bytes8'
 					{
-						newLeafNode(lv_type_2_8, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes6Keyword_2_0_7());
+						newLeafNode(lv_type_2_8, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes8Keyword_2_0_7());
 					}
 					{
 						if ($current==null) {
@@ -6888,9 +6990,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_8, null);
 					}
 					    |
-					lv_type_2_9='bytes7'
+					lv_type_2_9='bytes9'
 					{
-						newLeafNode(lv_type_2_9, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes7Keyword_2_0_8());
+						newLeafNode(lv_type_2_9, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes9Keyword_2_0_8());
 					}
 					{
 						if ($current==null) {
@@ -6899,9 +7001,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_9, null);
 					}
 					    |
-					lv_type_2_10='bytes8'
+					lv_type_2_10='bytes10'
 					{
-						newLeafNode(lv_type_2_10, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes8Keyword_2_0_9());
+						newLeafNode(lv_type_2_10, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes10Keyword_2_0_9());
 					}
 					{
 						if ($current==null) {
@@ -6910,9 +7012,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_10, null);
 					}
 					    |
-					lv_type_2_11='bytes9'
+					lv_type_2_11='bytes11'
 					{
-						newLeafNode(lv_type_2_11, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes9Keyword_2_0_10());
+						newLeafNode(lv_type_2_11, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes11Keyword_2_0_10());
 					}
 					{
 						if ($current==null) {
@@ -6921,9 +7023,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_11, null);
 					}
 					    |
-					lv_type_2_12='bytes10'
+					lv_type_2_12='bytes12'
 					{
-						newLeafNode(lv_type_2_12, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes10Keyword_2_0_11());
+						newLeafNode(lv_type_2_12, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes12Keyword_2_0_11());
 					}
 					{
 						if ($current==null) {
@@ -6932,9 +7034,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_12, null);
 					}
 					    |
-					lv_type_2_13='bytes11'
+					lv_type_2_13='bytes13'
 					{
-						newLeafNode(lv_type_2_13, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes11Keyword_2_0_12());
+						newLeafNode(lv_type_2_13, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes13Keyword_2_0_12());
 					}
 					{
 						if ($current==null) {
@@ -6943,9 +7045,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_13, null);
 					}
 					    |
-					lv_type_2_14='bytes12'
+					lv_type_2_14='bytes14'
 					{
-						newLeafNode(lv_type_2_14, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes12Keyword_2_0_13());
+						newLeafNode(lv_type_2_14, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes14Keyword_2_0_13());
 					}
 					{
 						if ($current==null) {
@@ -6954,9 +7056,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_14, null);
 					}
 					    |
-					lv_type_2_15='bytes13'
+					lv_type_2_15='bytes15'
 					{
-						newLeafNode(lv_type_2_15, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes13Keyword_2_0_14());
+						newLeafNode(lv_type_2_15, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes15Keyword_2_0_14());
 					}
 					{
 						if ($current==null) {
@@ -6965,9 +7067,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_15, null);
 					}
 					    |
-					lv_type_2_16='bytes14'
+					lv_type_2_16='bytes16'
 					{
-						newLeafNode(lv_type_2_16, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes14Keyword_2_0_15());
+						newLeafNode(lv_type_2_16, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes16Keyword_2_0_15());
 					}
 					{
 						if ($current==null) {
@@ -6976,9 +7078,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_16, null);
 					}
 					    |
-					lv_type_2_17='bytes15'
+					lv_type_2_17='bytes17'
 					{
-						newLeafNode(lv_type_2_17, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes15Keyword_2_0_16());
+						newLeafNode(lv_type_2_17, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes17Keyword_2_0_16());
 					}
 					{
 						if ($current==null) {
@@ -6987,9 +7089,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_17, null);
 					}
 					    |
-					lv_type_2_18='bytes16'
+					lv_type_2_18='bytes18'
 					{
-						newLeafNode(lv_type_2_18, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes16Keyword_2_0_17());
+						newLeafNode(lv_type_2_18, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes18Keyword_2_0_17());
 					}
 					{
 						if ($current==null) {
@@ -6998,9 +7100,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_18, null);
 					}
 					    |
-					lv_type_2_19='bytes17'
+					lv_type_2_19='bytes19'
 					{
-						newLeafNode(lv_type_2_19, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes17Keyword_2_0_18());
+						newLeafNode(lv_type_2_19, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes19Keyword_2_0_18());
 					}
 					{
 						if ($current==null) {
@@ -7009,9 +7111,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_19, null);
 					}
 					    |
-					lv_type_2_20='bytes18'
+					lv_type_2_20='bytes20'
 					{
-						newLeafNode(lv_type_2_20, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes18Keyword_2_0_19());
+						newLeafNode(lv_type_2_20, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes20Keyword_2_0_19());
 					}
 					{
 						if ($current==null) {
@@ -7020,9 +7122,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_20, null);
 					}
 					    |
-					lv_type_2_21='bytes19'
+					lv_type_2_21='bytes21'
 					{
-						newLeafNode(lv_type_2_21, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes19Keyword_2_0_20());
+						newLeafNode(lv_type_2_21, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes21Keyword_2_0_20());
 					}
 					{
 						if ($current==null) {
@@ -7031,9 +7133,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_21, null);
 					}
 					    |
-					lv_type_2_22='bytes20'
+					lv_type_2_22='bytes22'
 					{
-						newLeafNode(lv_type_2_22, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes20Keyword_2_0_21());
+						newLeafNode(lv_type_2_22, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes22Keyword_2_0_21());
 					}
 					{
 						if ($current==null) {
@@ -7042,9 +7144,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_22, null);
 					}
 					    |
-					lv_type_2_23='bytes21'
+					lv_type_2_23='bytes23'
 					{
-						newLeafNode(lv_type_2_23, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes21Keyword_2_0_22());
+						newLeafNode(lv_type_2_23, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes23Keyword_2_0_22());
 					}
 					{
 						if ($current==null) {
@@ -7053,9 +7155,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_23, null);
 					}
 					    |
-					lv_type_2_24='bytes22'
+					lv_type_2_24='bytes24'
 					{
-						newLeafNode(lv_type_2_24, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes22Keyword_2_0_23());
+						newLeafNode(lv_type_2_24, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes24Keyword_2_0_23());
 					}
 					{
 						if ($current==null) {
@@ -7064,9 +7166,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_24, null);
 					}
 					    |
-					lv_type_2_25='bytes23'
+					lv_type_2_25='bytes25'
 					{
-						newLeafNode(lv_type_2_25, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes23Keyword_2_0_24());
+						newLeafNode(lv_type_2_25, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes25Keyword_2_0_24());
 					}
 					{
 						if ($current==null) {
@@ -7075,9 +7177,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_25, null);
 					}
 					    |
-					lv_type_2_26='bytes24'
+					lv_type_2_26='bytes26'
 					{
-						newLeafNode(lv_type_2_26, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes24Keyword_2_0_25());
+						newLeafNode(lv_type_2_26, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes26Keyword_2_0_25());
 					}
 					{
 						if ($current==null) {
@@ -7086,9 +7188,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_26, null);
 					}
 					    |
-					lv_type_2_27='bytes25'
+					lv_type_2_27='bytes27'
 					{
-						newLeafNode(lv_type_2_27, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes25Keyword_2_0_26());
+						newLeafNode(lv_type_2_27, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes27Keyword_2_0_26());
 					}
 					{
 						if ($current==null) {
@@ -7097,9 +7199,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_27, null);
 					}
 					    |
-					lv_type_2_28='bytes26'
+					lv_type_2_28='bytes28'
 					{
-						newLeafNode(lv_type_2_28, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes26Keyword_2_0_27());
+						newLeafNode(lv_type_2_28, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes28Keyword_2_0_27());
 					}
 					{
 						if ($current==null) {
@@ -7108,9 +7210,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_28, null);
 					}
 					    |
-					lv_type_2_29='bytes27'
+					lv_type_2_29='bytes29'
 					{
-						newLeafNode(lv_type_2_29, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes27Keyword_2_0_28());
+						newLeafNode(lv_type_2_29, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes29Keyword_2_0_28());
 					}
 					{
 						if ($current==null) {
@@ -7119,9 +7221,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_29, null);
 					}
 					    |
-					lv_type_2_30='bytes28'
+					lv_type_2_30='bytes30'
 					{
-						newLeafNode(lv_type_2_30, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes28Keyword_2_0_29());
+						newLeafNode(lv_type_2_30, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes30Keyword_2_0_29());
 					}
 					{
 						if ($current==null) {
@@ -7130,9 +7232,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_30, null);
 					}
 					    |
-					lv_type_2_31='bytes29'
+					lv_type_2_31='bytes31'
 					{
-						newLeafNode(lv_type_2_31, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes29Keyword_2_0_30());
+						newLeafNode(lv_type_2_31, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes31Keyword_2_0_30());
 					}
 					{
 						if ($current==null) {
@@ -7141,9 +7243,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_31, null);
 					}
 					    |
-					lv_type_2_32='bytes30'
+					lv_type_2_32='bytes32'
 					{
-						newLeafNode(lv_type_2_32, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes30Keyword_2_0_31());
+						newLeafNode(lv_type_2_32, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes32Keyword_2_0_31());
 					}
 					{
 						if ($current==null) {
@@ -7152,9 +7254,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_32, null);
 					}
 					    |
-					lv_type_2_33='bytes31'
+					lv_type_2_33='bytes'
 					{
-						newLeafNode(lv_type_2_33, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes31Keyword_2_0_32());
+						newLeafNode(lv_type_2_33, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytesKeyword_2_0_32());
 					}
 					{
 						if ($current==null) {
@@ -7163,9 +7265,9 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 						setWithLastConsumed($current, "type", lv_type_2_33, null);
 					}
 					    |
-					lv_type_2_34='bytes32'
+					lv_type_2_34='byte'
 					{
-						newLeafNode(lv_type_2_34, grammarAccess.getElementaryTypeNameEnumAccess().getTypeBytes32Keyword_2_0_33());
+						newLeafNode(lv_type_2_34, grammarAccess.getElementaryTypeNameEnumAccess().getTypeByteKeyword_2_0_33());
 					}
 					{
 						if ($current==null) {
@@ -7179,16 +7281,40 @@ ruleElementaryTypeNameEnum returns [EObject current=null]
 		    |
 		(
 			(
-				lv_type_3_0='address'
-				{
-					newLeafNode(lv_type_3_0, grammarAccess.getElementaryTypeNameEnumAccess().getTypeAddressKeyword_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+				(
+					lv_type_3_1='address'
+					{
+						newLeafNode(lv_type_3_1, grammarAccess.getElementaryTypeNameEnumAccess().getTypeAddressKeyword_3_0_0());
 					}
-					setWithLastConsumed($current, "type", lv_type_3_0, "address");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+						}
+						setWithLastConsumed($current, "type", lv_type_3_1, null);
+					}
+					    |
+					lv_type_3_2='real'
+					{
+						newLeafNode(lv_type_3_2, grammarAccess.getElementaryTypeNameEnumAccess().getTypeRealKeyword_3_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+						}
+						setWithLastConsumed($current, "type", lv_type_3_2, null);
+					}
+					    |
+					lv_type_3_3='ureal'
+					{
+						newLeafNode(lv_type_3_3, grammarAccess.getElementaryTypeNameEnumAccess().getTypeUrealKeyword_3_0_2());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getElementaryTypeNameEnumRule());
+						}
+						setWithLastConsumed($current, "type", lv_type_3_3, null);
+					}
+				)
 			)
 		)
 	)
@@ -7342,15 +7468,15 @@ ruleVisibilityEnum returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleEtherSubDenominationEnum
-entryRuleEtherSubDenominationEnum returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEtherSubDenominationEnumRule()); }
-	iv_ruleEtherSubDenominationEnum=ruleEtherSubDenominationEnum
-	{ $current=$iv_ruleEtherSubDenominationEnum.current; }
+// Entry rule entryRuleUnitsLiteral
+entryRuleUnitsLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getUnitsLiteralRule()); }
+	iv_ruleUnitsLiteral=ruleUnitsLiteral
+	{ $current=$iv_ruleUnitsLiteral.current; }
 	EOF;
 
-// Rule EtherSubDenominationEnum
-ruleEtherSubDenominationEnum returns [EObject current=null]
+// Rule UnitsLiteral
+ruleUnitsLiteral returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -7362,44 +7488,44 @@ ruleEtherSubDenominationEnum returns [EObject current=null]
 			(
 				lv_value_0_1='wei'
 				{
-					newLeafNode(lv_value_0_1, grammarAccess.getEtherSubDenominationEnumAccess().getValueWeiKeyword_0_0());
+					newLeafNode(lv_value_0_1, grammarAccess.getUnitsLiteralAccess().getValueWeiKeyword_0_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEtherSubDenominationEnumRule());
+						$current = createModelElement(grammarAccess.getUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_1, null);
 				}
 				    |
 				lv_value_0_2='szabo'
 				{
-					newLeafNode(lv_value_0_2, grammarAccess.getEtherSubDenominationEnumAccess().getValueSzaboKeyword_0_1());
+					newLeafNode(lv_value_0_2, grammarAccess.getUnitsLiteralAccess().getValueSzaboKeyword_0_1());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEtherSubDenominationEnumRule());
+						$current = createModelElement(grammarAccess.getUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_2, null);
 				}
 				    |
 				lv_value_0_3='finney'
 				{
-					newLeafNode(lv_value_0_3, grammarAccess.getEtherSubDenominationEnumAccess().getValueFinneyKeyword_0_2());
+					newLeafNode(lv_value_0_3, grammarAccess.getUnitsLiteralAccess().getValueFinneyKeyword_0_2());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEtherSubDenominationEnumRule());
+						$current = createModelElement(grammarAccess.getUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_3, null);
 				}
 				    |
 				lv_value_0_4='ether'
 				{
-					newLeafNode(lv_value_0_4, grammarAccess.getEtherSubDenominationEnumAccess().getValueEtherKeyword_0_3());
+					newLeafNode(lv_value_0_4, grammarAccess.getUnitsLiteralAccess().getValueEtherKeyword_0_3());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getEtherSubDenominationEnumRule());
+						$current = createModelElement(grammarAccess.getUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_4, null);
 				}
@@ -7408,15 +7534,15 @@ ruleEtherSubDenominationEnum returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleTimeSubdenominationEnum
-entryRuleTimeSubdenominationEnum returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTimeSubdenominationEnumRule()); }
-	iv_ruleTimeSubdenominationEnum=ruleTimeSubdenominationEnum
-	{ $current=$iv_ruleTimeSubdenominationEnum.current; }
+// Entry rule entryRuleTimeUnitsLiteral
+entryRuleTimeUnitsLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTimeUnitsLiteralRule()); }
+	iv_ruleTimeUnitsLiteral=ruleTimeUnitsLiteral
+	{ $current=$iv_ruleTimeUnitsLiteral.current; }
 	EOF;
 
-// Rule TimeSubdenominationEnum
-ruleTimeSubdenominationEnum returns [EObject current=null]
+// Rule TimeUnitsLiteral
+ruleTimeUnitsLiteral returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -7428,150 +7554,68 @@ ruleTimeSubdenominationEnum returns [EObject current=null]
 			(
 				lv_value_0_1='seconds'
 				{
-					newLeafNode(lv_value_0_1, grammarAccess.getTimeSubdenominationEnumAccess().getValueSecondsKeyword_0_0());
+					newLeafNode(lv_value_0_1, grammarAccess.getTimeUnitsLiteralAccess().getValueSecondsKeyword_0_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+						$current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_1, null);
 				}
 				    |
 				lv_value_0_2='minutes'
 				{
-					newLeafNode(lv_value_0_2, grammarAccess.getTimeSubdenominationEnumAccess().getValueMinutesKeyword_0_1());
+					newLeafNode(lv_value_0_2, grammarAccess.getTimeUnitsLiteralAccess().getValueMinutesKeyword_0_1());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+						$current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_2, null);
 				}
 				    |
 				lv_value_0_3='hours'
 				{
-					newLeafNode(lv_value_0_3, grammarAccess.getTimeSubdenominationEnumAccess().getValueHoursKeyword_0_2());
+					newLeafNode(lv_value_0_3, grammarAccess.getTimeUnitsLiteralAccess().getValueHoursKeyword_0_2());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+						$current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_3, null);
 				}
 				    |
 				lv_value_0_4='days'
 				{
-					newLeafNode(lv_value_0_4, grammarAccess.getTimeSubdenominationEnumAccess().getValueDaysKeyword_0_3());
+					newLeafNode(lv_value_0_4, grammarAccess.getTimeUnitsLiteralAccess().getValueDaysKeyword_0_3());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+						$current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_4, null);
 				}
 				    |
 				lv_value_0_5='weeks'
 				{
-					newLeafNode(lv_value_0_5, grammarAccess.getTimeSubdenominationEnumAccess().getValueWeeksKeyword_0_4());
+					newLeafNode(lv_value_0_5, grammarAccess.getTimeUnitsLiteralAccess().getValueWeeksKeyword_0_4());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+						$current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_5, null);
 				}
 				    |
 				lv_value_0_6='years'
 				{
-					newLeafNode(lv_value_0_6, grammarAccess.getTimeSubdenominationEnumAccess().getValueYearsKeyword_0_5());
+					newLeafNode(lv_value_0_6, grammarAccess.getTimeUnitsLiteralAccess().getValueYearsKeyword_0_5());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTimeSubdenominationEnumRule());
+						$current = createModelElement(grammarAccess.getTimeUnitsLiteralRule());
 					}
 					setWithLastConsumed($current, "value", lv_value_0_6, null);
-				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleSpecialLiteral
-entryRuleSpecialLiteral returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSpecialLiteralRule()); }
-	iv_ruleSpecialLiteral=ruleSpecialLiteral
-	{ $current=$iv_ruleSpecialLiteral.current; }
-	EOF;
-
-// Rule SpecialLiteral
-ruleSpecialLiteral returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				lv_name_0_1=RULE_BLOCK
-				{
-					newLeafNode(lv_name_0_1, grammarAccess.getSpecialLiteralAccess().getNameBLOCKTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSpecialLiteralRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_0_1,
-						"org.unicam.myGrammar.OptGrammar.BLOCK");
-				}
-				    |
-				lv_name_0_2=RULE_MSG
-				{
-					newLeafNode(lv_name_0_2, grammarAccess.getSpecialLiteralAccess().getNameMSGTerminalRuleCall_0_1());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSpecialLiteralRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_0_2,
-						"org.unicam.myGrammar.OptGrammar.MSG");
-				}
-				    |
-				lv_name_0_3=RULE_TX
-				{
-					newLeafNode(lv_name_0_3, grammarAccess.getSpecialLiteralAccess().getNameTXTerminalRuleCall_0_2());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSpecialLiteralRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_0_3,
-						"org.unicam.myGrammar.OptGrammar.TX");
-				}
-				    |
-				lv_name_0_4=RULE_NOW
-				{
-					newLeafNode(lv_name_0_4, grammarAccess.getSpecialLiteralAccess().getNameNOWTerminalRuleCall_0_3());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSpecialLiteralRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_0_4,
-						"org.unicam.myGrammar.OptGrammar.NOW");
 				}
 			)
 		)
@@ -7909,41 +7953,6 @@ ruleBooleanLiteralEnum returns [Enumerator current=null]
 			{
 				$current = grammarAccess.getBooleanLiteralEnumAccess().getFALSEEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getBooleanLiteralEnumAccess().getFALSEEnumLiteralDeclaration_1());
-			}
-		)
-	)
-;
-
-// Rule SpecialVariablesTypeEnum
-ruleSpecialVariablesTypeEnum returns [Enumerator current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			enumLiteral_0='msg'
-			{
-				$current = grammarAccess.getSpecialVariablesTypeEnumAccess().getMSGEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_0, grammarAccess.getSpecialVariablesTypeEnumAccess().getMSGEnumLiteralDeclaration_0());
-			}
-		)
-		    |
-		(
-			enumLiteral_1='block'
-			{
-				$current = grammarAccess.getSpecialVariablesTypeEnumAccess().getBLOCKEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_1, grammarAccess.getSpecialVariablesTypeEnumAccess().getBLOCKEnumLiteralDeclaration_1());
-			}
-		)
-		    |
-		(
-			enumLiteral_2='tx'
-			{
-				$current = grammarAccess.getSpecialVariablesTypeEnumAccess().getTXEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-				newLeafNode(enumLiteral_2, grammarAccess.getSpecialVariablesTypeEnumAccess().getTXEnumLiteralDeclaration_2());
 			}
 		)
 	)

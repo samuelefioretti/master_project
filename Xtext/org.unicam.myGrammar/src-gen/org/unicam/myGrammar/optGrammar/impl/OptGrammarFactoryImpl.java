@@ -130,22 +130,21 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.SIGN_EXPRESSION: return createSignExpression();
       case OptGrammarPackage.NEW_EXPRESSION: return createNewExpression();
       case OptGrammarPackage.LITERAL: return createLiteral();
+      case OptGrammarPackage.SPECIAL_LITERAL: return createSpecialLiteral();
       case OptGrammarPackage.BOOLEAN_CONST: return createBooleanConst();
       case OptGrammarPackage.NUMERIC_LITERAL: return createNumericLiteral();
       case OptGrammarPackage.UNIT_TYPES: return createUnitTypes();
-      case OptGrammarPackage.NUMBER_DIMENSIONLESS: return createNumberDimensionless();
+      case OptGrammarPackage.INT_LITERAL: return createIntLiteral();
       case OptGrammarPackage.HEX_LITERAL: return createHexLiteral();
       case OptGrammarPackage.DECIMAL_LITERAL: return createDecimalLiteral();
       case OptGrammarPackage.STRING_LITERAL: return createStringLiteral();
       case OptGrammarPackage.TYPE_CAST: return createTypeCast();
-      case OptGrammarPackage.SPECIAL_VARIABLES: return createSpecialVariables();
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM: return createElementaryTypeNameEnum();
       case OptGrammarPackage.SIMPLE_TYPE_DECLARATION: return createSimpleTypeDeclaration();
       case OptGrammarPackage.LOCATION_SPECIFIER_ENUM: return createLocationSpecifierEnum();
       case OptGrammarPackage.VISIBILITY_ENUM: return createVisibilityEnum();
-      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM: return createEtherSubDenominationEnum();
-      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM: return createTimeSubdenominationEnum();
-      case OptGrammarPackage.SPECIAL_LITERAL: return createSpecialLiteral();
+      case OptGrammarPackage.UNITS_LITERAL: return createUnitsLiteral();
+      case OptGrammarPackage.TIME_UNITS_LITERAL: return createTimeUnitsLiteral();
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION: return createVarVariableTypeDeclaration();
       case OptGrammarPackage.BLOCK: return createBlock();
       case OptGrammarPackage.CONTINUE: return createContinue();
@@ -194,12 +193,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
         return createIncDecOpEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.BOOLEAN_LITERAL_ENUM:
         return createBooleanLiteralEnumFromString(eDataType, initialValue);
-      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM:
-        return createSpecialVariablesTypeEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.SPECIAL_EXPRESSION_TYPE_ENUM:
         return createSpecialExpressionTypeEnumFromString(eDataType, initialValue);
-      case OptGrammarPackage.RESERVED_WORDS_ENUM:
-        return createReservedWordsEnumFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -231,12 +226,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
         return convertIncDecOpEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.BOOLEAN_LITERAL_ENUM:
         return convertBooleanLiteralEnumToString(eDataType, instanceValue);
-      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM:
-        return convertSpecialVariablesTypeEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.SPECIAL_EXPRESSION_TYPE_ENUM:
         return convertSpecialExpressionTypeEnumToString(eDataType, instanceValue);
-      case OptGrammarPackage.RESERVED_WORDS_ENUM:
-        return convertReservedWordsEnumToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -1016,6 +1007,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
+  public SpecialLiteral createSpecialLiteral()
+  {
+    SpecialLiteralImpl specialLiteral = new SpecialLiteralImpl();
+    return specialLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public BooleanConst createBooleanConst()
   {
     BooleanConstImpl booleanConst = new BooleanConstImpl();
@@ -1052,10 +1055,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public NumberDimensionless createNumberDimensionless()
+  public IntLiteral createIntLiteral()
   {
-    NumberDimensionlessImpl numberDimensionless = new NumberDimensionlessImpl();
-    return numberDimensionless;
+    IntLiteralImpl intLiteral = new IntLiteralImpl();
+    return intLiteral;
   }
 
   /**
@@ -1112,18 +1115,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public SpecialVariables createSpecialVariables()
-  {
-    SpecialVariablesImpl specialVariables = new SpecialVariablesImpl();
-    return specialVariables;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public ElementaryTypeNameEnum createElementaryTypeNameEnum()
   {
     ElementaryTypeNameEnumImpl elementaryTypeNameEnum = new ElementaryTypeNameEnumImpl();
@@ -1172,10 +1163,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public EtherSubDenominationEnum createEtherSubDenominationEnum()
+  public UnitsLiteral createUnitsLiteral()
   {
-    EtherSubDenominationEnumImpl etherSubDenominationEnum = new EtherSubDenominationEnumImpl();
-    return etherSubDenominationEnum;
+    UnitsLiteralImpl unitsLiteral = new UnitsLiteralImpl();
+    return unitsLiteral;
   }
 
   /**
@@ -1184,22 +1175,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public TimeSubdenominationEnum createTimeSubdenominationEnum()
+  public TimeUnitsLiteral createTimeUnitsLiteral()
   {
-    TimeSubdenominationEnumImpl timeSubdenominationEnum = new TimeSubdenominationEnumImpl();
-    return timeSubdenominationEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SpecialLiteral createSpecialLiteral()
-  {
-    SpecialLiteralImpl specialLiteral = new SpecialLiteralImpl();
-    return specialLiteral;
+    TimeUnitsLiteralImpl timeUnitsLiteral = new TimeUnitsLiteralImpl();
+    return timeUnitsLiteral;
   }
 
   /**
@@ -1587,28 +1566,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public SpecialVariablesTypeEnum createSpecialVariablesTypeEnumFromString(EDataType eDataType, String initialValue)
-  {
-    SpecialVariablesTypeEnum result = SpecialVariablesTypeEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertSpecialVariablesTypeEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public SpecialExpressionTypeEnum createSpecialExpressionTypeEnumFromString(EDataType eDataType, String initialValue)
   {
     SpecialExpressionTypeEnum result = SpecialExpressionTypeEnum.get(initialValue);
@@ -1622,28 +1579,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   public String convertSpecialExpressionTypeEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ReservedWordsEnum createReservedWordsEnumFromString(EDataType eDataType, String initialValue)
-  {
-    ReservedWordsEnum result = ReservedWordsEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertReservedWordsEnumToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
