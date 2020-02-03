@@ -3,6 +3,7 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +24,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface NumericLiteral extends Literal
+public interface NumericLiteral extends EObject
 {
   /**
    * Returns the value of the '<em><b>Int Value</b></em>' containment reference.

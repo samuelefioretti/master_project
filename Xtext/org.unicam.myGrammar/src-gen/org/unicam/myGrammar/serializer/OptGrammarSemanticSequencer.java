@@ -78,6 +78,7 @@ import org.unicam.myGrammar.optGrammar.ReturnStatement;
 import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
 import org.unicam.myGrammar.optGrammar.Shift;
 import org.unicam.myGrammar.optGrammar.SignExpression;
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialLiteral;
 import org.unicam.myGrammar.optGrammar.SpecialVariables;
@@ -408,6 +409,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.SIGN_EXPRESSION:
 				sequence_SignExpression(context, (SignExpression) semanticObject); 
+				return; 
+			case OptGrammarPackage.SIMPLE_TYPE_DECLARATION:
+				sequence_SimpleTypeDeclaration(context, (SimpleTypeDeclaration) semanticObject); 
 				return; 
 			case OptGrammarPackage.SPECIAL_EXPRESSION:
 				sequence_SpecialExpression(context, (SpecialExpression) semanticObject); 
@@ -2069,42 +2073,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Expression returns NumericLiteral
-	 *     Assignment returns NumericLiteral
-	 *     Assignment.Assignment_1_0_0 returns NumericLiteral
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns NumericLiteral
-	 *     BinaryExpression returns NumericLiteral
-	 *     Or returns NumericLiteral
-	 *     Or.Or_1_0 returns NumericLiteral
-	 *     And returns NumericLiteral
-	 *     And.And_1_0 returns NumericLiteral
-	 *     Equality returns NumericLiteral
-	 *     Equality.Equality_1_0 returns NumericLiteral
-	 *     Comparison returns NumericLiteral
-	 *     Comparison.Comparison_1_0 returns NumericLiteral
-	 *     BitOr returns NumericLiteral
-	 *     BitOr.BitOr_1_0 returns NumericLiteral
-	 *     BitXor returns NumericLiteral
-	 *     BitXor.BitXor_1_0 returns NumericLiteral
-	 *     BitAnd returns NumericLiteral
-	 *     BitAnd.BitAnd_1_0 returns NumericLiteral
-	 *     Shift returns NumericLiteral
-	 *     Shift.Shift_1_0 returns NumericLiteral
-	 *     AddSub returns NumericLiteral
-	 *     AddSub.AddSub_1_0_0 returns NumericLiteral
-	 *     MulDivMod returns NumericLiteral
-	 *     MulDivMod.MulDivMod_1_0 returns NumericLiteral
-	 *     Exponent returns NumericLiteral
-	 *     Exponent.Exponent_1_0 returns NumericLiteral
-	 *     UnaryExpression returns NumericLiteral
-	 *     PreExpression returns NumericLiteral
-	 *     PreExpression.PreIncExpression_1_2 returns NumericLiteral
-	 *     PreExpression.PreDecExpression_2_2 returns NumericLiteral
-	 *     PostIncDecExpression returns NumericLiteral
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NumericLiteral
-	 *     PrimaryExpression returns NumericLiteral
-	 *     PrimaryExpression.Tuple_4_2_0 returns NumericLiteral
-	 *     Literal returns NumericLiteral
 	 *     NumericLiteral returns NumericLiteral
 	 *
 	 * Constraint:
@@ -2755,6 +2723,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getSimpleStatementAccess().getExpressionExpressionParserRuleCall_0_1_1_0_2_1_0(), semanticObject.getExpression());
 		feeder.accept(grammarAccess.getSimpleStatementAccess().getSemicolonSemicolonKeyword_1_0(), semanticObject.isSemicolon());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SimpleTypeDeclaration returns SimpleTypeDeclaration
+	 *
+	 * Constraint:
+	 *     (type='string' | type='bool')
+	 */
+	protected void sequence_SimpleTypeDeclaration(ISerializationContext context, SimpleTypeDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

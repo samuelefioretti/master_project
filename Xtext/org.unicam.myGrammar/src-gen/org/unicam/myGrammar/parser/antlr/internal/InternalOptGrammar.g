@@ -5648,38 +5648,29 @@ ruleLiteral returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getBooleanConstParserRuleCall_1());
+			newCompositeNode(grammarAccess.getLiteralAccess().getStringLiteralParserRuleCall_1());
 		}
-		this_BooleanConst_1=ruleBooleanConst
+		this_StringLiteral_1=ruleStringLiteral
 		{
-			$current = $this_BooleanConst_1.current;
+			$current = $this_StringLiteral_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getNumericLiteralParserRuleCall_2());
+			newCompositeNode(grammarAccess.getLiteralAccess().getBooleanConstParserRuleCall_2());
 		}
-		this_NumericLiteral_2=ruleNumericLiteral
+		this_BooleanConst_2=ruleBooleanConst
 		{
-			$current = $this_NumericLiteral_2.current;
+			$current = $this_BooleanConst_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getStringLiteralParserRuleCall_3());
+			newCompositeNode(grammarAccess.getLiteralAccess().getSpecialLiteralParserRuleCall_3());
 		}
-		this_StringLiteral_3=ruleStringLiteral
+		this_SpecialLiteral_3=ruleSpecialLiteral
 		{
-			$current = $this_StringLiteral_3.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getLiteralAccess().getSpecialLiteralParserRuleCall_4());
-		}
-		this_SpecialLiteral_4=ruleSpecialLiteral
-		{
-			$current = $this_SpecialLiteral_4.current;
+			$current = $this_SpecialLiteral_3.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -5718,105 +5709,6 @@ ruleBooleanConst returns [EObject current=null]
 				afterParserOrEnumRuleCall();
 			}
 		)
-	)
-;
-
-// Entry rule entryRuleNumericLiteral
-entryRuleNumericLiteral returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNumericLiteralRule()); }
-	iv_ruleNumericLiteral=ruleNumericLiteral
-	{ $current=$iv_ruleNumericLiteral.current; }
-	EOF;
-
-// Rule NumericLiteral
-ruleNumericLiteral returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getNumericLiteralAccess().getIntValueNumberDimensionlessParserRuleCall_0_0_0());
-					}
-					lv_intValue_0_0=ruleNumberDimensionless
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
-						}
-						set(
-							$current,
-							"intValue",
-							lv_intValue_0_0,
-							"org.unicam.myGrammar.OptGrammar.NumberDimensionless");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getNumericLiteralAccess().getHexValueHexLiteralParserRuleCall_0_1_0());
-					}
-					lv_hexValue_1_0=ruleHexLiteral
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
-						}
-						set(
-							$current,
-							"hexValue",
-							lv_hexValue_1_0,
-							"org.unicam.myGrammar.OptGrammar.HexLiteral");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getNumericLiteralAccess().getDecimalValueDecimalLiteralParserRuleCall_0_2_0());
-					}
-					lv_decimalValue_2_0=ruleDecimalLiteral
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
-						}
-						set(
-							$current,
-							"decimalValue",
-							lv_decimalValue_2_0,
-							"org.unicam.myGrammar.OptGrammar.DecimalLiteral");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getNumericLiteralAccess().getEtherUnitUnitTypesParserRuleCall_1_0());
-				}
-				lv_etherUnit_3_0=ruleUnitTypes
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getNumericLiteralRule());
-					}
-					set(
-						$current,
-						"etherUnit",
-						lv_etherUnit_3_0,
-						"org.unicam.myGrammar.OptGrammar.UnitTypes");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
 	)
 ;
 

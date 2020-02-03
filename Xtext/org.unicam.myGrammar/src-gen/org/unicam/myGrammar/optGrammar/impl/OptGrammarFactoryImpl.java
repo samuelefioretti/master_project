@@ -140,6 +140,7 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.TYPE_CAST: return createTypeCast();
       case OptGrammarPackage.SPECIAL_VARIABLES: return createSpecialVariables();
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM: return createElementaryTypeNameEnum();
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION: return createSimpleTypeDeclaration();
       case OptGrammarPackage.LOCATION_SPECIFIER_ENUM: return createLocationSpecifierEnum();
       case OptGrammarPackage.VISIBILITY_ENUM: return createVisibilityEnum();
       case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM: return createEtherSubDenominationEnum();
@@ -1127,6 +1128,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     ElementaryTypeNameEnumImpl elementaryTypeNameEnum = new ElementaryTypeNameEnumImpl();
     return elementaryTypeNameEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SimpleTypeDeclaration createSimpleTypeDeclaration()
+  {
+    SimpleTypeDeclarationImpl simpleTypeDeclaration = new SimpleTypeDeclarationImpl();
+    return simpleTypeDeclaration;
   }
 
   /**

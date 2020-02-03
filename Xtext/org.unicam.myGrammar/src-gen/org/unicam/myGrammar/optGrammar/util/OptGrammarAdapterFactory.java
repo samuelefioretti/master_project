@@ -446,6 +446,11 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createElementaryTypeNameEnumAdapter();
       }
       @Override
+      public Adapter caseSimpleTypeDeclaration(SimpleTypeDeclaration object)
+      {
+        return createSimpleTypeDeclarationAdapter();
+      }
+      @Override
       public Adapter caseLocationSpecifierEnum(LocationSpecifierEnum object)
       {
         return createLocationSpecifierEnumAdapter();
@@ -1683,6 +1688,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createElementaryTypeNameEnumAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration <em>Simple Type Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration
+   * @generated
+   */
+  public Adapter createSimpleTypeDeclarationAdapter()
   {
     return null;
   }

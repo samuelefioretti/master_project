@@ -595,8 +595,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         NumericLiteral numericLiteral = (NumericLiteral)theEObject;
         T result = caseNumericLiteral(numericLiteral);
-        if (result == null) result = caseLiteral(numericLiteral);
-        if (result == null) result = caseExpression(numericLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -658,6 +656,13 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         ElementaryTypeNameEnum elementaryTypeNameEnum = (ElementaryTypeNameEnum)theEObject;
         T result = caseElementaryTypeNameEnum(elementaryTypeNameEnum);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION:
+      {
+        SimpleTypeDeclaration simpleTypeDeclaration = (SimpleTypeDeclaration)theEObject;
+        T result = caseSimpleTypeDeclaration(simpleTypeDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2022,6 +2027,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseElementaryTypeNameEnum(ElementaryTypeNameEnum object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleTypeDeclaration(SimpleTypeDeclaration object)
   {
     return null;
   }

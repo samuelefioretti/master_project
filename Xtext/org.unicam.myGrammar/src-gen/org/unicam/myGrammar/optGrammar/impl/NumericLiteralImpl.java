@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
@@ -34,7 +35,7 @@ import org.unicam.myGrammar.optGrammar.UnitTypes;
  *
  * @generated
  */
-public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
+public class NumericLiteralImpl extends MinimalEObjectImpl.Container implements NumericLiteral
 {
   /**
    * The cached value of the '{@link #getIntValue() <em>Int Value</em>}' containment reference.

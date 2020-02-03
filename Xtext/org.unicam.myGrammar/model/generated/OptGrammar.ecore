@@ -271,7 +271,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BooleanConst" eSuperTypes="#//Literal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//BooleanLiteralEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral" eSuperTypes="#//Literal">
+  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral">
     <eStructuralFeatures xsi:type="ecore:EReference" name="intValue" eType="#//NumberDimensionless"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hexValue" eType="#//HexLiteral"
@@ -312,6 +312,9 @@
         eType="#//Qualifier" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElementaryTypeNameEnum">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleTypeDeclaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocationSpecifierEnum">

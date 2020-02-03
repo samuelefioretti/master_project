@@ -3282,32 +3282,43 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.Literal");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSpecialVariablesParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cBooleanConstParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cNumericLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cStringLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSpecialLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cStringLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cBooleanConstParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSpecialLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Literal:
-		//	SpecialVariables | BooleanConst | NumericLiteral | StringLiteral | SpecialLiteral;
+		//	SpecialVariables | StringLiteral | BooleanConst | SpecialLiteral //|
+		//	/*
+		//	 * FunctionCall |
+		//	 * ArrayAccess |
+		//	 * MappingAccess |
+		//	 * FieldAccess |
+		//	 * BlockhashFunction |
+		//	 * GasleftFunction |
+		//	 * MathematicalFunction |
+		//	 * HashFunction |
+		//	 * EcrecoverFunction |
+		//	 * ref=[Declaration]
+		//	 */;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SpecialVariables | BooleanConst | NumericLiteral | StringLiteral | SpecialLiteral
+		////ArithmeticOperations |
+		//SpecialVariables | StringLiteral | BooleanConst | SpecialLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		////ArithmeticOperations |
 		//SpecialVariables
 		public RuleCall getSpecialVariablesParserRuleCall_0() { return cSpecialVariablesParserRuleCall_0; }
 		
-		//BooleanConst
-		public RuleCall getBooleanConstParserRuleCall_1() { return cBooleanConstParserRuleCall_1; }
-		
-		//NumericLiteral
-		public RuleCall getNumericLiteralParserRuleCall_2() { return cNumericLiteralParserRuleCall_2; }
-		
+		////NumericLiteral |
 		//StringLiteral
-		public RuleCall getStringLiteralParserRuleCall_3() { return cStringLiteralParserRuleCall_3; }
+		public RuleCall getStringLiteralParserRuleCall_1() { return cStringLiteralParserRuleCall_1; }
+		
+		//BooleanConst
+		public RuleCall getBooleanConstParserRuleCall_2() { return cBooleanConstParserRuleCall_2; }
 		
 		//SpecialLiteral
-		public RuleCall getSpecialLiteralParserRuleCall_4() { return cSpecialLiteralParserRuleCall_4; }
+		public RuleCall getSpecialLiteralParserRuleCall_3() { return cSpecialLiteralParserRuleCall_3; }
 	}
 	public class BooleanConstElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.BooleanConst");
@@ -3652,13 +3663,13 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//	// UINT
 		//	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
 		//	"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
-		//	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" |
-		//	"uint240" | "uint248" | "uint256") | type=(
+		//	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
+		//	| "uint248" | "uint256") | type=(
 		//	// BYTES
 		//	"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-		//	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" |
-		//	"bytes19" | "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" |
-		//	"bytes28" | "bytes29" | "bytes30" | "bytes31" | "bytes32") | type="address";
+		//	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
+		//	| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
+		//	"bytes29" | "bytes30" | "bytes31" | "bytes32") | type="address";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//type=( //INT
@@ -4015,12 +4026,35 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//"bytes32"
 		public Keyword getTypeBytes32Keyword_2_0_33() { return cTypeBytes32Keyword_2_0_33; }
 		
-		//// Other
+		//// OTHER
 		//type="address"
 		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 		
 		//"address"
 		public Keyword getTypeAddressKeyword_3_0() { return cTypeAddressKeyword_3_0; }
+	}
+	public class SimpleTypeDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.SimpleTypeDeclaration");
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cTypeAlternatives_0 = (Alternatives)cTypeAssignment.eContents().get(0);
+		private final Keyword cTypeStringKeyword_0_0 = (Keyword)cTypeAlternatives_0.eContents().get(0);
+		private final Keyword cTypeBoolKeyword_0_1 = (Keyword)cTypeAlternatives_0.eContents().get(1);
+		
+		//SimpleTypeDeclaration:
+		//	type=("string" | "bool");
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=("string" | "bool")
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
+		
+		//("string" | "bool")
+		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
+		
+		//"string"
+		public Keyword getTypeStringKeyword_0_0() { return cTypeStringKeyword_0_0; }
+		
+		//"bool"
+		public Keyword getTypeBoolKeyword_0_1() { return cTypeBoolKeyword_0_1; }
 	}
 	public class MapLocationLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.unicam.myGrammar.OptGrammar.MapLocationLiteral");
@@ -4817,6 +4851,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	private final TypeCastElements pTypeCast;
 	private final SpecialVariablesElements pSpecialVariables;
 	private final ElementaryTypeNameEnumElements pElementaryTypeNameEnum;
+	private final SimpleTypeDeclarationElements pSimpleTypeDeclaration;
 	private final MapLocationLiteralElements pMapLocationLiteral;
 	private final LocationSpecifierEnumElements pLocationSpecifierEnum;
 	private final VisibilityEnumElements pVisibilityEnum;
@@ -4943,6 +4978,7 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		this.pTypeCast = new TypeCastElements();
 		this.pSpecialVariables = new SpecialVariablesElements();
 		this.pElementaryTypeNameEnum = new ElementaryTypeNameEnumElements();
+		this.pSimpleTypeDeclaration = new SimpleTypeDeclarationElements();
 		this.pMapLocationLiteral = new MapLocationLiteralElements();
 		this.pLocationSpecifierEnum = new LocationSpecifierEnumElements();
 		this.pVisibilityEnum = new VisibilityEnumElements();
@@ -5890,7 +5926,19 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Literal:
-	//	SpecialVariables | BooleanConst | NumericLiteral | StringLiteral | SpecialLiteral;
+	//	SpecialVariables | StringLiteral | BooleanConst | SpecialLiteral //|
+	//	/*
+	//	 * FunctionCall |
+	//	 * ArrayAccess |
+	//	 * MappingAccess |
+	//	 * FieldAccess |
+	//	 * BlockhashFunction |
+	//	 * GasleftFunction |
+	//	 * MathematicalFunction |
+	//	 * HashFunction |
+	//	 * EcrecoverFunction |
+	//	 * ref=[Declaration]
+	//	 */;
 	public LiteralElements getLiteralAccess() {
 		return pLiteral;
 	}
@@ -6010,19 +6058,29 @@ public class OptGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//	// UINT
 	//	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
 	//	"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
-	//	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" |
-	//	"uint240" | "uint248" | "uint256") | type=(
+	//	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
+	//	| "uint248" | "uint256") | type=(
 	//	// BYTES
 	//	"byte" | "bytes" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-	//	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" |
-	//	"bytes19" | "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" |
-	//	"bytes28" | "bytes29" | "bytes30" | "bytes31" | "bytes32") | type="address";
+	//	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
+	//	| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
+	//	"bytes29" | "bytes30" | "bytes31" | "bytes32") | type="address";
 	public ElementaryTypeNameEnumElements getElementaryTypeNameEnumAccess() {
 		return pElementaryTypeNameEnum;
 	}
 	
 	public ParserRule getElementaryTypeNameEnumRule() {
 		return getElementaryTypeNameEnumAccess().getRule();
+	}
+	
+	//SimpleTypeDeclaration:
+	//	type=("string" | "bool");
+	public SimpleTypeDeclarationElements getSimpleTypeDeclarationAccess() {
+		return pSimpleTypeDeclaration;
+	}
+	
+	public ParserRule getSimpleTypeDeclarationRule() {
+		return getSimpleTypeDeclarationAccess().getRule();
 	}
 	
 	//MapLocationLiteral:

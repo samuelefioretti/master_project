@@ -93,6 +93,7 @@ import org.unicam.myGrammar.optGrammar.ShiftOpEnum;
 import org.unicam.myGrammar.optGrammar.SignExpression;
 import org.unicam.myGrammar.optGrammar.SimpleStatement;
 import org.unicam.myGrammar.optGrammar.SimpleStatement2;
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialExpressionTypeEnum;
 import org.unicam.myGrammar.optGrammar.SpecialLiteral;
@@ -646,6 +647,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   private EClass elementaryTypeNameEnumEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleTypeDeclarationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2927,6 +2935,28 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EClass getSimpleTypeDeclaration()
+  {
+    return simpleTypeDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSimpleTypeDeclaration_Type()
+  {
+    return (EAttribute)simpleTypeDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getLocationSpecifierEnum()
   {
     return locationSpecifierEnumEClass;
@@ -4053,6 +4083,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     elementaryTypeNameEnumEClass = createEClass(ELEMENTARY_TYPE_NAME_ENUM);
     createEAttribute(elementaryTypeNameEnumEClass, ELEMENTARY_TYPE_NAME_ENUM__TYPE);
 
+    simpleTypeDeclarationEClass = createEClass(SIMPLE_TYPE_DECLARATION);
+    createEAttribute(simpleTypeDeclarationEClass, SIMPLE_TYPE_DECLARATION__TYPE);
+
     locationSpecifierEnumEClass = createEClass(LOCATION_SPECIFIER_ENUM);
     createEAttribute(locationSpecifierEnumEClass, LOCATION_SPECIFIER_ENUM__TYPE);
 
@@ -4235,7 +4268,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     newExpressionEClass.getESuperTypes().add(this.getExpression());
     literalEClass.getESuperTypes().add(this.getExpression());
     booleanConstEClass.getESuperTypes().add(this.getLiteral());
-    numericLiteralEClass.getESuperTypes().add(this.getLiteral());
     stringLiteralEClass.getESuperTypes().add(this.getLiteral());
     typeCastEClass.getESuperTypes().add(this.getExpression());
     specialVariablesEClass.getESuperTypes().add(this.getLiteral());
@@ -4513,6 +4545,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     initEClass(elementaryTypeNameEnumEClass, ElementaryTypeNameEnum.class, "ElementaryTypeNameEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElementaryTypeNameEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, ElementaryTypeNameEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleTypeDeclarationEClass, SimpleTypeDeclaration.class, "SimpleTypeDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleTypeDeclaration_Type(), ecorePackage.getEString(), "type", null, 0, 1, SimpleTypeDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(locationSpecifierEnumEClass, LocationSpecifierEnum.class, "LocationSpecifierEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLocationSpecifierEnum_Type(), ecorePackage.getEString(), "type", null, 0, 1, LocationSpecifierEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

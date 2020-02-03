@@ -60,6 +60,7 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_0_0(), "rule__ElementaryTypeNameEnum__TypeAlternatives_0_0");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_1_0(), "rule__ElementaryTypeNameEnum__TypeAlternatives_1_0");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAlternatives_2_0(), "rule__ElementaryTypeNameEnum__TypeAlternatives_2_0");
+			builder.put(grammarAccess.getSimpleTypeDeclarationAccess().getTypeAlternatives_0(), "rule__SimpleTypeDeclaration__TypeAlternatives_0");
 			builder.put(grammarAccess.getLocationSpecifierEnumAccess().getTypeAlternatives_0(), "rule__LocationSpecifierEnum__TypeAlternatives_0");
 			builder.put(grammarAccess.getVisibilityEnumAccess().getTypeAlternatives_0(), "rule__VisibilityEnum__TypeAlternatives_0");
 			builder.put(grammarAccess.getEtherSubDenominationEnumAccess().getValueAlternatives_0(), "rule__EtherSubDenominationEnum__ValueAlternatives_0");
@@ -361,6 +362,7 @@ public class OptGrammarParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment_1(), "rule__ElementaryTypeNameEnum__TypeAssignment_1");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment_2(), "rule__ElementaryTypeNameEnum__TypeAssignment_2");
 			builder.put(grammarAccess.getElementaryTypeNameEnumAccess().getTypeAssignment_3(), "rule__ElementaryTypeNameEnum__TypeAssignment_3");
+			builder.put(grammarAccess.getSimpleTypeDeclarationAccess().getTypeAssignment(), "rule__SimpleTypeDeclaration__TypeAssignment");
 			builder.put(grammarAccess.getLocationSpecifierEnumAccess().getTypeAssignment(), "rule__LocationSpecifierEnum__TypeAssignment");
 			builder.put(grammarAccess.getVisibilityEnumAccess().getTypeAssignment(), "rule__VisibilityEnum__TypeAssignment");
 			builder.put(grammarAccess.getEtherSubDenominationEnumAccess().getValueAssignment(), "rule__EtherSubDenominationEnum__ValueAssignment");

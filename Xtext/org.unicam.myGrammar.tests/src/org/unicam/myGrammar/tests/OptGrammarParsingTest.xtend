@@ -10,13 +10,13 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import org.unicam.myGrammar.optGrammar.Solidity
+import org.unicam.myGrammar.optGrammar.Model
 
 @ExtendWith(InjectionExtension)
 @InjectWith(OptGrammarInjectorProvider)
 class OptGrammarParsingTest {
 	@Inject
-	ParseHelper<Solidity> parseHelper
+	ParseHelper<Model> parseHelper
 	
 	@Test
 	def void loadModel() {

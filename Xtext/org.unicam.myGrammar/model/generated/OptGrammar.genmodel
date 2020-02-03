@@ -313,6 +313,9 @@
     <genClasses ecoreClass="OptGrammar.ecore#//ElementaryTypeNameEnum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//ElementaryTypeNameEnum/type"/>
     </genClasses>
+    <genClasses ecoreClass="OptGrammar.ecore#//SimpleTypeDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//SimpleTypeDeclaration/type"/>
+    </genClasses>
     <genClasses ecoreClass="OptGrammar.ecore#//LocationSpecifierEnum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute OptGrammar.ecore#//LocationSpecifierEnum/type"/>
     </genClasses>

@@ -115,10 +115,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) '++' (ambiguity) '(' ')' (rule start)
-	 *     (rule start) '++' (ambiguity) decimalValue=DecimalLiteral
-	 *     (rule start) '++' (ambiguity) hexValue=HexLiteral
 	 *     (rule start) '++' (ambiguity) identifier=ID
-	 *     (rule start) '++' (ambiguity) intValue=NumberDimensionless
 	 *     (rule start) '++' (ambiguity) name=BLOCK
 	 *     (rule start) '++' (ambiguity) name=MSG
 	 *     (rule start) '++' (ambiguity) name=NOW
@@ -131,10 +128,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '++' (ambiguity) {PostIncDecExpression.expression=}
 	 *     (rule start) '++' (ambiguity) {Tuple.members+=}
 	 *     (rule start) '--' (ambiguity) '(' ')' (rule start)
-	 *     (rule start) '--' (ambiguity) decimalValue=DecimalLiteral
-	 *     (rule start) '--' (ambiguity) hexValue=HexLiteral
 	 *     (rule start) '--' (ambiguity) identifier=ID
-	 *     (rule start) '--' (ambiguity) intValue=NumberDimensionless
 	 *     (rule start) '--' (ambiguity) name=BLOCK
 	 *     (rule start) '--' (ambiguity) name=MSG
 	 *     (rule start) '--' (ambiguity) name=NOW
@@ -150,10 +144,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '(' ')' (rule start)
 	 *     (rule start) (ambiguity) 'new' contract=[Contract|ID]
 	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
-	 *     (rule start) (ambiguity) decimalValue=DecimalLiteral
-	 *     (rule start) (ambiguity) hexValue=HexLiteral
 	 *     (rule start) (ambiguity) identifier=ID
-	 *     (rule start) (ambiguity) intValue=NumberDimensionless
 	 *     (rule start) (ambiguity) name=BLOCK
 	 *     (rule start) (ambiguity) name=MSG
 	 *     (rule start) (ambiguity) name=NOW
@@ -236,10 +227,7 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) '(' ')' (rule start)
 	 *     (rule start) (ambiguity) 'new' contract=[Contract|ID]
 	 *     (rule start) (ambiguity) '~' expression=UnaryExpression
-	 *     (rule start) (ambiguity) decimalValue=DecimalLiteral
-	 *     (rule start) (ambiguity) hexValue=HexLiteral
 	 *     (rule start) (ambiguity) identifier=ID
-	 *     (rule start) (ambiguity) intValue=NumberDimensionless
 	 *     (rule start) (ambiguity) name=BLOCK
 	 *     (rule start) (ambiguity) name=MSG
 	 *     (rule start) (ambiguity) name=NOW
