@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getOptionalElements <em>Optional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression <em>Expression</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getPtionalElements <em>Ptional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#isSemicolon <em>Semicolon</em>}</li>
  * </ul>
  *
@@ -107,18 +106,6 @@ public interface StandardVariableDeclaration extends Statement, SimpleStatement,
    * @generated
    */
   void setExpression(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Ptional Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ptional Elements</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration_PtionalElements()
-   * @model containment="true"
-   * @generated
-   */
-  EList<VariableDeclarationOptionalElement> getPtionalElements();
 
   /**
    * Returns the value of the '<em><b>Semicolon</b></em>' attribute.

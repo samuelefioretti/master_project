@@ -41,14 +41,24 @@ import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
 public class SpecialVariablesImpl extends LiteralImpl implements SpecialVariables
 {
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected SpecialVariablesTypeEnum type;
+  protected static final SpecialVariablesTypeEnum TYPE_EDEFAULT = SpecialVariablesTypeEnum.MSG;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected SpecialVariablesTypeEnum type = TYPE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getField() <em>Field</em>}' attribute.
@@ -117,38 +127,13 @@ public class SpecialVariablesImpl extends LiteralImpl implements SpecialVariable
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(SpecialVariablesTypeEnum newType, NotificationChain msgs)
-  {
-    SpecialVariablesTypeEnum oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.SPECIAL_VARIABLES__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public void setType(SpecialVariablesTypeEnum newType)
   {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.SPECIAL_VARIABLES__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.SPECIAL_VARIABLES__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.SPECIAL_VARIABLES__TYPE, newType, newType));
+    SpecialVariablesTypeEnum oldType = type;
+    type = newType == null ? TYPE_EDEFAULT : newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.SPECIAL_VARIABLES__TYPE, oldType, type));
   }
 
   /**
@@ -201,8 +186,6 @@ public class SpecialVariablesImpl extends LiteralImpl implements SpecialVariable
   {
     switch (featureID)
     {
-      case OptGrammarPackage.SPECIAL_VARIABLES__TYPE:
-        return basicSetType(null, msgs);
       case OptGrammarPackage.SPECIAL_VARIABLES__QUALIFIERS:
         return ((InternalEList<?>)getQualifiers()).basicRemove(otherEnd, msgs);
     }
@@ -265,7 +248,7 @@ public class SpecialVariablesImpl extends LiteralImpl implements SpecialVariable
     switch (featureID)
     {
       case OptGrammarPackage.SPECIAL_VARIABLES__TYPE:
-        setType((SpecialVariablesTypeEnum)null);
+        setType(TYPE_EDEFAULT);
         return;
       case OptGrammarPackage.SPECIAL_VARIABLES__FIELD:
         setField(FIELD_EDEFAULT);
@@ -288,7 +271,7 @@ public class SpecialVariablesImpl extends LiteralImpl implements SpecialVariable
     switch (featureID)
     {
       case OptGrammarPackage.SPECIAL_VARIABLES__TYPE:
-        return type != null;
+        return type != TYPE_EDEFAULT;
       case OptGrammarPackage.SPECIAL_VARIABLES__FIELD:
         return FIELD_EDEFAULT == null ? field != null : !FIELD_EDEFAULT.equals(field);
       case OptGrammarPackage.SPECIAL_VARIABLES__QUALIFIERS:
@@ -308,7 +291,9 @@ public class SpecialVariablesImpl extends LiteralImpl implements SpecialVariable
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (field: ");
+    result.append(" (type: ");
+    result.append(type);
+    result.append(", field: ");
     result.append(field);
     result.append(')');
     return result.toString();

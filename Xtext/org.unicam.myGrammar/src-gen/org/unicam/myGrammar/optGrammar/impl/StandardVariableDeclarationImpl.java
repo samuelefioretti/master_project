@@ -37,7 +37,6 @@ import org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement;
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getOptionalElements <em>Optional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getPtionalElements <em>Ptional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#isSemicolon <em>Semicolon</em>}</li>
  * </ul>
  *
@@ -84,16 +83,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
    * @ordered
    */
   protected Expression expression;
-
-  /**
-   * The cached value of the '{@link #getPtionalElements() <em>Ptional Elements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPtionalElements()
-   * @generated
-   * @ordered
-   */
-  protected EList<VariableDeclarationOptionalElement> ptionalElements;
 
   /**
    * The default value of the '{@link #isSemicolon() <em>Semicolon</em>}' attribute.
@@ -307,21 +296,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
    * @generated
    */
   @Override
-  public EList<VariableDeclarationOptionalElement> getPtionalElements()
-  {
-    if (ptionalElements == null)
-    {
-      ptionalElements = new EObjectContainmentEList<VariableDeclarationOptionalElement>(VariableDeclarationOptionalElement.class, this, OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS);
-    }
-    return ptionalElements;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public boolean isSemicolon()
   {
     return semicolon;
@@ -359,8 +333,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
         return basicSetVariable(null, msgs);
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
         return basicSetExpression(null, msgs);
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        return ((InternalEList<?>)getPtionalElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -383,8 +355,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
         return getVariable();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
         return getExpression();
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        return getPtionalElements();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         return isSemicolon();
     }
@@ -415,10 +385,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
         setExpression((Expression)newValue);
         return;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        getPtionalElements().clear();
-        getPtionalElements().addAll((Collection<? extends VariableDeclarationOptionalElement>)newValue);
-        return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon((Boolean)newValue);
         return;
@@ -448,9 +414,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
         setExpression((Expression)null);
         return;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        getPtionalElements().clear();
-        return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon(SEMICOLON_EDEFAULT);
         return;
@@ -476,8 +439,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
         return variable != null;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
         return expression != null;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__PTIONAL_ELEMENTS:
-        return ptionalElements != null && !ptionalElements.isEmpty();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         return semicolon != SEMICOLON_EDEFAULT;
     }

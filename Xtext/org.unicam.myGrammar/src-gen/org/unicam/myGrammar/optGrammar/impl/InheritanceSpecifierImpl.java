@@ -34,7 +34,7 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container implements InheritanceSpecifier
 {
   /**
-   * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' containment reference.
+   * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSuperType()
@@ -82,6 +82,16 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   @Override
   public Contract getSuperType()
   {
+    if (superType != null && superType.eIsProxy())
+    {
+      InternalEObject oldSuperType = (InternalEObject)superType;
+      superType = (Contract)eResolveProxy(oldSuperType);
+      if (superType != oldSuperType)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE, oldSuperType, superType));
+      }
+    }
     return superType;
   }
 
@@ -90,16 +100,9 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSuperType(Contract newSuperType, NotificationChain msgs)
+  public Contract basicGetSuperType()
   {
-    Contract oldSuperType = superType;
-    superType = newSuperType;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE, oldSuperType, newSuperType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return superType;
   }
 
   /**
@@ -110,18 +113,10 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   @Override
   public void setSuperType(Contract newSuperType)
   {
-    if (newSuperType != superType)
-    {
-      NotificationChain msgs = null;
-      if (superType != null)
-        msgs = ((InternalEObject)superType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE, null, msgs);
-      if (newSuperType != null)
-        msgs = ((InternalEObject)newSuperType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE, null, msgs);
-      msgs = basicSetSuperType(newSuperType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE, newSuperType, newSuperType));
+    Contract oldSuperType = superType;
+    superType = newSuperType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE, oldSuperType, superType));
   }
 
   /**
@@ -184,8 +179,6 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE:
-        return basicSetSuperType(null, msgs);
       case OptGrammarPackage.INHERITANCE_SPECIFIER__ARGS:
         return basicSetArgs(null, msgs);
     }
@@ -203,7 +196,8 @@ public class InheritanceSpecifierImpl extends MinimalEObjectImpl.Container imple
     switch (featureID)
     {
       case OptGrammarPackage.INHERITANCE_SPECIFIER__SUPER_TYPE:
-        return getSuperType();
+        if (resolve) return getSuperType();
+        return basicGetSuperType();
       case OptGrammarPackage.INHERITANCE_SPECIFIER__ARGS:
         return getArgs();
     }

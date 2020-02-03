@@ -6,21 +6,21 @@ package org.unicam.myGrammar.optGrammar;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Gasleft Function</b></em>'.
+ * A representation of the model object '<em><b>Special Literal</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.GasleftFunction#getName <em>Name</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.SpecialLiteral#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getGasleftFunction()
+ * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getSpecialLiteral()
  * @model
  * @generated
  */
-public interface GasleftFunction extends Literal
+public interface SpecialLiteral extends Literal
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -28,14 +28,14 @@ public interface GasleftFunction extends Literal
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getGasleftFunction_Name()
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getSpecialLiteral_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.GasleftFunction#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.SpecialLiteral#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -44,4 +44,4 @@ public interface GasleftFunction extends Literal
    */
   void setName(String value);
 
-} // GasleftFunction
+} // SpecialLiteral

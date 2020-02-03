@@ -12,9 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.Ether;
+import org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.Time;
+import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
 
 /**
@@ -41,7 +41,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    * @ordered
    */
-  protected Time time;
+  protected TimeSubdenominationEnum time;
 
   /**
    * The cached value of the '{@link #getUnits() <em>Units</em>}' containment reference.
@@ -51,7 +51,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    * @ordered
    */
-  protected Ether units;
+  protected EtherSubDenominationEnum units;
 
   /**
    * <!-- begin-user-doc -->
@@ -80,7 +80,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    */
   @Override
-  public Time getTime()
+  public TimeSubdenominationEnum getTime()
   {
     return time;
   }
@@ -90,9 +90,9 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTime(Time newTime, NotificationChain msgs)
+  public NotificationChain basicSetTime(TimeSubdenominationEnum newTime, NotificationChain msgs)
   {
-    Time oldTime = time;
+    TimeSubdenominationEnum oldTime = time;
     time = newTime;
     if (eNotificationRequired())
     {
@@ -108,7 +108,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    */
   @Override
-  public void setTime(Time newTime)
+  public void setTime(TimeSubdenominationEnum newTime)
   {
     if (newTime != time)
     {
@@ -130,7 +130,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    */
   @Override
-  public Ether getUnits()
+  public EtherSubDenominationEnum getUnits()
   {
     return units;
   }
@@ -140,9 +140,9 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetUnits(Ether newUnits, NotificationChain msgs)
+  public NotificationChain basicSetUnits(EtherSubDenominationEnum newUnits, NotificationChain msgs)
   {
-    Ether oldUnits = units;
+    EtherSubDenominationEnum oldUnits = units;
     units = newUnits;
     if (eNotificationRequired())
     {
@@ -158,7 +158,7 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
    * @generated
    */
   @Override
-  public void setUnits(Ether newUnits)
+  public void setUnits(EtherSubDenominationEnum newUnits)
   {
     if (newUnits != units)
     {
@@ -221,10 +221,10 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
     switch (featureID)
     {
       case OptGrammarPackage.UNIT_TYPES__TIME:
-        setTime((Time)newValue);
+        setTime((TimeSubdenominationEnum)newValue);
         return;
       case OptGrammarPackage.UNIT_TYPES__UNITS:
-        setUnits((Ether)newValue);
+        setUnits((EtherSubDenominationEnum)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,10 +241,10 @@ public class UnitTypesImpl extends MinimalEObjectImpl.Container implements UnitT
     switch (featureID)
     {
       case OptGrammarPackage.UNIT_TYPES__TIME:
-        setTime((Time)null);
+        setTime((TimeSubdenominationEnum)null);
         return;
       case OptGrammarPackage.UNIT_TYPES__UNITS:
-        setUnits((Ether)null);
+        setUnits((EtherSubDenominationEnum)null);
         return;
     }
     super.eUnset(featureID);

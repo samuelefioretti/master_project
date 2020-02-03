@@ -26,22 +26,25 @@ import org.eclipse.emf.common.util.EList;
 public interface SpecialVariables extends Literal
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * The literals are from the enumeration {@link org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference.
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum
    * @see #setType(SpecialVariablesTypeEnum)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getSpecialVariables_Type()
-   * @model containment="true"
+   * @model
    * @generated
    */
   SpecialVariablesTypeEnum getType();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.SpecialVariables#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.SpecialVariables#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum
    * @see #getType()
    * @generated
    */

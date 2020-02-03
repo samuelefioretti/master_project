@@ -24,31 +24,13 @@ public interface OptGrammarFactory extends EFactory
   OptGrammarFactory eINSTANCE = org.unicam.myGrammar.optGrammar.impl.OptGrammarFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Solidity</em>'.
+   * Returns a new object of class '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Solidity</em>'.
+   * @return a new object of class '<em>Model</em>'.
    * @generated
    */
-  Solidity createSolidity();
-
-  /**
-   * Returns a new object of class '<em>Import Directive</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Import Directive</em>'.
-   * @generated
-   */
-  ImportDirective createImportDirective();
-
-  /**
-   * Returns a new object of class '<em>Symbol Alias</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Symbol Alias</em>'.
-   * @generated
-   */
-  SymbolAlias createSymbolAlias();
+  Model createModel();
 
   /**
    * Returns a new object of class '<em>Contract</em>'.
@@ -60,15 +42,6 @@ public interface OptGrammarFactory extends EFactory
   Contract createContract();
 
   /**
-   * Returns a new object of class '<em>Inheritance Specifier</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Inheritance Specifier</em>'.
-   * @generated
-   */
-  InheritanceSpecifier createInheritanceSpecifier();
-
-  /**
    * Returns a new object of class '<em>Definition Body</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,13 +51,13 @@ public interface OptGrammarFactory extends EFactory
   DefinitionBody createDefinitionBody();
 
   /**
-   * Returns a new object of class '<em>Function Definition</em>'.
+   * Returns a new object of class '<em>Inheritance Specifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Definition</em>'.
+   * @return a new object of class '<em>Inheritance Specifier</em>'.
    * @generated
    */
-  FunctionDefinition createFunctionDefinition();
+  InheritanceSpecifier createInheritanceSpecifier();
 
   /**
    * Returns a new object of class '<em>Function Call List Arguments</em>'.
@@ -112,6 +85,15 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   FunctionCallArg createFunctionCallArg();
+
+  /**
+   * Returns a new object of class '<em>Function Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Definition</em>'.
+   * @generated
+   */
+  FunctionDefinition createFunctionDefinition();
 
   /**
    * Returns a new object of class '<em>Function Definition Optional Element</em>'.
@@ -618,96 +600,6 @@ public interface OptGrammarFactory extends EFactory
   Literal createLiteral();
 
   /**
-   * Returns a new object of class '<em>Gasleft Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Gasleft Function</em>'.
-   * @generated
-   */
-  GasleftFunction createGasleftFunction();
-
-  /**
-   * Returns a new object of class '<em>Blockhash Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Blockhash Function</em>'.
-   * @generated
-   */
-  BlockhashFunction createBlockhashFunction();
-
-  /**
-   * Returns a new object of class '<em>Mathematical Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mathematical Function</em>'.
-   * @generated
-   */
-  MathematicalFunction createMathematicalFunction();
-
-  /**
-   * Returns a new object of class '<em>Ecrecover Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ecrecover Function</em>'.
-   * @generated
-   */
-  EcrecoverFunction createEcrecoverFunction();
-
-  /**
-   * Returns a new object of class '<em>Hash Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Hash Function</em>'.
-   * @generated
-   */
-  HashFunction createHashFunction();
-
-  /**
-   * Returns a new object of class '<em>Int Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Int Parameter</em>'.
-   * @generated
-   */
-  IntParameter createIntParameter();
-
-  /**
-   * Returns a new object of class '<em>Function Call</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Call</em>'.
-   * @generated
-   */
-  FunctionCall createFunctionCall();
-
-  /**
-   * Returns a new object of class '<em>Arithmetic Operations</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arithmetic Operations</em>'.
-   * @generated
-   */
-  ArithmeticOperations createArithmeticOperations();
-
-  /**
-   * Returns a new object of class '<em>Primary Arithmetic</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primary Arithmetic</em>'.
-   * @generated
-   */
-  PrimaryArithmetic createPrimaryArithmetic();
-
-  /**
-   * Returns a new object of class '<em>Second Operators</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Second Operators</em>'.
-   * @generated
-   */
-  SecondOperators createSecondOperators();
-
-  /**
    * Returns a new object of class '<em>Boolean Const</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -724,15 +616,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   NumericLiteral createNumericLiteral();
-
-  /**
-   * Returns a new object of class '<em>Now</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Now</em>'.
-   * @generated
-   */
-  Now createNow();
 
   /**
    * Returns a new object of class '<em>Unit Types</em>'.
@@ -753,33 +636,6 @@ public interface OptGrammarFactory extends EFactory
   NumberDimensionless createNumberDimensionless();
 
   /**
-   * Returns a new object of class '<em>Ether</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ether</em>'.
-   * @generated
-   */
-  Ether createEther();
-
-  /**
-   * Returns a new object of class '<em>Time</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Time</em>'.
-   * @generated
-   */
-  Time createTime();
-
-  /**
-   * Returns a new object of class '<em>String Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Literal</em>'.
-   * @generated
-   */
-  StringLiteral createStringLiteral();
-
-  /**
    * Returns a new object of class '<em>Hex Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -796,6 +652,15 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   DecimalLiteral createDecimalLiteral();
+
+  /**
+   * Returns a new object of class '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Literal</em>'.
+   * @generated
+   */
+  StringLiteral createStringLiteral();
 
   /**
    * Returns a new object of class '<em>Type Cast</em>'.
@@ -843,13 +708,31 @@ public interface OptGrammarFactory extends EFactory
   VisibilityEnum createVisibilityEnum();
 
   /**
-   * Returns a new object of class '<em>Special Variables Type Enum</em>'.
+   * Returns a new object of class '<em>Ether Sub Denomination Enum</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Special Variables Type Enum</em>'.
+   * @return a new object of class '<em>Ether Sub Denomination Enum</em>'.
    * @generated
    */
-  SpecialVariablesTypeEnum createSpecialVariablesTypeEnum();
+  EtherSubDenominationEnum createEtherSubDenominationEnum();
+
+  /**
+   * Returns a new object of class '<em>Time Subdenomination Enum</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Time Subdenomination Enum</em>'.
+   * @generated
+   */
+  TimeSubdenominationEnum createTimeSubdenominationEnum();
+
+  /**
+   * Returns a new object of class '<em>Special Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Special Literal</em>'.
+   * @generated
+   */
+  SpecialLiteral createSpecialLiteral();
 
   /**
    * Returns a new object of class '<em>Var Variable Type Declaration</em>'.

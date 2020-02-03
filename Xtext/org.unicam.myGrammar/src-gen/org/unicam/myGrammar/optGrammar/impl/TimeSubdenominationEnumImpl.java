@@ -11,24 +11,22 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.Time;
 import org.unicam.myGrammar.optGrammar.TimeSubdenominationEnum;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Time</b></em>'.
+ * An implementation of the model object '<em><b>Time Subdenomination Enum</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.TimeImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.TimeImpl#getTime <em>Time</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.TimeSubdenominationEnumImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TimeImpl extends MinimalEObjectImpl.Container implements Time
+public class TimeSubdenominationEnumImpl extends MinimalEObjectImpl.Container implements TimeSubdenominationEnum
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -38,7 +36,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -48,34 +46,14 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
    * @generated
    * @ordered
    */
-  protected int value = VALUE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getTime() <em>Time</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTime()
-   * @generated
-   * @ordered
-   */
-  protected static final TimeSubdenominationEnum TIME_EDEFAULT = TimeSubdenominationEnum.SECONDS;
-
-  /**
-   * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTime()
-   * @generated
-   * @ordered
-   */
-  protected TimeSubdenominationEnum time = TIME_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TimeImpl()
+  protected TimeSubdenominationEnumImpl()
   {
     super();
   }
@@ -88,7 +66,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.TIME;
+    return OptGrammarPackage.Literals.TIME_SUBDENOMINATION_ENUM;
   }
 
   /**
@@ -97,7 +75,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
    * @generated
    */
   @Override
-  public int getValue()
+  public String getValue()
   {
     return value;
   }
@@ -108,37 +86,12 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
    * @generated
    */
   @Override
-  public void setValue(int newValue)
+  public void setValue(String newValue)
   {
-    int oldValue = value;
+    String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.TIME__VALUE, oldValue, value));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public TimeSubdenominationEnum getTime()
-  {
-    return time;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setTime(TimeSubdenominationEnum newTime)
-  {
-    TimeSubdenominationEnum oldTime = time;
-    time = newTime == null ? TIME_EDEFAULT : newTime;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.TIME__TIME, oldTime, time));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE, oldValue, value));
   }
 
   /**
@@ -151,10 +104,8 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
   {
     switch (featureID)
     {
-      case OptGrammarPackage.TIME__VALUE:
+      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE:
         return getValue();
-      case OptGrammarPackage.TIME__TIME:
-        return getTime();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -169,11 +120,8 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
   {
     switch (featureID)
     {
-      case OptGrammarPackage.TIME__VALUE:
-        setValue((Integer)newValue);
-        return;
-      case OptGrammarPackage.TIME__TIME:
-        setTime((TimeSubdenominationEnum)newValue);
+      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -189,11 +137,8 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
   {
     switch (featureID)
     {
-      case OptGrammarPackage.TIME__VALUE:
+      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE:
         setValue(VALUE_EDEFAULT);
-        return;
-      case OptGrammarPackage.TIME__TIME:
-        setTime(TIME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -209,10 +154,8 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
   {
     switch (featureID)
     {
-      case OptGrammarPackage.TIME__VALUE:
-        return value != VALUE_EDEFAULT;
-      case OptGrammarPackage.TIME__TIME:
-        return time != TIME_EDEFAULT;
+      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -230,10 +173,8 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (value: ");
     result.append(value);
-    result.append(", time: ");
-    result.append(time);
     result.append(')');
     return result.toString();
   }
 
-} //TimeImpl
+} //TimeSubdenominationEnumImpl

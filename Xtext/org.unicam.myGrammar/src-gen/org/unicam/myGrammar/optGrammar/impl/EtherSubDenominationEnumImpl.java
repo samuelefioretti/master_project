@@ -8,51 +8,52 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.unicam.myGrammar.optGrammar.GasleftFunction;
+import org.unicam.myGrammar.optGrammar.EtherSubDenominationEnum;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Gasleft Function</b></em>'.
+ * An implementation of the model object '<em><b>Ether Sub Denomination Enum</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.GasleftFunctionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.EtherSubDenominationEnumImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
+public class EtherSubDenominationEnumImpl extends MinimalEObjectImpl.Container implements EtherSubDenominationEnum
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GasleftFunctionImpl()
+  protected EtherSubDenominationEnumImpl()
   {
     super();
   }
@@ -65,7 +66,7 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.GASLEFT_FUNCTION;
+    return OptGrammarPackage.Literals.ETHER_SUB_DENOMINATION_ENUM;
   }
 
   /**
@@ -74,9 +75,9 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
    * @generated
    */
   @Override
-  public String getName()
+  public String getValue()
   {
-    return name;
+    return value;
   }
 
   /**
@@ -85,12 +86,12 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setValue(String newValue)
   {
-    String oldName = name;
-    name = newName;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.GASLEFT_FUNCTION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE, oldValue, value));
   }
 
   /**
@@ -103,8 +104,8 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
   {
     switch (featureID)
     {
-      case OptGrammarPackage.GASLEFT_FUNCTION__NAME:
-        return getName();
+      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +120,8 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
   {
     switch (featureID)
     {
-      case OptGrammarPackage.GASLEFT_FUNCTION__NAME:
-        setName((String)newValue);
+      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +137,8 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
   {
     switch (featureID)
     {
-      case OptGrammarPackage.GASLEFT_FUNCTION__NAME:
-        setName(NAME_EDEFAULT);
+      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +154,8 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
   {
     switch (featureID)
     {
-      case OptGrammarPackage.GASLEFT_FUNCTION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +171,10 @@ public class GasleftFunctionImpl extends LiteralImpl implements GasleftFunction
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //GasleftFunctionImpl
+} //EtherSubDenominationEnumImpl

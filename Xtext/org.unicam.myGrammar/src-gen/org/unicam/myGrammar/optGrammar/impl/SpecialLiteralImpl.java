@@ -8,25 +8,24 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.SpecialVariablesTypeEnum;
+import org.unicam.myGrammar.optGrammar.SpecialLiteral;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Special Variables Type Enum</b></em>'.
+ * An implementation of the model object '<em><b>Special Literal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.SpecialVariablesTypeEnumImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.SpecialLiteralImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container implements SpecialVariablesTypeEnum
+public class SpecialLiteralImpl extends LiteralImpl implements SpecialLiteral
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -53,7 +52,7 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SpecialVariablesTypeEnumImpl()
+  protected SpecialLiteralImpl()
   {
     super();
   }
@@ -66,7 +65,7 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.SPECIAL_VARIABLES_TYPE_ENUM;
+    return OptGrammarPackage.Literals.SPECIAL_LITERAL;
   }
 
   /**
@@ -91,7 +90,7 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.SPECIAL_LITERAL__NAME, oldName, name));
   }
 
   /**
@@ -104,7 +103,7 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
   {
     switch (featureID)
     {
-      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM__NAME:
+      case OptGrammarPackage.SPECIAL_LITERAL__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -120,7 +119,7 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
   {
     switch (featureID)
     {
-      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM__NAME:
+      case OptGrammarPackage.SPECIAL_LITERAL__NAME:
         setName((String)newValue);
         return;
     }
@@ -137,7 +136,7 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
   {
     switch (featureID)
     {
-      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM__NAME:
+      case OptGrammarPackage.SPECIAL_LITERAL__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -154,7 +153,7 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
   {
     switch (featureID)
     {
-      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM__NAME:
+      case OptGrammarPackage.SPECIAL_LITERAL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -177,4 +176,4 @@ public class SpecialVariablesTypeEnumImpl extends MinimalEObjectImpl.Container i
     return result.toString();
   }
 
-} //SpecialVariablesTypeEnumImpl
+} //SpecialLiteralImpl

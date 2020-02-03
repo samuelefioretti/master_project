@@ -25,22 +25,22 @@ import org.eclipse.emf.ecore.EObject;
 public interface InheritanceSpecifier extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Super Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Super Type</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Super Type</em>' containment reference.
+   * @return the value of the '<em>Super Type</em>' reference.
    * @see #setSuperType(Contract)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getInheritanceSpecifier_SuperType()
-   * @model containment="true"
+   * @model
    * @generated
    */
   Contract getSuperType();
 
   /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier#getSuperType <em>Super Type</em>}' containment reference.
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier#getSuperType <em>Super Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Super Type</em>' containment reference.
+   * @param value the new value of the '<em>Super Type</em>' reference.
    * @see #getSuperType()
    * @generated
    */

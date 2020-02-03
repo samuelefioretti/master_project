@@ -16,7 +16,6 @@ package org.unicam.myGrammar.optGrammar;
  *   <li>{@link org.unicam.myGrammar.optGrammar.NumericLiteral#getIntValue <em>Int Value</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.NumericLiteral#getHexValue <em>Hex Value</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.NumericLiteral#getDecimalValue <em>Decimal Value</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.NumericLiteral#getNow <em>Now</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.NumericLiteral#getEtherUnit <em>Ether Unit</em>}</li>
  * </ul>
  *
@@ -24,7 +23,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface NumericLiteral extends Literal, PrimaryArithmetic
+public interface NumericLiteral extends Literal
 {
   /**
    * Returns the value of the '<em><b>Int Value</b></em>' containment reference.
@@ -91,28 +90,6 @@ public interface NumericLiteral extends Literal, PrimaryArithmetic
    * @generated
    */
   void setDecimalValue(DecimalLiteral value);
-
-  /**
-   * Returns the value of the '<em><b>Now</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Now</em>' containment reference.
-   * @see #setNow(Now)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getNumericLiteral_Now()
-   * @model containment="true"
-   * @generated
-   */
-  Now getNow();
-
-  /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.NumericLiteral#getNow <em>Now</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Now</em>' containment reference.
-   * @see #getNow()
-   * @generated
-   */
-  void setNow(Now value);
 
   /**
    * Returns the value of the '<em><b>Ether Unit</b></em>' containment reference.

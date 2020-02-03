@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
-import org.unicam.myGrammar.optGrammar.Now;
 import org.unicam.myGrammar.optGrammar.NumberDimensionless;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
@@ -30,7 +29,6 @@ import org.unicam.myGrammar.optGrammar.UnitTypes;
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.NumericLiteralImpl#getIntValue <em>Int Value</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.NumericLiteralImpl#getHexValue <em>Hex Value</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.NumericLiteralImpl#getDecimalValue <em>Decimal Value</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.NumericLiteralImpl#getNow <em>Now</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.NumericLiteralImpl#getEtherUnit <em>Ether Unit</em>}</li>
  * </ul>
  *
@@ -67,16 +65,6 @@ public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
    * @ordered
    */
   protected DecimalLiteral decimalValue;
-
-  /**
-   * The cached value of the '{@link #getNow() <em>Now</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNow()
-   * @generated
-   * @ordered
-   */
-  protected Now now;
 
   /**
    * The cached value of the '{@link #getEtherUnit() <em>Ether Unit</em>}' containment reference.
@@ -265,56 +253,6 @@ public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
    * @generated
    */
   @Override
-  public Now getNow()
-  {
-    return now;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetNow(Now newNow, NotificationChain msgs)
-  {
-    Now oldNow = now;
-    now = newNow;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.NUMERIC_LITERAL__NOW, oldNow, newNow);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setNow(Now newNow)
-  {
-    if (newNow != now)
-    {
-      NotificationChain msgs = null;
-      if (now != null)
-        msgs = ((InternalEObject)now).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.NUMERIC_LITERAL__NOW, null, msgs);
-      if (newNow != null)
-        msgs = ((InternalEObject)newNow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.NUMERIC_LITERAL__NOW, null, msgs);
-      msgs = basicSetNow(newNow, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.NUMERIC_LITERAL__NOW, newNow, newNow));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public UnitTypes getEtherUnit()
   {
     return etherUnit;
@@ -375,8 +313,6 @@ public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
         return basicSetHexValue(null, msgs);
       case OptGrammarPackage.NUMERIC_LITERAL__DECIMAL_VALUE:
         return basicSetDecimalValue(null, msgs);
-      case OptGrammarPackage.NUMERIC_LITERAL__NOW:
-        return basicSetNow(null, msgs);
       case OptGrammarPackage.NUMERIC_LITERAL__ETHER_UNIT:
         return basicSetEtherUnit(null, msgs);
     }
@@ -399,8 +335,6 @@ public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
         return getHexValue();
       case OptGrammarPackage.NUMERIC_LITERAL__DECIMAL_VALUE:
         return getDecimalValue();
-      case OptGrammarPackage.NUMERIC_LITERAL__NOW:
-        return getNow();
       case OptGrammarPackage.NUMERIC_LITERAL__ETHER_UNIT:
         return getEtherUnit();
     }
@@ -425,9 +359,6 @@ public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
         return;
       case OptGrammarPackage.NUMERIC_LITERAL__DECIMAL_VALUE:
         setDecimalValue((DecimalLiteral)newValue);
-        return;
-      case OptGrammarPackage.NUMERIC_LITERAL__NOW:
-        setNow((Now)newValue);
         return;
       case OptGrammarPackage.NUMERIC_LITERAL__ETHER_UNIT:
         setEtherUnit((UnitTypes)newValue);
@@ -455,9 +386,6 @@ public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
       case OptGrammarPackage.NUMERIC_LITERAL__DECIMAL_VALUE:
         setDecimalValue((DecimalLiteral)null);
         return;
-      case OptGrammarPackage.NUMERIC_LITERAL__NOW:
-        setNow((Now)null);
-        return;
       case OptGrammarPackage.NUMERIC_LITERAL__ETHER_UNIT:
         setEtherUnit((UnitTypes)null);
         return;
@@ -481,8 +409,6 @@ public class NumericLiteralImpl extends LiteralImpl implements NumericLiteral
         return hexValue != null;
       case OptGrammarPackage.NUMERIC_LITERAL__DECIMAL_VALUE:
         return decimalValue != null;
-      case OptGrammarPackage.NUMERIC_LITERAL__NOW:
-        return now != null;
       case OptGrammarPackage.NUMERIC_LITERAL__ETHER_UNIT:
         return etherUnit != null;
     }

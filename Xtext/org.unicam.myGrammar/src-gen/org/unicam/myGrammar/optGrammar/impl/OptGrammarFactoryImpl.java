@@ -66,16 +66,14 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     switch (eClass.getClassifierID())
     {
-      case OptGrammarPackage.SOLIDITY: return createSolidity();
-      case OptGrammarPackage.IMPORT_DIRECTIVE: return createImportDirective();
-      case OptGrammarPackage.SYMBOL_ALIAS: return createSymbolAlias();
+      case OptGrammarPackage.MODEL: return createModel();
       case OptGrammarPackage.CONTRACT: return createContract();
-      case OptGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
       case OptGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
-      case OptGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
+      case OptGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
       case OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS: return createFunctionCallListArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARGUMENTS: return createFunctionCallArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARG: return createFunctionCallArg();
+      case OptGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
       case OptGrammarPackage.FUNCTION_DEFINITION_OPTIONAL_ELEMENT: return createFunctionDefinitionOptionalElement();
       case OptGrammarPackage.CONST: return createConst();
       case OptGrammarPackage.VISIBILITY_SPECIFIER: return createVisibilitySpecifier();
@@ -132,32 +130,21 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.SIGN_EXPRESSION: return createSignExpression();
       case OptGrammarPackage.NEW_EXPRESSION: return createNewExpression();
       case OptGrammarPackage.LITERAL: return createLiteral();
-      case OptGrammarPackage.GASLEFT_FUNCTION: return createGasleftFunction();
-      case OptGrammarPackage.BLOCKHASH_FUNCTION: return createBlockhashFunction();
-      case OptGrammarPackage.MATHEMATICAL_FUNCTION: return createMathematicalFunction();
-      case OptGrammarPackage.ECRECOVER_FUNCTION: return createEcrecoverFunction();
-      case OptGrammarPackage.HASH_FUNCTION: return createHashFunction();
-      case OptGrammarPackage.INT_PARAMETER: return createIntParameter();
-      case OptGrammarPackage.FUNCTION_CALL: return createFunctionCall();
-      case OptGrammarPackage.ARITHMETIC_OPERATIONS: return createArithmeticOperations();
-      case OptGrammarPackage.PRIMARY_ARITHMETIC: return createPrimaryArithmetic();
-      case OptGrammarPackage.SECOND_OPERATORS: return createSecondOperators();
       case OptGrammarPackage.BOOLEAN_CONST: return createBooleanConst();
       case OptGrammarPackage.NUMERIC_LITERAL: return createNumericLiteral();
-      case OptGrammarPackage.NOW: return createNow();
       case OptGrammarPackage.UNIT_TYPES: return createUnitTypes();
       case OptGrammarPackage.NUMBER_DIMENSIONLESS: return createNumberDimensionless();
-      case OptGrammarPackage.ETHER: return createEther();
-      case OptGrammarPackage.TIME: return createTime();
-      case OptGrammarPackage.STRING_LITERAL: return createStringLiteral();
       case OptGrammarPackage.HEX_LITERAL: return createHexLiteral();
       case OptGrammarPackage.DECIMAL_LITERAL: return createDecimalLiteral();
+      case OptGrammarPackage.STRING_LITERAL: return createStringLiteral();
       case OptGrammarPackage.TYPE_CAST: return createTypeCast();
       case OptGrammarPackage.SPECIAL_VARIABLES: return createSpecialVariables();
       case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM: return createElementaryTypeNameEnum();
       case OptGrammarPackage.LOCATION_SPECIFIER_ENUM: return createLocationSpecifierEnum();
       case OptGrammarPackage.VISIBILITY_ENUM: return createVisibilityEnum();
-      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM: return createSpecialVariablesTypeEnum();
+      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM: return createEtherSubDenominationEnum();
+      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM: return createTimeSubdenominationEnum();
+      case OptGrammarPackage.SPECIAL_LITERAL: return createSpecialLiteral();
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION: return createVarVariableTypeDeclaration();
       case OptGrammarPackage.BLOCK: return createBlock();
       case OptGrammarPackage.CONTINUE: return createContinue();
@@ -206,10 +193,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
         return createIncDecOpEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.BOOLEAN_LITERAL_ENUM:
         return createBooleanLiteralEnumFromString(eDataType, initialValue);
-      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM:
-        return createEtherSubDenominationEnumFromString(eDataType, initialValue);
-      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM:
-        return createTimeSubdenominationEnumFromString(eDataType, initialValue);
+      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM:
+        return createSpecialVariablesTypeEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.SPECIAL_EXPRESSION_TYPE_ENUM:
         return createSpecialExpressionTypeEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.RESERVED_WORDS_ENUM:
@@ -245,10 +230,8 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
         return convertIncDecOpEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.BOOLEAN_LITERAL_ENUM:
         return convertBooleanLiteralEnumToString(eDataType, instanceValue);
-      case OptGrammarPackage.ETHER_SUB_DENOMINATION_ENUM:
-        return convertEtherSubDenominationEnumToString(eDataType, instanceValue);
-      case OptGrammarPackage.TIME_SUBDENOMINATION_ENUM:
-        return convertTimeSubdenominationEnumToString(eDataType, instanceValue);
+      case OptGrammarPackage.SPECIAL_VARIABLES_TYPE_ENUM:
+        return convertSpecialVariablesTypeEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.SPECIAL_EXPRESSION_TYPE_ENUM:
         return convertSpecialExpressionTypeEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.RESERVED_WORDS_ENUM:
@@ -264,34 +247,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public Solidity createSolidity()
+  public Model createModel()
   {
-    SolidityImpl solidity = new SolidityImpl();
-    return solidity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ImportDirective createImportDirective()
-  {
-    ImportDirectiveImpl importDirective = new ImportDirectiveImpl();
-    return importDirective;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SymbolAlias createSymbolAlias()
-  {
-    SymbolAliasImpl symbolAlias = new SymbolAliasImpl();
-    return symbolAlias;
+    ModelImpl model = new ModelImpl();
+    return model;
   }
 
   /**
@@ -312,18 +271,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public InheritanceSpecifier createInheritanceSpecifier()
-  {
-    InheritanceSpecifierImpl inheritanceSpecifier = new InheritanceSpecifierImpl();
-    return inheritanceSpecifier;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public DefinitionBody createDefinitionBody()
   {
     DefinitionBodyImpl definitionBody = new DefinitionBodyImpl();
@@ -336,10 +283,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public FunctionDefinition createFunctionDefinition()
+  public InheritanceSpecifier createInheritanceSpecifier()
   {
-    FunctionDefinitionImpl functionDefinition = new FunctionDefinitionImpl();
-    return functionDefinition;
+    InheritanceSpecifierImpl inheritanceSpecifier = new InheritanceSpecifierImpl();
+    return inheritanceSpecifier;
   }
 
   /**
@@ -376,6 +323,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     FunctionCallArgImpl functionCallArg = new FunctionCallArgImpl();
     return functionCallArg;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FunctionDefinition createFunctionDefinition()
+  {
+    FunctionDefinitionImpl functionDefinition = new FunctionDefinitionImpl();
+    return functionDefinition;
   }
 
   /**
@@ -1056,126 +1015,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public GasleftFunction createGasleftFunction()
-  {
-    GasleftFunctionImpl gasleftFunction = new GasleftFunctionImpl();
-    return gasleftFunction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public BlockhashFunction createBlockhashFunction()
-  {
-    BlockhashFunctionImpl blockhashFunction = new BlockhashFunctionImpl();
-    return blockhashFunction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public MathematicalFunction createMathematicalFunction()
-  {
-    MathematicalFunctionImpl mathematicalFunction = new MathematicalFunctionImpl();
-    return mathematicalFunction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EcrecoverFunction createEcrecoverFunction()
-  {
-    EcrecoverFunctionImpl ecrecoverFunction = new EcrecoverFunctionImpl();
-    return ecrecoverFunction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public HashFunction createHashFunction()
-  {
-    HashFunctionImpl hashFunction = new HashFunctionImpl();
-    return hashFunction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public IntParameter createIntParameter()
-  {
-    IntParameterImpl intParameter = new IntParameterImpl();
-    return intParameter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public FunctionCall createFunctionCall()
-  {
-    FunctionCallImpl functionCall = new FunctionCallImpl();
-    return functionCall;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ArithmeticOperations createArithmeticOperations()
-  {
-    ArithmeticOperationsImpl arithmeticOperations = new ArithmeticOperationsImpl();
-    return arithmeticOperations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public PrimaryArithmetic createPrimaryArithmetic()
-  {
-    PrimaryArithmeticImpl primaryArithmetic = new PrimaryArithmeticImpl();
-    return primaryArithmetic;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SecondOperators createSecondOperators()
-  {
-    SecondOperatorsImpl secondOperators = new SecondOperatorsImpl();
-    return secondOperators;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public BooleanConst createBooleanConst()
   {
     BooleanConstImpl booleanConst = new BooleanConstImpl();
@@ -1192,18 +1031,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     NumericLiteralImpl numericLiteral = new NumericLiteralImpl();
     return numericLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Now createNow()
-  {
-    NowImpl now = new NowImpl();
-    return now;
   }
 
   /**
@@ -1236,42 +1063,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public Ether createEther()
-  {
-    EtherImpl ether = new EtherImpl();
-    return ether;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Time createTime()
-  {
-    TimeImpl time = new TimeImpl();
-    return time;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public StringLiteral createStringLiteral()
-  {
-    StringLiteralImpl stringLiteral = new StringLiteralImpl();
-    return stringLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public HexLiteral createHexLiteral()
   {
     HexLiteralImpl hexLiteral = new HexLiteralImpl();
@@ -1288,6 +1079,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     DecimalLiteralImpl decimalLiteral = new DecimalLiteralImpl();
     return decimalLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public StringLiteral createStringLiteral()
+  {
+    StringLiteralImpl stringLiteral = new StringLiteralImpl();
+    return stringLiteral;
   }
 
   /**
@@ -1356,10 +1159,34 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public SpecialVariablesTypeEnum createSpecialVariablesTypeEnum()
+  public EtherSubDenominationEnum createEtherSubDenominationEnum()
   {
-    SpecialVariablesTypeEnumImpl specialVariablesTypeEnum = new SpecialVariablesTypeEnumImpl();
-    return specialVariablesTypeEnum;
+    EtherSubDenominationEnumImpl etherSubDenominationEnum = new EtherSubDenominationEnumImpl();
+    return etherSubDenominationEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TimeSubdenominationEnum createTimeSubdenominationEnum()
+  {
+    TimeSubdenominationEnumImpl timeSubdenominationEnum = new TimeSubdenominationEnumImpl();
+    return timeSubdenominationEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SpecialLiteral createSpecialLiteral()
+  {
+    SpecialLiteralImpl specialLiteral = new SpecialLiteralImpl();
+    return specialLiteral;
   }
 
   /**
@@ -1747,9 +1574,9 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EtherSubDenominationEnum createEtherSubDenominationEnumFromString(EDataType eDataType, String initialValue)
+  public SpecialVariablesTypeEnum createSpecialVariablesTypeEnumFromString(EDataType eDataType, String initialValue)
   {
-    EtherSubDenominationEnum result = EtherSubDenominationEnum.get(initialValue);
+    SpecialVariablesTypeEnum result = SpecialVariablesTypeEnum.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -1759,29 +1586,7 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertEtherSubDenominationEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TimeSubdenominationEnum createTimeSubdenominationEnumFromString(EDataType eDataType, String initialValue)
-  {
-    TimeSubdenominationEnum result = TimeSubdenominationEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertTimeSubdenominationEnumToString(EDataType eDataType, Object instanceValue)
+  public String convertSpecialVariablesTypeEnumToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
