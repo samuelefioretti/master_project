@@ -33,6 +33,24 @@ public interface OptGrammarFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Import Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import Directive</em>'.
+   * @generated
+   */
+  ImportDirective createImportDirective();
+
+  /**
+   * Returns a new object of class '<em>Symbol Alias</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbol Alias</em>'.
+   * @generated
+   */
+  SymbolAlias createSymbolAlias();
+
+  /**
    * Returns a new object of class '<em>Contract</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +67,15 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   DefinitionBody createDefinitionBody();
+
+  /**
+   * Returns a new object of class '<em>Inheritance Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inheritance Specifier</em>'.
+   * @generated
+   */
+  InheritanceSpecifier createInheritanceSpecifier();
 
   /**
    * Returns a new object of class '<em>Function Call List Arguments</em>'.
@@ -103,33 +130,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   Const createConst();
-
-  /**
-   * Returns a new object of class '<em>Payable</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Payable</em>'.
-   * @generated
-   */
-  Payable createPayable();
-
-  /**
-   * Returns a new object of class '<em>View</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>View</em>'.
-   * @generated
-   */
-  View createView();
-
-  /**
-   * Returns a new object of class '<em>Pure</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Pure</em>'.
-   * @generated
-   */
-  Pure createPure();
 
   /**
    * Returns a new object of class '<em>Visibility Specifier</em>'.
@@ -258,6 +258,15 @@ public interface OptGrammarFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Named Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Named Type</em>'.
+   * @generated
+   */
+  NamedType createNamedType();
+
+  /**
    * Returns a new object of class '<em>Standard Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -276,31 +285,13 @@ public interface OptGrammarFactory extends EFactory
   StandardTypeWithoutQualifiedIdentifier createStandardTypeWithoutQualifiedIdentifier();
 
   /**
-   * Returns a new object of class '<em>Mapping Declaration</em>'.
+   * Returns a new object of class '<em>Mapping</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mapping Declaration</em>'.
+   * @return a new object of class '<em>Mapping</em>'.
    * @generated
    */
-  MappingDeclaration createMappingDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Unnamed Mapping Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unnamed Mapping Declaration</em>'.
-   * @generated
-   */
-  UnnamedMappingDeclaration createUnnamedMappingDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Named Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Named Type</em>'.
-   * @generated
-   */
-  NamedType createNamedType();
+  Mapping createMapping();
 
   /**
    * Returns a new object of class '<em>Array Dimensions</em>'.
@@ -456,15 +447,6 @@ public interface OptGrammarFactory extends EFactory
   ReturnParameterDeclaration createReturnParameterDeclaration();
 
   /**
-   * Returns a new object of class '<em>Loop Structures</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Loop Structures</em>'.
-   * @generated
-   */
-  LoopStructures createLoopStructures();
-
-  /**
    * Returns a new object of class '<em>Delete Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -483,22 +465,22 @@ public interface OptGrammarFactory extends EFactory
   IfStatement createIfStatement();
 
   /**
-   * Returns a new object of class '<em>While Structure</em>'.
+   * Returns a new object of class '<em>While Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>While Structure</em>'.
+   * @return a new object of class '<em>While Statement</em>'.
    * @generated
    */
-  WhileStructure createWhileStructure();
+  WhileStatement createWhileStatement();
 
   /**
-   * Returns a new object of class '<em>For Structure</em>'.
+   * Returns a new object of class '<em>For Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>For Structure</em>'.
+   * @return a new object of class '<em>For Statement</em>'.
    * @generated
    */
-  ForStructure createForStructure();
+  ForStatement createForStatement();
 
   /**
    * Returns a new object of class '<em>Body</em>'.
@@ -726,13 +708,13 @@ public interface OptGrammarFactory extends EFactory
   EcrecoverFunction createEcrecoverFunction();
 
   /**
-   * Returns a new object of class '<em>Mapping Access</em>'.
+   * Returns a new object of class '<em>Boolean Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mapping Access</em>'.
+   * @return a new object of class '<em>Boolean Literal</em>'.
    * @generated
    */
-  MappingAccess createMappingAccess();
+  BooleanLiteral createBooleanLiteral();
 
   /**
    * Returns a new object of class '<em>Numeric Literal</em>'.
@@ -742,33 +724,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   NumericLiteral createNumericLiteral();
-
-  /**
-   * Returns a new object of class '<em>Unit Types</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unit Types</em>'.
-   * @generated
-   */
-  UnitTypes createUnitTypes();
-
-  /**
-   * Returns a new object of class '<em>Time Units Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Time Units Literal</em>'.
-   * @generated
-   */
-  TimeUnitsLiteral createTimeUnitsLiteral();
-
-  /**
-   * Returns a new object of class '<em>Units Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Units Literal</em>'.
-   * @generated
-   */
-  UnitsLiteral createUnitsLiteral();
 
   /**
    * Returns a new object of class '<em>Int Literal</em>'.
@@ -807,15 +762,6 @@ public interface OptGrammarFactory extends EFactory
   StringLiteral createStringLiteral();
 
   /**
-   * Returns a new object of class '<em>Boolean Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boolean Literal</em>'.
-   * @generated
-   */
-  BooleanLiteral createBooleanLiteral();
-
-  /**
    * Returns a new object of class '<em>Type Cast</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -823,6 +769,33 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   TypeCast createTypeCast();
+
+  /**
+   * Returns a new object of class '<em>Unit Types</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unit Types</em>'.
+   * @generated
+   */
+  UnitTypes createUnitTypes();
+
+  /**
+   * Returns a new object of class '<em>Time Units Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Time Units Literal</em>'.
+   * @generated
+   */
+  TimeUnitsLiteral createTimeUnitsLiteral();
+
+  /**
+   * Returns a new object of class '<em>Units Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Units Literal</em>'.
+   * @generated
+   */
+  UnitsLiteral createUnitsLiteral();
 
   /**
    * Returns a new object of class '<em>Special Literal</em>'.
@@ -868,6 +841,15 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   VisibilityLiteral createVisibilityLiteral();
+
+  /**
+   * Returns a new object of class '<em>State Mutability</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State Mutability</em>'.
+   * @generated
+   */
+  StateMutability createStateMutability();
 
   /**
    * Returns a new object of class '<em>Var Variable Type Declaration</em>'.

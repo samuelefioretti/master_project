@@ -1,42 +1,24 @@
-/*
- * Grammar for Solidity 0.5.2
- * 
- * Language name: osol
- */
 grammar org.unicam.myGrammar.OptGrammar with org.eclipse.xtext.common.Terminals
 
 generate optGrammar "http://www.unicam.org/myGrammar/OptGrammar"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
-	operations+=Contract*;
+	(importDirective+=ImportDirective |
+	contract+=Contract)*;
 
-	/*
- * Solidity:
- * (importDirective+=ImportDirective |
- * contract+=Contract |
- * library+=Library)*;
- * 
- * ImportDirective:
- * "import" importURI=STRING ";" |
- * "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
- * "import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
- * 
- * SymbolAlias:
- * symbol=ID "as" alias=ID;
- * 
- * ContractOrLibrary:
- * Contract |
- * Library;
- */
+ImportDirective:
+	"import" importURI=STRING ";" |
+	"import" "*" "as" unitAlias=ID "from" importURI=STRING ";" |
+	"import" "{" symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
+
+SymbolAlias:
+	symbol=ID "as" alias=ID;
+
 Contract:
-	"contract" name=ID body=DefinitionBody;
+	"contract" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier
+	("," inheritanceSpecifiers+=InheritanceSpecifier)*)? body=DefinitionBody;
 
-	/* 
- * Library:
- * "library" name=ID ("is" inheritanceSpecifiers+=InheritanceSpecifier
- * ("," inheritanceSpecifiers+=InheritanceSpecifier)*)? body=DefinitionBody;
- */
 DefinitionBody:
 	{DefinitionBody}
 	"{"
@@ -48,10 +30,9 @@ DefinitionBody:
 	events+=Event)*
 	"}";
 
-	/*
- * InheritanceSpecifier:
- * superType=[Contract] (args=FunctionCallListArguments)?;
- */
+InheritanceSpecifier:
+	superType=[Contract] (args=FunctionCallListArguments)?;
+
 FunctionCallListArguments:
 	"(" {FunctionCallListArguments} (arguments+=Expression ("," arguments+=Expression)*)? ")";
 
@@ -63,39 +44,33 @@ FunctionCallArguments:
 FunctionCallArg:
 	name=ID ":" expr=Expression;
 
+	// Anonymous function allowed when "name" is not specified.
 FunctionDefinition:
-	payable?="payable"? "function" name=ID parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement*
+	"function"
+	{FunctionDefinition}
+	name=ID?
+	parameters=ParameterList
+	optionalElements+=FunctionDefinitionOptionalElement*
 	("returns" returnParameters=ReturnsParameterList)?
 	(block=Body | ";");
 
 FunctionDefinitionOptionalElement:
+	StateMutability |
 	Const |
-	Payable |
-	View |
-	Pure |
 	ModifierInvocation |
 	VisibilitySpecifier;
 
 Const:
 	"constant" {Const};
 
-Payable:
-	"payable" {Payable};
-
-View:
-	"view" {View};
-
-Pure:
-	"pure" {Pure};
-
 VisibilitySpecifier:
 	visibility=VisibilityLiteral;
 
 StructDefinition:
-	visibility=VisibilityLiteral? "struct" name=ID "{" (members+=VariableDeclaration ";")* "}";
+	"struct" name=ID "{" (members+=VariableDeclaration ";")* "}";
 
 EnumDefinition:
-	visibility=VisibilityLiteral? "enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)? "}";
+	"enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)? "}";
 
 EnumValue:
 	name=ID;
@@ -104,6 +79,7 @@ Variable:
 	name=ID;
 
 	// Variable Declarations
+//----------------------------------------------------------------
 VariableDeclaration returns Statement:
 	StandardVariableDeclaration |
 	VarVariableDeclaration |
@@ -135,28 +111,24 @@ LocationSpecifier:
 	location=LocationLiteral;
 
 	// Types
+//----------------------------------------------------------------
 Type:
 	StandardType | isVarType?=VarType;
 
+NamedType:
+	SimpleTypeDeclaration | SizedDeclaration;
+
 StandardType:
 	NamedType dimension=ArrayDimensions? |
-	MappingDeclaration |
+	Mapping |
 	QualifiedIdentifier;
 
 StandardTypeWithoutQualifiedIdentifier:
 	NamedType dimension=ArrayDimensions? |
-	MappingDeclaration;
+	Mapping;
 
-MappingDeclaration:
-	location=MapLocationLiteral? visibility=VisibilityLiteral? unnamedMappingDeclaration=UnnamedMappingDeclaration
-	name=ID;
-
-UnnamedMappingDeclaration:
-	"mapping" "(" type=NamedType "=>" (secondRef=[DefinitionBody] | second=(NamedType | UnnamedMappingDeclaration))
-	array?="[]"? ")";
-
-NamedType:
-	SimpleTypeDeclaration | SizedDeclaration;
+Mapping:
+	"mapping" "(" keyType=SizedDeclaration "=>" valueType=Type ")";
 
 ArrayDimensions:
 	"[" {ArrayDimensions} value+=Expression? "]" ("[" value+=Expression? "]")*;
@@ -165,6 +137,7 @@ VarType:
 	"var";
 
 	// Tuples
+//----------------------------------------------------------------
 Tuple:
 	"(" {Tuple} (members+=Expression? (members+=TupleSeparator members+=Expression?)+)? ")";
 
@@ -178,16 +151,14 @@ TupleSeparator:
 //;
 SimpleStatement:
 	(StandardTypeWithoutQualifiedIdentifier ({StandardVariableDeclaration.type=current}
-	optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) |
-	VarType
+	optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) | VarType
 	(({VarVariableTypeDeclaration} variable=Variable ("=" expression=Expression)) |
 	({VarVariableTupleVariableDeclaration} tuple=Tuple ("=" expression=Expression))) | ExpressionStatement)
 	semicolon?=";";
 
 SimpleStatement2:
 	(StandardTypeWithoutQualifiedIdentifier ({StandardVariableDeclaration.type=current}
-	optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) |
-	VarType
+	optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) | VarType
 	(({VarVariableTypeDeclaration} variable=Variable ("=" expression=Expression)) |
 	({VarVariableTupleVariableDeclaration} tuple=Tuple ("=" expression=Expression))) | ExpressionStatement);
 
@@ -215,7 +186,7 @@ Modifier:
 	"modifier" name=ID parameters=ParameterList? block=Body;
 
 Event:
-	"event" name=ID parameters=ParameterList? isAnonymous?="anonymous"? ";";
+	"event" name=ID parameters=ParameterList isAnonymous?="anonymous"? ";";
 
 ModifierInvocation:
 	name=[Modifier] args=FunctionCallListArguments?;
@@ -230,13 +201,10 @@ ReturnsParameterList:
 ReturnParameterDeclaration:
 	typeRef=Type variable=Variable?;
 
-LoopStructures:
-	WhileStructure |
-	ForStructure;
-
 Statement:
 	IfStatement |
-	LoopStructures |
+	WhileStatement |
+	ForStatement |
 	Body |
 	PlaceHolderStatement |
 	((ContinueStatement |
@@ -250,13 +218,13 @@ DeleteStatement:
 	"delete" variable=QualifiedIdentifier ";";
 
 IfStatement:
-	type='if' "(" condition=Expression ")" trueBody=Statement (=> "else" falseBody=Statement)?;
+	"if" "(" condition=Expression ")" trueBody=Statement (=> "else" falseBody=Statement)?;
 
-WhileStructure:
-	type="while" "(" condition=Expression ")" body=Statement;
+WhileStatement:
+	"while" "(" condition=Expression ")" body=Statement;
 
-ForStructure:
-	type="for" "(" initExpression=SimpleStatement2? => ";" conditionExpression=Expression? ";"
+ForStatement:
+	"for" "(" initExpression=SimpleStatement2? => ";" conditionExpression=Expression? ";"
 	loopExpression=ExpressionStatement? ")" body=Statement;
 
 Body:
@@ -381,13 +349,18 @@ PrimaryExpression returns Expression:
 
 Literal:
 	NumericLiteral |
-	//ArithmeticOperations |
-	StringLiteral | BooleanLiteral |
+	StringLiteral |
+	BooleanLiteral |
 	//FunctionCall |
 	//ArrayAccess |
-	MappingAccess |
+	//MappingAccess |
 	//FieldAccess |
-	SpecialLiteral | BlockhashFunction | GasleftFunction | MathematicalFunction | HashFunction | EcrecoverFunction;
+	SpecialLiteral |
+	BlockhashFunction |
+	GasleftFunction |
+	MathematicalFunction |
+	HashFunction |
+	EcrecoverFunction;
 
 ArithmeticOperations:
 	first=PrimaryArithmetic seconds+=(SecondOperators)*;
@@ -421,11 +394,32 @@ EcrecoverFunction:
 	function="ecrecover" "(" parameters+=IntParameter "," parameters+=IntParameter "," parameters+=IntParameter ","
 	parameters+=IntParameter ")";
 
-MappingAccess:
-	map=[MappingDeclaration] "<(" index=Expression ")>";
+BooleanLiteral:
+	value=("true" | "false");
 
 NumericLiteral:
 	(intValue=IntLiteral | hexValue=HexLiteral | decimalValue=DecimalLiteral) etherUnit=UnitTypes?;
+
+IntLiteral:
+	value=INT;
+
+HexLiteral:
+	value=HEX;
+
+terminal HEX:
+	"0x" ("0".."9" | "A".."F" | "a".."f")+;
+
+DecimalLiteral:
+	value=DECIMAL;
+
+terminal DECIMAL returns ecore::EDouble:
+	INT ("." INT);
+
+StringLiteral:
+	value=STRING;
+
+TypeCast:
+	value=SizedDeclaration "(" expression=Expression ")";
 
 UnitTypes:
 	time=TimeUnitsLiteral | units=UnitsLiteral;
@@ -435,30 +429,6 @@ TimeUnitsLiteral:
 
 UnitsLiteral:
 	value=("wei" | "szabo" | "finney" | "ether");
-
-IntLiteral:
-	value=INT;
-
-HexLiteral:
-	value=HEX;
-
-DecimalLiteral:
-	value=DECIMAL;
-
-terminal HEX:
-	"0x" ("0".."9" | "A".."F" | "a".."f")+;
-
-terminal DECIMAL returns ecore::EDouble:
-	INT ("." INT);
-
-StringLiteral:
-	value=STRING;
-
-BooleanLiteral:
-	value=("true" | "false");
-
-TypeCast:
-	value=SizedDeclaration "(" expression=Expression ")";
 
 SpecialLiteral:
 	name=(BLOCK | MSG | TX | NOW);
@@ -474,25 +444,30 @@ terminal TX:
 
 terminal NOW:
 	"now";
-
+	// Enums
+//-----------------------------------------------------------------------------
 SizedDeclaration:
 	type=(
-	//INT
+	// INT
 	"int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" | "int96" |
-	"int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" | "int178" |
-	"int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" | "int256") | type=(
+	"int104" | "int112" |
+	"int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" | "int178" | "int184" | "int192" |
+	"int200" | "int208" |
+	"int216" | "int224" | "int232" | "int240" | "int248" | "int256") | type=(
 	// UINT
 	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
-	"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
-	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
-	| "uint248" | "uint256") | type=(
+	"uint88" | "uint96" |
+	"uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" | "uint168" | "uint178"
+	| "uint184" |
+	"uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240" | "uint248" | "uint256") | type=(
 	// BYTES
-	"bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" | "bytes10" |
-	"bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19" | "bytes20"
-	| "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" | "bytes29" |
-	"bytes30" | "bytes31" | "bytes32" | "bytes" | "byte") | type=(
+	"bytes" | "byte" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
+	"bytes10" | "bytes11" | "bytes12" |
+	"bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19" | "bytes20" | "bytes21" | "bytes22"
+	| "bytes23" |
+	"bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" | "bytes29" | "bytes30" | "bytes31" | "bytes32") | type=(
 	// Other
-	"address" | "real" | "ureal");
+	"address" | "real" | "ureal" | "fixed" | "ufixed");
 
 SimpleTypeDeclaration:
 	type=("string" | "bool");
@@ -506,10 +481,12 @@ LocationLiteral:
 VisibilityLiteral:
 	type=("public" | "internal" | "private" | "external");
 
+StateMutability:
+	type=('pure' | 'view' | 'payable');
+
 enum AssignmentOpEnum:
 	ASSIGN="=" | ASSIGN_OR="|=" | ASSIGN_XOR="^=" | ASSIGN_AND="&=" | ASSIGN_SHIFT_LEFT="<<=" | ASSIGN_SHIFT_RIGHT=">>="
-	|
-	ASSIGN_SHIFT_RIGHT_ARIMETIC=">>>=" | ASSIGN_ADD="+=" | ASSIGN_SUB="-=" | ASSIGN_MULT="*=" | ASSIGN_DIV="/=" |
+	| ASSIGN_SHIFT_RIGHT_ARIMETIC=">>>=" | ASSIGN_ADD="+=" | ASSIGN_SUB="-=" | ASSIGN_MULT="*=" | ASSIGN_DIV="/=" |
 	ASSIGN_MOD="%=";
 
 enum EqualityOpEnum:
@@ -530,5 +507,11 @@ enum MulDivModOpEnum:
 enum IncDecOpEnum:
 	INC="++" | DEC="--";
 
+	// Also "EOS" DAF
 enum SpecialExpressionTypeEnum:
 	SUPER="super" | THIS="this";
+
+enum ReservedWordsEnum:
+	AS="as" | CASE="case" | CATCH="catch" | FINAL="final" | LET="let" | MATCH="match" | OF="of" |
+	RELOCATABLE="relocatable" | SWITCH="switch" | TRY="try" | TYPE="type" | TYPEOF="typeof" | USING="using" |
+	ILLEGAL="ILLEGAL";

@@ -81,6 +81,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseImportDirective(ImportDirective object)
+      {
+        return createImportDirectiveAdapter();
+      }
+      @Override
+      public Adapter caseSymbolAlias(SymbolAlias object)
+      {
+        return createSymbolAliasAdapter();
+      }
+      @Override
       public Adapter caseContract(Contract object)
       {
         return createContractAdapter();
@@ -89,6 +99,11 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDefinitionBody(DefinitionBody object)
       {
         return createDefinitionBodyAdapter();
+      }
+      @Override
+      public Adapter caseInheritanceSpecifier(InheritanceSpecifier object)
+      {
+        return createInheritanceSpecifierAdapter();
       }
       @Override
       public Adapter caseFunctionCallListArguments(FunctionCallListArguments object)
@@ -119,21 +134,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConst(Const object)
       {
         return createConstAdapter();
-      }
-      @Override
-      public Adapter casePayable(Payable object)
-      {
-        return createPayableAdapter();
-      }
-      @Override
-      public Adapter caseView(View object)
-      {
-        return createViewAdapter();
-      }
-      @Override
-      public Adapter casePure(Pure object)
-      {
-        return createPureAdapter();
       }
       @Override
       public Adapter caseVisibilitySpecifier(VisibilitySpecifier object)
@@ -206,6 +206,11 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createTypeAdapter();
       }
       @Override
+      public Adapter caseNamedType(NamedType object)
+      {
+        return createNamedTypeAdapter();
+      }
+      @Override
       public Adapter caseStandardType(StandardType object)
       {
         return createStandardTypeAdapter();
@@ -216,19 +221,9 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createStandardTypeWithoutQualifiedIdentifierAdapter();
       }
       @Override
-      public Adapter caseMappingDeclaration(MappingDeclaration object)
+      public Adapter caseMapping(Mapping object)
       {
-        return createMappingDeclarationAdapter();
-      }
-      @Override
-      public Adapter caseUnnamedMappingDeclaration(UnnamedMappingDeclaration object)
-      {
-        return createUnnamedMappingDeclarationAdapter();
-      }
-      @Override
-      public Adapter caseNamedType(NamedType object)
-      {
-        return createNamedTypeAdapter();
+        return createMappingAdapter();
       }
       @Override
       public Adapter caseArrayDimensions(ArrayDimensions object)
@@ -316,11 +311,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createReturnParameterDeclarationAdapter();
       }
       @Override
-      public Adapter caseLoopStructures(LoopStructures object)
-      {
-        return createLoopStructuresAdapter();
-      }
-      @Override
       public Adapter caseDeleteStatement(DeleteStatement object)
       {
         return createDeleteStatementAdapter();
@@ -331,14 +321,14 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createIfStatementAdapter();
       }
       @Override
-      public Adapter caseWhileStructure(WhileStructure object)
+      public Adapter caseWhileStatement(WhileStatement object)
       {
-        return createWhileStructureAdapter();
+        return createWhileStatementAdapter();
       }
       @Override
-      public Adapter caseForStructure(ForStructure object)
+      public Adapter caseForStatement(ForStatement object)
       {
-        return createForStructureAdapter();
+        return createForStatementAdapter();
       }
       @Override
       public Adapter caseBody(Body object)
@@ -466,29 +456,14 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createEcrecoverFunctionAdapter();
       }
       @Override
-      public Adapter caseMappingAccess(MappingAccess object)
+      public Adapter caseBooleanLiteral(BooleanLiteral object)
       {
-        return createMappingAccessAdapter();
+        return createBooleanLiteralAdapter();
       }
       @Override
       public Adapter caseNumericLiteral(NumericLiteral object)
       {
         return createNumericLiteralAdapter();
-      }
-      @Override
-      public Adapter caseUnitTypes(UnitTypes object)
-      {
-        return createUnitTypesAdapter();
-      }
-      @Override
-      public Adapter caseTimeUnitsLiteral(TimeUnitsLiteral object)
-      {
-        return createTimeUnitsLiteralAdapter();
-      }
-      @Override
-      public Adapter caseUnitsLiteral(UnitsLiteral object)
-      {
-        return createUnitsLiteralAdapter();
       }
       @Override
       public Adapter caseIntLiteral(IntLiteral object)
@@ -511,14 +486,24 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
         return createStringLiteralAdapter();
       }
       @Override
-      public Adapter caseBooleanLiteral(BooleanLiteral object)
-      {
-        return createBooleanLiteralAdapter();
-      }
-      @Override
       public Adapter caseTypeCast(TypeCast object)
       {
         return createTypeCastAdapter();
+      }
+      @Override
+      public Adapter caseUnitTypes(UnitTypes object)
+      {
+        return createUnitTypesAdapter();
+      }
+      @Override
+      public Adapter caseTimeUnitsLiteral(TimeUnitsLiteral object)
+      {
+        return createTimeUnitsLiteralAdapter();
+      }
+      @Override
+      public Adapter caseUnitsLiteral(UnitsLiteral object)
+      {
+        return createUnitsLiteralAdapter();
       }
       @Override
       public Adapter caseSpecialLiteral(SpecialLiteral object)
@@ -544,6 +529,11 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
       public Adapter caseVisibilityLiteral(VisibilityLiteral object)
       {
         return createVisibilityLiteralAdapter();
+      }
+      @Override
+      public Adapter caseStateMutability(StateMutability object)
+      {
+        return createStateMutabilityAdapter();
       }
       @Override
       public Adapter caseVarVariableTypeDeclaration(VarVariableTypeDeclaration object)
@@ -663,6 +653,36 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ImportDirective <em>Import Directive</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.ImportDirective
+   * @generated
+   */
+  public Adapter createImportDirectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.SymbolAlias <em>Symbol Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.SymbolAlias
+   * @generated
+   */
+  public Adapter createSymbolAliasAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Contract <em>Contract</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -688,6 +708,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDefinitionBodyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier <em>Inheritance Specifier</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.InheritanceSpecifier
+   * @generated
+   */
+  public Adapter createInheritanceSpecifierAdapter()
   {
     return null;
   }
@@ -778,51 +813,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConstAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Payable <em>Payable</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Payable
-   * @generated
-   */
-  public Adapter createPayableAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.View <em>View</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.View
-   * @generated
-   */
-  public Adapter createViewAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Pure <em>Pure</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.Pure
-   * @generated
-   */
-  public Adapter createPureAdapter()
   {
     return null;
   }
@@ -1038,6 +1028,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.NamedType <em>Named Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.NamedType
+   * @generated
+   */
+  public Adapter createNamedTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.StandardType <em>Standard Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1068,46 +1073,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.MappingDeclaration <em>Mapping Declaration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.Mapping <em>Mapping</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.MappingDeclaration
+   * @see org.unicam.myGrammar.optGrammar.Mapping
    * @generated
    */
-  public Adapter createMappingDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration <em>Unnamed Mapping Declaration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration
-   * @generated
-   */
-  public Adapter createUnnamedMappingDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.NamedType <em>Named Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.NamedType
-   * @generated
-   */
-  public Adapter createNamedTypeAdapter()
+  public Adapter createMappingAdapter()
   {
     return null;
   }
@@ -1368,21 +1343,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.LoopStructures <em>Loop Structures</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.LoopStructures
-   * @generated
-   */
-  public Adapter createLoopStructuresAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.DeleteStatement <em>Delete Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1413,31 +1373,31 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.WhileStructure <em>While Structure</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.WhileStatement <em>While Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.WhileStructure
+   * @see org.unicam.myGrammar.optGrammar.WhileStatement
    * @generated
    */
-  public Adapter createWhileStructureAdapter()
+  public Adapter createWhileStatementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ForStructure <em>For Structure</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.ForStatement <em>For Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.ForStructure
+   * @see org.unicam.myGrammar.optGrammar.ForStatement
    * @generated
    */
-  public Adapter createForStructureAdapter()
+  public Adapter createForStatementAdapter()
   {
     return null;
   }
@@ -1818,16 +1778,16 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.MappingAccess <em>Mapping Access</em>}'.
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.BooleanLiteral <em>Boolean Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.MappingAccess
+   * @see org.unicam.myGrammar.optGrammar.BooleanLiteral
    * @generated
    */
-  public Adapter createMappingAccessAdapter()
+  public Adapter createBooleanLiteralAdapter()
   {
     return null;
   }
@@ -1843,51 +1803,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNumericLiteralAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.UnitTypes <em>Unit Types</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.UnitTypes
-   * @generated
-   */
-  public Adapter createUnitTypesAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.TimeUnitsLiteral <em>Time Units Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.TimeUnitsLiteral
-   * @generated
-   */
-  public Adapter createTimeUnitsLiteralAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.UnitsLiteral <em>Units Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.UnitsLiteral
-   * @generated
-   */
-  public Adapter createUnitsLiteralAdapter()
   {
     return null;
   }
@@ -1953,21 +1868,6 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.BooleanLiteral <em>Boolean Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.unicam.myGrammar.optGrammar.BooleanLiteral
-   * @generated
-   */
-  public Adapter createBooleanLiteralAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.TypeCast <em>Type Cast</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1978,6 +1878,51 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeCastAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.UnitTypes <em>Unit Types</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.UnitTypes
+   * @generated
+   */
+  public Adapter createUnitTypesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.TimeUnitsLiteral <em>Time Units Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.TimeUnitsLiteral
+   * @generated
+   */
+  public Adapter createTimeUnitsLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.UnitsLiteral <em>Units Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.UnitsLiteral
+   * @generated
+   */
+  public Adapter createUnitsLiteralAdapter()
   {
     return null;
   }
@@ -2053,6 +1998,21 @@ public class OptGrammarAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVisibilityLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.unicam.myGrammar.optGrammar.StateMutability <em>State Mutability</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.unicam.myGrammar.optGrammar.StateMutability
+   * @generated
+   */
+  public Adapter createStateMutabilityAdapter()
   {
     return null;
   }

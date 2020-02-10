@@ -80,6 +80,20 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.IMPORT_DIRECTIVE:
+      {
+        ImportDirective importDirective = (ImportDirective)theEObject;
+        T result = caseImportDirective(importDirective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.SYMBOL_ALIAS:
+      {
+        SymbolAlias symbolAlias = (SymbolAlias)theEObject;
+        T result = caseSymbolAlias(symbolAlias);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.CONTRACT:
       {
         Contract contract = (Contract)theEObject;
@@ -91,6 +105,13 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         DefinitionBody definitionBody = (DefinitionBody)theEObject;
         T result = caseDefinitionBody(definitionBody);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.INHERITANCE_SPECIFIER:
+      {
+        InheritanceSpecifier inheritanceSpecifier = (InheritanceSpecifier)theEObject;
+        T result = caseInheritanceSpecifier(inheritanceSpecifier);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -135,30 +156,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         Const const_ = (Const)theEObject;
         T result = caseConst(const_);
         if (result == null) result = caseFunctionDefinitionOptionalElement(const_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.PAYABLE:
-      {
-        Payable payable = (Payable)theEObject;
-        T result = casePayable(payable);
-        if (result == null) result = caseFunctionDefinitionOptionalElement(payable);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.VIEW:
-      {
-        View view = (View)theEObject;
-        T result = caseView(view);
-        if (result == null) result = caseFunctionDefinitionOptionalElement(view);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.PURE:
-      {
-        Pure pure = (Pure)theEObject;
-        T result = casePure(pure);
-        if (result == null) result = caseFunctionDefinitionOptionalElement(pure);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -272,6 +269,19 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.NAMED_TYPE:
+      {
+        NamedType namedType = (NamedType)theEObject;
+        T result = caseNamedType(namedType);
+        if (result == null) result = caseStandardType(namedType);
+        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(namedType);
+        if (result == null) result = caseType(namedType);
+        if (result == null) result = caseSimpleStatement(namedType);
+        if (result == null) result = caseSimpleStatement2(namedType);
+        if (result == null) result = caseStatement(namedType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.STANDARD_TYPE:
       {
         StandardType standardType = (StandardType)theEObject;
@@ -290,36 +300,16 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.MAPPING_DECLARATION:
+      case OptGrammarPackage.MAPPING:
       {
-        MappingDeclaration mappingDeclaration = (MappingDeclaration)theEObject;
-        T result = caseMappingDeclaration(mappingDeclaration);
-        if (result == null) result = caseStandardType(mappingDeclaration);
-        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(mappingDeclaration);
-        if (result == null) result = caseType(mappingDeclaration);
-        if (result == null) result = caseSimpleStatement(mappingDeclaration);
-        if (result == null) result = caseSimpleStatement2(mappingDeclaration);
-        if (result == null) result = caseStatement(mappingDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.UNNAMED_MAPPING_DECLARATION:
-      {
-        UnnamedMappingDeclaration unnamedMappingDeclaration = (UnnamedMappingDeclaration)theEObject;
-        T result = caseUnnamedMappingDeclaration(unnamedMappingDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.NAMED_TYPE:
-      {
-        NamedType namedType = (NamedType)theEObject;
-        T result = caseNamedType(namedType);
-        if (result == null) result = caseStandardType(namedType);
-        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(namedType);
-        if (result == null) result = caseType(namedType);
-        if (result == null) result = caseSimpleStatement(namedType);
-        if (result == null) result = caseSimpleStatement2(namedType);
-        if (result == null) result = caseStatement(namedType);
+        Mapping mapping = (Mapping)theEObject;
+        T result = caseMapping(mapping);
+        if (result == null) result = caseStandardType(mapping);
+        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(mapping);
+        if (result == null) result = caseType(mapping);
+        if (result == null) result = caseSimpleStatement(mapping);
+        if (result == null) result = caseSimpleStatement2(mapping);
+        if (result == null) result = caseStatement(mapping);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -458,14 +448,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.LOOP_STRUCTURES:
-      {
-        LoopStructures loopStructures = (LoopStructures)theEObject;
-        T result = caseLoopStructures(loopStructures);
-        if (result == null) result = caseStatement(loopStructures);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OptGrammarPackage.DELETE_STATEMENT:
       {
         DeleteStatement deleteStatement = (DeleteStatement)theEObject;
@@ -482,21 +464,19 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.WHILE_STRUCTURE:
+      case OptGrammarPackage.WHILE_STATEMENT:
       {
-        WhileStructure whileStructure = (WhileStructure)theEObject;
-        T result = caseWhileStructure(whileStructure);
-        if (result == null) result = caseLoopStructures(whileStructure);
-        if (result == null) result = caseStatement(whileStructure);
+        WhileStatement whileStatement = (WhileStatement)theEObject;
+        T result = caseWhileStatement(whileStatement);
+        if (result == null) result = caseStatement(whileStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.FOR_STRUCTURE:
+      case OptGrammarPackage.FOR_STATEMENT:
       {
-        ForStructure forStructure = (ForStructure)theEObject;
-        T result = caseForStructure(forStructure);
-        if (result == null) result = caseLoopStructures(forStructure);
-        if (result == null) result = caseStatement(forStructure);
+        ForStatement forStatement = (ForStatement)theEObject;
+        T result = caseForStatement(forStatement);
+        if (result == null) result = caseStatement(forStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -713,13 +693,13 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.MAPPING_ACCESS:
+      case OptGrammarPackage.BOOLEAN_LITERAL:
       {
-        MappingAccess mappingAccess = (MappingAccess)theEObject;
-        T result = caseMappingAccess(mappingAccess);
-        if (result == null) result = caseLiteral(mappingAccess);
-        if (result == null) result = caseExpression(mappingAccess);
-        if (result == null) result = casePrimaryArithmetic(mappingAccess);
+        BooleanLiteral booleanLiteral = (BooleanLiteral)theEObject;
+        T result = caseBooleanLiteral(booleanLiteral);
+        if (result == null) result = caseLiteral(booleanLiteral);
+        if (result == null) result = caseExpression(booleanLiteral);
+        if (result == null) result = casePrimaryArithmetic(booleanLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -730,27 +710,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = caseLiteral(numericLiteral);
         if (result == null) result = caseExpression(numericLiteral);
         if (result == null) result = casePrimaryArithmetic(numericLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.UNIT_TYPES:
-      {
-        UnitTypes unitTypes = (UnitTypes)theEObject;
-        T result = caseUnitTypes(unitTypes);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.TIME_UNITS_LITERAL:
-      {
-        TimeUnitsLiteral timeUnitsLiteral = (TimeUnitsLiteral)theEObject;
-        T result = caseTimeUnitsLiteral(timeUnitsLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.UNITS_LITERAL:
-      {
-        UnitsLiteral unitsLiteral = (UnitsLiteral)theEObject;
-        T result = caseUnitsLiteral(unitsLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -785,22 +744,33 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.BOOLEAN_LITERAL:
-      {
-        BooleanLiteral booleanLiteral = (BooleanLiteral)theEObject;
-        T result = caseBooleanLiteral(booleanLiteral);
-        if (result == null) result = caseLiteral(booleanLiteral);
-        if (result == null) result = caseExpression(booleanLiteral);
-        if (result == null) result = casePrimaryArithmetic(booleanLiteral);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OptGrammarPackage.TYPE_CAST:
       {
         TypeCast typeCast = (TypeCast)theEObject;
         T result = caseTypeCast(typeCast);
         if (result == null) result = caseExpression(typeCast);
         if (result == null) result = casePrimaryArithmetic(typeCast);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.UNIT_TYPES:
+      {
+        UnitTypes unitTypes = (UnitTypes)theEObject;
+        T result = caseUnitTypes(unitTypes);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.TIME_UNITS_LITERAL:
+      {
+        TimeUnitsLiteral timeUnitsLiteral = (TimeUnitsLiteral)theEObject;
+        T result = caseTimeUnitsLiteral(timeUnitsLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.UNITS_LITERAL:
+      {
+        UnitsLiteral unitsLiteral = (UnitsLiteral)theEObject;
+        T result = caseUnitsLiteral(unitsLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -853,6 +823,14 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         VisibilityLiteral visibilityLiteral = (VisibilityLiteral)theEObject;
         T result = caseVisibilityLiteral(visibilityLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.STATE_MUTABILITY:
+      {
+        StateMutability stateMutability = (StateMutability)theEObject;
+        T result = caseStateMutability(stateMutability);
+        if (result == null) result = caseFunctionDefinitionOptionalElement(stateMutability);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1022,6 +1000,38 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Import Directive</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Import Directive</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImportDirective(ImportDirective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbol Alias</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbol Alias</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbolAlias(SymbolAlias object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Contract</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1049,6 +1059,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDefinitionBody(DefinitionBody object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inheritance Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inheritance Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInheritanceSpecifier(InheritanceSpecifier object)
   {
     return null;
   }
@@ -1145,54 +1171,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConst(Const object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Payable</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Payable</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePayable(Payable object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>View</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>View</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseView(View object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Pure</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Pure</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePure(Pure object)
   {
     return null;
   }
@@ -1422,6 +1400,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Named Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Named Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNamedType(NamedType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Standard Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1454,49 +1448,17 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Mapping Declaration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Mapping</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mapping Declaration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Mapping</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMappingDeclaration(MappingDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unnamed Mapping Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unnamed Mapping Declaration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnnamedMappingDeclaration(UnnamedMappingDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Named Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Named Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNamedType(NamedType object)
+  public T caseMapping(Mapping object)
   {
     return null;
   }
@@ -1774,22 +1736,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Loop Structures</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Loop Structures</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLoopStructures(LoopStructures object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Delete Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1822,33 +1768,33 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>While Structure</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>While Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>While Structure</em>'.
+   * @return the result of interpreting the object as an instance of '<em>While Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseWhileStructure(WhileStructure object)
+  public T caseWhileStatement(WhileStatement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>For Structure</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>For Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>For Structure</em>'.
+   * @return the result of interpreting the object as an instance of '<em>For Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseForStructure(ForStructure object)
+  public T caseForStatement(ForStatement object)
   {
     return null;
   }
@@ -2254,17 +2200,17 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Mapping Access</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mapping Access</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMappingAccess(MappingAccess object)
+  public T caseBooleanLiteral(BooleanLiteral object)
   {
     return null;
   }
@@ -2281,54 +2227,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNumericLiteral(NumericLiteral object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unit Types</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unit Types</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnitTypes(UnitTypes object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Time Units Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Time Units Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTimeUnitsLiteral(TimeUnitsLiteral object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Units Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Units Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnitsLiteral(UnitsLiteral object)
   {
     return null;
   }
@@ -2398,22 +2296,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Boolean Literal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBooleanLiteral(BooleanLiteral object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Type Cast</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -2425,6 +2307,54 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTypeCast(TypeCast object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unit Types</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unit Types</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnitTypes(UnitTypes object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Time Units Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Time Units Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTimeUnitsLiteral(TimeUnitsLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Units Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Units Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnitsLiteral(UnitsLiteral object)
   {
     return null;
   }
@@ -2505,6 +2435,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseVisibilityLiteral(VisibilityLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Mutability</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Mutability</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStateMutability(StateMutability object)
   {
     return null;
   }

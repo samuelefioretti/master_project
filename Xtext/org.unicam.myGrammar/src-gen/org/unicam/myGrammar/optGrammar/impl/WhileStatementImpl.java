@@ -11,45 +11,36 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.LoopStructures;
+import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Statement;
+import org.unicam.myGrammar.optGrammar.WhileStatement;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Loop Structures</b></em>'.
+ * An implementation of the model object '<em><b>While Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.LoopStructuresImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.LoopStructuresImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.WhileStatementImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.WhileStatementImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LoopStructuresImpl extends StatementImpl implements LoopStructures
+public class WhileStatementImpl extends StatementImpl implements WhileStatement
 {
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getCondition()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
+  protected Expression condition;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -66,7 +57,7 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LoopStructuresImpl()
+  protected WhileStatementImpl()
   {
     super();
   }
@@ -79,7 +70,7 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.LOOP_STRUCTURES;
+    return OptGrammarPackage.Literals.WHILE_STATEMENT;
   }
 
   /**
@@ -88,9 +79,9 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
    * @generated
    */
   @Override
-  public String getType()
+  public Expression getCondition()
   {
-    return type;
+    return condition;
   }
 
   /**
@@ -98,13 +89,38 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setType(String newType)
+  public NotificationChain basicSetCondition(Expression newCondition, NotificationChain msgs)
   {
-    String oldType = type;
-    type = newType;
+    Expression oldCondition = condition;
+    condition = newCondition;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOOP_STRUCTURES__TYPE, oldType, type));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.WHILE_STATEMENT__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setCondition(Expression newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.WHILE_STATEMENT__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.WHILE_STATEMENT__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.WHILE_STATEMENT__CONDITION, newCondition, newCondition));
   }
 
   /**
@@ -129,7 +145,7 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
     body = newBody;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOOP_STRUCTURES__BODY, oldBody, newBody);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.WHILE_STATEMENT__BODY, oldBody, newBody);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -147,14 +163,14 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
     {
       NotificationChain msgs = null;
       if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOOP_STRUCTURES__BODY, null, msgs);
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.WHILE_STATEMENT__BODY, null, msgs);
       if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.LOOP_STRUCTURES__BODY, null, msgs);
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.WHILE_STATEMENT__BODY, null, msgs);
       msgs = basicSetBody(newBody, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.LOOP_STRUCTURES__BODY, newBody, newBody));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.WHILE_STATEMENT__BODY, newBody, newBody));
   }
 
   /**
@@ -167,7 +183,9 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
   {
     switch (featureID)
     {
-      case OptGrammarPackage.LOOP_STRUCTURES__BODY:
+      case OptGrammarPackage.WHILE_STATEMENT__CONDITION:
+        return basicSetCondition(null, msgs);
+      case OptGrammarPackage.WHILE_STATEMENT__BODY:
         return basicSetBody(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -183,9 +201,9 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
   {
     switch (featureID)
     {
-      case OptGrammarPackage.LOOP_STRUCTURES__TYPE:
-        return getType();
-      case OptGrammarPackage.LOOP_STRUCTURES__BODY:
+      case OptGrammarPackage.WHILE_STATEMENT__CONDITION:
+        return getCondition();
+      case OptGrammarPackage.WHILE_STATEMENT__BODY:
         return getBody();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -201,10 +219,10 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
   {
     switch (featureID)
     {
-      case OptGrammarPackage.LOOP_STRUCTURES__TYPE:
-        setType((String)newValue);
+      case OptGrammarPackage.WHILE_STATEMENT__CONDITION:
+        setCondition((Expression)newValue);
         return;
-      case OptGrammarPackage.LOOP_STRUCTURES__BODY:
+      case OptGrammarPackage.WHILE_STATEMENT__BODY:
         setBody((Statement)newValue);
         return;
     }
@@ -221,10 +239,10 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
   {
     switch (featureID)
     {
-      case OptGrammarPackage.LOOP_STRUCTURES__TYPE:
-        setType(TYPE_EDEFAULT);
+      case OptGrammarPackage.WHILE_STATEMENT__CONDITION:
+        setCondition((Expression)null);
         return;
-      case OptGrammarPackage.LOOP_STRUCTURES__BODY:
+      case OptGrammarPackage.WHILE_STATEMENT__BODY:
         setBody((Statement)null);
         return;
     }
@@ -241,29 +259,12 @@ public class LoopStructuresImpl extends StatementImpl implements LoopStructures
   {
     switch (featureID)
     {
-      case OptGrammarPackage.LOOP_STRUCTURES__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case OptGrammarPackage.LOOP_STRUCTURES__BODY:
+      case OptGrammarPackage.WHILE_STATEMENT__CONDITION:
+        return condition != null;
+      case OptGrammarPackage.WHILE_STATEMENT__BODY:
         return body != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (type: ");
-    result.append(type);
-    result.append(')');
-    return result.toString();
-  }
-
-} //LoopStructuresImpl
+} //WhileStatementImpl

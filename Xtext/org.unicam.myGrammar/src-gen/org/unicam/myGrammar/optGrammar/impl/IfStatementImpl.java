@@ -24,7 +24,6 @@ import org.unicam.myGrammar.optGrammar.Statement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.IfStatementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.IfStatementImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.IfStatementImpl#getTrueBody <em>True Body</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.IfStatementImpl#getFalseBody <em>False Body</em>}</li>
@@ -34,26 +33,6 @@ import org.unicam.myGrammar.optGrammar.Statement;
  */
 public class IfStatementImpl extends StatementImpl implements IfStatement
 {
-  /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -103,31 +82,6 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   protected EClass eStaticClass()
   {
     return OptGrammarPackage.Literals.IF_STATEMENT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setType(String newType)
-  {
-    String oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.IF_STATEMENT__TYPE, oldType, type));
   }
 
   /**
@@ -310,8 +264,6 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.IF_STATEMENT__TYPE:
-        return getType();
       case OptGrammarPackage.IF_STATEMENT__CONDITION:
         return getCondition();
       case OptGrammarPackage.IF_STATEMENT__TRUE_BODY:
@@ -332,9 +284,6 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.IF_STATEMENT__TYPE:
-        setType((String)newValue);
-        return;
       case OptGrammarPackage.IF_STATEMENT__CONDITION:
         setCondition((Expression)newValue);
         return;
@@ -358,9 +307,6 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.IF_STATEMENT__TYPE:
-        setType(TYPE_EDEFAULT);
-        return;
       case OptGrammarPackage.IF_STATEMENT__CONDITION:
         setCondition((Expression)null);
         return;
@@ -384,8 +330,6 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.IF_STATEMENT__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case OptGrammarPackage.IF_STATEMENT__CONDITION:
         return condition != null;
       case OptGrammarPackage.IF_STATEMENT__TRUE_BODY:
@@ -394,23 +338,6 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
         return falseBody != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (type: ");
-    result.append(type);
-    result.append(')');
-    return result.toString();
   }
 
 } //IfStatementImpl

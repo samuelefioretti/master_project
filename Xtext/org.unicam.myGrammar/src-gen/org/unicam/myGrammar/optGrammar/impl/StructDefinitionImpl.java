@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Statement;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.VisibilityLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +31,6 @@ import org.unicam.myGrammar.optGrammar.VisibilityLiteral;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StructDefinitionImpl#getMembers <em>Members</em>}</li>
  * </ul>
@@ -41,16 +39,6 @@ import org.unicam.myGrammar.optGrammar.VisibilityLiteral;
  */
 public class StructDefinitionImpl extends MinimalEObjectImpl.Container implements StructDefinition
 {
-  /**
-   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVisibility()
-   * @generated
-   * @ordered
-   */
-  protected VisibilityLiteral visibility;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -108,56 +96,6 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public VisibilityLiteral getVisibility()
-  {
-    return visibility;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetVisibility(VisibilityLiteral newVisibility, NotificationChain msgs)
-  {
-    VisibilityLiteral oldVisibility = visibility;
-    visibility = newVisibility;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY, oldVisibility, newVisibility);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setVisibility(VisibilityLiteral newVisibility)
-  {
-    if (newVisibility != visibility)
-    {
-      NotificationChain msgs = null;
-      if (visibility != null)
-        msgs = ((InternalEObject)visibility).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY, null, msgs);
-      if (newVisibility != null)
-        msgs = ((InternalEObject)newVisibility).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY, null, msgs);
-      msgs = basicSetVisibility(newVisibility, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY, newVisibility, newVisibility));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public String getName()
   {
     return name;
@@ -202,8 +140,6 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
-        return basicSetVisibility(null, msgs);
       case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:
         return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
     }
@@ -220,8 +156,6 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
-        return getVisibility();
       case OptGrammarPackage.STRUCT_DEFINITION__NAME:
         return getName();
       case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:
@@ -241,9 +175,6 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
-        setVisibility((VisibilityLiteral)newValue);
-        return;
       case OptGrammarPackage.STRUCT_DEFINITION__NAME:
         setName((String)newValue);
         return;
@@ -265,9 +196,6 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
-        setVisibility((VisibilityLiteral)null);
-        return;
       case OptGrammarPackage.STRUCT_DEFINITION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -288,8 +216,6 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case OptGrammarPackage.STRUCT_DEFINITION__VISIBILITY:
-        return visibility != null;
       case OptGrammarPackage.STRUCT_DEFINITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:

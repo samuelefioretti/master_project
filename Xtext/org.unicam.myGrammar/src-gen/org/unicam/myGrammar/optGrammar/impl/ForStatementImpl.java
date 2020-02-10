@@ -13,26 +13,28 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.ExpressionStatement;
-import org.unicam.myGrammar.optGrammar.ForStructure;
+import org.unicam.myGrammar.optGrammar.ForStatement;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.SimpleStatement2;
+import org.unicam.myGrammar.optGrammar.Statement;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>For Structure</b></em>'.
+ * An implementation of the model object '<em><b>For Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ForStructureImpl#getInitExpression <em>Init Expression</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ForStructureImpl#getConditionExpression <em>Condition Expression</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ForStructureImpl#getLoopExpression <em>Loop Expression</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ForStatementImpl#getInitExpression <em>Init Expression</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ForStatementImpl#getConditionExpression <em>Condition Expression</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ForStatementImpl#getLoopExpression <em>Loop Expression</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.ForStatementImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
+public class ForStatementImpl extends StatementImpl implements ForStatement
 {
   /**
    * The cached value of the '{@link #getInitExpression() <em>Init Expression</em>}' containment reference.
@@ -65,11 +67,21 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
   protected ExpressionStatement loopExpression;
 
   /**
+   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBody()
+   * @generated
+   * @ordered
+   */
+  protected Statement body;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ForStructureImpl()
+  protected ForStatementImpl()
   {
     super();
   }
@@ -82,7 +94,7 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
   @Override
   protected EClass eStaticClass()
   {
-    return OptGrammarPackage.Literals.FOR_STRUCTURE;
+    return OptGrammarPackage.Literals.FOR_STATEMENT;
   }
 
   /**
@@ -107,7 +119,7 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
     initExpression = newInitExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION, oldInitExpression, newInitExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION, oldInitExpression, newInitExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -125,14 +137,14 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
     {
       NotificationChain msgs = null;
       if (initExpression != null)
-        msgs = ((InternalEObject)initExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)initExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION, null, msgs);
       if (newInitExpression != null)
-        msgs = ((InternalEObject)newInitExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)newInitExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION, null, msgs);
       msgs = basicSetInitExpression(newInitExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION, newInitExpression, newInitExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION, newInitExpression, newInitExpression));
   }
 
   /**
@@ -157,7 +169,7 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
     conditionExpression = newConditionExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION, oldConditionExpression, newConditionExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION, oldConditionExpression, newConditionExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -175,14 +187,14 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
     {
       NotificationChain msgs = null;
       if (conditionExpression != null)
-        msgs = ((InternalEObject)conditionExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)conditionExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION, null, msgs);
       if (newConditionExpression != null)
-        msgs = ((InternalEObject)newConditionExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)newConditionExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION, null, msgs);
       msgs = basicSetConditionExpression(newConditionExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION, newConditionExpression, newConditionExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION, newConditionExpression, newConditionExpression));
   }
 
   /**
@@ -207,7 +219,7 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
     loopExpression = newLoopExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION, oldLoopExpression, newLoopExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION, oldLoopExpression, newLoopExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -225,14 +237,64 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
     {
       NotificationChain msgs = null;
       if (loopExpression != null)
-        msgs = ((InternalEObject)loopExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)loopExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION, null, msgs);
       if (newLoopExpression != null)
-        msgs = ((InternalEObject)newLoopExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)newLoopExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION, null, msgs);
       msgs = basicSetLoopExpression(newLoopExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION, newLoopExpression, newLoopExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION, newLoopExpression, newLoopExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Statement getBody()
+  {
+    return body;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetBody(Statement newBody, NotificationChain msgs)
+  {
+    Statement oldBody = body;
+    body = newBody;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STATEMENT__BODY, oldBody, newBody);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBody(Statement newBody)
+  {
+    if (newBody != body)
+    {
+      NotificationChain msgs = null;
+      if (body != null)
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STATEMENT__BODY, null, msgs);
+      if (newBody != null)
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.FOR_STATEMENT__BODY, null, msgs);
+      msgs = basicSetBody(newBody, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FOR_STATEMENT__BODY, newBody, newBody));
   }
 
   /**
@@ -245,12 +307,14 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION:
         return basicSetInitExpression(null, msgs);
-      case OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION:
         return basicSetConditionExpression(null, msgs);
-      case OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION:
         return basicSetLoopExpression(null, msgs);
+      case OptGrammarPackage.FOR_STATEMENT__BODY:
+        return basicSetBody(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -265,12 +329,14 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION:
         return getInitExpression();
-      case OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION:
         return getConditionExpression();
-      case OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION:
         return getLoopExpression();
+      case OptGrammarPackage.FOR_STATEMENT__BODY:
+        return getBody();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -285,14 +351,17 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION:
         setInitExpression((SimpleStatement2)newValue);
         return;
-      case OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION:
         setConditionExpression((Expression)newValue);
         return;
-      case OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION:
         setLoopExpression((ExpressionStatement)newValue);
+        return;
+      case OptGrammarPackage.FOR_STATEMENT__BODY:
+        setBody((Statement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -308,14 +377,17 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION:
         setInitExpression((SimpleStatement2)null);
         return;
-      case OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION:
         setConditionExpression((Expression)null);
         return;
-      case OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION:
         setLoopExpression((ExpressionStatement)null);
+        return;
+      case OptGrammarPackage.FOR_STATEMENT__BODY:
+        setBody((Statement)null);
         return;
     }
     super.eUnset(featureID);
@@ -331,14 +403,16 @@ public class ForStructureImpl extends LoopStructuresImpl implements ForStructure
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FOR_STRUCTURE__INIT_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__INIT_EXPRESSION:
         return initExpression != null;
-      case OptGrammarPackage.FOR_STRUCTURE__CONDITION_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__CONDITION_EXPRESSION:
         return conditionExpression != null;
-      case OptGrammarPackage.FOR_STRUCTURE__LOOP_EXPRESSION:
+      case OptGrammarPackage.FOR_STATEMENT__LOOP_EXPRESSION:
         return loopExpression != null;
+      case OptGrammarPackage.FOR_STATEMENT__BODY:
+        return body != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ForStructureImpl
+} //ForStatementImpl

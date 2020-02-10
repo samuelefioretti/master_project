@@ -34,7 +34,6 @@ import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#isPayable <em>Payable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getOptionalElements <em>Optional Elements</em>}</li>
@@ -46,26 +45,6 @@ import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
  */
 public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container implements FunctionDefinition
 {
-  /**
-   * The default value of the '{@link #isPayable() <em>Payable</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isPayable()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean PAYABLE_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isPayable() <em>Payable</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isPayable()
-   * @generated
-   * @ordered
-   */
-  protected boolean payable = PAYABLE_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -145,31 +124,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   protected EClass eStaticClass()
   {
     return OptGrammarPackage.Literals.FUNCTION_DEFINITION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean isPayable()
-  {
-    return payable;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setPayable(boolean newPayable)
-  {
-    boolean oldPayable = payable;
-    payable = newPayable;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE, oldPayable, payable));
   }
 
   /**
@@ -394,8 +348,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE:
-        return isPayable();
       case OptGrammarPackage.FUNCTION_DEFINITION__NAME:
         return getName();
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
@@ -421,9 +373,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE:
-        setPayable((Boolean)newValue);
-        return;
       case OptGrammarPackage.FUNCTION_DEFINITION__NAME:
         setName((String)newValue);
         return;
@@ -454,9 +403,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE:
-        setPayable(PAYABLE_EDEFAULT);
-        return;
       case OptGrammarPackage.FUNCTION_DEFINITION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -486,8 +432,6 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case OptGrammarPackage.FUNCTION_DEFINITION__PAYABLE:
-        return payable != PAYABLE_EDEFAULT;
       case OptGrammarPackage.FUNCTION_DEFINITION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
@@ -513,9 +457,7 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (payable: ");
-    result.append(payable);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(')');
     return result.toString();

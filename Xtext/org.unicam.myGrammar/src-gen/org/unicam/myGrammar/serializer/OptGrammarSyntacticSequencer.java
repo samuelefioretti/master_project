@@ -140,7 +140,6 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '(' (ambiguity) function='ecrecover'
 	 *     (rule start) '(' (ambiguity) function='mulmod'
 	 *     (rule start) '(' (ambiguity) identifier=ID
-	 *     (rule start) '(' (ambiguity) map=[MappingDeclaration|ID]
 	 *     (rule start) '(' (ambiguity) name='gasleft'
 	 *     (rule start) '(' (ambiguity) name='keccak256'
 	 *     (rule start) '(' (ambiguity) name='ripemd160'
@@ -182,7 +181,6 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '++' (ambiguity) hexValue=HexLiteral
 	 *     (rule start) '++' (ambiguity) identifier=ID
 	 *     (rule start) '++' (ambiguity) intValue=IntLiteral
-	 *     (rule start) '++' (ambiguity) map=[MappingDeclaration|ID]
 	 *     (rule start) '++' (ambiguity) name='gasleft'
 	 *     (rule start) '++' (ambiguity) name='keccak256'
 	 *     (rule start) '++' (ambiguity) name='ripemd160'
@@ -207,7 +205,6 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) '--' (ambiguity) hexValue=HexLiteral
 	 *     (rule start) '--' (ambiguity) identifier=ID
 	 *     (rule start) '--' (ambiguity) intValue=IntLiteral
-	 *     (rule start) '--' (ambiguity) map=[MappingDeclaration|ID]
 	 *     (rule start) '--' (ambiguity) name='gasleft'
 	 *     (rule start) '--' (ambiguity) name='keccak256'
 	 *     (rule start) '--' (ambiguity) name='ripemd160'
@@ -235,7 +232,6 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) hexValue=HexLiteral
 	 *     (rule start) (ambiguity) identifier=ID
 	 *     (rule start) (ambiguity) intValue=IntLiteral
-	 *     (rule start) (ambiguity) map=[MappingDeclaration|ID]
 	 *     (rule start) (ambiguity) name='gasleft'
 	 *     (rule start) (ambiguity) name='keccak256'
 	 *     (rule start) (ambiguity) name='ripemd160'
@@ -330,7 +326,6 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) hexValue=HexLiteral
 	 *     (rule start) (ambiguity) identifier=ID
 	 *     (rule start) (ambiguity) intValue=IntLiteral
-	 *     (rule start) (ambiguity) map=[MappingDeclaration|ID]
 	 *     (rule start) (ambiguity) name='gasleft'
 	 *     (rule start) (ambiguity) name='keccak256'
 	 *     (rule start) (ambiguity) name='ripemd160'
