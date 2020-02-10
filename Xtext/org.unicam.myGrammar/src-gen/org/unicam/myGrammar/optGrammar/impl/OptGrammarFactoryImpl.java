@@ -69,13 +69,15 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.MODEL: return createModel();
       case OptGrammarPackage.CONTRACT: return createContract();
       case OptGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
-      case OptGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
       case OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS: return createFunctionCallListArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARGUMENTS: return createFunctionCallArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARG: return createFunctionCallArg();
       case OptGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
       case OptGrammarPackage.FUNCTION_DEFINITION_OPTIONAL_ELEMENT: return createFunctionDefinitionOptionalElement();
       case OptGrammarPackage.CONST: return createConst();
+      case OptGrammarPackage.PAYABLE: return createPayable();
+      case OptGrammarPackage.VIEW: return createView();
+      case OptGrammarPackage.PURE: return createPure();
       case OptGrammarPackage.VISIBILITY_SPECIFIER: return createVisibilitySpecifier();
       case OptGrammarPackage.STRUCT_DEFINITION: return createStructDefinition();
       case OptGrammarPackage.ENUM_DEFINITION: return createEnumDefinition();
@@ -92,8 +94,9 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.TYPE: return createType();
       case OptGrammarPackage.STANDARD_TYPE: return createStandardType();
       case OptGrammarPackage.STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER: return createStandardTypeWithoutQualifiedIdentifier();
-      case OptGrammarPackage.ELEMENTARY_TYPE: return createElementaryType();
-      case OptGrammarPackage.MAPPING: return createMapping();
+      case OptGrammarPackage.MAPPING_DECLARATION: return createMappingDeclaration();
+      case OptGrammarPackage.UNNAMED_MAPPING_DECLARATION: return createUnnamedMappingDeclaration();
+      case OptGrammarPackage.NAMED_TYPE: return createNamedType();
       case OptGrammarPackage.ARRAY_DIMENSIONS: return createArrayDimensions();
       case OptGrammarPackage.TUPLE: return createTuple();
       case OptGrammarPackage.TUPLE_SEPARATOR: return createTupleSeparator();
@@ -111,10 +114,11 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.PARAMETER_LIST: return createParameterList();
       case OptGrammarPackage.RETURNS_PARAMETER_LIST: return createReturnsParameterList();
       case OptGrammarPackage.RETURN_PARAMETER_DECLARATION: return createReturnParameterDeclaration();
+      case OptGrammarPackage.LOOP_STRUCTURES: return createLoopStructures();
       case OptGrammarPackage.DELETE_STATEMENT: return createDeleteStatement();
       case OptGrammarPackage.IF_STATEMENT: return createIfStatement();
-      case OptGrammarPackage.WHILE_STATEMENT: return createWhileStatement();
-      case OptGrammarPackage.FOR_STATEMENT: return createForStatement();
+      case OptGrammarPackage.WHILE_STRUCTURE: return createWhileStructure();
+      case OptGrammarPackage.FOR_STRUCTURE: return createForStructure();
       case OptGrammarPackage.BODY: return createBody();
       case OptGrammarPackage.CONTINUE_STATEMENT: return createContinueStatement();
       case OptGrammarPackage.BREAK_STATEMENT: return createBreakStatement();
@@ -130,23 +134,33 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.SIGN_EXPRESSION: return createSignExpression();
       case OptGrammarPackage.NEW_EXPRESSION: return createNewExpression();
       case OptGrammarPackage.LITERAL: return createLiteral();
-      case OptGrammarPackage.SPECIAL_LITERAL: return createSpecialLiteral();
-      case OptGrammarPackage.BOOLEAN_CONST: return createBooleanConst();
+      case OptGrammarPackage.ARITHMETIC_OPERATIONS: return createArithmeticOperations();
+      case OptGrammarPackage.PRIMARY_ARITHMETIC: return createPrimaryArithmetic();
+      case OptGrammarPackage.SECOND_OPERATORS: return createSecondOperators();
+      case OptGrammarPackage.FUNCTION_CALL: return createFunctionCall();
+      case OptGrammarPackage.BLOCKHASH_FUNCTION: return createBlockhashFunction();
+      case OptGrammarPackage.GASLEFT_FUNCTION: return createGasleftFunction();
+      case OptGrammarPackage.INT_PARAMETER: return createIntParameter();
+      case OptGrammarPackage.MATHEMATICAL_FUNCTION: return createMathematicalFunction();
+      case OptGrammarPackage.HASH_FUNCTION: return createHashFunction();
+      case OptGrammarPackage.ECRECOVER_FUNCTION: return createEcrecoverFunction();
+      case OptGrammarPackage.MAPPING_ACCESS: return createMappingAccess();
       case OptGrammarPackage.NUMERIC_LITERAL: return createNumericLiteral();
       case OptGrammarPackage.UNIT_TYPES: return createUnitTypes();
+      case OptGrammarPackage.TIME_UNITS_LITERAL: return createTimeUnitsLiteral();
+      case OptGrammarPackage.UNITS_LITERAL: return createUnitsLiteral();
       case OptGrammarPackage.INT_LITERAL: return createIntLiteral();
       case OptGrammarPackage.HEX_LITERAL: return createHexLiteral();
       case OptGrammarPackage.DECIMAL_LITERAL: return createDecimalLiteral();
       case OptGrammarPackage.STRING_LITERAL: return createStringLiteral();
+      case OptGrammarPackage.BOOLEAN_LITERAL: return createBooleanLiteral();
       case OptGrammarPackage.TYPE_CAST: return createTypeCast();
-      case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM: return createElementaryTypeNameEnum();
+      case OptGrammarPackage.SPECIAL_LITERAL: return createSpecialLiteral();
+      case OptGrammarPackage.SIZED_DECLARATION: return createSizedDeclaration();
       case OptGrammarPackage.SIMPLE_TYPE_DECLARATION: return createSimpleTypeDeclaration();
-      case OptGrammarPackage.LOCATION_SPECIFIER_ENUM: return createLocationSpecifierEnum();
-      case OptGrammarPackage.VISIBILITY_ENUM: return createVisibilityEnum();
-      case OptGrammarPackage.UNITS_LITERAL: return createUnitsLiteral();
-      case OptGrammarPackage.TIME_UNITS_LITERAL: return createTimeUnitsLiteral();
+      case OptGrammarPackage.LOCATION_LITERAL: return createLocationLiteral();
+      case OptGrammarPackage.VISIBILITY_LITERAL: return createVisibilityLiteral();
       case OptGrammarPackage.VAR_VARIABLE_TYPE_DECLARATION: return createVarVariableTypeDeclaration();
-      case OptGrammarPackage.BLOCK: return createBlock();
       case OptGrammarPackage.CONTINUE: return createContinue();
       case OptGrammarPackage.ASSIGNMENT: return createAssignment();
       case OptGrammarPackage.VARIABLE_DECLARATION_EXPRESSION: return createVariableDeclarationExpression();
@@ -191,8 +205,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
         return createMulDivModOpEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.INC_DEC_OP_ENUM:
         return createIncDecOpEnumFromString(eDataType, initialValue);
-      case OptGrammarPackage.BOOLEAN_LITERAL_ENUM:
-        return createBooleanLiteralEnumFromString(eDataType, initialValue);
       case OptGrammarPackage.SPECIAL_EXPRESSION_TYPE_ENUM:
         return createSpecialExpressionTypeEnumFromString(eDataType, initialValue);
       default:
@@ -224,8 +236,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
         return convertMulDivModOpEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.INC_DEC_OP_ENUM:
         return convertIncDecOpEnumToString(eDataType, instanceValue);
-      case OptGrammarPackage.BOOLEAN_LITERAL_ENUM:
-        return convertBooleanLiteralEnumToString(eDataType, instanceValue);
       case OptGrammarPackage.SPECIAL_EXPRESSION_TYPE_ENUM:
         return convertSpecialExpressionTypeEnumToString(eDataType, instanceValue);
       default:
@@ -267,18 +277,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     DefinitionBodyImpl definitionBody = new DefinitionBodyImpl();
     return definitionBody;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public InheritanceSpecifier createInheritanceSpecifier()
-  {
-    InheritanceSpecifierImpl inheritanceSpecifier = new InheritanceSpecifierImpl();
-    return inheritanceSpecifier;
   }
 
   /**
@@ -351,6 +349,42 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     ConstImpl const_ = new ConstImpl();
     return const_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Payable createPayable()
+  {
+    PayableImpl payable = new PayableImpl();
+    return payable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public View createView()
+  {
+    ViewImpl view = new ViewImpl();
+    return view;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Pure createPure()
+  {
+    PureImpl pure = new PureImpl();
+    return pure;
   }
 
   /**
@@ -551,10 +585,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public ElementaryType createElementaryType()
+  public MappingDeclaration createMappingDeclaration()
   {
-    ElementaryTypeImpl elementaryType = new ElementaryTypeImpl();
-    return elementaryType;
+    MappingDeclarationImpl mappingDeclaration = new MappingDeclarationImpl();
+    return mappingDeclaration;
   }
 
   /**
@@ -563,10 +597,22 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public Mapping createMapping()
+  public UnnamedMappingDeclaration createUnnamedMappingDeclaration()
   {
-    MappingImpl mapping = new MappingImpl();
-    return mapping;
+    UnnamedMappingDeclarationImpl unnamedMappingDeclaration = new UnnamedMappingDeclarationImpl();
+    return unnamedMappingDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NamedType createNamedType()
+  {
+    NamedTypeImpl namedType = new NamedTypeImpl();
+    return namedType;
   }
 
   /**
@@ -779,6 +825,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
+  public LoopStructures createLoopStructures()
+  {
+    LoopStructuresImpl loopStructures = new LoopStructuresImpl();
+    return loopStructures;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public DeleteStatement createDeleteStatement()
   {
     DeleteStatementImpl deleteStatement = new DeleteStatementImpl();
@@ -803,10 +861,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public WhileStatement createWhileStatement()
+  public WhileStructure createWhileStructure()
   {
-    WhileStatementImpl whileStatement = new WhileStatementImpl();
-    return whileStatement;
+    WhileStructureImpl whileStructure = new WhileStructureImpl();
+    return whileStructure;
   }
 
   /**
@@ -815,10 +873,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public ForStatement createForStatement()
+  public ForStructure createForStructure()
   {
-    ForStatementImpl forStatement = new ForStatementImpl();
-    return forStatement;
+    ForStructureImpl forStructure = new ForStructureImpl();
+    return forStructure;
   }
 
   /**
@@ -1007,10 +1065,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public SpecialLiteral createSpecialLiteral()
+  public ArithmeticOperations createArithmeticOperations()
   {
-    SpecialLiteralImpl specialLiteral = new SpecialLiteralImpl();
-    return specialLiteral;
+    ArithmeticOperationsImpl arithmeticOperations = new ArithmeticOperationsImpl();
+    return arithmeticOperations;
   }
 
   /**
@@ -1019,10 +1077,118 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public BooleanConst createBooleanConst()
+  public PrimaryArithmetic createPrimaryArithmetic()
   {
-    BooleanConstImpl booleanConst = new BooleanConstImpl();
-    return booleanConst;
+    PrimaryArithmeticImpl primaryArithmetic = new PrimaryArithmeticImpl();
+    return primaryArithmetic;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SecondOperators createSecondOperators()
+  {
+    SecondOperatorsImpl secondOperators = new SecondOperatorsImpl();
+    return secondOperators;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FunctionCall createFunctionCall()
+  {
+    FunctionCallImpl functionCall = new FunctionCallImpl();
+    return functionCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BlockhashFunction createBlockhashFunction()
+  {
+    BlockhashFunctionImpl blockhashFunction = new BlockhashFunctionImpl();
+    return blockhashFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public GasleftFunction createGasleftFunction()
+  {
+    GasleftFunctionImpl gasleftFunction = new GasleftFunctionImpl();
+    return gasleftFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IntParameter createIntParameter()
+  {
+    IntParameterImpl intParameter = new IntParameterImpl();
+    return intParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MathematicalFunction createMathematicalFunction()
+  {
+    MathematicalFunctionImpl mathematicalFunction = new MathematicalFunctionImpl();
+    return mathematicalFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public HashFunction createHashFunction()
+  {
+    HashFunctionImpl hashFunction = new HashFunctionImpl();
+    return hashFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EcrecoverFunction createEcrecoverFunction()
+  {
+    EcrecoverFunctionImpl ecrecoverFunction = new EcrecoverFunctionImpl();
+    return ecrecoverFunction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MappingAccess createMappingAccess()
+  {
+    MappingAccessImpl mappingAccess = new MappingAccessImpl();
+    return mappingAccess;
   }
 
   /**
@@ -1047,6 +1213,30 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     UnitTypesImpl unitTypes = new UnitTypesImpl();
     return unitTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TimeUnitsLiteral createTimeUnitsLiteral()
+  {
+    TimeUnitsLiteralImpl timeUnitsLiteral = new TimeUnitsLiteralImpl();
+    return timeUnitsLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UnitsLiteral createUnitsLiteral()
+  {
+    UnitsLiteralImpl unitsLiteral = new UnitsLiteralImpl();
+    return unitsLiteral;
   }
 
   /**
@@ -1103,6 +1293,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
+  public BooleanLiteral createBooleanLiteral()
+  {
+    BooleanLiteralImpl booleanLiteral = new BooleanLiteralImpl();
+    return booleanLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public TypeCast createTypeCast()
   {
     TypeCastImpl typeCast = new TypeCastImpl();
@@ -1115,10 +1317,22 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public ElementaryTypeNameEnum createElementaryTypeNameEnum()
+  public SpecialLiteral createSpecialLiteral()
   {
-    ElementaryTypeNameEnumImpl elementaryTypeNameEnum = new ElementaryTypeNameEnumImpl();
-    return elementaryTypeNameEnum;
+    SpecialLiteralImpl specialLiteral = new SpecialLiteralImpl();
+    return specialLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SizedDeclaration createSizedDeclaration()
+  {
+    SizedDeclarationImpl sizedDeclaration = new SizedDeclarationImpl();
+    return sizedDeclaration;
   }
 
   /**
@@ -1139,10 +1353,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public LocationSpecifierEnum createLocationSpecifierEnum()
+  public LocationLiteral createLocationLiteral()
   {
-    LocationSpecifierEnumImpl locationSpecifierEnum = new LocationSpecifierEnumImpl();
-    return locationSpecifierEnum;
+    LocationLiteralImpl locationLiteral = new LocationLiteralImpl();
+    return locationLiteral;
   }
 
   /**
@@ -1151,34 +1365,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public VisibilityEnum createVisibilityEnum()
+  public VisibilityLiteral createVisibilityLiteral()
   {
-    VisibilityEnumImpl visibilityEnum = new VisibilityEnumImpl();
-    return visibilityEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public UnitsLiteral createUnitsLiteral()
-  {
-    UnitsLiteralImpl unitsLiteral = new UnitsLiteralImpl();
-    return unitsLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public TimeUnitsLiteral createTimeUnitsLiteral()
-  {
-    TimeUnitsLiteralImpl timeUnitsLiteral = new TimeUnitsLiteralImpl();
-    return timeUnitsLiteral;
+    VisibilityLiteralImpl visibilityLiteral = new VisibilityLiteralImpl();
+    return visibilityLiteral;
   }
 
   /**
@@ -1191,18 +1381,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     VarVariableTypeDeclarationImpl varVariableTypeDeclaration = new VarVariableTypeDeclarationImpl();
     return varVariableTypeDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Block createBlock()
-  {
-    BlockImpl block = new BlockImpl();
-    return block;
   }
 
   /**
@@ -1535,28 +1713,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   public String convertIncDecOpEnumToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BooleanLiteralEnum createBooleanLiteralEnumFromString(EDataType eDataType, String initialValue)
-  {
-    BooleanLiteralEnum result = BooleanLiteralEnum.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertBooleanLiteralEnumToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

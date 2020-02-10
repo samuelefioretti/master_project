@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#isPayable <em>Payable</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getOptionalElements <em>Optional Elements</em>}</li>
@@ -29,6 +30,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface FunctionDefinition extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Payable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Payable</em>' attribute.
+   * @see #setPayable(boolean)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Payable()
+   * @model
+   * @generated
+   */
+  boolean isPayable();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#isPayable <em>Payable</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Payable</em>' attribute.
+   * @see #isPayable()
+   * @generated
+   */
+  void setPayable(boolean value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

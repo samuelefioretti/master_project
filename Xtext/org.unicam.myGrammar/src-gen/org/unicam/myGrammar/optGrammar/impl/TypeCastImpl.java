@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
 import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
+import org.unicam.myGrammar.optGrammar.SizedDeclaration;
 import org.unicam.myGrammar.optGrammar.TypeCast;
 
 /**
@@ -40,7 +40,7 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
    * @generated
    * @ordered
    */
-  protected ElementaryTypeNameEnum value;
+  protected SizedDeclaration value;
 
   /**
    * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
@@ -79,7 +79,7 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
    * @generated
    */
   @Override
-  public ElementaryTypeNameEnum getValue()
+  public SizedDeclaration getValue()
   {
     return value;
   }
@@ -89,9 +89,9 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(ElementaryTypeNameEnum newValue, NotificationChain msgs)
+  public NotificationChain basicSetValue(SizedDeclaration newValue, NotificationChain msgs)
   {
-    ElementaryTypeNameEnum oldValue = value;
+    SizedDeclaration oldValue = value;
     value = newValue;
     if (eNotificationRequired())
     {
@@ -107,7 +107,7 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
    * @generated
    */
   @Override
-  public void setValue(ElementaryTypeNameEnum newValue)
+  public void setValue(SizedDeclaration newValue)
   {
     if (newValue != value)
     {
@@ -220,7 +220,7 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
     switch (featureID)
     {
       case OptGrammarPackage.TYPE_CAST__VALUE:
-        setValue((ElementaryTypeNameEnum)newValue);
+        setValue((SizedDeclaration)newValue);
         return;
       case OptGrammarPackage.TYPE_CAST__EXPRESSION:
         setExpression((Expression)newValue);
@@ -240,7 +240,7 @@ public class TypeCastImpl extends ExpressionImpl implements TypeCast
     switch (featureID)
     {
       case OptGrammarPackage.TYPE_CAST__VALUE:
-        setValue((ElementaryTypeNameEnum)null);
+        setValue((SizedDeclaration)null);
         return;
       case OptGrammarPackage.TYPE_CAST__EXPRESSION:
         setExpression((Expression)null);

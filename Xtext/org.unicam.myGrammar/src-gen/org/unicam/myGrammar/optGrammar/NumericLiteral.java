@@ -23,7 +23,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface NumericLiteral extends Literal
+public interface NumericLiteral extends Literal, PrimaryArithmetic
 {
   /**
    * Returns the value of the '<em><b>Int Value</b></em>' containment reference.

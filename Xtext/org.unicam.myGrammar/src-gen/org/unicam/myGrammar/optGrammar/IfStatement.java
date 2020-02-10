@@ -13,6 +13,7 @@ package org.unicam.myGrammar.optGrammar;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.IfStatement#getType <em>Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.IfStatement#getCondition <em>Condition</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.IfStatement#getTrueBody <em>True Body</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.IfStatement#getFalseBody <em>False Body</em>}</li>
@@ -24,6 +25,28 @@ package org.unicam.myGrammar.optGrammar;
  */
 public interface IfStatement extends Statement
 {
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getIfStatement_Type()
+   * @model
+   * @generated
+   */
+  String getType();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.IfStatement#getType <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
+   * @generated
+   */
+  void setType(String value);
+
   /**
    * Returns the value of the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->

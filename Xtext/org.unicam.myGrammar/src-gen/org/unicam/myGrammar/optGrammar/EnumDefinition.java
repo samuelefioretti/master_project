@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getMembers <em>Members</em>}</li>
  * </ul>
@@ -26,6 +27,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface EnumDefinition extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Visibility</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Visibility</em>' containment reference.
+   * @see #setVisibility(VisibilityLiteral)
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getEnumDefinition_Visibility()
+   * @model containment="true"
+   * @generated
+   */
+  VisibilityLiteral getVisibility();
+
+  /**
+   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.EnumDefinition#getVisibility <em>Visibility</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Visibility</em>' containment reference.
+   * @see #getVisibility()
+   * @generated
+   */
+  void setVisibility(VisibilityLiteral value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

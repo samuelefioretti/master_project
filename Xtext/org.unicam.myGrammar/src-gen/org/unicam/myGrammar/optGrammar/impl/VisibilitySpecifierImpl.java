@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.VisibilityEnum;
+import org.unicam.myGrammar.optGrammar.VisibilityLiteral;
 import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
 
 /**
@@ -38,7 +38,7 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
    * @generated
    * @ordered
    */
-  protected VisibilityEnum visibility;
+  protected VisibilityLiteral visibility;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
    * @generated
    */
   @Override
-  public VisibilityEnum getVisibility()
+  public VisibilityLiteral getVisibility()
   {
     return visibility;
   }
@@ -77,9 +77,9 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVisibility(VisibilityEnum newVisibility, NotificationChain msgs)
+  public NotificationChain basicSetVisibility(VisibilityLiteral newVisibility, NotificationChain msgs)
   {
-    VisibilityEnum oldVisibility = visibility;
+    VisibilityLiteral oldVisibility = visibility;
     visibility = newVisibility;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
    * @generated
    */
   @Override
-  public void setVisibility(VisibilityEnum newVisibility)
+  public void setVisibility(VisibilityLiteral newVisibility)
   {
     if (newVisibility != visibility)
     {
@@ -154,7 +154,7 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
     switch (featureID)
     {
       case OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
-        setVisibility((VisibilityEnum)newValue);
+        setVisibility((VisibilityLiteral)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementIm
     switch (featureID)
     {
       case OptGrammarPackage.VISIBILITY_SPECIFIER__VISIBILITY:
-        setVisibility((VisibilityEnum)null);
+        setVisibility((VisibilityLiteral)null);
         return;
     }
     super.eUnset(featureID);

@@ -3,8 +3,6 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Contract#getName <em>Name</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.Contract#getInheritanceSpecifiers <em>Inheritance Specifiers</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Contract#getBody <em>Body</em>}</li>
  * </ul>
  *
@@ -48,18 +45,6 @@ public interface Contract extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Inheritance Specifiers</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.InheritanceSpecifier}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Inheritance Specifiers</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getContract_InheritanceSpecifiers()
-   * @model containment="true"
-   * @generated
-   */
-  EList<InheritanceSpecifier> getInheritanceSpecifiers();
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

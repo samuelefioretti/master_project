@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.unicam.myGrammar.optGrammar.LocationLiteral;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
-import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
 /**
@@ -38,7 +38,7 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
    * @generated
    * @ordered
    */
-  protected LocationSpecifierEnum location;
+  protected LocationLiteral location;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
    * @generated
    */
   @Override
-  public LocationSpecifierEnum getLocation()
+  public LocationLiteral getLocation()
   {
     return location;
   }
@@ -77,9 +77,9 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLocation(LocationSpecifierEnum newLocation, NotificationChain msgs)
+  public NotificationChain basicSetLocation(LocationLiteral newLocation, NotificationChain msgs)
   {
-    LocationSpecifierEnum oldLocation = location;
+    LocationLiteral oldLocation = location;
     location = newLocation;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
    * @generated
    */
   @Override
-  public void setLocation(LocationSpecifierEnum newLocation)
+  public void setLocation(LocationLiteral newLocation)
   {
     if (newLocation != location)
     {
@@ -154,7 +154,7 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
     switch (featureID)
     {
       case OptGrammarPackage.LOCATION_SPECIFIER__LOCATION:
-        setLocation((LocationSpecifierEnum)newValue);
+        setLocation((LocationLiteral)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class LocationSpecifierImpl extends VariableDeclarationOptionalElementImp
     switch (featureID)
     {
       case OptGrammarPackage.LOCATION_SPECIFIER__LOCATION:
-        setLocation((LocationSpecifierEnum)null);
+        setLocation((LocationLiteral)null);
         return;
     }
     super.eUnset(featureID);

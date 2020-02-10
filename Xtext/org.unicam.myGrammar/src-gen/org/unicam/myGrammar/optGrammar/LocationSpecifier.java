@@ -27,12 +27,12 @@ public interface LocationSpecifier extends VariableDeclarationOptionalElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Location</em>' containment reference.
-   * @see #setLocation(LocationSpecifierEnum)
+   * @see #setLocation(LocationLiteral)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getLocationSpecifier_Location()
    * @model containment="true"
    * @generated
    */
-  LocationSpecifierEnum getLocation();
+  LocationLiteral getLocation();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.LocationSpecifier#getLocation <em>Location</em>}' containment reference.
@@ -42,6 +42,6 @@ public interface LocationSpecifier extends VariableDeclarationOptionalElement
    * @see #getLocation()
    * @generated
    */
-  void setLocation(LocationSpecifierEnum value);
+  void setLocation(LocationLiteral value);
 
 } // LocationSpecifier

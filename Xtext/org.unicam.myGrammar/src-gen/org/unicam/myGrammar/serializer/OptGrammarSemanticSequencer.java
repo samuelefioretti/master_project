@@ -17,14 +17,16 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.unicam.myGrammar.optGrammar.AddSub;
 import org.unicam.myGrammar.optGrammar.And;
 import org.unicam.myGrammar.optGrammar.Arguments;
+import org.unicam.myGrammar.optGrammar.ArithmeticOperations;
 import org.unicam.myGrammar.optGrammar.ArrayDimensions;
 import org.unicam.myGrammar.optGrammar.Assignment;
 import org.unicam.myGrammar.optGrammar.BinaryNotExpression;
 import org.unicam.myGrammar.optGrammar.BitAnd;
 import org.unicam.myGrammar.optGrammar.BitOr;
 import org.unicam.myGrammar.optGrammar.BitXor;
-import org.unicam.myGrammar.optGrammar.Block;
-import org.unicam.myGrammar.optGrammar.BooleanConst;
+import org.unicam.myGrammar.optGrammar.BlockhashFunction;
+import org.unicam.myGrammar.optGrammar.Body;
+import org.unicam.myGrammar.optGrammar.BooleanLiteral;
 import org.unicam.myGrammar.optGrammar.BreakStatement;
 import org.unicam.myGrammar.optGrammar.Comparison;
 import org.unicam.myGrammar.optGrammar.Const;
@@ -34,8 +36,7 @@ import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.DefinitionBody;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
-import org.unicam.myGrammar.optGrammar.ElementaryType;
-import org.unicam.myGrammar.optGrammar.ElementaryTypeNameEnum;
+import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Equality;
@@ -43,20 +44,25 @@ import org.unicam.myGrammar.optGrammar.Event;
 import org.unicam.myGrammar.optGrammar.Exponent;
 import org.unicam.myGrammar.optGrammar.ExpressionStatement;
 import org.unicam.myGrammar.optGrammar.Field;
-import org.unicam.myGrammar.optGrammar.ForStatement;
+import org.unicam.myGrammar.optGrammar.ForStructure;
+import org.unicam.myGrammar.optGrammar.FunctionCall;
 import org.unicam.myGrammar.optGrammar.FunctionCallArg;
 import org.unicam.myGrammar.optGrammar.FunctionCallArguments;
 import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
 import org.unicam.myGrammar.optGrammar.FunctionDefinition;
+import org.unicam.myGrammar.optGrammar.GasleftFunction;
+import org.unicam.myGrammar.optGrammar.HashFunction;
 import org.unicam.myGrammar.optGrammar.HexLiteral;
 import org.unicam.myGrammar.optGrammar.IfStatement;
 import org.unicam.myGrammar.optGrammar.Index;
 import org.unicam.myGrammar.optGrammar.IndexedSpecifer;
-import org.unicam.myGrammar.optGrammar.InheritanceSpecifier;
 import org.unicam.myGrammar.optGrammar.IntLiteral;
+import org.unicam.myGrammar.optGrammar.IntParameter;
+import org.unicam.myGrammar.optGrammar.LocationLiteral;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
-import org.unicam.myGrammar.optGrammar.LocationSpecifierEnum;
-import org.unicam.myGrammar.optGrammar.Mapping;
+import org.unicam.myGrammar.optGrammar.MappingAccess;
+import org.unicam.myGrammar.optGrammar.MappingDeclaration;
+import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.Model;
 import org.unicam.myGrammar.optGrammar.Modifier;
 import org.unicam.myGrammar.optGrammar.ModifierInvocation;
@@ -67,17 +73,21 @@ import org.unicam.myGrammar.optGrammar.NumericLiteral;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Or;
 import org.unicam.myGrammar.optGrammar.ParameterList;
+import org.unicam.myGrammar.optGrammar.Payable;
 import org.unicam.myGrammar.optGrammar.PlaceHolderStatement;
 import org.unicam.myGrammar.optGrammar.PostIncDecExpression;
 import org.unicam.myGrammar.optGrammar.PreDecExpression;
 import org.unicam.myGrammar.optGrammar.PreIncExpression;
+import org.unicam.myGrammar.optGrammar.Pure;
 import org.unicam.myGrammar.optGrammar.QualifiedIdentifier;
 import org.unicam.myGrammar.optGrammar.ReturnParameterDeclaration;
 import org.unicam.myGrammar.optGrammar.ReturnStatement;
 import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
+import org.unicam.myGrammar.optGrammar.SecondOperators;
 import org.unicam.myGrammar.optGrammar.Shift;
 import org.unicam.myGrammar.optGrammar.SignExpression;
 import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
+import org.unicam.myGrammar.optGrammar.SizedDeclaration;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialLiteral;
 import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
@@ -91,14 +101,16 @@ import org.unicam.myGrammar.optGrammar.Type;
 import org.unicam.myGrammar.optGrammar.TypeCast;
 import org.unicam.myGrammar.optGrammar.UnitTypes;
 import org.unicam.myGrammar.optGrammar.UnitsLiteral;
+import org.unicam.myGrammar.optGrammar.UnnamedMappingDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.VarVariableTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.Variable;
 import org.unicam.myGrammar.optGrammar.VariableDeclarationExpression;
-import org.unicam.myGrammar.optGrammar.VisibilityEnum;
+import org.unicam.myGrammar.optGrammar.View;
+import org.unicam.myGrammar.optGrammar.VisibilityLiteral;
 import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
-import org.unicam.myGrammar.optGrammar.WhileStatement;
+import org.unicam.myGrammar.optGrammar.WhileStructure;
 import org.unicam.myGrammar.services.OptGrammarGrammarAccess;
 
 @SuppressWarnings("all")
@@ -124,6 +136,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.ARGUMENTS:
 				sequence_Arguments(context, (Arguments) semanticObject); 
 				return; 
+			case OptGrammarPackage.ARITHMETIC_OPERATIONS:
+				sequence_ArithmeticOperations(context, (ArithmeticOperations) semanticObject); 
+				return; 
 			case OptGrammarPackage.ARRAY_DIMENSIONS:
 				sequence_ArrayDimensions(context, (ArrayDimensions) semanticObject); 
 				return; 
@@ -142,11 +157,14 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.BIT_XOR:
 				sequence_BitXor(context, (BitXor) semanticObject); 
 				return; 
-			case OptGrammarPackage.BLOCK:
-				sequence_Body(context, (Block) semanticObject); 
+			case OptGrammarPackage.BLOCKHASH_FUNCTION:
+				sequence_BlockhashFunction(context, (BlockhashFunction) semanticObject); 
 				return; 
-			case OptGrammarPackage.BOOLEAN_CONST:
-				sequence_BooleanConst(context, (BooleanConst) semanticObject); 
+			case OptGrammarPackage.BODY:
+				sequence_Body(context, (Body) semanticObject); 
+				return; 
+			case OptGrammarPackage.BOOLEAN_LITERAL:
+				sequence_BooleanLiteral(context, (BooleanLiteral) semanticObject); 
 				return; 
 			case OptGrammarPackage.BREAK_STATEMENT:
 				sequence_BreakStatement(context, (BreakStatement) semanticObject); 
@@ -175,25 +193,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.DELETE_STATEMENT:
 				sequence_DeleteStatement(context, (DeleteStatement) semanticObject); 
 				return; 
-			case OptGrammarPackage.ELEMENTARY_TYPE:
-				if (rule == grammarAccess.getElementaryTypeRule()) {
-					sequence_ElementaryType(context, (ElementaryType) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getStandardTypeWithoutQualifiedIdentifierRule()
-						|| action == grammarAccess.getSimpleStatementAccess().getStandardVariableDeclarationTypeAction_0_0_1_0()
-						|| action == grammarAccess.getSimpleStatement2Access().getStandardVariableDeclarationTypeAction_0_1_0()) {
-					sequence_ElementaryType_StandardTypeWithoutQualifiedIdentifier(context, (ElementaryType) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getTypeRule()
-						|| rule == grammarAccess.getStandardTypeRule()) {
-					sequence_ElementaryType_StandardType(context, (ElementaryType) semanticObject); 
-					return; 
-				}
-				else break;
-			case OptGrammarPackage.ELEMENTARY_TYPE_NAME_ENUM:
-				sequence_ElementaryTypeNameEnum(context, (ElementaryTypeNameEnum) semanticObject); 
+			case OptGrammarPackage.ECRECOVER_FUNCTION:
+				sequence_EcrecoverFunction(context, (EcrecoverFunction) semanticObject); 
 				return; 
 			case OptGrammarPackage.ENUM_DEFINITION:
 				sequence_EnumDefinition(context, (EnumDefinition) semanticObject); 
@@ -225,8 +226,11 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.FIELD:
 				sequence_Field(context, (Field) semanticObject); 
 				return; 
-			case OptGrammarPackage.FOR_STATEMENT:
-				sequence_ForStatement(context, (ForStatement) semanticObject); 
+			case OptGrammarPackage.FOR_STRUCTURE:
+				sequence_ForStructure(context, (ForStructure) semanticObject); 
+				return; 
+			case OptGrammarPackage.FUNCTION_CALL:
+				sequence_FunctionCall(context, (FunctionCall) semanticObject); 
 				return; 
 			case OptGrammarPackage.FUNCTION_CALL_ARG:
 				sequence_FunctionCallArg(context, (FunctionCallArg) semanticObject); 
@@ -240,6 +244,12 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.FUNCTION_DEFINITION:
 				sequence_FunctionDefinition(context, (FunctionDefinition) semanticObject); 
 				return; 
+			case OptGrammarPackage.GASLEFT_FUNCTION:
+				sequence_GasleftFunction(context, (GasleftFunction) semanticObject); 
+				return; 
+			case OptGrammarPackage.HASH_FUNCTION:
+				sequence_HashFunction(context, (HashFunction) semanticObject); 
+				return; 
 			case OptGrammarPackage.HEX_LITERAL:
 				sequence_HexLiteral(context, (HexLiteral) semanticObject); 
 				return; 
@@ -252,20 +262,26 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.INDEXED_SPECIFER:
 				sequence_IndexedSpecifer(context, (IndexedSpecifer) semanticObject); 
 				return; 
-			case OptGrammarPackage.INHERITANCE_SPECIFIER:
-				sequence_InheritanceSpecifier(context, (InheritanceSpecifier) semanticObject); 
-				return; 
 			case OptGrammarPackage.INT_LITERAL:
 				sequence_IntLiteral(context, (IntLiteral) semanticObject); 
+				return; 
+			case OptGrammarPackage.INT_PARAMETER:
+				sequence_IntParameter(context, (IntParameter) semanticObject); 
+				return; 
+			case OptGrammarPackage.LOCATION_LITERAL:
+				sequence_LocationLiteral(context, (LocationLiteral) semanticObject); 
 				return; 
 			case OptGrammarPackage.LOCATION_SPECIFIER:
 				sequence_LocationSpecifier(context, (LocationSpecifier) semanticObject); 
 				return; 
-			case OptGrammarPackage.LOCATION_SPECIFIER_ENUM:
-				sequence_LocationSpecifierEnum(context, (LocationSpecifierEnum) semanticObject); 
+			case OptGrammarPackage.MAPPING_ACCESS:
+				sequence_MappingAccess(context, (MappingAccess) semanticObject); 
 				return; 
-			case OptGrammarPackage.MAPPING:
-				sequence_Mapping(context, (Mapping) semanticObject); 
+			case OptGrammarPackage.MAPPING_DECLARATION:
+				sequence_MappingDeclaration(context, (MappingDeclaration) semanticObject); 
+				return; 
+			case OptGrammarPackage.MATHEMATICAL_FUNCTION:
+				sequence_MathematicalFunction(context, (MathematicalFunction) semanticObject); 
 				return; 
 			case OptGrammarPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -293,6 +309,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.PARAMETER_LIST:
 				sequence_ParameterList(context, (ParameterList) semanticObject); 
+				return; 
+			case OptGrammarPackage.PAYABLE:
+				sequence_Payable(context, (Payable) semanticObject); 
 				return; 
 			case OptGrammarPackage.PLACE_HOLDER_STATEMENT:
 				sequence_PlaceHolderStatement(context, (PlaceHolderStatement) semanticObject); 
@@ -339,7 +358,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPostIncDecExpressionRule()
 						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
 						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()) {
+						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
+						|| rule == grammarAccess.getPrimaryArithmeticRule()) {
 					sequence_PreExpression(context, (PreDecExpression) semanticObject); 
 					return; 
 				}
@@ -379,7 +399,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPostIncDecExpressionRule()
 						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
 						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()) {
+						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
+						|| rule == grammarAccess.getPrimaryArithmeticRule()) {
 					sequence_PreExpression(context, (PreIncExpression) semanticObject); 
 					return; 
 				}
@@ -388,6 +409,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case OptGrammarPackage.PURE:
+				sequence_Pure(context, (Pure) semanticObject); 
+				return; 
 			case OptGrammarPackage.QUALIFIED_IDENTIFIER:
 				sequence_QualifiedIdentifier(context, (QualifiedIdentifier) semanticObject); 
 				return; 
@@ -400,6 +424,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.RETURNS_PARAMETER_LIST:
 				sequence_ReturnsParameterList(context, (ReturnsParameterList) semanticObject); 
 				return; 
+			case OptGrammarPackage.SECOND_OPERATORS:
+				sequence_SecondOperators(context, (SecondOperators) semanticObject); 
+				return; 
 			case OptGrammarPackage.SHIFT:
 				sequence_Shift(context, (Shift) semanticObject); 
 				return; 
@@ -407,8 +434,41 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_SignExpression(context, (SignExpression) semanticObject); 
 				return; 
 			case OptGrammarPackage.SIMPLE_TYPE_DECLARATION:
-				sequence_SimpleTypeDeclaration(context, (SimpleTypeDeclaration) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getNamedTypeRule()
+						|| rule == grammarAccess.getSimpleTypeDeclarationRule()) {
+					sequence_SimpleTypeDeclaration(context, (SimpleTypeDeclaration) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getStandardTypeWithoutQualifiedIdentifierRule()
+						|| action == grammarAccess.getSimpleStatementAccess().getStandardVariableDeclarationTypeAction_0_0_1_0()
+						|| action == grammarAccess.getSimpleStatement2Access().getStandardVariableDeclarationTypeAction_0_1_0()) {
+					sequence_SimpleTypeDeclaration_StandardTypeWithoutQualifiedIdentifier(context, (SimpleTypeDeclaration) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getTypeRule()
+						|| rule == grammarAccess.getStandardTypeRule()) {
+					sequence_SimpleTypeDeclaration_StandardType(context, (SimpleTypeDeclaration) semanticObject); 
+					return; 
+				}
+				else break;
+			case OptGrammarPackage.SIZED_DECLARATION:
+				if (rule == grammarAccess.getNamedTypeRule()
+						|| rule == grammarAccess.getSizedDeclarationRule()) {
+					sequence_SizedDeclaration(context, (SizedDeclaration) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getStandardTypeWithoutQualifiedIdentifierRule()
+						|| action == grammarAccess.getSimpleStatementAccess().getStandardVariableDeclarationTypeAction_0_0_1_0()
+						|| action == grammarAccess.getSimpleStatement2Access().getStandardVariableDeclarationTypeAction_0_1_0()) {
+					sequence_SizedDeclaration_StandardTypeWithoutQualifiedIdentifier(context, (SizedDeclaration) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getTypeRule()
+						|| rule == grammarAccess.getStandardTypeRule()) {
+					sequence_SizedDeclaration_StandardType(context, (SizedDeclaration) semanticObject); 
+					return; 
+				}
+				else break;
 			case OptGrammarPackage.SPECIAL_EXPRESSION:
 				sequence_SpecialExpression(context, (SpecialExpression) semanticObject); 
 				return; 
@@ -478,7 +538,8 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPostIncDecExpressionRule()
 						|| action == grammarAccess.getPostIncDecExpressionAccess().getPostIncDecExpressionExpressionAction_1_0()
 						|| rule == grammarAccess.getPrimaryExpressionRule()
-						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()) {
+						|| action == grammarAccess.getPrimaryExpressionAccess().getTupleMembersAction_4_2_0()
+						|| rule == grammarAccess.getPrimaryArithmeticRule()) {
 					sequence_PrimaryExpression(context, (Tuple) semanticObject); 
 					return; 
 				}
@@ -501,6 +562,9 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case OptGrammarPackage.UNITS_LITERAL:
 				sequence_UnitsLiteral(context, (UnitsLiteral) semanticObject); 
+				return; 
+			case OptGrammarPackage.UNNAMED_MAPPING_DECLARATION:
+				sequence_UnnamedMappingDeclaration(context, (UnnamedMappingDeclaration) semanticObject); 
 				return; 
 			case OptGrammarPackage.VAR_VARIABLE_DECLARATION:
 				sequence_VarVariableDeclaration(context, (VarVariableDeclaration) semanticObject); 
@@ -538,14 +602,17 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case OptGrammarPackage.VARIABLE_DECLARATION_EXPRESSION:
 				sequence_Assignment(context, (VariableDeclarationExpression) semanticObject); 
 				return; 
-			case OptGrammarPackage.VISIBILITY_ENUM:
-				sequence_VisibilityEnum(context, (VisibilityEnum) semanticObject); 
+			case OptGrammarPackage.VIEW:
+				sequence_View(context, (View) semanticObject); 
+				return; 
+			case OptGrammarPackage.VISIBILITY_LITERAL:
+				sequence_VisibilityLiteral(context, (VisibilityLiteral) semanticObject); 
 				return; 
 			case OptGrammarPackage.VISIBILITY_SPECIFIER:
 				sequence_VisibilitySpecifier(context, (VisibilitySpecifier) semanticObject); 
 				return; 
-			case OptGrammarPackage.WHILE_STATEMENT:
-				sequence_WhileStatement(context, (WhileStatement) semanticObject); 
+			case OptGrammarPackage.WHILE_STRUCTURE:
+				sequence_WhileStructure(context, (WhileStructure) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -589,6 +656,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns AddSub
 	 *     PrimaryExpression returns AddSub
 	 *     PrimaryExpression.Tuple_4_2_0 returns AddSub
+	 *     PrimaryArithmetic returns AddSub
 	 *
 	 * Constraint:
 	 *     (left=AddSub_AddSub_1_0_0 additionOp=AdditionOpEnum right=MulDivMod)
@@ -647,6 +715,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns And
 	 *     PrimaryExpression returns And
 	 *     PrimaryExpression.Tuple_4_2_0 returns And
+	 *     PrimaryArithmetic returns And
 	 *
 	 * Constraint:
 	 *     (left=And_And_1_0 right=Equality)
@@ -681,6 +750,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getArgumentsAccess().getArgumentsFunctionCallArgumentsParserRuleCall_0(), semanticObject.getArguments());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ArithmeticOperations returns ArithmeticOperations
+	 *
+	 * Constraint:
+	 *     (first=PrimaryArithmetic seconds+=SecondOperators*)
+	 */
+	protected void sequence_ArithmeticOperations(ISerializationContext context, ArithmeticOperations semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -733,6 +814,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Assignment
 	 *     PrimaryExpression returns Assignment
 	 *     PrimaryExpression.Tuple_4_2_0 returns Assignment
+	 *     PrimaryArithmetic returns Assignment
 	 *
 	 * Constraint:
 	 *     (left=Assignment_Assignment_1_0_0 assignmentOp=AssignmentOpEnum expression=Expression)
@@ -791,6 +873,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns VariableDeclarationExpression
 	 *     PrimaryExpression returns VariableDeclarationExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns VariableDeclarationExpression
+	 *     PrimaryArithmetic returns VariableDeclarationExpression
 	 *
 	 * Constraint:
 	 *     (type=Assignment_VariableDeclarationExpression_1_1_0 variable=Variable expression=Expression?)
@@ -838,6 +921,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BinaryNotExpression
 	 *     PrimaryExpression returns BinaryNotExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns BinaryNotExpression
+	 *     PrimaryArithmetic returns BinaryNotExpression
 	 *
 	 * Constraint:
 	 *     expression=UnaryExpression
@@ -890,6 +974,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BitAnd
 	 *     PrimaryExpression returns BitAnd
 	 *     PrimaryExpression.Tuple_4_2_0 returns BitAnd
+	 *     PrimaryArithmetic returns BitAnd
 	 *
 	 * Constraint:
 	 *     (left=BitAnd_BitAnd_1_0 right=Shift)
@@ -945,6 +1030,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BitOr
 	 *     PrimaryExpression returns BitOr
 	 *     PrimaryExpression.Tuple_4_2_0 returns BitOr
+	 *     PrimaryArithmetic returns BitOr
 	 *
 	 * Constraint:
 	 *     (left=BitOr_BitOr_1_0 right=BitXor)
@@ -1000,6 +1086,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BitXor
 	 *     PrimaryExpression returns BitXor
 	 *     PrimaryExpression.Tuple_4_2_0 returns BitXor
+	 *     PrimaryArithmetic returns BitXor
 	 *
 	 * Constraint:
 	 *     (left=BitXor_BitXor_1_0 right=BitAnd)
@@ -1020,68 +1107,118 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Block
-	 *     Body returns Block
+	 *     Expression returns BlockhashFunction
+	 *     Assignment returns BlockhashFunction
+	 *     Assignment.Assignment_1_0_0 returns BlockhashFunction
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BlockhashFunction
+	 *     BinaryExpression returns BlockhashFunction
+	 *     Or returns BlockhashFunction
+	 *     Or.Or_1_0 returns BlockhashFunction
+	 *     And returns BlockhashFunction
+	 *     And.And_1_0 returns BlockhashFunction
+	 *     Equality returns BlockhashFunction
+	 *     Equality.Equality_1_0 returns BlockhashFunction
+	 *     Comparison returns BlockhashFunction
+	 *     Comparison.Comparison_1_0 returns BlockhashFunction
+	 *     BitOr returns BlockhashFunction
+	 *     BitOr.BitOr_1_0 returns BlockhashFunction
+	 *     BitXor returns BlockhashFunction
+	 *     BitXor.BitXor_1_0 returns BlockhashFunction
+	 *     BitAnd returns BlockhashFunction
+	 *     BitAnd.BitAnd_1_0 returns BlockhashFunction
+	 *     Shift returns BlockhashFunction
+	 *     Shift.Shift_1_0 returns BlockhashFunction
+	 *     AddSub returns BlockhashFunction
+	 *     AddSub.AddSub_1_0_0 returns BlockhashFunction
+	 *     MulDivMod returns BlockhashFunction
+	 *     MulDivMod.MulDivMod_1_0 returns BlockhashFunction
+	 *     Exponent returns BlockhashFunction
+	 *     Exponent.Exponent_1_0 returns BlockhashFunction
+	 *     UnaryExpression returns BlockhashFunction
+	 *     PreExpression returns BlockhashFunction
+	 *     PreExpression.PreIncExpression_1_2 returns BlockhashFunction
+	 *     PreExpression.PreDecExpression_2_2 returns BlockhashFunction
+	 *     PostIncDecExpression returns BlockhashFunction
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BlockhashFunction
+	 *     PrimaryExpression returns BlockhashFunction
+	 *     PrimaryExpression.Tuple_4_2_0 returns BlockhashFunction
+	 *     Literal returns BlockhashFunction
+	 *     PrimaryArithmetic returns BlockhashFunction
+	 *     BlockhashFunction returns BlockhashFunction
+	 *
+	 * Constraint:
+	 *     parameter=IntParameter
+	 */
+	protected void sequence_BlockhashFunction(ISerializationContext context, BlockhashFunction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BLOCKHASH_FUNCTION__PARAMETER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BLOCKHASH_FUNCTION__PARAMETER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBlockhashFunctionAccess().getParameterIntParameterParserRuleCall_2_0(), semanticObject.getParameter());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Body
+	 *     Body returns Body
 	 *
 	 * Constraint:
 	 *     (statements+=Statement statements+=Statement*)?
 	 */
-	protected void sequence_Body(ISerializationContext context, Block semanticObject) {
+	protected void sequence_Body(ISerializationContext context, Body semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Expression returns BooleanConst
-	 *     Assignment returns BooleanConst
-	 *     Assignment.Assignment_1_0_0 returns BooleanConst
-	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BooleanConst
-	 *     BinaryExpression returns BooleanConst
-	 *     Or returns BooleanConst
-	 *     Or.Or_1_0 returns BooleanConst
-	 *     And returns BooleanConst
-	 *     And.And_1_0 returns BooleanConst
-	 *     Equality returns BooleanConst
-	 *     Equality.Equality_1_0 returns BooleanConst
-	 *     Comparison returns BooleanConst
-	 *     Comparison.Comparison_1_0 returns BooleanConst
-	 *     BitOr returns BooleanConst
-	 *     BitOr.BitOr_1_0 returns BooleanConst
-	 *     BitXor returns BooleanConst
-	 *     BitXor.BitXor_1_0 returns BooleanConst
-	 *     BitAnd returns BooleanConst
-	 *     BitAnd.BitAnd_1_0 returns BooleanConst
-	 *     Shift returns BooleanConst
-	 *     Shift.Shift_1_0 returns BooleanConst
-	 *     AddSub returns BooleanConst
-	 *     AddSub.AddSub_1_0_0 returns BooleanConst
-	 *     MulDivMod returns BooleanConst
-	 *     MulDivMod.MulDivMod_1_0 returns BooleanConst
-	 *     Exponent returns BooleanConst
-	 *     Exponent.Exponent_1_0 returns BooleanConst
-	 *     UnaryExpression returns BooleanConst
-	 *     PreExpression returns BooleanConst
-	 *     PreExpression.PreIncExpression_1_2 returns BooleanConst
-	 *     PreExpression.PreDecExpression_2_2 returns BooleanConst
-	 *     PostIncDecExpression returns BooleanConst
-	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BooleanConst
-	 *     PrimaryExpression returns BooleanConst
-	 *     PrimaryExpression.Tuple_4_2_0 returns BooleanConst
-	 *     Literal returns BooleanConst
-	 *     BooleanConst returns BooleanConst
+	 *     Expression returns BooleanLiteral
+	 *     Assignment returns BooleanLiteral
+	 *     Assignment.Assignment_1_0_0 returns BooleanLiteral
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns BooleanLiteral
+	 *     BinaryExpression returns BooleanLiteral
+	 *     Or returns BooleanLiteral
+	 *     Or.Or_1_0 returns BooleanLiteral
+	 *     And returns BooleanLiteral
+	 *     And.And_1_0 returns BooleanLiteral
+	 *     Equality returns BooleanLiteral
+	 *     Equality.Equality_1_0 returns BooleanLiteral
+	 *     Comparison returns BooleanLiteral
+	 *     Comparison.Comparison_1_0 returns BooleanLiteral
+	 *     BitOr returns BooleanLiteral
+	 *     BitOr.BitOr_1_0 returns BooleanLiteral
+	 *     BitXor returns BooleanLiteral
+	 *     BitXor.BitXor_1_0 returns BooleanLiteral
+	 *     BitAnd returns BooleanLiteral
+	 *     BitAnd.BitAnd_1_0 returns BooleanLiteral
+	 *     Shift returns BooleanLiteral
+	 *     Shift.Shift_1_0 returns BooleanLiteral
+	 *     AddSub returns BooleanLiteral
+	 *     AddSub.AddSub_1_0_0 returns BooleanLiteral
+	 *     MulDivMod returns BooleanLiteral
+	 *     MulDivMod.MulDivMod_1_0 returns BooleanLiteral
+	 *     Exponent returns BooleanLiteral
+	 *     Exponent.Exponent_1_0 returns BooleanLiteral
+	 *     UnaryExpression returns BooleanLiteral
+	 *     PreExpression returns BooleanLiteral
+	 *     PreExpression.PreIncExpression_1_2 returns BooleanLiteral
+	 *     PreExpression.PreDecExpression_2_2 returns BooleanLiteral
+	 *     PostIncDecExpression returns BooleanLiteral
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns BooleanLiteral
+	 *     PrimaryExpression returns BooleanLiteral
+	 *     PrimaryExpression.Tuple_4_2_0 returns BooleanLiteral
+	 *     Literal returns BooleanLiteral
+	 *     PrimaryArithmetic returns BooleanLiteral
+	 *     BooleanLiteral returns BooleanLiteral
 	 *
 	 * Constraint:
-	 *     value=BooleanLiteralEnum
+	 *     (value='true' | value='false')
 	 */
-	protected void sequence_BooleanConst(ISerializationContext context, BooleanConst semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.BOOLEAN_CONST__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.BOOLEAN_CONST__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBooleanConstAccess().getValueBooleanLiteralEnumEnumRuleCall_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_BooleanLiteral(ISerializationContext context, BooleanLiteral semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1135,6 +1272,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Comparison
 	 *     PrimaryExpression returns Comparison
 	 *     PrimaryExpression.Tuple_4_2_0 returns Comparison
+	 *     PrimaryArithmetic returns Comparison
 	 *
 	 * Constraint:
 	 *     (left=Comparison_Comparison_1_0 comparisonOp=ComparisonOpEnum right=BitOr)
@@ -1200,10 +1338,19 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Contract returns Contract
 	 *
 	 * Constraint:
-	 *     (name=ID (inheritanceSpecifiers+=InheritanceSpecifier inheritanceSpecifiers+=InheritanceSpecifier*)? body=DefinitionBody)
+	 *     (name=ID body=DefinitionBody)
 	 */
 	protected void sequence_Contract(ISerializationContext context, Contract semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.CONTRACT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.CONTRACT__NAME));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.CONTRACT__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.CONTRACT__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getContractAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getContractAccess().getBodyDefinitionBodyParserRuleCall_2_0(), semanticObject.getBody());
+		feeder.finish();
 	}
 	
 	
@@ -1265,160 +1412,49 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     ElementaryTypeNameEnum returns ElementaryTypeNameEnum
+	 *     Expression returns EcrecoverFunction
+	 *     Assignment returns EcrecoverFunction
+	 *     Assignment.Assignment_1_0_0 returns EcrecoverFunction
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns EcrecoverFunction
+	 *     BinaryExpression returns EcrecoverFunction
+	 *     Or returns EcrecoverFunction
+	 *     Or.Or_1_0 returns EcrecoverFunction
+	 *     And returns EcrecoverFunction
+	 *     And.And_1_0 returns EcrecoverFunction
+	 *     Equality returns EcrecoverFunction
+	 *     Equality.Equality_1_0 returns EcrecoverFunction
+	 *     Comparison returns EcrecoverFunction
+	 *     Comparison.Comparison_1_0 returns EcrecoverFunction
+	 *     BitOr returns EcrecoverFunction
+	 *     BitOr.BitOr_1_0 returns EcrecoverFunction
+	 *     BitXor returns EcrecoverFunction
+	 *     BitXor.BitXor_1_0 returns EcrecoverFunction
+	 *     BitAnd returns EcrecoverFunction
+	 *     BitAnd.BitAnd_1_0 returns EcrecoverFunction
+	 *     Shift returns EcrecoverFunction
+	 *     Shift.Shift_1_0 returns EcrecoverFunction
+	 *     AddSub returns EcrecoverFunction
+	 *     AddSub.AddSub_1_0_0 returns EcrecoverFunction
+	 *     MulDivMod returns EcrecoverFunction
+	 *     MulDivMod.MulDivMod_1_0 returns EcrecoverFunction
+	 *     Exponent returns EcrecoverFunction
+	 *     Exponent.Exponent_1_0 returns EcrecoverFunction
+	 *     UnaryExpression returns EcrecoverFunction
+	 *     PreExpression returns EcrecoverFunction
+	 *     PreExpression.PreIncExpression_1_2 returns EcrecoverFunction
+	 *     PreExpression.PreDecExpression_2_2 returns EcrecoverFunction
+	 *     PostIncDecExpression returns EcrecoverFunction
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns EcrecoverFunction
+	 *     PrimaryExpression returns EcrecoverFunction
+	 *     PrimaryExpression.Tuple_4_2_0 returns EcrecoverFunction
+	 *     Literal returns EcrecoverFunction
+	 *     PrimaryArithmetic returns EcrecoverFunction
+	 *     EcrecoverFunction returns EcrecoverFunction
 	 *
 	 * Constraint:
-	 *     (
-	 *         type='int' | 
-	 *         type='int16' | 
-	 *         type='int24' | 
-	 *         type='int32' | 
-	 *         type='int40' | 
-	 *         type='int48' | 
-	 *         type='int56' | 
-	 *         type='int64' | 
-	 *         type='int72' | 
-	 *         type='int80' | 
-	 *         type='int88' | 
-	 *         type='int96' | 
-	 *         type='int104' | 
-	 *         type='int112' | 
-	 *         type='int120' | 
-	 *         type='int128' | 
-	 *         type='int136' | 
-	 *         type='int144' | 
-	 *         type='int152' | 
-	 *         type='int160' | 
-	 *         type='int168' | 
-	 *         type='int178' | 
-	 *         type='int184' | 
-	 *         type='int192' | 
-	 *         type='int200' | 
-	 *         type='int208' | 
-	 *         type='int216' | 
-	 *         type='int224' | 
-	 *         type='int232' | 
-	 *         type='int240' | 
-	 *         type='int248' | 
-	 *         type='int256' | 
-	 *         type='uint' | 
-	 *         type='uint8' | 
-	 *         type='uint16' | 
-	 *         type='uint24' | 
-	 *         type='uint32' | 
-	 *         type='uint40' | 
-	 *         type='uint48' | 
-	 *         type='uint56' | 
-	 *         type='uint64' | 
-	 *         type='uint72' | 
-	 *         type='uint80' | 
-	 *         type='uint88' | 
-	 *         type='uint96' | 
-	 *         type='uint104' | 
-	 *         type='uint112' | 
-	 *         type='uint120' | 
-	 *         type='uint128' | 
-	 *         type='uint136' | 
-	 *         type='uint144' | 
-	 *         type='uint152' | 
-	 *         type='uint160' | 
-	 *         type='uint168' | 
-	 *         type='uint178' | 
-	 *         type='uint184' | 
-	 *         type='uint192' | 
-	 *         type='uint200' | 
-	 *         type='uint208' | 
-	 *         type='uint216' | 
-	 *         type='uint224' | 
-	 *         type='uint232' | 
-	 *         type='uint240' | 
-	 *         type='uint248' | 
-	 *         type='uint256' | 
-	 *         type='bytes1' | 
-	 *         type='bytes2' | 
-	 *         type='bytes3' | 
-	 *         type='bytes4' | 
-	 *         type='bytes5' | 
-	 *         type='bytes6' | 
-	 *         type='bytes7' | 
-	 *         type='bytes8' | 
-	 *         type='bytes9' | 
-	 *         type='bytes10' | 
-	 *         type='bytes11' | 
-	 *         type='bytes12' | 
-	 *         type='bytes13' | 
-	 *         type='bytes14' | 
-	 *         type='bytes15' | 
-	 *         type='bytes16' | 
-	 *         type='bytes17' | 
-	 *         type='bytes18' | 
-	 *         type='bytes19' | 
-	 *         type='bytes20' | 
-	 *         type='bytes21' | 
-	 *         type='bytes22' | 
-	 *         type='bytes23' | 
-	 *         type='bytes24' | 
-	 *         type='bytes25' | 
-	 *         type='bytes26' | 
-	 *         type='bytes27' | 
-	 *         type='bytes28' | 
-	 *         type='bytes29' | 
-	 *         type='bytes30' | 
-	 *         type='bytes31' | 
-	 *         type='bytes32' | 
-	 *         type='bytes' | 
-	 *         type='byte' | 
-	 *         type='address' | 
-	 *         type='real' | 
-	 *         type='ureal'
-	 *     )
+	 *     (function='ecrecover' parameters+=IntParameter parameters+=IntParameter parameters+=IntParameter parameters+=IntParameter)
 	 */
-	protected void sequence_ElementaryTypeNameEnum(ISerializationContext context, ElementaryTypeNameEnum semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ElementaryType returns ElementaryType
-	 *
-	 * Constraint:
-	 *     name=ElementaryTypeNameEnum
-	 */
-	protected void sequence_ElementaryType(ISerializationContext context, ElementaryType semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.ELEMENTARY_TYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.ELEMENTARY_TYPE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getElementaryTypeAccess().getNameElementaryTypeNameEnumParserRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     StandardTypeWithoutQualifiedIdentifier returns ElementaryType
-	 *     SimpleStatement.StandardVariableDeclaration_0_0_1_0 returns ElementaryType
-	 *     SimpleStatement2.StandardVariableDeclaration_0_1_0 returns ElementaryType
-	 *
-	 * Constraint:
-	 *     (name=ElementaryTypeNameEnum dimension=ArrayDimensions?)
-	 */
-	protected void sequence_ElementaryType_StandardTypeWithoutQualifiedIdentifier(ISerializationContext context, ElementaryType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Type returns ElementaryType
-	 *     StandardType returns ElementaryType
-	 *
-	 * Constraint:
-	 *     (name=ElementaryTypeNameEnum dimension=ArrayDimensions?)
-	 */
-	protected void sequence_ElementaryType_StandardType(ISerializationContext context, ElementaryType semanticObject) {
+	protected void sequence_EcrecoverFunction(ISerializationContext context, EcrecoverFunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1428,7 +1464,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     EnumDefinition returns EnumDefinition
 	 *
 	 * Constraint:
-	 *     (name=ID (members+=EnumValue members+=EnumValue*)?)
+	 *     (visibility=VisibilityLiteral? name=ID (members+=EnumValue members+=EnumValue*)?)
 	 */
 	protected void sequence_EnumDefinition(ISerializationContext context, EnumDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1490,6 +1526,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Equality
 	 *     PrimaryExpression returns Equality
 	 *     PrimaryExpression.Tuple_4_2_0 returns Equality
+	 *     PrimaryArithmetic returns Equality
 	 *
 	 * Constraint:
 	 *     (left=Equality_Equality_1_0 equalityOp=EqualityOpEnum right=Comparison)
@@ -1560,6 +1597,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Exponent
 	 *     PrimaryExpression returns Exponent
 	 *     PrimaryExpression.Tuple_4_2_0 returns Exponent
+	 *     PrimaryArithmetic returns Exponent
 	 *
 	 * Constraint:
 	 *     (left=Exponent_Exponent_1_0 right=UnaryExpression)
@@ -1640,13 +1678,14 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Statement returns ForStatement
-	 *     ForStatement returns ForStatement
+	 *     LoopStructures returns ForStructure
+	 *     Statement returns ForStructure
+	 *     ForStructure returns ForStructure
 	 *
 	 * Constraint:
-	 *     (initExpression=SimpleStatement2? conditionExpression=Expression? loopExpression=ExpressionStatement? body=Statement)
+	 *     (type='for' initExpression=SimpleStatement2? conditionExpression=Expression? loopExpression=ExpressionStatement? body=Statement)
 	 */
-	protected void sequence_ForStatement(ISerializationContext context, ForStatement semanticObject) {
+	protected void sequence_ForStructure(ISerializationContext context, ForStructure semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1699,12 +1738,135 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     FunctionCall returns FunctionCall
+	 *
+	 * Constraint:
+	 *     (name=[FunctionDefinition|ID] (parameters+=Expression parameters+=Expression*)?)
+	 */
+	protected void sequence_FunctionCall(ISerializationContext context, FunctionCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     FunctionDefinition returns FunctionDefinition
 	 *
 	 * Constraint:
-	 *     (name=ID? parameters=ParameterList optionalElements+=FunctionDefinitionOptionalElement* returnParameters=ReturnsParameterList? block=Body?)
+	 *     (
+	 *         payable?='payable'? 
+	 *         name=ID 
+	 *         parameters=ParameterList 
+	 *         optionalElements+=FunctionDefinitionOptionalElement* 
+	 *         returnParameters=ReturnsParameterList? 
+	 *         block=Body?
+	 *     )
 	 */
 	protected void sequence_FunctionDefinition(ISerializationContext context, FunctionDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns GasleftFunction
+	 *     Assignment returns GasleftFunction
+	 *     Assignment.Assignment_1_0_0 returns GasleftFunction
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns GasleftFunction
+	 *     BinaryExpression returns GasleftFunction
+	 *     Or returns GasleftFunction
+	 *     Or.Or_1_0 returns GasleftFunction
+	 *     And returns GasleftFunction
+	 *     And.And_1_0 returns GasleftFunction
+	 *     Equality returns GasleftFunction
+	 *     Equality.Equality_1_0 returns GasleftFunction
+	 *     Comparison returns GasleftFunction
+	 *     Comparison.Comparison_1_0 returns GasleftFunction
+	 *     BitOr returns GasleftFunction
+	 *     BitOr.BitOr_1_0 returns GasleftFunction
+	 *     BitXor returns GasleftFunction
+	 *     BitXor.BitXor_1_0 returns GasleftFunction
+	 *     BitAnd returns GasleftFunction
+	 *     BitAnd.BitAnd_1_0 returns GasleftFunction
+	 *     Shift returns GasleftFunction
+	 *     Shift.Shift_1_0 returns GasleftFunction
+	 *     AddSub returns GasleftFunction
+	 *     AddSub.AddSub_1_0_0 returns GasleftFunction
+	 *     MulDivMod returns GasleftFunction
+	 *     MulDivMod.MulDivMod_1_0 returns GasleftFunction
+	 *     Exponent returns GasleftFunction
+	 *     Exponent.Exponent_1_0 returns GasleftFunction
+	 *     UnaryExpression returns GasleftFunction
+	 *     PreExpression returns GasleftFunction
+	 *     PreExpression.PreIncExpression_1_2 returns GasleftFunction
+	 *     PreExpression.PreDecExpression_2_2 returns GasleftFunction
+	 *     PostIncDecExpression returns GasleftFunction
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns GasleftFunction
+	 *     PrimaryExpression returns GasleftFunction
+	 *     PrimaryExpression.Tuple_4_2_0 returns GasleftFunction
+	 *     Literal returns GasleftFunction
+	 *     PrimaryArithmetic returns GasleftFunction
+	 *     GasleftFunction returns GasleftFunction
+	 *
+	 * Constraint:
+	 *     name='gasleft'
+	 */
+	protected void sequence_GasleftFunction(ISerializationContext context, GasleftFunction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.GASLEFT_FUNCTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.GASLEFT_FUNCTION__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGasleftFunctionAccess().getNameGasleftKeyword_0_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns HashFunction
+	 *     Assignment returns HashFunction
+	 *     Assignment.Assignment_1_0_0 returns HashFunction
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns HashFunction
+	 *     BinaryExpression returns HashFunction
+	 *     Or returns HashFunction
+	 *     Or.Or_1_0 returns HashFunction
+	 *     And returns HashFunction
+	 *     And.And_1_0 returns HashFunction
+	 *     Equality returns HashFunction
+	 *     Equality.Equality_1_0 returns HashFunction
+	 *     Comparison returns HashFunction
+	 *     Comparison.Comparison_1_0 returns HashFunction
+	 *     BitOr returns HashFunction
+	 *     BitOr.BitOr_1_0 returns HashFunction
+	 *     BitXor returns HashFunction
+	 *     BitXor.BitXor_1_0 returns HashFunction
+	 *     BitAnd returns HashFunction
+	 *     BitAnd.BitAnd_1_0 returns HashFunction
+	 *     Shift returns HashFunction
+	 *     Shift.Shift_1_0 returns HashFunction
+	 *     AddSub returns HashFunction
+	 *     AddSub.AddSub_1_0_0 returns HashFunction
+	 *     MulDivMod returns HashFunction
+	 *     MulDivMod.MulDivMod_1_0 returns HashFunction
+	 *     Exponent returns HashFunction
+	 *     Exponent.Exponent_1_0 returns HashFunction
+	 *     UnaryExpression returns HashFunction
+	 *     PreExpression returns HashFunction
+	 *     PreExpression.PreIncExpression_1_2 returns HashFunction
+	 *     PreExpression.PreDecExpression_2_2 returns HashFunction
+	 *     PostIncDecExpression returns HashFunction
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns HashFunction
+	 *     PrimaryExpression returns HashFunction
+	 *     PrimaryExpression.Tuple_4_2_0 returns HashFunction
+	 *     Literal returns HashFunction
+	 *     PrimaryArithmetic returns HashFunction
+	 *     HashFunction returns HashFunction
+	 *
+	 * Constraint:
+	 *     ((name='keccak256' | name='sha256' | name='ripemd160') parameters=IntParameter)
+	 */
+	protected void sequence_HashFunction(ISerializationContext context, HashFunction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1733,7 +1895,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     IfStatement returns IfStatement
 	 *
 	 * Constraint:
-	 *     (condition=Expression trueBody=Statement falseBody=Statement?)
+	 *     (type='if' condition=Expression trueBody=Statement falseBody=Statement?)
 	 */
 	protected void sequence_IfStatement(ISerializationContext context, IfStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1768,18 +1930,6 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     InheritanceSpecifier returns InheritanceSpecifier
-	 *
-	 * Constraint:
-	 *     (superType=[Contract|ID] args=FunctionCallListArguments?)
-	 */
-	protected void sequence_InheritanceSpecifier(ISerializationContext context, InheritanceSpecifier semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     IntLiteral returns IntLiteral
 	 *
 	 * Constraint:
@@ -1798,12 +1948,24 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     LocationSpecifierEnum returns LocationSpecifierEnum
+	 *     IntParameter returns IntParameter
+	 *
+	 * Constraint:
+	 *     (param=ArithmeticOperations | fun=FunctionCall)
+	 */
+	protected void sequence_IntParameter(ISerializationContext context, IntParameter semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LocationLiteral returns LocationLiteral
 	 *
 	 * Constraint:
 	 *     (type='memory' | type=MapLocationLiteral | type='calldata')
 	 */
-	protected void sequence_LocationSpecifierEnum(ISerializationContext context, LocationSpecifierEnum semanticObject) {
+	protected void sequence_LocationLiteral(ISerializationContext context, LocationLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1814,7 +1976,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     LocationSpecifier returns LocationSpecifier
 	 *
 	 * Constraint:
-	 *     location=LocationSpecifierEnum
+	 *     location=LocationLiteral
 	 */
 	protected void sequence_LocationSpecifier(ISerializationContext context, LocationSpecifier semanticObject) {
 		if (errorAcceptor != null) {
@@ -1822,34 +1984,132 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.LOCATION_SPECIFIER__LOCATION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationSpecifierEnumParserRuleCall_0(), semanticObject.getLocation());
+		feeder.accept(grammarAccess.getLocationSpecifierAccess().getLocationLocationLiteralParserRuleCall_0(), semanticObject.getLocation());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Type returns Mapping
-	 *     StandardType returns Mapping
-	 *     StandardTypeWithoutQualifiedIdentifier returns Mapping
-	 *     Mapping returns Mapping
-	 *     SimpleStatement.StandardVariableDeclaration_0_0_1_0 returns Mapping
-	 *     SimpleStatement2.StandardVariableDeclaration_0_1_0 returns Mapping
+	 *     Expression returns MappingAccess
+	 *     Assignment returns MappingAccess
+	 *     Assignment.Assignment_1_0_0 returns MappingAccess
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns MappingAccess
+	 *     BinaryExpression returns MappingAccess
+	 *     Or returns MappingAccess
+	 *     Or.Or_1_0 returns MappingAccess
+	 *     And returns MappingAccess
+	 *     And.And_1_0 returns MappingAccess
+	 *     Equality returns MappingAccess
+	 *     Equality.Equality_1_0 returns MappingAccess
+	 *     Comparison returns MappingAccess
+	 *     Comparison.Comparison_1_0 returns MappingAccess
+	 *     BitOr returns MappingAccess
+	 *     BitOr.BitOr_1_0 returns MappingAccess
+	 *     BitXor returns MappingAccess
+	 *     BitXor.BitXor_1_0 returns MappingAccess
+	 *     BitAnd returns MappingAccess
+	 *     BitAnd.BitAnd_1_0 returns MappingAccess
+	 *     Shift returns MappingAccess
+	 *     Shift.Shift_1_0 returns MappingAccess
+	 *     AddSub returns MappingAccess
+	 *     AddSub.AddSub_1_0_0 returns MappingAccess
+	 *     MulDivMod returns MappingAccess
+	 *     MulDivMod.MulDivMod_1_0 returns MappingAccess
+	 *     Exponent returns MappingAccess
+	 *     Exponent.Exponent_1_0 returns MappingAccess
+	 *     UnaryExpression returns MappingAccess
+	 *     PreExpression returns MappingAccess
+	 *     PreExpression.PreIncExpression_1_2 returns MappingAccess
+	 *     PreExpression.PreDecExpression_2_2 returns MappingAccess
+	 *     PostIncDecExpression returns MappingAccess
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns MappingAccess
+	 *     PrimaryExpression returns MappingAccess
+	 *     PrimaryExpression.Tuple_4_2_0 returns MappingAccess
+	 *     Literal returns MappingAccess
+	 *     PrimaryArithmetic returns MappingAccess
+	 *     MappingAccess returns MappingAccess
 	 *
 	 * Constraint:
-	 *     (keyType=ElementaryTypeNameEnum valueType=Type)
+	 *     (map=[MappingDeclaration|ID] index=Expression)
 	 */
-	protected void sequence_Mapping(ISerializationContext context, Mapping semanticObject) {
+	protected void sequence_MappingAccess(ISerializationContext context, MappingAccess semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MAPPING__KEY_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MAPPING__KEY_TYPE));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MAPPING__VALUE_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MAPPING__VALUE_TYPE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MAPPING_ACCESS__MAP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MAPPING_ACCESS__MAP));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.MAPPING_ACCESS__INDEX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.MAPPING_ACCESS__INDEX));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMappingAccess().getKeyTypeElementaryTypeNameEnumParserRuleCall_2_0(), semanticObject.getKeyType());
-		feeder.accept(grammarAccess.getMappingAccess().getValueTypeTypeParserRuleCall_4_0(), semanticObject.getValueType());
+		feeder.accept(grammarAccess.getMappingAccessAccess().getMapMappingDeclarationIDTerminalRuleCall_0_0_1(), semanticObject.eGet(OptGrammarPackage.Literals.MAPPING_ACCESS__MAP, false));
+		feeder.accept(grammarAccess.getMappingAccessAccess().getIndexExpressionParserRuleCall_2_0(), semanticObject.getIndex());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns MappingDeclaration
+	 *     StandardType returns MappingDeclaration
+	 *     StandardTypeWithoutQualifiedIdentifier returns MappingDeclaration
+	 *     MappingDeclaration returns MappingDeclaration
+	 *     SimpleStatement.StandardVariableDeclaration_0_0_1_0 returns MappingDeclaration
+	 *     SimpleStatement2.StandardVariableDeclaration_0_1_0 returns MappingDeclaration
+	 *
+	 * Constraint:
+	 *     (location=MapLocationLiteral? visibility=VisibilityLiteral? unnamedMappingDeclaration=UnnamedMappingDeclaration name=ID)
+	 */
+	protected void sequence_MappingDeclaration(ISerializationContext context, MappingDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns MathematicalFunction
+	 *     Assignment returns MathematicalFunction
+	 *     Assignment.Assignment_1_0_0 returns MathematicalFunction
+	 *     Assignment.VariableDeclarationExpression_1_1_0 returns MathematicalFunction
+	 *     BinaryExpression returns MathematicalFunction
+	 *     Or returns MathematicalFunction
+	 *     Or.Or_1_0 returns MathematicalFunction
+	 *     And returns MathematicalFunction
+	 *     And.And_1_0 returns MathematicalFunction
+	 *     Equality returns MathematicalFunction
+	 *     Equality.Equality_1_0 returns MathematicalFunction
+	 *     Comparison returns MathematicalFunction
+	 *     Comparison.Comparison_1_0 returns MathematicalFunction
+	 *     BitOr returns MathematicalFunction
+	 *     BitOr.BitOr_1_0 returns MathematicalFunction
+	 *     BitXor returns MathematicalFunction
+	 *     BitXor.BitXor_1_0 returns MathematicalFunction
+	 *     BitAnd returns MathematicalFunction
+	 *     BitAnd.BitAnd_1_0 returns MathematicalFunction
+	 *     Shift returns MathematicalFunction
+	 *     Shift.Shift_1_0 returns MathematicalFunction
+	 *     AddSub returns MathematicalFunction
+	 *     AddSub.AddSub_1_0_0 returns MathematicalFunction
+	 *     MulDivMod returns MathematicalFunction
+	 *     MulDivMod.MulDivMod_1_0 returns MathematicalFunction
+	 *     Exponent returns MathematicalFunction
+	 *     Exponent.Exponent_1_0 returns MathematicalFunction
+	 *     UnaryExpression returns MathematicalFunction
+	 *     PreExpression returns MathematicalFunction
+	 *     PreExpression.PreIncExpression_1_2 returns MathematicalFunction
+	 *     PreExpression.PreDecExpression_2_2 returns MathematicalFunction
+	 *     PostIncDecExpression returns MathematicalFunction
+	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns MathematicalFunction
+	 *     PrimaryExpression returns MathematicalFunction
+	 *     PrimaryExpression.Tuple_4_2_0 returns MathematicalFunction
+	 *     Literal returns MathematicalFunction
+	 *     PrimaryArithmetic returns MathematicalFunction
+	 *     MathematicalFunction returns MathematicalFunction
+	 *
+	 * Constraint:
+	 *     ((function='addmod' | function='mulmod') parameters+=IntParameter parameters+=IntParameter parameters+=IntParameter)
+	 */
+	protected void sequence_MathematicalFunction(ISerializationContext context, MathematicalFunction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -1927,6 +2187,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns MulDivMod
 	 *     PrimaryExpression returns MulDivMod
 	 *     PrimaryExpression.Tuple_4_2_0 returns MulDivMod
+	 *     PrimaryArithmetic returns MulDivMod
 	 *
 	 * Constraint:
 	 *     (left=MulDivMod_MulDivMod_1_0 multipliciativeOp=MulDivModOpEnum right=Exponent)
@@ -1986,6 +2247,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NewExpression
 	 *     PrimaryExpression returns NewExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns NewExpression
+	 *     PrimaryArithmetic returns NewExpression
 	 *
 	 * Constraint:
 	 *     (contract=[Contract|ID] args=FunctionCallListArguments)
@@ -2042,6 +2304,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns NotExpression
 	 *     PrimaryExpression returns NotExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns NotExpression
+	 *     PrimaryArithmetic returns NotExpression
 	 *
 	 * Constraint:
 	 *     expression=UnaryExpression
@@ -2095,6 +2358,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PrimaryExpression returns NumericLiteral
 	 *     PrimaryExpression.Tuple_4_2_0 returns NumericLiteral
 	 *     Literal returns NumericLiteral
+	 *     PrimaryArithmetic returns NumericLiteral
 	 *     NumericLiteral returns NumericLiteral
 	 *
 	 * Constraint:
@@ -2142,6 +2406,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Or
 	 *     PrimaryExpression returns Or
 	 *     PrimaryExpression.Tuple_4_2_0 returns Or
+	 *     PrimaryArithmetic returns Or
 	 *
 	 * Constraint:
 	 *     (left=Or_Or_1_0 right=And)
@@ -2168,6 +2433,19 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (parameters+=VariableDeclaration parameters+=VariableDeclaration*)?
 	 */
 	protected void sequence_ParameterList(ISerializationContext context, ParameterList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FunctionDefinitionOptionalElement returns Payable
+	 *     Payable returns Payable
+	 *
+	 * Constraint:
+	 *     {Payable}
+	 */
+	protected void sequence_Payable(ISerializationContext context, Payable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2222,6 +2500,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns PostIncDecExpression
 	 *     PrimaryExpression returns PostIncDecExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns PostIncDecExpression
+	 *     PrimaryArithmetic returns PostIncDecExpression
 	 *
 	 * Constraint:
 	 *     (expression=PostIncDecExpression_PostIncDecExpression_1_0 postOp=IncDecOpEnum)
@@ -2295,6 +2574,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns PreDecExpression
 	 *     PrimaryExpression returns PreDecExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns PreDecExpression
+	 *     PrimaryArithmetic returns PreDecExpression
 	 *
 	 * Constraint:
 	 *     expression=PreExpression_PreDecExpression_2_2
@@ -2347,6 +2627,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns PreIncExpression
 	 *     PrimaryExpression returns PreIncExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns PreIncExpression
+	 *     PrimaryArithmetic returns PreIncExpression
 	 *
 	 * Constraint:
 	 *     expression=PreExpression_PreIncExpression_1_2
@@ -2417,6 +2698,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Tuple
 	 *     PrimaryExpression returns Tuple
 	 *     PrimaryExpression.Tuple_4_2_0 returns Tuple
+	 *     PrimaryArithmetic returns Tuple
 	 *
 	 * Constraint:
 	 *     (
@@ -2425,6 +2707,19 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     )?
 	 */
 	protected void sequence_PrimaryExpression(ISerializationContext context, Tuple semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FunctionDefinitionOptionalElement returns Pure
+	 *     Pure returns Pure
+	 *
+	 * Constraint:
+	 *     {Pure}
+	 */
+	protected void sequence_Pure(ISerializationContext context, Pure semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2469,6 +2764,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns QualifiedIdentifier
 	 *     PrimaryExpression returns QualifiedIdentifier
 	 *     PrimaryExpression.Tuple_4_2_0 returns QualifiedIdentifier
+	 *     PrimaryArithmetic returns QualifiedIdentifier
 	 *
 	 * Constraint:
 	 *     (identifier=ID qualifiers+=Qualifier*)
@@ -2517,6 +2813,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     SecondOperators returns SecondOperators
+	 *
+	 * Constraint:
+	 *     ((operator='+' | operator='-' | operator='/' | operator='*') value=PrimaryArithmetic)
+	 */
+	protected void sequence_SecondOperators(ISerializationContext context, SecondOperators semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Expression returns Shift
 	 *     Assignment returns Shift
 	 *     Assignment.Assignment_1_0_0 returns Shift
@@ -2552,6 +2860,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns Shift
 	 *     PrimaryExpression returns Shift
 	 *     PrimaryExpression.Tuple_4_2_0 returns Shift
+	 *     PrimaryArithmetic returns Shift
 	 *
 	 * Constraint:
 	 *     (left=Shift_Shift_1_0 shiftOp=ShiftOpEnum right=AddSub)
@@ -2611,6 +2920,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns SignExpression
 	 *     PrimaryExpression returns SignExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns SignExpression
+	 *     PrimaryArithmetic returns SignExpression
 	 *
 	 * Constraint:
 	 *     ((signOp='+' | signOp='-') expression=UnaryExpression)
@@ -2750,12 +3060,395 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     NamedType returns SimpleTypeDeclaration
 	 *     SimpleTypeDeclaration returns SimpleTypeDeclaration
 	 *
 	 * Constraint:
 	 *     (type='string' | type='bool')
 	 */
 	protected void sequence_SimpleTypeDeclaration(ISerializationContext context, SimpleTypeDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     StandardTypeWithoutQualifiedIdentifier returns SimpleTypeDeclaration
+	 *     SimpleStatement.StandardVariableDeclaration_0_0_1_0 returns SimpleTypeDeclaration
+	 *     SimpleStatement2.StandardVariableDeclaration_0_1_0 returns SimpleTypeDeclaration
+	 *
+	 * Constraint:
+	 *     ((type='string' | type='bool') dimension=ArrayDimensions?)
+	 */
+	protected void sequence_SimpleTypeDeclaration_StandardTypeWithoutQualifiedIdentifier(ISerializationContext context, SimpleTypeDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns SimpleTypeDeclaration
+	 *     StandardType returns SimpleTypeDeclaration
+	 *
+	 * Constraint:
+	 *     ((type='string' | type='bool') dimension=ArrayDimensions?)
+	 */
+	protected void sequence_SimpleTypeDeclaration_StandardType(ISerializationContext context, SimpleTypeDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     NamedType returns SizedDeclaration
+	 *     SizedDeclaration returns SizedDeclaration
+	 *
+	 * Constraint:
+	 *     (
+	 *         type='int' | 
+	 *         type='int16' | 
+	 *         type='int24' | 
+	 *         type='int32' | 
+	 *         type='int40' | 
+	 *         type='int48' | 
+	 *         type='int56' | 
+	 *         type='int64' | 
+	 *         type='int72' | 
+	 *         type='int80' | 
+	 *         type='int88' | 
+	 *         type='int96' | 
+	 *         type='int104' | 
+	 *         type='int112' | 
+	 *         type='int120' | 
+	 *         type='int128' | 
+	 *         type='int136' | 
+	 *         type='int144' | 
+	 *         type='int152' | 
+	 *         type='int160' | 
+	 *         type='int168' | 
+	 *         type='int178' | 
+	 *         type='int184' | 
+	 *         type='int192' | 
+	 *         type='int200' | 
+	 *         type='int208' | 
+	 *         type='int216' | 
+	 *         type='int224' | 
+	 *         type='int232' | 
+	 *         type='int240' | 
+	 *         type='int248' | 
+	 *         type='int256' | 
+	 *         type='uint' | 
+	 *         type='uint8' | 
+	 *         type='uint16' | 
+	 *         type='uint24' | 
+	 *         type='uint32' | 
+	 *         type='uint40' | 
+	 *         type='uint48' | 
+	 *         type='uint56' | 
+	 *         type='uint64' | 
+	 *         type='uint72' | 
+	 *         type='uint80' | 
+	 *         type='uint88' | 
+	 *         type='uint96' | 
+	 *         type='uint104' | 
+	 *         type='uint112' | 
+	 *         type='uint120' | 
+	 *         type='uint128' | 
+	 *         type='uint136' | 
+	 *         type='uint144' | 
+	 *         type='uint152' | 
+	 *         type='uint160' | 
+	 *         type='uint168' | 
+	 *         type='uint178' | 
+	 *         type='uint184' | 
+	 *         type='uint192' | 
+	 *         type='uint200' | 
+	 *         type='uint208' | 
+	 *         type='uint216' | 
+	 *         type='uint224' | 
+	 *         type='uint232' | 
+	 *         type='uint240' | 
+	 *         type='uint248' | 
+	 *         type='uint256' | 
+	 *         type='bytes1' | 
+	 *         type='bytes2' | 
+	 *         type='bytes3' | 
+	 *         type='bytes4' | 
+	 *         type='bytes5' | 
+	 *         type='bytes6' | 
+	 *         type='bytes7' | 
+	 *         type='bytes8' | 
+	 *         type='bytes9' | 
+	 *         type='bytes10' | 
+	 *         type='bytes11' | 
+	 *         type='bytes12' | 
+	 *         type='bytes13' | 
+	 *         type='bytes14' | 
+	 *         type='bytes15' | 
+	 *         type='bytes16' | 
+	 *         type='bytes17' | 
+	 *         type='bytes18' | 
+	 *         type='bytes19' | 
+	 *         type='bytes20' | 
+	 *         type='bytes21' | 
+	 *         type='bytes22' | 
+	 *         type='bytes23' | 
+	 *         type='bytes24' | 
+	 *         type='bytes25' | 
+	 *         type='bytes26' | 
+	 *         type='bytes27' | 
+	 *         type='bytes28' | 
+	 *         type='bytes29' | 
+	 *         type='bytes30' | 
+	 *         type='bytes31' | 
+	 *         type='bytes32' | 
+	 *         type='bytes' | 
+	 *         type='byte' | 
+	 *         type='address' | 
+	 *         type='real' | 
+	 *         type='ureal'
+	 *     )
+	 */
+	protected void sequence_SizedDeclaration(ISerializationContext context, SizedDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     StandardTypeWithoutQualifiedIdentifier returns SizedDeclaration
+	 *     SimpleStatement.StandardVariableDeclaration_0_0_1_0 returns SizedDeclaration
+	 *     SimpleStatement2.StandardVariableDeclaration_0_1_0 returns SizedDeclaration
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             type='int' | 
+	 *             type='int16' | 
+	 *             type='int24' | 
+	 *             type='int32' | 
+	 *             type='int40' | 
+	 *             type='int48' | 
+	 *             type='int56' | 
+	 *             type='int64' | 
+	 *             type='int72' | 
+	 *             type='int80' | 
+	 *             type='int88' | 
+	 *             type='int96' | 
+	 *             type='int104' | 
+	 *             type='int112' | 
+	 *             type='int120' | 
+	 *             type='int128' | 
+	 *             type='int136' | 
+	 *             type='int144' | 
+	 *             type='int152' | 
+	 *             type='int160' | 
+	 *             type='int168' | 
+	 *             type='int178' | 
+	 *             type='int184' | 
+	 *             type='int192' | 
+	 *             type='int200' | 
+	 *             type='int208' | 
+	 *             type='int216' | 
+	 *             type='int224' | 
+	 *             type='int232' | 
+	 *             type='int240' | 
+	 *             type='int248' | 
+	 *             type='int256' | 
+	 *             type='uint' | 
+	 *             type='uint8' | 
+	 *             type='uint16' | 
+	 *             type='uint24' | 
+	 *             type='uint32' | 
+	 *             type='uint40' | 
+	 *             type='uint48' | 
+	 *             type='uint56' | 
+	 *             type='uint64' | 
+	 *             type='uint72' | 
+	 *             type='uint80' | 
+	 *             type='uint88' | 
+	 *             type='uint96' | 
+	 *             type='uint104' | 
+	 *             type='uint112' | 
+	 *             type='uint120' | 
+	 *             type='uint128' | 
+	 *             type='uint136' | 
+	 *             type='uint144' | 
+	 *             type='uint152' | 
+	 *             type='uint160' | 
+	 *             type='uint168' | 
+	 *             type='uint178' | 
+	 *             type='uint184' | 
+	 *             type='uint192' | 
+	 *             type='uint200' | 
+	 *             type='uint208' | 
+	 *             type='uint216' | 
+	 *             type='uint224' | 
+	 *             type='uint232' | 
+	 *             type='uint240' | 
+	 *             type='uint248' | 
+	 *             type='uint256' | 
+	 *             type='bytes1' | 
+	 *             type='bytes2' | 
+	 *             type='bytes3' | 
+	 *             type='bytes4' | 
+	 *             type='bytes5' | 
+	 *             type='bytes6' | 
+	 *             type='bytes7' | 
+	 *             type='bytes8' | 
+	 *             type='bytes9' | 
+	 *             type='bytes10' | 
+	 *             type='bytes11' | 
+	 *             type='bytes12' | 
+	 *             type='bytes13' | 
+	 *             type='bytes14' | 
+	 *             type='bytes15' | 
+	 *             type='bytes16' | 
+	 *             type='bytes17' | 
+	 *             type='bytes18' | 
+	 *             type='bytes19' | 
+	 *             type='bytes20' | 
+	 *             type='bytes21' | 
+	 *             type='bytes22' | 
+	 *             type='bytes23' | 
+	 *             type='bytes24' | 
+	 *             type='bytes25' | 
+	 *             type='bytes26' | 
+	 *             type='bytes27' | 
+	 *             type='bytes28' | 
+	 *             type='bytes29' | 
+	 *             type='bytes30' | 
+	 *             type='bytes31' | 
+	 *             type='bytes32' | 
+	 *             type='bytes' | 
+	 *             type='byte' | 
+	 *             type='address' | 
+	 *             type='real' | 
+	 *             type='ureal'
+	 *         ) 
+	 *         dimension=ArrayDimensions?
+	 *     )
+	 */
+	protected void sequence_SizedDeclaration_StandardTypeWithoutQualifiedIdentifier(ISerializationContext context, SizedDeclaration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns SizedDeclaration
+	 *     StandardType returns SizedDeclaration
+	 *
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             type='int' | 
+	 *             type='int16' | 
+	 *             type='int24' | 
+	 *             type='int32' | 
+	 *             type='int40' | 
+	 *             type='int48' | 
+	 *             type='int56' | 
+	 *             type='int64' | 
+	 *             type='int72' | 
+	 *             type='int80' | 
+	 *             type='int88' | 
+	 *             type='int96' | 
+	 *             type='int104' | 
+	 *             type='int112' | 
+	 *             type='int120' | 
+	 *             type='int128' | 
+	 *             type='int136' | 
+	 *             type='int144' | 
+	 *             type='int152' | 
+	 *             type='int160' | 
+	 *             type='int168' | 
+	 *             type='int178' | 
+	 *             type='int184' | 
+	 *             type='int192' | 
+	 *             type='int200' | 
+	 *             type='int208' | 
+	 *             type='int216' | 
+	 *             type='int224' | 
+	 *             type='int232' | 
+	 *             type='int240' | 
+	 *             type='int248' | 
+	 *             type='int256' | 
+	 *             type='uint' | 
+	 *             type='uint8' | 
+	 *             type='uint16' | 
+	 *             type='uint24' | 
+	 *             type='uint32' | 
+	 *             type='uint40' | 
+	 *             type='uint48' | 
+	 *             type='uint56' | 
+	 *             type='uint64' | 
+	 *             type='uint72' | 
+	 *             type='uint80' | 
+	 *             type='uint88' | 
+	 *             type='uint96' | 
+	 *             type='uint104' | 
+	 *             type='uint112' | 
+	 *             type='uint120' | 
+	 *             type='uint128' | 
+	 *             type='uint136' | 
+	 *             type='uint144' | 
+	 *             type='uint152' | 
+	 *             type='uint160' | 
+	 *             type='uint168' | 
+	 *             type='uint178' | 
+	 *             type='uint184' | 
+	 *             type='uint192' | 
+	 *             type='uint200' | 
+	 *             type='uint208' | 
+	 *             type='uint216' | 
+	 *             type='uint224' | 
+	 *             type='uint232' | 
+	 *             type='uint240' | 
+	 *             type='uint248' | 
+	 *             type='uint256' | 
+	 *             type='bytes1' | 
+	 *             type='bytes2' | 
+	 *             type='bytes3' | 
+	 *             type='bytes4' | 
+	 *             type='bytes5' | 
+	 *             type='bytes6' | 
+	 *             type='bytes7' | 
+	 *             type='bytes8' | 
+	 *             type='bytes9' | 
+	 *             type='bytes10' | 
+	 *             type='bytes11' | 
+	 *             type='bytes12' | 
+	 *             type='bytes13' | 
+	 *             type='bytes14' | 
+	 *             type='bytes15' | 
+	 *             type='bytes16' | 
+	 *             type='bytes17' | 
+	 *             type='bytes18' | 
+	 *             type='bytes19' | 
+	 *             type='bytes20' | 
+	 *             type='bytes21' | 
+	 *             type='bytes22' | 
+	 *             type='bytes23' | 
+	 *             type='bytes24' | 
+	 *             type='bytes25' | 
+	 *             type='bytes26' | 
+	 *             type='bytes27' | 
+	 *             type='bytes28' | 
+	 *             type='bytes29' | 
+	 *             type='bytes30' | 
+	 *             type='bytes31' | 
+	 *             type='bytes32' | 
+	 *             type='bytes' | 
+	 *             type='byte' | 
+	 *             type='address' | 
+	 *             type='real' | 
+	 *             type='ureal'
+	 *         ) 
+	 *         dimension=ArrayDimensions?
+	 *     )
+	 */
+	protected void sequence_SizedDeclaration_StandardType(ISerializationContext context, SizedDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2798,6 +3491,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns SpecialExpression
 	 *     PrimaryExpression returns SpecialExpression
 	 *     PrimaryExpression.Tuple_4_2_0 returns SpecialExpression
+	 *     PrimaryArithmetic returns SpecialExpression
 	 *
 	 * Constraint:
 	 *     (type=SpecialExpressionTypeEnum fieldOrMethod=Field? (qualifiers+=Index | qualifiers+=Arguments)*)
@@ -2845,6 +3539,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PrimaryExpression returns SpecialLiteral
 	 *     PrimaryExpression.Tuple_4_2_0 returns SpecialLiteral
 	 *     Literal returns SpecialLiteral
+	 *     PrimaryArithmetic returns SpecialLiteral
 	 *     SpecialLiteral returns SpecialLiteral
 	 *
 	 * Constraint:
@@ -2906,6 +3601,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PrimaryExpression returns StringLiteral
 	 *     PrimaryExpression.Tuple_4_2_0 returns StringLiteral
 	 *     Literal returns StringLiteral
+	 *     PrimaryArithmetic returns StringLiteral
 	 *     StringLiteral returns StringLiteral
 	 *
 	 * Constraint:
@@ -2927,7 +3623,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     StructDefinition returns StructDefinition
 	 *
 	 * Constraint:
-	 *     (name=ID members+=VariableDeclaration*)
+	 *     (visibility=VisibilityLiteral? name=ID members+=VariableDeclaration*)
 	 */
 	protected void sequence_StructDefinition(ISerializationContext context, StructDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -3028,10 +3724,11 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     PostIncDecExpression.PostIncDecExpression_1_0 returns TypeCast
 	 *     PrimaryExpression returns TypeCast
 	 *     PrimaryExpression.Tuple_4_2_0 returns TypeCast
+	 *     PrimaryArithmetic returns TypeCast
 	 *     TypeCast returns TypeCast
 	 *
 	 * Constraint:
-	 *     (value=ElementaryTypeNameEnum expression=Expression)
+	 *     (value=SizedDeclaration expression=Expression)
 	 */
 	protected void sequence_TypeCast(ISerializationContext context, TypeCast semanticObject) {
 		if (errorAcceptor != null) {
@@ -3041,7 +3738,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.TYPE_CAST__EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeCastAccess().getValueElementaryTypeNameEnumParserRuleCall_0_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getTypeCastAccess().getValueSizedDeclarationParserRuleCall_0_0(), semanticObject.getValue());
 		feeder.accept(grammarAccess.getTypeCastAccess().getExpressionExpressionParserRuleCall_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
@@ -3085,6 +3782,18 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (value='wei' | value='szabo' | value='finney' | value='ether')
 	 */
 	protected void sequence_UnitsLiteral(ISerializationContext context, UnitsLiteral semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     UnnamedMappingDeclaration returns UnnamedMappingDeclaration
+	 *
+	 * Constraint:
+	 *     (type=NamedType (secondRef=[DefinitionBody|ID] | second=NamedType | second=UnnamedMappingDeclaration) array?='[]'?)
+	 */
+	protected void sequence_UnnamedMappingDeclaration(ISerializationContext context, UnnamedMappingDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -3135,12 +3844,25 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     VisibilityEnum returns VisibilityEnum
+	 *     FunctionDefinitionOptionalElement returns View
+	 *     View returns View
+	 *
+	 * Constraint:
+	 *     {View}
+	 */
+	protected void sequence_View(ISerializationContext context, View semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     VisibilityLiteral returns VisibilityLiteral
 	 *
 	 * Constraint:
 	 *     (type='public' | type='internal' | type='private' | type='external')
 	 */
-	protected void sequence_VisibilityEnum(ISerializationContext context, VisibilityEnum semanticObject) {
+	protected void sequence_VisibilityLiteral(ISerializationContext context, VisibilityLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -3152,7 +3874,7 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     VariableDeclarationOptionalElement returns VisibilitySpecifier
 	 *
 	 * Constraint:
-	 *     visibility=VisibilityEnum
+	 *     visibility=VisibilityLiteral
 	 */
 	protected void sequence_VisibilitySpecifier(ISerializationContext context, VisibilitySpecifier semanticObject) {
 		if (errorAcceptor != null) {
@@ -3160,29 +3882,33 @@ public class OptGrammarSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.VISIBILITY_SPECIFIER__VISIBILITY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityEnumParserRuleCall_0(), semanticObject.getVisibility());
+		feeder.accept(grammarAccess.getVisibilitySpecifierAccess().getVisibilityVisibilityLiteralParserRuleCall_0(), semanticObject.getVisibility());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Statement returns WhileStatement
-	 *     WhileStatement returns WhileStatement
+	 *     LoopStructures returns WhileStructure
+	 *     Statement returns WhileStructure
+	 *     WhileStructure returns WhileStructure
 	 *
 	 * Constraint:
-	 *     (condition=Expression body=Statement)
+	 *     (type='while' condition=Expression body=Statement)
 	 */
-	protected void sequence_WhileStatement(ISerializationContext context, WhileStatement semanticObject) {
+	protected void sequence_WhileStructure(ISerializationContext context, WhileStructure semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.WHILE_STATEMENT__CONDITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.WHILE_STATEMENT__CONDITION));
-			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.WHILE_STATEMENT__BODY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.WHILE_STATEMENT__BODY));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.LOOP_STRUCTURES__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.LOOP_STRUCTURES__TYPE));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.WHILE_STRUCTURE__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.WHILE_STRUCTURE__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, OptGrammarPackage.Literals.LOOP_STRUCTURES__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OptGrammarPackage.Literals.LOOP_STRUCTURES__BODY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getWhileStatementAccess().getConditionExpressionParserRuleCall_2_0(), semanticObject.getCondition());
-		feeder.accept(grammarAccess.getWhileStatementAccess().getBodyStatementParserRuleCall_4_0(), semanticObject.getBody());
+		feeder.accept(grammarAccess.getWhileStructureAccess().getTypeWhileKeyword_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getWhileStructureAccess().getConditionExpressionParserRuleCall_2_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getWhileStructureAccess().getBodyStatementParserRuleCall_4_0(), semanticObject.getBody());
 		feeder.finish();
 	}
 	

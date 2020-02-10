@@ -28,12 +28,12 @@ public interface TypeCast extends Expression
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
-   * @see #setValue(ElementaryTypeNameEnum)
+   * @see #setValue(SizedDeclaration)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getTypeCast_Value()
    * @model containment="true"
    * @generated
    */
-  ElementaryTypeNameEnum getValue();
+  SizedDeclaration getValue();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.TypeCast#getValue <em>Value</em>}' containment reference.
@@ -43,7 +43,7 @@ public interface TypeCast extends Expression
    * @see #getValue()
    * @generated
    */
-  void setValue(ElementaryTypeNameEnum value);
+  void setValue(SizedDeclaration value);
 
   /**
    * Returns the value of the '<em><b>Expression</b></em>' containment reference.

@@ -27,12 +27,12 @@ public interface VisibilitySpecifier extends FunctionDefinitionOptionalElement, 
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Visibility</em>' containment reference.
-   * @see #setVisibility(VisibilityEnum)
+   * @see #setVisibility(VisibilityLiteral)
    * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getVisibilitySpecifier_Visibility()
    * @model containment="true"
    * @generated
    */
-  VisibilityEnum getVisibility();
+  VisibilityLiteral getVisibility();
 
   /**
    * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.VisibilitySpecifier#getVisibility <em>Visibility</em>}' containment reference.
@@ -42,6 +42,6 @@ public interface VisibilitySpecifier extends FunctionDefinitionOptionalElement, 
    * @see #getVisibility()
    * @generated
    */
-  void setVisibility(VisibilityEnum value);
+  void setVisibility(VisibilityLiteral value);
 
 } // VisibilitySpecifier
