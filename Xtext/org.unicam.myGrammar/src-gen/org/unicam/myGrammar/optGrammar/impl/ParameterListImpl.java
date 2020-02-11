@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.ParameterList;
-import org.unicam.myGrammar.optGrammar.Statement;
+import org.unicam.myGrammar.optGrammar.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    * @ordered
    */
-  protected EList<Statement> parameters;
+  protected EList<VariableDeclaration> parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,11 +73,11 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    */
   @Override
-  public EList<Statement> getParameters()
+  public EList<VariableDeclaration> getParameters()
   {
     if (parameters == null)
     {
-      parameters = new EObjectContainmentEList<Statement>(Statement.class, this, OptGrammarPackage.PARAMETER_LIST__PARAMETERS);
+      parameters = new EObjectContainmentEList<VariableDeclaration>(VariableDeclaration.class, this, OptGrammarPackage.PARAMETER_LIST__PARAMETERS);
     }
     return parameters;
   }
@@ -127,7 +127,7 @@ public class ParameterListImpl extends MinimalEObjectImpl.Container implements P
     {
       case OptGrammarPackage.PARAMETER_LIST__PARAMETERS:
         getParameters().clear();
-        getParameters().addAll((Collection<? extends Statement>)newValue);
+        getParameters().addAll((Collection<? extends VariableDeclaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.Body;
 import org.unicam.myGrammar.optGrammar.Modifier;
@@ -32,7 +31,7 @@ import org.unicam.myGrammar.optGrammar.ParameterList;
  *
  * @generated
  */
-public class ModifierImpl extends MinimalEObjectImpl.Container implements Modifier
+public class ModifierImpl extends DefinitionBodyImpl implements Modifier
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

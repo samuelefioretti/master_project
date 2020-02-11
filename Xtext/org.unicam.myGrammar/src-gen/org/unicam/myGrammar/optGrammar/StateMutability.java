@@ -3,6 +3,7 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface StateMutability extends FunctionDefinitionOptionalElement
+public interface StateMutability extends EObject
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.

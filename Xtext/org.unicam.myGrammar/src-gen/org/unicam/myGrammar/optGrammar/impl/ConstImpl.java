@@ -5,6 +5,8 @@ package org.unicam.myGrammar.optGrammar.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.unicam.myGrammar.optGrammar.Const;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 
@@ -15,7 +17,7 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  *
  * @generated
  */
-public class ConstImpl extends FunctionDefinitionOptionalElementImpl implements Const
+public class ConstImpl extends MinimalEObjectImpl.Container implements Const
 {
   /**
    * <!-- begin-user-doc -->

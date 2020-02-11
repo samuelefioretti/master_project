@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.StateMutability;
@@ -25,7 +26,7 @@ import org.unicam.myGrammar.optGrammar.StateMutability;
  *
  * @generated
  */
-public class StateMutabilityImpl extends FunctionDefinitionOptionalElementImpl implements StateMutability
+public class StateMutabilityImpl extends MinimalEObjectImpl.Container implements StateMutability
 {
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.

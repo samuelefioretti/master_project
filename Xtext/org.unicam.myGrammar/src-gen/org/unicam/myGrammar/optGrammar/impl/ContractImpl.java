@@ -72,14 +72,14 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
   protected EList<InheritanceSpecifier> inheritanceSpecifiers;
 
   /**
-   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBody()
    * @generated
    * @ordered
    */
-  protected DefinitionBody body;
+  protected EList<DefinitionBody> body;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,48 +148,13 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
    * @generated
    */
   @Override
-  public DefinitionBody getBody()
+  public EList<DefinitionBody> getBody()
   {
+    if (body == null)
+    {
+      body = new EObjectContainmentEList<DefinitionBody>(DefinitionBody.class, this, OptGrammarPackage.CONTRACT__BODY);
+    }
     return body;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetBody(DefinitionBody newBody, NotificationChain msgs)
-  {
-    DefinitionBody oldBody = body;
-    body = newBody;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.CONTRACT__BODY, oldBody, newBody);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setBody(DefinitionBody newBody)
-  {
-    if (newBody != body)
-    {
-      NotificationChain msgs = null;
-      if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.CONTRACT__BODY, null, msgs);
-      if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.CONTRACT__BODY, null, msgs);
-      msgs = basicSetBody(newBody, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.CONTRACT__BODY, newBody, newBody));
   }
 
   /**
@@ -205,7 +170,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
       case OptGrammarPackage.CONTRACT__INHERITANCE_SPECIFIERS:
         return ((InternalEList<?>)getInheritanceSpecifiers()).basicRemove(otherEnd, msgs);
       case OptGrammarPackage.CONTRACT__BODY:
-        return basicSetBody(null, msgs);
+        return ((InternalEList<?>)getBody()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -249,7 +214,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
         getInheritanceSpecifiers().addAll((Collection<? extends InheritanceSpecifier>)newValue);
         return;
       case OptGrammarPackage.CONTRACT__BODY:
-        setBody((DefinitionBody)newValue);
+        getBody().clear();
+        getBody().addAll((Collection<? extends DefinitionBody>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -272,7 +238,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
         getInheritanceSpecifiers().clear();
         return;
       case OptGrammarPackage.CONTRACT__BODY:
-        setBody((DefinitionBody)null);
+        getBody().clear();
         return;
     }
     super.eUnset(featureID);
@@ -293,7 +259,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
       case OptGrammarPackage.CONTRACT__INHERITANCE_SPECIFIERS:
         return inheritanceSpecifiers != null && !inheritanceSpecifiers.isEmpty();
       case OptGrammarPackage.CONTRACT__BODY:
-        return body != null;
+        return body != null && !body.isEmpty();
     }
     return super.eIsSet(featureID);
   }

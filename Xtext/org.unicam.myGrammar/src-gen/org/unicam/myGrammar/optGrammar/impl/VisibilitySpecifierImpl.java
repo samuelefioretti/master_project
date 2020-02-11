@@ -28,7 +28,7 @@ import org.unicam.myGrammar.optGrammar.VisibilitySpecifier;
  *
  * @generated
  */
-public class VisibilitySpecifierImpl extends FunctionDefinitionOptionalElementImpl implements VisibilitySpecifier
+public class VisibilitySpecifierImpl extends VariableDeclarationOptionalElementImpl implements VisibilitySpecifier
 {
   /**
    * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference.

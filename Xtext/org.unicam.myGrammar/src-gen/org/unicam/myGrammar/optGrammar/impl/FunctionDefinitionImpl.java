@@ -14,17 +14,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.unicam.myGrammar.optGrammar.Body;
+import org.unicam.myGrammar.optGrammar.Const;
 import org.unicam.myGrammar.optGrammar.FunctionDefinition;
-import org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement;
+import org.unicam.myGrammar.optGrammar.ModifierInvocation;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.ParameterList;
 import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
+import org.unicam.myGrammar.optGrammar.StateMutability;
+import org.unicam.myGrammar.optGrammar.VisibilityLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,14 +38,17 @@ import org.unicam.myGrammar.optGrammar.ReturnsParameterList;
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getOptionalElements <em>Optional Elements</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getState <em>State</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getModifier <em>Modifier</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getReturnParameters <em>Return Parameters</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.FunctionDefinitionImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container implements FunctionDefinition
+public class FunctionDefinitionImpl extends DefinitionBodyImpl implements FunctionDefinition
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -76,14 +81,44 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
   protected ParameterList parameters;
 
   /**
-   * The cached value of the '{@link #getOptionalElements() <em>Optional Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getState() <em>State</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOptionalElements()
+   * @see #getState()
    * @generated
    * @ordered
    */
-  protected EList<FunctionDefinitionOptionalElement> optionalElements;
+  protected EList<StateMutability> state;
+
+  /**
+   * The cached value of the '{@link #getConst() <em>Const</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConst()
+   * @generated
+   * @ordered
+   */
+  protected EList<Const> const_;
+
+  /**
+   * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getModifier()
+   * @generated
+   * @ordered
+   */
+  protected EList<ModifierInvocation> modifier;
+
+  /**
+   * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibility()
+   * @generated
+   * @ordered
+   */
+  protected EList<VisibilityLiteral> visibility;
 
   /**
    * The cached value of the '{@link #getReturnParameters() <em>Return Parameters</em>}' containment reference.
@@ -207,13 +242,58 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
    * @generated
    */
   @Override
-  public EList<FunctionDefinitionOptionalElement> getOptionalElements()
+  public EList<StateMutability> getState()
   {
-    if (optionalElements == null)
+    if (state == null)
     {
-      optionalElements = new EObjectContainmentEList<FunctionDefinitionOptionalElement>(FunctionDefinitionOptionalElement.class, this, OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS);
+      state = new EObjectContainmentEList<StateMutability>(StateMutability.class, this, OptGrammarPackage.FUNCTION_DEFINITION__STATE);
     }
-    return optionalElements;
+    return state;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Const> getConst()
+  {
+    if (const_ == null)
+    {
+      const_ = new EObjectContainmentEList<Const>(Const.class, this, OptGrammarPackage.FUNCTION_DEFINITION__CONST);
+    }
+    return const_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<ModifierInvocation> getModifier()
+  {
+    if (modifier == null)
+    {
+      modifier = new EObjectContainmentEList<ModifierInvocation>(ModifierInvocation.class, this, OptGrammarPackage.FUNCTION_DEFINITION__MODIFIER);
+    }
+    return modifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<VisibilityLiteral> getVisibility()
+  {
+    if (visibility == null)
+    {
+      visibility = new EObjectContainmentEList<VisibilityLiteral>(VisibilityLiteral.class, this, OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY);
+    }
+    return visibility;
   }
 
   /**
@@ -328,8 +408,14 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
     {
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
         return basicSetParameters(null, msgs);
-      case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
-        return ((InternalEList<?>)getOptionalElements()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.FUNCTION_DEFINITION__STATE:
+        return ((InternalEList<?>)getState()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.FUNCTION_DEFINITION__CONST:
+        return ((InternalEList<?>)getConst()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.FUNCTION_DEFINITION__MODIFIER:
+        return ((InternalEList<?>)getModifier()).basicRemove(otherEnd, msgs);
+      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
+        return ((InternalEList<?>)getVisibility()).basicRemove(otherEnd, msgs);
       case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
         return basicSetReturnParameters(null, msgs);
       case OptGrammarPackage.FUNCTION_DEFINITION__BLOCK:
@@ -352,8 +438,14 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
         return getName();
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
         return getParameters();
-      case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
-        return getOptionalElements();
+      case OptGrammarPackage.FUNCTION_DEFINITION__STATE:
+        return getState();
+      case OptGrammarPackage.FUNCTION_DEFINITION__CONST:
+        return getConst();
+      case OptGrammarPackage.FUNCTION_DEFINITION__MODIFIER:
+        return getModifier();
+      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
+        return getVisibility();
       case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
         return getReturnParameters();
       case OptGrammarPackage.FUNCTION_DEFINITION__BLOCK:
@@ -379,9 +471,21 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
         setParameters((ParameterList)newValue);
         return;
-      case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
-        getOptionalElements().clear();
-        getOptionalElements().addAll((Collection<? extends FunctionDefinitionOptionalElement>)newValue);
+      case OptGrammarPackage.FUNCTION_DEFINITION__STATE:
+        getState().clear();
+        getState().addAll((Collection<? extends StateMutability>)newValue);
+        return;
+      case OptGrammarPackage.FUNCTION_DEFINITION__CONST:
+        getConst().clear();
+        getConst().addAll((Collection<? extends Const>)newValue);
+        return;
+      case OptGrammarPackage.FUNCTION_DEFINITION__MODIFIER:
+        getModifier().clear();
+        getModifier().addAll((Collection<? extends ModifierInvocation>)newValue);
+        return;
+      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
+        getVisibility().clear();
+        getVisibility().addAll((Collection<? extends VisibilityLiteral>)newValue);
         return;
       case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
         setReturnParameters((ReturnsParameterList)newValue);
@@ -409,8 +513,17 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
         setParameters((ParameterList)null);
         return;
-      case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
-        getOptionalElements().clear();
+      case OptGrammarPackage.FUNCTION_DEFINITION__STATE:
+        getState().clear();
+        return;
+      case OptGrammarPackage.FUNCTION_DEFINITION__CONST:
+        getConst().clear();
+        return;
+      case OptGrammarPackage.FUNCTION_DEFINITION__MODIFIER:
+        getModifier().clear();
+        return;
+      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
+        getVisibility().clear();
         return;
       case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
         setReturnParameters((ReturnsParameterList)null);
@@ -436,8 +549,14 @@ public class FunctionDefinitionImpl extends MinimalEObjectImpl.Container impleme
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case OptGrammarPackage.FUNCTION_DEFINITION__PARAMETERS:
         return parameters != null;
-      case OptGrammarPackage.FUNCTION_DEFINITION__OPTIONAL_ELEMENTS:
-        return optionalElements != null && !optionalElements.isEmpty();
+      case OptGrammarPackage.FUNCTION_DEFINITION__STATE:
+        return state != null && !state.isEmpty();
+      case OptGrammarPackage.FUNCTION_DEFINITION__CONST:
+        return const_ != null && !const_.isEmpty();
+      case OptGrammarPackage.FUNCTION_DEFINITION__MODIFIER:
+        return modifier != null && !modifier.isEmpty();
+      case OptGrammarPackage.FUNCTION_DEFINITION__VISIBILITY:
+        return visibility != null && !visibility.isEmpty();
       case OptGrammarPackage.FUNCTION_DEFINITION__RETURN_PARAMETERS:
         return returnParameters != null;
       case OptGrammarPackage.FUNCTION_DEFINITION__BLOCK:

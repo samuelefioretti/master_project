@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.Model#getPragmaDirective <em>Pragma Directive</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Model#getImportDirective <em>Import Directive</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.Model#getContract <em>Contract</em>}</li>
  * </ul>
@@ -26,6 +27,18 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Pragma Directive</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.PragmaDirective}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pragma Directive</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getModel_PragmaDirective()
+   * @model containment="true"
+   * @generated
+   */
+  EList<PragmaDirective> getPragmaDirective();
+
   /**
    * Returns the value of the '<em><b>Import Directive</b></em>' containment reference list.
    * The list contents are of type {@link org.unicam.myGrammar.optGrammar.ImportDirective}.

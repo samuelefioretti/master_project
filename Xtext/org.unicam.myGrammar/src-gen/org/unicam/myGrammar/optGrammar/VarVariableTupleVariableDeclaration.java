@@ -15,7 +15,6 @@ package org.unicam.myGrammar.optGrammar;
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getVarType <em>Var Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getTuple <em>Tuple</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#isSemicolon <em>Semicolon</em>}</li>
  * </ul>
  *
@@ -23,7 +22,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface VarVariableTupleVariableDeclaration extends Statement, SimpleStatement, SimpleStatement2
+public interface VarVariableTupleVariableDeclaration extends VariableDeclaration, SimpleStatement, SimpleStatement2
 {
   /**
    * Returns the value of the '<em><b>Var Type</b></em>' attribute.
@@ -68,28 +67,6 @@ public interface VarVariableTupleVariableDeclaration extends Statement, SimpleSt
    * @generated
    */
   void setTuple(Tuple value);
-
-  /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getVarVariableTupleVariableDeclaration_Expression()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getExpression();
-
-  /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration#getExpression <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
-   * @generated
-   */
-  void setExpression(Expression value);
 
   /**
    * Returns the value of the '<em><b>Semicolon</b></em>' attribute.

@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.Tuple;
 import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
@@ -26,13 +25,12 @@ import org.unicam.myGrammar.optGrammar.VarVariableTupleVariableDeclaration;
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl#getVarType <em>Var Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl#getTuple <em>Tuple</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableTupleVariableDeclarationImpl#isSemicolon <em>Semicolon</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VarVariableTupleVariableDeclarationImpl extends StatementImpl implements VarVariableTupleVariableDeclaration
+public class VarVariableTupleVariableDeclarationImpl extends VariableDeclarationImpl implements VarVariableTupleVariableDeclaration
 {
   /**
    * The default value of the '{@link #getVarType() <em>Var Type</em>}' attribute.
@@ -63,16 +61,6 @@ public class VarVariableTupleVariableDeclarationImpl extends StatementImpl imple
    * @ordered
    */
   protected Tuple tuple;
-
-  /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
-  protected Expression expression;
 
   /**
    * The default value of the '{@link #isSemicolon() <em>Semicolon</em>}' attribute.
@@ -196,56 +184,6 @@ public class VarVariableTupleVariableDeclarationImpl extends StatementImpl imple
    * @generated
    */
   @Override
-  public Expression getExpression()
-  {
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
-  {
-    Expression oldExpression = expression;
-    expression = newExpression;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION, oldExpression, newExpression);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setExpression(Expression newExpression)
-  {
-    if (newExpression != expression)
-    {
-      NotificationChain msgs = null;
-      if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION, null, msgs);
-      if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION, null, msgs);
-      msgs = basicSetExpression(newExpression, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION, newExpression, newExpression));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public boolean isSemicolon()
   {
     return semicolon;
@@ -277,8 +215,6 @@ public class VarVariableTupleVariableDeclarationImpl extends StatementImpl imple
     {
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         return basicSetTuple(null, msgs);
-      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
-        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -297,8 +233,6 @@ public class VarVariableTupleVariableDeclarationImpl extends StatementImpl imple
         return getVarType();
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         return getTuple();
-      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
-        return getExpression();
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON:
         return isSemicolon();
     }
@@ -320,9 +254,6 @@ public class VarVariableTupleVariableDeclarationImpl extends StatementImpl imple
         return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         setTuple((Tuple)newValue);
-        return;
-      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((Expression)newValue);
         return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon((Boolean)newValue);
@@ -347,9 +278,6 @@ public class VarVariableTupleVariableDeclarationImpl extends StatementImpl imple
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         setTuple((Tuple)null);
         return;
-      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((Expression)null);
-        return;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon(SEMICOLON_EDEFAULT);
         return;
@@ -371,8 +299,6 @@ public class VarVariableTupleVariableDeclarationImpl extends StatementImpl imple
         return VAR_TYPE_EDEFAULT == null ? varType != null : !VAR_TYPE_EDEFAULT.equals(varType);
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__TUPLE:
         return tuple != null;
-      case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__EXPRESSION:
-        return expression != null;
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION__SEMICOLON:
         return semicolon != SEMICOLON_EDEFAULT;
     }

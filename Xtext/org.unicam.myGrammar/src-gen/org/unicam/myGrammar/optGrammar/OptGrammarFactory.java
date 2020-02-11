@@ -33,6 +33,24 @@ public interface OptGrammarFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Pragma Directive</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pragma Directive</em>'.
+   * @generated
+   */
+  PragmaDirective createPragmaDirective();
+
+  /**
+   * Returns a new object of class '<em>version Operator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>version Operator</em>'.
+   * @generated
+   */
+  versionOperator createversionOperator();
+
+  /**
    * Returns a new object of class '<em>Import Directive</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -67,6 +85,15 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   DefinitionBody createDefinitionBody();
+
+  /**
+   * Returns a new object of class '<em>Constructor Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constructor Definition</em>'.
+   * @generated
+   */
+  ConstructorDefinition createConstructorDefinition();
 
   /**
    * Returns a new object of class '<em>Inheritance Specifier</em>'.
@@ -112,15 +139,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   FunctionDefinition createFunctionDefinition();
-
-  /**
-   * Returns a new object of class '<em>Function Definition Optional Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Definition Optional Element</em>'.
-   * @generated
-   */
-  FunctionDefinitionOptionalElement createFunctionDefinitionOptionalElement();
 
   /**
    * Returns a new object of class '<em>Const</em>'.
@@ -177,13 +195,13 @@ public interface OptGrammarFactory extends EFactory
   Variable createVariable();
 
   /**
-   * Returns a new object of class '<em>Statement</em>'.
+   * Returns a new object of class '<em>Variable Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statement</em>'.
+   * @return a new object of class '<em>Variable Declaration</em>'.
    * @generated
    */
-  Statement createStatement();
+  VariableDeclaration createVariableDeclaration();
 
   /**
    * Returns a new object of class '<em>Standard Variable Declaration</em>'.
@@ -258,15 +276,6 @@ public interface OptGrammarFactory extends EFactory
   Type createType();
 
   /**
-   * Returns a new object of class '<em>Named Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Named Type</em>'.
-   * @generated
-   */
-  NamedType createNamedType();
-
-  /**
    * Returns a new object of class '<em>Standard Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -285,6 +294,24 @@ public interface OptGrammarFactory extends EFactory
   StandardTypeWithoutQualifiedIdentifier createStandardTypeWithoutQualifiedIdentifier();
 
   /**
+   * Returns a new object of class '<em>Array Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Type</em>'.
+   * @generated
+   */
+  ArrayType createArrayType();
+
+  /**
+   * Returns a new object of class '<em>Elementary Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Elementary Type</em>'.
+   * @generated
+   */
+  ElementaryType createElementaryType();
+
+  /**
    * Returns a new object of class '<em>Mapping</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -292,15 +319,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   Mapping createMapping();
-
-  /**
-   * Returns a new object of class '<em>Array Dimensions</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Array Dimensions</em>'.
-   * @generated
-   */
-  ArrayDimensions createArrayDimensions();
 
   /**
    * Returns a new object of class '<em>Tuple</em>'.
@@ -445,6 +463,15 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   ReturnParameterDeclaration createReturnParameterDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement</em>'.
+   * @generated
+   */
+  Statement createStatement();
 
   /**
    * Returns a new object of class '<em>Delete Statement</em>'.
@@ -814,15 +841,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   SizedDeclaration createSizedDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Simple Type Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Type Declaration</em>'.
-   * @generated
-   */
-  SimpleTypeDeclaration createSimpleTypeDeclaration();
 
   /**
    * Returns a new object of class '<em>Location Literal</em>'.

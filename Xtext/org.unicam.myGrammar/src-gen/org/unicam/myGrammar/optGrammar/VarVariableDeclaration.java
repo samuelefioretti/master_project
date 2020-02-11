@@ -15,14 +15,13 @@ package org.unicam.myGrammar.optGrammar;
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getVarType <em>Var Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getVarVariableDeclaration()
  * @model
  * @generated
  */
-public interface VarVariableDeclaration extends Statement
+public interface VarVariableDeclaration extends VariableDeclaration
 {
   /**
    * Returns the value of the '<em><b>Var Type</b></em>' attribute.
@@ -67,27 +66,5 @@ public interface VarVariableDeclaration extends Statement
    * @generated
    */
   void setVariable(Variable value);
-
-  /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getVarVariableDeclaration_Expression()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getExpression();
-
-  /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.VarVariableDeclaration#getExpression <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
-   * @generated
-   */
-  void setExpression(Expression value);
 
 } // VarVariableDeclaration

@@ -5,8 +5,6 @@ package org.unicam.myGrammar.optGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Function Definition</b></em>'.
@@ -18,7 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getParameters <em>Parameters</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getOptionalElements <em>Optional Elements</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getState <em>State</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getConst <em>Const</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getModifier <em>Modifier</em>}</li>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getReturnParameters <em>Return Parameters</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.FunctionDefinition#getBlock <em>Block</em>}</li>
  * </ul>
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface FunctionDefinition extends EObject
+public interface FunctionDefinition extends DefinitionBody
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -74,16 +75,52 @@ public interface FunctionDefinition extends EObject
   void setParameters(ParameterList value);
 
   /**
-   * Returns the value of the '<em><b>Optional Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.FunctionDefinitionOptionalElement}.
+   * Returns the value of the '<em><b>State</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.StateMutability}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Optional Elements</em>' containment reference list.
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_OptionalElements()
+   * @return the value of the '<em>State</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_State()
    * @model containment="true"
    * @generated
    */
-  EList<FunctionDefinitionOptionalElement> getOptionalElements();
+  EList<StateMutability> getState();
+
+  /**
+   * Returns the value of the '<em><b>Const</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Const}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Const</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Const()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Const> getConst();
+
+  /**
+   * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.ModifierInvocation}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Modifier</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Modifier()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ModifierInvocation> getModifier();
+
+  /**
+   * Returns the value of the '<em><b>Visibility</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.VisibilityLiteral}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Visibility</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getFunctionDefinition_Visibility()
+   * @model containment="true"
+   * @generated
+   */
+  EList<VisibilityLiteral> getVisibility();
 
   /**
    * Returns the value of the '<em><b>Return Parameters</b></em>' containment reference.

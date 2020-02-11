@@ -5,8 +5,6 @@ package org.unicam.myGrammar.optGrammar;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Struct Definition</b></em>'.
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface StructDefinition extends EObject
+public interface StructDefinition extends DefinitionBody
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -50,7 +48,7 @@ public interface StructDefinition extends EObject
 
   /**
    * Returns the value of the '<em><b>Members</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Statement}.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.VariableDeclaration}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Members</em>' containment reference list.
@@ -58,6 +56,6 @@ public interface StructDefinition extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Statement> getMembers();
+  EList<VariableDeclaration> getMembers();
 
 } // StructDefinition

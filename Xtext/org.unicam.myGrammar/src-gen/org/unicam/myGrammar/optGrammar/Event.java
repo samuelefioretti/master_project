@@ -3,7 +3,6 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Event extends EObject
+public interface Event extends DefinitionBody
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

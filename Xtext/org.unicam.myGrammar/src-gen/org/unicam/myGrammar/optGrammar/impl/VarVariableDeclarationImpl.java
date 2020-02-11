@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.VarVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.Variable;
@@ -26,12 +25,11 @@ import org.unicam.myGrammar.optGrammar.Variable;
  * <ul>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableDeclarationImpl#getVarType <em>Var Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableDeclarationImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.VarVariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VarVariableDeclarationImpl extends StatementImpl implements VarVariableDeclaration
+public class VarVariableDeclarationImpl extends VariableDeclarationImpl implements VarVariableDeclaration
 {
   /**
    * The default value of the '{@link #getVarType() <em>Var Type</em>}' attribute.
@@ -62,16 +60,6 @@ public class VarVariableDeclarationImpl extends StatementImpl implements VarVari
    * @ordered
    */
   protected Variable variable;
-
-  /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
-  protected Expression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -175,64 +163,12 @@ public class VarVariableDeclarationImpl extends StatementImpl implements VarVari
    * @generated
    */
   @Override
-  public Expression getExpression()
-  {
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
-  {
-    Expression oldExpression = expression;
-    expression = newExpression;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION, oldExpression, newExpression);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setExpression(Expression newExpression)
-  {
-    if (newExpression != expression)
-    {
-      NotificationChain msgs = null;
-      if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION, null, msgs);
-      if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION, null, msgs);
-      msgs = basicSetExpression(newExpression, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION, newExpression, newExpression));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case OptGrammarPackage.VAR_VARIABLE_DECLARATION__VARIABLE:
         return basicSetVariable(null, msgs);
-      case OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION:
-        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -251,8 +187,6 @@ public class VarVariableDeclarationImpl extends StatementImpl implements VarVari
         return getVarType();
       case OptGrammarPackage.VAR_VARIABLE_DECLARATION__VARIABLE:
         return getVariable();
-      case OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION:
-        return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -272,9 +206,6 @@ public class VarVariableDeclarationImpl extends StatementImpl implements VarVari
         return;
       case OptGrammarPackage.VAR_VARIABLE_DECLARATION__VARIABLE:
         setVariable((Variable)newValue);
-        return;
-      case OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -296,9 +227,6 @@ public class VarVariableDeclarationImpl extends StatementImpl implements VarVari
       case OptGrammarPackage.VAR_VARIABLE_DECLARATION__VARIABLE:
         setVariable((Variable)null);
         return;
-      case OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((Expression)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -317,8 +245,6 @@ public class VarVariableDeclarationImpl extends StatementImpl implements VarVari
         return VAR_TYPE_EDEFAULT == null ? varType != null : !VAR_TYPE_EDEFAULT.equals(varType);
       case OptGrammarPackage.VAR_VARIABLE_DECLARATION__VARIABLE:
         return variable != null;
-      case OptGrammarPackage.VAR_VARIABLE_DECLARATION__EXPRESSION:
-        return expression != null;
     }
     return super.eIsSet(featureID);
   }

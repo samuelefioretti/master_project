@@ -67,23 +67,25 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
     switch (eClass.getClassifierID())
     {
       case OptGrammarPackage.MODEL: return createModel();
+      case OptGrammarPackage.PRAGMA_DIRECTIVE: return createPragmaDirective();
+      case OptGrammarPackage.VERSION_OPERATOR: return createversionOperator();
       case OptGrammarPackage.IMPORT_DIRECTIVE: return createImportDirective();
       case OptGrammarPackage.SYMBOL_ALIAS: return createSymbolAlias();
       case OptGrammarPackage.CONTRACT: return createContract();
       case OptGrammarPackage.DEFINITION_BODY: return createDefinitionBody();
+      case OptGrammarPackage.CONSTRUCTOR_DEFINITION: return createConstructorDefinition();
       case OptGrammarPackage.INHERITANCE_SPECIFIER: return createInheritanceSpecifier();
       case OptGrammarPackage.FUNCTION_CALL_LIST_ARGUMENTS: return createFunctionCallListArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARGUMENTS: return createFunctionCallArguments();
       case OptGrammarPackage.FUNCTION_CALL_ARG: return createFunctionCallArg();
       case OptGrammarPackage.FUNCTION_DEFINITION: return createFunctionDefinition();
-      case OptGrammarPackage.FUNCTION_DEFINITION_OPTIONAL_ELEMENT: return createFunctionDefinitionOptionalElement();
       case OptGrammarPackage.CONST: return createConst();
       case OptGrammarPackage.VISIBILITY_SPECIFIER: return createVisibilitySpecifier();
       case OptGrammarPackage.STRUCT_DEFINITION: return createStructDefinition();
       case OptGrammarPackage.ENUM_DEFINITION: return createEnumDefinition();
       case OptGrammarPackage.ENUM_VALUE: return createEnumValue();
       case OptGrammarPackage.VARIABLE: return createVariable();
-      case OptGrammarPackage.STATEMENT: return createStatement();
+      case OptGrammarPackage.VARIABLE_DECLARATION: return createVariableDeclaration();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION: return createStandardVariableDeclaration();
       case OptGrammarPackage.VAR_VARIABLE_DECLARATION: return createVarVariableDeclaration();
       case OptGrammarPackage.VAR_VARIABLE_TUPLE_VARIABLE_DECLARATION: return createVarVariableTupleVariableDeclaration();
@@ -92,11 +94,11 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.CONSTANT_SPECIFIER: return createConstantSpecifier();
       case OptGrammarPackage.LOCATION_SPECIFIER: return createLocationSpecifier();
       case OptGrammarPackage.TYPE: return createType();
-      case OptGrammarPackage.NAMED_TYPE: return createNamedType();
       case OptGrammarPackage.STANDARD_TYPE: return createStandardType();
       case OptGrammarPackage.STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER: return createStandardTypeWithoutQualifiedIdentifier();
+      case OptGrammarPackage.ARRAY_TYPE: return createArrayType();
+      case OptGrammarPackage.ELEMENTARY_TYPE: return createElementaryType();
       case OptGrammarPackage.MAPPING: return createMapping();
-      case OptGrammarPackage.ARRAY_DIMENSIONS: return createArrayDimensions();
       case OptGrammarPackage.TUPLE: return createTuple();
       case OptGrammarPackage.TUPLE_SEPARATOR: return createTupleSeparator();
       case OptGrammarPackage.SIMPLE_STATEMENT: return createSimpleStatement();
@@ -113,6 +115,7 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.PARAMETER_LIST: return createParameterList();
       case OptGrammarPackage.RETURNS_PARAMETER_LIST: return createReturnsParameterList();
       case OptGrammarPackage.RETURN_PARAMETER_DECLARATION: return createReturnParameterDeclaration();
+      case OptGrammarPackage.STATEMENT: return createStatement();
       case OptGrammarPackage.DELETE_STATEMENT: return createDeleteStatement();
       case OptGrammarPackage.IF_STATEMENT: return createIfStatement();
       case OptGrammarPackage.WHILE_STATEMENT: return createWhileStatement();
@@ -154,7 +157,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
       case OptGrammarPackage.UNITS_LITERAL: return createUnitsLiteral();
       case OptGrammarPackage.SPECIAL_LITERAL: return createSpecialLiteral();
       case OptGrammarPackage.SIZED_DECLARATION: return createSizedDeclaration();
-      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION: return createSimpleTypeDeclaration();
       case OptGrammarPackage.LOCATION_LITERAL: return createLocationLiteral();
       case OptGrammarPackage.VISIBILITY_LITERAL: return createVisibilityLiteral();
       case OptGrammarPackage.STATE_MUTABILITY: return createStateMutability();
@@ -263,6 +265,30 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
+  public PragmaDirective createPragmaDirective()
+  {
+    PragmaDirectiveImpl pragmaDirective = new PragmaDirectiveImpl();
+    return pragmaDirective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public versionOperator createversionOperator()
+  {
+    versionOperatorImpl versionOperator = new versionOperatorImpl();
+    return versionOperator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ImportDirective createImportDirective()
   {
     ImportDirectiveImpl importDirective = new ImportDirectiveImpl();
@@ -303,6 +329,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     DefinitionBodyImpl definitionBody = new DefinitionBodyImpl();
     return definitionBody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ConstructorDefinition createConstructorDefinition()
+  {
+    ConstructorDefinitionImpl constructorDefinition = new ConstructorDefinitionImpl();
+    return constructorDefinition;
   }
 
   /**
@@ -363,18 +401,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     FunctionDefinitionImpl functionDefinition = new FunctionDefinitionImpl();
     return functionDefinition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public FunctionDefinitionOptionalElement createFunctionDefinitionOptionalElement()
-  {
-    FunctionDefinitionOptionalElementImpl functionDefinitionOptionalElement = new FunctionDefinitionOptionalElementImpl();
-    return functionDefinitionOptionalElement;
   }
 
   /**
@@ -455,10 +481,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public Statement createStatement()
+  public VariableDeclaration createVariableDeclaration()
   {
-    StatementImpl statement = new StatementImpl();
-    return statement;
+    VariableDeclarationImpl variableDeclaration = new VariableDeclarationImpl();
+    return variableDeclaration;
   }
 
   /**
@@ -563,18 +589,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public NamedType createNamedType()
-  {
-    NamedTypeImpl namedType = new NamedTypeImpl();
-    return namedType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public StandardType createStandardType()
   {
     StandardTypeImpl standardType = new StandardTypeImpl();
@@ -599,10 +613,10 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public Mapping createMapping()
+  public ArrayType createArrayType()
   {
-    MappingImpl mapping = new MappingImpl();
-    return mapping;
+    ArrayTypeImpl arrayType = new ArrayTypeImpl();
+    return arrayType;
   }
 
   /**
@@ -611,10 +625,22 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
    * @generated
    */
   @Override
-  public ArrayDimensions createArrayDimensions()
+  public ElementaryType createElementaryType()
   {
-    ArrayDimensionsImpl arrayDimensions = new ArrayDimensionsImpl();
-    return arrayDimensions;
+    ElementaryTypeImpl elementaryType = new ElementaryTypeImpl();
+    return elementaryType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Mapping createMapping()
+  {
+    MappingImpl mapping = new MappingImpl();
+    return mapping;
   }
 
   /**
@@ -807,6 +833,18 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     ReturnParameterDeclarationImpl returnParameterDeclaration = new ReturnParameterDeclarationImpl();
     return returnParameterDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Statement createStatement()
+  {
+    StatementImpl statement = new StatementImpl();
+    return statement;
   }
 
   /**
@@ -1299,18 +1337,6 @@ public class OptGrammarFactoryImpl extends EFactoryImpl implements OptGrammarFac
   {
     SizedDeclarationImpl sizedDeclaration = new SizedDeclarationImpl();
     return sizedDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SimpleTypeDeclaration createSimpleTypeDeclaration()
-  {
-    SimpleTypeDeclarationImpl simpleTypeDeclaration = new SimpleTypeDeclarationImpl();
-    return simpleTypeDeclaration;
   }
 
   /**

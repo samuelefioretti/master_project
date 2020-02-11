@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.Event;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
@@ -31,7 +30,7 @@ import org.unicam.myGrammar.optGrammar.ParameterList;
  *
  * @generated
  */
-public class EventImpl extends MinimalEObjectImpl.Container implements Event
+public class EventImpl extends DefinitionBodyImpl implements Event
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

@@ -17,14 +17,40 @@ import org.unicam.myGrammar.optGrammar.Model
 class OptGrammarParsingTest {
 	@Inject
 	ParseHelper<Model> parseHelper
-	
+
 	@Test
-	def void loadModel() {
+	def void testNotBoolean() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			NOT true;
+			NOT false;
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	@Test
+	def void testNotNonBoolean() {
+		testNotInt()
+		testNotString()
+	}
+
+	def void testNotInt() {
+		val result = parseHelper.parse('''
+			NOT 1;
+			NOT 2;
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertFalse(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+
+	def void testNotString() {
+		val result = parseHelper.parse('''
+			NOT "String";
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertFalse(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
 }

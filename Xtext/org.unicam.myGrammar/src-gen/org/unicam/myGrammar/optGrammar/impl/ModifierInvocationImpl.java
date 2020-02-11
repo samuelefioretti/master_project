@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.unicam.myGrammar.optGrammar.FunctionCallListArguments;
 import org.unicam.myGrammar.optGrammar.Modifier;
@@ -30,7 +31,7 @@ import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
  *
  * @generated
  */
-public class ModifierInvocationImpl extends FunctionDefinitionOptionalElementImpl implements ModifierInvocation
+public class ModifierInvocationImpl extends MinimalEObjectImpl.Container implements ModifierInvocation
 {
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' reference.

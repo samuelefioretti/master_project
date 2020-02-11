@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.unicam.myGrammar.optGrammar.Expression;
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
 import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.Variable;
@@ -36,13 +35,12 @@ import org.unicam.myGrammar.optGrammar.VariableDeclarationOptionalElement;
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getOptionalElements <em>Optional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.impl.StandardVariableDeclarationImpl#isSemicolon <em>Semicolon</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StandardVariableDeclarationImpl extends StatementImpl implements StandardVariableDeclaration
+public class StandardVariableDeclarationImpl extends VariableDeclarationImpl implements StandardVariableDeclaration
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -73,16 +71,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
    * @ordered
    */
   protected Variable variable;
-
-  /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
-  protected Expression expression;
 
   /**
    * The default value of the '{@link #isSemicolon() <em>Semicolon</em>}' attribute.
@@ -246,56 +234,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
    * @generated
    */
   @Override
-  public Expression getExpression()
-  {
-    return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
-  {
-    Expression oldExpression = expression;
-    expression = newExpression;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION, oldExpression, newExpression);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setExpression(Expression newExpression)
-  {
-    if (newExpression != expression)
-    {
-      NotificationChain msgs = null;
-      if (expression != null)
-        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION, null, msgs);
-      if (newExpression != null)
-        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION, null, msgs);
-      msgs = basicSetExpression(newExpression, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION, newExpression, newExpression));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public boolean isSemicolon()
   {
     return semicolon;
@@ -331,8 +269,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
         return ((InternalEList<?>)getOptionalElements()).basicRemove(otherEnd, msgs);
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         return basicSetVariable(null, msgs);
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
-        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -353,8 +289,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
         return getOptionalElements();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         return getVariable();
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
-        return getExpression();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         return isSemicolon();
     }
@@ -382,9 +316,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         setVariable((Variable)newValue);
         return;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((Expression)newValue);
-        return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon((Boolean)newValue);
         return;
@@ -411,9 +342,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         setVariable((Variable)null);
         return;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
-        setExpression((Expression)null);
-        return;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         setSemicolon(SEMICOLON_EDEFAULT);
         return;
@@ -437,8 +365,6 @@ public class StandardVariableDeclarationImpl extends StatementImpl implements St
         return optionalElements != null && !optionalElements.isEmpty();
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__VARIABLE:
         return variable != null;
-      case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__EXPRESSION:
-        return expression != null;
       case OptGrammarPackage.STANDARD_VARIABLE_DECLARATION__SEMICOLON:
         return semicolon != SEMICOLON_EDEFAULT;
     }

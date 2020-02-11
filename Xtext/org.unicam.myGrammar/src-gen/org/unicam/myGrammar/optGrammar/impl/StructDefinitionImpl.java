@@ -14,14 +14,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.unicam.myGrammar.optGrammar.OptGrammarPackage;
-import org.unicam.myGrammar.optGrammar.Statement;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
+import org.unicam.myGrammar.optGrammar.VariableDeclaration;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +36,7 @@ import org.unicam.myGrammar.optGrammar.StructDefinition;
  *
  * @generated
  */
-public class StructDefinitionImpl extends MinimalEObjectImpl.Container implements StructDefinition
+public class StructDefinitionImpl extends DefinitionBodyImpl implements StructDefinition
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -67,7 +66,7 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    * @ordered
    */
-  protected EList<Statement> members;
+  protected EList<VariableDeclaration> members;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,11 +120,11 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    */
   @Override
-  public EList<Statement> getMembers()
+  public EList<VariableDeclaration> getMembers()
   {
     if (members == null)
     {
-      members = new EObjectContainmentEList<Statement>(Statement.class, this, OptGrammarPackage.STRUCT_DEFINITION__MEMBERS);
+      members = new EObjectContainmentEList<VariableDeclaration>(VariableDeclaration.class, this, OptGrammarPackage.STRUCT_DEFINITION__MEMBERS);
     }
     return members;
   }
@@ -180,7 +179,7 @@ public class StructDefinitionImpl extends MinimalEObjectImpl.Container implement
         return;
       case OptGrammarPackage.STRUCT_DEFINITION__MEMBERS:
         getMembers().clear();
-        getMembers().addAll((Collection<? extends Statement>)newValue);
+        getMembers().addAll((Collection<? extends VariableDeclaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

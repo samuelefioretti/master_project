@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getType <em>Type</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getOptionalElements <em>Optional Elements</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#isSemicolon <em>Semicolon</em>}</li>
  * </ul>
  *
@@ -27,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface StandardVariableDeclaration extends Statement, SimpleStatement, SimpleStatement2
+public interface StandardVariableDeclaration extends VariableDeclaration, SimpleStatement, SimpleStatement2
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -84,28 +83,6 @@ public interface StandardVariableDeclaration extends Statement, SimpleStatement,
    * @generated
    */
   void setVariable(Variable value);
-
-  /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(Expression)
-   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getStandardVariableDeclaration_Expression()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getExpression();
-
-  /**
-   * Sets the value of the '{@link org.unicam.myGrammar.optGrammar.StandardVariableDeclaration#getExpression <em>Expression</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
-   * @generated
-   */
-  void setExpression(Expression value);
 
   /**
    * Returns the value of the '<em><b>Semicolon</b></em>' attribute.

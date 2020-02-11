@@ -27,7 +27,7 @@ public interface ParameterList extends EObject
 {
   /**
    * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Statement}.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.VariableDeclaration}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference list.
@@ -35,6 +35,6 @@ public interface ParameterList extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Statement> getParameters();
+  EList<VariableDeclaration> getParameters();
 
 } // ParameterList
