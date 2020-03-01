@@ -3,7 +3,15 @@
  */
 package org.unicam.myGrammar.ui.outline;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
+import org.unicam.myGrammar.optGrammar.DefinitionBody;
+import org.unicam.myGrammar.optGrammar.EnumDefinition;
+import org.unicam.myGrammar.optGrammar.FunctionDefinition;
+import org.unicam.myGrammar.optGrammar.LocationLiteral;
+import org.unicam.myGrammar.optGrammar.StructDefinition;
+import org.unicam.myGrammar.optGrammar.VisibilityLiteral;
 
 /**
  * Customization of the default outline structure.
@@ -12,4 +20,33 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
  */
 @SuppressWarnings("all")
 public class OptGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
+  protected boolean _isLeaf(final StructDefinition __) {
+    return false;
+  }
+  
+  protected boolean _isLeaf(final EnumDefinition __) {
+    return false;
+  }
+  
+  protected boolean _isLeaf(final DefinitionBody __) {
+    return true;
+  }
+  
+  protected boolean _isLeaf(final LocationLiteral __) {
+    return true;
+  }
+  
+  @Override
+  protected void createNode(final IOutlineNode parent, final EObject modelElement) {
+    boolean _matched = false;
+    if (modelElement instanceof LocationLiteral || modelElement instanceof VisibilityLiteral) {
+      _matched=true;
+      return;
+    }
+    super.createNode(parent, modelElement);
+  }
+  
+  protected boolean _isLeaf(final FunctionDefinition __) {
+    return true;
+  }
 }

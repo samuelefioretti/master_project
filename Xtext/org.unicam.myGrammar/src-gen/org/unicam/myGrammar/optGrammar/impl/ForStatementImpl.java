@@ -34,7 +34,7 @@ import org.unicam.myGrammar.optGrammar.Statement;
  *
  * @generated
  */
-public class ForStatementImpl extends StatementImpl implements ForStatement
+public class ForStatementImpl extends LoopStructuresImpl implements ForStatement
 {
   /**
    * The cached value of the '{@link #getInitExpression() <em>Init Expression</em>}' containment reference.

@@ -174,14 +174,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case OptGrammarPackage.VISIBILITY_SPECIFIER:
-      {
-        VisibilitySpecifier visibilitySpecifier = (VisibilitySpecifier)theEObject;
-        T result = caseVisibilitySpecifier(visibilitySpecifier);
-        if (result == null) result = caseVariableDeclarationOptionalElement(visibilitySpecifier);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case OptGrammarPackage.STRUCT_DEFINITION:
       {
         StructDefinition structDefinition = (StructDefinition)theEObject;
@@ -260,6 +252,14 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.VISIBILITY_SPECIFIER:
+      {
+        VisibilitySpecifier visibilitySpecifier = (VisibilitySpecifier)theEObject;
+        T result = caseVisibilitySpecifier(visibilitySpecifier);
+        if (result == null) result = caseVariableDeclarationOptionalElement(visibilitySpecifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.INDEXED_SPECIFER:
       {
         IndexedSpecifer indexedSpecifer = (IndexedSpecifer)theEObject;
@@ -291,6 +291,19 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.NAMED_TYPE:
+      {
+        NamedType namedType = (NamedType)theEObject;
+        T result = caseNamedType(namedType);
+        if (result == null) result = caseStandardType(namedType);
+        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(namedType);
+        if (result == null) result = caseType(namedType);
+        if (result == null) result = caseSimpleStatement(namedType);
+        if (result == null) result = caseSimpleStatement2(namedType);
+        if (result == null) result = caseStatement(namedType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.STANDARD_TYPE:
       {
         StandardType standardType = (StandardType)theEObject;
@@ -313,26 +326,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         ArrayType arrayType = (ArrayType)theEObject;
         T result = caseArrayType(arrayType);
-        if (result == null) result = caseStandardType(arrayType);
-        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(arrayType);
-        if (result == null) result = caseType(arrayType);
-        if (result == null) result = caseSimpleStatement(arrayType);
-        if (result == null) result = caseSimpleStatement2(arrayType);
-        if (result == null) result = caseStatement(arrayType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case OptGrammarPackage.ELEMENTARY_TYPE:
-      {
-        ElementaryType elementaryType = (ElementaryType)theEObject;
-        T result = caseElementaryType(elementaryType);
-        if (result == null) result = caseArrayType(elementaryType);
-        if (result == null) result = caseStandardType(elementaryType);
-        if (result == null) result = caseType(elementaryType);
-        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(elementaryType);
-        if (result == null) result = caseSimpleStatement(elementaryType);
-        if (result == null) result = caseSimpleStatement2(elementaryType);
-        if (result == null) result = caseStatement(elementaryType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -478,10 +471,34 @@ public class OptGrammarSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OptGrammarPackage.LOOP_STRUCTURES:
+      {
+        LoopStructures loopStructures = (LoopStructures)theEObject;
+        T result = caseLoopStructures(loopStructures);
+        if (result == null) result = caseStatement(loopStructures);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case OptGrammarPackage.STATEMENT:
       {
         Statement statement = (Statement)theEObject;
         T result = caseStatement(statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.DO_WHILE_STATEMENT:
+      {
+        DoWhileStatement doWhileStatement = (DoWhileStatement)theEObject;
+        T result = caseDoWhileStatement(doWhileStatement);
+        if (result == null) result = caseStatement(doWhileStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.EMIT_STATEMENT:
+      {
+        EmitStatement emitStatement = (EmitStatement)theEObject;
+        T result = caseEmitStatement(emitStatement);
+        if (result == null) result = caseStatement(emitStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -497,6 +514,7 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         IfStatement ifStatement = (IfStatement)theEObject;
         T result = caseIfStatement(ifStatement);
+        if (result == null) result = caseLoopStructures(ifStatement);
         if (result == null) result = caseStatement(ifStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -505,6 +523,7 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         WhileStatement whileStatement = (WhileStatement)theEObject;
         T result = caseWhileStatement(whileStatement);
+        if (result == null) result = caseLoopStructures(whileStatement);
         if (result == null) result = caseStatement(whileStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -513,6 +532,7 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         ForStatement forStatement = (ForStatement)theEObject;
         T result = caseForStatement(forStatement);
+        if (result == null) result = caseLoopStructures(forStatement);
         if (result == null) result = caseStatement(forStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -825,6 +845,27 @@ public class OptGrammarSwitch<T> extends Switch<T>
       {
         SizedDeclaration sizedDeclaration = (SizedDeclaration)theEObject;
         T result = caseSizedDeclaration(sizedDeclaration);
+        if (result == null) result = caseNamedType(sizedDeclaration);
+        if (result == null) result = caseStandardType(sizedDeclaration);
+        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(sizedDeclaration);
+        if (result == null) result = caseType(sizedDeclaration);
+        if (result == null) result = caseSimpleStatement(sizedDeclaration);
+        if (result == null) result = caseSimpleStatement2(sizedDeclaration);
+        if (result == null) result = caseStatement(sizedDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case OptGrammarPackage.SIMPLE_TYPE_DECLARATION:
+      {
+        SimpleTypeDeclaration simpleTypeDeclaration = (SimpleTypeDeclaration)theEObject;
+        T result = caseSimpleTypeDeclaration(simpleTypeDeclaration);
+        if (result == null) result = caseNamedType(simpleTypeDeclaration);
+        if (result == null) result = caseStandardType(simpleTypeDeclaration);
+        if (result == null) result = caseStandardTypeWithoutQualifiedIdentifier(simpleTypeDeclaration);
+        if (result == null) result = caseType(simpleTypeDeclaration);
+        if (result == null) result = caseSimpleStatement(simpleTypeDeclaration);
+        if (result == null) result = caseSimpleStatement2(simpleTypeDeclaration);
+        if (result == null) result = caseStatement(simpleTypeDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1223,22 +1264,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Visibility Specifier</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Visibility Specifier</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVisibilitySpecifier(VisibilitySpecifier object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Struct Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1383,6 +1408,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Visibility Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Visibility Specifier</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVisibilitySpecifier(VisibilitySpecifier object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Indexed Specifer</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1447,6 +1488,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Named Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Named Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNamedType(NamedType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Standard Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1490,22 +1547,6 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseArrayType(ArrayType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Elementary Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Elementary Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseElementaryType(ElementaryType object)
   {
     return null;
   }
@@ -1783,6 +1824,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Loop Structures</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Loop Structures</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLoopStructures(LoopStructures object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1794,6 +1851,38 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Do While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Do While Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDoWhileStatement(DoWhileStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Emit Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Emit Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEmitStatement(EmitStatement object)
   {
     return null;
   }
@@ -2450,6 +2539,22 @@ public class OptGrammarSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSizedDeclaration(SizedDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Type Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleTypeDeclaration(SimpleTypeDeclaration object)
   {
     return null;
   }

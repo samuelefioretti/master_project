@@ -38,8 +38,9 @@ import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.DecimalLiteral;
 import org.unicam.myGrammar.optGrammar.DefinitionBody;
 import org.unicam.myGrammar.optGrammar.DeleteStatement;
+import org.unicam.myGrammar.optGrammar.DoWhileStatement;
 import org.unicam.myGrammar.optGrammar.EcrecoverFunction;
-import org.unicam.myGrammar.optGrammar.ElementaryType;
+import org.unicam.myGrammar.optGrammar.EmitStatement;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.EnumValue;
 import org.unicam.myGrammar.optGrammar.Equality;
@@ -69,6 +70,7 @@ import org.unicam.myGrammar.optGrammar.IntParameter;
 import org.unicam.myGrammar.optGrammar.Literal;
 import org.unicam.myGrammar.optGrammar.LocationLiteral;
 import org.unicam.myGrammar.optGrammar.LocationSpecifier;
+import org.unicam.myGrammar.optGrammar.LoopStructures;
 import org.unicam.myGrammar.optGrammar.Mapping;
 import org.unicam.myGrammar.optGrammar.MathematicalFunction;
 import org.unicam.myGrammar.optGrammar.Model;
@@ -76,6 +78,7 @@ import org.unicam.myGrammar.optGrammar.Modifier;
 import org.unicam.myGrammar.optGrammar.ModifierInvocation;
 import org.unicam.myGrammar.optGrammar.MulDivMod;
 import org.unicam.myGrammar.optGrammar.MulDivModOpEnum;
+import org.unicam.myGrammar.optGrammar.NamedType;
 import org.unicam.myGrammar.optGrammar.NewExpression;
 import org.unicam.myGrammar.optGrammar.NotExpression;
 import org.unicam.myGrammar.optGrammar.NumericLiteral;
@@ -101,6 +104,7 @@ import org.unicam.myGrammar.optGrammar.ShiftOpEnum;
 import org.unicam.myGrammar.optGrammar.SignExpression;
 import org.unicam.myGrammar.optGrammar.SimpleStatement;
 import org.unicam.myGrammar.optGrammar.SimpleStatement2;
+import org.unicam.myGrammar.optGrammar.SimpleTypeDeclaration;
 import org.unicam.myGrammar.optGrammar.SizedDeclaration;
 import org.unicam.myGrammar.optGrammar.SpecialExpression;
 import org.unicam.myGrammar.optGrammar.SpecialExpressionTypeEnum;
@@ -244,13 +248,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass visibilitySpecifierEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass structDefinitionEClass = null;
 
   /**
@@ -314,6 +311,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass visibilitySpecifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass indexedSpeciferEClass = null;
 
   /**
@@ -342,6 +346,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass namedTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass standardTypeEClass = null;
 
   /**
@@ -357,13 +368,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   private EClass arrayTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass elementaryTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -489,7 +493,28 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass loopStructuresEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass statementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass doWhileStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass emitStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -777,6 +802,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   private EClass sizedDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleTypeDeclarationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1582,28 +1614,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getVisibilitySpecifier()
-  {
-    return visibilitySpecifierEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getVisibilitySpecifier_Visibility()
-  {
-    return (EReference)visibilitySpecifierEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getStructDefinition()
   {
     return structDefinitionEClass;
@@ -1879,6 +1889,28 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EClass getVisibilitySpecifier()
+  {
+    return visibilitySpecifierEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getVisibilitySpecifier_Visibility()
+  {
+    return (EReference)visibilitySpecifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getIndexedSpecifer()
   {
     return indexedSpeciferEClass;
@@ -1945,6 +1977,39 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EClass getNamedType()
+  {
+    return namedTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNamedType_Dimension()
+  {
+    return (EReference)namedTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNamedType_Type()
+  {
+    return (EAttribute)namedTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getStandardType()
   {
     return standardTypeEClass;
@@ -1978,31 +2043,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EClass getElementaryType()
+  public EReference getArrayType_Value()
   {
-    return elementaryTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getElementaryType_Value()
-  {
-    return (EReference)elementaryTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getElementaryType_Name()
-  {
-    return (EReference)elementaryTypeEClass.getEStructuralFeatures().get(1);
+    return (EReference)arrayTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2440,9 +2483,86 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
+  public EClass getLoopStructures()
+  {
+    return loopStructuresEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getLoopStructures_Type()
+  {
+    return (EAttribute)loopStructuresEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getStatement()
   {
     return statementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDoWhileStatement()
+  {
+    return doWhileStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDoWhileStatement_Body()
+  {
+    return (EReference)doWhileStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDoWhileStatement_Condition()
+  {
+    return (EReference)doWhileStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEmitStatement()
+  {
+    return emitStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getEmitStatement_Call()
+  {
+    return (EReference)emitStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -3507,9 +3627,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
    * @generated
    */
   @Override
-  public EAttribute getSizedDeclaration_Type()
+  public EClass getSimpleTypeDeclaration()
   {
-    return (EAttribute)sizedDeclarationEClass.getEStructuralFeatures().get(0);
+    return simpleTypeDeclarationEClass;
   }
 
   /**
@@ -4365,9 +4485,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     constEClass = createEClass(CONST);
 
-    visibilitySpecifierEClass = createEClass(VISIBILITY_SPECIFIER);
-    createEReference(visibilitySpecifierEClass, VISIBILITY_SPECIFIER__VISIBILITY);
-
     structDefinitionEClass = createEClass(STRUCT_DEFINITION);
     createEAttribute(structDefinitionEClass, STRUCT_DEFINITION__NAME);
     createEReference(structDefinitionEClass, STRUCT_DEFINITION__MEMBERS);
@@ -4402,6 +4519,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     variableDeclarationOptionalElementEClass = createEClass(VARIABLE_DECLARATION_OPTIONAL_ELEMENT);
 
+    visibilitySpecifierEClass = createEClass(VISIBILITY_SPECIFIER);
+    createEReference(visibilitySpecifierEClass, VISIBILITY_SPECIFIER__VISIBILITY);
+
     indexedSpeciferEClass = createEClass(INDEXED_SPECIFER);
 
     constantSpecifierEClass = createEClass(CONSTANT_SPECIFIER);
@@ -4412,15 +4532,16 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__IS_VAR_TYPE);
 
+    namedTypeEClass = createEClass(NAMED_TYPE);
+    createEReference(namedTypeEClass, NAMED_TYPE__DIMENSION);
+    createEAttribute(namedTypeEClass, NAMED_TYPE__TYPE);
+
     standardTypeEClass = createEClass(STANDARD_TYPE);
 
     standardTypeWithoutQualifiedIdentifierEClass = createEClass(STANDARD_TYPE_WITHOUT_QUALIFIED_IDENTIFIER);
 
     arrayTypeEClass = createEClass(ARRAY_TYPE);
-
-    elementaryTypeEClass = createEClass(ELEMENTARY_TYPE);
-    createEReference(elementaryTypeEClass, ELEMENTARY_TYPE__VALUE);
-    createEReference(elementaryTypeEClass, ELEMENTARY_TYPE__NAME);
+    createEReference(arrayTypeEClass, ARRAY_TYPE__VALUE);
 
     mappingEClass = createEClass(MAPPING);
     createEReference(mappingEClass, MAPPING__KEY_TYPE);
@@ -4478,7 +4599,17 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     createEReference(returnParameterDeclarationEClass, RETURN_PARAMETER_DECLARATION__TYPE_REF);
     createEReference(returnParameterDeclarationEClass, RETURN_PARAMETER_DECLARATION__VARIABLE);
 
+    loopStructuresEClass = createEClass(LOOP_STRUCTURES);
+    createEAttribute(loopStructuresEClass, LOOP_STRUCTURES__TYPE);
+
     statementEClass = createEClass(STATEMENT);
+
+    doWhileStatementEClass = createEClass(DO_WHILE_STATEMENT);
+    createEReference(doWhileStatementEClass, DO_WHILE_STATEMENT__BODY);
+    createEReference(doWhileStatementEClass, DO_WHILE_STATEMENT__CONDITION);
+
+    emitStatementEClass = createEClass(EMIT_STATEMENT);
+    createEReference(emitStatementEClass, EMIT_STATEMENT__CALL);
 
     deleteStatementEClass = createEClass(DELETE_STATEMENT);
     createEReference(deleteStatementEClass, DELETE_STATEMENT__VARIABLE);
@@ -4616,7 +4747,8 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     createEAttribute(specialLiteralEClass, SPECIAL_LITERAL__NAME);
 
     sizedDeclarationEClass = createEClass(SIZED_DECLARATION);
-    createEAttribute(sizedDeclarationEClass, SIZED_DECLARATION__TYPE);
+
+    simpleTypeDeclarationEClass = createEClass(SIMPLE_TYPE_DECLARATION);
 
     locationLiteralEClass = createEClass(LOCATION_LITERAL);
     createEAttribute(locationLiteralEClass, LOCATION_LITERAL__TYPE);
@@ -4741,7 +4873,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     constructorDefinitionEClass.getESuperTypes().add(this.getDefinitionBody());
     functionCallListArgumentsEClass.getESuperTypes().add(this.getFunctionCallArguments());
     functionDefinitionEClass.getESuperTypes().add(this.getDefinitionBody());
-    visibilitySpecifierEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
     structDefinitionEClass.getESuperTypes().add(this.getDefinitionBody());
     enumDefinitionEClass.getESuperTypes().add(this.getDefinitionBody());
     variableDeclarationEClass.getESuperTypes().add(this.getDefinitionBody());
@@ -4752,17 +4883,15 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     varVariableTupleVariableDeclarationEClass.getESuperTypes().add(this.getVariableDeclaration());
     varVariableTupleVariableDeclarationEClass.getESuperTypes().add(this.getSimpleStatement());
     varVariableTupleVariableDeclarationEClass.getESuperTypes().add(this.getSimpleStatement2());
+    visibilitySpecifierEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
     indexedSpeciferEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
     constantSpecifierEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
     locationSpecifierEClass.getESuperTypes().add(this.getVariableDeclarationOptionalElement());
+    namedTypeEClass.getESuperTypes().add(this.getStandardType());
+    namedTypeEClass.getESuperTypes().add(this.getStandardTypeWithoutQualifiedIdentifier());
     standardTypeEClass.getESuperTypes().add(this.getType());
     standardTypeWithoutQualifiedIdentifierEClass.getESuperTypes().add(this.getSimpleStatement());
     standardTypeWithoutQualifiedIdentifierEClass.getESuperTypes().add(this.getSimpleStatement2());
-    arrayTypeEClass.getESuperTypes().add(this.getStandardType());
-    arrayTypeEClass.getESuperTypes().add(this.getStandardTypeWithoutQualifiedIdentifier());
-    elementaryTypeEClass.getESuperTypes().add(this.getStandardType());
-    elementaryTypeEClass.getESuperTypes().add(this.getStandardTypeWithoutQualifiedIdentifier());
-    elementaryTypeEClass.getESuperTypes().add(this.getArrayType());
     mappingEClass.getESuperTypes().add(this.getStandardType());
     mappingEClass.getESuperTypes().add(this.getStandardTypeWithoutQualifiedIdentifier());
     tupleEClass.getESuperTypes().add(this.getExpression());
@@ -4777,10 +4906,13 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     argumentsEClass.getESuperTypes().add(this.getQualifier());
     modifierEClass.getESuperTypes().add(this.getDefinitionBody());
     eventEClass.getESuperTypes().add(this.getDefinitionBody());
+    loopStructuresEClass.getESuperTypes().add(this.getStatement());
+    doWhileStatementEClass.getESuperTypes().add(this.getStatement());
+    emitStatementEClass.getESuperTypes().add(this.getStatement());
     deleteStatementEClass.getESuperTypes().add(this.getStatement());
-    ifStatementEClass.getESuperTypes().add(this.getStatement());
-    whileStatementEClass.getESuperTypes().add(this.getStatement());
-    forStatementEClass.getESuperTypes().add(this.getStatement());
+    ifStatementEClass.getESuperTypes().add(this.getLoopStructures());
+    whileStatementEClass.getESuperTypes().add(this.getLoopStructures());
+    forStatementEClass.getESuperTypes().add(this.getLoopStructures());
     bodyEClass.getESuperTypes().add(this.getStatement());
     continueStatementEClass.getESuperTypes().add(this.getStatement());
     breakStatementEClass.getESuperTypes().add(this.getStatement());
@@ -4807,6 +4939,8 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     stringLiteralEClass.getESuperTypes().add(this.getLiteral());
     typeCastEClass.getESuperTypes().add(this.getExpression());
     specialLiteralEClass.getESuperTypes().add(this.getLiteral());
+    sizedDeclarationEClass.getESuperTypes().add(this.getNamedType());
+    simpleTypeDeclarationEClass.getESuperTypes().add(this.getNamedType());
     varVariableTypeDeclarationEClass.getESuperTypes().add(this.getSimpleStatement());
     varVariableTypeDeclarationEClass.getESuperTypes().add(this.getSimpleStatement2());
     continueEClass.getESuperTypes().add(this.getContinueStatement());
@@ -4889,9 +5023,6 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     initEClass(constEClass, Const.class, "Const", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(visibilitySpecifierEClass, VisibilitySpecifier.class, "VisibilitySpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVisibilitySpecifier_Visibility(), this.getVisibilityLiteral(), null, "visibility", null, 0, 1, VisibilitySpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(structDefinitionEClass, StructDefinition.class, "StructDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStructDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStructDefinition_Members(), this.getVariableDeclaration(), null, "members", null, 0, -1, StructDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4926,6 +5057,9 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
 
     initEClass(variableDeclarationOptionalElementEClass, VariableDeclarationOptionalElement.class, "VariableDeclarationOptionalElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(visibilitySpecifierEClass, VisibilitySpecifier.class, "VisibilitySpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVisibilitySpecifier_Visibility(), this.getVisibilityLiteral(), null, "visibility", null, 0, 1, VisibilitySpecifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(indexedSpeciferEClass, IndexedSpecifer.class, "IndexedSpecifer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(constantSpecifierEClass, ConstantSpecifier.class, "ConstantSpecifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4936,15 +5070,16 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_IsVarType(), ecorePackage.getEBoolean(), "isVarType", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(namedTypeEClass, NamedType.class, "NamedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNamedType_Dimension(), this.getArrayType(), null, "dimension", null, 0, 1, NamedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNamedType_Type(), ecorePackage.getEString(), "type", null, 0, 1, NamedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(standardTypeEClass, StandardType.class, "StandardType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(standardTypeWithoutQualifiedIdentifierEClass, StandardTypeWithoutQualifiedIdentifier.class, "StandardTypeWithoutQualifiedIdentifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(arrayTypeEClass, ArrayType.class, "ArrayType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(elementaryTypeEClass, ElementaryType.class, "ElementaryType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getElementaryType_Value(), this.getExpression(), null, "value", null, 0, -1, ElementaryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getElementaryType_Name(), this.getSizedDeclaration(), null, "name", null, 0, 1, ElementaryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayType_Value(), this.getExpression(), null, "value", null, 0, -1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMapping_KeyType(), this.getSizedDeclaration(), null, "keyType", null, 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5002,7 +5137,17 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEReference(getReturnParameterDeclaration_TypeRef(), this.getType(), null, "typeRef", null, 0, 1, ReturnParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getReturnParameterDeclaration_Variable(), this.getVariable(), null, "variable", null, 0, 1, ReturnParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(loopStructuresEClass, LoopStructures.class, "LoopStructures", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLoopStructures_Type(), ecorePackage.getEString(), "type", null, 0, 1, LoopStructures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(doWhileStatementEClass, DoWhileStatement.class, "DoWhileStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDoWhileStatement_Body(), this.getStatement(), null, "body", null, 0, 1, DoWhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDoWhileStatement_Condition(), this.getExpression(), null, "condition", null, 0, 1, DoWhileStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(emitStatementEClass, EmitStatement.class, "EmitStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEmitStatement_Call(), this.getFunctionCall(), null, "call", null, 0, 1, EmitStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deleteStatementEClass, DeleteStatement.class, "DeleteStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDeleteStatement_Variable(), this.getQualifiedIdentifier(), null, "variable", null, 0, 1, DeleteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5140,7 +5285,8 @@ public class OptGrammarPackageImpl extends EPackageImpl implements OptGrammarPac
     initEAttribute(getSpecialLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, SpecialLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sizedDeclarationEClass, SizedDeclaration.class, "SizedDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSizedDeclaration_Type(), ecorePackage.getEString(), "type", null, 0, 1, SizedDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleTypeDeclarationEClass, SimpleTypeDeclaration.class, "SimpleTypeDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(locationLiteralEClass, LocationLiteral.class, "LocationLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLocationLiteral_Type(), ecorePackage.getEString(), "type", null, 0, 1, LocationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

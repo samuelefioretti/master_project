@@ -5,7 +5,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.Mapping;
+import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
+import org.unicam.myGrammar.optGrammar.VariableDeclaration;
 
 @SuppressWarnings("all")
 public class ValidatorSupport {
@@ -55,5 +57,9 @@ public class ValidatorSupport {
       current = current.eContainer();
     }
     return current;
+  }
+  
+  public static StandardVariableDeclaration asDeclaration(final VariableDeclaration dec) {
+    return ((StandardVariableDeclaration) dec);
   }
 }

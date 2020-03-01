@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -21,16 +22,26 @@ import org.unicam.myGrammar.services.OptGrammarGrammarAccess;
 public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected OptGrammarGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_ArrayType___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a;
+	protected AbstractElementAlias match_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a;
+	protected AbstractElementAlias match_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p;
+	protected AbstractElementAlias match_PlaceHolderStatement_SemicolonKeyword_1_q;
 	protected AbstractElementAlias match_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q;
 	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesisKeyword_4_0_a;
 	protected AbstractElementAlias match_PrimaryExpression_LeftParenthesisKeyword_4_0_p;
+	protected AbstractElementAlias match_Tuple___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_3___or___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_3__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (OptGrammarGrammarAccess) access;
+		match_ArrayType___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getArrayTypeAccess().getLeftSquareBracketKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getArrayTypeAccess().getRightSquareBracketKeyword_4_2()));
+		match_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getArrayTypeAccess().getRightSquareBracketKeyword_4_2()), new TokenAlias(false, false, grammarAccess.getArrayTypeAccess().getLeftSquareBracketKeyword_4_0()));
+		match_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getArrayTypeAccess().getRightSquareBracketKeyword_4_2()), new TokenAlias(false, false, grammarAccess.getArrayTypeAccess().getLeftSquareBracketKeyword_4_0()));
+		match_PlaceHolderStatement_SemicolonKeyword_1_q = new TokenAlias(false, true, grammarAccess.getPlaceHolderStatementAccess().getSemicolonKeyword_1());
 		match_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getPrimaryArithmeticAccess().getLeftParenthesisKeyword_1_0()), new TokenAlias(true, true, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_0()));
 		match_PrimaryExpression_LeftParenthesisKeyword_4_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_0());
 		match_PrimaryExpression_LeftParenthesisKeyword_4_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryExpressionAccess().getLeftParenthesisKeyword_4_0());
+		match_Tuple___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_3___or___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_3__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getTupleAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getTupleAccess().getRightParenthesisKeyword_0_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getTupleAccess().getLeftSquareBracketKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getTupleAccess().getRightSquareBracketKeyword_1_3())));
 	}
 	
 	@Override
@@ -56,16 +67,72 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q.equals(syntax))
+			if (match_ArrayType___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a.equals(syntax))
+				emit_ArrayType___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a.equals(syntax))
+				emit_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p.equals(syntax))
+				emit_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PlaceHolderStatement_SemicolonKeyword_1_q.equals(syntax))
+				emit_PlaceHolderStatement_SemicolonKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q.equals(syntax))
 				emit_PrimaryArithmetic_PrimaryExpression___LeftParenthesisKeyword_1_0_LeftParenthesisKeyword_4_0_a__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PrimaryExpression_LeftParenthesisKeyword_4_0_a.equals(syntax))
 				emit_PrimaryExpression_LeftParenthesisKeyword_4_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_PrimaryExpression_LeftParenthesisKeyword_4_0_p.equals(syntax))
 				emit_PrimaryExpression_LeftParenthesisKeyword_4_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Tuple___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_3___or___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_3__.equals(syntax))
+				emit_Tuple___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_3___or___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_3__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     ('[' ']')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '[' ']' (ambiguity) (rule start)
+	 *     value+=Expression ']' (ambiguity) (rule end)
+	 */
+	protected void emit_ArrayType___LeftSquareBracketKeyword_4_0_RightSquareBracketKeyword_4_2__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (']' '[')*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '[' ']' '[' (ambiguity) value+=Expression
+	 *     value+=Expression ']' '[' (ambiguity) value+=Expression
+	 */
+	protected void emit_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     (']' '[')+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     value+=Expression (ambiguity) value+=Expression
+	 */
+	protected void emit_ArrayType___RightSquareBracketKeyword_4_2_LeftSquareBracketKeyword_4_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) '_' (ambiguity) (rule start)
+	 */
+	protected void emit_PlaceHolderStatement_SemicolonKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     ('(' '('*)?
@@ -313,6 +380,17 @@ public class OptGrammarSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {VariableDeclarationExpression.type=}
 	 */
 	protected void emit_PrimaryExpression_LeftParenthesisKeyword_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('(' ')') | ('[' ']')
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 */
+	protected void emit_Tuple___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_3___or___LeftSquareBracketKeyword_1_0_RightSquareBracketKeyword_1_3__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

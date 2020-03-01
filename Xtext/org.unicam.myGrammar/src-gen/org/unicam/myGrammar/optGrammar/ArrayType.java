@@ -3,17 +3,38 @@
  */
 package org.unicam.myGrammar.optGrammar;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Array Type</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.unicam.myGrammar.optGrammar.ArrayType#getValue <em>Value</em>}</li>
+ * </ul>
  *
  * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getArrayType()
  * @model
  * @generated
  */
-public interface ArrayType extends StandardType, StandardTypeWithoutQualifiedIdentifier
+public interface ArrayType extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' containment reference list.
+   * The list contents are of type {@link org.unicam.myGrammar.optGrammar.Expression}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' containment reference list.
+   * @see org.unicam.myGrammar.optGrammar.OptGrammarPackage#getArrayType_Value()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Expression> getValue();
+
 } // ArrayType

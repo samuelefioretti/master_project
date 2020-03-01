@@ -21,7 +21,7 @@ package org.unicam.myGrammar.optGrammar;
  * @model
  * @generated
  */
-public interface WhileStatement extends Statement
+public interface WhileStatement extends LoopStructures
 {
   /**
    * Returns the value of the '<em><b>Condition</b></em>' containment reference.

@@ -4,6 +4,8 @@
 package org.unicam.myGrammar.ui.quickfix
 
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
+import org.unicam.myGrammar.optGrammar.SizedDeclaration
+import org.unicam.myGrammar.optGrammar.OptGrammarFactory
 import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.unicam.myGrammar.validation.ValidatorSupport
 import org.eclipse.xtext.validation.Issue
@@ -12,8 +14,6 @@ import java.util.ArrayList
 import org.unicam.myGrammar.optGrammar.DefinitionBody
 import org.unicam.myGrammar.optGrammar.StructDefinition
 import org.unicam.myGrammar.optGrammar.Contract
-import org.unicam.myGrammar.optGrammar.SizedDeclaration
-import org.unicam.myGrammar.optGrammar.OptGrammarFactory
 
 /**
  * Custom quickfixes.

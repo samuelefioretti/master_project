@@ -9,13 +9,17 @@ Model:
 	contract+=Contract)*;
 
 PragmaDirective:
-	"pragma" name=ID version=versionOperator? versionliteral=VERSION_LITERAL? ";";
+	{PragmaDirective} "pragma" "solidity" version=versionOperator? "0.5.2" ";"
+	/*
+	 * "pragma" name=ID version=versionOperator? versionliteral=VERSION_LITERAL ";" |
+	 * "pragma" "experimental" name=ID ";"
+	 */;
 
 versionOperator:
 	value=("^" | "~" | ">=" | ">" | "<" | "<=" | "=");
 
 terminal VERSION_LITERAL:
-	("0".."9" "." "0".."9" "." "0".."9");
+	("0".."9" "." "0".."9" "." "0".."9" "0".."9");
 
 ImportDirective:
 	"import" importURI=STRING ";" | "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" | "import" "{"
@@ -29,12 +33,7 @@ Contract:
 	inheritanceSpecifiers+=InheritanceSpecifier)*)? "{" (body+=DefinitionBody)* "}";
 
 DefinitionBody:
-	ConstructorDefinition |
-	FunctionDefinition |
-	StructDefinition |
-	EnumDefinition |
-	VariableDeclaration ";" |
-	Modifier |
+	ConstructorDefinition | FunctionDefinition | StructDefinition | EnumDefinition | VariableDeclaration ";" | Modifier |
 	Event;
 
 ConstructorDefinition:
@@ -58,14 +57,11 @@ FunctionCallArg:
 	// Anonymous function allowed when "name" is not specified.
 FunctionDefinition:
 	"function" {FunctionDefinition} name=ID? parameters=ParameterList (state+=StateMutability | const+=Const |
-	modifier+=ModifierInvocation | visibility+=VisibilityLiteral)*
-	("returns" returnParameters=ReturnsParameterList)? (block=Body | ";");
+	modifier+=ModifierInvocation | visibility+=VisibilityLiteral)* ("returns" returnParameters=ReturnsParameterList)?
+	(block=Body | ";");
 
 Const:
 	"constant" {Const};
-
-VisibilitySpecifier:
-	visibility=VisibilityLiteral;
 
 StructDefinition:
 	"struct" name=ID "{" (members+=VariableDeclaration ";")* "}";
@@ -80,15 +76,12 @@ Variable:
 	name=ID;
 
 	// Variable Declarations
-//----------------------------------------------------------------
 VariableDeclaration:
-	StandardVariableDeclaration |
-	VarVariableDeclaration |
-	VarVariableTupleVariableDeclaration;
+	StandardVariableDeclaration | VarVariableDeclaration | VarVariableTupleVariableDeclaration;
 
 StandardVariableDeclaration:
-	type=StandardType optionalElements+=VariableDeclarationOptionalElement* variable=Variable
-	("=" expression=Expression)?;
+	type=StandardType optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("="
+	expression=Expression)?;
 
 VarVariableDeclaration:
 	varType=VarType variable=Variable ("=" expression=Expression)?;
@@ -97,10 +90,10 @@ VarVariableTupleVariableDeclaration:
 	varType=VarType tuple=Tuple ("=" expression=Expression)?;
 
 VariableDeclarationOptionalElement:
-	VisibilitySpecifier |
-	IndexedSpecifer |
-	ConstantSpecifier |
-	LocationSpecifier;
+	VisibilitySpecifier | IndexedSpecifer | ConstantSpecifier | LocationSpecifier;
+
+VisibilitySpecifier:
+	visibility=VisibilityLiteral;
 
 IndexedSpecifer:
 	"indexed" {IndexedSpecifer};
@@ -112,26 +105,20 @@ LocationSpecifier:
 	location=LocationLiteral;
 
 	// Types
-//----------------------------------------------------------------
 Type:
 	StandardType | isVarType?=VarType;
 
+NamedType:
+	SimpleTypeDeclaration | SizedDeclaration;
+
 StandardType:
-	ElementaryType |
-	ArrayType |
-	Mapping |
-	QualifiedIdentifier;
+	NamedType dimension=ArrayType? | Mapping | QualifiedIdentifier;
 
 StandardTypeWithoutQualifiedIdentifier:
-	ElementaryType |
-	ArrayType |
-	Mapping;
+	NamedType dimension=ArrayType? | Mapping;
 
 ArrayType:
-	ElementaryType "[" value+=Expression? "]";
-
-ElementaryType:
-	name=SizedDeclaration;
+	"[" {ArrayType} value+=Expression? "]" ("[" value+=Expression? "]")*;
 
 Mapping:
 	"mapping" "(" keyType=SizedDeclaration "=>" valueType=Type ")";
@@ -139,19 +126,21 @@ Mapping:
 VarType:
 	"var";
 
-	// Tuples
-//----------------------------------------------------------------
+	// Tuple
 Tuple:
-	"(" {Tuple} (members+=Expression? (members+=TupleSeparator members+=Expression?)+)? ")";
+	"(" {Tuple} (members+=Expression? (members+=TupleSeparator members+=Expression?)+)? ")" | "[" {Tuple}
+	(members+=Expression (members+=TupleSeparator members+=Expression)+)? "]";
 
 TupleSeparator:
 	"," {TupleSeparator};
 
-	// SimpleStatement
-//----------------------------------------------------------------
-//SimpleStatement:
-//    SimpleStatement2 ";"
-//;
+	/*
+ * SimpleStatement
+ * --------------------
+ * SimpleStatement:
+ * SimpleStatement2 ";"
+ * ;
+ */
 SimpleStatement:
 	(StandardTypeWithoutQualifiedIdentifier ({StandardVariableDeclaration.type=current}
 	optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("=" expression=Expression)?) | VarType
@@ -202,21 +191,30 @@ ReturnsParameterList:
 ReturnParameterDeclaration:
 	typeRef=Type variable=Variable?;
 
+LoopStructures:
+	IfStatement | WhileStatement | ForStatement;
+
 Statement:
-	IfStatement | WhileStatement | ForStatement | Body | PlaceHolderStatement | ((ContinueStatement | BreakStatement |
-	ReturnStatement | ThrowStatement | DeleteStatement | SimpleStatement));
+	LoopStructures | Body | PlaceHolderStatement | ((DoWhileStatement | ContinueStatement | BreakStatement |
+	ReturnStatement | ThrowStatement | DeleteStatement | SimpleStatement | EmitStatement));
+
+DoWhileStatement:
+	"do" body=Statement "while" "(" condition=Expression ")";
+
+EmitStatement:
+	"emit" call=FunctionCall ";";
 
 DeleteStatement:
 	"delete" variable=QualifiedIdentifier ";";
 
 IfStatement:
-	"if" "(" condition=Expression ")" trueBody=Statement (=> "else" falseBody=Statement)?;
+	type="if" "(" condition=Expression ")" trueBody=Statement (=> "else" falseBody=Statement)?;
 
 WhileStatement:
-	"while" "(" condition=Expression ")" body=Statement;
+	type="while" "(" condition=Expression ")" body=Statement;
 
 ForStatement:
-	"for" "(" initExpression=SimpleStatement2? => ";" conditionExpression=Expression? ";"
+	type="for" "(" initExpression=SimpleStatement2? => ";" conditionExpression=Expression? ";"
 	loopExpression=ExpressionStatement? ")" body=Statement;
 
 Body:
@@ -236,7 +234,7 @@ ThrowStatement:
 
 	// Only allowed in a Modifier DAF
 PlaceHolderStatement:
-	"_" ";" {PlaceHolderStatement};
+	"_" ";"? {PlaceHolderStatement};
 
 Expression:
 	Assignment;
@@ -360,8 +358,7 @@ IntParameter:
 	param=ArithmeticOperations | fun=FunctionCall;
 
 MathematicalFunction:
-	function=("addmod" | "mulmod") "(" parameters+=IntParameter "," parameters+=IntParameter ","
-	parameters+=IntParameter
+	function=("addmod" | "mulmod") "(" parameters+=IntParameter "," parameters+=IntParameter "," parameters+=IntParameter
 	")";
 
 HashFunction:
@@ -422,26 +419,27 @@ terminal TX:
 terminal NOW:
 	"now";
 	// Enums
-//-----------------------------------------------------------------------------
 SizedDeclaration:
 	type=(
 	// INT
 	"int" | "int16" | "int24" | "int32" | "int40" | "int48" | "int56" | "int64" | "int72" | "int80" | "int88" | "int96" |
 	"int104" | "int112" | "int120" | "int128" | "int136" | "int144" | "int152" | "int160" | "int168" | "int178" |
-	"int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" | "int256") |
-	type=(
+	"int184" | "int192" | "int200" | "int208" | "int216" | "int224" | "int232" | "int240" | "int248" | "int256") | type=(
 	// UINT
 	"uint" | "uint8" | "uint16" | "uint24" | "uint32" | "uint40" | "uint48" | "uint56" | "uint64" | "uint72" | "uint80" |
-	"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" |
-	"uint160" | "uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" |
-	"uint232" | "uint240" | "uint248" | "uint256") | type=(
+	"uint88" | "uint96" | "uint104" | "uint112" | "uint120" | "uint128" | "uint136" | "uint144" | "uint152" | "uint160" |
+	"uint168" | "uint178" | "uint184" | "uint192" | "uint200" | "uint208" | "uint216" | "uint224" | "uint232" | "uint240"
+	| "uint248" | "uint256") | type=(
 	// BYTES
 	"bytes" | "byte" | "bytes1" | "bytes2" | "bytes3" | "bytes4" | "bytes5" | "bytes6" | "bytes7" | "bytes8" | "bytes9" |
-	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" |
-	"bytes19" | "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" |
-	"bytes28" | "bytes29" | "bytes30" | "bytes31" | "bytes32") | type=(
+	"bytes10" | "bytes11" | "bytes12" | "bytes13" | "bytes14" | "bytes15" | "bytes16" | "bytes17" | "bytes18" | "bytes19"
+	| "bytes20" | "bytes21" | "bytes22" | "bytes23" | "bytes24" | "bytes25" | "bytes26" | "bytes27" | "bytes28" |
+	"bytes29" | "bytes30" | "bytes31" | "bytes32") | type=(
 	// Other
-	"address" | "real" | "ureal" | Fixed | Ufixed | "string" | "bool");
+	"address" | "real" | "ureal" | Fixed | Ufixed);
+
+SimpleTypeDeclaration:
+	type=("string" | "bool");
 
 Fixed:
 	"fixed" | ("fixed" VALUE);
@@ -464,6 +462,7 @@ VisibilityLiteral:
 StateMutability:
 	type=("pure" | "view" | "payable");
 
+	// Enums
 enum AssignmentOpEnum:
 	ASSIGN="=" | ASSIGN_OR="|=" | ASSIGN_XOR="^=" | ASSIGN_AND="&=" | ASSIGN_SHIFT_LEFT="<<=" | ASSIGN_SHIFT_RIGHT=">>="
 	| ASSIGN_SHIFT_RIGHT_ARIMETIC=">>>=" | ASSIGN_ADD="+=" | ASSIGN_SUB="-=" | ASSIGN_MULT="*=" | ASSIGN_DIV="/=" |

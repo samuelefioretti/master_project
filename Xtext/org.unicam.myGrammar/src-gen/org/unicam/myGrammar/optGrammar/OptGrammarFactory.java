@@ -150,15 +150,6 @@ public interface OptGrammarFactory extends EFactory
   Const createConst();
 
   /**
-   * Returns a new object of class '<em>Visibility Specifier</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Visibility Specifier</em>'.
-   * @generated
-   */
-  VisibilitySpecifier createVisibilitySpecifier();
-
-  /**
    * Returns a new object of class '<em>Struct Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -240,6 +231,15 @@ public interface OptGrammarFactory extends EFactory
   VariableDeclarationOptionalElement createVariableDeclarationOptionalElement();
 
   /**
+   * Returns a new object of class '<em>Visibility Specifier</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Visibility Specifier</em>'.
+   * @generated
+   */
+  VisibilitySpecifier createVisibilitySpecifier();
+
+  /**
    * Returns a new object of class '<em>Indexed Specifer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -276,6 +276,15 @@ public interface OptGrammarFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Named Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Named Type</em>'.
+   * @generated
+   */
+  NamedType createNamedType();
+
+  /**
    * Returns a new object of class '<em>Standard Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -301,15 +310,6 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   ArrayType createArrayType();
-
-  /**
-   * Returns a new object of class '<em>Elementary Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Elementary Type</em>'.
-   * @generated
-   */
-  ElementaryType createElementaryType();
 
   /**
    * Returns a new object of class '<em>Mapping</em>'.
@@ -465,6 +465,15 @@ public interface OptGrammarFactory extends EFactory
   ReturnParameterDeclaration createReturnParameterDeclaration();
 
   /**
+   * Returns a new object of class '<em>Loop Structures</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Loop Structures</em>'.
+   * @generated
+   */
+  LoopStructures createLoopStructures();
+
+  /**
    * Returns a new object of class '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -472,6 +481,24 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   Statement createStatement();
+
+  /**
+   * Returns a new object of class '<em>Do While Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Do While Statement</em>'.
+   * @generated
+   */
+  DoWhileStatement createDoWhileStatement();
+
+  /**
+   * Returns a new object of class '<em>Emit Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Emit Statement</em>'.
+   * @generated
+   */
+  EmitStatement createEmitStatement();
 
   /**
    * Returns a new object of class '<em>Delete Statement</em>'.
@@ -841,6 +868,15 @@ public interface OptGrammarFactory extends EFactory
    * @generated
    */
   SizedDeclaration createSizedDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Simple Type Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Type Declaration</em>'.
+   * @generated
+   */
+  SimpleTypeDeclaration createSimpleTypeDeclaration();
 
   /**
    * Returns a new object of class '<em>Location Literal</em>'.

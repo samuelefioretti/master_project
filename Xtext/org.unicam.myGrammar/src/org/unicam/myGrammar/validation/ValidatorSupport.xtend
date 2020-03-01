@@ -6,6 +6,8 @@ import org.unicam.myGrammar.optGrammar.StructDefinition
 import org.unicam.myGrammar.optGrammar.Mapping
 import java.util.function.Predicate
 import org.unicam.myGrammar.optGrammar.Contract
+import org.unicam.myGrammar.optGrammar.VariableDeclaration
+import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration
 
 class ValidatorSupport {
 	protected static val ISSUE_CODE_PREFIX = "org.unicam.myGrammar.";
@@ -43,12 +45,12 @@ class ValidatorSupport {
 			current = current.eContainer
 		return current
 	}
-/*
- * def static asDeclaration(PrimaryTypeDefinitionDeclaration dec) {
- * 		return dec as PrimaryTypeDeclaration
- * 	}
 
- * 	def static asDeclaration(ArrayDefinitionDeclaration dec) {
+	def static asDeclaration(VariableDeclaration dec) {
+		return dec as StandardVariableDeclaration
+	}
+
+/* 	def static asDeclaration(ArrayDefinitionDeclaration dec) {
  * 		return dec as ArrayDeclaration
  * 	}
 
