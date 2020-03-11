@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
-		<package 
+		<package
 			uri = "http://www.unicam.org/myGrammar/OptGrammar"
 			class = "org.unicam.myGrammar.optGrammar.OptGrammarPackage"
 			genModel = "model/generated/OptGrammar.genmodel" />

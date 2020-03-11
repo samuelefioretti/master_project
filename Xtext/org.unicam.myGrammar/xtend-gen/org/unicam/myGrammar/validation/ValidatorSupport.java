@@ -5,15 +5,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.unicam.myGrammar.optGrammar.Contract;
 import org.unicam.myGrammar.optGrammar.EnumDefinition;
 import org.unicam.myGrammar.optGrammar.Mapping;
-import org.unicam.myGrammar.optGrammar.StandardVariableDeclaration;
+import org.unicam.myGrammar.optGrammar.PrimaryTypeDeclaration;
+import org.unicam.myGrammar.optGrammar.PrimaryTypeDefinitionDeclaration;
 import org.unicam.myGrammar.optGrammar.StructDefinition;
-import org.unicam.myGrammar.optGrammar.VariableDeclaration;
 
 @SuppressWarnings("all")
 public class ValidatorSupport {
   protected static final String ISSUE_CODE_PREFIX = "org.unicam.myGrammar.";
   
-  public static final String OPTIMIZED_STRUCT_FIELDS = (ValidatorSupport.ISSUE_CODE_PREFIX + "optimizeStructFields");
+  public static final String OPTIMIZED_STRUCT_MEMBERS = (ValidatorSupport.ISSUE_CODE_PREFIX + "optimizeStructFields");
   
   public static final String OPTIMIZE_INTERNAL_FOR = (ValidatorSupport.ISSUE_CODE_PREFIX + "optimizeInternalFor");
   
@@ -38,6 +38,20 @@ public class ValidatorSupport {
         _switchResult = ValidatorSupport.getName(dec);
       }
     }
+    if (!_matched) {
+      if (dec instanceof PrimaryTypeDefinitionDeclaration) {
+        _matched=true;
+        String _xifexpression = null;
+        PrimaryTypeDeclaration _ref = ((PrimaryTypeDefinitionDeclaration)dec).getRef();
+        boolean _tripleNotEquals = (_ref != null);
+        if (_tripleNotEquals) {
+          _xifexpression = ((PrimaryTypeDefinitionDeclaration)dec).getRef().getName();
+        } else {
+          _xifexpression = ((PrimaryTypeDeclaration) dec).getName();
+        }
+        _switchResult = _xifexpression;
+      }
+    }
     return _switchResult;
   }
   
@@ -59,7 +73,7 @@ public class ValidatorSupport {
     return current;
   }
   
-  public static StandardVariableDeclaration asDeclaration(final VariableDeclaration dec) {
-    return ((StandardVariableDeclaration) dec);
+  public static PrimaryTypeDeclaration asDeclaration(final PrimaryTypeDefinitionDeclaration dec) {
+    return ((PrimaryTypeDeclaration) dec);
   }
 }

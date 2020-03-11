@@ -18,9 +18,6 @@ PragmaDirective:
 versionOperator:
 	value=("^" | "~" | ">=" | ">" | "<" | "<=" | "=");
 
-terminal VERSION_LITERAL:
-	("0".."9" "." "0".."9" "." "0".."9" "0".."9");
-
 ImportDirective:
 	"import" importURI=STRING ";" | "import" "*" "as" unitAlias=ID "from" importURI=STRING ";" | "import" "{"
 	symbolAliases+=SymbolAlias ("," symbolAliases+=SymbolAlias)? "}" "from" importURI=STRING ";";
@@ -33,8 +30,8 @@ Contract:
 	inheritanceSpecifiers+=InheritanceSpecifier)*)? "{" (body+=DefinitionBody)* "}";
 
 DefinitionBody:
-	ConstructorDefinition | FunctionDefinition | StructDefinition | EnumDefinition | VariableDeclaration ";" | Modifier |
-	Event;
+	ConstructorDefinition | FunctionDefinition | StructDefinition | EnumDefinition | PrimaryTypeDefinitionDeclaration ";"
+	| Modifier | Event;
 
 ConstructorDefinition:
 	"constructor" parameters=ParameterList (state+=StateMutability | const+=Const | modifier+=ModifierInvocation |
@@ -64,7 +61,7 @@ Const:
 	"constant" {Const};
 
 StructDefinition:
-	"struct" name=ID "{" (members+=VariableDeclaration ";")* "}";
+	"struct" name=ID "{" (members+=PrimaryTypeDefinitionDeclaration ";")* "}";
 
 EnumDefinition:
 	"enum" name=ID "{" (members+=EnumValue ("," members+=EnumValue)*)? "}";
@@ -76,18 +73,17 @@ Variable:
 	name=ID;
 
 	// Variable Declarations
-VariableDeclaration:
-	StandardVariableDeclaration | VarVariableDeclaration | VarVariableTupleVariableDeclaration;
+PrimaryTypeDefinitionDeclaration:
+	(PrimaryTypeDeclaration | ref=[PrimaryTypeDeclaration]) (value=Expression)?;
 
-StandardVariableDeclaration:
-	type=StandardType optionalElements+=VariableDeclarationOptionalElement* variable=Variable ("="
-	expression=Expression)?;
+PrimaryTypeDeclaration:
+	ArrayableDeclaration | NonArrayableDeclaration;
 
-VarVariableDeclaration:
-	varType=VarType variable=Variable ("=" expression=Expression)?;
+NonArrayableDeclaration:
+	location=LocationLiteral? constant?='constant'? visibility=VisibilityLiteral? type=SimpleTypeDeclaration name=ID;
 
-VarVariableTupleVariableDeclaration:
-	varType=VarType tuple=Tuple ("=" expression=Expression)?;
+ArrayableDeclaration:
+	constant?='constant'? visibility=VisibilityLiteral? type=SizedDeclaration name=ID;
 
 VariableDeclarationOptionalElement:
 	VisibilitySpecifier | IndexedSpecifer | ConstantSpecifier | LocationSpecifier;
@@ -182,7 +178,8 @@ ModifierInvocation:
 	name=[Modifier] args=FunctionCallListArguments?;
 
 ParameterList:
-	"(" {ParameterList} (parameters+=VariableDeclaration ("," parameters+=VariableDeclaration)*)? ")";
+	"(" {ParameterList} (parameters+=PrimaryTypeDefinitionDeclaration (","
+	parameters+=PrimaryTypeDefinitionDeclaration)*)? ")";
 
 ReturnsParameterList:
 	"(" {ReturnsParameterList} (parameters+=ReturnParameterDeclaration ("," parameters+=ReturnParameterDeclaration)*)?
